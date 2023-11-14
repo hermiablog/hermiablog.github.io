@@ -6,7 +6,7 @@
   <link href="https://hermiablog.github.io/atom.xml" rel="self"/>
   
   <link href="https://hermiablog.github.io/"/>
-  <updated>2023-11-14T08:15:18.425Z</updated>
+  <updated>2023-11-14T11:01:20.860Z</updated>
   <id>https://hermiablog.github.io/</id>
   
   <author>
@@ -21,20 +21,23 @@
     <link href="https://hermiablog.github.io/2023/11/14/my-first-blog/"/>
     <id>https://hermiablog.github.io/2023/11/14/my-first-blog/</id>
     <published>2023-11-14T08:14:34.000Z</published>
-    <updated>2023-11-14T08:15:18.425Z</updated>
+    <updated>2023-11-14T11:01:20.860Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;这是我的第一篇博客&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;h2 id=&quot;HTML-面试题&quot;&gt;&lt;a href=&quot;#HTML-面试题&quot; class=&quot;headerlink&quot; title=&quot;HTML 面试题&quot;&gt;&lt;/a&gt;HTML 面试题&lt;/h2&gt;&lt;h3 id=&quot;一、语义化&quot;&gt;&lt;a href=&quot;#一、语义化&quot;</summary>
         
       
     
     
     
+    <category term="面试题" scheme="https://hermiablog.github.io/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="html" scheme="https://hermiablog.github.io/tags/html/"/>
     
   </entry>
   
