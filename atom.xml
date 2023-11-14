@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hermia&#39;s blog</title>
+  
+  
+  <link href="http://hermiablog.com/atom.xml" rel="self"/>
+  
+  <link href="http://hermiablog.com/"/>
+  <updated>2023-11-14T08:15:18.425Z</updated>
+  <id>http://hermiablog.com/</id>
+  
+  <author>
+    <name>hermia</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>my first blog</title>
+    <link href="http://hermiablog.com/2023/11/14/my-first-blog/"/>
+    <id>http://hermiablog.com/2023/11/14/my-first-blog/</id>
+    <published>2023-11-14T08:14:34.000Z</published>
+    <updated>2023-11-14T08:15:18.425Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是我的第一篇博客&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
