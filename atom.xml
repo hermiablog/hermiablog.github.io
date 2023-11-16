@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>hermia&#39;s blog</title>
   
-  
+  <subtitle>福往者福来，爱出者爱返</subtitle>
   <link href="https://hermiablog.github.io/atom.xml" rel="self"/>
   
   <link href="https://hermiablog.github.io/"/>
