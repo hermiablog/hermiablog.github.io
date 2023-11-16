@@ -102,10 +102,10 @@ hr {
   border-top: 1px solid #ccc;
 }
 blockquote {
-  border-left: 5px solid #0a2a88;
+  border-left: 5px solid #59cde9;
   padding: 1rem 0.8rem 0.2rem 0.8rem;
   color: #666;
-  background-color: #59cde9;
+  background-color: rgba(163, 221, 240, 0.4);
 }
 
 pre {
