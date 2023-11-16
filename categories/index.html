@@ -288,7 +288,7 @@
   // 每天切换 banner 图.  Switch banner image every day.
   var bannerUrl =
     "/medias/banner/" +
-    new Date().getHours() +
+    new Date().getDay() +
     ".jpg";
   $(".bg-cover").css("background-image", "url(" + bannerUrl + ")");
 </script>
@@ -394,16 +394,12 @@
 <style>
     .aplayer .aplayer-lrc p {
         
-        display: none;
-        
         font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
     }
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
         
         font-size: 15px;
         color: #42b983;
