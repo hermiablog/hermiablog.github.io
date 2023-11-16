@@ -327,28 +327,35 @@ header .button-collapse i {
 }
 
 header .side-nav .mobile-head {
+  width: 100%;
   padding: 0 15px;
 }
 
 header .side-nav .mobile-head img {
-  margin-top: 30px;
+  display: block;
+  /* margin-top: 30px; */
+  margin: 0 auto;
+  padding: 20px 0;
   width: 75px;
-  height: 75px;
+  /* height: 75px; */
 }
 
 header .side-nav .mobile-head .logo-name {
-  margin-top: -30px;
-  padding-left: 10px;
+  /* margin-top: -30px; */
+  width: 100%;
+  /* padding-left: 10px; */
+  text-align: center;
   font-size: 1.5rem;
 }
 
 header .side-nav .mobile-head .logo-desc {
   margin-top: -10px;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   padding-bottom: 10px;
   font-size: 0.8rem;
   line-height: 1.3rem;
   color: #e3e3e3;
+  text-align: center;
 }
 
 header .side-nav .menu-list li {
