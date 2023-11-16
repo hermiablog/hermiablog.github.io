@@ -113,6 +113,7 @@ pre {
   border-radius: 0.35rem;
   tab-size: 4;
   background-color: #272822;
+  overflow: scroll;
 }
 
 .code-area::after {
