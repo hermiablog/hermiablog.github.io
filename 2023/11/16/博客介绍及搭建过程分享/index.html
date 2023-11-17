@@ -400,14 +400,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-16
+                    2023-11-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    2.7k
                 </div>
                 
 
@@ -679,18 +679,6 @@ git config --global --list
 git config --global --unset user.name
 git config --global --unset user.email
 </code></pre>
-<ul>
-<li>gitwork文件夹——gitee仓库：<ul>
-<li>用户名：houqinqin</li>
-<li>邮箱：<a href="mailto:&#x31;&#53;&#x38;&#x37;&#56;&#51;&#55;&#50;&#51;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#x31;&#53;&#x38;&#x37;&#56;&#51;&#55;&#50;&#51;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></li>
-</ul>
-</li>
-<li>myblog文件夹——github仓库<ul>
-<li>用户名：hermia20zz0  </li>
-<li>邮箱：<a href="mailto:&#72;&#81;&#81;&#x68;&#x6f;&#x75;&#x71;&#x69;&#x6e;&#113;&#105;&#x6e;&#x30;&#54;&#49;&#50;&#x40;&#111;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;">&#72;&#81;&#81;&#x68;&#x6f;&#x75;&#x71;&#x69;&#x6e;&#113;&#105;&#x6e;&#x30;&#54;&#49;&#50;&#x40;&#111;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;</a></li>
-</ul>
-</li>
-</ul>
 <blockquote>
 <p>添加SSH公钥</p>
 </blockquote>
@@ -708,8 +696,9 @@ id_rsa.pub
 </code></pre>
 <ul>
 <li>其中id_rsa为私钥，id_rsa.pub为公钥</li>
-<li>因为有两个仓库，所有有两份，因此需要在<code>.ssh</code>文件夹中分开存放<ul>
-<li>新建gitee-ssh文件夹，把刚刚生成的密钥放进去</li>
+<li>因为有两个仓库，所有有两份，因此需要在<code>.ssh</code>文件夹中分开命名<ul>
+<li>gitee仓库的密钥：id_rsa_gitee和id._rsa_gitee.pub</li>
+<li>github仓库的密钥：id_rsa_github和id._rsa_github.pub</li>
 </ul>
 </li>
 <li>将自定义路径的私钥添加到ssh秘钥搜索列表中</li>
@@ -717,7 +706,7 @@ id_rsa.pub
 <pre><code>//连接认证agent（身份验证代理）
 ssh-agent bash
 //修改私钥路径
-ssh-add ~/.ssh/gitee-ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_github
 </code></pre>
 <ul>
 <li>将公钥内容粘贴到自己github&#x2F;Gitee的设置中<ul>
