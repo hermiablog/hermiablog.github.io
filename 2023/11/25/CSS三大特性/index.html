@@ -1,0 +1,1527 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS三大特性, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CSS三大特性 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSS三大特性</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-25
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="CSS-三大特性：继承、层叠性、优先级"><a href="#CSS-三大特性：继承、层叠性、优先级" class="headerlink" title="CSS 三大特性：继承、层叠性、优先级"></a>CSS 三大特性：继承、层叠性、优先级</h2><blockquote>
+<p>在实际的开发中，经常会遇到CSS应用时的冲突问题。比如本来应该产生效果的样式没有生效，或有时候不想要的效果硬实现了。<br>CSS三大特性：继承性、层叠性、优先级就是为解决这些问题而来的。</p>
+</blockquote>
+<h3 id="一、CSS继承性"><a href="#一、CSS继承性" class="headerlink" title="一、CSS继承性"></a>一、CSS继承性</h3><blockquote>
+<ul>
+<li>CSS的继承性是指特定的CSS属性会向下传递到子孙元素。即祖先元素设置，后代元素即生效</li>
+</ul>
+</blockquote>
+<h4 id="1-CSS继承性遵循”就近原则”"><a href="#1-CSS继承性遵循”就近原则”" class="headerlink" title="1.CSS继承性遵循”就近原则”"></a>1.CSS继承性遵循”就近原则”</h4><blockquote>
+<ul>
+<li>如果元素自身没有设置某个具有可继承的属性，则会向他的父元素继承</li>
+<li>如果父元素没有，则再往上继承父元素的父元素的这个属性，一层一层向上找，如果找不到，就以默认的样式显示<blockquote>
+<p>如何查看元素的默认值?</p>
+</blockquote>
+</li>
+<li>要了解一个属性的默认值，可以把这个属性值设置为initial，然后审查元素，在computed&#x2F;styles面板中可以看到其默认值，如<code>color:initial</code></li>
+</ul>
+</blockquote>
+<h4 id="2-可继承和不可继承属性有哪些"><a href="#2-可继承和不可继承属性有哪些" class="headerlink" title="2.可继承和不可继承属性有哪些"></a>2.可继承和不可继承属性有哪些</h4><blockquote>
+<blockquote>
+<p>可继承属性:<strong>文本相关的属性</strong>普遍具有继承性，只需要给祖先标签设置，即可在后代所有标签中生效</p>
+</blockquote>
+<ul>
+<li>字体系列：font-size、font-family、font-style、font、font-weight</li>
+<li>文本系列：color、text-align、text-indent、line-height、word-spacing、letter-spacing、text-transform</li>
+<li>列表布局属性：list-style、list-style-type、list-style-image、list-style-image</li>
+<li>光标属性：cursor光标显示为何种形态</li>
+<li>元素可见性：visibility控制元素显示和隐藏</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>不可继承属性</p>
+</blockquote>
+<ul>
+<li>盒子模型：display、margin、border、padding、height、min-height、max-height、width、min-width、max-width</li>
+<li>定位相关：position、left、right、top、bottom、z-index</li>
+<li>浮动：float、clear</li>
+<li>其他：background、overflow、table-layout、vertical-align、page-break-after、page-bread-before、unicode-bidi</li>
+</ul>
+</blockquote>
+<h4 id="3-特殊情况："><a href="#3-特殊情况：" class="headerlink" title="3.特殊情况："></a>3.特殊情况：</h4><blockquote>
+<ul>
+<li>a标签的color值默认不继承，它自带默认效果</li>
+</ul>
+</blockquote>
+<h4 id="4-line-height的继承性"><a href="#4-line-height的继承性" class="headerlink" title="4.line-height的继承性"></a>4.line-height的继承性</h4><blockquote>
+<p>line-height的值有三种单位，在继承时是有差异的</p>
+<table>
+<thead>
+<tr>
+<th>父元素line-height值</th>
+<th>继承规则</th>
+<th>子元素line-height值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>50px</td>
+<td>直接继承该值</td>
+<td>50px</td>
+</tr>
+<tr>
+<td>2</td>
+<td>直接继承该比例</td>
+<td>2</td>
+</tr>
+<tr>
+<td>200%</td>
+<td>继承百分比<strong>计算后</strong>的值</td>
+<td>40px</td>
+</tr>
+</tbody></table>
+<ul>
+<li>数值表示法和百分比表示法是以<code>font-size</code>为依据的<img src="line-height.png"></li>
+</ul>
+</blockquote>
+<h4 id="4-应用：body标签样式初始化"><a href="#4-应用：body标签样式初始化" class="headerlink" title="4.应用：body标签样式初始化"></a>4.应用：body标签样式初始化</h4><blockquote>
+<p>因为文字相关属性具有继承性，所以通常会设置<code>&lt;body&gt;</code>标签的字号、颜色、行高等，这样就能当做整个网页的默认样式了</p>
+</blockquote>
+<h4 id="5-设置继承性"><a href="#5-设置继承性" class="headerlink" title="5.设置继承性"></a>5.设置继承性</h4><blockquote>
+<p>默认不继承的属性想要继承，可以把属性值设置为<code>inherit</code>，表示这个属性的值继承父元素的</p>
+<blockquote>
+<p>扩展补充知识</p>
+</blockquote>
+<ul>
+<li><code>initial</code>：设置属性值和浏览器默认样式相同</li>
+<li><code>inherit</code>：设置属性值默认继承父元素</li>
+<li><code>unset</code>：为以上两个值的组合；如果属性有继承性，则继承父元素，没有则为默认值(不设置也是这个效果)</li>
+</ul>
+</blockquote>
+<h3 id="二、CSS层叠性"><a href="#二、CSS层叠性" class="headerlink" title="二、CSS层叠性"></a>二、CSS层叠性</h3><blockquote>
+<ul>
+<li>层叠性是CSS的一个基本特征，它是一个定义了如何合并来自多个源(css规则)的属性值的算法</li>
+<li>它在CSS中处于核心地位，CSS的全称：层叠样式表正式强调了这一点</li>
+</ul>
+</blockquote>
+<h4 id="1-CSS层叠性解读"><a href="#1-CSS层叠性解读" class="headerlink" title="1.CSS层叠性解读"></a>1.CSS层叠性解读</h4><blockquote>
+<ul>
+<li>层叠性是指多个CSS规则可以作用于同一个标签，效果叠加，并不完全覆盖</li>
+<li>CSS的层叠性有两层含义：<strong>叠加</strong>和<strong>覆盖</strong></li>
+<li>不同选择器作用于同一元素，不同属性会<strong>叠加</strong>，相同属性会<strong>覆盖</strong></li>
+<li>在覆盖时需要遵循两大原则：”就近原则”和”优先级”</li>
+</ul>
+</blockquote>
+<h4 id="2-CSS的叠加原理"><a href="#2-CSS的叠加原理" class="headerlink" title="2.CSS的叠加原理"></a>2.CSS的叠加原理</h4><blockquote>
+<ul>
+<li>不同选择器作用于同一元素，不同属性会叠加作用于元素</li>
+</ul>
+</blockquote>
+<h4 id="3-CSS的覆盖原则"><a href="#3-CSS的覆盖原则" class="headerlink" title="3.CSS的覆盖原则"></a>3.CSS的覆盖原则</h4><blockquote>
+<blockquote>
+<p>就近原则</p>
+</blockquote>
+<ul>
+<li>当两个或多个<strong>优先级相同</strong>的选择器作用到同一个元素时。如果出现相同的属性，则以写在后面的选择器中的属性为主<blockquote>
+<p>优先级</p>
+</blockquote>
+</li>
+<li>当两条或多条规则(选择器)作用到同一个元素，如果出现相同的属性，则以优先级高的为主</li>
+</ul>
+</blockquote>
+<h4 id="4-层叠性的冲突处理"><a href="#4-层叠性的冲突处理" class="headerlink" title="4.层叠性的冲突处理"></a>4.层叠性的冲突处理</h4><blockquote>
+<ul>
+<li>不同CSS规则集同时作用于同一个标签，不同属性相互叠加，相同属性会覆盖</li>
+<li>相同属性覆盖，首先需要计算选择器的权重，最后以选择器权重高的为主</li>
+<li>如果选择器权重相同，则写在后面的会覆盖写在前面的</li>
+<li>如果想要实现的效果，因为选择器权重低而不生效，则通过提高选择器权重来达到效果</li>
+</ul>
+</blockquote>
+<h3 id="三、CSS选择器优先级"><a href="#三、CSS选择器优先级" class="headerlink" title="三、CSS选择器优先级"></a>三、CSS选择器优先级</h3><blockquote>
+<ul>
+<li>当多个CSS规则集同时作用于同一个HTML标签时，不同属性会叠加，但相同属性会发生覆盖</li>
+<li>在发生覆盖时，浏览器通过选择器的优先级来判断以哪个选择器中的属性值为主，从而在该元素上应用这些属性值</li>
+</ul>
+</blockquote>
+<h4 id="1-单个选择器类型的权重"><a href="#1-单个选择器类型的权重" class="headerlink" title="1.单个选择器类型的权重"></a>1.单个选择器类型的权重</h4><blockquote>
+<ul>
+<li>基础选择器：id选择器&gt;class选择器&gt;标签选择器&gt;通配符选择器</li>
+<li>本质上不同类型的选择器有不同的分数值，分数值越高，选择器的权重越高<table>
+<thead>
+<tr>
+<th>选择器的类型</th>
+<th>实例</th>
+<th>选择器权重</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!important</td>
+<td><code>div&#123;color:red!important;&#125;</code></td>
+<td>无穷大</td>
+<td>特级</td>
+</tr>
+<tr>
+<td>行内样式(style属性中样式)</td>
+<td><code>style=&#39;color:red&#39;;</code></td>
+<td>1000</td>
+<td>第一等级</td>
+</tr>
+<tr>
+<td>id选择器</td>
+<td>#id</td>
+<td>0100</td>
+<td>第二等级</td>
+</tr>
+<tr>
+<td>class、伪类、属性选择器</td>
+<td><code>.box</code>、<code>:hover</code>、<code>type=text</code></td>
+<td>0010</td>
+<td>第三等级</td>
+</tr>
+<tr>
+<td>标签选择器、伪元素选择器</td>
+<td><code>div1、</code>::after&#96;</td>
+<td>0001</td>
+<td>第四等级</td>
+</tr>
+<tr>
+<td>通配符、子选择器、相邻选择器等</td>
+<td><code>*</code>、<code>&gt;</code>、<code>+</code>、<code>~</code></td>
+<td>0000</td>
+<td></td>
+</tr>
+<tr>
+<td>继承的样式</td>
+<td></td>
+<td>0000</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>通配符<code>*</code>权重实际是要大于继承的样式的；因为只有在没有设置样式是才会继承或者使用默认样式</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-复杂选择器优先级计算"><a href="#2-复杂选择器优先级计算" class="headerlink" title="2.复杂选择器优先级计算"></a>2.复杂选择器优先级计算</h4><blockquote>
+<ul>
+<li>优先级就是分配给指定的CSS声明的一个权重</li>
+<li>选择器的优先级是由选择器中的每一种**选择器类型的数值(权值)**相加的最终结果来决定</li>
+<li>一个选择器的优先级是有四个部分相加计算得来的(数值越大，代表选择器的优先级越高)<br><strong>以下是复杂选择器的权重计算规则</strong></li>
+<li>这里的行内样式<code>&lt;p style=&quot;color:red&quot;&gt;&lt;/p&gt;</code>并不是选择器，但我们把它放在一起，是因为它会影响我们最终的结果<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>千位</th>
+<th>百位</th>
+<th>十位</th>
+<th>个位</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>行内样式</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><code>div p</code></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0002</td>
+</tr>
+<tr>
+<td><code>#box div p</code></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>0102</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>|<code>.box .item h3</code>|0|0|2|1|0021|<br>|<code>.box:hover p</code>|0|0|2|1|0021|</p>
+<blockquote>
+<p>注意事项：</p>
+</blockquote>
+<ul>
+<li>在进行选择器权重计算时不允许进行<strong>进位</strong></li>
+<li>例如，20个类选择器仅仅意味着20个十位，而不能视为两个百位；也就是说，无论多少个类选择器的权重叠加，都不会超过一个ID选择器</li>
+<li>在比较选择器优先级时，从左往右比较，一位一位比较</li>
+</ul>
+</blockquote>
+<h4 id="3-important提升权重"><a href="#3-important提升权重" class="headerlink" title="3.!important提升权重"></a>3.<code>!important</code>提升权重</h4><blockquote>
+<ul>
+<li>当在一个样式声明中使用一个<code>!important</code>规则时，此声明将覆盖任何其他声明，只要CSS声明属性值后面带<code>!important</code>，就一定以它为主</li>
+<li>从技术上讲，<code>!important</code>与优先级无关，但它与最终结果直接相关<blockquote>
+<p>注意：慎用<code>!important</code></p>
+</blockquote>
+</li>
+<li>因为这会带来样式的冲突，后面某个地方，需要重写这个样式时，会发现根本无效。一般你在利用第三方组件或css框架时，如果不能充下央视，那将会失去很多色彩</li>
+<li>在某些情况下是一定要用的，比如在之前学的自定义字体时，<code>font-family</code>属性后面加了<code>!important</code>关键字</li>
+</ul>
+</blockquote>
+<h4 id="4-总结：CSS选择器优先级"><a href="#4-总结：CSS选择器优先级" class="headerlink" title="4.总结：CSS选择器优先级"></a>4.总结：CSS选择器优先级</h4><blockquote>
+<p>首先要找到，有<strong>哪些选择器</strong>在控制标签元素的样式，然后按以下五步来分析</p>
+<ul>
+<li>第一步：找有没有带<code>important</code>关键词的CSS声明，有就一定以他为主，没有看第二步</li>
+<li>第二步：找有没有行内样式，有则以行内样式为主，没有看第三步</li>
+<li>第三步：看选择器的优先级，优先级高的为主，如果优先级相同，则看第四步</li>
+<li>第四步：优先级相同，以写在后面的为主。如果没有选择器作用于当前标签，则看第五步</li>
+<li>看此CSS属性是否具有继承性，如果有，则继承父元素的样式，如果没有，则以默认样式显示</li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/25/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">https://hermiablog.github.io/2023/11/25/CSS%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/25/%E6%B5%AE%E5%8A%A8%E3%80%81BFC%E8%A7%84%E8%8C%83/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="浮动、BFC规范">
+                        
+                        <span class="card-title">浮动、BFC规范</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            hermia
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/25/CSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="CSS盒子模型">
+                        
+                        <span class="card-title">CSS盒子模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
