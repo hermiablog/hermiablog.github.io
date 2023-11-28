@@ -1,0 +1,2645 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="CSS核心知识点（三）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>CSS核心知识点（三） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">CSS核心知识点（三）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-29
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-29
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+
+<h2 id="margin负值的最佳实践"><a href="#margin负值的最佳实践" class="headerlink" title="margin负值的最佳实践"></a>margin负值的最佳实践</h2><h3 id="一、margin负值特性"><a href="#一、margin负值特性" class="headerlink" title="一、margin负值特性"></a>一、margin负值特性</h3><ul>
+<li>margin-left设置负值时，元素自身向左移动，后面的元素也向左移动</li>
+<li>margin-right设置负值时，自身不受影响，右边元素向左移动</li>
+<li>margin-top设置负值时，元素自身向上移动，下面的元素也向上移</li>
+<li>margin-bottom设置负值时，自身不受影响，下方元素向上移动<blockquote>
+<p>right和bottom设置负值时，就像是在页面上减小了占位，后面的元素随之补上，但实际上占位并没有变</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、margin塌陷时合并规则"><a href="#二、margin塌陷时合并规则" class="headerlink" title="二、margin塌陷时合并规则"></a>二、margin塌陷时合并规则</h3><ul>
+<li>&#x3D;&#x3D;口诀&#x3D;&#x3D;：符号相同时，看绝对值，听老大的；符号不同时，相加减</li>
+</ul>
+<blockquote>
+<p>介绍</p>
+</blockquote>
+<ul>
+<li>margin重叠也叫塌陷、合并、床头</li>
+<li>只针对垂直方向，不针对水平方向<br><strong>分两种情况</strong><ul>
+<li>兄弟元素之间：上下外边距重叠</li>
+<li>父子元素之间：上下外边距合并(父元未设置内边距和边框时)</li>
+</ul>
+</li>
+<li>应用场景和最佳实践</li>
+</ul>
+<ol>
+<li>等高布局-左右布局：不管做左边盒子中内容多少，其高度都会随右边的粉色盒子变高</li>
+</ol>
+<ul>
+<li>给左边盒子，用&#x3D;&#x3D;正值&#x3D;&#x3D;pdding-bottom增加盒子高度，并且加相同值的&#x3D;&#x3D;负值&#x3D;&#x3D;的margin-bottom抵消内边距的占位</li>
+<li>给父盒子加overflow-hidden</li>
+</ul>
+<ol start="2">
+<li>一行多列网格布局</li>
+</ol>
+<ul>
+<li>margin-left:-1px;使边框重叠在一起</li>
+</ul>
+<ol start="3">
+<li>头像叠加效果</li>
+</ol>
+<ul>
+<li>先让每个子盒向左移动负外边距</li>
+<li>然后单独修改第一个盒子的左外边距</li>
+</ul>
+<ol start="4">
+<li>元素水平垂直居中</li>
+</ol>
+<ul>
+<li>先利用绝对定位使子盒子移动父盒子宽高的一半</li>
+<li>top:50%、left:50%</li>
+<li>再利用负外边距使子盒反向移动自身宽高的一半</li>
+<li>一定给父盒子加相对定位</li>
+</ul>
+<ol start="5">
+<li>圣杯布局</li>
+</ol>
+<h2 id="圆角、阴影、文本图像处理、CSS函数"><a href="#圆角、阴影、文本图像处理、CSS函数" class="headerlink" title="圆角、阴影、文本图像处理、CSS函数"></a>圆角、阴影、文本图像处理、CSS函数</h2><h3 id="一、圆角"><a href="#一、圆角" class="headerlink" title="一、圆角"></a>一、圆角</h3><ol>
+<li>简介</li>
+</ol>
+<ul>
+<li><p>border-radius用来设置元素的(4个方向)外边框1&#x2F;4圆角效果 </p>
+<table>
+<thead>
+<tr>
+<th>圆角类型</th>
+<th>描述</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>圆角边框</td>
+<td>当使用一个半径时，确定一个圆，表示四个不同方向上边框圆角的半径大小</td>
+<td>border-radius:50px;</td>
+</tr>
+<tr>
+<td>椭圆边框</td>
+<td>当使用两个半径时，确定一个椭圆；两个半径之间用&#x3D;&#x3D;反斜杠&#x3D;&#x3D;&#x2F;分隔，第一个值是水平半径，第二个值是垂直半径</td>
+<td>border-radius:50px&#x2F;30px;</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>圆角效果：是从边框四个角出发，根据半径得到圆心，与四条边相交，得到的1&#x2F;4圆角</p>
+</li>
+</ul>
+<ol>
+<li><p>圆的4种不同值写法：顺时针方向</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>举例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单值写法</td>
+<td>border-radius:50px;</td>
+<td>上右下左四个方向的圆角半径</td>
+</tr>
+<tr>
+<td>双值写法</td>
+<td>border-radius:30px 40px;</td>
+<td>斜对角；第一个值：左上角和右下角；第二个值：右上角和左下角</td>
+</tr>
+<tr>
+<td>三值写法</td>
+<td>border-radius:30px 50px 80px;</td>
+<td>分别表示：左上角，右上角和左下角，右下角；</td>
+</tr>
+<tr>
+<td>四值写法</td>
+<td>border:10px 20px 30px 40px;</td>
+<td>分别表示：左上角，右上角，右下角，左下角</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>椭圆的4种不同值的写法</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>举例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单值写法</td>
+<td>border-radius:50px&#x2F;30px;</td>
+<td>50px表示四个不同方向椭圆的水平半径，30px表示四个不同方向椭圆垂直半径</td>
+</tr>
+<tr>
+<td>双值写法</td>
+<td>border-radius:10px 20px&#x2F;30px 50px;</td>
+<td>斜对角；左上角和右下角：水平半径10px，垂直半径30px；右上角和左下角：水平半径30px，垂直半径50px</td>
+</tr>
+<tr>
+<td>三值写法</td>
+<td>border-radius:30px 50px 60px&#x2F;20px 30px 50px;</td>
+<td>分别表示：左上角30px&#x2F;20px，右上角和左下角50px&#x2F;30px，右下角60px&#x2F;50px；</td>
+</tr>
+<tr>
+<td>四值写法</td>
+<td>border:10px 20px 30px 40px&#x2F;40px 30px 20px 10px;</td>
+<td>分别表示：左上角10px&#x2F;40px，右上角20px&#x2F;30px，右下角30px&#x2F;20px，左下角40px&#x2F;10px</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>百分比表示法</p>
+</li>
+</ol>
+<ul>
+<li>百分比是相对于当前元素的&#x3D;&#x3D;可视宽高&#x3D;&#x3D;而言的</li>
+<li>水平半径相当于元素的可视宽而言，水平半径&#x3D;(width+padding+border)*百分比</li>
+<li>垂直半径相当于元素的可视高而言，垂直半径&#x3D;(height+padding+border)*百分比</li>
+</ul>
+<ol start="4">
+<li>单独设置四个方向圆角-小属性</li>
+</ol>
+<ul>
+<li>此时，写一个值表示圆，写两个值表示椭圆，&#x3D;&#x3D;并且椭圆&#x3D;&#x3D;的两个值不需要用反斜杠分隔</li>
+<li>先上下后左右</li>
+<li>主要是用来层叠大属性的 <table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>border-top-left-radius</td>
+<td>左上角</td>
+</tr>
+<tr>
+<td>border-top-right-radius</td>
+<td>右上角</td>
+</tr>
+<tr>
+<td>border-bottom-left-radius</td>
+<td>左下角</td>
+</tr>
+<tr>
+<td>border-bottom-right-radius</td>
+<td>右下角</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code>左上角椭圆：
+border-top-left-radius:30px 40px;
+右下角圆：
+border-bottom-right-radius:30px;
+</code></pre>
+<h3 id="二、盒子阴影"><a href="#二、盒子阴影" class="headerlink" title="二、盒子阴影"></a>二、盒子阴影</h3><blockquote>
+<p>box-shadow给盒子添加阴影效果，阴影是<strong>不占空间</strong>的</p>
+</blockquote>
+<ul>
+<li>写法：<code>box-shadow:[inset] X偏移 Y偏移 模糊半径 [扩散半径] 颜色;</code>(右和上为正值方向)</li>
+<li><code>[]</code>：表示这个值可以省略不写</li>
+<li>inset:表示内阴影，当需要设置内阴影时，才添加</li>
+<li>X偏移:阴影在x轴(水平)方向偏移量；正值表向右偏移，负值表向左偏移</li>
+<li>Y偏移:阴影在Y轴(垂直)方向偏移量；正值表向上偏移，负值表向下偏移</li>
+<li>模糊半径：值只能大于等于0，表示阴影的模糊半径</li>
+<li>扩散半径：取正值表示阴影扩大，取负值表示阴影收缩。默认为0，此时阴影与元素同样大</li>
+<li>颜色表示阴影的颜色</li>
+</ul>
+<ol>
+<li>简单阴影</li>
+</ol>
+<ul>
+<li><code>box-shadow:x偏移 y偏移 模糊量 颜色；</code></li>
+</ul>
+<ol start="2">
+<li>阴影扩展</li>
+</ol>
+<ul>
+<li><code>box-shadow:x偏移 y偏移 模糊量 扩散半径 颜色；</code></li>
+</ul>
+<ol start="3">
+<li>内阴影</li>
+</ol>
+<ul>
+<li><code>box-shadow:inset X偏移 Y偏移 模糊半径 扩散半径 颜色;</code></li>
+</ul>
+<ol start="4">
+<li>多个阴影</li>
+</ol>
+<ul>
+<li>如果一个盒子有多个阴影，则每个阴影之间用<code>,</code>分隔</li>
+<li>当阴影个数<code>&gt;1</code>时，阴影应用顺序为从前往后(z轴)，第一个指定阴影在最顶部显示</li>
+<li>内阴影不管写在哪个位置，都会在外阴影上面</li>
+</ul>
+<ol start="5">
+<li>去掉阴影</li>
+</ol>
+<ul>
+<li><code>box-shadow:none;</code></li>
+</ul>
+<ol start="6">
+<li>实战案例-纸张效果</li>
+</ol>
+<h3 id="三、文本阴影"><a href="#三、文本阴影" class="headerlink" title="三、文本阴影"></a>三、文本阴影</h3><ul>
+<li><code>text-shadow</code>用来为文字添加阴影</li>
+<li><code>text-shadow:X偏移 Y偏移 模糊半径 颜色;</code></li>
+<li>多个阴影之间用逗号分隔</li>
+<li>当阴影个数<code>&gt;1</code>时，阴影应用顺序从前到后，第一个指定阴影在最顶部显示</li>
+</ul>
+<h3 id="四、文本溢出显示省略号"><a href="#四、文本溢出显示省略号" class="headerlink" title="四、文本溢出显示省略号"></a>四、文本溢出显示省略号</h3><ol>
+<li>单行文本溢出显示省略号</li>
+</ol>
+<ul>
+<li>写法：</li>
+</ul>
+<pre><code>&lt;!-- 文字不换行 --&gt;
+white-space:nowrap;
+&lt;!-- 超出显示省略号 --&gt;
+text-overflow:ellipsis;
+&lt;!-- 超出部分隐藏 --&gt;
+overflow:hidden;
+</code></pre>
+<ol start="2">
+<li>多行文本溢出显示省略号</li>
+</ol>
+<pre><code>&lt;!-- 超出部分隐藏 --&gt;
+overflow:hidden;
+&lt;!-- 超出显示省略号 --&gt;
+text-overflow:ellipsis;
+&lt;!-- 对象作为弹性盒子模型显示 --&gt;
+display:-webkit-box;
+&lt;!-- 快容器中的内容限制为指定行数 --&gt;
+-webkit-line-clamp:2;
+&lt;!-- 弹性盒子对象的子元素排列方式为竖排 --&gt;
+-webkit-box-orient:vertical;
+</code></pre>
+<blockquote>
+<p>注意：只有当元素的高&#x3D;<code>line-height</code>大小*<code>-webkit-line-clamp</code>时，才能显示出正确的效果</p>
+</blockquote>
+<ul>
+<li>所以，一定要写行高，盒子高度根据行高和指定显示行数来设置，例如想让行高为25px的两行文字显示，则盒子高度为50px。</li>
+</ul>
+<h3 id="五、元素不透明度"><a href="#五、元素不透明度" class="headerlink" title="五、元素不透明度"></a>五、元素不透明度</h3><ul>
+<li><p><code>opacity</code>指定了一个元素的不透明度</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>元素完全透明(即元素不可见)</td>
+</tr>
+<tr>
+<td>0.0~1.0之间</td>
+<td>元素半透明(元素背后的背景可见)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>元素完全不透明(元素后面的背景不可见)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>如果超出0.0~1.0的范围，也会有效，但是会被解析为在取值范围内&#x3D;&#x3D;最靠近&#x3D;&#x3D;他的值|</p>
+</li>
+<li><p>可以用<code>opacity:0</code>隐藏一个元素，因为opacity会让这个元素及其子元素一起透明。</p>
+</li>
+<li><p>当<code>opacity</code>的属性值不为1时，元素会创建自己的层叠上下文</p>
+</li>
+</ul>
+<blockquote>
+<p>对比学习</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>visibility:hidden</code></td>
+<td>隐藏元素，但元素还占着原有的空间，在DOM树中</td>
+</tr>
+<tr>
+<td><code>display:none</code></td>
+<td>元素隐藏，不站着原来的空间，不在DOM树中</td>
+</tr>
+<tr>
+<td><code>background-color:rgba(0,0,0,0.1)</code></td>
+<td>仅背景颜色透明，并不影响元素中的内容</td>
+</tr>
+<tr>
+<td><code>opacity:0;</code></td>
+<td>元素透明，连同其内容和子元素一起透明掉</td>
+</tr>
+<tr>
+<td><code>overflow:hidden</code></td>
+<td>内容超出部分隐藏，影响的是子元素</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="六、filter滤镜-图片模糊"><a href="#六、filter滤镜-图片模糊" class="headerlink" title="六、filter滤镜-图片模糊"></a>六、filter滤镜-图片模糊</h3><blockquote>
+<p><code>filter:blur()</code>函数用于将高斯模糊效果应用于元素(图像)</p>
+</blockquote>
+<ul>
+<li>单位是px</li>
+<li>可以利用<code>filter:blur</code>与<code>background-size</code>的结合来实现背景模糊效果<ul>
+<li>将背景放大到150%，然后模糊。参考艾编程官网老师们的简介</li>
+</ul>
+</li>
+</ul>
+<h3 id="七、object-fit-图片裁剪"><a href="#七、object-fit-图片裁剪" class="headerlink" title="七、object-fit 图片裁剪"></a>七、object-fit 图片裁剪</h3><ul>
+<li>指定&#x3D;&#x3D;可替换元素&#x3D;&#x3D;的内容应该如何适应到其使用的高度和宽度确定的框</li>
+<li>典型的可替换元素包括：img、video、iframe、embed</li>
+<li>这个效果类似于<code>background-size</code><ul>
+<li>但<code>object-fit</code> 在对齐时，是从元素框中间向两边的方式来填充</li>
+<li>而<code>background-size</code>默认是是从左上角向右下角来填充，如果想设置以中间向两边，需要设置<code>background-position:center</code></li>
+</ul>
+</li>
+</ul>
+<p>|属性值|描述|<br>|contain|被替换的内容将被缩放，<strong>保持元素的宽高比</strong>，<strong>全部</strong>填充在内容框内|<br>|cover|被替换的内容将被缩放，<strong>保持元素的宽高比****，</strong>填满**整个内容框|<br>|fill|默认效果，被替换的内容正好填充元素的内容框，内容可能会被拉伸或压缩变形|<br>|none|被替换的内容保持其原有的尺寸|<br>|scale-down|内容的尺寸与<code>none</code>或<code>contain</code>中的一个相同，取决于他们两个之间谁得到的对象尺寸会更小一些|</p>
+<ul>
+<li>应用：防止图片拉伸或挤压-用户头像<ul>
+<li>父盒子设置宽高</li>
+<li>图片宽高设置100%全适应</li>
+<li>添加<code>object-fit:cover</code>来等比例裁剪图片尺寸</li>
+</ul>
+</li>
+</ul>
+<h3 id="八、防止拖拽文本域"><a href="#八、防止拖拽文本域" class="headerlink" title="八、防止拖拽文本域"></a>八、防止拖拽文本域</h3><ul>
+<li>resize属性规定是否可让用户调整元素的尺寸</li>
+<li><code>textarea</code>表示多行文本框，拖动它的右下角可调整尺寸</li>
+<li>写法：<code>textarea:none;</code></li>
+</ul>
+<h3 id="九、calc函数"><a href="#九、calc函数" class="headerlink" title="九、calc函数"></a>九、calc函数</h3><ul>
+<li>用于动态计算长度值</li>
+<li>写法：<code>width:calc(100px + 200px);</code></li>
+<li>使用要点：<ul>
+<li>支持<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>运算</li>
+<li>运算符前后都需要保留一个空格，否则不生效，<code>*</code>、<code>/</code>可以没有空格，但建议有</li>
+<li>任何长度值都可以使用calc()函数进行计算</li>
+<li>可以使用百分比、px、em、rem等单位</li>
+<li>使用标准的数学运算优先级规则</li>
+</ul>
+</li>
+</ul>
+<h3 id="十、var函数"><a href="#十、var函数" class="headerlink" title="十、var函数"></a>十、var函数</h3><ol>
+<li><code>:root</code>选择器</li>
+</ol>
+<ul>
+<li>用于匹配文档的htmlm根元素</li>
+<li>与html选择器的区别在于：<code>:root</code>选择器的优先级要高于html标签选择器</li>
+</ul>
+<ol start="2">
+<li>var函数解读</li>
+</ol>
+<ul>
+<li>var函数用于插入自定义的属性值</li>
+<li>如果一个属性值在<strong>多处</strong>被使用，该方法就很有用</li>
+<li>自定义属性一定要以<code>--</code>开头</li>
+<li>&#x3D;&#x3D;就近原则&#x3D;&#x3D;，自定义属性会沿着父元素一直往外找，以最近找到的为主</li>
+<li>应用场景：<ul>
+<li>通常自定义属性值是写在:root选择器中，并且:root选择器会放在css的最上面，这样所有选择器就能用到这个自定义变量属性</li>
+</ul>
+</li>
+<li>写法：</li>
+</ul>
+<pre><code>:root&#123;
+    &lt;!-- 自定义属性 --&gt;
+    --font-color:red;
+&#125;
+h3&#123;
+    color:var(--font-color);
+&#125;
+</code></pre>
+<h3 id="十一、专项案例训练"><a href="#十一、专项案例训练" class="headerlink" title="十一、专项案例训练"></a>十一、专项案例训练</h3><ol>
+<li>CSS开发天猫登录注册页<blockquote>
+<p>没想到的地方</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>天猫logo和登录框放在一个盒子里居中</li>
+<li>表单元素：<code>option</code>、<code>input</code></li>
+<li>区号部分：<ul>
+<li>select：背景为选择图标，字体颜色设置为透明，宽高设置为图标大小</li>
+<li>option：字体颜色为黑色</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;dix class=&quot;box&quot;&gt;
+ &lt;i&gt;+86&lt;/i&gt;
+ &lt;select name=&quot;&quot; id=&quot;&quot;&gt;
+ &lt;option value=&quot;+86&quot;&gt;+86中国大陆&lt;/option&gt;
+&lt;/select&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li><code>pointer-events:none;</code>：盒子不受指针、click的影响</li>
+<li>span标签之间的间隙：父盒子font-size&#x3D;0；</li>
+<li>有些地方可以用怪异盒模型</li>
+<li>最后一行可以用<code>text-align:right</code>水平居右，还有<code>cursor:pointer</code></li>
+</ul>
+<blockquote>
+<p>需要用到JS的地方</p>
+</blockquote>
+<ul>
+<li>区号，i绑定ption的value</li>
+<li>登录方式的切换</li>
+</ul>
+<ol start="2">
+<li>CSS表格布局(QQ音乐排行榜效果)<blockquote>
+<p>老师做的：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>用table标签</li>
+<li>边框处理：缩小边距——<code>border-spacing:0</code>,边框重合——<code>border-collapse:collapse</code></li>
+<li>不同列单独设置：在table和tr之间写上下面的代码，span表示<strong>选多少列</strong>，class是各列的类名</li>
+</ul>
+<pre><code>&lt;table&gt;
+  &lt;colgroup&gt;
+    &lt;col span=&quot;&quot; class=&quot;&quot;&gt;
+ &lt;/clogroup&gt;
+</code></pre>
+<ul>
+<li>滑动效果：歌名变色，出现三个按钮，歌曲介绍有省略号<ul>
+<li>三个按钮用display</li>
+<li>省略号：滑动之后宽度缩短，并用单行文本溢出省略代码</li>
+</ul>
+</li>
+<li>第三列不能设置宽度，自适应。用right、left</li>
+</ul>
+<h2 id="transtion过渡动画与animation自定义动画"><a href="#transtion过渡动画与animation自定义动画" class="headerlink" title="transtion过渡动画与animation自定义动画"></a>transtion过渡动画与animation自定义动画</h2><h3 id="一、transition过渡动画"><a href="#一、transition过渡动画" class="headerlink" title="一、transition过渡动画"></a>一、transition过渡动画</h3><blockquote>
+<p><strong>如何理解过渡动画？</strong></p>
+</blockquote>
+<ul>
+<li>一个元素由A状态经过一段时间变化成B状态。我们只需要定义其开始和结束的状态</li>
+<li>而它中间的状态会自己添加”补间动画”</li>
+<li>以前，网页的特效基本都是由JS定时器实现的，现在追捕改为使用CSS3过渡</li>
+<li>优点：动画更细腻，内存开销小</li>
+<li>兼容性：移动PC都兼容，但是需要加上对应的浏览器前缀<br><strong>过渡动画何时发生？</strong></li>
+<li>当属性值发生变化时，才会触发transition动画</li>
+<li>transition动画主要与<code>:hover</code>配合，来实现鼠标滑动动画效果</li>
+</ul>
+<ol>
+<li>基本语法<blockquote>
+<p><code>transition:transition-property transition-duration [transition-timing-function] [transition-delay];</code></p>
+<ul>
+<li>后面两个可以省略不写</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>transition-property</code></td>
+<td>指定CSS属性的name，哪些属性要过渡</td>
+</tr>
+<tr>
+<td><code>transition-duration</code></td>
+<td>transition效果需要指定多少秒或毫秒才能完成，动画时间</td>
+</tr>
+<tr>
+<td><code>transition-timing-function</code></td>
+<td>指定transition效果的转速曲线，变化曲线</td>
+</tr>
+<tr>
+<td><code>transition-delay</code></td>
+<td>定义transition效果开始的时候(延迟时间)</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>可参与过渡的属性<blockquote>
+<p><strong>可参与过渡的属性</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>所有数值类型的属性，都可参与过度</li>
+<li>比如：width、height、left、top、border-radius、font-size、opacity </li>
+<li>背景颜色和文字都可以被过渡</li>
+<li>所有的变形(包括2D和3D)都能被过渡</li>
+<li>在CSS中90%的属性都可以辈过渡<blockquote>
+<p><strong>不能</strong>参与过渡动画的属性</p>
+</blockquote>
+</li>
+<li>float和position</li>
+<li>display无法过渡</li>
+<li>font-family等</li>
+</ul>
+<ol start="3">
+<li>特殊属性：all</li>
+</ol>
+<ul>
+<li>需要所有属性参与过渡，即定义为all</li>
+<li>all不要随意使用，会引发效率问题，如果只需要某一个属性过渡，还是要指定特定的属性</li>
+</ul>
+<ol start="4">
+<li>定义多个过渡动画</li>
+</ol>
+<ul>
+<li>多个过渡动画之间用<code>,</code>隔开</li>
+</ul>
+<ol start="5">
+<li>过渡的四个小属性<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>transition-property</code></td>
+<td>指定CSS属性的name，哪些属性要过渡</td>
+</tr>
+<tr>
+<td><code>transition-duration</code></td>
+<td>transition效果需要指定多少秒或毫秒才能完成，动画时间</td>
+</tr>
+<tr>
+<td><code>transition-timing-function</code></td>
+<td>指定transition效果的转速曲线，变化曲线</td>
+</tr>
+<tr>
+<td><code>transition-delay</code></td>
+<td>定义transition效果开始的时候(延迟时间)</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li>多个值之间用逗号隔开，没有指定的值，以属性第一个值为准</li>
+</ul>
+<ol start="6">
+<li>时间函数</li>
+</ol>
+<ul>
+<li>时间函数(transition-timing-function),管理着动画在单位帧内播放的速度曲线<blockquote>
+<p><strong>时间函数的预设值</strong></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>linear</code></td>
+<td>规定以相同速度开始至结束的过渡效果cubic-bezier(0,0,1,1)</td>
+</tr>
+<tr>
+<td><code>ease</code></td>
+<td>规定慢速开始，然后变快，然后慢速结束的过渡效果(cubic-bezier(0.25,0.1,0.25,1))</td>
+</tr>
+<tr>
+<td><code>ease-in</code></td>
+<td>规定以慢速开始的过渡效果cubic-bezier(0.42,0,1,1)</td>
+</tr>
+<tr>
+<td><code>ease-out</code></td>
+<td>规定以慢速结束的过渡效果cubic-bezier(0,0,0.58,1)</td>
+</tr>
+<tr>
+<td><code>ease-in-out</code></td>
+<td>等于以慢速开始和结束的过渡效果cubic-bezier(0.42,0,0.58,1)</td>
+</tr>
+<tr>
+<td><code>cubic-bezier(n,n,n,n)</code></td>
+<td>在cubic-bezier函数中定义自己的值，0~1之间</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>贝塞尔曲线用法</p>
+</blockquote>
+<ul>
+<li>官方网址上在线生成<a target="_blank" rel="noopener" href="https://cubic-bezier.com/">https://cubic-bezier.com/</a></li>
+<li>还可以在网页上右击审查元素，在代码的控制面板当中来调整贝塞尔曲线，来调节运动速度</li>
+</ul>
+<h3 id="二、transition过渡动画实战案例"><a href="#二、transition过渡动画实战案例" class="headerlink" title="二、transition过渡动画实战案例"></a>二、transition过渡动画实战案例</h3><ol>
+<li>鼠标滑动，背景从透明到半透明效果</li>
+<li>鼠标滑动，文字从下往上滑动效果</li>
+</ol>
+<ul>
+<li>父盒子设置相对定位、overflow-hidden</li>
+<li>用盒子装文字，设置绝对定位，鼠标滑动时bottom改变</li>
+</ul>
+<ol start="3">
+<li>商城右侧通栏导航</li>
+</ol>
+<ul>
+<li>鼠标滑动后出现的框，在点击之前，宽度&#x3D;0，字体颜色为透明色</li>
+</ul>
+<h3 id="三、animation自定义动画"><a href="#三、animation自定义动画" class="headerlink" title="三、animation自定义动画"></a>三、animation自定义动画</h3><blockquote>
+<p>步骤：先定义动画，再调用动画</p>
+</blockquote>
+<ol>
+<li>动画的定义<blockquote>
+<p><strong>使用<code>@keyframes</code>关键帧来定义动画</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>建动画的原理是，将一套CSS样式逐渐变化为另一套样式</li>
+<li>在动画过程中，您可以多次更改CSS样式的设定</li>
+<li>动画执行各阶段时间，可以通过百分比来规定改变发生的时间，或者通过关键词<code>from</code>和<code>to</code></li>
+<li><code>from</code>和<code>to</code>等价于0%和100%,from和0%是动画的开始时间，to和100%是动画的结束时间</li>
+<li>动画名是自己起的</li>
+<li>写法</li>
+</ul>
+<pre><code>@keyframes 动画名&#123;
+&lt;!-- 起始状态 --&gt;
+from/0% &#123;样式&#125;
+&lt;!-- 结束状态 --&gt;
+to/100%&#123;样式&#125;
+&#125;
+</code></pre>
+<ol start="2">
+<li>调用动画<blockquote>
+<p>使用animation属性</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>写法：</li>
+<li>复合写法：<ul>
+<li>简单版：</li>
+<li><pre><code>
+</code></pre>
+</li>
+<li>animation:动画名 动画完成时间 时间函数 延迟时间；</li>
+<li><pre><code>
+</code></pre>
+</li>
+<li>完整版：</li>
+<li><pre><code>
+</code></pre>
+</li>
+<li>animation:动画名 动画完成时间 时间函数 延迟时间 播放次数 是否反向播放 动画不播放或完成时状态 动画是否正在运行或已暂停；</li>
+</ul>
+</li>
+<li>类似transition</li>
+</ul>
+<ol start="3">
+<li>多关键帧动画</li>
+</ol>
+<ul>
+<li>用百分比分别表示动画执行的时间节点</li>
+<li>设置多个时间节点，每个节点都可以设置不同状态</li>
+</ul>
+<ol start="4">
+<li>animation完整写法——小属性<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>animation-name</code></td>
+<td>指定应用的一系列动画名，即@keyframes定义的动画名</td>
+<td>none表示不调用动画，动画名：由大小写敏感的字母a-z、数字0-9、下划线、短横线组成，不能以数字开头</td>
+</tr>
+<tr>
+<td><code>animation-duration</code></td>
+<td>指定动画周期时长，需要多少秒或毫秒完成</td>
+<td>默认值为0s，表示无动画。时长单位为秒(s)&#x2F;毫秒(ms)</td>
+</tr>
+<tr>
+<td><code>animation-timing-function</code></td>
+<td>设置动画将如何完成一个周期</td>
+<td>和transition一致的linear、ease、ease-in、ease-out、ease-in0out、贝塞尔函数；不一样的是steps(n,start&#x2F;end)</td>
+</tr>
+<tr>
+<td><code>animation-delay</code></td>
+<td>设置动画在启动前的延迟间隔时间</td>
+<td>默认为0s，表示立即执行；时长单位为s&#x2F;ms</td>
+</tr>
+<tr>
+<td><code>animation-iteration-count</code></td>
+<td>定义动画的播放次数</td>
+<td>n:一个数字，动画播放次数；<code>infinite</code>无限次播放</td>
+</tr>
+<tr>
+<td><code>animation-direction</code></td>
+<td>指定是否应该轮流反向播放动画</td>
+<td><code>normal</code>:默认值，动画正常播放；<code>reverse</code>:动画反向播放，动画按步后退的效果；<code>alternate</code>:动画在奇数次正向播放，在偶数次反向播放；<code>alternate-reverse</code>:东湖在奇数次反向播放，在偶数次正向播放；</td>
+</tr>
+<tr>
+<td><code>animation-fill-mode</code></td>
+<td>规定当动画不播放时(动画完成时&#x2F;动画延迟未播放时)，要应用到的元素的样式</td>
+<td><code>none</code>:默认值，动画在动画执行之前和之后不会应用任何样式到目标元素；<code>forwards</code>:在动画结束后，动画将停止在最后结束状态；<code>backwards</code>:在动画结束后，动画将停止在最开始的状态；<code>both</code>:动画遵循<code>forwards</code>和<code>backwards</code>的规则，也就是说，动画会在两个方向上扩展动画属性</td>
+</tr>
+<tr>
+<td><code>animation-play-state</code></td>
+<td>指定动画是否正在运行或已暂停</td>
+<td><code>pause</code>:暂停动画；<code>running</code>:正在运行动画；</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p><code>animation-play-state</code>通常与<code>:hover</code>配合使用，当鼠标划上去时，可以暂停或开启动画</p>
+</blockquote>
+<ol start="5">
+<li>animation指定多组动画</li>
+</ol>
+<ul>
+<li>用来指定一组或多组动画时，每组之间用逗号分隔</li>
+</ul>
+<ol start="6">
+<li>steps帧动画</li>
+</ol>
+<ul>
+<li>steps定义一个动画从开始到结束，动画的<strong>每一帧</strong>中经历的步数</li>
+<li>steps的特殊性：它设置的是<strong>每一步</strong>动画的跳跃步数，而不是整个动画的跳跃步数</li>
+<li><code>start</code>:开始是在第一帧动画结束的位置</li>
+<li><code>end</code>:开始是在第一帧动画开始的位置</li>
+<li>盒子的右侧是起始点<blockquote>
+<p>走路案例</p>
+</blockquote>
+</li>
+<li>移动的是background-position</li>
+</ul>
+<ol start="7">
+<li>transition与animation的区别</li>
+</ol>
+<ul>
+<li>1、transition是过渡，是样式值得变化过程，只有开始和结束；animation其实也叫关键帧，通过和@keyframe结合可以设置中间帧的状态</li>
+<li>2、animation配合@keyframe可以不通过触发事件直接触发过程，而transition需要通过hover或者js事件来配合触发</li>
+<li>3、animation可以设置很多的属性，比如循环次数、动画的结束状态等等，transition只能触发一次</li>
+<li>4、animation可以结合@keyframe设置每一帧，但transition只有开始和结束这两帧</li>
+</ul>
+<h3 id="四、animationn-css动画库"><a href="#四、animationn-css动画库" class="headerlink" title="四、animationn.css动画库"></a>四、animationn.css动画库</h3><ol>
+<li><p>是什么？</p>
+<blockquote>
+<ul>
+<li>animation.css是非常强大的跨平台的预设css3动画库</li>
+<li>内置了很多典型的css3动画，兼容性好，使用方便</li>
+<li>英文网：<a target="_blank" rel="noopener" href="http://animate.style/(%E8%8B%B1%E6%96%87%E7%BD%91%E6%9B%B4%E5%A5%BD)">http://animate.style/(英文网更好)</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p>怎么用？</p>
+</li>
+</ol>
+<ul>
+<li>1、下载animate.css文件</li>
+<li>2、在页面引入animate.css文件</li>
+</ul>
+<pre><code>&lt;!--引用时，要注意引用入的地址 --&gt;
+link rel=&quot;stylesheet&quot; href=&quot;./css/animate.css&quot; /&gt;
+</code></pre>
+<ul>
+<li>3、在网站的右侧选择想要的效果，复制其样式名</li>
+<li>4、在需要应用的元素上加<code>.animate_animated</code>和需要的效果样式名</li>
+</ul>
+<pre><code>&lt;!-- 应用  bounce 这个样式效果 --&gt;
+&lt;div class=&quot;box animate__animated &gt;animate__bounce&quot;&gt;&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>注意：link要写在style前面</p>
+</blockquote>
+<h2 id="transform-2D与3D转换"><a href="#transform-2D与3D转换" class="headerlink" title="transform 2D与3D转换"></a>transform 2D与3D转换</h2><h3 id="一、transform属性"><a href="#一、transform属性" class="headerlink" title="一、transform属性"></a>一、transform属性</h3><ul>
+<li>在CSS中，利用<code>transform</code>这个属性实现对元素的旋转、缩放、倾斜、平移</li>
+<li>transform属性的值可以是<code>none</code>或一个或多个css变换函数</li>
+<li>transform的值不是none时，元素会创建自己的层叠上下文</li>
+</ul>
+<ol>
+<li><p>transform的2D变换函数</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>translate(x,y)</td>
+<td>x,y为长度单位，可以是px也可以是百分比；x表示元素在x轴上的移动量，y表示元素在y轴上的移动量，如果y轴不写，默认为0</td>
+<td>transform:translate(100px,200px)</td>
+</tr>
+<tr>
+<td>translateX(x)</td>
+<td>表示元素在平面x轴上的位移量</td>
+<td>transform:translateX(300px)</td>
+</tr>
+<tr>
+<td>translateY(y)</td>
+<td>表示元素在平面Y轴上的位移量</td>
+<td>transform:translateY(300px)</td>
+</tr>
+<tr>
+<td>rotate(ax)</td>
+<td>ax代表旋转的角度，正角表示顺时针旋转，负角表示逆时针旋转</td>
+<td>transform:rotate(30deg)</td>
+</tr>
+<tr>
+<td>scaleX(x)</td>
+<td>x数字类型，表示元素在x轴上的缩放比</td>
+<td>transform:scaleX(2)</td>
+</tr>
+<tr>
+<td>scaleY(y)</td>
+<td>y数字类型，表示元素在y轴上的缩放比</td>
+<td>transform:scaleY(2)</td>
+</tr>
+<tr>
+<td>scale(x,y)</td>
+<td>当只有x没有y时，则y默认为x，元素在x,y轴上均匀缩放</td>
+<td>transform:scale(2,3)</td>
+</tr>
+<tr>
+<td>skew(ax,ay)</td>
+<td>ax,ay各表示一个角度</td>
+<td>transform:skew(30deg,30deg)</td>
+</tr>
+<tr>
+<td>skewX(ax)</td>
+<td>ax表示一个角度，表示沿着x横坐标扭曲元素的角度，形成水平拉伸效果</td>
+<td>transform:skewX(30deg)</td>
+</tr>
+<tr>
+<td>skewY(ay)</td>
+<td>ay表示一个角度，表示沿着y纵坐标扭曲元素的角度，形成垂直拉伸效果</td>
+<td>transform:skewY(30deg)</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>transform的3D转换属性值</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>translateZ(z)</td>
+<td>元素在3D空间z轴方向上的位移量</td>
+<td>transform:translateZ(200px)</td>
+</tr>
+<tr>
+<td>translate3d(x,y,z)</td>
+<td>分别表示元素在x,y,z轴坐标上的位移量，该值不能使用百分比，如果使用会被认为是无效属性</td>
+<td>transform:translate3d(50px,30px,50px)</td>
+</tr>
+<tr>
+<td>rotateX(ax)</td>
+<td>表示元素绕x轴旋转一定角度，ax表示度数，可以为正，也可以为负</td>
+<td>transform:rotateX(30deg);</td>
+</tr>
+<tr>
+<td>rotateY(ay)</td>
+<td>表示元素绕Y轴旋转一定角度，ay表示度数，可以为正也可以为负</td>
+<td>transform:rotateY(30deg);</td>
+</tr>
+<tr>
+<td>rotateZ(az)</td>
+<td>表示元素绕Z轴旋转一定角度，az表示度数，可以为正也可以为负</td>
+<td>transform:rotateZ(30deg);</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="二、2D转换"><a href="#二、2D转换" class="headerlink" title="二、2D转换"></a>二、2D转换</h3><ol>
+<li>2D平面</li>
+</ol>
+<ul>
+<li>下图这个x和y轴，就是基于2D平面图形，后期所有的2D动画特效都是在这个2D的平面上操作</li>
+<li>注意事项：<ul>
+<li>元素的左上角坐标为(0,0)</li>
+<li>(0,0)坐标的右方，为x轴的正方向</li>
+<li>(0,0)坐标的下方，为y轴的正方向<img src="2D.png"></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>translate位移</li>
+</ol>
+<ul>
+<li><p>css中通过给<code>transform</code>添加<code>translate(x,y)</code>、<code>translateX(x)</code>、<code>translateY(y)</code>来实现元素的水平或垂直位移</p>
+</li>
+<li><p><strong>translate(x,y)</strong></p>
+</li>
+<li><p>x和y是长度值length，可以是px，也可以是%百分比</p>
+</li>
+<li><p>x表示元素在x轴上的位移量，为正表示向右移动，为负表示向左移动</p>
+</li>
+<li><p>y表示元素在y轴上的位移量，为正表示向下移动，为负表示向上移动 </p>
+</li>
+<li><p>位移和相对定位非常像，位移也会”在老家留坑”，即会占据原来的位置 </p>
+</li>
+<li><p>同时不会对其他元素造成影响，相当于悬浮在其他元素上</p>
+</li>
+<li><p>创建了自己的层叠上下文</p>
+</li>
+<li><p>长度单位可以为px，也可以为百分比</p>
+</li>
+<li><p>x,y为百分比时，这个百分比是相对元素自身的可视宽高而言的</p>
+</li>
+<li><p>在标准盒子模型下</p>
+<ul>
+<li>水平位移：(width+左右padding+左右border)*x%</li>
+<li>垂直位移：(width+左右padding+左右border)*y%</li>
+</ul>
+</li>
+<li><p>特殊情况：y值不写，默认为0</p>
+<ul>
+<li><code>transform:translate(x)</code>&#x3D;<code>transform:translate(x,0)</code></li>
+</ul>
+</li>
+<li><p><strong>translateX(x)与translateY(y)</strong></p>
+</li>
+<li><p><code>translateX(x)</code>实现元素在X轴的位移量</p>
+</li>
+<li><p><code>translateY(y)</code>实现元素在Y轴的位移量</p>
+</li>
+<li><p>本质上translate(x,y)是translateX与translateY两者的复合写法</p>
+</li>
+<li><p>transform后面如果跟多个变换函数，则各函数之间用<strong>空格</strong>隔开</p>
+</li>
+<li><p><strong>注意</strong></p>
+</li>
+</ul>
+<pre><code>transform:translateX(10px);
+transform:transformY(10px);
+</code></pre>
+<blockquote>
+<p>这样写，后面的会覆盖前面的，只有transformY有效</p>
+</blockquote>
+<ul>
+<li><p>正确写法是：<code>transform:translateX(10px) translateY(10px);</code> 用空格隔开</p>
+</li>
+<li><p><strong>translate与绝对定位结合实现元素水平垂直居中</strong></p>
+</li>
+<li><p>先利用绝对定位，<code>top:50%;left:50%;</code></p>
+</li>
+<li><p>再利用translate，&#96;transform:translate(-50%,-50%)</p>
+</li>
+<li><p>相比之前用的margin负值，可以不用知道盒子宽高，调整也不受影响</p>
+</li>
+</ul>
+<ol start="3">
+<li>缩放scale</li>
+</ol>
+<ul>
+<li><p>写法：<code>transform:scale(ax,ay)</code></p>
+</li>
+<li><p><strong>scale(x,y)</strong></p>
+</li>
+<li><p>xy可以用不带单位的数字或百分比表示，分别表示元素的宽高缩放比</p>
+</li>
+<li><p>值&gt;1：放大；值&lt;1：缩小</p>
+</li>
+<li><p>当只有x，没有y时，y默认为等于x，元素宽高同时均匀缩放</p>
+</li>
+<li><p>百分比是相对于元素的可视宽高而言的</p>
+</li>
+<li><p><strong>scaleX(x)与scaleY(y)</strong></p>
+</li>
+<li><p>本质上scale(x,y)是scaleX(x)与scaleY(y)的复合写法</p>
+</li>
+<li><p><code>transform:scale(x,y)</code>等于<code>transform:scaleX(x) scaleY(y)</code></p>
+</li>
+<li><p>可以利用transform-origin设置变换原点</p>
+</li>
+</ul>
+<ol start="4">
+<li>斜切skew</li>
+</ol>
+<ul>
+<li>实现元素斜切效果</li>
+<li>写法：&#96;transform:skew(ax,ay)</li>
+<li><code>skewX(ax)</code>:用于水平拉伸，使元素的每个点在水平方向上扭曲一定的角度</li>
+<li><code>skewY(ay)</code>:用于垂直拉伸，使元素的每个点在垂直方向上扭曲一定的角度</li>
+<li>ax,ay表示一个角度</li>
+<li>单位为<code>deg</code>，正负数都可以</li>
+<li>可以利用transform-origin设置变换原点</li>
+</ul>
+<ol start="5">
+<li>旋转rotate</li>
+</ol>
+<ul>
+<li>元素旋转效果</li>
+<li>写法<code>transform:rotate(ax)</code></li>
+<li><code>ax</code>表示旋转的角度，正数表示顺时针，负数表示逆时针</li>
+<li>单位是<code>deg</code></li>
+<li>在三角形案例中可知，多次改变旋转角度，都是参考<strong>最初</strong>的视角，不是参考上一次旋转！</li>
+<li>可以利用transform-origin设置变换原点</li>
+</ul>
+<ol start="6">
+<li>设置原点transform-origin</li>
+</ol>
+<ul>
+<li>设置元素的变换原点</li>
+<li>缩放、斜切、旋转都可以设置原点</li>
+<li>默认值：<code>transform-origin:50% 50% 0;</code>，分别表示x,y,z轴，在2D转换中只需要前两个值</li>
+<li>x,y的值可以是px、百分比、关键词</li>
+<li>但z的值只能是px</li>
+</ul>
+<blockquote>
+<p><strong>关键词</strong></p>
+</blockquote>
+<ul>
+<li>类似于<code>background-position</code></li>
+<li>(left,right)、(top,bottom)、center，这三组可以任意搭配<table>
+<thead>
+<tr>
+<th>关键词</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认原点</td>
+<td><code>transform-origin:center</code></td>
+</tr>
+<tr>
+<td>left</td>
+<td>原点为左边框中点，&#x3D;<code>left center</code></td>
+</tr>
+<tr>
+<td>right</td>
+<td>右边框中点，&#x3D;<code>right center</code></td>
+</tr>
+<tr>
+<td>top</td>
+<td>上边框中点，&#x3D;<code>top center</code></td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>下边框中点，&#x3D;<code>bottom center</code></td>
+</tr>
+<tr>
+<td>top left</td>
+<td>原点为左上角，相当于坐标(0 0)</td>
+</tr>
+<tr>
+<td>top right</td>
+<td>元素右上角</td>
+</tr>
+<tr>
+<td>bottom left</td>
+<td>左下角</td>
+</tr>
+<tr>
+<td>bottom right</td>
+<td>右下角</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<blockquote>
+<p><strong>数值表示法px</strong></p>
+</blockquote>
+<ul>
+<li>y省略不写时，默认为元素的垂直中心点<blockquote>
+<p><strong>百分比表示法</strong></p>
+</blockquote>
+</li>
+<li>相对的是元素自身的可视宽高而言</li>
+</ul>
+<ol start="7">
+<li><p>2D转换综合写法顺序问题</p>
+<blockquote>
+<ul>
+<li>同时使用多个变换，其多个变换函数之间用空格隔开</li>
+<li>转换函数的顺序会影响转换的效果，比如先旋转会影响坐标轴方向</li>
+<li>旋转之后，坐标轴也会跟着旋转，位移的方向就要按照旋转后的坐标轴来</li>
+<li>所以当同时使用旋转和位移时，一定要注意书写顺序</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使2D转换有动画效果<br><code>transition:transform 2s;</code></p>
+<blockquote>
+<ul>
+<li>分清楚<code>transition</code>和<code>transform</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="2D转换实战应用"><a href="#2D转换实战应用" class="headerlink" title="2D转换实战应用"></a>2D转换实战应用</h3><ol>
+<li><p>旋转的三角形</p>
+<blockquote>
+<p>注意点</p>
+<ul>
+<li>旋转的角度以最原始的状态为基准，而不是参考上一次旋转</li>
+</ul>
+</blockquote>
+</li>
+<li><p>QQ音乐效果</p>
+<blockquote>
+<ul>
+<li>图片、按钮、遮罩层都有动画效果</li>
+<li>隐藏元素的方式：opacity、rgba、display等</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、3D转换"><a href="#四、3D转换" class="headerlink" title="四、3D转换"></a>四、3D转换</h3><blockquote>
+<p>在3D动画中，元素是围绕坐标x,y,z轴来变换的</p>
+<ul>
+<li>3D坐标图<img src="3D坐标图.png">
+- 元素左上角的坐标为(0,0,0)
+- x轴右边为正方向，y轴下方为正方向，z轴垂直电脑屏幕，射出屏幕的这头为正方向</li>
+</ul>
+</blockquote>
+<ol>
+<li>透视perspective<blockquote>
+<p>没有<strong>透视定义</strong>，不成3D</p>
+<ul>
+<li>透视是指在平面上描绘物体的空间关系的方法或技术</li>
+<li>要在平面上描绘物体的空间立体感，需要遵循透视原理中的近大远小规则</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>视点</strong></p>
+<ul>
+<li>当我们站的越远，我们看到的物体就越小 </li>
+<li>css3中3Dtransform透视点是在浏览器的前方<img src="视点.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>perspective属性</strong></p>
+<ul>
+<li>在css3中，用<code>perspective</code>属性来设置透视距，即模拟人站在离屏幕多远的地方来看电脑上显示的元素</li>
+<li>比如：<code>perspective:800px;</code>意思就是在离屏幕800px的地方看到这个元素</li>
+<li>如果元素往z轴正方向移动，离我们越近，看到物体就越大</li>
+<li>如果元素往z轴负方向移动，离我们越远，看到的物体就越小</li>
+<li>注意：<code>perspective</code>这个属性要设置在父元素上面</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>translate3D位移</p>
+<blockquote>
+<ul>
+<li>**translateX(x)、translateY(y)**，与2D位移是一样的效果</li>
+<li>**translateZ(z)**：<ul>
+<li>表示垂直于电脑屏幕方向的位移量</li>
+<li>必须配合<code>perspective</code>属性，用它来定义透视强度</li>
+<li><code>translateZ=0</code>：图形大小正常显示</li>
+<li><code>0 &lt; translateZ &lt; perspective值</code>：图形变大</li>
+<li><code>translateZ &gt;= perspective</code>图片不见，相当于图片在你后面,你肯定是看不见的</li>
+<li><code>translateZ &lt; 0</code>：图形变小</li>
+</ul>
+</li>
+<li>translate3d(x,y,z)<ul>
+<li>表示元素在x,y,z轴三个坐标上的位移量</li>
+<li>z的值不能使用百分比，如使用则会被认为是无效属性</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>rotate 3D旋转</p>
+<blockquote>
+<ul>
+<li>css中通过给<code>transform</code>添加以下变换函数来实现3D旋转效果<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rotateX(ax)</td>
+<td>表示元素绕x轴旋转一定的角度，ax表示度数，可正可负</td>
+</tr>
+<tr>
+<td>rotateY(ay)</td>
+<td>表示元素绕y轴旋转一定的角度，ay表示度数，可正可负</td>
+</tr>
+<tr>
+<td>rotateZ(az)</td>
+<td>表示元素绕z轴旋转一定的角度，az表示度数，可正可负</td>
+</tr>
+</tbody></table>
+</li>
+<li>旋转方向</li>
+<li>左手法则：大拇指指向正方向，四指的方向就是旋转的方向<img src="3D旋转.png">
+>rotateZ(az)和2d转换rotate(ax)效果一样</li>
+</ul>
+</blockquote>
+</li>
+<li><p>transform-style</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flat</td>
+<td>表示所有子元素在2D平面呈现</td>
+</tr>
+<tr>
+<td>preserve-3D</td>
+<td>表示所有子元素在3D空间中呈现</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、实战案例"><a href="#五、实战案例" class="headerlink" title="五、实战案例"></a>五、实战案例</h3><ol>
+<li>飞行的火箭<blockquote>
+<ul>
+<li>火箭左上角和右下角方向来回移动</li>
+<li>气流动画效果：旋转后坐标轴变化，线条沿Y轴上下移动，用opacity实现隐藏效果</li>
+</ul>
+</blockquote>
+</li>
+<li>创建3D导航<blockquote>
+<ul>
+<li>关键是改变旋转原点<code>transform-origin</code></li>
+<li>给两个a标签加父盒子.container,鼠标滑动设置在父盒子上</li>
+<li>第二个a标签的初始状态是x轴反方向旋转90度，这样就藏在了第一个盒子下面,而且！它的原点要设置在上边框的中点</li>
+<li>点击父盒子时，往x轴的正方向翻转90度，旋转原点是3D盒子的中心<code>transform-origin:50% 50% 高度的一半</code></li>
+<li>想要有立体效果：在父盒子上加<code>transform-style: preserve-3d;</code></li>
+</ul>
+</blockquote>
+</li>
+<li>翻书效果<blockquote>
+<ul>
+<li>每一页构建一个父盒子，里面放正反两面，点击父盒子翻页</li>
+<li>改变原点为左边框中点</li>
+<li>反面比正面里电脑更远才能显示：改变<code>translateZ(z)</code></li>
+<li>每一页都比前一页层级更低：改变<code>z-index</code>，整本书需要用JS实现</li>
+<li>反面翻过来仍正面显示：在父盒子翻转180度的基础上再翻转180度</li>
+<li>每一页有正反面两面的立体效果：在每页父盒子设置<code>transform-style:preserve-3D</code></li>
+<li>注意位移和旋转的顺序，旋转会改变方向</li>
+</ul>
+</blockquote>
+</li>
+<li>长方体<blockquote>
+<ul>
+<li>将六个面都放在父盒子之中，用绝对定位固定在同一位置；</li>
+<li>父盒子要用3D</li>
+<li>通过位移旋转来移动每个面，先移动再旋转更简单</li>
+<li>左右面若想正面朝外，则移动到合适位置再改变原点旋转</li>
+<li>给父盒子设置旋转动画可以看到3D效果</li>
+</ul>
+</blockquote>
+</li>
+<li>鼠标移入文字划入效果<blockquote>
+<ul>
+<li>没注意到的地方：<ul>
+<li>需要换行的文字，左右间距用绝对定位设置</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>鼠标悬停缩放动画<blockquote>
+<ul>
+<li>没考虑到的地方<ul>
+<li>鼠标悬停时的遮罩：缩小0.8，有盒子阴影，白色边框<br>注意：</li>
+<li>遮罩层原本和父盒子宽高一致，加上边框后会偏移</li>
+<li>缩放时是居中缩放，所以遮罩层要向上向下移动边框宽度的距离</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>鼠标移入旋转动画<blockquote>
+<p>没想到的地方</p>
+<ul>
+<li>背景模糊：受上一案例影响，只想到用盒子阴影，但本案例并不适合，实际应该滤镜效果<code>filter</code><br>不一致的地方：</li>
+<li>遮罩效果<ul>
+<li>长方形旋转角度：遮罩盒子宽度等于父盒子对角线的长度(勾股定理)，高度自拟，<code>top=-50%</code>，转换原点改为左侧，然后旋转，可以在检查页面调试角度</li>
+<li>旋转效果：原遮罩盒子高度为0，top&#x3D;0,left&#x3D;0;鼠标滑动后再设置效果</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>loading动画<blockquote>
+<ul>
+<li>设置var函数：写在style里，或写在行内，用<code>style=--name:值</code>。var函数一定要以<code>--</code>开头，后面接属性名和属性值。</li>
+<li>var与函数运算结合，一定要在外面套上<code>calc()</code></li>
+<li>var函数与动画结合：<code>transform:rotate(calc(var(--i)*40deg))</code></li>
+<li>小圆围成一个大圆：先把小圆都放在父盒子顶部中间，设置原点为父盒子中点，但一定是以起始位置的xy轴为起点<ul>
+<li><code>transform-origin:15px 140px</code>，140px就是大圆的半径<img src="loading动画.png"></li>
+</ul>
+</li>
+<li>小圆轮流亮起：设置延迟效果，也要用到var函数</li>
+</ul>
+</blockquote>
+</li>
+<li>吃豆豆动画效果<blockquote>
+<ul>
+<li>嘴巴咬合效果：两个长方形朝不同方向旋转，父盒子边框变成圆(我一点都没想到！！！)</li>
+<li>豆豆移动效果：盒子阴影!!!+translate+animation</li>
+<li>细节：<ul>
+<li>豆豆和头部都使用定位，豆豆写在后面，所以在头部上面，需要提高头部的层级</li>
+<li>豆豆的移动速度等于嘴巴张合一轮的时间(嘴巴动画要使用alternate)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>鼠标悬停 3D 旋转动画效果<blockquote>
+<ul>
+<li>注意点<ul>
+<li>背面的文字和图片在旋转前就要设置<code>rotate(180deg)</code>，否则在鼠标悬停旋转180度后会恢复初始状态</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>3D旋转木马效果<blockquote>
+<ul>
+<li>点击第二个盒子实现旋转效果，其父盒子设置视距，其子盒子放置图片。要想让谁的子盒子有3D效果，就给谁设置<code>transform-style</code></li>
+<li>图片怎么实现环绕效果：用绝对定位使他们都处于中心，先旋转一定的角度，在往z轴的方向移动,var函数+rotateY+translateZ</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/29/CSS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%89%EF%BC%89/">https://hermiablog.github.io/2023/11/29/CSS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%89%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/11/29/CSS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS核心知识点（三）">
+                        
+                        <span class="card-title">CSS核心知识点（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSS知识点汇总
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/29/CSS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="CSS核心知识点（二）">
+                        
+                        <span class="card-title">CSS核心知识点（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSS知识点汇总
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
