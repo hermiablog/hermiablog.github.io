@@ -406,7 +406,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    6.3k
                 </div>
                 
 
@@ -555,45 +555,13 @@ h1 &#123;
 <blockquote>
 <p>总结：CSS4 种书写位置特点与区别</p>
 </blockquote>
-<table>
-<thead>
-<tr>
-<th>引入方式</th>
-<th>书写位置</th>
-<th>作用范围</th>
-<th>优先级</th>
-<th>使用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>行内样式</td>
-<td>css 样式写在标签的 style 属性中</td>
-<td>当前标签</td>
-<td>最高配合</td>
-<td>JS 或特殊需求</td>
-</tr>
-<tr>
-<td>内嵌样式</td>
-<td>写在<style>标签中</td>
-<td>当前页面</td>
-<td>由书写位置和选择器优先级来共同决定</td>
-<td>小案例 或 对网站首页首次打开速度要求很高的网页需要；如：百度、腾讯首页</td>
-</tr>
-<tr>
-<td>外链样式</td>
-<td>css 样式写在单独 css 文件中，通过 link 标签引入</td>
-<td>多个页面</td>
-<td>由书写位置和选择器优先级来共同决定</td>
-<td>项目开发中高频使用</td>
-</tr>
-<tr>
-<td>导入式样式</td>
-<td>把@import 放在style标签中或 CSS 文件中，用于导入外部 CSS 样式文件</td>
-<td>被导入的页面</td>
-<td>最低</td>
-<td>项目开发中几乎不用（用作了解即可）</td>
-</tr>
-</tbody></table>
+<!-- |引入方式|书写位置|作用范围|优先级|使用场景|
+|---|---|---|---|---|
+|行内样式|css 样式写在标签的 style 属性中|当前标签|最高配合|JS 或特殊需求|
+|内嵌样式|写在<style>标签中|当前页面|由书写位置和选择器优先级来共同决定|小案例 或 对网站首页首次打开速度要求很高的网页需要；如：百度、腾讯首页|
+|外链样式|css 样式写在单独 css 文件中，通过 link 标签引入|	多个页面|由书写位置和选择器优先级来共同决定|项目开发中高频使用|
+|导入式样式|把@import 放在style标签中或 CSS 文件中，用于导入外部 CSS 样式文件|被导入的页面|最低|项目开发中几乎不用（用作了解即可）| -->
+
 <h4 id="CSS样式的优先级"><a href="#CSS样式的优先级" class="headerlink" title="CSS样式的优先级"></a>CSS样式的优先级</h4><blockquote>
 <p>&#x3D;&#x3D;行内样式&#x3D;&#x3D;的优先级最高</p>
 <p>内联样式和外部样式优先级相同，按照&#x3D;&#x3D;就近原则&#x3D;&#x3D;渲染：渲染离标签更近的</p>
@@ -866,7 +834,8 @@ a &#123;
 <li><code>nth-of-type(n)</code>和<code>nth-last-of-type(n)</code>键选择&#x3D;&#x3D;同种标签&#x3D;&#x3D;指定序号的子元素</li>
 </ul>
 <h4 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h4><ul>
-<li>写法：<code>标签[属性]</code><table>
+<li><p>写法：<code>标签[属性]</code></p>
+<table>
 <thead>
 <tr>
 <th>案例</th>
@@ -911,8 +880,10 @@ a &#123;
 </tr>
 </tbody></table>
 </li>
-<li>以上标签、属性、文字都可以替换</li>
-<li>注：实际开发中用的很少，只做了解即可</li>
+<li><p>以上标签、属性、文字都可以替换</p>
+</li>
+<li><p>注：实际开发中用的很少，只做了解即可</p>
+</li>
 </ul>
 <h4 id="CSS3新增伪类"><a href="#CSS3新增伪类" class="headerlink" title="CSS3新增伪类"></a>CSS3新增伪类</h4><table>
 <thead>
@@ -1167,7 +1138,9 @@ div p &#123;font-size:50%;&#125;
 <li>用来设置字体的粗细程度</li>
 <li>可以用属性值或者数字来设置大小</li>
 <li>数字介于1~1000之间，数字越大，字体越粗</li>
-<li>最终的粗细要在当前字体可行的精细范围之内<table>
+<li>最终的粗细要在当前字体可行的精细范围之内</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -1191,8 +1164,6 @@ div p &#123;font-size:50%;&#125;
 <td>比从父元素继承来的值更粗(处于字体可行的粗细范围内)大多数中文字体不支持</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <pre><code>&lt;style&gt;
       .we1 &#123; font-weight: normal; &#125;
       .we2 &#123;font-weight: bold; &#125;
@@ -1380,6 +1351,8 @@ div p &#123;font-size:50%;&#125;
 <li><p>如果文字的大小要随页面的缩放而变化，请使用无单位的数值，以确保行高会等比例的缩放</p>
 </li>
 <li><p>行高的值</p>
+</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1409,8 +1382,6 @@ div p &#123;font-size:50%;&#125;
 <td>取决于客户端。桌面浏览器(包括Firefox)使用默认值，约为<code>1.2</code>，这取决于元素的<code>font-family</code></td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <pre><code>&lt;style&gt;
      .p1 &#123;line-height:20px;
           background-color:skyblue;&#125;
