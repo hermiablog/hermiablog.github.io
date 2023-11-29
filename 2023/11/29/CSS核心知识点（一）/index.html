@@ -406,7 +406,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.5k
+                    6.6k
                 </div>
                 
 
@@ -424,15 +424,11 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <span id="more"></span>
-<h2 id="CSS基础认知"><a href="#CSS基础认知" class="headerlink" title="CSS基础认知"></a>CSS基础认知</h2><h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><ul>
-<li>CSS又称层叠样式表，它是一种标记语言，而不是编程语言</li>
-<li>作用：给html标签添加样式</li>
-<li>CSS已经发展到CSS3，在最新版本3.0中，增加了大量功能，以前只能用JS才能实现的现在用CSS3也能做到</li>
-</ul>
-<blockquote>
+<h2 id="CSS基础认知"><a href="#CSS基础认知" class="headerlink" title="CSS基础认知"></a>CSS基础认知</h2><h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><blockquote>
+<p>CSS又称层叠样式表，它是一种标记语言，而不是编程语言</p>
+<p>作用：给html标签添加样式</p>
+<p>CSS已经发展到CSS3，在最新版本3.0中，增加了大量功能，以前只能用JS才能实现的现在用CSS3也能做到</p>
 <p>要清楚CSS3新增了哪些功能，与之前版本的不同在哪</p>
-</blockquote>
-<blockquote>
 <p>web前端三大核心基础：</p>
 </blockquote>
 <table>
@@ -487,9 +483,9 @@
 </ul>
 <pre><code>p &#123;color: red;font-size: 20px;&#125;
 </code></pre>
-<blockquote>
-<p>项目上线时，会把CSS样式进行压缩，压缩后就是方式二的写法</p>
-</blockquote>
+<ul>
+<li>项目上线时，会把CSS样式进行压缩，压缩后就是方式二的写法</li>
+</ul>
 <h4 id="CSS注释"><a href="#CSS注释" class="headerlink" title="CSS注释"></a>CSS注释</h4><ul>
 <li>注释方式：<code>/* 注释 */</code></li>
 <li>位置：只能放置在style里</li>
@@ -598,10 +594,10 @@ h1 &#123;
 </tr>
 </tbody></table>
 </blockquote>
-<h4 id="CSS样式的优先级"><a href="#CSS样式的优先级" class="headerlink" title="CSS样式的优先级"></a>CSS样式的优先级</h4><ul>
-<li>&#x3D;&#x3D;行内样式&#x3D;&#x3D;的优先级最高</li>
-<li>内联样式和外部样式优先级相同，按照&#x3D;&#x3D;就近原则&#x3D;&#x3D;渲染：渲染离标签更近的</li>
-</ul>
+<h4 id="CSS样式的优先级"><a href="#CSS样式的优先级" class="headerlink" title="CSS样式的优先级"></a>CSS样式的优先级</h4><blockquote>
+<p>&#x3D;&#x3D;行内样式&#x3D;&#x3D;的优先级最高</p>
+<p>内联样式和外部样式优先级相同，按照&#x3D;&#x3D;就近原则&#x3D;&#x3D;渲染：渲染离标签更近的</p>
+</blockquote>
 <h3 id="三、CSS选择器"><a href="#三、CSS选择器" class="headerlink" title="三、CSS选择器"></a>三、CSS选择器</h3><h4 id="选择器分类"><a href="#选择器分类" class="headerlink" title="选择器分类"></a>选择器分类</h4><ul>
 <li>传统 CSS2.1 选择器<ul>
 <li>标签选择器和 id 选择器</li>
@@ -625,12 +621,12 @@ h1 &#123;
 <li>直接使用&#x3D;&#x3D;元素的标签名&#x3D;&#x3D;当做选择器，将选择页面上的&#x3D;&#x3D;所有<strong>该种标签</strong>&#x3D;&#x3D;，无论位置深浅</li>
 <li>作用：由于覆盖面非常大，所以适用于标签样式的初始化</li>
 </ul>
-<pre class=" language-css"><code class="language-css">ul&amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token property">list-style</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token property">text-decoration</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<pre><code>ul&#123;
+  list-style:none;
+&#125;
+a &#123;
+  text-decoration:none;
+&#125;
 </code></pre>
 <h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><ul>
 <li>id选择器是使用元素的id属性来选择特定元素</li>
@@ -644,15 +640,15 @@ a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;<
 </ul>
 </li>
 </ul>
-<pre class=" language-css"><code class="language-css">&lt;style>
-   #box<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-       <span class="token property">color</span><span class="token punctuation">:</span>orange<span class="token punctuation">;</span>
-   &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&lt;/style>
+<pre><code>&lt;style&gt;
+   #box1 &#123;
+       color:orange;
+   &#125;
+&lt;/style&gt;
 
-&lt;body>
-   &lt;h<span class="token number">3</span> id=<span class="token string">"box1"</span>>三级标题&lt;/h<span class="token number">3</span>>
-&lt;/body>
+&lt;body&gt;
+   &lt;h3 id=&quot;box1&quot;&gt;三级标题&lt;/h3&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="class选择器"><a href="#class选择器" class="headerlink" title="class选择器"></a>class选择器</h4><ul>
 <li>class属性表示”类名”</li>
@@ -674,9 +670,9 @@ a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;<
 <li>基本不用，对性能消耗过大</li>
 <li>写法：<code>*</code></li>
 </ul>
-<pre class=" language-css"><code class="language-css">* &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-  <span class="token property">color</span><span class="token punctuation">:</span>green<span class="token punctuation">;</span>
-&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<pre><code>* &#123;
+  color:green;
+&#125;
 </code></pre>
 <h4 id="复合选择器"><a href="#复合选择器" class="headerlink" title="复合选择器"></a>复合选择器</h4><table>
 <thead>
@@ -971,7 +967,9 @@ a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;<
 <h4 id="CSS3新增伪元素"><a href="#CSS3新增伪元素" class="headerlink" title="CSS3新增伪元素"></a>CSS3新增伪元素</h4><ul>
 <li>CSS3新增了”伪元素”特性，表示”虚拟动态创建的元素”</li>
 <li>伪元素用双冒号<code>::</code>表示，IE8及以上兼容单冒号<code>:</code></li>
-<li>语法：<code>element::before&#123; &#125;</code><table>
+<li>语法：<code>element::before&#123; &#125;</code></li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>CSS3新增伪元素</th>
@@ -1003,8 +1001,6 @@ a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;<
 <td>自定义表单元素的占位文本样式</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <blockquote>
 <p><code>::before</code>和<code>::after</code></p>
 </blockquote>
@@ -1153,19 +1149,19 @@ a &amp;<span class="token hexcode">#123</span><span class="token punctuation">;<
 <li><strong>面试题</strong>：如何在页面中设置小于12px的字体(学到动画时会讲)</li>
 <li>百分比是相对于父元素的font-size而言</li>
 </ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
-<span class="token number">.</span>fon<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">12</span>px<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-<span class="token number">.</span>fon<span class="token number">2</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">16</span>px<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-div p &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">50%</span><span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一段默认大小的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fon1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>字体大小为12px<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fot2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre><code>&lt;style&gt;
+.fon1 &#123;font-size:12px;&#125;
+.fon2 &#123;font-size:16px;&#125;
+div p &#123;font-size:50%;&#125;
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;p&gt;这是一段默认大小的文字&lt;/p&gt;
+    &lt;p class=&quot;fon1&quot;&gt;字体大小为12px&lt;/p&gt;
+    &lt;div class=&quot;fot2&quot;&gt;
         父元素为16px
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>字体大小为父元素的50%<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>  
+        &lt;p&gt;字体大小为父元素的50%&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;  
 </code></pre>
 <h4 id="font-weight属性"><a href="#font-weight属性" class="headerlink" title="font-weight属性"></a>font-weight属性</h4><ul>
 <li>用来设置字体的粗细程度</li>
@@ -1197,22 +1193,22 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </tbody></table>
 </li>
 </ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
-      <span class="token number">.</span>we<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span> <span class="token property">font-weight</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span> &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>we<span class="token number">2</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span> &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>we<span class="token number">3</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-weight</span><span class="token punctuation">:</span> <span class="token number">500</span><span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>we<span class="token number">4</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-weight</span><span class="token punctuation">:</span> lighter<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>we<span class="token number">5</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-weight</span><span class="token punctuation">:</span> bolder<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>  
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>we1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>正常粗细<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>we2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>加粗文本<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>we3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<pre><code>&lt;style&gt;
+      .we1 &#123; font-weight: normal; &#125;
+      .we2 &#123;font-weight: bold; &#125;
+      .we3 &#123;font-weight: 500;&#125;
+      .we4 &#123;font-weight: lighter;&#125;
+      .we5 &#123;font-weight: bolder;&#125;  
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;p class=&quot;we1&quot;&gt;正常粗细&lt;/p&gt;
+    &lt;p class=&quot;we2&quot;&gt;加粗文本&lt;/p&gt;
+    &lt;div class=&quot;we3&quot;&gt;
         父元素为600
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>we4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>比父元素更细<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>we5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>比父元素更粗<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+        &lt;p class=&quot;we4&quot;&gt;比父元素更细&lt;/p&gt;
+        &lt;p class=&quot;we5&quot;&gt;比父元素更粗&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="4-font-style属性"><a href="#4-font-style属性" class="headerlink" title="4.font-style属性"></a>4.font-style属性</h4><ul>
 <li>设置字体的倾斜<table>
@@ -1237,17 +1233,17 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </tbody></table>
 </li>
 </ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token number">.</span>sty<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-style</span><span class="token punctuation">:</span> normal<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    <span class="token number">.</span>sty<span class="token number">2</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-style</span><span class="token punctuation">:</span> italic<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    <span class="token number">.</span>sty<span class="token number">3</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-style</span><span class="token punctuation">:</span> oblique<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span><span class="token punctuation">></span></span>这是一个默认倾斜字体<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sty1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>把默认倾斜设置为不倾斜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sty2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>italic下把不倾斜的设置为倾斜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>sty3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>oblique下把不倾斜设置为倾斜<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<pre><code>&lt;style&gt;
+    .sty1 &#123;font-style: normal;&#125;
+    .sty2 &#123;font-style: italic;&#125;
+    .sty3 &#123;font-style: oblique;&#125;
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;i&gt;这是一个默认倾斜字体&lt;/i&gt; &lt;br&gt;
+    &lt;i class=&quot;sty1&quot;&gt;把默认倾斜设置为不倾斜&lt;/i&gt;
+    &lt;p class=&quot;sty2&quot;&gt;italic下把不倾斜的设置为倾斜&lt;/p&gt;
+    &lt;p class=&quot;sty3&quot;&gt;oblique下把不倾斜设置为倾斜&lt;/p&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="font-family-字体类型"><a href="#font-family-字体类型" class="headerlink" title="font-family 字体类型"></a>font-family 字体类型</h4><ul>
 <li>用于设置字体类型，浏览器默认字体为”微软雅黑”</li>
@@ -1304,21 +1300,23 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </ul>
 </li>
 </ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span>
-  @font-face <span class="token entity" title="&#123;">&amp;#123;</span>
-  <span class="token entity" title="&#125;">&amp;#125;</span><span class="token comment" spellcheck="true">&lt;!-- 使用font-face声明字体 --></span>
-  .web-font <span class="token entity" title="&#123;">&amp;#123;</span>
-  <span class="token entity" title="&#125;">&amp;#125;</span><span class="token comment" spellcheck="true">&lt;!-- 定义使用 webfont 的样式 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>要定义的文字<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<pre><code>&lt;style&gt;
+  @font-face &#123;
+  &#125;&lt;!-- 使用font-face声明字体 --&gt;
+  .web-font &#123;
+  &#125;&lt;!-- 定义使用 webfont 的样式 --&gt;
+&lt;/style&gt;
+&lt;body&gt;
+&lt;p&gt;要定义的文字&lt;/p&gt;
+&lt;/body&gt;
 </code></pre>
 <h3 id="二、CSS文本属性"><a href="#二、CSS文本属性" class="headerlink" title="二、CSS文本属性"></a>二、CSS文本属性</h3><h4 id="text-decoration属性-修饰线"><a href="#text-decoration属性-修饰线" class="headerlink" title="text-decoration属性-修饰线"></a>text-decoration属性-修饰线</h4><ul>
 <li>用于设置文本的修饰线外观</li>
 <li>text-decoration是以下四个属性的简写</li>
 <li>可以写在一行，以空格分隔</li>
-<li><strong>注</strong>：其他三个属性的前提是<code>line</code><table>
+<li><strong>注</strong>：其他三个属性的前提是<code>line</code></li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -1342,36 +1340,34 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td>文本修饰线的粗细</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
-    p &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-decoration</span><span class="token punctuation">:</span>underline red <span class="token number">5</span>px<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    div &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-decoration</span><span class="token punctuation">:</span>wavy underline purple <span class="token number">3</span>px<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/*有underline才有wavy*/</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>有红色下划线的文本，下划线粗5px<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>一行有紫色波浪线的文本，线粗3px<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<pre><code>&lt;style&gt;
+    p &#123;text-decoration:underline red 5px;&#125;
+    div &#123;text-decoration:wavy underline purple 3px;&#125;
+    /*有underline才有wavy*/
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;p&gt;有红色下划线的文本，下划线粗5px&lt;/p&gt;
+    &lt;div&gt;一行有紫色波浪线的文本，线粗3px&lt;/div&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="text-indent首行缩进"><a href="#text-indent首行缩进" class="headerlink" title="text-indent首行缩进"></a>text-indent首行缩进</h4><ul>
 <li>定义首行文本内容之前的缩进量</li>
 <li>常用单位是<code>em</code>、<code>2em</code>是两个字符的宽度</li>
 <li>默认字符大小是16px，如果没有单独设置，那么2em&#x3D;32px</li>
 </ul>
-<pre class=" language-css"><code class="language-css">&lt;style>
-        <span class="token number">.</span>line<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">2</span>em<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*字体大小为32px*/</span>
-        <span class="token number">.</span>line<span class="token number">2</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-indent</span><span class="token punctuation">:</span><span class="token number">2</span>em<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*首行缩进2em，也就是32px*/</span>
-        <span class="token number">.</span>line<span class="token number">3</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">2</span>em<span class="token punctuation">;</span><span class="token property">text-indent</span><span class="token punctuation">:</span><span class="token number">2</span>em<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">/*字体大小为32px,首行缩进4em=64px*/</span>
-&lt;/style>
-&lt;body>
-    &lt;p class=<span class="token string">"line1"</span>>默认文本，设置字体大小是两字符&lt;/p>
-    &lt;p class=<span class="token string">"line2"</span>>首行缩进两字符&lt;/p>
-    &lt;p class=<span class="token string">"line3"</span>>首行缩进两字符，字体大小为两字符&lt;/p>
-&lt;/body>
+<pre><code>&lt;style&gt;
+        .line1 &#123;font-size:2em;&#125;
+        /*字体大小为32px*/
+        .line2 &#123;text-indent:2em;&#125;
+        /*首行缩进2em，也就是32px*/
+        .line3 &#123;font-size:2em;text-indent:2em;&#125;
+        /*字体大小为32px,首行缩进4em=64px*/
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;p class=&quot;line1&quot;&gt;默认文本，设置字体大小是两字符&lt;/p&gt;
+    &lt;p class=&quot;line2&quot;&gt;首行缩进两字符&lt;/p&gt;
+    &lt;p class=&quot;line3&quot;&gt;首行缩进两字符，字体大小为两字符&lt;/p&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h4><ul>
 <li><p>行高的测量方式</p>
@@ -1415,24 +1411,24 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </tbody></table>
 </li>
 </ul>
-<pre class=" language-css"><code class="language-css">&lt;style>
-     <span class="token number">.</span>p<span class="token number">1</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">line-height</span><span class="token punctuation">:</span><span class="token number">20</span>px<span class="token punctuation">;</span>
-          <span class="token property">background-color</span><span class="token punctuation">:</span>skyblue<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      div &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">line-height</span><span class="token punctuation">:</span><span class="token number">40</span>px<span class="token punctuation">;</span>
-          <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-          <span class="token property">font-family</span><span class="token punctuation">:</span><span class="token string">"宋体"</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>p<span class="token number">2</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span>
-          <span class="token property">background-color</span><span class="token punctuation">:</span> aqua<span class="token punctuation">;</span>
-          <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">"微软雅黑"</span><span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-      <span class="token number">.</span>p<span class="token number">3</span> &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">line-heigt</span><span class="token punctuation">:</span>normal<span class="token punctuation">;</span>
-          <span class="token property">background-color</span><span class="token punctuation">:</span>coral<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  &lt;/style>
- &lt;body>
- &lt;p class=<span class="token string">"p1"</span>>设置行高为<span class="token number">20</span>px&lt;/p>
-  &lt;div>这是一行行高<span class="token number">40</span>px的宋体&lt;/div>
-  &lt;p class=<span class="token string">"p2"</span>>这是行高为<span class="token number">3</span>的微软雅黑&lt;/p>
-  &lt;p class=<span class="token string">"p3"</span>>行高为normal的文字&lt;/p>
- &lt;/body>
+<pre><code>&lt;style&gt;
+     .p1 &#123;line-height:20px;
+          background-color:skyblue;&#125;
+      div &#123;line-height:40px;
+          background-color: red;
+          font-family:&quot;宋体&quot;&#125;
+      .p2 &#123;line-height: 3;
+          background-color: aqua;
+          font-family: &quot;微软雅黑&quot;;&#125;
+      .p3 &#123;line-heigt:normal;
+          background-color:coral;&#125;
+  &lt;/style&gt;
+ &lt;body&gt;
+ &lt;p class=&quot;p1&quot;&gt;设置行高为20px&lt;/p&gt;
+  &lt;div&gt;这是一行行高40px的宋体&lt;/div&gt;
+  &lt;p class=&quot;p2&quot;&gt;这是行高为3的微软雅黑&lt;/p&gt;
+  &lt;p class=&quot;p3&quot;&gt;行高为normal的文字&lt;/p&gt;
+ &lt;/body&gt;
 </code></pre>
 <h4 id="行文本垂直、水平居中"><a href="#行文本垂直、水平居中" class="headerlink" title="行文本垂直、水平居中"></a>行文本垂直、水平居中</h4><ul>
 <li>行文本垂直居中<ul>
@@ -1451,16 +1447,16 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </ul>
 </li>
 </ul>
-<pre class=" language-css"><code class="language-css">&lt;style>
-  <span class="token number">.</span>l &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-align</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>c &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token number">.</span>r &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span><span class="token property">text-align</span><span class="token punctuation">:</span>right<span class="token punctuation">;</span>&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&lt;/style>
-&lt;body>
-  &lt;p class=<span class="token string">"l"</span>>这是居左文字&lt;/p>
-  &lt;p class=<span class="token string">"c"</span>>这是居中文字&lt;/p>
-  &lt;p class=<span class="token string">"r"</span>>这是居右文字&lt;/p>
-&lt;/body>
+<pre><code>&lt;style&gt;
+   .l &#123;text-align: left;&#125;
+   .c &#123;text-align:center;&#125;
+   .r &#123;text-align:right;&#125;
+&lt;/style&gt;
+&lt;body&gt;
+   &lt;p class=&quot;l&quot;&gt;这是居左文字&lt;/p&gt;
+   &lt;p class=&quot;c&quot;&gt;这是居中文字&lt;/p&gt;
+   &lt;p class=&quot;r&quot;&gt;这是居右文字&lt;/p&gt;
+&lt;/body&gt;
 </code></pre>
 <h4 id="font合写属性"><a href="#font合写属性" class="headerlink" title="font合写属性"></a>font合写属性</h4><ul>
 <li>font属性可以用来作为<code>font-style</code>、<code>font-weight</code>、<code>font-size</code>、<code>line-height</code>、<code>font-family</code>属性的合写</li>
@@ -1471,7 +1467,7 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </ul>
 </li>
 </ul>
-<pre class=" language-css"><code class="language-css"><span class="token property">font</span><span class="token punctuation">:</span>italic <span class="token number">20</span>px/<span class="token number">1.2</span> <span class="token string">"宋体"</span><span class="token punctuation">;</span>
+<pre><code>font:italic 20px/1.2 &quot;宋体&quot;;
 </code></pre>
 <h4 id="word-spacing字间距"><a href="#word-spacing字间距" class="headerlink" title="word-spacing字间距"></a>word-spacing字间距</h4><ul>
 <li>对中文无效，仅对英文单词有效<table>
@@ -1494,7 +1490,9 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </ul>
 <h4 id="letter-spacing字符间距"><a href="#letter-spacing字符间距" class="headerlink" title="letter-spacing字符间距"></a>letter-spacing字符间距</h4><ul>
 <li>用于设置文本字符的间距</li>
-<li>对中文和英文都有效，单词会被分隔成一个个字母<table>
+<li>对中文和英文都有效，单词会被分隔成一个个字母</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>属性值</th>
@@ -1510,8 +1508,6 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td>通过指定具体额外间距来增加字体的单词间距,可以是负数</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <pre><code>&lt;style&gt;
     .word1 &#123;word-spacing:normal;&#125;
     .word2 &#123;word-spacing:-10px;&#125;
@@ -1529,7 +1525,9 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 </code></pre>
 <h3 id="列表样式"><a href="#列表样式" class="headerlink" title="列表样式"></a>列表样式</h3><h4 id="list-style-type"><a href="#list-style-type" class="headerlink" title="list-style-type"></a>list-style-type</h4><ul>
 <li>设置列表项标记的类型</li>
-<li>实际开发中的一般会把前面的标记类型去掉，用做好的小图标替代<table>
+<li>实际开发中的一般会把前面的标记类型去掉，用做好的小图标替代</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>值</th>
@@ -1573,11 +1571,11 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td>标记的类型有20多项，但实际开发中几乎不用</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <p><strong>联系之前在HTML学过的列表标签</strong>:</p>
 <ul>
-<li>注：<code>style=&quot;&quot;</code>等于写在<code>&lt;style&gt;</code>标签里<table>
+<li>注：<code>style=&quot;&quot;</code>等于写在<code>&lt;style&gt;</code>标签里</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>html(已废弃)</th>
@@ -1593,10 +1591,10 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td><code>list-type:decimal</code></td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <h4 id="2-list-style-image"><a href="#2-list-style-image" class="headerlink" title="2.list-style-image"></a>2.list-style-image</h4><ul>
-<li>用来指定列表中的列表标记图像，几乎不用<table>
+<li>用来指定列表中的列表标记图像，几乎不用</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>值</th>
@@ -1616,10 +1614,10 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td>规定从父元素继承该属性的值</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <h4 id="3-list-style-position"><a href="#3-list-style-position" class="headerlink" title="3.list-style-position"></a>3.list-style-position</h4><ul>
-<li>规定列表中列表项目标记的位置，几乎不用<table>
+<li>规定列表中列表项目标记的位置，几乎不用</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>值</th>
@@ -1639,12 +1637,10 @@ div p &amp;<span class="token hexcode">#123</span><span class="token punctuation
 <td>规定从父元素继承该属性的值</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <h4 id="4-list-style"><a href="#4-list-style" class="headerlink" title="4.list-style"></a>4.list-style</h4><ul>
 <li>这是以上三个的综合写法</li>
 </ul>
-<pre class=" language-css"><code class="language-css"><span class="token property">list-style</span><span class="token punctuation">:</span>delcima-leading-zero outside<span class="token punctuation">;</span>
+<pre><code>list-style:delcima-leading-zero outside;
 </code></pre>
 <ul>
 <li>实际开发中用的最多的是去掉标记:<code>list-style-type:none;</code>、<code>list-style:none;</code></li>
