@@ -1,0 +1,2336 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="移动端开发必备知识, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>移动端开发必备知识 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">移动端开发必备知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
+                                <span class="chip bg-color">移动端</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="一、什么是移动-Web、PC-web-和-web-App-开发？"><a href="#一、什么是移动-Web、PC-web-和-web-App-开发？" class="headerlink" title="一、什么是移动 Web、PC web 和 web App 开发？"></a>一、什么是移动 Web、PC web 和 web App 开发？</h3><blockquote>
+<p><strong>什么是web开发？</strong></p>
+<ul>
+<li>简单理解为网页开发，主要使用HTML+CSS+Javascript编写，然后代码在浏览器中运行<br><strong>什么是移动 web开发和PC web 开发？</strong></li>
+<li>本质上都是用HTML+CSS+Javascript来编写</li>
+<li>只是移动web开发，代码是在手机、平板等浏览器中运行</li>
+<li>而PC web开发，代码是在PC端浏览器中运行<br>什么是App开发</li>
+<li>APP是application的缩写，指应用程序，一般指手机软件<table>
+<thead>
+<tr>
+<th>APP 开发分类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Native APP</td>
+<td>一般依托于操作系统，有很强的交互，是一个完整的 App，可拓展性强，需要用户下载安装使用。比如：基于操作系统的 IOS 开发和安卓开发</td>
+</tr>
+<tr>
+<td>Web APP</td>
+<td>应用程序在浏览器中运行，称为 Web APP</td>
+</tr>
+<tr>
+<td>Hybrid APP(混合式 APP)</td>
+<td>是<code>Native APP</code>和<code>Web APP</code>的混合体， 同时具有两者的特点。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、移动-Web-与-PC-Web-开发区别？"><a href="#二、移动-Web-与-PC-Web-开发区别？" class="headerlink" title="二、移动 Web 与 PC Web 开发区别？"></a>二、移动 Web 与 PC Web 开发区别？</h3><blockquote>
+<ul>
+<li>移动 Web 与 PC Web <strong>最大的区别在于运行的终端设备不同</strong>。不同终端设备有不同特性，正是这些终端设备的不同特性，造成了移动 web 开发和 PC web 开发的不同。</li>
+<li>具体的不同点有以下4个方面：<ul>
+<li>屏幕大小不同</li>
+<li>网络环境和设备性能不同</li>
+<li>交互方式不同</li>
+<li>兼容性不同</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>屏幕大小不同</p>
+<blockquote>
+<ul>
+<li>我们都知道移动端的设备，如手机的屏幕大小相对 PC 端要小很多，所以针对 PC 端的那些布局在移动端肯定就不行了。所以我们需要专门针对移动端来做布局。</li>
+<li>如果直接把 PC 端的网站在移动端打开，整个页面就会被压缩，压缩后就会看不清。  </li>
+<li>常见的屏幕尺寸大小：<a target="_blank" rel="noopener" href="http://shijuechuanda.com/screen/index.htm">http://shijuechuanda.com/screen/index.htm</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p>交互方式不同</p>
+<blockquote>
+<ul>
+<li>pc 端主要是用鼠标、键盘来实现交互</li>
+<li>移动端主要是用手指来实现交互，所以我们在学移动端开发时，需要了解移动端的手机触摸事件。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>网络环境和设备性能的不同</p>
+<blockquote>
+<ul>
+<li>移动端的网络环境与 PC 端相比，无论是在网络下载速度还是在流量方面，都要比 PC 端差些。</li>
+<li>PC 端的设备性能要比移动端的设备性能要强很多，所以我们在做移动端开发时，<strong>要更注重性能的优化</strong>，否则可能会带来较差的性能体验。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>兼容性不同</p>
+<blockquote>
+<ul>
+<li>移动端的兼容性要比 PC 端好的多，因为移动端相较 PC 端发展的要晚一些，所以国内的 UC、QQ、百度等手机浏览器都是根据 Webkit 修改过来的内核，所以 html5 的新特性在移动端我们可以放心大胆的使用。<table>
+<thead>
+<tr>
+<th>PC 端常见浏览器</th>
+<th>移动端常见浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>谷歌浏览器、火狐浏览器、Edge 浏览器、360 浏览器、QQ 浏览器、搜狗浏览器 … 等</td>
+<td>Safari 浏览器、UC 浏览器、QQ 浏览器、欧朋浏览器、百度手机浏览器、360 安全浏览器、谷歌浏览器、搜狗手机浏览器、猎豹浏览器 … 等</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、什么是像素、分辨率、物理像素、逻辑像素、设备像素比？"><a href="#三、什么是像素、分辨率、物理像素、逻辑像素、设备像素比？" class="headerlink" title="三、什么是像素、分辨率、物理像素、逻辑像素、设备像素比？"></a>三、什么是像素、分辨率、物理像素、逻辑像素、设备像素比？</h3><ol>
+<li>什么是像素<blockquote>
+<ul>
+<li>当我们把一张图片在 PS 放大 240 倍后，我们发现这张图其实是由许许多多的小方格拼凑起来。这一个个的小方格就被定义为一个单位，叫像素。只不过小方格本身很小，所以人肉眼看不出来。</li>
+<li>1 个小方格为 1 像素大小，2 个小方格为 2 像素大小，那 n 个小方格就是 n 像素。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>图标尺寸 n * m 像素</strong></p>
+<ul>
+<li>比如图片大小是200 * 300像素，也就是说该 图片的宽有200个小方格，高有300个小方格， 那该图片一共占200 *300&#x3D;60000个小格子。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>1像素（1个小方格）多大？</strong></p>
+<ul>
+<li>小方格的大小就是 1 像素，像素就像是厘米或毫米一样被定义好的单位，专门用于电子屏幕上描述图形尺寸的单位。</li>
+<li>但像素不像厘米等长度单位一样有固定大小，像素没有固定大小，1 像素就是一个小方格。<strong>不同的分辨率下</strong>，1 像素（小方格）大小不一样</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>什么是分辨率<blockquote>
+<ul>
+<li>各种设备的屏幕尺寸是以英寸为单位的。</li>
+<li>英寸：是一个长度单位，是有固定大小的，1英寸&#x3D;2.54 厘米。</li>
+<li>我们知道屏幕也是一个矩形，按正常我们应该也是用 长度 * 宽度 的形式来描述，为什么会用一个长度单位英寸来描述呢？是因为显示屏幕不是胡乱设计比例的，他是有固定的设计比例，如 16：9、4：3 等，因此屏幕给出<strong>斜对角线的大小</strong>，具体屏幕宽高就可以根据屏幕的设计比例计算出来。<ul>
+<li>所以屏幕尺寸大小为 15.6 英寸，指的是屏幕斜对角线的大小</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>分辨率与屏幕的关系</strong></p>
+<ul>
+<li>比如屏幕宽有 n 个小方格，高有 m 个小方格，那屏幕的分辨率就是 n * m像素</li>
+<li>屏幕是如何划分小方格？<ul>
+<li>屏幕划分小方格就好比我们画表格一样，横着、竖着加线条，就划分成了一排排的小格子</li>
+</ul>
+</li>
+<li>如何计算此时电脑划分出来的小格子的大小 ？<ul>
+<li>通过屏幕给出的英寸大小，可以计算出屏幕的宽和高的大小</li>
+<li>再通过宽和高及分辨率，就可以计算划出来的小方格的长和宽的大小</li>
+<li>知道小方格的长和宽，就能计算出一个小格子的（面积）大小。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>分辨率大小影响什么？</strong></p>
+<ol>
+<li>分辨率影响图片清淅度，最终影响了我们的视觉</li>
+</ol>
+<ul>
+<li>相同尺寸的屏幕下，分辨率越小，一个小方格(1物理像素)占据的空间越大，格子轮廓越明显，图片就越不清晰，体验感越差</li>
+<li>由此可见，相同尺寸的图片，分辨率越高，图片显示的越清淅。</li>
+</ul>
+<ol start="2">
+<li>分辨率还影响图片展示效果，最终影响了我们的视觉</li>
+</ol>
+<ul>
+<li>1像素的具体大小在不同的设备上是不一样的，屏幕大小相同，同一张图片:<ul>
+<li>分辨率越高，划分的小格子数越多，1 像素占据的空间就会越小，图片显示出来的大小就越小，但是会越清晰，</li>
+<li>分辨率越低，划分的小格子数越少，1 像素占据的空间就会越大，图片显示出来的大小就越大，但很模糊。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>什么是物理像素与逻辑像素、设备像素比<blockquote>
+<p><strong>物理像素（设备像素 dp）</strong></p>
+<ul>
+<li>在设备一生产出来后就确定的像素称作设备物理像素，也叫设备像素(device pixels),简称 dp。也就是我们前面讲到的显示屏幕划分出的物理小格子 ，1 个小格子就是一个物理像素。</li>
+<li>所以尺寸大小一样时，分辨率越大，格子越小，1 个物理像素就越小，图片显示就越清淅。</li>
+<li>设备生产出来后，尺寸是固定的，分辨率通常也是固定的，所以物理像素的大小是生产出来后就确定的，其大小是不能改变的。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>逻辑像素（CSS 像素）（设备独立像素 dip）</strong></p>
+<ul>
+<li>用于表示图片尺寸等，<strong>可时刻改变的像素</strong>称作逻辑像素，也叫设备独立像素(device independent pixels) ，简称 dip</li>
+<li>也就是我们通常说的 CSS 像素，比如100px 、200px等</li>
+<li>浏览器内的一切长度都是以 CSS 像素（逻辑像素）px为单位的。</li>
+<li>为什么说逻辑像素是可以时刻改变的像素呢？<ul>
+<li>是因为1px在屏幕上的具体显示大小，是由其所在的设备的<strong>设备像素比</strong>来决定的。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>设备像素比 (dpr)</strong></p>
+<ul>
+<li>设备像素比(devicePixelRatio)，简称 dpr，是指物理像素与逻辑像素的比例。</li>
+<li>公式：<code>dpr = (在一个方向上)物理像素dp / 逻辑像素dip (没有缩放时)</code></li>
+<li>物理像素dp与逻辑像素dip的显示关系<ul>
+<li>当 dpr&#x3D;1 时，说明物理像素和逻辑像素是 1：1，此时一个物理像素显示一个逻辑像素</li>
+<li>当 dpr&#x3D;2 时，说明物理像素是逻辑像素的 2 倍，此时<strong>2*2&#x3D;4</strong>个物理像素显示 1 个逻辑像素</li>
+</ul>
+</li>
+<li>假设，以下两个手机的屏幕大小一样<ul>
+<li>dpr&#x3D;1 的手机分辨率是2*4像素</li>
+<li>dpr&#x3D;2 的手机分辨率是4*8像素</li>
+</ul>
+</li>
+<li>现在1*1px的图片，在两台设备上显示效果如下：<ul>
+<li>在dpr&#x3D;1 的设备上，则1个物理像素显示一个逻辑像素</li>
+<li>在dpr&#x3D;2 的设备上，则4个物理像素显示一个逻辑像素<blockquote>
+<p>注：</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>在一般的电脑上，设备像素是等于逻辑像素的，也就是dpr&#x3D;1.0,高分辨率的电脑上，二者不一定相等，浏览器提供一个接口可以查看二者的关系：</li>
+<li>在 console 控制台输入 window.devicePixelRatio属性查看</li>
+<li>dpr值，厂商在设备出厂时就已经进行设置，并且禁止用户进行更改</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>图片缩放，是在改变什么？</strong></p>
+<ul>
+<li>图片的缩放是在改变图片的<strong>逻辑像素</strong></li>
+<li>一般情况下点开图片查看时是将图片的一个小格子(逻辑像素)对应到一个显示屏幕的小格子（物理像素）。</li>
+<li>但图片在被放大或者缩小后，图片的像素小格子便不再是一一对应于显示屏幕的分辨率划分出的物理小格子了。<ul>
+<li>图片放大 3 倍，其逻辑像素点也增为原来了3倍，此时 1 个逻辑像素占一个物理像素，但是因为逻辑像素为原来的 3 倍，那对应占的物理像素点也是原来的3倍。</li>
+<li>此时相当于原来的一个图片小格子就占据3个物理小格子大小显示，因此图片就看起来放大了，甚至超出屏幕大小。</li>
+<li>图片缩小到 0.5，则一个图片小格子就占据半个物理小格子，看起来就缩小了。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>为什么要有物理像素和逻辑像素之分？</p>
+<blockquote>
+<ul>
+<li>为什么不用物理像素表示图片的大小<ul>
+<li>因为两个电脑尺寸完全一样，但分辨率不一样，看到的图片大小差别很大，这个体验非常不好。</li>
+</ul>
+</li>
+<li>如果两台电脑的屏幕尺寸完全一样，一个分辨率是<code>1920 *1080</code>, 一个是<code>960 *540</code>,那么二者同时放一个<code>300* 300</code>的物理像素大小的图片，结果会怎么样？<ul>
+<li>在高分辨率<code>1920 *1080</code>下1像素（小方格）要比低分辨率<code>960 *540</code> 1像素（小方格）要小很多，所以在 1920 *1080下看到的图片会很小，在960 *540 下看到的图片会很大。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何让相同尺寸屏幕下，不同分辨率，看同一图片效果差别不大？</p>
+<blockquote>
+<ul>
+<li>实现的方法就是提高那些分辨率很高但是屏幕尺寸很小的设备的 dpr</li>
+<li>分辨率很高，如果屏幕尺寸很小，则 1 个物理像素点会很小，那图片显示就会很小，提高 dpr 后，则 1px 逻辑像素会占用更多的设备像素点，这样图片看起来会更大些</li>
+<li>例如 300 * 300 逻辑像素大小的图片，有屏幕尺寸相同的两个设备 A &#x2F; B<ul>
+<li>A 的分辨率为 1920 * 1080，设置 A 的 dpr &#x3D;2，从而得到 4 个物理像素显示 1 个逻辑像素</li>
+<li>B 的分辨率是 960 * 540 ，设置 B 的dpr &#x3D;1，从而得到 1 个物理像素显示 1 个逻辑像素</li>
+<li>这样同一个图片在 B 设备中一个像素小格子占一个物理格子，在 A 设备中，因为 A 的物理小格子小，那就 4 个物理小格子显示 1 个逻辑像素，这样呈现的两个图片大小就看起来就一样大的了。<blockquote>
+<p>这就是为什么相同尺寸的屏幕，其分辨率越高，对应的 dpr 往往会越大。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是标清屏和高清屏？</p>
+<blockquote>
+<ul>
+<li>当设备的 dpr&#x3D;1 时，这个设备可以称为是标清屏</li>
+<li>当设备的 dpr&gt;1 时，这个设备可以称为是高清屏</li>
+<li>目前高清屏的 dpr 通常为 2，3 等。<blockquote>
+<p>相同尺寸的屏幕，其分辨率越高，对应的 dpr 往往会越大,图像越高清</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>移动开发为什么要使用 2 倍或 3 倍图？</p>
+<blockquote>
+<ul>
+<li>思考题：标清屏中，1 个逻辑像素用一个物理像素显示，图片设计的效果正好和展示效果一样，在高清屏 dpr&#x3D;2 中，1 个逻辑像素用 4 个物理像素显示，图片到底是更清淅了，还是更模糊了？<ul>
+<li>在高清屏中 1 个 CSS 像素点实际上由 4 个物理像素展示，1 分成 4，显然不够分，只能颜色近似选取,所以，图片感觉就会变的模糊了</li>
+</ul>
+</li>
+<li>为了让移动端能够显示高清图效果，所以我们在设计的时候<ul>
+<li>针对 dpr &#x3D; 2 的高清屏，专门设计 2 倍图来开发</li>
+<li>针对 dpr &#x3D; 3 的高清屏，专门设计 3 倍图来开发<blockquote>
+<p>比如: iPhone SE 的分辨率 750 * 1334，dpr &#x3D; 2，在水平方向上能显示的 CSS 像素为 375px,因此我们在设计稿时，就需要设计 2 倍图，即设计稿的宽为 750px，然后在实际开发时，按 750&#x2F;2 &#x3D; 375px 大小来开发。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、viewport-视口设置"><a href="#四、viewport-视口设置" class="headerlink" title="四、viewport 视口设置"></a>四、viewport 视口设置</h3><ol>
+<li><p>在 pc 端和移动端，网页中 html,body 的默认宽是多少 ？</p>
+<blockquote>
+<ul>
+<li>pc 端（分辨率为<code>1920 * 1080</code>）下<ul>
+<li>html 的默认宽为浏览器宽<code>1920px</code></li>
+<li>body为块级元素，在设置 <code>margin: 0;</code>时，body的宽等于html宽<code>1920px</code><blockquote>
+<p>在 PC 端，一个物理像素就等于 1 个 px 逻辑像素</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>移动端<ul>
+<li>大部分手机浏览器的宽为<code>980px</code></li>
+<li>手机端网页中 html 的默认宽等于浏览器宽为<code>980px</code></li>
+<li>body 块级元素，在设置<code>margin: 0;</code>时，body的宽等于html 宽等于<code>980px</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如果把一个 PC 端的网站，在手机端显示打开，会看到什么样的效果？</p>
+<blockquote>
+<ul>
+<li>当我们把 PC 端布局的页面(内容宽为 980px)，直接放在移动端来显示，会发现整体被压缩变小</li>
+<li>原因：因为移动端的浏览器默认宽为 980px，而要把浏览器整个显示在 <code>iPhone SE</code>的屏幕下，而iPhone SE的可视宽只有375px，所以整个浏览器就会被压缩（缩放）到375px大小。则浏览器中的内容也要等比例压缩到到宽为 375px 的屏幕里。<ul>
+<li>如果电脑端网站的宽<code>&gt; 980px</code>，则在移动端会出现水平滚动条，拖动滚动条可查看全部内容</li>
+<li>如果电脑端网站的宽<code>&lt; 980px</code>，则在移动端并不能全屏展示，会在水平上留有空白</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>为什么移动端 body 的默认宽为 980px</p>
+<blockquote>
+<ul>
+<li>很早之前，电脑的分辨率比较低，写一个电脑端的网站基本都是在980px以内。为了让980px的网站可以在手机完美显示出来，浏览器开发商把浏览器的默认宽设置为了980px，也就是我们后面要提到的<strong>布局视口宽</strong>。</li>
+<li>移动端是在这个布局视口来布局网页，所以移动端网页的html默认宽为980px，body是块级元素，在设置margin: 0;时，其宽会等于 html 的宽980px。</li>
+<li>但是 PC 端的网页在移动那么小的屏幕里看时，会被压缩，所以需要通过双指来放大网页才能看得更清楚，本质上体验还是没有达到最佳状态。</li>
+<li><strong>那如何才能让手机端看到的网页是最佳的状态呢？</strong><ul>
+<li>那肯定要专门针对移动端的尺寸大小来设计和布局网页。但是移动端尺寸五花八门，没有办法把浏览器的大小固定到某个尺寸，这就有了接下来提出的viewport 视口的概念。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>视口分类</p>
+<blockquote>
+<p>在 PC 端，视口指的是浏览器的可视区域，其宽度和浏览器窗口的宽度保持一致。</p>
+<ul>
+<li>移动端涉及三个视口：布局视口(Layout Viewport)、视觉视口(Visual Viewport)、理想视口(Ideal Viewport)</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>布局视口(Layout Viewport)</strong></p>
+<ul>
+<li>布局视口可以简单理解为移动端网页的宽度（浏览器宽），也就是我们在上面提到的 html、body 的默认宽为 980px。</li>
+<li>默认我们是在这宽为 980px 的容器中来布局网页。<img src="布局视口.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>视觉视口(Visual Viewport)</strong></p>
+<ul>
+<li>用户在默认情况下能看到的网站的区域</li>
+<li>默认情况下浏览器大小会被压缩来适应视觉视口大小，所以默认情况下看到的内容大小要比实际小很多<img src="视觉视口.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>理想视口(Ideal Viewport)</strong></p>
+<ul>
+<li>当<code>布局视口 = 视觉视口</code>时，就是我们期待的理想视口。</li>
+<li>理想视口下，浏览器大小与视觉视口大小相等，内容不会被压缩）<img src="理想视口.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>适配代码：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;</code></li>
+<li>width&#x3D;device-width 表示布局视口&#x3D;设备视口（视觉视口）</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>viewport的设置<blockquote>
+<p>为了让移动端能正常的显示网页，我们通常会在网页的<head>标签中添加如下代码</p>
+<pre><code>&lt;meta
+ name=&quot;viewport&quot;
+ content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;
+/&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width</td>
+<td>设置布局视口的宽</td>
+</tr>
+<tr>
+<td>当 width&#x3D;device-width 时，即布局视口&#x3D;视觉视口，也就达到了我们想要的理想视口</td>
+<td></td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td>设置页面的初始缩放值，为一个数字，可以带小数；值为 1，表示不缩放</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td>允许用户的最小缩放值，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td>允许用户的最大缩放值，为一个数字，可以带小数</td>
+</tr>
+<tr>
+<td>height</td>
+<td>设置 layout viewport 的高度，这个属性对我们并不重要，很少使用</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td>是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes 代表允许</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>/*JS 获取视口宽 */
+document.documentElement.clientWidth
+/* 获取屏幕尺寸 */
+screen.width
+</code></pre>
+</blockquote>
+<h3 id="五、真机查看"><a href="#五、真机查看" class="headerlink" title="五、真机查看"></a>五、真机查看</h3><ol>
+<li><p>创建本地服务器</p>
+<blockquote>
+<p>通过 VSCode 来创建本地服务器，在VSCode通过<code>Open with Live Server</code>打开网页，在地址栏中就能看到类似以下的地址：<a target="_blank" rel="noopener" href="http://127.0.0.1:5500/demo.html">http://127.0.0.1:5500/demo.html</a></p>
+</blockquote>
+</li>
+<li><p>查看本机IP地址</p>
+<blockquote>
+<ul>
+<li>在电脑的右下击输入 cmd,然后回车，就可以进到电脑的命令黑窗口</li>
+<li>在命令黑窗口，输入 ipconfig ，然后回车，就能看到 IPv4 地址</li>
+<li>我们将本地服务地址：<a target="_blank" rel="noopener" href="http://127.0.0.1:5500/demo.html">http://127.0.0.1:5500/demo.html</a> 中的 <code>127.0.0.1</code>替换成 192.168.0.19(IPv4 地址)</li>
+<li>修改完成后的最终地址：<a target="_blank" rel="noopener" href="http://192.168.0.19:5500/demo.html">http://192.168.0.19:5500/demo.html</a> ，然后回车看在电脑端是否能正常访问到。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>关闭防火墙</p>
+<blockquote>
+<ul>
+<li>在电脑左下角，搜索 “ 控制面板 ” ，点击控制面板进入</li>
+<li>点击系统和安全，进入</li>
+<li>点击 windows Defender 防火墙</li>
+<li>点击左边的启用或关闭 Windows Defender 防火墙</li>
+<li>点击关闭防火墙</li>
+</ul>
+</blockquote>
+</li>
+<li><p>手机端访问地址</p>
+<blockquote>
+<ul>
+<li>防火墙关闭后，要确保手机和电脑是在同一网络中<ul>
+<li>方法一：电脑开热点，手机连电脑热点</li>
+<li>方法二：电脑手机连同一无线网</li>
+</ul>
+</li>
+<li>网络环境设置好了后，接下来只需在在手机端防问 <a target="_blank" rel="noopener" href="http://192.168.0.19:5500/demo.html">http://192.168.0.19:5500/demo.html</a> 就可以正常访问了。</li>
+<li>也可以把地址在草料网生成对应的二维码，手机直接扫二维码访问。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="六、移动开发常用的单位"><a href="#六、移动开发常用的单位" class="headerlink" title="六、移动开发常用的单位"></a>六、移动开发常用的单位</h3><table>
+<thead>
+<tr>
+<th>单位</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>px</td>
+<td>绝对单位，当需要设置固定宽高时可用，也可用于设置字体大小</td>
+</tr>
+<tr>
+<td>%</td>
+<td>相对单位，可用来设置元素宽度，流体布局中会用到</td>
+</tr>
+<tr>
+<td>em</td>
+<td>相对单位，设置<strong>字体大小</strong>时，1em&#x3D;父元素字体大小；<strong>设置其它，比如宽、高等</strong>，1em&#x3D;自身字体的大小，比如之前讲的首行缩进。一般用来控制首行缩进，不用来布局</td>
+</tr>
+<tr>
+<td>rem</td>
+<td>rem(root element) 是相对于 html 的 font-size 的字体大小。1rem&#x3D;根元素（html）的字体大小，rem主要是用来做移动端布局</td>
+</tr>
+<tr>
+<td>vw&#x2F;vh</td>
+<td>相对单位，是视口单位，用来移动端布局，vw 用的多，vh 基本不用,1vw&#x3D;视口<strong>宽度</strong>的 1%，1vh&#x3D;视口<strong>高度</strong>的 1%</td>
+</tr>
+<tr>
+<td>vmax</td>
+<td>当前 vw 和 vh 中较大的一个值（竖屏时,100vmax&#x3D;100vh）</td>
+</tr>
+<tr>
+<td>vmin</td>
+<td>当前 vw 和 vh 中较小的一个值（竖屏时，100vmax&#x3D;100vw）</td>
+</tr>
+</tbody></table>
+<h2 id="移动WebApp项目开发常用技术及标准、规范和最佳实践"><a href="#移动WebApp项目开发常用技术及标准、规范和最佳实践" class="headerlink" title="移动WebApp项目开发常用技术及标准、规范和最佳实践"></a>移动WebApp项目开发常用技术及标准、规范和最佳实践</h2><h3 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h3><ol>
+<li>移动端与PC端有哪些不同？(上面有写)<blockquote>
+<ul>
+<li>屏幕大小不同</li>
+<li>交互方式不同</li>
+<li>网络环境和设备性能不同</li>
+<li>兼容性不同</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>因为屏幕大小的不同，所以造成我们在实际的移动端布局时，不能和 PC 端一样采用固定大小来布局，而需要自适应屏幕的宽。</li>
+<li>移动端屏幕的常见可视区大小为<code>320-480px之间</code>，也就意味着我们在实际开发代码时，我们的页面宽在320-480px之间。</li>
+<li>所以移动端开发，元素的宽肯定不能用px绝对定位写死，我们得采用<strong>相对单位</strong>来做开发。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>移动端常见的布局处理技术</p>
+<blockquote>
+<p><strong>移动端常见的5种布局技术如下：</strong></p>
+<ul>
+<li>流体布局</li>
+<li>rem 和 vw 布局</li>
+<li>响应式布局</li>
+<li>Flex 弹性布局（工具）</li>
+<li>Grid 网格布局（工具）<blockquote>
+<ul>
+<li>其中的流体布局、rem&#x2F;vw 布局、响应式布局是可以<strong>独立实现</strong>移动端页面的开发</li>
+<li>Flex 弹性和 Grid 网格布局，并不能独立实现移动端布局的开发，他们更像是<strong>工具</strong>，配合流体布局、rem&#x2F;vw 布局、响应式布局来实现移动端页面的开发。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>移动设计稿的标准与规范</p>
+<blockquote>
+<ul>
+<li>京东视觉规范.pdf</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、流体布局"><a href="#二、流体布局" class="headerlink" title="二、流体布局"></a>二、流体布局</h3><blockquote>
+<p>所谓的流体布局，也叫百分比%布局，本质上就是通过**%（百分比）<strong>和</strong>怪异盒子模型<strong>结合来实现</strong>元素的宽**相对视口缩放</p>
+</blockquote>
+<ol>
+<li><p>搭建本项目的目录结构</p>
+<blockquote>
+<ul>
+<li>首先新建项目文件夹 WebApp</li>
+<li>在 WebApp 中新建 css、js、images 文件夹，分别用来存放 CSS、JS 文件和图片内容</li>
+<li>在 CSS 中新建 reset.css、global.css、index.css 文件，分别用来存放重置默认样式、全局通用样式，首页样式</li>
+<li>reset.css参考PC端重置样式<br>其它相关重要的重置样式介绍</li>
+</ul>
+<pre><code>/* 去掉点击的高亮显示效果 */
+-webkit-tap-highlight-color: transparent;
+/* 在移动端浏览器默认的外观在ios上加上这个属性才能给按扭和输入框自定义样式 */
+-webkit-appearance: none;
+/* 禁用长按页面时的弹出菜单 */
+img,
+a &#123;
+ -webkit-touch-callout: none;
+&#125;
+/* 表单会有外轮廓 */
+input &#123;
+ outline: none;
+&#125;
+/* 去掉图片下面的空隙 */
+vertical-align: top;
+</code></pre>
+</blockquote>
+</li>
+<li><p>了解设计稿的整体标准和规范</p>
+<blockquote>
+<ul>
+<li>将设计稿中的通用样式写在global.css文件中</li>
+</ul>
+</blockquote>
+</li>
+<li><p>新建 index.html 网页，进行首页开发</p>
+<blockquote>
+<ul>
+<li>在当前根目录下新建<code>index.html</code>网页</li>
+<li>做好viewport视口配置<br><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;</code></li>
+<li>引用相关的 CSS 文件，注意引入文件的顺序</li>
+</ul>
+<pre><code>/* 重置样式 */
+css代码...
+/* 网站通用布局 */
+css代码...
+/* 通用模块 */
+css代码...
+/* 通用元件 */
+css代码...
+/* 通用响应式系统 */
+css代码...
+</code></pre>
+</blockquote>
+</li>
+<li><p>网站整体（html）结构划分</p>
+</li>
+<li><p>每个版块开发</p>
+<blockquote>
+<ul>
+<li>流体布局(%百分比 + 怪异盒子模型布局)：整个页面中会用到的所有元素，在最开始都需要设置为怪异盒子模型 。</li>
+<li>由于一开始，我们并不清楚，页面可能会用到那些html元素，所以我们一开始可以用<code>*</code>来处理，等页面开发完，再把<code>*</code>换成对应的html标签。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>iOS下tabbar底部留白与黑线遮挡问题</p>
+<blockquote>
+<p>要解决 IOS 下 tabbar 底部留白问题，我们需要先了解两个概念，安全区域和刘海区，案例如下：</p>
+<pre><code>&lt;style&gt;
+ html,
+ body &#123;
+   margin: 0;
+ &#125;
+ .tabbar &#123;
+   width: 100%;
+   height: 100px;
+   background-color: red;
+   position: fixed;
+   z-index: 222;
+   bottom: 0;
+ &#125;
+&lt;/style&gt;
+&lt;body&gt;
+ &lt;footer class=&quot;tabbar&quot;&gt;&lt;/footer&gt;
+&lt;/body&gt;
+</code></pre>
+<img src="安全区与刘海区.png">
+- 页面默认填充的是安全区域的高度，并不包括刘海区</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>那如何让页面高度填充到刘海区呢？</strong></p>
+<ul>
+<li>在viewport中添加viewport-fit&#x3D;cover</li>
+</ul>
+<pre><code>&lt;meta
+  name=&quot;viewport&quot;
+  content=&quot;width=device-width,viewport-fit=cover,initial-scale=1.0&quot;
+/&gt;`
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>而高度填充到刘海区后，tabbar的内容就会被底下的黑线给遮挡一小部分</strong></p>
+<ul>
+<li>方法一：<ul>
+<li>添加以下代码的元素，不能是怪异盒子模型，否则元素自身高度会减少</li>
+</ul>
+</li>
+</ul>
+<pre><code>/* 兼容 IOS&lt;11.2 */
+padding-bottom: constant(safe-area-inset-bottom);
+/* 兼容 IOS&gt;11.2 */
+padding-bottom: env(safe-area-inset-bottom);
+</code></pre>
+<ul>
+<li>方法二：</li>
+</ul>
+<pre><code>/* 兼容 IOS&gt;11.2 */
+height: calc(50px+ constant(safe-area-inset-bottom));
+/* 兼容 IOS&gt;11.2 */
+height: calc(50px + env(safe-area-inset-bottom));
+</code></pre>
+<blockquote>
+<ul>
+<li>100px 是 tabbar 原来的高度 </li>
+<li>在实际开发中，我们一般是先 constant，再 env</li>
+</ul>
+</blockquote>
+<ul>
+<li>针对其它一些机型，不支持上面两种写法的，可以选择用CSS的<code>@supports</code></li>
+</ul>
+<pre><code>@supports not (constant(safe-area-inset-bottom)) &#123;
+  .tabbar &#123;
+    padding-bottom: 30px;
+  &#125;
+&#125;
+</code></pre>
+</blockquote>
+<ol start="7">
+<li>流体布局的布局思路与缺陷<blockquote>
+<p><strong>（1） 流体布局思路</strong></p>
+<ul>
+<li>通过计算每个子元素占容器的比例，来平分父容器的整体大小。</li>
+<li>所有子元素宽的百分比% 加起来要等于 100%。</li>
+<li>然后通过给子元素设置对应的内边距来实现元素间的空隙。</li>
+<li>为了保证给子元素添加内边距实现空隙时，不会造成元素宽度变宽，所有元素都设为 box-sizing: border-box;</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>（2） 流体布局缺陷</strong></p>
+<ul>
+<li>只能实现图片和容器的宽高等比缩放，没有办法实现间距，字体大小的等比缩放</li>
+<li>如果想实现对应的字体和间距在不同尺寸下，有所变化，可以与@media媒体查询结合来实现微调。</li>
+</ul>
+</blockquote>
+<ol start="8">
+<li>从项目中学到的：<blockquote>
+<ul>
+<li><code>padding-bottom:100%;</code>：使高度等于宽度，宽度不包括<code>padding</code></li>
+<li>页面缩放时，图片等比缩放&#x2F;避免图片尺寸不一：<ul>
+<li>把图片的父盒子a标签改成块级元素，用<code>padding-bottom</code>固定宽高比例</li>
+<li>使图片绝对定位于a标签，<code>top=0;left=0;</code>宽高100%,使用<code>object:cover;</code>等比缩放尺寸不一的图片；</li>
+</ul>
+</li>
+<li>用@media实现文字在界面放大到一定宽度后的字体放大，响应式</li>
+<li>流式布局因为是用百分比实现的，所以子元素所占的总百分比一定是百分之百，也就是把父元素全部分完；子元素之间的间隙，用padding实现，不能用margin</li>
+<li>怪异盒模型下文字垂直居中的问题<ul>
+<li>文字行高为18px,有1px边框时，标签行高就为20px，<code>line-height:18px</code>，不能惯性的设置为<code>line-height:20px</code>。</li>
+</ul>
+</li>
+<li>媒体查询代码一定要放在样式的最后面</li>
+<li>底部的tabbar导航的层级是最高的，并且内容区底部要设置padding≥tabbar的高度</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、移动端rem布局原理"><a href="#二、移动端rem布局原理" class="headerlink" title="二、移动端rem布局原理"></a>二、移动端rem布局原理</h3><ol>
+<li><p>rem实现适配的原理</p>
+<blockquote>
+<p>假设我们现在要实现 750 * 400px 的 div，在 750px 宽的设备下，改用 rem 单位实现等比展现，那我们的 css 代码如何写呢 ？<br>假设此时1rem &#x3D; 10px，则对应 CSS 样式如下：</p>
+<pre><code>div &#123;
+  /* 相当于将整个页面分成 75份  每一份大小为10px */
+  width: 75rem;
+  height: 40rem;
+&#125;
+</code></pre>
+<p>如果以上 CSS 代码不变（将页面分成 75 份），要实现在不同大小屏幕上能等比缩放，我们来看下，对应的 rem 要设置为多少？</p>
+<table>
+<thead>
+<tr>
+<th>设备可视宽</th>
+<th>750px</th>
+<th>375px</th>
+<th>540px</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1rem</td>
+<td>大小</td>
+<td>10px</td>
+<td>5px</td>
+</tr>
+</tbody></table>
+<ul>
+<li>所以我们要用 rem 来开发移动端之前，需要思考，先将页面分成多少份？然后通过以下公式</li>
+<li><code>1rem = 设备可视宽 / 对应份数</code></li>
+<li>得到不同设备下 <code>1rem</code> 的大小<blockquote>
+<p>在实际开发中，不同尺寸的手机屏幕下 1rem 的大小，是通过 js 来动态获取<strong>当前设备可视宽&#x2F;对应份数来实现</strong></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JS 动态实现不同设备下 1rem 的大小</p>
+<blockquote>
+<p>1rem&#x3D;（html）中 font-size 的大小，则我们只需要动态修改 html 的 font-size 的大小就可以</p>
+</blockquote>
+</li>
+<li><p>px 单位如何转换为 rem</p>
+<blockquote>
+<p>在实际开发的时候，我们是以 750px 的设计稿为标准来开发的</p>
+<ul>
+<li>现在假设我将页面分成 10 份，那<code>1rem = 750px / 10 = 75px</code></li>
+<li>那对应的 px 单位，转换成对应的 rem 单，计算公式：<code>?rem = 元素对应的px单位大小 / 1rem 大小</code></li>
+<li>实际开发中我们并不会手动将px转换成对应rem单位，我们会用vscode的 <code>px to rem</code>插件来实现</li>
+</ul>
+</blockquote>
+</li>
+<li><p>px to rem 插件使用</p>
+<blockquote>
+<ul>
+<li>参数配置：修改扩展设置，填写1rem的大小</li>
+<li>快捷键：<code>alt+z</code></li>
+<li>回到 html 页面，ctrl+A 选中所有 CSS 样式，然后按 Alt+Z，就会自动将 px 转成 rem 单位。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>利用 rem 实现元素宽高等比缩放</p>
+<blockquote>
+<ul>
+<li>将页面分成 10 份，通过 js 来实现不同视口下 1rem 的大小</li>
+<li>利用 px to rem 插件，将 px 单位转换成对应 rem 单位</li>
+<li>px to rem 插件中，1rem 大小设置为 75 （以 750px 设计稿开发）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>总结：实际开发如何用 rem 做适配</p>
+<blockquote>
+<p>在实际开发中，我们会按以下步骤来实现开发</p>
+<ul>
+<li>1、要求设计师以 750px 宽，来设计移动端的设计稿；</li>
+<li>2、我们按正常的 750px 的设计稿，以 px 单位来开发；</li>
+<li>3、我们会假定将页面分成对应的份数，然后求得不同份数下的 1rem 的大小；<ul>
+<li>如果在 750px 设备下，将页面分成 75 份，则 html 的 font-size 大小&#x3D;设备可视宽 (750) &#x2F; 75 &#x3D; 10px</li>
+<li>如果在 750px 设备下，将页面分成 10 份，则 html 的 font-size 大小&#x3D;设备可视宽 (750) &#x2F; 10 &#x3D; 75px</li>
+</ul>
+</li>
+<li>4、将 px 单位转换为对应的 rem 单位<ul>
+<li>将 px 像素转换 rem 单,公式：?rem &#x3D; px值 &#x2F; 1rem大小得到最对应 rem 单位值</li>
+<li>我们并不会手动一个一个去计算，而是利用 vscode 中的插件px to rem一次搞定</li>
+<li>假定将页面分成 75 份，那就把px to rem插件中对应 1rem 大小设为 10</li>
+<li>假定将页面分成 10 份，那就把px to rem插件中对应 1rem 大小设为 75</li>
+<li>最后切换到 CSS 代码，ctrl+A选中所有代码，然后Alt+Z之后，就会自动把所有px单位，转换成对应vw单位。<blockquote>
+<p>在实际开发中，我们是以 750px 的设计稿来开发，假定将页面分成 10 份，每 1rem &#x3D; 75px</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、移动端vw原理"><a href="#四、移动端vw原理" class="headerlink" title="四、移动端vw原理"></a>四、移动端vw原理</h3><ol>
+<li><p>vw 的适配原理</p>
+<blockquote>
+<p>我们知道 100vw &#x3D; 视口宽，相当于把整个屏幕分成了 100 份，所以不同屏幕尺寸下，1vw 的大小如下</p>
+<table>
+<thead>
+<tr>
+<th>设备可视宽（屏幕宽）</th>
+<th>1vw 大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>750px</td>
+<td>7.5px</td>
+</tr>
+<tr>
+<td>680px</td>
+<td>6.8px</td>
+</tr>
+<tr>
+<td>480px</td>
+<td>4.8px</td>
+</tr>
+<tr>
+<td>375px</td>
+<td>3.75px</td>
+</tr>
+</tbody></table>
+<ul>
+<li>上面表格中，不同屏幕尺寸下 1vw 的大小，不需要我们手动或通过 js 来计算，而是<strong>浏览自动会帮我转换</strong></li>
+<li>其实你可以理解，如果用 rem 来实现，把页面分 100 份，不同屏幕下 1rem 的大小与对应的 1vw 的大小时一样。</li>
+<li>唯一的区别，<code>1vw</code> 的大小是<strong>浏览器自动转换</strong>，而 <code>1rem</code> 的大小，需要通过<strong>js获取屏幕大小&#x2F;100</strong>来得到。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>px 如何转换成对应 vw 单位</p>
+<blockquote>
+<p>我们同样以 750px 的设计稿为例，那 <code>1vw = 7.5px</code> ，则转换成对应 vw 单位，公式如下：</p>
+<ul>
+<li><code>? vw = 元素 px 大小 / 7.5</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>插件</p>
+<blockquote>
+<ul>
+<li>我们不需要一个个手动将px转成vw，我们可以借助VScode的插件<code>px to vw</code>来实现。</li>
+<li>px to vw的使用方法和上面讲到的px to rem是一样，唯 一的区别，就是在扩展设置时不一样，填写的是&#x3D;&#x3D;视口宽&#x3D;&#x3D;，而不是1vw的大小</li>
+</ul>
+</blockquote>
+</li>
+<li><p>实际开发如何用 vw 做适配</p>
+<blockquote>
+<p>在实际开发中，我们会按以下步骤来实现开发</p>
+<ul>
+<li>1、要求设计师以 750px 宽，来设计移动端的设计稿</li>
+<li>2、我们按正常的 750px 的设计稿，以 px 单位来开发</li>
+<li>3、将 px 单位转换为对应的 vw 单位<ul>
+<li>将 px 像素转换 vw 单位，对应公式：?vw &#x3D; px值 &#x2F; 7.5</li>
+<li>我们并不会手动一个一个去计算，而是利用 vscode 中的插件px to vw一次搞定</li>
+<li>在 VSCode 中安装 px to vw 软件中，然后将“扩展设置” 中 Viewport Width 值设为 750</li>
+<li>切换到 CSS 代码，ctrl+A选中所有代码，然后Alt+Z之后，就会自动把所有 px 单位，转换成对应 vw 单位</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、移动端开发常见问题"><a href="#五、移动端开发常见问题" class="headerlink" title="五、移动端开发常见问题"></a>五、移动端开发常见问题</h3><ol>
+<li><p>图片缩放</p>
+<blockquote>
+<p>效果：图片填充满当前区块，同时<strong>等比</strong>裁剪，<strong>居中显示</strong>在当前区块中</p>
+<ul>
+<li>在流体布局中<ul>
+<li>父盒子利用<code>padding-bottom</code>保持宽高比</li>
+<li>子盒子宽高100%+<code>object-fit:cover;</code></li>
+</ul>
+</li>
+<li>在其他布局中<ul>
+<li>父盒子宽高使用rem&#x2F;vw</li>
+<li>子盒子宽高100%+<code>object-fit:cover;</code><br><strong>处理这个问题的意义</strong><br>在实际的网站上线后，数据都是从后台读取的，用户在上传图片尺寸时，并不一定会按照设计师设计的比例来上传，这样就会造成图片上传后，大小不一样。</li>
+</ul>
+</li>
+<li>图片高度过小，会在下面留下空白，</li>
+<li>图片高度过大，会有一部分下面的内容看不到</li>
+<li>我们实际在设计一张图时，重要的内容会在中间显示，所以最理想的效果是让图片能水平垂直居中于容器中</li>
+</ul>
+</blockquote>
+</li>
+<li><p>背景图缩放</p>
+<blockquote>
+<ul>
+<li>当背景图片的宽高比与容器的宽高比不一样时</li>
+<li>我们希望不管容器宽高如何缩放，图片一直填充整个容器，然后水平垂直居中显示</li>
+</ul>
+<pre><code>&lt;style&gt;
+  body &#123;
+ margin: 0;
+  &#125;
+  .box &#123;
+ width: 100vw;
+ height: 31.467vw;
+ /* 背景图片  不重复  水平垂直居中显示 */
+ background: url(./images/banner1-@2x.png) no-repeat center;
+ /* 背景图填充整个容器 */
+ background-size: cover;
+  &#125;
+&lt;/style&gt;
+&lt;body&gt;
+ &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>精灵图使用</p>
+<blockquote>
+<ul>
+<li>精灵图采用的是 2 倍图</li>
+<li>所以在处理精灵图时，我们需要通过 background-size: 50%; ，来将背景图片大小缩小一半</li>
+<li>测量尺寸时，也需要按一半的大小来测量</li>
+</ul>
+</blockquote>
+</li>
+<li><p>元素正方形缩放</p>
+<blockquote>
+<p>元素在缩放过程中，元素的高始终等于宽，同时元素中的内容在元素中水平垂直居中</p>
+<ul>
+<li>利用padding-bottom:100%;来实现元素的高与元素宽一样大小，同时等比缩放</li>
+<li>利用absolute 绝对定位与transform实现子项在容器中水平垂直居中</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><strong>图片缩放总结</strong></p>
+</blockquote>
+<ul>
+<li>只要涉及到图片缩放问题，最好将图片放在一个 html 标签中，然后设置 html 标签的宽高</li>
+<li>html 标签的宽高，就是我们希望图片等比例缩放的展示区大小</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>经典的 1 像素问题<blockquote>
+<p>在面试中，经常会问到移动端 1px 的处理问题，那到底 1px 问题，是个什么问题呢 ？<br><strong>何为 1 像素问题</strong><br>为了更好的理解 1 像素问题，我们从两个方面来展开讲解</p>
+<ul>
+<li>PSD 设计稿</li>
+<li>1px 实际显示的大小</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>PSD 设计稿</strong></p>
+<ul>
+<li>我们的设计稿是以 750px 宽来设计的，而我们实际开发时，代码是按 375px 来的。</li>
+<li>在 750px 设计稿中的 1px，按我们实际的开发代码来说，要折半，折成 0.5px 才对。</li>
+<li><strong>但是</strong>不同手机上，不同浏览器对小数的处理是不一样的</li>
+<li><code>0.5px</code>在一些老的 IOS 和 Android 设备上不支持，他会把<code>低于0.5px</code>当成0来处理，<code>&gt;= 0.5px</code>当成1px来显示。</li>
+<li>IOS上会: 把<code>&gt;= 0.75px</code> 的当作 1px 来处理 ，<code>&lt;0.75</code> 当成0.5px来处理,<code>&lt; 0.5px</code>当成0来处理</li>
+<li>而且IOS上，用 <code>height: 1px</code> 来代替 <code>border-bottom: 1px solid red;</code>测出的效果不同</li>
+<li>具体不同的手机上，效果不一样，具体以真机测试为主</li>
+<li>所以直接把代码折半，设置成 0.5px 显然是达不到目的。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>1px 实际显示的大小</strong></p>
+<ul>
+<li>我们都知道 1px 在 dpr 不同时，其显示的大小不同</li>
+<li>而在设计师眼中，他设计的 1px，就是当前设备能显示的最小方格（最细的那个线），也就是物理像素中的 1 像素。</li>
+<li>因此， 1px 像素问题，本质上不是问题，如果公司觉得没有必要，也就不用处理。</li>
+<li>如果公司认为就是要用设备能显示的最细的那个小方格显示，那我们就要处理这个问题</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>1px 像素解决方案</strong><br>关于 1px 像素的处理方案有很多，这里我们提供一个最优的解决方案给到大家 transform+伪元素来实现<br><strong>实现原理：</strong></p>
+<ul>
+<li>利用伪元素来绘制 1px 的线条,然后利用定位，把线条放在对应位置</li>
+<li>利用 media 查询判断不同的设备像素比对线条进行缩放</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    height: 50px;
+    margin: px auto;
+    position: relative;
+  &#125;
+  .border-1px::before &#123;
+    position: absolute;
+    content: &quot;&quot;;
+    height: 1px;
+    width: 100%;
+    background-color: red;
+    bottom: 0;
+    /* transform: scaleY(0.5); */
+    /* 变换原点 */
+    transform-origin: 50% 0%;
+  &#125;
+  /* dpr=2，需要缩放一半，即0.5 */
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) &#123;
+    .border-1px:before &#123;
+      transform: scaleY(0.5);
+    &#125;
+  &#125;
+  /* dpr=3，需要缩放到1/3，即0.33 */
+  @media only screen and (-webkit-min-device-pixel-ratio: 3) &#123;
+    .border-1px:before &#123;
+      transform: scaleY(0.33);
+    &#125;
+  &#125;
+&lt;/style&gt;
+&lt;body&gt;
+ &lt;div class=&quot;box border-1px&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>当然，也可以通过 js 来判断 dpr,然后给元素添加对应的 Class 名字，来实现</p>
+</blockquote>
+<pre><code>if (window.devicePixelRatio &amp;&amp; devicePixelRatio &gt;= 2) &#123;
+  document.querySelector(&quot;.box&quot;).className = &quot;border-1px&quot;;
+&#125;
+</code></pre>
+</blockquote>
+<h3 id="六-注意事项"><a href="#六-注意事项" class="headerlink" title="六. 注意事项"></a>六. 注意事项</h3><ol>
+<li><p>布局</p>
+<blockquote>
+<ul>
+<li>在流体布局中，因为用px单位，距离会写死，所以我们在蓝湖查看尺寸使用的是自定义，指定宽度为设计稿宽度的一半</li>
+<li>而在rem中，我们在ios平台下布局，使用rem单位，所以直接用原始宽度，不用减半</li>
+</ul>
+</blockquote>
+</li>
+<li><p>swiper</p>
+<blockquote>
+<ul>
+<li>引入<code>swiper-bundle.min.js</code>和<code>swiper-bundle.min.css</code>文件</li>
+<li>添加HTML内容，删掉不需要用到的</li>
+<li>给Swiper定义一个大小,swiper-6.8.4下，容器名是<code>swiper-container</code></li>
+<li>初始化Swiper，删掉不需要用到的</li>
+<li>设置slider容器能够同时显示的slides数量<code>slidesPerView: &#39;数字/auto&#39;</code></li>
+<li>给容器设置一个id名，根据id名修改样式。每一个swoper对应一个id名</li>
+</ul>
+</blockquote>
+</li>
+<li><p>要实现图片自适应缩放，必须要给它加宽&#x2F;高</p>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/">https://hermiablog.github.io/2023/11/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
+                                    <span class="chip bg-color">移动端</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="多终端响应式开发">
+                        
+                        <span class="card-title">多终端响应式开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            多终端响应式开发必备知识和最佳实践
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">响应式开发</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrid%E5%B8%83%E5%B1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Flex布局和Grid布局">
+                        
+                        <span class="card-title">Flex布局和Grid布局</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flex布局和Grid布局核心知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Flex-Grid/">
+                        <span class="chip bg-color">Flex Grid</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

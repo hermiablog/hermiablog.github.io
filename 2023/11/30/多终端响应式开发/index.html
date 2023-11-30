@@ -1,0 +1,1754 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="多终端响应式开发, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>多终端响应式开发 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">多终端响应式开发</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                                <span class="chip bg-color">响应式开发</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、什么是响应式布局"><a href="#一、什么是响应式布局" class="headerlink" title="一、什么是响应式布局"></a>一、什么是响应式布局</h3><blockquote>
+<ul>
+<li>响应式布局：只需要开发一套代码，就能使页面适应不同的屏幕 （一个网站兼容多种终端）</li>
+<li>响应式设计原理：通过媒体查询来检测视口宽，针对不同视口宽做相应代码处理，来展现不同的布局和内容</li>
+<li>流体布局和 rem&#x2F;vw 布局，只是针对移动端开发的，开发出来的网站在尺寸为（320 ~ 480px）之间的屏幕上显示，才能获得好的体验。并不能适应iPad和PC 端。</li>
+<li>响应式布局开发出来的网站，在移动、ipad、PC 端都能有好的体验，能兼容不同的屏幕尺寸</li>
+</ul>
+</blockquote>
+<h3 id="二、媒体查询的语法"><a href="#二、媒体查询的语法" class="headerlink" title="二、媒体查询的语法"></a>二、媒体查询的语法</h3><ol>
+<li><p>什么是媒体查询</p>
+<blockquote>
+<ul>
+<li>我们知道，一套 CSS 样式是很难适应不同大小的屏幕，所以我们需要针对不同的屏幕尺寸来书写不同的样式，这样我们写出来的页面就能在不同大小的屏幕上都正常显示。</li>
+<li>媒体查询就是用来解决这个问题的，他能帮助我们检测不同屏幕的尺寸，然后针对不同屏幕尺寸，显示不同的样式。</li>
+<li>一个完整的媒体查询语句，包含以下四个部分：<ul>
+<li>@media 关键字</li>
+<li>媒体类型</li>
+<li>逻辑运算符</li>
+<li>媒体特性</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;style&gt;
+  /*
+  @media 媒体类型 逻辑操作符 (媒体特性) &#123;
+  ...css样式....;
+&#125;
+ @media 是关键字：媒体查询
+ screen 媒体类型：屏幕设备
+ and 逻辑运算符：与 (多个条件同时满足)
+ min-width 媒体特性：设备宽&gt;=400px
+以下整个媒体查询代码的含义：网页是在屏幕设备上显示，同时屏幕设备的宽&gt;=400px时，背景颜色变为红色。
+ */
+  @media screen and (min-width: 400px) &#123;
+ body &#123;
+   background-color: red;
+ &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>媒体类型</p>
+<blockquote>
+<ul>
+<li>媒体类型(Media types) 就是用来描述设备的一般类别，设备类别主要分为以下 4 种<table>
+<thead>
+<tr>
+<th>媒体类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>all</td>
+<td><strong>（默认值）</strong>适用于所有的设备</td>
+</tr>
+<tr>
+<td>screen</td>
+<td>适用于屏幕设备</td>
+</tr>
+<tr>
+<td>print</td>
+<td>适用于在打印预览模式下在屏幕上查看的分页材料和文档</td>
+</tr>
+<tr>
+<td>speech</td>
+<td>适用于语音合成器</td>
+</tr>
+<tr>
+<td>如果媒体查询语句，只指定媒体类型，可以简写成如下:</td>
+<td></td>
+</tr>
+<tr>
+<td><code>@media 媒体类型 ｛ .... css样式..... ｝;</code></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>要看到<strong>打印模式</strong>下效果，按以下步骤操作即可</p>
+<ul>
+<li>涉及到颜色一定要记得选彩色</li>
+<li>在浏览器中右击 -&gt; 打印（点击进入） -&gt; 更多设置（点击）&gt;- <strong>背景图形</strong>（勾选上）<img src="打印模式.png"></li>
+</ul>
+</blockquote>
+<ol>
+<li>媒体特性<blockquote>
+<ul>
+<li>媒体特性（Media features）描述了 user agent、输出设备，或是浏览环境的具体特征。</li>
+<li>媒体特性表达式是完全可选的</li>
+<li>它负责测试这些特性或特征是否存在、值为多少。</li>
+<li><strong>每条</strong>媒体特性表达式都必须用 括号（） 括起来。<br><strong>常用的媒体特性</strong><table>
+<thead>
+<tr>
+<th>媒体特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width</td>
+<td>设备屏幕的宽</td>
+</tr>
+<tr>
+<td>min-width</td>
+<td>设备屏幕的最小宽(如min-width:400px;表示屏幕宽&gt;&#x3D;400px)</td>
+</tr>
+<tr>
+<td>max-width</td>
+<td>设备屏幕的最大宽(如max-width:1200px;表示屏幕宽&lt;&#x3D;1200px)</td>
+</tr>
+<tr>
+<td>-webkit-device-pixel-ratio</td>
+<td>设备像素比(dpr)的值（只有-webkit 内核的才支持）</td>
+</tr>
+<tr>
+<td>-webkit-max-device-pixel-ratio</td>
+<td>设备像素比(dpr)的最大值（只有-webkit 内核的才支持）</td>
+</tr>
+<tr>
+<td>-webkit-min-device-pixel-ratio	设备像素比(dpr)的最小值（只有-webkit 内核的才支持）</td>
+<td></td>
+</tr>
+<tr>
+<td>orientation</td>
+<td>当前屏幕的方向，是横屏还竖屏</td>
+</tr>
+<tr>
+<td>portrait: 表示竖屏(orientation : portrait;)</td>
+<td></td>
+</tr>
+<tr>
+<td>landscape:表示横屏 (orientation:landscape;)</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>写法</strong></p>
+<ul>
+<li>如果只指定媒体特性，写法如下：</li>
+</ul>
+<pre><code>@media （媒体特性） &#123;
+  ...css样式...;
+&#125;
+</code></pre>
+<ul>
+<li>如果同时指定媒体类型和媒体特性，中间需要有<strong>逻辑运算符</strong>，写法如下：</li>
+</ul>
+<pre><code>@media 媒体类型 逻辑运算符 （ 媒体特性） &#123;
+  .... css样式....;
+&#125;
+</code></pre>
+<ul>
+<li>多个媒体特性中间也要有<strong>逻辑操运算符</strong></li>
+</ul>
+<pre><code>@media 媒体类型 逻辑操运算符 （ 媒体特性） 逻辑操作符 （媒体特性） &#123;
+  .... css样式....;
+&#125;
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>逻辑运算符<blockquote>
+<ul>
+<li>逻辑运算符（logical operators） not,and和only可用于联合构造复杂的媒体查询</li>
+<li>您还可以通过用 ,（逗号） 分隔多个媒体查询，将它们组合为一个规则。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>and 运算符</strong></p>
+<ul>
+<li><code>and</code>操作符用于将多个媒体查询规则组合成单条媒体查询</li>
+<li>当每个查询规则都为真时，则该条媒体查询为真</li>
+<li>媒体类型为<code>all</code>时，不需要写<code>and</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>逗号逻辑运算符</strong></p>
+<ul>
+<li>逗号用于将多个媒体查询合并为一个规则</li>
+<li>每个逗号前为一个<strong>独立</strong>的查询规则，逗号后为一个<strong>独立</strong>的查询规则</li>
+<li>逗号分隔的每一个独立的查询规则中，只要有一个为true，则整个 media 语句返回true。</li>
+<li>换句话说,逗号类似于js中的逻辑或or运算符</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>not运算符</strong></p>
+<ul>
+<li><code>not</code>运算符会反转整个媒体查询的含义</li>
+<li>如果不满足这个条件则返回true，否则返回false</li>
+<li>如果使用<code>not</code>运算符，则还必须指定媒体类型,并且写在媒体类型之前</li>
+<li><code>not</code>只能用来否定整个媒体查询</li>
+<li>如果出现在以逗号分隔的查询列表中，它将仅否定应用了该查询的特定查询，因此，它不会应用于以逗号分隔的媒体查询列表中的每个媒体查询</li>
+</ul>
+<pre><code>@media not screen and (min-width: 1000px), screen and (orientation: landscape) &#123;
+  body &#123;
+    background-color: red;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p><code>not</code>只否定了<code>not screen and (min-width: 1000px)</code>，并不会否定逗号后面的<br>注意：<code>not</code>写在媒体类型之前，但是媒体类型和媒体特性中间必须写逻辑运算符</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>only 运算符</strong></p>
+<ul>
+<li>only 关键字，主要是为了兼容一些老版本的浏览器时，防止出错而加上的。</li>
+<li>因旧版本的浏览器会将 screen and (max-width: 500px)简单地解释为screen，忽略查询的其余部分，并将其样式应用于所有屏幕</li>
+<li>加上 only 后，就会正常的解释</li>
+</ul>
+</blockquote>
+<h3 id="三、响应式断点和书写位置"><a href="#三、响应式断点和书写位置" class="headerlink" title="三、响应式断点和书写位置"></a>三、响应式断点和书写位置</h3><blockquote>
+<ul>
+<li>当我们需要为不同的屏幕尺寸来设置不同的样式时，我们就需要知道在什么屏幕尺寸下需要做出响应。</li>
+<li>那这些不同的屏幕尺寸，就称为响应式断点(阈值)</li>
+</ul>
+</blockquote>
+<ol>
+<li>响应式断电(阈值)的设定<blockquote>
+<ul>
+<li>在实际的开发中，响应式断点是由公司根据项目来定的。</li>
+<li>不过行业也会有一个标准的参考断点（Breakpoint），这里我们以 Bootstrap 框架内部的断点来给大家做讲解<table>
+<thead>
+<tr>
+<th>屏幕大小</th>
+<th>栅格布局中class名区分</th>
+<th>断点（阈值）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>超小屏Extra small</td>
+<td>-</td>
+<td>&lt;576px</td>
+</tr>
+<tr>
+<td>小屏 (Small)</td>
+<td>-sm</td>
+<td>576px ~ 768px （含等于）</td>
+</tr>
+<tr>
+<td>中屏 (Medium)</td>
+<td>-md</td>
+<td>768px ~ 992px （含等于）</td>
+</tr>
+<tr>
+<td>大屏 (Large)</td>
+<td>-lg</td>
+<td>992px ~ 1200px（含等于）</td>
+</tr>
+<tr>
+<td>超大屏 (X-Large)</td>
+<td>-xl</td>
+<td>1200px ~ 1400px（含等于）</td>
+</tr>
+<tr>
+<td>超大大屏(XX-Large)</td>
+<td>-xxl</td>
+<td>&gt;1400px</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>断点并不是完全固定，按上面的要求值来的。而是根据我们所写的项目，在对屏幕做调整时，如果觉得当前效果不符合我们的需求，需要通过设置新的断点来调整，就可以在此添加相应的断点。</li>
+<li>以上断点是 Bootstrap 框架内部的断点，我们可以用来作为我们开发的标准来参考。</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre class=" language-css"><code class="language-css">&lt;style>
+  <span class="token comment" spellcheck="true">/* 当屏幕宽小于576px时，以下代码生效 */</span>
+  body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 当屏幕宽大于等于576px，小于768px时，以下代码生效 */</span>
+  <span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+    body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> khaki<span class="token punctuation">;</span>
+    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">/* 当屏幕宽大于等于768px，小于992px时，以下代码生效 */</span>
+  <span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
+    body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+      <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+&lt;/style>
+</code></pre>
+<ul>
+<li>因为 css 选择器的权重相同时，写在后面的会覆盖写在前面的。所以不用书写具体的屏幕范围，不过要注意代码书写的位置</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>媒体查询的代码书写位置<blockquote>
+<p><strong>媒体查询的代码可以写在 style 标签中</strong></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>可以写在单独的 CSS 文件中,通过 link 标签引入</strong></p>
+<ul>
+<li>不过都要写在所有 CSS 样式的代码之后。</li>
+<li>这样就能保证断点生效时，写在媒体查询中的代码能生效，不会被正常的样式所覆盖。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>不同断点代码写入不同 css 文件中（不推荐）</strong></p>
+<ul>
+<li>通过 link 来引用，在 media 中来设置对应断点</li>
+<li>在满足媒体查询条件时，对应的css文件生效</li>
+</ul>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;a.css&quot; media=&quot;screen and (min-width:600px)&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;b.css&quot; media=&quot;screen and (min-width:1000px)&quot; /&gt;
+/* a.css文件内容 */
+body &#123;
+  background-color: skyblue;
+&#125;
+/* b.css文件内内容 */
+body &#123;
+  background-color: red;
+&#125;
+</code></pre>
+</blockquote>
+<h3 id="四、响应式两种适配方案"><a href="#四、响应式两种适配方案" class="headerlink" title="四、响应式两种适配方案"></a>四、响应式两种适配方案</h3><blockquote>
+<p>在实际的响应式开发中，我们会有两种通用的适配方案</p>
+<ul>
+<li>PC 端优先（先考虑 PC 端，最后再考虑移动端）</li>
+<li>移动端优先（先考虑移动端，最后再考虑 PC 端）</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>PC端优先</p>
+<blockquote>
+<ul>
+<li>从大尺寸开始写，先大后小</li>
+<li>用<code>max-width</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>移动端优先</p>
+<blockquote>
+<ul>
+<li>从小尺寸开始，先小后大</li>
+<li>用<code>min-width</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、响应式栅格系统"><a href="#五、响应式栅格系统" class="headerlink" title="五、响应式栅格系统"></a>五、响应式栅格系统</h3><blockquote>
+<p><strong>在实际开发中</strong></p>
+<ul>
+<li>要完美的实现响应式系统或网站的开发，就需要利用响应式栅格系统来帮助我们实现。</li>
+<li>BootStrap 框架实现响应式布局的本质就是他的响应式栅格系统。</li>
+<li>响应式栅格系统是：栅格布局和响应断点+响应式适配方案 3 者结合实现的一套响应式解决方案</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>栅格布局</p>
+<blockquote>
+<ul>
+<li>所谓的栅格布局，你可以简单理解为，要把一个页面或容器（如 div），分成多少份</li>
+<li>然后设置其页面或容器中子元素占对应的份数</li>
+<li>通常一个页面或容器会被分成：12 份，16 份，24 份</li>
+<li>如果将网页（100%）分成 12 份，那对应不同份数所占的比例如下:<table>
+<thead>
+<tr>
+<th>份数</th>
+<th>占总份数的百分比%</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>8.33333333%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>16.6666667%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>33.33333333%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>41.66666667%</td>
+</tr>
+<tr>
+<td>6</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>7</td>
+<td>58.33333333%</td>
+</tr>
+<tr>
+<td>8</td>
+<td>66.6666667%</td>
+</tr>
+<tr>
+<td>9</td>
+<td>75%</td>
+</tr>
+<tr>
+<td>10</td>
+<td>83.33333333%</td>
+</tr>
+<tr>
+<td>11</td>
+<td>91.66666667%</td>
+</tr>
+<tr>
+<td>12</td>
+<td>100%</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>栅格系统实现响应式布局</p>
+<blockquote>
+<ul>
+<li>我们说响应式栅格系统是：栅格布局+响应断点+响应式适配方案3者结合实现的一套响应式解决方案</li>
+<li>接下来我们来学习，如何利用前面学到的栅格布局，响应断点，响应式适配方案实现响应式布局。</li>
+<li>我们可以按以下 5 个步骤来操作<ul>
+<li>你打算将页面分成多少份 ？</li>
+<li>确定响应断点有哪些 ？</li>
+<li>确定响应式适配方案。PC端优先还是移动端优先？</li>
+<li>在对应的响应断点下，书写对应的栅格布局样式。</li>
+<li>对着设计稿开发，搭建整个响应式的框架。如果是以移动端优先，则对着移动端设计稿来开发，如果是 PC 端优先，则对着 PC 端设计稿来开发。<blockquote>
+<p>但是在开发前，一定要分清版块的归属问题，也就那些版块是在一个父容器中。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、响应式后台管理系统项目开发"><a href="#五、响应式后台管理系统项目开发" class="headerlink" title="五、响应式后台管理系统项目开发"></a>五、响应式后台管理系统项目开发</h3><blockquote>
+<p><strong>确定栅格系统样式（media.css 样式）</strong></p>
+<ul>
+<li>将页面分成 12 份，确定栅格布局不同份数所点比例</li>
+<li>确定项目对应的断点<ul>
+<li>当视口宽大于 1400px 时，以正常效果显示</li>
+<li>当视口宽 &lt;&#x3D; 1400px 时，左侧菜单缩放到 75px</li>
+<li>当视口宽 &lt;&#x3D; 1300px 时，左侧菜单隐藏</li>
+<li>当视口宽 &lt;&#x3D; 1200px 时，上面一行 4 列，变成 1 行 2 列</li>
+<li>当视口宽 &lt;&#x3D; 992px 时，第二行的一行 2 列变 1 列，最下面的一行 3 列变成 1 行 2 列和 1 行 1 列</li>
+<li>当视口宽 &lt;&#x3D; 768px 时，全部一行一列显示 ，同时上面的导航变成点击下拉菜单形式</li>
+</ul>
+</li>
+<li>确定适配方案，以 PC 端优先</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>要用怪异盒模型</li>
+<li>echarts图表实现响应式缩放,在引用图表的<code>script</code>标签后面加上</li>
+</ul>
+<pre><code>window.addEventListener(&quot;resize&quot;,function()&#123;
+  mychart1.resize();
+&#125;);
+</code></pre>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">https://hermiablog.github.io/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                                    <span class="chip bg-color">响应式开发</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="多终端响应式开发">
+                        
+                        <span class="card-title">多终端响应式开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            多终端响应式开发必备知识和最佳实践
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">响应式开发</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="移动端开发必备知识">
+                        
+                        <span class="card-title">移动端开发必备知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            webApp项目开发基础知识、规范和最佳实践
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
+                        <span class="chip bg-color">移动端</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
