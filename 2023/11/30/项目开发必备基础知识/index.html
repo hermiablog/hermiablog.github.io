@@ -1,0 +1,1761 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="项目开发必备基础知识, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>项目开发必备基础知识 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/33.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">项目开发必备基础知识</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                <span class="chip bg-color">基础知识</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="web前端项目开发规范和最佳实践"><a href="#web前端项目开发规范和最佳实践" class="headerlink" title="web前端项目开发规范和最佳实践"></a>web前端项目开发规范和最佳实践</h2><h3 id="一、CSS发展史与CSS模块划分"><a href="#一、CSS发展史与CSS模块划分" class="headerlink" title="一、CSS发展史与CSS模块划分"></a>一、CSS发展史与CSS模块划分</h3><h4 id="1-HTML的诞生"><a href="#1-HTML的诞生" class="headerlink" title="1. HTML的诞生"></a>1. HTML的诞生</h4><blockquote>
+<p>1991年8月6日，万维网之父蒂姆·伯纳斯·李创建了人类有史以来的第一个网站(即：<a target="_blank" rel="noopener" href="http://info.cern.ch),它没有样式,只有文字和图像两种./">http://info.cern.ch)，它没有样式，只有文字和图像两种。</a></p>
+</blockquote>
+<h4 id="2-css的诞生"><a href="#2-css的诞生" class="headerlink" title="2. css的诞生"></a>2. css的诞生</h4><blockquote>
+<p>1994年哈肯·维姆·莱和伯特·波斯共同提出层叠样式表的概念</p>
+<ul>
+<li>css从此成为网页开发的标准之一，对于网页排版印刷、美感、亲和力有着深远的影响和意义</li>
+<li>在这之后两年，W3C的css工作小组(即哈肯·维姆·莱团队)推出了css1.0规范以及后续的迭代版本</li>
+</ul>
+</blockquote>
+<h4 id="3-css的版本"><a href="#3-css的版本" class="headerlink" title="3. css的版本"></a>3. css的版本</h4><blockquote>
+<p>2015年左右，w3c的css工作小组为了能更好的维护和管理css的特性，该组织决定不再以css的版本号比如css1.0、css2.1等方式来管理css，而是将每个css功能特性拆分成独立的功能模块，并且以Level1、Level2、Level3等方式来管理<br>可以通过W3C官网或<a target="_blank" rel="noopener" href="https://drafts.csswg.org/%E6%9F%A5%E7%9C%8B%E5%88%B0CSS%E6%A8%A1%E5%9D%97%E7%9A%84%E5%90%84%E7%A7%8DLevel%E7%89%88%E6%9C%AC">https://drafts.csswg.org/查看到CSS模块的各种Level版本</a></p>
+</blockquote>
+<h4 id="4-CSS的研究方向"><a href="#4-CSS的研究方向" class="headerlink" title="4. CSS的研究方向"></a>4. CSS的研究方向</h4><blockquote>
+<p>大体上css的学习可以朝三个方向进行研究</p>
+<ul>
+<li>特效(动画、3D、渐变等)</li>
+<li>工程化(sass、less、postcss等)</li>
+<li>布局(flex、grid、响应式等)</li>
+</ul>
+</blockquote>
+<h3 id="二、CSS文件划分及功能分类"><a href="#二、CSS文件划分及功能分类" class="headerlink" title="二、CSS文件划分及功能分类"></a>二、CSS文件划分及功能分类</h3><h4 id="1-CSS文件划分"><a href="#1-CSS文件划分" class="headerlink" title="1.CSS文件划分"></a>1.CSS文件划分</h4><blockquote>
+<p>在中大型项目中，一般会对CSS进行文件划分，根据文件的性质和用途，大概分为</p>
+<ul>
+<li>公共型样式<ul>
+<li>可命名为<code>global.css</code>或<code>common.css</code>等名字，主要包括网站通用样式编写。例如：重置默认样式reset、网站通用布局、通用模块和元件、通用响应式系统等</li>
+</ul>
+</li>
+<li>特殊型样式<ul>
+<li>特殊型样式主要是根据当前页面来决定的文件，只针对当前页面做出特殊处理的样式，例如只在首页中用到的样式可放置在<code>index.css</code>中，在登录页面中用到的样式可放置在<code>login.css</code>中</li>
+</ul>
+</li>
+<li>皮肤型样式<ul>
+<li>皮肤型样式是针对网站需要皮肤功能时，把颜色、背景等抽离出来放到文件中的形式，例如：<code>theme-orange.css</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-CSS功能分类"><a href="#2-CSS功能分类" class="headerlink" title="2. CSS功能分类"></a>2. CSS功能分类</h4><blockquote>
+<p>文件中具体包括哪些常见功能呢？</p>
+<ul>
+<li>重置样式</li>
+<li>网站通用布局</li>
+<li>通用模块</li>
+<li>通用元件</li>
+<li>通用响应式系统</li>
+</ul>
+</blockquote>
+<h4 id="3-重置样式"><a href="#3-重置样式" class="headerlink" title="3. 重置样式"></a>3. 重置样式</h4><blockquote>
+<p>主要是去除默认样式和统一不同设备下的表现形态</p>
+<ul>
+<li>通常为<code>Reset CSS</code>和<code>Normalize CSS</code>代码的结合版本</li>
+<li>我们将在接下来的项目开发中把二者结合成为了一个<code>reset.css</code>文件，并在项目中进行使用</li>
+</ul>
+</blockquote>
+<h4 id="4-网站通用布局"><a href="#4-网站通用布局" class="headerlink" title="4. 网站通用布局"></a>4. 网站通用布局</h4><blockquote>
+<p>主要指的是对网站中出现的大块结构进行排版</p>
+<ul>
+<li>例如：PC端中的菜单、内容的左右布局方案；移动端中的头部、列表、尾部的上中下布局方案</li>
+</ul>
+</blockquote>
+<h4 id="5-通用模块"><a href="#5-通用模块" class="headerlink" title="5. 通用模块"></a>5. 通用模块</h4><blockquote>
+<p>指的是网页中可以重复使用的较大整体，比如：</p>
+<ul>
+<li>导航</li>
+<li>登录</li>
+<li>注册</li>
+<li>各种列表</li>
+<li>评论</li>
+<li>搜索等</li>
+</ul>
+</blockquote>
+<h4 id="6-通用元件"><a href="#6-通用元件" class="headerlink" title="6. 通用元件"></a>6. 通用元件</h4><blockquote>
+<p>指的是不可再分的较为小巧的个体，通常被重复使用与各种模块中，比如：</p>
+<ul>
+<li>按钮</li>
+<li>输入框</li>
+<li>loading</li>
+<li>图标等</li>
+</ul>
+</blockquote>
+<h4 id="7-通用响应式系统"><a href="#7-通用响应式系统" class="headerlink" title="7. 通用响应式系统"></a>7. 通用响应式系统</h4><blockquote>
+<p>指的是在不同设备下要实现响应式布局，当满足了某个断点设定后调用的相应变化样式，比如：</p>
+<ul>
+<li>浮动添加</li>
+<li>栅格生效</li>
+<li>显示隐藏</li>
+<li>版心宽度等</li>
+</ul>
+</blockquote>
+<h3 id="三、标签默认样式及清除"><a href="#三、标签默认样式及清除" class="headerlink" title="三、标签默认样式及清除"></a>三、标签默认样式及清除</h3><h4 id="1-标签默认样式"><a href="#1-标签默认样式" class="headerlink" title="1. 标签默认样式"></a>1. 标签默认样式</h4><blockquote>
+<p>一些HTML标签在浏览器中都会有默认样式</p>
+<ul>
+<li>开发时浏览器的默认样式可能会给我们带来多浏览器兼容性问题，影响开发效率，所以解决办法就是一开始就将浏览器的默认样式全部去掉，更准确说是通过重新定义标签样式覆盖浏览器的css默认属性</li>
+<li>还有一种方式是用通配符选择器<code>*</code>，这是一种非常强大、最简单、最安全的方法，但是非常占用资源。</li>
+<li>推荐以下3种Reset CSS学习<ul>
+<li>雅虎 YUI Reset CSS</li>
+<li>CSS Tools:Reset CSS<ul>
+<li>通常在网页开发中，要去掉在这些影响尺寸和位置的默认样式及其他影响布局的默认值，可以参考它</li>
+</ul>
+</li>
+<li>Normalize CSS<ul>
+<li><code>Reset css</code>相对暴力，不管你有没有用，统统重置成一样的效果，而且影响的范围很大</li>
+<li><code>Normalize css</code>比<code>Reset css</code>更加平和</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>创造<code>Normalize css</code> 有以下几个目的</p>
+</blockquote>
+<ul>
+<li>保护有用的浏览器默认样式而不是完全去掉他们</li>
+<li>一般化的样式：为大部分HTML元素提供</li>
+<li>修复浏览器自身的bug并保证各浏览器的一致性</li>
+<li>优化CSS可用行政：用一些小技巧</li>
+<li>解释代码：用注释和详细的文档</li>
+</ul>
+</blockquote>
+<h4 id="2-CSS重置样式最佳实践"><a href="#2-CSS重置样式最佳实践" class="headerlink" title="2. CSS重置样式最佳实践"></a>2. CSS重置样式最佳实践</h4><blockquote>
+<p>在接下来的项目开发中，我们会采用<code>Normalize CSS</code>和<code>Reset CSS</code>结合代码，形成一个更加强大的方案。</p>
+</blockquote>
+<h3 id="四、CSS方法论"><a href="#四、CSS方法论" class="headerlink" title="四、CSS方法论"></a>四、CSS方法论</h3><h4 id="1-CSS方法论"><a href="#1-CSS方法论" class="headerlink" title="1. CSS方法论"></a>1. CSS方法论</h4><blockquote>
+<ul>
+<li>CSS方法论是一种面向CSS、由个人和组织设计、已被诸多项目检验且公认有效的最佳实践</li>
+<li>这些方法论都会涉及结构化的命名约定，并且在阻止CSS时可提供相应的指南，从而提升代码的性能、可读性以及可维护性</li>
+</ul>
+</blockquote>
+<h4 id="2-常见的CSS方法论"><a href="#2-常见的CSS方法论" class="headerlink" title="2. 常见的CSS方法论"></a>2. 常见的CSS方法论</h4><blockquote>
+<ul>
+<li>OOCSS</li>
+<li>BEM</li>
+<li>SMACSS</li>
+<li>Atomic CSS</li>
+</ul>
+</blockquote>
+<h5 id="OOCSS"><a href="#OOCSS" class="headerlink" title="OOCSS"></a>OOCSS</h5><blockquote>
+<p>OOCSS(object-oriented css)是指向面对对象的CSS，由Nicole Sullivan在2009年提出，借鉴了面向对象编程的抽象思维</p>
+<ul>
+<li>其核心概念是采用模块化的实现方式，将CSS分解成可复用和继承的对象，也就是将关注点从页面转移到页面内的组件</li>
+<li>包含两条核心原则：<ul>
+<li>结构与皮肤分离，即不要将位置、尺寸等结构属性和字体、颜色等皮肤属性写在一个选择器中</li>
+<li>内容与容器分离，即让对象的行为可预测，避免对位置的依赖，子元素即使离开了容器也应该能正确显示</li>
+</ul>
+</li>
+<li>命名约定：<ul>
+<li>在OOCSS中，类名既要能传递对象的用途，也要有通用性，例如mod、complex、pop等</li>
+<li>如果将CSS类命名的太语义化，如<code>navigation-bar</code>,那么就会将其限制在导航栏，无法应用到网页的其他位置<br><strong>缺点</strong></li>
+<li>虽然样式的粒度变小了，但同时会产生许多充满类的HTML元素</li>
+<li>在避免特殊性冲突时，OOCSS选择的方案是放弃层叠，这样就无法最大程度地利用关系选择器的优势</li>
+<li>为了让类能更通用，在命名时就得弱化语义</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h5 id="BEM"><a href="#BEM" class="headerlink" title="BEM"></a>BEM</h5><blockquote>
+<p>国内很多大厂主要采用BEM+SMACSS这两种方法论的结合命名约定<br>BEM(block element modifier)是指块级元素修饰符，BEM分为三个部分：</p>
+<ul>
+<li>块是一个独立实体，最高级抽象，例如菜单、文本框等</li>
+<li>元素是块的组成部分，被包含在块中，无法自成一体，例如菜单项、标题等</li>
+<li>修饰符是块或元素的状态，可更改它们的外观或行为，例如高亮、选中等</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>要求</strong></p>
+<ul>
+<li>BEM中的块、元素和修饰符需要全部小写</li>
+<li>名称中的单词用连字符<code>-</code>分隔</li>
+<li>元素由双下划线<code>__</code>分隔</li>
+<li>修饰符由双连字符<code>--</code>分隔</li>
+<li>注意：块和元素都既不能是HTML元素名或ID，也不依赖其他块或元素</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .form &#123;
+  &#125;
+  .form--theme-xmas &#123;
+  &#125;
+  .form__input &#123;
+  &#125;
+  .form__submit &#123;
+  &#125;
+  .form__submit--disabled &#123;
+  &#125;
+&lt;/style&gt;
+&lt;form class=&quot;form form--theme-xmas&quot;&gt;
+  &lt;input class=&quot;form__input&quot; type=&quot;text&quot; /&gt;
+  &lt;input class=&quot;form__submit form__submit--disabled&quot; type=&quot;submit&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
+<ul>
+<li>在上面的代码中<ul>
+<li><code>.form</code>是块</li>
+<li><code>.form_input</code>和<code>.form_submit</code>是其元素</li>
+<li><code>.form--theme-xmas</code>是其修饰符</li>
+<li><code>.form__submit--disabled</code>是<code>.form__submit</code>的修饰符<blockquote>
+<p>BEM的核心思想就是用这种命名约定来清晰的表达出类的含义以及其他类之间的关系</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>BEM的缺点</strong> </p>
+<ul>
+<li>BEM与OOCSS一样，也抛弃了层叠，因此也不能挖掘出关系选择器的潜力</li>
+<li>CSS类名可能会比较长而且复杂</li>
+<li>需要完善规则说明文档，否则HTML结构将难以阅读</li>
+</ul>
+</blockquote>
+<h5 id="SMACSS"><a href="#SMACSS" class="headerlink" title="SMACSS"></a>SMACSS</h5><blockquote>
+<p>SMACSS(scalable and modular architecture for css)是指可伸缩及模块化的CSS架构<br>由Jonathan Snook在2011年雅虎工作时提出，他在OOCSS和BEM的基础上添加了五种类别的组件的处理规则，具体如下：</p>
+<ul>
+<li>1、**基础(base)**是为HTML元素定义默认样式，可以包含属性、伪类等选择器</li>
+<li>2、**布局(layout)**会将页面分为几部分，可作为高级容器包含一个或多个模块，例如左右分栏、栅格系统等</li>
+<li>3、**模块(module)**又名对象或块，是可用的模块化部分，例如导航栏、产品列表等</li>
+<li>4、**状态(state)**描述的是任一模块或布局在特定状态下的外观，例如隐藏、激活等</li>
+<li>5、**主题(theme)**也就是换肤，描述了页面的外观，特克修改前面四个类别的样式，例如链接颜色、布局方式<blockquote>
+<p>命名约定：推荐使用前缀来区分布局、模块、状态和主题，如下列</p>
+</blockquote>
+</li>
+<li><code>l-</code>或<code>layout-</code>用作布局的前缀，例如：<code>.l-inline</code></li>
+<li><code>m-</code>或模块自身的命名用作其前缀，例如<code>.m-profile</code>、<code>field</code></li>
+<li><code>is-</code>用作状态的前缀，例如<code>.is-collapsed</code>、<code>.is-active</code></li>
+<li><code>theme-</code>用作主题的前缀，例如：<code>.theme-a-background</code><blockquote>
+<p>注意，由于<code>base</code>规则是直接作用于元素的，因此不需要前缀</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>共享</strong><br>在实际开发中，不需要局限于某一CSS方法论，很多时候可以结合使用，共享模块化CSS的规则。例如遵循OOCSS的第一条分离原则，BEM的命名约定，以及SMACSS的分类前缀，具体如下所列：</p>
+<ul>
+<li>基础仍旧沿用SMACSS的规则，布局和模块使用SMACSS的前缀</li>
+<li>子元素用双下划线(__)分隔，其状态前缀沿用<code>is-</code></li>
+<li>修饰符也以<code>is-</code>为前缀，与模块组合时用双连字符(–)分隔</li>
+<li>适当层叠，最好保持在一层<blockquote>
+<p>任何软件设计都存在不完美的地方，CSS方法论也一样，比如：命名过长不易维护，HTML不够简洁等；<br>但它的优势也很明显，比如样式不容易冲突，尤其是复杂的样式结构</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="五、样式规范"><a href="#五、样式规范" class="headerlink" title="五、样式规范"></a>五、样式规范</h3><blockquote>
+<ul>
+<li>使用<strong>类选择器</strong>，放弃ID选择器：ID在一个页面的唯一性导致了如果以ID为选择器来写CSS，就无法重用。</li>
+<li>命名应简约而不失语义：<strong>反对过长</strong>命名和<strong>没有语义</strong>的命名</li>
+<li>相同语义的不同类命名：直接加数字或字母区分即可</li>
+<li>防止污染和被污染：为了防止后代选择器污染，尽量采用<code>&gt;</code>方式，例如：<code>-m-nav&gt;li</code>，而不是<code>-m-nav li</code></li>
+<li>最后一个值也以分号结尾：通常在大括号结束前的值可以省略分号，但是这样做会对修改、添加和维护工作带来不必要的失误和麻烦</li>
+<li>省略值为0时的单位：为节省不必要的字节同时也方便阅读</li>
+<li>根据属性的重要性按顺序书写：先显示定位布局类属性，后写盒模型等自身属性，最后是文本类及修饰类属性</li>
+<li>CSS需要进行格式化和对齐处理：推荐vscode插件</li>
+</ul>
+</blockquote>
+<h3 id="六、CSS命名规范"><a href="#六、CSS命名规范" class="headerlink" title="六、CSS命名规范"></a>六、CSS命名规范</h3><blockquote>
+<ul>
+<li>见css文件夹中的代码规范文档</li>
+</ul>
+</blockquote>
+<h2 id="CSS还原UI设计"><a href="#CSS还原UI设计" class="headerlink" title="CSS还原UI设计"></a>CSS还原UI设计</h2><blockquote>
+<p><strong>企业前端项目开发的真实流程</strong></p>
+<ul>
+<li>产品经理出原型图</li>
+<li>交给UI设计师根据需求设计UI源文件</li>
+<li>推送至墨刀&#x2F;蓝湖等协作设计开发平台</li>
+<li>给到程序员开发布局网页</li>
+</ul>
+</blockquote>
+<h3 id="一、长度单位与颜色分类"><a href="#一、长度单位与颜色分类" class="headerlink" title="一、长度单位与颜色分类"></a>一、长度单位与颜色分类</h3><h4 id="1-长度"><a href="#1-长度" class="headerlink" title="1. 长度"></a>1. 长度</h4><blockquote>
+<p>CSS中使用的每个属性值都允许拥有一个或一组值</p>
+<ul>
+<li>CSS中有两种长度单位——绝对长度单位和相对长度单位</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>绝对长度单位</strong></p>
+<ul>
+<li>它们与其他任何东西都没有关系<table>
+<thead>
+<tr>
+<th>单位</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cm</td>
+<td>厘米</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>毫米</td>
+</tr>
+<tr>
+<td>in</td>
+<td>英寸</td>
+</tr>
+<tr>
+<td>pt</td>
+<td>点</td>
+</tr>
+<tr>
+<td>px</td>
+<td>像素</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>除px外，其他单位并不常用</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>相对长度单位</strong></p>
+<ul>
+<li>相对长度单位相对于其他一些东西，比如父元素、视图端口大小</li>
+<li>使用相对单位的好处是，经过一些仔细的规划，可以是文本或其他元素的大小与页面上的其他内容相对应<table>
+<thead>
+<tr>
+<th>单位</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>em</td>
+<td>在font-size中使用是相对于父元素的字体大小，在其他元素中使用是相对于自身字体的大小</td>
+</tr>
+<tr>
+<td>ex</td>
+<td>字符”x”的高度</td>
+</tr>
+<tr>
+<td>ch</td>
+<td>数字”0”的宽度</td>
+</tr>
+<tr>
+<td>rem</td>
+<td>根元素的字体大小</td>
+</tr>
+<tr>
+<td>lh</td>
+<td>元素的line-height</td>
+</tr>
+<tr>
+<td>vw</td>
+<td>视图宽度的1%</td>
+</tr>
+<tr>
+<td>vh</td>
+<td>视图高度的1%</td>
+</tr>
+<tr>
+<td>vmin</td>
+<td>视图较小尺寸的1%</td>
+</tr>
+<tr>
+<td>vmax</td>
+<td>试图大尺寸的1%</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h4 id="2-颜色"><a href="#2-颜色" class="headerlink" title="2. 颜色"></a>2. 颜色</h4><blockquote>
+<ul>
+<li>在css中，相同的颜色值可以在任何额地方使用</li>
+<li>现代计算机的标准颜色系统是24位的，它允许通过不同的红绿蓝通道的组合显示大约1670万种不同的颜色</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>颜色关键词</strong></p>
+<ul>
+<li>颜色单词</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>RGB颜色</strong></p>
+<ul>
+<li>在CSS中，可以使用公式<code>rgb(red,green,blue)</code>将颜色指定为RGB值，每个参数定义到0到255之间的颜色强度</li>
+<li>黑色:rgb(0,0,0)</li>
+<li>白色:rgb(255,255,255)</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>RGBA值</strong></p>
+<ul>
+<li>RGBA颜色值是具有alpha通道的RGB颜色值的扩展，他指定了颜色的不透明度</li>
+<li>RGBA颜色值指定为rgba(red,green,blue,alpha),alpha参数是结余0.0(完全透明)和1.0(完全不透明)之间的数字</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>HEX颜色</strong></p>
+<ul>
+<li>在CSS中，可以使用<code>#rrggbb</code>格式的十六进制指定颜色</li>
+<li>其中rr、gg、bb是介于00和ff之间的十六进制值</li>
+<li><code>#aabbcc</code>可以简写为<code>#abc</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>HSL颜色</strong></p>
+<ul>
+<li>在CSS中，可以使用色相、饱和度和明度来指定颜色，格式如<code>hsla(hue,saturation,lightness)</code></li>
+<li>色相(hue)是色轮上从0到360的度数，0是红色，120是绿色，240是蓝色</li>
+<li>饱和度(saturation)是一个百分比值，0%表示灰色阴影，100%是全色</li>
+<li>亮度&#x2F;明度(lightness)也是百分比，0%是黑色，50%是既不明也不暗，100%是白色</li>
+</ul>
+</blockquote>
+<h3 id="二、UI设计图的源文件种类"><a href="#二、UI设计图的源文件种类" class="headerlink" title="二、UI设计图的源文件种类"></a>二、UI设计图的源文件种类</h3><h4 id="1-什么是设计图源文件"><a href="#1-什么是设计图源文件" class="headerlink" title="1. 什么是设计图源文件"></a>1. 什么是设计图源文件</h4><blockquote>
+<p>源文件是可以查看到图片所有的图层、通道、参考线、注解和颜色模式等信息，开发人员通过操作源文件，可以更加方便的控制图片，并快速的获取到图片信息 </p>
+</blockquote>
+<h4 id="2-常见的源文件"><a href="#2-常见的源文件" class="headerlink" title="2. 常见的源文件"></a>2. 常见的源文件</h4><blockquote>
+<ul>
+<li><code>.psd</code>格式源文件通过Photoshop工具制作</li>
+<li><code>.sketch</code>格式源文件，通过<code>sketch</code>工具制作</li>
+<li><code>.xd</code>格式源文件，通过XXD工具制作</li>
+</ul>
+</blockquote>
+<h4 id="3-进行切图处理和信息获取的方式"><a href="#3-进行切图处理和信息获取的方式" class="headerlink" title="3. 进行切图处理和信息获取的方式"></a>3. 进行切图处理和信息获取的方式</h4><blockquote>
+<p><strong>PS获取信息</strong></p>
+<ul>
+<li>打开PS–&gt;窗口–&gt;信息–&gt;通过查看面板获取信息</li>
+<li>修改标尺单位：右击信息面板–&gt;打开面板选项设置<code>鼠标坐标</code>为像素</li>
+<li>尺寸测量方式：<ul>
+<li>矩形选框工具，按shift&#x2F;ctrl来扩大&#x2F;缩小所选中范围</li>
+<li>移动工具：按住ctrl键鼠标触碰到需要量尺寸区尺寸的两个元素的边缘或者选中对应图层即可</li>
+</ul>
+</li>
+<li>颜色值的获取<ul>
+<li>吸管工具：吸取需要元素的颜色，点开拾色器&#x2F;前景色查看不同类型的颜色值</li>
+</ul>
+</li>
+<li>文字相关属性的获取<ul>
+<li>矩形选框工具：选中对应的文字图层–&gt;在字符面板查看即可<br><strong>PS切图</strong></li>
+</ul>
+</li>
+<li>编辑–&gt;首选项–&gt;打开增效工具–&gt;勾选“启用生成器”</li>
+<li>选择移动工具–&gt;点击需要切图的图片–&gt;<strong>修改图层的名字</strong>，并添加常见的<strong>图片后缀</strong>–&gt;按下回车键即可</li>
+<li>在源文件根目录里自动生成了一个文件夹，里面就是所切图片</li>
+<li>切2倍图：修改图层名称时，在名称前添加<code>200% 空格</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>蓝湖</strong></p>
+<ul>
+<li>登录蓝湖，下载photoshop插件，安装成功后启动PS–&gt;选择”窗口”–&gt;扩展功能–&gt;选择蓝湖即可</li>
+<li>一般是设计师切图后，把源文件上传至蓝湖，开发者就能在蓝湖查看各种信息、下载素材</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Pxcook</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>imgcook设计稿智能平台</strong></p>
+<ul>
+<li>网址：<a target="_blank" rel="noopener" href="https://www.imgcook.com/">https://www.imgcook.com/</a>(opens new window)</li>
+<li>目前此产品是阿里巴巴前端委员会智能化小组的服务化的内外落地产品</li>
+<li>通过智能化技术一键生成可维护的前端代码</li>
+<li>生成后的代码还是需要根据实际需求调整，在学习阶段可供参考</li>
+</ul>
+</blockquote>
+<h2 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h2><blockquote>
+<ul>
+<li>蓝湖打开设计稿</li>
+<li>准备图标库、字体文件夹、图片文件夹</li>
+<li>基础文件：<ul>
+<li>重置样式：global&#x2F;reset.css</li>
+<li>基础样式：base.css</li>
+<li>放样式的文件：index.css</li>
+</ul>
+</li>
+<li>网页文件：index.html<ul>
+<li>搭建网页框架</li>
+<li>引入重置样式、基础样式、其他样式、字体文件</li>
+</ul>
+</li>
+<li>自定义字体<ul>
+<li>先把重置样式文件里设置默认字体的代码注释掉</li>
+<li>在base.css文件里自定义字体,设置body样式<br>-使用@font-face引入字体文件</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@font-face</span> &amp;#123<span class="token punctuation">;</span></span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*字体类型*/</span>
+  <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">url()</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/*引入字体文件*/</span>
+&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>注意：ttf文件一定要加<code>format(&quot;ture&quot;)</code></p>
+</blockquote>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">https://hermiablog.github.io/2023/11/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                                    <span class="chip bg-color">基础知识</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="项目开发必备基础知识">
+                        
+                        <span class="card-title">项目开发必备基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            开发规范、重置样式最佳实践和开发工具
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/29/CSS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CSS核心知识点（三）">
+                        
+                        <span class="card-title">CSS核心知识点（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSS知识点汇总
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
