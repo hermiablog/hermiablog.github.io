@@ -1,0 +1,2535 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Flex布局和Grid布局, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Flex布局和Grid布局 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Flex布局和Grid布局</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Flex-Grid/">
+                                <span class="chip bg-color">Flex Grid</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-11-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h2><h3 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ol>
+<li><p>简介</p>
+<blockquote>
+<ul>
+<li>布局的传统解决方案，基于盒子模型，依赖display属性+position属性。它对于那些特殊布局非常不方便，比如垂直居中就不容易实现</li>
+<li>2009年，W3C提出了一种新的方案：Flex布局，可以简便、完整、响应式地实现各种布局页面。目前，他已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能，Flex布局将成为未来布局的首选方案</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是flex布局？</p>
+<blockquote>
+<ul>
+<li>flex(flexible box)，意为“弹性的盒子”，flex布局也称为flex弹性布局</li>
+<li>任何一个HTML元素都可以指定为flex布局</li>
+<li>flex布局是一种&#x3D;&#x3D;一维的&#x3D;&#x3D;布局模型，它给flexbox的子元素之间提供了强大的空间分布和对齐能力</li>
+<li>之所以说flexbox是一种一维布局，是因为一个flexbox一次只能处理一个维度上的元素布局，一行或一列</li>
+<li>在flex布局中，项目的float、clear和verticla-align属性将失效</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是flex容器(flex container)？</p>
+<blockquote>
+<ul>
+<li>凡是采用flex布局的元素，就称为flex容器</li>
+<li>也就是设置了<code>display:flex;</code>或<code>display:inline-flex;</code>的元素称之为flex容器</li>
+<li>布局有两种<ul>
+<li><code>display:flex;</code>弹性布局，元素自身以块级元素显示</li>
+<li><code>display:inline-flex</code>弹性布局，元素自身以行内块元素显示</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是flex项目(flex item)？</p>
+<blockquote>
+<ul>
+<li>flex容器的所有子元素(仅指直接子元素，不包括孙元素及其后代的子元素)，自动成为容器成员，称为flex项目</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是主轴，什么是交叉轴？</p>
+<blockquote>
+<ul>
+<li>默认情况下，水平方向是主轴，垂直于主轴方向上的是交叉轴</li>
+<li>flex项目默认沿主轴方向开始排列(即从左往右沿水平方向排列)</li>
+<li>主轴的开始位置(与边框的交叉点)叫做<code>main start</code>，结束位置叫做<code>main end</code></li>
+<li>交叉轴的开始位置叫做在<code>cross start</code>，结束位置叫做<code>cross end</code></li>
+<li><strong>单个</strong>flex项目占据的主轴空间叫做<code>main size</code>(主轴尺寸)，占据的交叉轴空间叫做<code>cross size</code>(交叉尺寸)<img src="flex主轴交叉轴.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>flex项目的默认表现形式</p>
+<blockquote>
+<p><strong>当flex容器和flex项目没有添加任何相关属性时，&#x3D;&#x3D;flex项目&#x3D;&#x3D;的默认表现形式如下：</strong></p>
+<ul>
+<li>子元素(项目)排列为一行(<code>flex-direction</code>属性的初始值是<code>row</code>)</li>
+<li>子元素(项目)从主轴的起始线开始排列</li>
+<li>子元素(项目)不会在主维度方向拉伸(放得下时不会拉伸)，但放不下时会缩小</li>
+<li>子元素(项目)默认为行内块元素，不独占一行，但可以设置宽高；若没有设置宽度，则<strong>宽度</strong>由内容撑起</li>
+<li>子元素(项目)没有设置高度时，被拉伸来填充交叉轴大小(单行时项目的高度等于容器高)</li>
+<li><code>flex-basis</code>属性为<code>auto</code>(即元素的宽为自动)</li>
+<li><code>flex-wrap</code>属性为<code>nowrap</code>(子项默认放不下时，不会<strong>换行</strong>)</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>display:flex;</strong></p>
+<ul>
+<li>flex容器为块级元素，若没有设置宽高，则<strong>宽度</strong>自动填充父元素的宽度，<strong>高度</strong>由内容撑起</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>display:inline-flex;</strong></p>
+<ul>
+<li>flex容器为行内块元素，不独占一行，但可以设置宽高；若没有设置宽高，则<strong>宽高</strong>都由内容撑起</li>
+</ul>
+</blockquote>
+<h3 id="二、flex容器属性"><a href="#二、flex容器属性" class="headerlink" title="二、flex容器属性"></a>二、flex容器属性</h3><ol>
+<li><p>flex-direction设置主轴方向</p>
+<blockquote>
+<ul>
+<li>默认主轴方向就是x轴，水平向右</li>
+<li>默认交叉轴就是y轴，垂直向下<br><code>flex-direction:row;</code><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row</td>
+<td>(默认值)主轴为水平方向，起点在左端。(交叉轴在垂直方向，起点在元素上边框位置)</td>
+</tr>
+<tr>
+<td>row-reverse</td>
+<td>主轴为水平方向，起点在右端。(交叉轴在垂直方向，起点在元素上边框位置)</td>
+</tr>
+<tr>
+<td>column</td>
+<td>主轴在垂直方向，起点元素在上边框位置(交叉轴在水平方向，起点在左端)</td>
+</tr>
+<tr>
+<td>column-reverse</td>
+<td>主轴在垂直方向，起点在下沿(交叉轴在水平方向，起点在左端)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>flex-wrap项目如何换行</p>
+<blockquote>
+<ul>
+<li>默认情况下，项目都在一条线上(轴线)上排列</li>
+<li><code>flex-wrap</code>属性用来定义：如果项目在一条轴线上排不下时，如何换行<br><code>flex-wrap:nowrap;</code><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nowrap</td>
+<td>不换行(默认)</td>
+</tr>
+<tr>
+<td>wrap</td>
+<td>换行，第一行在上方(或第一列左边)</td>
+</tr>
+<tr>
+<td>wrap-reverse</td>
+<td>换行，第一行在下方(或第一列右边)</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>主轴属性</th>
+<th>主轴方向</th>
+<th>wrap效果</th>
+<th>wrap-reverse效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>flex-direction:row;</code></td>
+<td>水平，从左至右</td>
+<td>第二行从上到下、从左至右排列</td>
+<td>第二行从下到上、从左至右排列</td>
+</tr>
+<tr>
+<td><code>flex-direction:row-reverse;</code></td>
+<td>水平，从右到左</td>
+<td>第二行从上到下、从右至左排列</td>
+<td>第二行从下到上、从右到左排列</td>
+</tr>
+<tr>
+<td><code>flex-direction:column;</code></td>
+<td>垂直，从上到下</td>
+<td>第二列从左到右、从上到下排列</td>
+<td>第二列从右到左、从上到下排列</td>
+</tr>
+<tr>
+<td><code>flex-direction:column-reverse;</code></td>
+<td>垂直，从下到上</td>
+<td>第二列从左到右、从下到上排列</td>
+<td>第二列从右到左、从下到上排列</td>
+</tr>
+<tr>
+<td><strong>总结：</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>wrap：按照交叉轴方向start–&gt;end，主轴start–&gt;end方向换行</li>
+<li>wrap-reverse：按照交叉轴方向end–&gt;start，主轴start–&gt;end方向换行</li>
+<li>因此：wrap-reverse改变的是交叉轴的方向</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><p>flex-flow 主轴方向和项目如何换行</p>
+<blockquote>
+<p><code>flex-flow</code>属性是<code>flex-direction</code>和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code><br><code>flex-flow:row nowrap;</code>第一个值规定主轴方向，第二个值规定项目如何换行</p>
+</blockquote>
+</li>
+<li><p>justify-content 项目在<strong>主轴</strong>上对齐方式</p>
+<blockquote>
+<p><code>justify-content:flex-start;</code></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>flex-start</td>
+<td>(默认值)，向主轴start方向对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>向主轴end方向对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>两端对齐，项目之间的间隔都相等,两端与项目之间不会有间隔</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍(相当于加了左右外边距)</td>
+</tr>
+<tr>
+<td>space-evenly</td>
+<td>使每个元素之间和元素距离边距的距离都相等，但iphone的SE上不支持，会失效，基本不用</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>align-items 项目在<strong>交叉轴</strong>上对齐方式</p>
+<blockquote>
+<p><code>align-items</code>属性定义项目在<strong>交叉轴</strong>上如何对齐，<strong>只对单行有效</strong><br><code>align-items:stretch;</code></p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>(默认值)：如果项目未设置高度或设为auto，将占满整个容器</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>与交叉轴的起点对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>与交叉轴的终点对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>与交叉轴的中点对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>向项目的第一行文字的X的中间对齐</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong></p>
+<ul>
+<li>默认情况下，项目如果没有设置高度或设为auto，其高度会自动拉伸到容器高度。<strong>原因是：</strong><code>align-items:stretch;</code>为默认值。</li>
+<li><strong>但是在其他几种情况下</strong>(即align不为stretch时)，项目未设置高度，其高度就为内容大小，并不会拉伸。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>当主轴放不下，允许换行时</strong></p>
+<ul>
+<li>当项目放不下，换行时，可以把每一行看做一个”新的flex容器”</li>
+<li><code>align-items</code>控制项目在”每一个容器”的交叉轴上的对齐方式</li>
+<li>行与行之间的间隔高度是相等的，由于每一行的最高项目高度不一样，所以每一个”新容器”所占高度也不一样</li>
+<li>当前行容器占的高度&#x3D;当前行最高元素的高+行与行之间的间隔&#x3D;当前行最高元素的高+(容器高-每一所有行最高元素的高)&#x2F;行数</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>align-content 多根轴线对齐方式(多行)<blockquote>
+<p>该属性规定了<strong>多根轴线</strong>在<strong>交叉轴</strong>上的对齐方式<br>如果项目只有一根轴线，该属性不起作用(允许换行)</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>(默认值)：轴线占满整个交叉轴</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>与交叉轴的起点对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>与交叉轴的终点对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>与交叉轴的中点对齐</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>两端对齐，与交叉轴两端对齐，轴线之间的间隔平均分布</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>每个轴线两侧的间隔都相等(每行加外边距)。所以，轴线之间的间隔比轴线与边框的间隔大一倍</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意！！！</strong><br>可换行时，<code>align-items</code>与<code>align-content</code>的区别</p>
+<ul>
+<li><code>align-items</code>控制单行，因此每行都是一个”新容器”，<code>align-items</code>控制每个新容器内项目在交叉轴上的对齐方式，每个容器之间都有等高的间隔</li>
+<li><code>align-content</code>同时控制多行<ul>
+<li>使用<code>stretch</code>、<code>space-between</code>、<code>space-around</code>时，每行的高度等于当前行最高的项目高度+等高的行间隔,</li>
+</ul>
+</li>
+<li>使用<code>flex-start</code>、<code>flex-end</code>、<code>center</code>时，行与行之间没有间隔，统一成”一个容器”</li>
+</ul>
+</blockquote>
+<h3 id="三、flex项目属性"><a href="#三、flex项目属性" class="headerlink" title="三、flex项目属性"></a>三、flex项目属性</h3><blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>order</td>
+<td>属性定义项目的排列顺序。数值越小，排列越靠前，默认为 0</td>
+</tr>
+<tr>
+<td>align-self</td>
+<td>单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性,默认值为auto，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。</td>
+</tr>
+<tr>
+<td>flex-grow</td>
+<td>flex项<strong>主尺寸</strong>的flex增长系数。默认为0，即如果存在剩余空间，也不放大。</td>
+</tr>
+<tr>
+<td>flex-shrink</td>
+<td>flex项<strong>主尺寸</strong>的缩小比例，默认为1，即如果空间不足，该项目将缩小。</td>
+</tr>
+<tr>
+<td>flex-basis</td>
+<td>定义了在分配多余空间之前，项目占据的主轴空间（main size）</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>flex属性是flex-grow, <code>flex-shrink</code>和<code>flex-basis</code>的简写默认值为:0 1 auto。后两个属性可选</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ol>
+<li><p>order项目的排列顺序</p>
+<blockquote>
+<ul>
+<li><code>order</code>属性定义项目的排列顺序</li>
+<li><code>order</code>属性值<code>&gt;0</code>的整数，数值越小，排列越靠前，默认为0<br><code>order:1;</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>align-self 单个项目交叉轴对齐方式</p>
+<blockquote>
+<ul>
+<li><code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性</li>
+<li><code>align-self</code>的默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性</li>
+<li>如果父元素没有设置<code>align-items</code>属性，则等同于<code>stretch</code>(项目未设置高度时)</li>
+<li><code>align-self:flex-start;</code><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>auto</td>
+<td>默认值，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code></td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>如果项目未设置高度或设为<code>auto</code>，将占满整个容器的高度</td>
+</tr>
+<tr>
+<td>flex-start</td>
+<td>交叉轴的起点对齐</td>
+</tr>
+<tr>
+<td>flex-end</td>
+<td>交叉轴的终点对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>交叉轴的中点对齐</td>
+</tr>
+<tr>
+<td>baseline</td>
+<td>项目的第一行文字的基线对齐</td>
+</tr>
+</tbody></table>
+</li>
+<li>当项目换行时，其<code>align-self</code>单个项目对齐方式，是相当于其所在的哪一行的轴线而言</li>
+<li>在今日头条案例中，用到<code>align-self:flex-start;</code>，使行内块元素宽度不占满整行(不设宽度时)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>flex-grow 项目主轴放大系数</p>
+<blockquote>
+<ul>
+<li><code>flex-grow</code>设置flex项目<strong>主尺寸</strong>的flex增长系数</li>
+<li>主尺寸是项目的宽度或高度，这取决于<code>flex-direction</code>值</li>
+<li><code>flex-grow</code>属性，在flex容器有剩余空间时生效</li>
+<li><code>剩余空间=flex容器宽大小-所有flex项目宽加起来的大小</code><blockquote>
+<p>注：剩余空间的值一定要大于0的</p>
+</blockquote>
+</li>
+<li><code>flex-grow</code>默认值为0，表示即使有剩余空间，也不增长(放大)</li>
+<li><code>flex-grow</code>的值&gt;&#x3D;0的数字</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>项目放大后尺寸计算方式</strong></p>
+<ul>
+<li>当所有项目的<code>flex-grow</code>值的总结加<code>&lt;1</code>时<ul>
+<li>项目放大后宽 &#x3D; 项目原始宽 + 剩余空间*项目的<code>flex-grow</code>值</li>
+</ul>
+</li>
+<li>当所有项目的<code>flex-grow</code>值的总和加起来<code>&gt;=1</code>时<ul>
+<li>项目放大后宽&#x3D;项目原始宽+剩余空间*(flex-grow值)&#x2F;所有项目的flex-grow值总和</li>
+</ul>
+</li>
+<li>当flex容器的剩余空间为0时，不管flex项目的<code>flex-grow</code>的值是多少，项目都不会放大(因为没有多余空间)</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>flex-shrink项目主轴上缩放系数<blockquote>
+<ul>
+<li><code>flex-shrink</code>属性指定了flex元素的收缩规则</li>
+<li>当所有项目宽度大于容器的时候才会收缩(默认主轴为水平方向)</li>
+<li>flex项目收缩的大小是依据所有项目的<code>flex-shrink</code>值决定的</li>
+<li><code>flex-shrink</code>的默认值为1，表示容器空间不足时，所有项目等比缩小</li>
+<li>只有当flex容器设置了<code>flex-grow:nowrap;</code>时，才能看到效果</li>
+<li>当<code>flex-shrink:0;</code>时，无论如何不缩放</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>项目收缩后尺寸大小计算方式</strong></p>
+<ul>
+<li>当flex-shrink总和&lt;1时<ul>
+<li><ol>
+<li>计算溢出宽 &#x3D;所有项目宽之和-容器宽</li>
+</ol>
+</li>
+<li><ol start="2">
+<li><strong>计算所有子项的总缩放宽 &#x3D;溢出宽</strong></li>
+</ol>
+</li>
+<li><ol start="3">
+<li>当前项目缩放比例 &#x3D;(当前项目原始宽<code>*</code>flex-shrink值)&#x2F;所有项目(宽<code>*``flex-shrink</code>值)之和</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>项目收缩宽&#x3D;所有子项的总缩放宽<code>*</code>当前项目缩放比例</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>项目收缩后宽&#x3D;原始宽-收缩宽</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>当flex-shrink总和&gt;&#x3D;1时<ul>
+<li><ol>
+<li>计算溢出宽 &#x3D;所有项目宽之和-容器宽</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>计算所有子项的总缩放宽 &#x3D;溢出宽<code>*</code>所有项目<code>flex-shrink</code>值之和</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>当前项目缩放比例 &#x3D;(当前项目原始宽<code>*</code>flex-shrink值)&#x2F;所有项目(宽<code>*``flex-shrink</code>值)之和</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>项目收缩宽&#x3D;所有子项的总缩放宽<code>*</code>当前项目缩放比例</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>项目收缩后宽&#x3D;原始宽-收缩宽<blockquote>
+<p>注：当项目的搜索框&gt;项目原始宽时，此计算方式无效</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li><p>flex-basis分配剩余空间前，项目占据主轴空间大小(main size)</p>
+<blockquote>
+<ul>
+<li><code>flex-basis</code>属性定义了<strong>在分配多余空间之前</strong>，项目占据的主轴空间</li>
+<li>浏览器根据这个属性聚酸主轴是否有多余空间</li>
+<li>它的默认值为<code>auto</code>，即项目的本来大小(如果有with，则缩放以width为参考)</li>
+<li><code>flex-basis</code>的优先级要高于<code>width</code></li>
+<li>特殊：<code>flex-basis:0%;</code>元素宽为0；</li>
+</ul>
+</blockquote>
+</li>
+<li><p>flex项目放大、缩小、空间占据</p>
+<blockquote>
+<ul>
+<li><code>flex</code>属性是<code>flex-grow</code>、<code>fleex-shrink</code>和<code>flex-basis</code>的缩写</li>
+<li>默认值为<code>0 1 auto</code>，也就是不放大，等比缩放，占主轴宽度为auto</li>
+<li>特殊<ul>
+<li><code>flex:auto;</code>：<code>flex:1 1 auto;</code></li>
+<li><code>flex:none;</code>：<code>flex:0 0 auto;</code></li>
+<li><code>flex:1</code>：<code>flex:1 1 0%;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、flex实战"><a href="#四、flex实战" class="headerlink" title="四、flex实战"></a>四、flex实战</h3><ol>
+<li><p>元素水平垂直居中</p>
+<blockquote>
+<ul>
+<li>弹性布局:<code>display:flex;</code></li>
+<li>水平居中:<code>jusity-content:center;</code></li>
+<li>垂直居中:<code>align-items:center;</code>.(不同情况下还可以使用<code>align-content</code>和<code>align-self</code>)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>画骰子</p>
+<blockquote>
+<ul>
+<li>1~6点</li>
+</ul>
+</blockquote>
+</li>
+<li><p>双飞翼布局</p>
+<blockquote>
+<ul>
+<li>左右固定，中间自适应，最中间的内容放在第一位，有利于SEO搜索引擎优化</li>
+<li>注意点<ul>
+<li>容器设置<code>display:flex;</code>使项目以弹性布局方式排列</li>
+<li>中间的项目写在最上面，但利用<code>order</code>改变排版顺序</li>
+<li>中间的项目设置<code>flex-grow:1;</code>：使中间项目的充分占据容器剩余空间</li>
+<li>左右项目固定宽度，<code>flex-grow</code>默认为0，因此不会分配容器的剩余空间</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>flex怎么实现盒子1在最左边，23在最右边</p>
+</li>
+<li><p>星级评估</p>
+<blockquote>
+<ul>
+<li>利用后续兄弟元素选择器，把主轴方向调转</li>
+<li>伪元素实现实心星星：代码<code>content=&quot;\2605&quot;</code></li>
+<li><code>hover</code>鼠标滑动变色</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何解决 flex 布局 7 个元素使用 space-between 最后一行两边分布的问题？</p>
+<blockquote>
+<ul>
+<li>如果我们每一行显示的个数为 n，那我们可以最后一行子项的后面加上 n-2 个 span 元素，span 元素的宽度和其它子项元素宽度一样，但不用设置高度,高度设置为0,不对其他元素产生影响。</li>
+<li><strong>为什么是添加n-2个span元素呢 ？</strong><ul>
+<li>当最后一行只有 1 个子元素时，他会默认靠左，不用处理</li>
+<li>当最后一行子元素正好时，我们就不用关心这个问题</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h2 id="Grid布局"><a href="#Grid布局" class="headerlink" title="Grid布局"></a>Grid布局</h2><h3 id="一、基本概念-1"><a href="#一、基本概念-1" class="headerlink" title="一、基本概念"></a>一、基本概念</h3><ol>
+<li><p>什么是网格布局</p>
+<blockquote>
+<ul>
+<li>grid网格布局是将容器分成了行和列，产生单元格，然后指定<strong>项目</strong>所在的单元格，可以看做是二维布局</li>
+<li>grid比flex更加强大，flex更适合处理一维布局<img src="grid.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是grid容器和项目</p>
+<blockquote>
+<ul>
+<li>与flex布局一样，采用网格布局的区域称为容器，其直接子元素称为项目</li>
+<li>通过给元素添加<code>display:grid;</code>或<code>display:inline-grid;</code>来指定元素为grid网格布局<ul>
+<li><code>display:grid;</code>元素自身以块级元素显示</li>
+<li><code>display:inline-grid;</code>元素自身以行内块元素显示</li>
+</ul>
+</li>
+<li>任何元素都可以指定为grid网格布局</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是行、列、单元格</p>
+<blockquote>
+<ul>
+<li>容器里面的水平区域称为行，垂直区域称为列</li>
+<li>行和列交叉形成区域，称为单元格(cell)</li>
+<li>正常情况下，<code>n</code>行和<code>m</code>列会产生<code>n*m</code>个单元格</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是网线格</p>
+<blockquote>
+<ul>
+<li>划分网格的线，称为”网线格”</li>
+<li>水平网格线划分出行，垂直网格线划分出列</li>
+<li>正常情况下,n行有<code>n+1</code>根水平网格线，m列有<code>m+1</code>根垂直网格线</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是网格轨道</p>
+<blockquote>
+<ul>
+<li>网格轨道是两条网格线之间的空间<img src="网格轨道.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是网格区域</p>
+<blockquote>
+<ul>
+<li>网格区域是由网格中一个或多个单元格组成的一个矩形区域，有点类似与表格中的合并</li>
+<li>也就是说，我们把grid容器划分成对应单元格后，可以对这些单元格做合并操作<img src="网格区域.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是网格间距</p>
+<blockquote>
+<ul>
+<li>网格间距分为行间距和列间距</li>
+<li>行与行的间隔，被称为行间距，列与列的间隔，被称为列间距。具体如下图所示<img src="网格间距.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是网格内容区域</p>
+<blockquote>
+<ul>
+<li>Grid 容器的每一个子元素，被称为 Grid 项目。所有 Grid 项目看成一个整体，这个整体我们称为网格内容。<img src="网格内容.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、grid-容器-属性"><a href="#二、grid-容器-属性" class="headerlink" title="二、grid&#x3D;&#x3D;容器&#x3D;&#x3D;属性"></a>二、grid&#x3D;&#x3D;容器&#x3D;&#x3D;属性</h3><blockquote>
+<ul>
+<li>当元素设置网格布局以后，项目的<code>float</code>、<code>display:inline-block</code>、<code>display:table-cell</code>、<code>vertical-align</code>、<code>column-*</code>等设置都将失效</li>
+</ul>
+</blockquote>
+<ol>
+<li>grid-template-rows、grid-template-columns属性<blockquote>
+<p><strong>tips：</strong></p>
+<ul>
+<li><code>grid-template-rows</code>定义行及行高</li>
+<li><code>grid-template-columns</code>定义列及列宽</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>单位</strong></p>
+<ol>
+<li>绝对单位长度px</li>
+</ol>
+<ul>
+<li>每行行高都是100px：<code>grid-template-rows:100px 100px;</code></li>
+<li>每列列宽都是200px：<code>grid-template-column:200px 200px;</code></li>
+</ul>
+<ol start="2">
+<li>百分比单位</li>
+</ol>
+<ul>
+<li>以容器宽高为基础。&#96;width:200px height:300px;</li>
+<li><code>grid-template-rows:30% 70%;</code><ul>
+<li>行高分别为：<code>300*30%</code> <code>300*70%</code>;</li>
+</ul>
+</li>
+<li><code>grid-template-column:40% 60%;</code><ul>
+<li>列宽分别为：<code>200*40%</code> <code>200*60%</code>;</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>fr关键词</li>
+</ol>
+<ul>
+<li><code>fr</code>关键字(fraction的缩写，片段)，表示比例关系</li>
+<li>所有行&#x2F;列都用fr单位，则：<ul>
+<li>每列宽&#x3D;容器宽 * (当前列fr值&#x2F;所有列fr值总和)</li>
+<li>每行高&#x3D;容器高 * (当前列fr值&#x2F;所有列fr值总和)</li>
+</ul>
+</li>
+<li>与绝对长度的单位结合使用,fr单位的行&#x2F;列，表示的是按比例分配剩余空间</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>repeat()函数</strong></p>
+<ul>
+<li>简化重复值</li>
+<li>包括两个参数：repeat(重复次数，所重复的值)</li>
+</ul>
+<pre><code>/* 定义行，3行的行高都是100px */
+grid-template-rows: repeat(3, 100px);
+/* 定义了6行，第1，4行的高为50px 第2，5行的高为100px，第3，6行的高为80px */
+grid-template-rows: repeat(2, 50px 100px 80px);
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>auto-fill关键字</strong></p>
+<ul>
+<li>有时，单元格的大小是固定的，但是容器的大小不确定，如果希望每一行（或每一列）容纳尽可能多的单元格，这时可以使用auto-fill关键字表示自动填充。</li>
+<li><code>grid-template-columns: repeat(auto-fill, 100px);</code><ul>
+<li>意思是每列宽度为100px，列数自动填充</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>minmax</strong><br><code>minmax()</code>函数产生一个长度范围，表示长度就在这个范围内</p>
+<ul>
+<li>&#96;minmax(最小值,最大值)</li>
+<li>可以与px、fr、百分比混用</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>auto关键词</strong></p>
+<ul>
+<li>auto关键词表示(列宽&#x2F;行高)由浏览器自己决定</li>
+<li>auto 表示当对应单元格中的元素（如 div）在未设置宽度时，当前列宽为自动计算的宽</li>
+<li>情况一：</li>
+</ul>
+<pre><code>容器设置：grid-template-columns: 100px auto 100px;
+而且auto对应的第二个项目**未设置列宽**
+</code></pre>
+<ul>
+<li>表示第二个单元格宽度自适应</li>
+<li>情况二</li>
+</ul>
+<pre><code>容器设置：grid-template-columns: 100px auto 100px;
+而且auto对应的第二个项目**设置了列宽**
+</code></pre>
+<ul>
+<li>若item2的宽度<strong>大于</strong>单元格自动计算的宽，则单元格宽度由对应项目决定</li>
+<li>若item2的宽度<strong>小于</strong>单元格自动计算的宽，则单元格宽度以自动计算的为主</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>网格线的名称</strong></p>
+<ul>
+<li>使用方括号，指定每一根网格线的名字，方便以后的引用。</li>
+<li><code>grid-template-rows: [a1] 200px [a2];</code></li>
+<li>需要注意的是n行有<code>n+1</code>条网格线</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>row-gap、column-gap、gap属性</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row-gap</td>
+<td>设置行与行的间隔(行间距)</td>
+</tr>
+<tr>
+<td>column-gap</td>
+<td>设置列与列的间距(列间距)</td>
+</tr>
+<tr>
+<td>gap</td>
+<td>是<code>row-gap</code>和<code>column-gap</code>的合并简写形式</td>
+</tr>
+</tbody></table>
+<ul>
+<li>属性值单位是绝对单位px或百分比</li>
+<li>百分比单位是网格容器的百分比</li>
+<li>gap后如果只写一个值，表示列间距和行间距一样大小</li>
+</ul>
+</blockquote>
+</li>
+<li><p>grid-template-areas属性</p>
+<blockquote>
+<ul>
+<li>grid-template-areas属性用于指定<strong>网格区域</strong>，一个区域由单个或多个单元格组成</li>
+<li>这个属性需要配合项目属性<code>grid-area</code>一起使用</li>
+<li><code>grid-area:区域名</code>用于指定grid项目放在哪个区域</li>
+<li>不需要利用的区域，则使用点<code>.</code>表示</li>
+<li>区域的命名会影响到网格线，每个区域的起始网格线，会自动命名为<code>区域名-start</code>；终止网格线自动命名为<code>区域名-end</code></li>
+<li>注意：”合并单元格”时，所形成的区域必须是矩形</li>
+<li>使用方法：</li>
+</ul>
+<pre><code>.container&#123;
+ grid-template-areas:
+&quot;a a c&quot;
+&quot;a a f&quot;
+&quot;g h i&quot;;
+  &#125;
+.grid-item1 &#123;
+ /* 将项目放在区域a中 */
+ grid-area: a;
+ background-color: skyblue;
+  &#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>grid-auto-flow属性</p>
+<blockquote>
+<ul>
+<li>它决定了项目在容器中的排列顺序，是”先行后列”，还是”先列后行”<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>row</td>
+<td>默认值，即先行后列，即项目默认从左往右，先天满第一行，再开始第二行</td>
+</tr>
+<tr>
+<td>column</td>
+<td>先列后行，即项目先从上往下填满第一列，再开始放第二列</td>
+</tr>
+<tr>
+<td>row dense</td>
+<td>某些项目指定位置以后，剩下的项目怎么自动放置。表示**”先行后列”**，并且尽可能紧密填满，尽量不出现空格</td>
+</tr>
+<tr>
+<td>column dense</td>
+<td>某些项目指定位置以后，剩下的项目怎么自动放置。表示**”先列后行”**，并且尽量填满空格</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>grid-auto-columns和grid-auto-rows属性</p>
+<blockquote>
+<p><strong>什么是显示网格：</strong></p>
+<ul>
+<li>使用<code>grid-template-columns</code>和<code>grid-auto-rows</code>指定尺寸创建出来行和列形成的网格<br><strong>什么是隐藏网格</strong></li>
+<li>是自动布局算法创建的额外的行或列形成的网格</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>grid-auto-columns</code>：隐式创建的网格<strong>纵向</strong>轨道(track)的宽度。即设置隐式网格的<strong>宽度</strong></li>
+<li><code>grid-auto-rows</code>：用于指定隐式创建的<strong>行</strong>轨道大小。即设置隐式网格的<strong>高度</strong></li>
+<li><code>grid-auto-columns</code>与<code>grid-auto-rows</code>的写法与<code>grid-template-columns</code>和<code>grid-template-rows</code>完全相同。</li>
+<li>但是！<code>grid-auto-columns</code>与<code>grid-auto-rows</code>不支持<code>repeat</code>写法</li>
+<li>如果不指定<code>grid-auto-columns</code>与<code>grid-auto-rows</code>这两个属性，浏览器完全根据<strong>单元格内容的大小</strong>，决定新增网格的列宽或行高。</li>
+<li>只有在“先行后列”：<code>grid-auto-flow:row;</code>的情况下，设置隐式行高<code>grid-auto-rows</code>才有用，此时的隐式列宽由<code>grid-template-columns</code>决定</li>
+<li>类似的，只有在“先列后行”时，设置隐式列宽才有效；而隐式行高由<code>grid-template-rows</code>决定</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li><p>justify-items属性</p>
+<blockquote>
+<p>用来设置<strong>单元格内容</strong>的水平位置</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>(默认值)拉伸，占满单元格的整个宽度</td>
+</tr>
+<tr>
+<td>start</td>
+<td>与单元格最左边对齐</td>
+</tr>
+<tr>
+<td>end</td>
+<td>与单元格最右边对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>单元格内水平居中对齐</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>align-items属性</p>
+<blockquote>
+<p>用来设置<strong>单元格内容</strong>的垂直对齐方式</p>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>(默认值)拉伸，占满单元格的整个高度</td>
+</tr>
+<tr>
+<td>start</td>
+<td>与单元格最上边对齐</td>
+</tr>
+<tr>
+<td>end</td>
+<td>与单元格最下边对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>与单元格内垂直居中对齐</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>place-items属性</p>
+<blockquote>
+<p>它是<code>align-items</code>和<code>justify-items</code>属性的<strong>合并简写</strong>属性</p>
+<ul>
+<li><code>place-items:(垂直,水平)</code></li>
+<li>如果只写一个值，则相当于两个值一样</li>
+</ul>
+</blockquote>
+</li>
+<li><p>justify-content属性</p>
+<blockquote>
+<p>设置<strong>整个内容区域</strong>在容器里面的<strong>水平</strong>位置</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start</td>
+<td>默认值，对齐容器的<strong>左</strong>边框</td>
+</tr>
+<tr>
+<td>end</td>
+<td>对齐容器的<strong>右</strong>边框</td>
+</tr>
+<tr>
+<td>center</td>
+<td>容器内部<strong>水平居中</strong>。</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>单元格大小没有指定时，<strong>拉伸</strong>宽占据整个网格容器。</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>项目与项目的间隔相等，项目与容器边框之间没有间隔。</td>
+</tr>
+<tr>
+<td>space-evenly</td>
+<td>项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：只有当单元格宽&#x2F;高为<code>auto</code>时，<code>justify-content:stretch;</code>拉伸才会生效</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>align-content属性</p>
+<blockquote>
+<p>是整个<strong>内容区域</strong>的<strong>垂直</strong>位置</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>start</td>
+<td>默认值，对齐容器的起始边框</td>
+</tr>
+<tr>
+<td>end</td>
+<td>对齐容器的结束边框</td>
+</tr>
+<tr>
+<td>center</td>
+<td>容器内容垂直居中。</td>
+</tr>
+<tr>
+<td>stretch</td>
+<td>项目高度没有指定时，项目高度会被拉伸占据整个网格容器。</td>
+</tr>
+<tr>
+<td>space-around</td>
+<td>每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍。</td>
+</tr>
+<tr>
+<td>space-between</td>
+<td>项目与项目的间隔相等，项目与容器边框之间没有间隔。</td>
+</tr>
+<tr>
+<td>space-evenly</td>
+<td>项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔。</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>place-content属性</p>
+<blockquote>
+<ul>
+<li><code>place-content</code>属性是<code>align-content</code>属性和<code>justify-content</code>属性的合并简写形式</li>
+</ul>
+</blockquote>
+</li>
+<li><p>grid-template和grid属性</p>
+<blockquote>
+<ul>
+<li><code>grid-template</code>属性是<code>grid-template-rows</code>、<code>grid-template-columns</code>和<code>grid-template-areas</code>这三个属性的合并简写形式。</li>
+<li>只定义行高和列宽<ul>
+<li><code>grid-template:100px 200px/50px 100px;</code></li>
+<li>行高分别为100px和200px，列宽分别为50px和100px</li>
+</ul>
+</li>
+<li>定义行列，同时划分区域</li>
+</ul>
+<pre><code>grid-template:
+  &quot;a a b&quot; 50px
+  &quot;a a b&quot; 100px
+  &quot;c c c&quot; 50px / 100px 100px 100px;
+  /*
+定义行列和区域 
+3行 行高分别为 50px 100px 50px
+3列 列宽分别为 100px 100px 100px
+*/
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>grid</code>属性是<code>grid-template-rows</code>、<code>grid-template-columns</code>、<code>grid-template-areas</code>、 <code>grid-auto-rows</code>、<code>grid-auto-columns</code>、<code>grid-auto-flow</code>这六个属性的合并简写形式。<ul>
+<li>因为过于复杂，实际并不会用这种方式</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="三、grid-项目-的属性"><a href="#三、grid-项目-的属性" class="headerlink" title="三、grid&#x3D;&#x3D;项目&#x3D;&#x3D;的属性"></a>三、grid&#x3D;&#x3D;项目&#x3D;&#x3D;的属性</h3><ol>
+<li>指定项目的位置<blockquote>
+<ul>
+<li>通过指定项目的四个边框的位置，四个边框分别定位在哪根网络线<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>grid-column-start</td>
+<td>项目左边框所在的垂直网格线</td>
+</tr>
+<tr>
+<td>grid-column-end</td>
+<td>项目右边框所在的垂直网格线</td>
+</tr>
+<tr>
+<td>grid-row-start</td>
+<td>项目上边框所在的水平网格线</td>
+</tr>
+<tr>
+<td>grid-row-end</td>
+<td>项目下边框所在的水平网格线</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>当项目只指定了4个属性中的一个，则其他未指定的会采用默认位置，并且一个项目只占一个单元格</li>
+<li>项目的默认位置，由<code>grid-auto-flow</code>属性决定<ul>
+<li>先行后列时，若未明确定位，则被指定项目会按前后顺序排列</li>
+<li>先列后行时，若未明确定位，则被指定项目<strong>高于</strong>其前面的元素</li>
+<li><code>row dense</code>表示 “先行后列”，并且尽可能紧密填满，尽量不出现空格。</li>
+<li><code>column dense</code>表示”先列后行”，并且尽量填满空格</li>
+</ul>
+</li>
+<li>指定方式(可混用)：<ul>
+<li>数字：第几个网格线</li>
+<li>名称：网格线名字</li>
+<li>span关键字：表示跨越，后接数字表示跨越几个网格。不管是star还是end都是从默认的那个单元格开始算</li>
+<li>auto关键字：表示自动放置，自动跨度或默认跨度为1</li>
+</ul>
+</li>
+<li>如果项目发生重叠，通过<code>z-index</code>属性指定项目的重叠顺序</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>grid-colum、grid-row属性</p>
+<blockquote>
+<ul>
+<li><code>grid-column</code>是<code>grid-column-start</code>和<code>grid-column-end</code>的合并简写形式</li>
+<li><code>grid-row</code>属性是<code>grid-row-start</code>属性和<code>grid-row-end</code>的合并简写形式</li>
+<li>写法：<code>grid-column:1/3;</code>用<code>/</code>分隔</li>
+</ul>
+</blockquote>
+</li>
+<li><p>grid-area属性</p>
+<blockquote>
+<ul>
+<li><code>grid-area</code>属性指定项目放在哪一个区域</li>
+<li>配合<code>grid-template-areas</code>属性一起使用</li>
+<li>特殊用法1：<ul>
+<li><code>grid-area</code>属性还可用作<code>grid-row-start</code>、<code>grid-column-start</code>、<code>grid-row-end</code>、<code>grid-column-end</code>的合并简写形式，直接指定项目的位置。 </li>
+<li><code>grid-area: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;;</code></li>
+<li><code>grid-area:1/2/3/4;</code></li>
+</ul>
+</li>
+<li>特殊用法2(栅格布局)：<ul>
+<li>所谓的栅格布局，你可以简单理解为，要把一个页面或容器(如 div)，分成多少份：<code>grid-template-columns: repeat(12, 1fr);</code></li>
+<li>然后设置其页面或容器中子元素占对应的份数：</li>
+</ul>
+</li>
+</ul>
+<pre><code>.col-3 &#123;
+   /* 宽为父容器3份宽 */
+ grid-area: auto/auto/auto/span 3;
+ &lt;!-- 不指定起始线，只规定所跨越的单元格 --&gt;
+  &#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>justify-self、align-self、place-self 属性</p>
+<blockquote>
+<ul>
+<li><code>justify-self</code>设置单元格内容的水平位置</li>
+<li><code>align-self</code>设置单元格内容的垂直位置</li>
+<li><code>place-self</code>是align-self属性和justify-self属性的<strong>合并</strong>简写形式，如果省略第二个值，place-self属性会认为这两个值相等。<br><strong>justify-self 和 align-self 属性的取值相同，都可以是以下 4 个</strong><table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stretch</td>
+<td>默认值，拉伸，占满单元格的整宽或高</td>
+</tr>
+<tr>
+<td>start</td>
+<td>（水平居左或垂直居上）</td>
+</tr>
+<tr>
+<td>end</td>
+<td>（水平居右或垂直居下）</td>
+</tr>
+<tr>
+<td>center</td>
+<td>水平居中，或垂直居中</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、兼容性查询办法"><a href="#四、兼容性查询办法" class="headerlink" title="四、兼容性查询办法"></a>四、兼容性查询办法</h3><ol>
+<li><p>不同浏览器的私有前缀</p>
+<table>
+<thead>
+<tr>
+<th>私有前缀</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-moz-</td>
+<td>火狐等使用 Mozilla 浏览器引擎的浏览器</td>
+</tr>
+<tr>
+<td>-webkit-</td>
+<td>Safari, 谷歌浏览器等使用 Webkit 引擎的浏览器</td>
+</tr>
+<tr>
+<td>-o-</td>
+<td>Opera 浏览器</td>
+</tr>
+<tr>
+<td>-ms-</td>
+<td>IE 浏览器 、Edge 浏览器</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>对于私有属性的顺序要注意，标准写法要写到最后面，兼容性写法放在前面</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>兼容性查询</p>
+<blockquote>
+<p>查询不同 CSS 属性的兼容性，可以进入地址：<a target="_blank" rel="noopener" href="https://caniuse.com/%E6%9F%A5%E8%AF%A2">https://caniuse.com/查询</a></p>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、案例"><a href="#五、案例" class="headerlink" title="五、案例"></a>五、案例</h3><ol>
+<li><p>Grid 网格布局（开发 360 图片展示效果）</p>
+<blockquote>
+<ul>
+<li>grid-area</li>
+<li>grid-column、grid-rows</li>
+</ul>
+</blockquote>
+</li>
+<li><p>小米商城</p>
+<blockquote>
+<ul>
+<li>滑动菜单栏切换商品列表</li>
+<li>在对应的菜单栏的写商品列表</li>
+<li>利用position定位到菜单栏左侧</li>
+<li>每一个商品列表的类名都可以一样，随列表内容而变化</li>
+<li>商品栏宽度随商品数量扩大</li>
+<li>网格布局：先列后行，设置一列六行，隐藏网格的列宽设置成所需列宽</li>
+<li>每行行高为1份，自动生成，列宽固定</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>图片与文字垂直对齐</li>
+<li>给单元格设置弹性布局</li>
+<li>利用<code>align-items:center;</code>实现垂直居中</li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/11/30/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrid%E5%B8%83%E5%B1%80/">https://hermiablog.github.io/2023/11/30/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrid%E5%B8%83%E5%B1%80/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Flex-Grid/">
+                                    <span class="chip bg-color">Flex Grid</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/Flex%E5%B8%83%E5%B1%80%E5%92%8CGrid%E5%B8%83%E5%B1%80/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Flex布局和Grid布局">
+                        
+                        <span class="card-title">Flex布局和Grid布局</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Flex布局和Grid布局核心知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Flex-Grid/">
+                        <span class="chip bg-color">Flex Grid</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/30/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/33.jpg" class="responsive-img" alt="项目开发必备基础知识">
+                        
+                        <span class="card-title">项目开发必备基础知识</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            开发规范、重置样式最佳实践和开发工具
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
