@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="多终端响应式开发, 技术博客">
+    <meta name="keywords" content="JS简介、核心语法、变量, 技术博客">
     <meta name="description" content="个人技术博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>多终端响应式开发 | hermia&#39;s blog</title>
+    <title>JS简介、核心语法、变量 | hermia&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -235,12 +235,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">多终端响应式开发</h1>
+                    <h1 class="description center-align post-title">JS简介、核心语法、变量</h1>
                 </div>
             </div>
         </div>
@@ -367,8 +367,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">响应式开发</span>
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
                             </a>
                         
                     </div>
@@ -392,21 +392,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-11-30
+                    2023-12-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-30
+                    2023-12-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    4.8k
                 </div>
                 
 
@@ -424,488 +424,736 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <span id="more"></span>
-<h3 id="一、什么是响应式布局"><a href="#一、什么是响应式布局" class="headerlink" title="一、什么是响应式布局"></a>一、什么是响应式布局</h3><blockquote>
-<ul>
-<li>响应式布局：只需要开发一套代码，就能使页面适应不同的屏幕 （一个网站兼容多种终端）</li>
-<li>响应式设计原理：通过媒体查询来检测视口宽，针对不同视口宽做相应代码处理，来展现不同的布局和内容</li>
-<li>流体布局和 rem&#x2F;vw 布局，只是针对移动端开发的，开发出来的网站在尺寸为（320 ~ 480px）之间的屏幕上显示，才能获得好的体验。并不能适应iPad和PC 端。</li>
-<li>响应式布局开发出来的网站，在移动、ipad、PC 端都能有好的体验，能兼容不同的屏幕尺寸</li>
-</ul>
-</blockquote>
-<h3 id="二、媒体查询的语法"><a href="#二、媒体查询的语法" class="headerlink" title="二、媒体查询的语法"></a>二、媒体查询的语法</h3><ol>
-<li><p>什么是媒体查询</p>
-<blockquote>
-<ul>
-<li>我们知道，一套 CSS 样式是很难适应不同大小的屏幕，所以我们需要针对不同的屏幕尺寸来书写不同的样式，这样我们写出来的页面就能在不同大小的屏幕上都正常显示。</li>
-<li>媒体查询就是用来解决这个问题的，他能帮助我们检测不同屏幕的尺寸，然后针对不同屏幕尺寸，显示不同的样式。</li>
-<li>一个完整的媒体查询语句，包含以下四个部分：<ul>
-<li>@media 关键字</li>
-<li>媒体类型</li>
-<li>逻辑运算符</li>
-<li>媒体特性</li>
-</ul>
-</li>
-</ul>
-<pre><code>&lt;style&gt;
-  /*
-  @media 媒体类型 逻辑操作符 (媒体特性) &#123;
-  ...css样式....;
-&#125;
- @media 是关键字：媒体查询
- screen 媒体类型：屏幕设备
- and 逻辑运算符：与 (多个条件同时满足)
- min-width 媒体特性：设备宽&gt;=400px
-以下整个媒体查询代码的含义：网页是在屏幕设备上显示，同时屏幕设备的宽&gt;=400px时，背景颜色变为红色。
- */
-  @media screen and (min-width: 400px) &#123;
- body &#123;
-   background-color: red;
- &#125;
-  &#125;
-&lt;/style&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>媒体类型</p>
-<blockquote>
-<ul>
-<li>媒体类型(Media types) 就是用来描述设备的一般类别，设备类别主要分为以下 4 种<table>
+<h3 id="一、js简介"><a href="#一、js简介" class="headerlink" title="一、js简介"></a>一、js简介</h3><ol>
+<li>HTML、CSS、JavaScript 三者之间的关系<table>
 <thead>
 <tr>
-<th>媒体类型</th>
-<th>说明</th>
+<th>前端三层</th>
+<th>语言</th>
+<th>功能</th>
+<th>类比1</th>
+<th>类比 2</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>all</td>
-<td><strong>（默认值）</strong>适用于所有的设备</td>
+<td>结构层</td>
+<td>HTML</td>
+<td>搭建结合、放置部件、描述语义</td>
+<td>房子的框架</td>
+<td>人的骨架</td>
 </tr>
 <tr>
-<td>screen</td>
-<td>适用于屏幕设备</td>
+<td>样式层</td>
+<td>CSS</td>
+<td>美化页面、实现布局</td>
+<td>对房子装修</td>
+<td>给人打扮、化妆</td>
 </tr>
 <tr>
-<td>print</td>
-<td>适用于在打印预览模式下在屏幕上查看的分页材料和文档</td>
-</tr>
-<tr>
-<td>speech</td>
-<td>适用于语音合成器</td>
-</tr>
-<tr>
-<td>如果媒体查询语句，只指定媒体类型，可以简写成如下:</td>
-<td></td>
-</tr>
-<tr>
-<td><code>@media 媒体类型 ｛ .... css样式..... ｝;</code></td>
-<td></td>
+<td>行为层</td>
+<td>JavaScript</td>
+<td>实现交互效果、数据收发、表单验证等</td>
+<td>房子通水、通电</td>
+<td>人的各种行为</td>
 </tr>
 </tbody></table>
 </li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>要看到<strong>打印模式</strong>下效果，按以下步骤操作即可</p>
-<ul>
-<li>涉及到颜色一定要记得选彩色</li>
-<li>在浏览器中右击 -&gt; 打印（点击进入） -&gt; 更多设置（点击）&gt;- <strong>背景图形</strong>（勾选上）<img src="打印模式.png"></li>
-</ul>
-</blockquote>
-<ol>
-<li>媒体特性<blockquote>
-<ul>
-<li>媒体特性（Media features）描述了 user agent、输出设备，或是浏览环境的具体特征。</li>
-<li>媒体特性表达式是完全可选的</li>
-<li>它负责测试这些特性或特征是否存在、值为多少。</li>
-<li><strong>每条</strong>媒体特性表达式都必须用 括号（） 括起来。<br><strong>常用的媒体特性</strong><table>
-<thead>
-<tr>
-<th>媒体特性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>width</td>
-<td>设备屏幕的宽</td>
-</tr>
-<tr>
-<td>min-width</td>
-<td>设备屏幕的最小宽(如min-width:400px;表示屏幕宽&gt;&#x3D;400px)</td>
-</tr>
-<tr>
-<td>max-width</td>
-<td>设备屏幕的最大宽(如max-width:1200px;表示屏幕宽&lt;&#x3D;1200px)</td>
-</tr>
-<tr>
-<td>-webkit-device-pixel-ratio</td>
-<td>设备像素比(dpr)的值（只有-webkit 内核的才支持）</td>
-</tr>
-<tr>
-<td>-webkit-max-device-pixel-ratio</td>
-<td>设备像素比(dpr)的最大值（只有-webkit 内核的才支持）</td>
-</tr>
-<tr>
-<td>-webkit-min-device-pixel-ratio	设备像素比(dpr)的最小值（只有-webkit 内核的才支持）</td>
-<td></td>
-</tr>
-<tr>
-<td>orientation</td>
-<td>当前屏幕的方向，是横屏还竖屏</td>
-</tr>
-<tr>
-<td>portrait: 表示竖屏(orientation : portrait;)</td>
-<td></td>
-</tr>
-<tr>
-<td>landscape:表示横屏 (orientation:landscape;)</td>
-<td></td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p><strong>写法</strong></p>
-<ul>
-<li>如果只指定媒体特性，写法如下：</li>
-</ul>
-<pre><code>@media （媒体特性） &#123;
-  ...css样式...;
-&#125;
-</code></pre>
-<ul>
-<li>如果同时指定媒体类型和媒体特性，中间需要有<strong>逻辑运算符</strong>，写法如下：</li>
-</ul>
-<pre><code>@media 媒体类型 逻辑运算符 （ 媒体特性） &#123;
-  .... css样式....;
-&#125;
-</code></pre>
-<ul>
-<li>多个媒体特性中间也要有<strong>逻辑操运算符</strong></li>
-</ul>
-<pre><code>@media 媒体类型 逻辑操运算符 （ 媒体特性） 逻辑操作符 （媒体特性） &#123;
-  .... css样式....;
-&#125;
-</code></pre>
-</blockquote>
-<ol start="4">
-<li>逻辑运算符<blockquote>
-<ul>
-<li>逻辑运算符（logical operators） not,and和only可用于联合构造复杂的媒体查询</li>
-<li>您还可以通过用 ,（逗号） 分隔多个媒体查询，将它们组合为一个规则。</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p><strong>and 运算符</strong></p>
-<ul>
-<li><code>and</code>操作符用于将多个媒体查询规则组合成单条媒体查询</li>
-<li>当每个查询规则都为真时，则该条媒体查询为真</li>
-<li>媒体类型为<code>all</code>时，不需要写<code>and</code></li>
-</ul>
-</blockquote>
-<blockquote>
-<p><strong>逗号逻辑运算符</strong></p>
-<ul>
-<li>逗号用于将多个媒体查询合并为一个规则</li>
-<li>每个逗号前为一个<strong>独立</strong>的查询规则，逗号后为一个<strong>独立</strong>的查询规则</li>
-<li>逗号分隔的每一个独立的查询规则中，只要有一个为true，则整个 media 语句返回true。</li>
-<li>换句话说,逗号类似于js中的逻辑或or运算符</li>
-</ul>
-</blockquote>
-<blockquote>
-<p><strong>not运算符</strong></p>
-<ul>
-<li><code>not</code>运算符会反转整个媒体查询的含义</li>
-<li>如果不满足这个条件则返回true，否则返回false</li>
-<li>如果使用<code>not</code>运算符，则还必须指定媒体类型,并且写在媒体类型之前</li>
-<li><code>not</code>只能用来否定整个媒体查询</li>
-<li>如果出现在以逗号分隔的查询列表中，它将仅否定应用了该查询的特定查询，因此，它不会应用于以逗号分隔的媒体查询列表中的每个媒体查询</li>
-</ul>
-<pre><code>@media not screen and (min-width: 1000px), screen and (orientation: landscape) &#123;
-  body &#123;
-    background-color: red;
-  &#125;
-&#125;
-</code></pre>
-<blockquote>
-<p><code>not</code>只否定了<code>not screen and (min-width: 1000px)</code>，并不会否定逗号后面的<br>注意：<code>not</code>写在媒体类型之前，但是媒体类型和媒体特性中间必须写逻辑运算符</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<p><strong>only 运算符</strong></p>
-<ul>
-<li>only 关键字，主要是为了兼容一些老版本的浏览器时，防止出错而加上的。</li>
-<li>因旧版本的浏览器会将 screen and (max-width: 500px)简单地解释为screen，忽略查询的其余部分，并将其样式应用于所有屏幕</li>
-<li>加上 only 后，就会正常的解释</li>
-</ul>
-</blockquote>
-<h3 id="三、响应式断点和书写位置"><a href="#三、响应式断点和书写位置" class="headerlink" title="三、响应式断点和书写位置"></a>三、响应式断点和书写位置</h3><blockquote>
-<ul>
-<li>当我们需要为不同的屏幕尺寸来设置不同的样式时，我们就需要知道在什么屏幕尺寸下需要做出响应。</li>
-<li>那这些不同的屏幕尺寸，就称为响应式断点(阈值)</li>
-</ul>
-</blockquote>
-<ol>
-<li>响应式断电(阈值)的设定<blockquote>
-<ul>
-<li>在实际的开发中，响应式断点是由公司根据项目来定的。</li>
-<li>不过行业也会有一个标准的参考断点（Breakpoint），这里我们以 Bootstrap 框架内部的断点来给大家做讲解<table>
-<thead>
-<tr>
-<th>屏幕大小</th>
-<th>栅格布局中class名区分</th>
-<th>断点（阈值）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>超小屏Extra small</td>
-<td>-</td>
-<td>&lt;576px</td>
-</tr>
-<tr>
-<td>小屏 (Small)</td>
-<td>-sm</td>
-<td>576px ~ 768px （含等于）</td>
-</tr>
-<tr>
-<td>中屏 (Medium)</td>
-<td>-md</td>
-<td>768px ~ 992px （含等于）</td>
-</tr>
-<tr>
-<td>大屏 (Large)</td>
-<td>-lg</td>
-<td>992px ~ 1200px（含等于）</td>
-</tr>
-<tr>
-<td>超大屏 (X-Large)</td>
-<td>-xl</td>
-<td>1200px ~ 1400px（含等于）</td>
-</tr>
-<tr>
-<td>超大大屏(XX-Large)</td>
-<td>-xxl</td>
-<td>&gt;1400px</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-</blockquote>
-</li>
 </ol>
 <blockquote>
 <ul>
-<li>断点并不是完全固定，按上面的要求值来的。而是根据我们所写的项目，在对屏幕做调整时，如果觉得当前效果不符合我们的需求，需要通过设置新的断点来调整，就可以在此添加相应的断点。</li>
-<li>以上断点是 Bootstrap 框架内部的断点，我们可以用来作为我们开发的标准来参考。</li>
-</ul>
-</blockquote>
-<blockquote>
-<pre class=" language-css"><code class="language-css">&lt;style>
-  <span class="token comment" spellcheck="true">/* 当屏幕宽小于576px时，以下代码生效 */</span>
-  body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">/* 当屏幕宽大于等于576px，小于768px时，以下代码生效 */</span>
-  <span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 576px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
-    body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-      <span class="token property">background-color</span><span class="token punctuation">:</span> khaki<span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">/* 当屏幕宽大于等于768px，小于992px时，以下代码生效 */</span>
-  <span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> 768px<span class="token punctuation">)</span> &amp;#123<span class="token punctuation">;</span></span>
-    body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
-      <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
-    &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-  &amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
-&lt;/style>
-</code></pre>
-<ul>
-<li>因为 css 选择器的权重相同时，写在后面的会覆盖写在前面的。所以不用书写具体的屏幕范围，不过要注意代码书写的位置</li>
+<li>交互效果：比如网站看到的鼠标滑动显示的下拉菜单、轮播图、选项卡等网页特效</li>
+<li>数据收发：网站页面的数据，都是能通过 ajax 向后台发送请求，然后后台把数据返回给到前端，我们再把数据渲染到页面中。</li>
+<li>表单验证：当我们提交一个注册表单时，会验证我们输入的邮箱、手机、密码等格式是否符合要求，这些都是通过 JS 来验证的。</li>
 </ul>
 </blockquote>
 <ol start="2">
-<li>媒体查询的代码书写位置<blockquote>
-<p><strong>媒体查询的代码可以写在 style 标签中</strong></p>
+<li>JavaScript 发展史<blockquote>
+<p>布兰登.艾奇 (Brendan Eich) JavaScript 创始人， 人称 JS 之父</p>
 </blockquote>
 </li>
 </ol>
 <blockquote>
-<p><strong>可以写在单独的 CSS 文件中,通过 link 标签引入</strong></p>
+<p><strong>JavaScript 创建背景</strong></p>
 <ul>
-<li>不过都要写在所有 CSS 样式的代码之后。</li>
-<li>这样就能保证断点生效时，写在媒体查询中的代码能生效，不会被正常的样式所覆盖。</li>
+<li>1995 年 34 岁的系统程序员 Brendan Eich，任职于网景公司（Netscape ，美国一家专注浏览器的公司）</li>
+<li><code>JavaScript</code>当时开发的目的，处理用户在浏览器端的<strong>输入验证（常说的表单验证）</strong></li>
+<li>布兰登.艾奇，仅用 10 天时间就把 JavaScript 设计出来了 😃</li>
+<li><code>JavaScript</code> 的前身叫<code>LiveScript</code>，后面改名为<code>JavaScript</code></li>
 </ul>
 </blockquote>
 <blockquote>
-<p><strong>不同断点代码写入不同 css 文件中（不推荐）</strong></p>
+<p><strong>Java 与 JavaScript 的关系 ？</strong><br>本质上是没有任何关系，就好像老婆与老婆饼的关系，雷锋与雷峰塔的关系。</p>
+</blockquote>
+<blockquote>
+<p><strong>JavaScript 的早期设计思路</strong></p>
 <ul>
-<li>通过 link 来引用，在 media 中来设置对应断点</li>
-<li>在满足媒体查询条件时，对应的css文件生效</li>
+<li>借鉴 C 语言的基本语法</li>
+<li>借鉴 Java 语言的数据类型和内存管理</li>
+<li>借鉴 Scheme 语言，将函数提升到”第一等公民”(first class)的地位</li>
+<li>借鉴 Self 语言，使用基于原型(prototype)的继承机制<blockquote>
+<p>所以，JavaScript 语言实际上是两种语言风格的混合产物 -（简化的）函数式编程 +（简化的）面向对象编程</p>
+</blockquote>
+</li>
 </ul>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;a.css&quot; media=&quot;screen and (min-width:600px)&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;b.css&quot; media=&quot;screen and (min-width:1000px)&quot; /&gt;
-/* a.css文件内容 */
-body &#123;
-  background-color: skyblue;
-&#125;
-/* b.css文件内内容 */
-body &#123;
-  background-color: red;
-&#125;
+</blockquote>
+<blockquote>
+<p><strong>JavaScript 的地位</strong></p>
+<ul>
+<li>JavaScript 垄断了浏览器端脚本语言，绝对唯一的霸主<blockquote>
+<p>在这之前其实有三种脚本语言 VBScript 、JScrip、JavaScript 。随着时间的推移，有两种被淘汰了，只剩下 JavaScript</p>
+</blockquote>
+</li>
+<li>任何做浏览器端开发的工程师都不可能绕开 JavaScript</li>
+<li>js 现在能做什么？<ul>
+<li>表单动态校验（密码强度检测）js 产生的最初目的</li>
+<li>网页特效</li>
+<li>服务端开发 Node.js (Node.js 是 JS 的一个运行平台)</li>
+<li>桌面程序(Electron)</li>
+<li>APP(Cordova)</li>
+<li>游戏开发(cocos2d-js)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>前端 与 后端<blockquote>
+<p><strong>如何理解前端（客户端）</strong></p>
+<ul>
+<li>所谓前端（客户端），其本质就是直接面向用户的那一端。</li>
+<li>前端主要是用来：处理界面，交互逻辑，用户能看见的东西，是我们前端开发要解决的问题</li>
+<li>前端开发的主要编程语言：HTML、CSS、JavaScript<br><strong>如何理解后端（服务端）</strong></li>
+<li>后端主要是用来：操作数据库，实现数据的增删改查，处理数据。</li>
+<li>后端开发主要的编程语言：Java、Python、PHP、C&#x2F;C++、GO</li>
+<li>前端和后端通过 HTTP 协议进行传输</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>JavaScript 是一种前端开发语言，为什么他现在可以做服务端开发 ？</strong><br>在 2009 年，JavaScript 诞生了一个著名的平台 <code>NodeJS</code>。NodeJS 就是 JavaScript 的一个运行平台，NodeJS 的诞生，让 JS 的触角延伸到了服务器端。 也就是说随着 NodeJS 的诞生，JS 也可以操作数据库了，也就可以做服务端开发。</p>
+</blockquote>
+<ol start="5">
+<li>ECMAScript 与 JavaScript 的关系<blockquote>
+<ul>
+<li>1996 年 11 月，网景公司将 JavaScript 提交给欧洲计算机制造商协会（ECMA）进行标准化。</li>
+<li>1997 年，欧洲计算机制造商协会（ECMA）设置了 JavaScript 的标准，命名为 ECMAScript</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>JavaScript 有 ECMAScript 的关系</strong></p>
+<ul>
+<li>JavaScript 是语言，ECMAScript 是标准</li>
+<li>JavaScript 实现了 ECMAScript 标准，而 ECMAScript 标准规范了 JavaScript</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>JavaScript 知识体系<blockquote>
+<ul>
+<li>语言核心（ECMAScript5）</li>
+<li>DOM （Document Object Model）文档对象模型</li>
+<li>BOM （Browser Object Model）浏览器对象模型</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>语言核心（ECMAScript5）</strong></p>
+<ul>
+<li>我们接下来要学习的 JS 语言核心，就是<strong>ECMAScript5</strong>中的标准，标准中规定了语言的</li>
+<li>基本语法</li>
+<li>类型</li>
+<li>语句</li>
+<li>关键字</li>
+<li>保留字</li>
+<li>操作符</li>
+<li>全局对象<blockquote>
+<p>学习完这个后，才会再学习后面的 ECMAScript6、7、8、9….13</p>
+</blockquote>
+</li>
+<li>ES6 对应的是 ECMAScript2015( ES2015）改动最多，主要是让 JS 工程化，构建化，所以我们常把 ES6 之后的归到 ES6。</li>
+<li>其它不同版本间的对应关系如下<ul>
+<li>ES7（ES2016）、ES8（ES2017）、ES9（ES2018）、ES10（ES2019）、ES11（ES2020）、ES12（ES2021）、ES13（ES2022）</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>DOM（Document Object Model）文档对象模型</strong><br>DOM 将整个页面抽象为一组分层节点（DOM 树），开发者可以通过操作 DOM 树来随心所欲的控制网页的内容和结构和样式。<br>我们常见的网页特效，就是通过 JS 来操作 DOM 实现的</p>
+<ul>
+<li>Document文档，表示的就是整个HTML网页文档</li>
+<li>Object对象，表示将网页中的每一个部分都转换为一个对象</li>
+<li>Model模型，表示对象之间的关系，这样方便我们获取对象。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>BOM（Browser Object Model）浏览器对象模型</strong></p>
+<ul>
+<li>BOM 用于支持访问和操作浏览器的窗口，JS 通过操作 BOM，可以获取窗口的大小，窗口输入的地址，控制前进和后退，监听窗口大小的改变等</li>
+</ul>
+</blockquote>
+<ol start="7">
+<li>JavaScript 为何称为脚本语言<blockquote>
+<ul>
+<li>所谓的脚本语言：是指不需要提前编译，运行的过程中边编译，边执行。</li>
+<li>JS 本质上就是在运行过程中边编译，边执行的，JS 是由 JS 解释器（JS 引擎）来逐行进行解释并执行</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>什么是 JS 解释器 ？</strong><br>这就需要我们了解浏览器的两大组成部分：渲染引擎 和 JavaScript 引擎</p>
+<ul>
+<li>渲染引擎：用来解析 HTML 与 CSS，俗称内核，比如 chrome 浏览器的 blink，老版本的 webkit</li>
+<li>JS 引擎： 也称为 JS 解释器，用来读取网页中的 JavaScript 代码，对其处理后运行。比如 chrome 浏览器的 V8 引擎。<blockquote>
+<p>浏览器本身并不会执行 JS 代码，而是通过内置 <strong>JavaScript 引擎（解释器）</strong>来编译和执行 JS 代码。JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、javascript基础语法"><a href="#二、javascript基础语法" class="headerlink" title="二、javascript基础语法"></a>二、javascript基础语法</h3><ol>
+<li>书写位置<blockquote>
+<p><strong>行内式</strong></p>
+<ul>
+<li>直接写在标签上，有点类似行内样式，这种写法基本不用，只做了解。</li>
+</ul>
+<pre><code>&lt;div onclick=&quot;alert(&#39;主人，你好&#39;);&quot;&gt;点我&lt;/div&gt;
+&lt;a href=&quot;JavaScript:;&quot;&gt;禁止页面刷新&lt;/a&gt;
 </code></pre>
 </blockquote>
-<h3 id="四、响应式两种适配方案"><a href="#四、响应式两种适配方案" class="headerlink" title="四、响应式两种适配方案"></a>四、响应式两种适配方案</h3><blockquote>
-<p>在实际的响应式开发中，我们会有两种通用的适配方案</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>内部js</strong></p>
 <ul>
-<li>PC 端优先（先考虑 PC 端，最后再考虑移动端）</li>
-<li>移动端优先（先考虑移动端，最后再考虑 PC 端）</li>
+<li>JS 代码直接写在写在<script><strong>标签内部</strong></li>
+<li><script>标签，可以写在`<head></head>`标签中，也可以写在`<body></body>`标签中</li>
+<li><script>标签中的type属性表示将<script></script>之间的文本内容，在浏览器中要转换为 js 脚本执行，现在可以省略不写。</li>
 </ul>
 </blockquote>
-<ol>
-<li><p>PC端优先</p>
 <blockquote>
+<p><strong>外部js</strong></p>
 <ul>
-<li>从大尺寸开始写，先大后小</li>
-<li>用<code>max-width</code></li>
+<li>把 js 代码，单独保存在一个 js 文件中</li>
+<li>通过<code>&lt;script&gt;</code>标签的 src 属性来加载 js 文件</li>
+<li><code>&lt;script&gt;</code>标签可以写在 head 或 body 标签中</li>
+<li>如果采用了外部 JS 的写法，则<code>&lt;script&gt;</code>标签中，不能再写 JS 代码，写了也不会生效</li>
 </ul>
+<pre><code>&lt;!--错误写法，如果src属性中引入了外部js文件，则&lt;script&gt;标签不能再写js代码--&gt;
+&lt;script src=&quot;js/demo.js&quot;&gt;
+ alert(&#39;错误写法，弹窗不会弹出&#39;);
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意1：在实际的开发中，我们常用的就是外部 JS 这种写法，因为他有很多优点<br><strong>优点：</strong></p>
+</blockquote>
+<ul>
+<li><p>结构彻底分离</p>
+</li>
+<li><p>多页面可以进行复用</p>
+</li>
+<li><p>后期好维护修改</p>
+</li>
+<li><p>浏览器可以根据特定的设置缓存所有外部 JS 文件，所以多个页面都用到同一个文件，那么这个文件只需要下载一次，页面加载速度更快。如果后续再打开网页，浏览器会直接从缓存中读取。</p>
+</li>
+</ul>
+<p> <strong>唯一缺点：</strong></p>
+<ul>
+<li>增加请求数（外部文件），但相对上面的优点，完全可以忽略不计。<blockquote>
+<p>提示：html文件是不会被缓存的！但css和js文件会被缓存，如果做了修改，就得重命名才能重新加载</p>
 </blockquote>
 </li>
-<li><p>移动端优先</p>
+</ul>
+</blockquote>
 <blockquote>
+<blockquote>
+<p>注意2：Javascrip 文件不能脱离 HTML 网页运行，只有在后面学到 Node.JS 时，JS 可以在 NodeJS 平台上独立运行。</p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>JS 注释<blockquote>
 <ul>
-<li>从小尺寸开始，先小后大</li>
-<li>用<code>min-width</code></li>
+<li>阿里巴巴js注释规范：<a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript#comments">https://github.com/airbnb/javascript#comments</a></li>
+<li>百度js注释规范：<a target="_blank" rel="noopener" href="https://github.com/ecomfe/spec/blob/master/javascript-style-guide.md#user-content-24-%E6%B3%A8%E9%87%8A">https://github.com/ecomfe/spec/blob/master/javascript-style-guide.md#user-content-24-%E6%B3%A8%E9%87%8A</a></li>
 </ul>
 </blockquote>
 </li>
 </ol>
-<h3 id="五、响应式栅格系统"><a href="#五、响应式栅格系统" class="headerlink" title="五、响应式栅格系统"></a>五、响应式栅格系统</h3><blockquote>
-<p><strong>在实际开发中</strong></p>
+<blockquote>
+<p><strong>单行注释：</strong></p>
 <ul>
-<li>要完美的实现响应式系统或网站的开发，就需要利用响应式栅格系统来帮助我们实现。</li>
-<li>BootStrap 框架实现响应式布局的本质就是他的响应式栅格系统。</li>
-<li>响应式栅格系统是：栅格布局和响应断点+响应式适配方案 3 者结合实现的一套响应式解决方案</li>
+<li><code>// ……</code></li>
+<li>快捷键：<code>ctrl+/</code><br><strong>多行注释：</strong></li>
+<li><code>/* */</code></li>
+<li>快捷键<code>Alt + shift + a</code></li>
 </ul>
 </blockquote>
-<ol>
-<li><p>栅格布局</p>
+<ol start="3">
+<li><p>JavaScript 中的注意事项</p>
 <blockquote>
 <ul>
-<li>所谓的栅格布局，你可以简单理解为，要把一个页面或容器（如 div），分成多少份</li>
-<li>然后设置其页面或容器中子元素占对应的份数</li>
-<li>通常一个页面或容器会被分成：12 份，16 份，24 份</li>
-<li>如果将网页（100%）分成 12 份，那对应不同份数所占的比例如下:<table>
+<li>严格区分<strong>大小写</strong></li>
+<li>语句字符都要是<strong>英文</strong>状态下（字符串可以使用任意字符）</li>
+<li>每条语句以<strong>分号（;）</strong>结尾<ul>
+<li>如果不写分号，意味着由解析器来确定语句在哪里结尾。</li>
+<li>加分号有助于在某些情况下提升性能，因为解析器会尝试在合适的位置补上分号以纠正语法错误</li>
+<li>如果不加分号，在后期压缩代码时，有可能会造成语法错误</li>
+<li>而且有些时候，浏览器会加错分号，所以在开发中分号必须写</li>
+</ul>
+</li>
+<li>JS 中会忽略多个空格和换行<ul>
+<li>可以利用空格和换行，对代码进行格式化，这样写出来的代码更美观</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JS 中的输入输出语句</p>
+<blockquote>
+<p><strong>alert('弹窗')</strong></p>
+<ul>
+<li>alert() 语句，会在页面打开时，弹出弹窗</li>
+<li>alert()语句，会阻止程序的执行，他会在此代码执行确认后，才会接着执行后面的代码</li>
+<li>可以用来调式代码</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>console.log('控制台输出内容')</p>
+<ul>
+<li>浏览器控制台打印输出信息</li>
+<li>他<strong>不会</strong>打断程序运行</li>
+<li>常用来调试代码</li>
+<li>可以一次打印多条内容，每条内容间用<code>,</code>逗号隔开</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>prompt('提示用户输入信息')</p>
+<ul>
+<li>浏览器弹出输入框，用户输入内容</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><code>alert</code>、<code>console.log</code>和<code>prompt</code> 中，如果输入的是<strong>数字、已声明的变量</strong>，则不用加引号；如果输入的是<strong>字符串</strong>，则要加上''单引号或""双引号包裹。</p>
+</blockquote>
+</blockquote>
+<h3 id="三、javascript变量与字面量"><a href="#三、javascript变量与字面量" class="headerlink" title="三、javascript变量与字面量"></a>三、javascript变量与字面量</h3><ol>
+<li>硬盘、内存、CPU 三者关系<blockquote>
+<p>硬盘，内存，CPU 三者各自的作用</p>
+<table>
 <thead>
 <tr>
-<th>份数</th>
-<th>占总份数的百分比%</th>
+<th>名称</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>1</td>
-<td>8.33333333%</td>
+<td>硬盘</td>
+<td>负责程序和数据的<strong>永久存储</strong>，断电数据不丢失的特点</td>
 </tr>
 <tr>
-<td>2</td>
-<td>16.6666667%</td>
+<td>内存</td>
+<td>负责<strong>连接</strong>CPU和硬盘；存储<strong>临时</strong>使用的数据;保存从硬盘读取的数据，提供给 CPU 使用；保存 CPU 的一些临时执行结果，以便 CPU 下次使用或保存到硬盘；<strong>断电数据就会清空，丢失</strong></td>
 </tr>
 <tr>
-<td>3</td>
-<td>25%</td>
+<td>CPU</td>
+<td>运行<strong>总指挥</strong>，负责发指令，数据处理与计算</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<p><strong>他们三者之间如何工作的？</strong></p>
+<blockquote>
+<p>当我们要运行某个程序时：</p>
+<ul>
+<li>CPU首先接受到我们的命令，</li>
+<li>然后它(CPU)告诉<strong>硬盘</strong>：我要运行存储在你那的程序，你把该程序送到<strong>内存</strong>去</li>
+<li>CPU对<strong>内存</strong>说，我让硬盘把程序送到你这里来了，你保存一下。</li>
+<li>等该程序被完整的送到内存之后。CPU就开始执行程序，可以进行一系列操作</li>
+<li>当我们在编辑文档等程序时，如果没有<code>ctrl+s</code>，那么此时编辑的数据是存储在内存的，只有<code>ctrl+s</code>后才会保存到硬盘</li>
+<li>因此，没有<code>ctrl+s</code>的数据，一旦断电就无法恢复，因为内存只能临时存储数据</li>
+</ul>
+</blockquote>
+<p><strong>CPU 可以直接从硬盘中读取数据，为什么要在中间加一个内存呢？</strong></p>
+<blockquote>
+<ul>
+<li>因为CPU的处理速度特别快，而硬盘的读取和存储数据的速度特别的慢</li>
+<li>如果直接从硬盘读数据，而硬盘的速度跟上不 CPU 的速度，就会对 CPU 造成很大的浪费，同时我们操作电脑时，就会很卡。</li>
+<li>而内存的数据就很快了，他可以跟上 CPU 的处理速度。</li>
+<li>内存就是为了解决 cpu 和硬盘之间速度不匹配的冲突，内存是由电流实现的存取速度，相当快，不过断电就丢失。</li>
+</ul>
+</blockquote>
+<p><strong>总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>速度</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>硬盘</td>
+<td>负责程序和数据的永久存储，断电数据不丢失的特点</td>
+<td>很慢</td>
+<td>大仓库</td>
 </tr>
 <tr>
-<td>4</td>
-<td>33.33333333%</td>
+<td>内存</td>
+<td>负责连接CPU和硬盘；存储临时使用的数据；断电数据就会清空，丢失</td>
+<td>很快，几乎硬盘的 100 倍</td>
+<td>中转站</td>
 </tr>
 <tr>
-<td>5</td>
-<td>41.66666667%</td>
+<td>CPU</td>
+<td>运行总指挥，负责发指令，数据处理与计算</td>
+<td>很快，几乎硬盘的 100 倍</td>
+<td>车间</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>CPU，内存 决定你电脑运行的快慢，硬盘决定你可以放东西的多少 ！</p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li><p>什么是变量</p>
+<blockquote>
+<ul>
+<li>大白话：变量就是一个用来装东西的盒子，再往深里说，他就是用来存放数据的容器。</li>
+<li>变量的本质： 变量是程序在内存中申请的一块用来存放数据的空间。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何声明变量</p>
+<blockquote>
+<ul>
+<li>在 js 中，使用<code>var</code>关键词来<strong>声明</strong>一个变量</li>
+<li>a是自定义的<strong>变量名</strong></li>
+<li>使用 var 关键字声明变量后，计算机会自动为变量分配<strong>内存空间</strong>，用来存储变量的值</li>
+<li>变量声明后，就可以给变量<strong>赋值</strong>，<code>= </code>等号表示赋值</li>
+</ul>
+<pre><code>var a;
+a=&quot;小米&quot;
+</code></pre>
+<ul>
+<li>通过变量名就可以访问变量在内存中存储的值。</li>
+<li>赋值后我们就可以使用他了，我们可以在控制台通过输出语句输出变量 a 的值</li>
+</ul>
+<pre><code>console.log(a);
+</code></pre>
+</blockquote>
+</li>
+<li><p>变量的初始化</p>
+<blockquote>
+<p>我们在<strong>声明</strong>一个变量的<strong>同时</strong>为其<strong>赋值</strong>，称为变量的初始化</p>
+<pre><code>var a=&quot;张三&quot;;
+concole.log(a);
+</code></pre>
+</blockquote>
+</li>
+<li><p>更新变量的值</p>
+<blockquote>
+<ul>
+<li>一个变量被重新赋值后，他之前的值就会被覆盖</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 给变量name 重新赋值</span>
+name <span class="token operator">=</span> <span class="token string">"李四"</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>同时声明多个变量<br><strong>先声明后赋值：</strong></p>
+<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
+x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+y<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+z<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>声明的同时赋值</strong></p>
+<blockquote>
+<pre><code>var x=1,
+  y=2,
+  z=3;
+  console.log(x,y,z);
+</code></pre>
+</blockquote>
+<p><strong>声明过程可赋值，可不赋值</strong></p>
+<blockquote>
+<pre><code>var x,
+   y = 1,
+   z = 4;
+//在声明之后为x赋值
+ x = 2;
+ console.log(x, y, z);
+</code></pre>
+</blockquote>
+<ol start="7">
+<li><p>声明变量的几种特殊情况</p>
+<blockquote>
+<ul>
+<li>声明变量，但没有赋值，默认值为<code>undefined</code><blockquote>
+<p>我们后期如果要判断一个变量是否成功赋值，我们就可以通过检测他的值是否是 undefined 来判断</p>
+</blockquote>
+</li>
+<li>不声明变量,直接进行赋值</li>
+</ul>
+<pre><code>&lt;script&gt;
+ x = 7;
+ // 控制台输出得到的结果是 7
+ console.log(x);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>这是 js 的一个语法特性，只需要了解就好，在实际开发中非常<strong>不推荐</strong>这样写。</p>
+</blockquote>
+<ul>
+<li>直接输出一个不存在的变量</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token comment" spellcheck="true">// 控制台**会报错** z is not defined</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>变量的命名（标识符）</p>
+<blockquote>
+<p>变量的命名必需要遵守一定的规则。</p>
+<ul>
+<li>标识符：在 js 中所有可以由我们自主命名的都可以称为标识符</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>标识符的命名规则</strong></p>
+<blockquote>
+<ul>
+<li>只能由字母，数字，_下划线，$组成，但<strong>不能</strong>以数字开头</li>
+<li>严格区分<strong>大小写</strong>，a 和 A 是两个不同的变量</li>
+<li>不能使用<strong>关键字</strong>或<strong>保留字</strong>做为变量名</li>
+</ul>
+</blockquote>
+<p><strong>关键字和保留字</strong></p>
+<blockquote>
+<ul>
+<li>关键字：就是 JavaScript 语言本身已经使用的一些单词。这些单词具有特定的用途，用户自定义的标识符（名字）不能与关键字相同 。</li>
+<li>保留字：就是 JavaScript 语本身没有使用，但是考虑后期随之着 JS 的发展，可能会使用的一些单词。这些单词建议用户不要使用。</li>
+<li>以下是部分关键字和保留字：<table>
+<thead>
+<tr>
+<th>abstract</th>
+<th>arguments</th>
+<th>boolean</th>
+<th>break</th>
+<th>byte</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>case</td>
+<td>catch</td>
+<td>char</td>
+<td>class*</td>
+<td>const</td>
 </tr>
 <tr>
-<td>6</td>
-<td>50%</td>
+<td>continue</td>
+<td>debugger</td>
+<td>default</td>
+<td>delete</td>
+<td>do</td>
 </tr>
 <tr>
-<td>7</td>
-<td>58.33333333%</td>
+<td>double</td>
+<td>else</td>
+<td>enum*</td>
+<td>eval</td>
+<td>export*</td>
 </tr>
 <tr>
-<td>8</td>
-<td>66.6666667%</td>
+<td>extends*</td>
+<td>false</td>
+<td>final</td>
+<td>finally</td>
+<td>float</td>
 </tr>
 <tr>
-<td>9</td>
-<td>75%</td>
+<td>for</td>
+<td>function</td>
+<td>goto</td>
+<td>if</td>
+<td>implements</td>
 </tr>
 <tr>
-<td>10</td>
-<td>83.33333333%</td>
+<td>import*</td>
+<td>in</td>
+<td>instanceof</td>
+<td>int</td>
+<td>interface</td>
 </tr>
 <tr>
-<td>11</td>
-<td>91.66666667%</td>
+<td>let</td>
+<td>long</td>
+<td>native</td>
+<td>new</td>
+<td>null</td>
 </tr>
 <tr>
-<td>12</td>
-<td>100%</td>
+<td>package</td>
+<td>private</td>
+<td>protected</td>
+<td>public</td>
+<td>return</td>
+</tr>
+<tr>
+<td>short</td>
+<td>static</td>
+<td>super*</td>
+<td>switch</td>
+<td>synchronized</td>
+</tr>
+<tr>
+<td>this</td>
+<td>throw</td>
+<td>throws</td>
+<td>transient</td>
+<td>true</td>
+</tr>
+<tr>
+<td>try</td>
+<td>typeof</td>
+<td>var</td>
+<td>void</td>
+<td>volatile</td>
+</tr>
+<tr>
+<td>while</td>
+<td>with</td>
+<td>yield</td>
+<td>eval</td>
+<td>arguments</td>
 </tr>
 </tbody></table>
 </li>
 </ul>
 </blockquote>
-</li>
-<li><p>栅格系统实现响应式布局</p>
-<blockquote>
+<ol start="9">
+<li>推荐两种优秀的命名法<br><strong>驼峰命名</strong>（最推荐）<blockquote>
 <ul>
-<li>我们说响应式栅格系统是：栅格布局+响应断点+响应式适配方案3者结合实现的一套响应式解决方案</li>
-<li>接下来我们来学习，如何利用前面学到的栅格布局，响应断点，响应式适配方案实现响应式布局。</li>
-<li>我们可以按以下 5 个步骤来操作<ul>
-<li>你打算将页面分成多少份 ？</li>
-<li>确定响应断点有哪些 ？</li>
-<li>确定响应式适配方案。PC端优先还是移动端优先？</li>
-<li>在对应的响应断点下，书写对应的栅格布局样式。</li>
-<li>对着设计稿开发，搭建整个响应式的框架。如果是以移动端优先，则对着移动端设计稿来开发，如果是 PC 端优先，则对着 PC 端设计稿来开发。<blockquote>
-<p>但是在开发前，一定要分清版块的归属问题，也就那些版块是在一个父容器中。</p>
+<li><strong>首个</strong>单词小写，其余每个单词开头字母大写<br><code>myFirstName 、myStudentCount 、getBoxColor、navList</code><blockquote>
+<p>不建议使用全小写 myfirstname，可读性差</p>
 </blockquote>
 </li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>C 语言风格</strong></p>
+<blockquote>
+<ul>
+<li>所有单词全小写，单词之间用_下划线分隔<br><code>my_first_name 、 my_student_count</code></li>
+</ul>
+</blockquote>
+<p>匈牙利命名法（了解即可）</p>
+<blockquote>
+<ul>
+<li>基本原则是：变量名=属性+类型+对象描述</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// i 提示变量类型为 整型</span>
+iMyStudentCount<span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+<ol start="10">
+<li>字面量<blockquote>
+<p>可以理解为<strong>不可能发生改变</strong>的(固定)值。他就是他的字面意思。</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"我爱你"</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"优秀"</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ul>
+<li>源代码解读<ul>
+<li>上面代码中，1，'我爱你'，'优秀' 就是字面量。</li>
+<li>A 是变量，A 可以表示 1，也可以表示'我爱你'，还可以表示'优秀'。</li>
+<li>在实际开发中，我们都是<strong>通过变量来保存一个字面量</strong>，然后只需要在每次用到字面量的地方，调用下该变量就好</li>
 </ul>
 </li>
 </ul>
 </blockquote>
 </li>
 </ol>
-<h3 id="五、响应式后台管理系统项目开发"><a href="#五、响应式后台管理系统项目开发" class="headerlink" title="五、响应式后台管理系统项目开发"></a>五、响应式后台管理系统项目开发</h3><blockquote>
-<p><strong>确定栅格系统样式（media.css 样式）</strong></p>
+<h3 id="四、综合案例"><a href="#四、综合案例" class="headerlink" title="四、综合案例"></a>四、综合案例</h3><ol>
+<li><p>弹出用户输入的信息 </p>
+<blockquote>
+<p><strong>需求：</strong></p>
 <ul>
-<li>将页面分成 12 份，确定栅格布局不同份数所点比例</li>
-<li>确定项目对应的断点<ul>
-<li>当视口宽大于 1400px 时，以正常效果显示</li>
-<li>当视口宽 &lt;&#x3D; 1400px 时，左侧菜单缩放到 75px</li>
-<li>当视口宽 &lt;&#x3D; 1300px 时，左侧菜单隐藏</li>
-<li>当视口宽 &lt;&#x3D; 1200px 时，上面一行 4 列，变成 1 行 2 列</li>
-<li>当视口宽 &lt;&#x3D; 992px 时，第二行的一行 2 列变 1 列，最下面的一行 3 列变成 1 行 2 列和 1 行 1 列</li>
-<li>当视口宽 &lt;&#x3D; 768px 时，全部一行一列显示 ，同时上面的导航变成点击下拉菜单形式</li>
-</ul>
-</li>
-<li>确定适配方案，以 PC 端优先</li>
+<li>当用户打开浏览器时，弹出输入框，要求用户输入姓名，点击确认后，以弹窗形式，显示用户的姓名。<br><strong>实现思路：</strong></li>
+<li>使用 prompt() 函数弹出输入框，让用户输入内容</li>
+<li>要通过变量来接受 prompt() 函数的返回值</li>
+<li>通过 alert()函数，显示结果</li>
 </ul>
 </blockquote>
+</li>
+<li><p>如何交换两变量的值</p>
 <blockquote>
-<p><strong>注意</strong></p>
+<p><strong>需求：</strong></p>
 <ul>
-<li>要用怪异盒模型</li>
-<li>echarts图表实现响应式缩放,在引用图表的<code>script</code>标签后面加上</li>
+<li>定义两个变量同时赋值，然后交换两个变量中的值。<br><strong>实现思路：</strong></li>
+<li>这里我们可以用现实生活中的例子来解答这道题</li>
+<li>首先定义两个变量 apple 和 pear，然后分别赋值"苹果"和"梨子"</li>
+<li>我们把这两个变量想像成两个盘子，变量的值，想像成盘子中放入了苹果和梨子。</li>
+<li>现在的需求就是要把苹果放到 pear 盘中去，把梨子放到苹果盘子中去。</li>
+<li>所以我们需要再借助第三个盘子，再声明一个变量 desk，不赋值。相当于空盘子</li>
+<li>然后把苹果放到空盘子中 desk 中，再把梨子放到苹果盘中，再把 desk 盘中的苹果放到梨子盘中，就 ok 了</li>
 </ul>
-<pre><code>window.addEventListener(&quot;resize&quot;,function()&#123;
-  mychart1.resize();
-&#125;);
-</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、处理报错和REPL环境"><a href="#五、处理报错和REPL环境" class="headerlink" title="五、处理报错和REPL环境"></a>五、处理报错和REPL环境</h3><ol>
+<li><p>处理报错</p>
+<blockquote>
+<p>在初学 JS 的时候，我们经常会写错代码，造成控制台报错，初学者经常会遇到以下两种常见错误</p>
+<ul>
+<li>Uncaught SyntaxError：未捕获的语法错误,<ul>
+<li>常见的是使用了中文符号</li>
+</ul>
+</li>
+<li>Uncaught ReferenceError：引用错误<ul>
+<li>常见的是：误把字符串当变量用，或找不到变量，变量未定义</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>REPL 执行环境</p>
+<blockquote>
+<ul>
+<li>REPL(Read-Eval-Print-Loop)：交互式解析器</li>
+<li>在 REPL 环境下，可以<strong>定义和运行</strong>变量、函数、对象</li>
+<li><code>console</code>控制台其实也是一个 REPL 环境，可以使用它<strong>临时测试</strong>表达式的值<img src="REPL.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>在控制台书写代码后，按回车，就会进入上面四个流程：</p>
+<ul>
+<li>先<strong>读取</strong>代码，再<strong>执行</strong>，执行后把结果<strong>打印</strong>出来，然后又可以<strong>重复</strong>刚才的动作。</li>
+<li>接着在控制台书写代码，然后回车，又会进入上面四个流程</li>
+</ul>
 </blockquote>
 
                 
@@ -933,7 +1181,7 @@ body &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hermiablog.github.io/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">https://hermiablog.github.io/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/</a>
+                    <a href="https://hermiablog.github.io/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/">https://hermiablog.github.io/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -971,8 +1219,8 @@ body &#123;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">响应式开发</span>
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
                                 </a>
                             
                         </div>
@@ -1142,9 +1390,10 @@ body &#123;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/">
                     <div class="card-image">
@@ -1161,9 +1410,9 @@ body &#123;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1176,6 +1425,7 @@ body &#123;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1194,18 +1444,18 @@ body &#123;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/11/30/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86/">
+                <a href="/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="移动端开发必备知识">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="多终端响应式开发">
                         
-                        <span class="card-title">移动端开发必备知识</span>
+                        <span class="card-title">多终端响应式开发</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            webApp项目开发基础知识、规范和最佳实践
+                            多终端响应式开发必备知识和最佳实践
                         
                     </div>
                     <div class="publish-info">
@@ -1227,8 +1477,8 @@ body &#123;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/">
-                        <span class="chip bg-color">移动端</span>
+                    <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">响应式开发</span>
                     </a>
                     
                 </div>
