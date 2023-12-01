@@ -1,0 +1,2859 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS数据类型和类型转换, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS数据类型和类型转换 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS数据类型和类型转换</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-02
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-02
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="JS表达式、操作符、位运算符"><a href="#JS表达式、操作符、位运算符" class="headerlink" title="JS表达式、操作符、位运算符"></a>JS表达式、操作符、位运算符</h2><blockquote>
+<ul>
+<li>操作符： 操作符，也称为运算符，是用于实现赋值、比较值、执行算术运算等功能的符号</li>
+<li>表达式： 简单理解为是由<strong>数字、操作符、变量</strong>等组成的式子，并且这个式子<strong>能求得值</strong>。</li>
+<li>返回值： 表达式最终都会有一个返回结果，这个结果我们称为返回值</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>表达式的分类</strong></p>
+<ul>
+<li>在 JS 中表达式的种类非常多，这里我们主要讲解以下 5 种表达式。</li>
+<li>每种表达式就有与之相匹配的操作符。<img src="表达式的分类.png"></li>
+</ul>
+</blockquote>
+<h3 id="一、算术运算符"><a href="#一、算术运算符" class="headerlink" title="一、算术运算符"></a>一、算术运算符</h3><blockquote>
+<ul>
+<li>说到算术表达式就离不开算术运算符。</li>
+<li>算术运算符：用于执行两个变量或值的算术操作符。<table>
+<thead>
+<tr>
+<th>算术运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>加</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>除</td>
+</tr>
+<tr>
+<td>%</td>
+<td>取余（取模）</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>介绍</p>
+<blockquote>
+<ul>
+<li>加减的符号和数学一致，乘法是 * 号，除法是 &#x2F; 号</li>
+<li>%取余运算符：<ul>
+<li>取余运算也叫作 “求模运算” ，用百分号”%”表示</li>
+<li>a % b 表示，求 a 除以 b 的余数，它不关心整数部分，只关心余数<blockquote>
+<p>任何数%模上大于他自身的数，结果是就是这个数本身</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>算术运算符优先级</p>
+<blockquote>
+<ul>
+<li>默认情况下，<strong>乘除取模</strong>的优先级要高于加减</li>
+<li>不过我们可以使用圆括号<code>()</code>来提升优先级，改变运算符的计算顺序。</li>
+<li>这里提升优先级<strong>只能</strong>用<code>()</code>，没有<code>｛｝</code>这一说</li>
+</ul>
+</blockquote>
+</li>
+<li><p>+号的两种作用</p>
+<blockquote>
+<ul>
+<li>加号有 “加法” 和 “连字符” 两种作用</li>
+<li>当+号<strong>两边的数都是数值</strong>时，做加法运算，否则为”连字符”(字符串的拼接)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>隐式类型转换</p>
+<blockquote>
+<ul>
+<li>如果参与<code>数学运算</code>的某操作数不是数字类型，那么 JS 会<strong>自动</strong>将其转换为数字类型，然后再做计算。这一过程称为隐式转换</li>
+<li>隐式转换的本质是内部自动调用了相关的函数来转换。比如我们做的是算术运算，他就会**自动调用Number()**函数，帮我们把操作数转换成数字后，再做算术计算。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>注意事项</strong></p>
+<ul>
+<li><strong>任何数</strong>与NaN做算述运算，结果都是NaN,除与字符串拼接外。</li>
+<li><code>+</code>号参于字符串计算，他<strong>不会</strong>做隐式转换,把操作数转换为数字;而是会当成<strong>字符串拼接</strong>来处理。</li>
+</ul>
+<pre><code>&lt;script&gt;
+ console.log(4 / &quot;2&quot;); // 2
+ console.log(5 % &quot;4&quot;); // 1
+ console.log(true + false); // 1
+ console.log(2 + null); // 2
+ // 任何类型与NaN做运算得到NaN,与字符串拼接除外
+ console.log(1 + undefined); // NaN
+ console.log(1 + &quot;true&quot;); // &#39;1true&#39;  字符串拼接
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="5">
+<li><p>显示转换</p>
+<blockquote>
+<ul>
+<li>我们之前讲过<strong>强制类型转换</strong>，其实就是<strong>显示类型</strong>转换。</li>
+<li>也就是我们自己<strong>手动的</strong>调用相关函数或方法，比如前面讲过的Number()、parseInt()、parseFloat()来转换数据类型。<blockquote>
+<p>数学运算时隐式转换自动调用的Number()函数将其它类型转换成数字，那 Number()实现不了的，就得手动调用其它方法来实现</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>+</code>  <code> -</code> 的特殊用法</p>
+<blockquote>
+<ul>
+<li>如果<code>Number</code>函数能把某个类型转换成数字，那+ 和-号也可以,且规则和number一样，能识别2 进制或 16 进制。</li>
+<li>不过要<strong>特别注意</strong> <code>-true</code>和 <code>-false</code> <code>-null</code>这 3 个特殊情况，他们会将其转换成<strong>负数</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p>浮点数（小数）丢失精度</p>
+<blockquote>
+<p>在 Javascript 中，有些小数的<strong>数学运算</strong>不是很精准.所以不要直接判断两个浮点数是否相等</p>
+<blockquote>
+<ul>
+<li>JavaScript 使用了 IEEE754 二进制浮点数算术标淮，这会使一些个别的小数产生”丢失精度”问题。</li>
+<li>IEEE754 二进制浮点数算术标淮是计算机底层编译标准，了解即可。</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<p><strong>解决浮点数运算不精准办法</strong></p>
+<blockquote>
+<ul>
+<li>小数运算时，运算后的结果,再调用<code>toFixed()</code>方法保留指定的小数位数；</li>
+<li><code>toFixed()</code>方法的返回值类型，是<strong>字符串</strong>类型</li>
+<li><code>toFixed()</code>在指小数位时，会采用<strong>4 舍 5 入</strong></li>
+</ul>
+</blockquote>
+<h3 id="二、赋值表达式"><a href="#二、赋值表达式" class="headerlink" title="二、赋值表达式"></a>二、赋值表达式</h3><blockquote>
+<p>赋值操作符：就是给变量赋值用的</p>
+<table>
+<thead>
+<tr>
+<th>赋值操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>赋值</td>
+</tr>
+<tr>
+<td>+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;</td>
+<td>快捷赋值</td>
+</tr>
+<tr>
+<td>++</td>
+<td>自增运算</td>
+</tr>
+<tr>
+<td>–</td>
+<td>自减运算</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ol>
+<li>赋值运算符<code>=</code><blockquote>
+<ul>
+<li>赋值运算符：会将等号右边的数值，赋值给等号左边的变量</li>
+<li><code>var a=2;</code>：将&#x3D;等号右边的2赋值给左边的变量a</li>
+<li>赋值运算符左边只能是变量，右边既可以是变量也可以是数值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>赋值运算也产生值,将等号后面的计算结果，作为“赋值运算的值”(因为每个表达式都有返回值)<blockquote>
+<p>这就意味着，可以连续使用赋值运算符</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var a, b, c;
+ a = b = c = 12 + 2;
+ console.log(a, b, c); // 14 14 14
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li><p>快捷赋值（+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;）</p>
+<blockquote>
+<ul>
+<li>快捷赋值运算符：表示在原数值基础上进一步计算<blockquote>
+<p>快捷赋值操作符仅仅是简写语法，使用它们并不会提升性能</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var a = 1;
+ a += 5; // 相当于 a = a + 5;
+ console.log(a); // 6
+ var b = 4;
+ b *= 2; // 相当于 b = b * 2
+ console.log(b); // 8
+ b /= 2; // 相当于 b = b / 2
+ console.log(b); // 4
+ b %= 2; // 相当于 b = b % 2;
+ console.log(b); // 0
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>++ 自增 和 – 自减 运算符</p>
+<blockquote>
+<ul>
+<li><code>++</code> 自增：表示在自己的基础上+1</li>
+<li><code>--</code> 自减：表示在自己的基础上-1<blockquote>
+<p>++ 和 – 只能和变量搭配使用</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var a = 1;
+ a++; // a++ 相当于 a = a + 1
+ console.log(a); // 2
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>++a 和 a++ 的区别</p>
+<blockquote>
+<ul>
+<li>++a 是先自增再赋值</li>
+<li>a++ 是先赋值再自增</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var b = 3;
+ var c = ++b; // 先自增，再赋值，所以b先自增1，得到b=4,然后把4赋值给变量c，所以c的值也是 4
+ console.log(c); // 4
+ console.log(b); // 4
+ console.log(c++); // 4 先赋值，再自增，所以打印是4，c自增后是5
+ console.log(++c); // 6 先自增，再赋值，c上面已经是5，再自增就是6，自增后再赋值，所以打印是6
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>–a 和 a–的区别</p>
+<blockquote>
+<ul>
+<li>与上面同理</li>
+<li><code>--a</code> 是先自减再赋值</li>
+<li><code>a--</code> 是先赋值再自减</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、关系表达式"><a href="#三、关系表达式" class="headerlink" title="三、关系表达式"></a>三、关系表达式</h3><blockquote>
+<ul>
+<li>说到关系表达式，肯定就离不开关系操作符。</li>
+<li>关系操作符： 用来比较两个值之间的大小关系，如果关系成立它返回<code>true</code>，如果关系不成立则返回<code>false</code><table>
+<thead>
+<tr>
+<th>关系操作符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>&gt;&#x3D;</td>
+<td>大于或等于</td>
+</tr>
+<tr>
+<td>&lt;&#x3D;</td>
+<td>小于或等于</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;</td>
+<td>等于</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>不等于</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;&#x3D;</td>
+<td>全等于（值和类型都比较）</td>
+</tr>
+<tr>
+<td>!&#x3D;&#x3D;</td>
+<td>不全等于（其结果与&#x3D;&#x3D;&#x3D;比较的结果正好相反）</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h4 id="和-和"><a href="#和-和" class="headerlink" title="&gt;和&lt;以及&gt;=和&lt;="></a><code>&gt;</code>和<code>&lt;</code>以及<code>&gt;=</code>和<code>&lt;=</code></h4><blockquote>
+<p>以上操作符主要是用来比较两个值的大小关系</p>
+<ul>
+<li>如果操作符两边的操作数，<strong>都是字符串</strong>，则不会将操作数转换成数字进行比较，而会分别比较字符串的<code>Unicode</code>编码</li>
+<li><strong>除去</strong>操作符两边的操作数都是字符串这种情况外，其它情况在在作比较时，会先将**非数字类型转换为数字 **（隐式转换） ，然后再进行比较。 整个隐式转换过程是程序内部自动调用Number()函数来实现的<blockquote>
+<p>以上规则，只针对基本数据类型而言</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>操作符两边的数，<strong>不都是</strong>字符串</p>
+<blockquote>
+<pre><code>//  数字与数字作比较，最简单
+1 &gt; 2; // false
+// 数字与非数字作比较
+1 &gt; true; // false  等价于 1&gt;1
+// 字符串与布尔值作比较
+&quot;&quot; &lt;= false; // true  等价于 0&lt;=0
+// null 和 undefined与数字作比较
+null &gt;= 0; // true 等价于 0&gt;=0
+undefined &lt;= 0; // false 等价于 NaN&lt;=0
+// 字符串与null 和undefined作比较
+&quot;&quot; &gt;= null; // true 等价于 0&gt;=0
+&quot;&quot; &lt;= undefined; // false 等价于 0&lt;=NaN
+// null与undefined作比较
+null &gt;= undefined; // false 等价于 0&gt;=NaN
+</code></pre>
+</blockquote>
+</li>
+<li><p>字符串与字符串做比较</p>
+<blockquote>
+<ul>
+<li>字符串与字符串作比较时，不会将其转换成数字进行比较，而会分别比较字符串的<code>Unicode</code>编码</li>
+<li>比较字符编码时，是<strong>一位一位</strong>进行比较，如果两位一样，则比校下一位</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>英文字母对应的 Unicode 编码</strong></p>
+<blockquote>
+<ul>
+<li><code>A~Z</code> 对应 <code>65~ 90</code> 也就是A的Unicode编码是65 、 Z 的Unicode编码是 90</li>
+<li><code>a~z</code> 对应 <code>97~122</code></li>
+<li><code>0~9</code> 对应 <code>48~57</code></li>
+</ul>
+<pre><code>// 先把两边的第一位拿出来作比较，即 &#39;a&#39; &lt; &#39;b&#39; ，比较时比较的是Unicode编码，则 97&lt;98，所以结果为 true
+&quot;abc&quot; &lt; &quot;b&quot;; // true;
+
+// 先把两边的第一位拿出来作比较，即 &#39;1&#39; &lt; &#39;5&#39; ，比较时比较的是Unicode编码，则49 &lt; 53 ,所以结果为 true
+&quot;11&quot; &lt; &quot;5&quot;; // true;
+
+// 先把两边的第一位拿出来作比较，如果两位一样，则比较下一位，所以拿第二位来比较，则&#39;b&#39;&lt;&#39;c&#39;，比较时比较的是Unicode编码，则 98 &lt; 99 ,所以结果为 true
+&quot;abc&quot; &lt; &quot;acd&quot;; // true
+</code></pre>
+</blockquote>
+<h4 id="JS-中没有连比"><a href="#JS-中没有连比" class="headerlink" title="JS 中没有连比"></a>JS 中没有连比</h4><blockquote>
+<p>JS 中是没有连比的功能，我们来看下面的列子</p>
+<pre><code>&lt;script&gt;
+ console.log(1 &lt; 3 &lt; 2); // true 但是本质上是错的，3不可能小于 2
+ /*
+  *  1&lt;3&lt;2 为什么会得到 true ?
+  *  他是从左往右开始比较，1 &lt; 3 这个表达式返回值为true
+  *  再拿true与2作比较，那 true &lt; 2
+  *  数值与其它类型做比较时，会先将其转换成数字，再比较，true转数字转成 1
+  *  即 1 &lt; 2 吗 ？那肯定小于，所以返回结果就为 true
+  */
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>那如果要判断一个数是不是&gt; 1同时&lt; 4，我们可以用后面学到的&amp;&amp;与操作符和||或操作符来实现</p>
+</blockquote>
+</blockquote>
+<h4 id="和"><a href="#和" class="headerlink" title="&#x3D;&#x3D; 和 !&#x3D;"></a>&#x3D;&#x3D; 和 !&#x3D;</h4><blockquote>
+<ul>
+<li>&#x3D;&#x3D;用来比较操作符两边值（隐式转换后）是否相等，在比较时，<strong>不会</strong>比较两边值的类型</li>
+<li>如果值（隐式转换后）相等，返回true，不相等，则返回false</li>
+<li>在比较时同样会做隐式类型转换，非数字类型会自动调用Number()函数，转成数字再比较</li>
+<li>以上规则，只适用于基本数据类型</li>
+</ul>
+<pre><code>1 == true; // true
+0 == &quot;&quot;; // true
+// ‘’ 转成数字是 0   false转成数字是 0 所以0==0 是true
+&quot;&quot; == false; // true
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>!&#x3D;是用来比较两个值（隐式转换后）是否不相等，如果相等返回 false,如果不相等，返回 true<blockquote>
+<p>**特殊情况!!**：</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>null == undefined; //true
+&quot;&quot; ==null;//false
+0==null;//false
+</code></pre>
+</blockquote>
+<h4 id="和-1"><a href="#和-1" class="headerlink" title="===和 !=="></a><code>===</code>和<code> !==</code></h4><blockquote>
+<ul>
+<li><code>===</code>用来比较两边的值是否全等，如果全等则为true,不全等则为false。</li>
+<li>全等：不仅在比较是会比较值大小，还会比较值的类型</li>
+<li><code>===</code>只有操作符两边的数长的<strong>一模一样</strong>，才会是 true，否则就是 false</li>
+<li>注意区分： 而前面讲的<code>==</code>只会比较两个值（隐式转换后）的大小，不会比较类型。</li>
+</ul>
+<pre><code>1 == &quot;1&quot;; // true 只比较值
+1 === &quot;1&quot;; // false  同时比较值和类型
+1 == true; // true 只比较值
+1 === true; // false 同时比较值和类型
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong><code>!==</code> 不全等</strong></p>
+<ul>
+<li><code>!==</code> 用来比较两边值是否不全等，如果是则返回true,不是返回false</li>
+<li><code>!==</code>的结果，正好是<code>===</code>结果的<strong>反面</strong>，如果<code>===</code>返回结果是true，那！<code>==</code>返回结果就是false</li>
+</ul>
+</blockquote>
+<h4 id="特殊的比较"><a href="#特殊的比较" class="headerlink" title="特殊的比较"></a>特殊的比较</h4><blockquote>
+<pre><code>undefined == null; // true
+undefined === null; // false
+
+NaN == NaN; // false
+NaN === NaN; // false
+
+NaN !== NaN; // true
+NaN != NaN; // true
+</code></pre>
+</blockquote>
+<h4 id="区分-、-、-的区别"><a href="#区分-、-、-的区别" class="headerlink" title="区分 &#x3D; 、&#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 的区别"></a>区分 &#x3D; 、&#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 的区别</h4><blockquote>
+<ul>
+<li><code>=</code> 是赋值</li>
+<li><code>==</code> 是比较 但只比较值</li>
+<li><code>===</code> 是比较 同时比较值和类型</li>
+</ul>
+</blockquote>
+<h3 id="四、逻辑表达式"><a href="#四、逻辑表达式" class="headerlink" title="四、逻辑表达式"></a>四、逻辑表达式</h3><table>
+<thead>
+<tr>
+<th>逻辑运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>!</code></td>
+<td>逻辑非 否定的意思</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;	</code></td>
+<td>逻辑与 并且的意思</td>
+</tr>
+<tr>
+<td>&#96;</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="非运算符"><a href="#非运算符" class="headerlink" title="!非运算符"></a>!非运算符</h4><blockquote>
+<ul>
+<li>!非运算符也叫”<strong>取反</strong>运算符”</li>
+<li>!非是一个<strong>单目运算符</strong>，所谓单目运算符，就是这个操作符<strong>只能有一个</strong>操作数</li>
+<li>操作数可以是任何类型的</li>
+<li>!运算时也会用到隐式转换，如果操作数为非布尔值，其内部会自动调用<strong>Boolean函数</strong>，将其隐式转换为布尔类型的值后，再<strong>取反</strong>操作，最后将<strong>值</strong>返回。</li>
+<li>所以!非运算的结果一定是<strong>布尔值</strong><blockquote>
+<p>因此！我们可以通过对一个值两次取反操作，将其变为一个 Boolean 类型的值</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>!true; // false
+!3; // false
+!0; // true
+!undefined; // true
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>总结：将基本数据类型转换为布尔值的 2 种方法</p>
+</blockquote>
+<ul>
+<li>方法一：调用Boolean()函数来实现</li>
+<li>方法二：在一个数值或变量前加!!(两次取反)操作，也可以实现</li>
+</ul>
+<pre><code>!!3; // true;
+!!undefined; // false
+</code></pre>
+</blockquote>
+<h4 id="与操作符"><a href="#与操作符" class="headerlink" title="&amp;&amp;与操作符"></a>&amp;&amp;与操作符</h4><blockquote>
+<ul>
+<li><code>&amp;&amp;</code>与操作符，表示<strong>并且</strong>的意思，可以对<code>&amp;&amp;</code>符号两侧的值进行<strong>与运算</strong>并返回结果</li>
+<li><code>&amp;&amp;</code>与操作符是一种<strong>短路</strong>操作符，他有一个非常重要计算规则，就是 &amp;&amp;与的短路计算<blockquote>
+<p>注意：当返回第一个表达式的值时，就不会再看第二个表达式了。第二个表达式<strong>不会</strong>被运行！</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>&amp;&amp;与的短路计算规则</p>
+<blockquote>
+<ul>
+<li>如果<strong>第一个</strong>操作数转为布尔值是<code>false</code>，则就<strong>不会</strong>看第二个操作数了。返回结果为<strong>第一个</strong>操作数的<strong>返回结果</strong></li>
+<li>如果第一个操作数转为布尔值是<code>true</code>，则<strong>会看</strong>第二个操作数。返回结果为<strong>第二个</strong>操作数的返回结果</li>
+<li>上面提到的”操作数”，可以是一个表达式、值、函数、对象等任何类型</li>
+</ul>
+<pre><code>false &amp;&amp; true; // false
+1 &amp;&amp; 2; // 2  1转换为布尔值是true，所以看第二个操作数，返回值为第二个操作数 2
+0 &amp;&amp; 3; // 0  0转换为布尔值是false，所不看第二个操作数，返回值为第1个操作数 0
+true &amp;&amp; alert(&quot;我能出来喽&quot;); // 页面显示弹窗
+3 - 3 &amp;&amp; 1; // 0  3-3结果为0,转换为布尔值是false,则不看第二个操作数，返回值为第一个操作数，第1个操作数是表达式，所以返回值为第1个表达式的返回值0
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>测试题</strong></p>
+<blockquote>
+<ul>
+<li>以下代码的执行后的结果是多少？</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var a = 1,
+   b = 2,
+   c;
+ c = a &lt; b &amp;&amp; a++;//a&lt;b:true，所以a++被运行,c=1,a=2
+ console.log(c, a);//c=1,a=2
+ c = a &gt; b &amp;&amp; --a;//a&gt;b:false=c,--a不会被运行
+ console.log(c, a);//c=false,a=2
+ a == b &amp;&amp; alert(&quot;a和b相等了&quot;);//a=b=2,true,运行alert
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>如何判断一个数的范围</p>
+<blockquote>
+<pre><code>var a = 10;
+console.log(a &gt; 5 &amp;&amp; a &lt; 12); // true   这个逻辑表达示的含 义是： a&gt;5 同时 a&lt;12 ？
+console.log(a &gt; 5 &amp;&amp; a &lt; 8); // false
+</code></pre>
+<blockquote>
+<p>表达式都会有一个返回值，所以我们可以用一个变量来接受表达式的返回值</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+ var a = 10;
+ var b;
+ b = a &gt; 5 &amp;&amp; a &lt; 12;
+ console.log(b); // true
+ b = a &gt; 5 &amp;&amp; a + 2;
+ console.log(b); // 12
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>如何判断一个值是不是 NaN</p>
+<blockquote>
+<ul>
+<li>方法1：利用 <strong>NaN是一个不是数字的，但是数字类型</strong>，这个特性来判断</li>
+</ul>
+<pre><code>var a = NaN;
+var _isNaN = isNaN(a) &amp;&amp; typeof a === &quot;number&quot;;
+consloe.log(_isNaN);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>方法2：利用 <strong>NaN自己不等于自已</strong> 这个特性来判断</li>
+</ul>
+<pre><code>&lt;script&gt;
+ function _isNaN(n) &#123;
+   if (n !== n) &#123;
+     return true;
+   &#125; else &#123;
+     return false;
+   &#125;
+ &#125;
+ console.log(_isNaN(NaN)); // true
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<h4 id="或-操作符"><a href="#或-操作符" class="headerlink" title="|| 或 操作符"></a><code>||</code> 或 操作符</h4><blockquote>
+<ul>
+<li><code>||</code>或操作符，表示或者的意思，可以对<code>||</code>符号两侧的值进行或运算并返回结果</li>
+<li><code>||</code>或操作符是一种短路操作符，他一个非常重要计算规则，就是<code>||</code>或的短路计算</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>|| 或的短路计算规则：</p>
+<blockquote>
+<ul>
+<li><strong>第一个</strong>操作数转换为布尔值是<code>true</code>,则就<strong>不会</strong>看第二个操作数。返回结果为<strong>第一个</strong>操作数的返回结果，第二个表达式不会被执行</li>
+<li>第一个操作数转换为布尔值是<code>false</code>，则就<strong>会看第二个</strong>操作数。返回结果为<strong>第二个</strong>操作数的返回结果</li>
+<li>上面提到的”操作数”，可以是一个表达式、值、函数、对象等任何类型</li>
+</ul>
+<pre><code>true || false; // true  第1个操作数是true，则不看第2个操作数，将第1个操作数作为结果返回 true
+false || true; // true  第1个操作数是false，则看第二个操作数，将第2个操作数作为结果返回 true
+0 || 3; // 3  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 3
+&quot;&quot; || 1; // 1  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 1
+undefined || NaN; // NaN  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 NaN
+</code></pre>
+</blockquote>
+</li>
+<li><p>测试题</p>
+<blockquote>
+<p>以下代码，输出的结果？</p>
+<pre><code>&lt;script&gt;
+ var a = 1,
+   b = 2,
+   c;
+ c = a &lt; b || a++;//c=ture,a++不会被执行
+ console.log(c); 
+ c = a &gt; b || a--;//c=1,a=0,先赋值后自减
+ console.log(a, c); 
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="逻辑操作符优先级"><a href="#逻辑操作符优先级" class="headerlink" title="逻辑操作符优先级"></a>逻辑操作符优先级</h4><blockquote>
+<p>逻辑操作符优先级是： <code>！非</code> &gt; <code>&amp;&amp; 与</code> &gt; <code>|| 或</code> </p>
+<blockquote>
+<p>自己写代码的时候，建议加括号增强可读性</p>
+</blockquote>
+<pre><code>(1 &amp;&amp; false) || (4 &amp;&amp; 5); //false||5--&gt;5
+(1 &amp;&amp; 2) || (4 &amp;&amp; 5); //2||5--&gt;2
+(1 &amp;&amp; true) || (!&quot;&quot; &amp;&amp; 2);//true||2--&gt;true
+</code></pre>
+</blockquote>
+<h3 id="五、综合表达式"><a href="#五、综合表达式" class="headerlink" title="五、综合表达式"></a>五、综合表达式</h3><blockquote>
+<ul>
+<li>综合表达式：就是 算术操作符、赋值操作符、关系操作符、逻辑操作符出现在同一个表达式中。</li>
+<li>那这些操作符混在一起使用，他们的优先级就显得很重要。</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>操作符的优先级，从上往下，优先级从高到低，如下：</p>
+<blockquote>
+<ul>
+<li><code>++</code> 和 <code>--</code> 运算符</li>
+<li>非运算符(!)</li>
+<li>算术运算符( %、&#x2F;、* 、+、-,先乘除取模再加减)</li>
+<li>关系运算符(&gt;、&lt;、&gt;&#x3D;、&lt;&#x3D;、&#x3D;&#x3D; 、!&#x3D;、<code>===</code>、<code>!==</code>)</li>
+<li>逻辑运算符(<code>&amp;&amp;</code> &gt; <code>||</code>)</li>
+<li>赋值运算符（&#x3D;、+&#x3D;、-&#x3D;、&#x2F;&#x3D;、%&#x3D;）<blockquote>
+<ul>
+<li>单目运算符优先级较高</li>
+<li>当自增<code>++</code>、自减<code>--</code>运算符遇到逻辑运算符时，要注意：由于短路特性，它需要先看左边的结果</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>综合表达式的计算规则</p>
+<blockquote>
+<ul>
+<li>如果操作符优先级一样，则从左往右算</li>
+<li>可以用()来改变优先级,改变计算顺序</li>
+<li>为了提高代码可读性，在实际开发中，我们都会添加()，这样能更直接的知道代码的执行顺序</li>
+</ul>
+</blockquote>
+</li>
+<li><p>测试题<br><strong>测试题1</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ var a = 0,
+   c;
+ c = !3 + 4 / 2 &gt; 5 &amp;&amp; ++a;
+//!-&gt;/-&gt;+-&gt; &gt;,即：false+2&gt;5,**注意**此时false自动转换为0,2&gt;5为false,c=false &amp;&amp; ++a,由于左边是false，所以++a不会被执行,c=false,a=0
+ console.log(c, a); // false 0
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>测试题2</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ var a = 10;
+ var b = a++ &amp;&amp; a &lt; 11 || a++;
+//a++先将10赋值给&amp;&amp;,然后自增a=11,即true&amp;&amp;false,--&gt;false||a++,此时a将11赋值给||,所以b=11,然后a自增,a=12
+ var c = a + 1 &amp;&amp; a + 2;
+//c=13&amp;&amp;14,c=14
+ console.log(b, c, a); // 11  14  12
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p><code>var b = a++ &amp;&amp; a &lt; 11 || a++;</code>这步的顺序很重要，</p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>所有操作符优先级<blockquote>
+<ul>
+<li>关于每一个运算符的详细优先级，可以参考下面这张图</li>
+<li>在下图中，越在最上面的，优先级越高，越优先计算。<img src="操作符优先级.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="六、三元-条件-运算符"><a href="#六、三元-条件-运算符" class="headerlink" title="六、三元(条件)运算符"></a>六、三元(条件)运算符</h3><blockquote>
+<ul>
+<li>JavaScript 中提供了一种叫做 “三元运算” 的语法形式，让我们可以方便地实现选择</li>
+<li>他更像是if..else语句的紧凑版<br><code>条件表达式 ? 表达式1 : 表达式2;</code></li>
+</ul>
+</blockquote>
+<p><strong>执行流程</strong></p>
+<blockquote>
+<ul>
+<li>首先对条件表达式进行求值</li>
+<li>如果条件表达式的值为 true，则执行语句 1，并返回执行结果</li>
+<li>如果条件表达式的值为 false，则执行语句 2，并返回执行结果</li>
+</ul>
+</blockquote>
+<p><strong>注意事项</strong></p>
+<blockquote>
+<ul>
+<li>三元运算符，虽然回有返回结果，但我们并不一定要用一个变量来接受，<strong>有些时候</strong>，我们并不关心他的返回值</li>
+</ul>
+<pre><code>var a = 2;
+// 这种情况下，我们更关心，满足条件要做什么事，不满足条件做什么事，并不关心返回结果
+a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
+// 同时这种情况，不管 a&gt;1 是真是假，最终返回结果都是undefined,因为 alert() 方法返回值是undefined
+var b = a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
+console.log(b); // undefined
+</code></pre>
+</blockquote>
+<p><strong>实战案例：补 0 操作</strong></p>
+<blockquote>
+<ul>
+<li>当我们获取当前日期时，如果计算得到的日，月小于 10 的时候，都会以一位数的方式显示，如：2022年8月17日，而我们希望以两位的方式显示，如：2022年08月17日</li>
+<li>这个时候就会涉及到补 0 的问题了。<blockquote>
+<p>通过三元运算符判断，并执行加0操作</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 完整的补0后效果
+// var date = new Date(&quot;2019/1/3&quot;);
+var date = new Date();
+var year = date.getFullYear(); // 获取完整的年份(4位)
+var month = date.getMonth() + 1; // date.getMonth()获取当前月份(0-11,0代表1月),所以要加1
+var day = date.getDate(); // 获取当前日(1-31)
+month = month &lt; 10 ? &quot;0&quot; + month : month; // 月份小于10，数字前补0
+day = day &lt; 10 ? &quot;0&quot; + day : day; // 日小于10，数字前补0
+var currentDate = year + &quot;年&quot; + month + &quot;月&quot; + day + &quot;日&quot;;
+console.log(currentDate); // 2022年08月17日
+</code></pre>
+</blockquote>
+<h3 id="七、综合案例"><a href="#七、综合案例" class="headerlink" title="七、综合案例"></a>七、综合案例</h3><p><strong>判断当前输入年份，是否是闰年 ?</strong></p>
+<blockquote>
+<p>需求分析：</p>
+<ul>
+<li>公历闰年的简单计算方法（符合以下条件之一即可）</li>
+<li>能被 4 整除且不能被 100 整除</li>
+<li>能被 100 整除也能被 400 整除</li>
+<li>1950-2050 年之间的闰年有: 1952、1956、1960、1964、1968、1972、1976、1980、1984、1988、1992、1996、2000、2004、2008、2012、2016、2020、2024、2028、2032、2036</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码实现思路：</p>
+<ul>
+<li>利用 prompt() 弹出输入框，让用户输入年份</li>
+<li>定义变量 var year 来接受，用户输入的年份</li>
+<li>对接收到的值做判断，判断条件就是需求中提到的，两个条件中有一个满足就可，所以选择||操作符</li>
+<li>判断表达式： 左边条件 1 ||右边条件 2</li>
+</ul>
+<pre><code>var y = parseInt(prompt(&quot;请输入年份&quot;));
+var a = (y % 4 == 0 &amp;&amp; y % 100 != 0) || (y % 100 == 0 &amp;&amp; y % 400 == 0);
+a == true ? alert(&quot;是闰年&quot;) : alert(&quot;不是闰年&quot;);
+//   alert(y + &quot;是闰年吗？&quot; + a);
+</code></pre>
+</blockquote>
+<h3 id="八、小结"><a href="#八、小结" class="headerlink" title="八、小结"></a>八、小结</h3><ol>
+<li><p>由于在进行&#x3D;&#x3D;数学运算&#x3D;&#x3D;时，会自动调用Number函数进行隐式转换，所以要注意一些特殊值的转换</p>
+<blockquote>
+<ul>
+<li>Number(“”); &#x2F;&#x2F; 0</li>
+<li>Number(“ “); &#x2F;&#x2F; 0</li>
+<li>Number(true); &#x2F;&#x2F; 1</li>
+<li>Number(false); &#x2F;&#x2F; 0</li>
+<li>Number(null); &#x2F;&#x2F; 0</li>
+<li>Number(undefined); &#x2F;&#x2F; NaN</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用<code>==</code>时<br><strong>根据上一条的转换，正常的情况：</strong></p>
+<blockquote>
+<ul>
+<li>0 &#x3D;&#x3D; “”; &#x2F;&#x2F; true</li>
+<li>“” &#x3D;&#x3D; false; &#x2F;&#x2F; true</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>特殊情况</strong></p>
+<blockquote>
+<ul>
+<li>null &#x3D;&#x3D; undefined; 结果为true</li>
+<li>“”&#x3D;&#x3D;null ; 结果为false</li>
+<li>0&#x3D;&#x3D;null ; 结果为false</li>
+</ul>
+</blockquote>
+<h3 id="九、位运算符（难点-大厂必考）"><a href="#九、位运算符（难点-大厂必考）" class="headerlink" title="九、位运算符（难点-大厂必考）"></a>九、位运算符（难点-大厂必考）</h3><blockquote>
+<blockquote>
+<p>位运算符都可以去掉小数</p>
+</blockquote>
+</blockquote>
+<h4 id="前情提要：二进制知识点"><a href="#前情提要：二进制知识点" class="headerlink" title="前情提要：二进制知识点"></a>前情提要：二进制知识点</h4><ol>
+<li><p>正十进制如何转二进制</p>
+<blockquote>
+<ul>
+<li>10 进制转 2 进制，就是用当前数除 2 取余数的方式得到的</li>
+<li>如求 5 的二进制<ul>
+<li>5&#x2F;2&#x3D;2 余 1 得到右边第 1 位</li>
+<li>2&#x2F;2&#x3D;1 余 0 得到 右边第 2 位</li>
+<li>1&#x2F;2&#x3D;0 余 1 得到 右边 第 3 位<br> 最后商为 0 时， 把所有从上往下的<strong>余数</strong>&#x3D;&#x3D;从右往左&#x3D;&#x3D;写出来就是最后的二进制数 <code>101</code><blockquote>
+<p>十进制转x进制，就把十进制的值除以x直至余数为0，将得到的余数从右往左排列<br>位运算符只有<code>32</code>位，从右到左位数递增，最左边的是第32位，是最高位</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>二进制如何转换成十进制</p>
+<blockquote>
+<p><strong>计算公式</strong></p>
+<ul>
+<li><code>b0</code>表示二进制右边第<code>1</code>位上的数字</li>
+<li><code>b1</code>表示二进制右边第<code>2</code>位上的数字</li>
+<li><code>b2</code>表示二进制右边第<code>3</code>位上的数字</li>
+<li>……依次类推<img src="二进制计算公式.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>举例：<code>00000000000000000000000000000101</code>转换为十进制<br><img src="5的进制转换.png"></p>
+<blockquote>
+<p>最低位的平方值是0！</p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li><strong>负</strong>十进制数如何转换成二进制<blockquote>
+<ul>
+<li>负数和正数的存储方式不一样，负数是以一种<strong>二补数(或补码)<strong>的二进制编码</strong>存储</strong>。</li>
+<li>我们来看下，负数是如何转成对应二进制数，然后存储的。这里以<code>-5</code>来为例<img src="负十进制的转换.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong><code>-5</code>的二进制计算过程：</strong></p>
+<blockquote>
+<ul>
+<li>第一步：暂时去掉负号，先将正数的<code>5</code>转换为二进制，得到<code>00000000000000000000000000000101</code></li>
+<li>第二步：反转每一位的二进制数，即 1 变成 0，0 变成 1,得到<code>11111111111111111111111111111010</code></li>
+<li>第三步：把上面反转得到二进制<code>+1</code>，就得到了最后负数的二进制</li>
+</ul>
+</blockquote>
+<p><strong>验证方法：</strong></p>
+<blockquote>
+<pre><code>var a = 0b11111111111111111111111111111011; // js中2进制数以0b开头
+console.log(a &gt;&gt; 0); // -5
+</code></pre>
+</blockquote>
+<ol start="4">
+<li><p>如何一眼区分二进制数是正数还是负数</p>
+<blockquote>
+<ul>
+<li><strong>有符号整数</strong>使用 32 位的前 31 位表示整数值，第 32 位表示数值的符号，如果 32 位是 <code>0</code>，表示<strong>正数</strong>，如果是 <code>1</code> 表示是<strong>负数</strong>。</li>
+<li>第 <code>32</code> 位称为<strong>符号位</strong>，他的值决定了数值其余部分的格式。</li>
+<li><strong>正数</strong>以真正的二进制格式存储，而负数是以我们上面提到的补码的二进制编码存储的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>最终版，二进制如何转换成十进制</p>
+<blockquote>
+<ul>
+<li>拿到一个二进制数，首先看<strong>第 32 位</strong>是 0 还是 1</li>
+<li>如果是 <code>0</code>，就按<strong>正</strong>二进制转十进制方式转</li>
+<li>如果是 <code>1</code>，则就按<strong>负</strong>十进数转二进制的方式，<strong>反转</strong>回去，步骤倒放</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>十进制转二进制</th>
+<th>二进制转十进制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正数</td>
+<td>除2取余,从右到左</td>
+<td>公式法</td>
+</tr>
+<tr>
+<td>负数</td>
+<td>除2取余+ 反转+1法</td>
+<td>-1反转法 + 公式法</td>
+</tr>
+</tbody></table>
+<p><strong>正二进制转十进制</strong></p>
+<blockquote>
+<p><code>var num4 = 00000000000000000000000000011001;</code></p>
+<ul>
+<li>1、num4 的二进制，第 32 位是 0，则是一个正数，按正常的正二进制转十进制方式转 1</li>
+<li>2、num4 对应 10 进制计算公式&#x3D; 1+0+0+1<em>23+1</em>24 &#x3D; 1+8+16 &#x3D; 25</li>
+</ul>
+</blockquote>
+<p><strong>负二进制转十进制</strong></p>
+<blockquote>
+<p><code>var num1 = 11111111111111111111111111111101;</code></p>
+<ul>
+<li>1、num1 的二进制第 32 位是 1，则是一个负数，负数就要以补码的方式反转回去</li>
+<li>2、先拿二进制 <code>11111111111111111111111111111101</code><strong>-1</strong> 得到 <code>11111111111111111111111111111100</code><blockquote>
+<p>二进制如何做减法：</p>
+</blockquote>
+</li>
+<li><code>-1</code>就是减1的二进制数</li>
+<li>和数学一样，不够的话往前借，数学是十进制，借到的是<code>10</code>,二进制借到的是<code>2</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>3、再把上面得到的二进制<strong>反码</strong>回去，0 变 1，1 变 0，得到<code>00000000000000000000000000000011</code>，此时得到的是正数的二进制</li>
+<li>4、所以可以用正数的公式法：<code>1*2+1*1=3</code>，因为是负数，所以最后结果为-3</li>
+</ul>
+</blockquote>
+<h4 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h4><ol>
+<li><p>基础知识</p>
+<blockquote>
+<ul>
+<li>位运算的操作数，都会被转成&#x3D;&#x3D;32位&#x3D;&#x3D;<code>bit</code>的整数（32 位的二进制数）,再做运算</li>
+<li>速度是 <code>T0</code>（最高，速度最快）级别的，因为是在二进制下进行运算的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>按位与<code>&amp;</code> 操作符</p>
+<blockquote>
+<ul>
+<li><code>&amp;</code>与位操作符会先把值转换为<strong>32位整数</strong>（二进制数），然后再进行位操作。</li>
+<li>按位<code>&amp;</code>就是将两个操作数的每一位对齐，然后按下表中的规则，对每一位执行相应的操作<table>
+<thead>
+<tr>
+<th>第一个数值的位</th>
+<th>第二个数值的位</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>按位与操作的两个位数都是1时返回1，只要两个中有一个是 0，则返回 0</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>&amp; 运算过程</strong></p>
+<blockquote>
+<ul>
+<li>我们来看下面这个与&amp;运算的运算过程</li>
+</ul>
+<pre><code>var result = 5 &amp; 3;
+console.log(result); // 1
+</code></pre>
+<ul>
+<li>先把 5 和 3 都转换为对应的 32 位<strong>二进制数</strong>，然后再 <strong>1 位 1 位的</strong>比较，最后结果为 1<img src="&运算过程.png"></li>
+</ul>
+</blockquote>
+<p><strong>按位&amp;操作符判断奇偶数 （经典面试题）</strong></p>
+<blockquote>
+<ul>
+<li>如果 (一个数 &amp; 1) &#x3D;&#x3D; 1 这个数是<strong>奇数</strong></li>
+<li>如果 (一个数 &amp; 1 )&#x3D;&#x3D; 0 这个数是<strong>偶数</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>其背后的逻辑</strong></p>
+<ul>
+<li>根据二进制转 10 进制的公式，除第 1 位之外的每一位上的值都是 2 的倍数</li>
+<li>也就是第<code>1</code>位上如果是<code>0</code>就是偶数，如果是<code>1</code>就是奇数<table>
+<thead>
+<tr>
+<th>10进制</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二进制</td>
+<td>11</td>
+<td>100</td>
+<td>101</td>
+<td>110</td>
+<td>111</td>
+<td>1000</td>
+<td>1001</td>
+<td>1010</td>
+</tr>
+</tbody></table>
+</li>
+<li>如果一个数是奇数，他的第 1 位是 1，这个数 &amp; 1 永远得到 1<img src="判断奇偶数.png"></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>按位或 <code>|</code> 操作符<blockquote>
+<ul>
+<li>按位或<code>|</code>操作符会先把值转换为 32 位整数（二进制数），然后再进行位操作</li>
+<li>按位或<code>|</code>就是将两个操作数的每一位对齐，然后按下表中的规则，对每一位执行相应的操作<table>
+<thead>
+<tr>
+<th>第一个数值的位</th>
+<th>第二个数值的位</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>按位或操作的两个位数，只要有一个是 1 就返回 1，两位都是 0 时返回 0</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>| 或运算过程</strong></p>
+<blockquote>
+<pre><code>var result = 5 | 3;
+console.log(result); // 7
+</code></pre>
+<ul>
+<li>先把 5 和 3 都转换为对应的 32 位二进制数，然后再 1 位 1 位的比较<img src="或运算过程.png"></li>
+</ul>
+</blockquote>
+<p><strong>应用：将一个数取整</strong></p>
+<blockquote>
+<pre><code>var num = 5.467;
+console.log(num | 0); // 5
+</code></pre>
+<ul>
+<li>一个数在<strong>按位或</strong>运算时，会先将其转换为 32 位的<strong>整数</strong>（二进制），这个过程就会把<strong>小数转换为整数</strong></li>
+<li>然后这个整数 <code>| 0</code> 永远得到这个整数。因为 <code>0</code> 和 <code>1</code> 与 <code>0</code> 做<strong>或运算</strong>，都得到<strong>自身</strong>。<img src="取整运算.png">
+>任何数与 0 做或|运算，最后结果都为这个数的**整数部分**。</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>按位非 <code>~</code> 操作符<blockquote>
+<ul>
+<li>按位非<code>~</code>操作符会先把值转换为<strong>32位整数</strong>（二进制数）,再运算</li>
+<li>按位非<code>~</code>操作符，用来反转操作数对应的位数，所以要进行一次反转</li>
+<li>根据反转的结果，使用对应的 <strong>正数&#x2F;负数</strong> 二进制转十进制的方法</li>
+<li>其最终结果的呈现是将一个数<strong>取反并减 1</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong><code>~5</code>的计算过程</strong></p>
+<blockquote>
+<ul>
+<li>先转换为二进制，<code>5</code>的二进制是 <code>00000000000000000000000000000101</code></li>
+<li><strong>再进行反转</strong>是：<code>11111111111111111111111111111010</code></li>
+<li>由于反转后是一个<strong>负数</strong>，因为第32位为<code>1</code>，此时使用&#x3D;&#x3D;负二进制转为十进制&#x3D;&#x3D;的方法：<code>-1反转+公式法</code><ul>
+<li><strong>减 1</strong>，得到 <code>11111111111111111111111111111001</code></li>
+<li>再<strong>反转</strong>，得到00000000000000000000000000000110</li>
+<li>再用<strong>公式法</strong>将二进制转换为十进制</li>
+</ul>
+</li>
+<li>最后结果就是 6，因为是负数，所以最后结果是<code>-6</code><blockquote>
+<p><code>~5</code>的结果是<code>-6</code>，即：取反并减1</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong><code>~-5</code>的计算过程</strong></p>
+<blockquote>
+<ul>
+<li>先将<code>-5</code>转为二进制(<strong>负十进制转二进制</strong>，使用除2取余,+1反转法)，得到<code>11111111111111111111111111111011</code></li>
+<li>反转：<code>00000000 00000000 00000000 00000100</code></li>
+<li>由于得到的是<strong>正数</strong>，所以使用&#x3D;&#x3D;公式法&#x3D;&#x3D;将其转为十进制：<code>1*2*2=4</code></li>
+</ul>
+</blockquote>
+<p><strong>按位非<code>~</code>应用</strong></p>
+<blockquote>
+<ul>
+<li>将一个数（<strong>整数</strong>）,<strong>两次按位非</strong>运算，就能将这个数<strong>取反</strong><ul>
+<li>推导过程如下：</li>
+<li><code>~~ x = ~(-x-1)=-(-x-1)-1 = x+1-1 = x</code></li>
+</ul>
+</li>
+<li>取得一个数的相反数<code>~x + 1</code><ul>
+<li><code>~x+1 = -x-1+1 = -x</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>按位异或 <code>^</code><blockquote>
+<ul>
+<li>按位异或<code>^</code>操作符，会先把值转为32位整数（二进制数）,再运算</li>
+<li>按位异或<code>^</code>在做运算时，就是将两个操作数的每一位对齐，然后按下表中的规则，对每一位执行相应的操作<table>
+<thead>
+<tr>
+<th>第一个数的位</th>
+<th>第二个数的位</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>只有当两个数对应的位都是 1 或都是 0 时，返回 0，其它都返回 1</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>运算过程</strong></p>
+<blockquote>
+<pre><code>var result = 5 ^ 3;
+console.log(result); // 6
+</code></pre>
+<ul>
+<li>先把 5 和 3 转换为二进制数，再一位一位来运算，如下<img src="异或运算过程.png"></li>
+<li>再用公式转换成十进制&#x3D;6</li>
+</ul>
+</blockquote>
+<p><strong>按位异或^（归零律）</strong></p>
+<blockquote>
+<ul>
+<li>归零律: 一个数异或自已得到 0 ，即 <code>a ^ a=0</code> ，因为只有两个数上对应位数是<strong>一样</strong>时，才会得到 <code>0</code></li>
+<li>用来判两个数<strong>是否相等</strong>，如果 <code>a^b=0</code>，则 <code>a=b</code></li>
+</ul>
+</blockquote>
+<p><strong>按位异或^（恒等律）</strong></p>
+<blockquote>
+<ul>
+<li>恒等律：<code>a ^ 0= a</code>（<strong>整数</strong>），自己异或 0，得到自己</li>
+</ul>
+</blockquote>
+<p><strong>按位异或 ^（自反）</strong></p>
+<blockquote>
+<ul>
+<li>自反：<code>a ^ a ^ a= 0 ^ a= a</code> ，一个（整数）异或自身 <strong>2</strong> 次，得到<strong>自身</strong>。</li>
+<li>结合律 : <code>a ^ b ^c = c ^ b ^ a</code> ，计算结果一样，<strong>与先后顺序无关</strong></li>
+</ul>
+</blockquote>
+<p><strong>应用：按位异或 ^ （用来交换两个数值变量的值）</strong></p>
+<blockquote>
+<p>经典面试题：变量为数字(整数)，在不增加临时变量时，交换两个变量的值,使用<code>^=</code></p>
+<pre><code>var a = 5;
+var b = 10;
+a ^= b;
+b ^= a;
+a ^= b;
+console.log(a, b); // 10 5
+/*
+* 整个推演过程如下：
+* 1、 a ^ = b 得到 a = a ^ b
+* 2、 b ^ = a 得到 b = b ^ a 在第1步得到a = a ^ b，则推倒出b = b ^ a ^ b=b ^ b ^ a =0 ^ a =a
+* 3、 a ^ = b 得到 a = a ^ b ,在第1步得到a = a^b,第2步得到b = a,则推倒出： a = a ^ b ^ a = b ^ b ^ a = 0 ^ b = b
+*
+*/
+</code></pre>
+</blockquote>
+<h4 id="位移操作符-、"><a href="#位移操作符-、" class="headerlink" title="位移操作符(&gt;&gt;、&lt;&lt;、&gt;&gt;&gt;)"></a>位移操作符(<code>&gt;&gt;</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;&gt;</code>)</h4><blockquote>
+<blockquote>
+<p>除了<code>&gt;&gt;&gt;</code>是无符号的，其他位移操作符都是有符号的</p>
+</blockquote>
+</blockquote>
+<ol>
+<li><code>&lt;&lt;</code>左操作符<blockquote>
+<ul>
+<li>左移操作符用两个小于号<code>&lt;&lt;</code>表示，会按<strong>指定的位数</strong>将数值的<strong>所有位</strong>向<strong>左</strong>移动。</li>
+<li>左移后，<strong>左边</strong>移出去的<strong>指定位数</strong>去掉，<strong>右端</strong>空出的位数会以<code>0</code>来填充这些空位。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong><code>5&lt;&lt;5</code>运算过程如下</strong></p>
+<blockquote>
+<ul>
+<li>先把<code>5</code>转换为二进制数</li>
+<li>再左移5位，把左边超出部分去掉，右侧的空缺用0填充</li>
+<li>使用公式法，转换为十进制数<img src="左位移.png"></li>
+</ul>
+</blockquote>
+<p><strong><code>-5&lt;&lt;5</code>的运算过程</strong></p>
+<blockquote>
+<ul>
+<li>先把<code>5</code>转换为二进制数(除2取余)<code>00000000000000000000000000000101</code></li>
+<li>使用<code>反转+1法</code>，得到<code>-5</code>的二进制数<code>11111111111111111111111111111011</code></li>
+<li><strong>保留第32位的符号</strong>，左移5位，把左边超出部分去掉，右侧的空缺用0填充<code>11111111111111111111111101100000</code></li>
+<li>转十进制<code>-1反转法+公式法</code><ul>
+<li><code>-1</code>得到：<code>1111 1111 1111 1111 1111 1111 0101 1111</code></li>
+<li>反转得到：<code>0000 0000 0000 0000 0000 0000 1010 0000</code></li>
+<li>公式法：得到<code>160</code>，由于是负数，所以最终结果为<code>-160</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注：<br>在有符号整数中，第 32 位中的第 32 位是 符号位</p>
+</blockquote>
+<ul>
+<li>如果是 0 表示正数</li>
+<li>如果是 1 表示负数，在左移时，会保留操作数的符号</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><code>&gt;&gt;</code> <strong>有符号</strong> <strong>右移</strong>操作符<blockquote>
+<ul>
+<li>有符号右移由两个大于号<code>&gt;&gt;</code>表示,会将数值的<strong>所有 32 位</strong>都向右移。同时<strong>保留符号</strong>（正和负）</li>
+<li>有符号右移，左边空出的位会在左侧，在<strong>符号位后</strong>用<strong>符号位的值</strong>来填充这些空位。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong><code>160 &gt;&gt; 5;//5</code>的运算过程</strong></p>
+<blockquote>
+<ul>
+<li>先将<code>160</code>转换成二进制数</li>
+<li>向右移动5位，用符号位的值来填充第32位后的空缺，右侧超出部分的值去掉不要</li>
+<li>用<code>公式法</code>转换为十进制&#x3D;5<img src="有符号右移.png"></li>
+</ul>
+</blockquote>
+<p><strong><code>-160 &gt;&gt; 5;//-5</code>的运算过程</strong></p>
+<blockquote>
+<ul>
+<li><code>除2取余</code>得到<code>160</code>的二进制数：<code>0000 0000 0000 0000 0000 0000 1010 0000</code></li>
+<li><code>反转+1法</code>，得到<code>-160</code>的二进制数<code>1111 1111 1111 1111 1111 1111 0110 0000</code></li>
+<li>右移5位，用<code>1</code>填充空缺<br><code>11111111111111111111111111111011</code></li>
+<li><code>-1反转+公式法</code>转成十进制：<ul>
+<li><code>-1</code>得到<code>11111111111111111111111111111010</code></li>
+<li><code>反转</code>得到<br><code>00000000000000000000000000000101</code></li>
+<li>公式法，结果&#x3D;<code>-5</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><code>&gt;&gt;&gt;</code> 无符号右移操作符<blockquote>
+<ul>
+<li>无符号右移会将数值的<strong>所有32位</strong>都向右移，位移造成的左侧空位<strong>全补0</strong>.</li>
+<li>所以对于<strong>正数</strong>，&gt;&gt;&gt;无符号右移 和 有符号右移&gt;&gt;的<strong>结果是相同的</strong>。因为正数的符号位是 0，所以两者都是补 0 的方式来填充右移造成的空位。</li>
+<li>但是负数，就完全不一样了。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>55 &gt;&gt;&gt; 5;运算过程</strong></p>
+<blockquote>
+<ul>
+<li>55 的二进制是：<code>00000000000000000000000000110111</code></li>
+<li><code>&gt;&gt;&gt;</code>无符号右移<code>5</code>，左侧造成的空位 0 来补，则得到<code>00000000000000000000000000000001</code></li>
+<li>用公式法得到十进制结果：<code>5</code></li>
+</ul>
+</blockquote>
+<p><strong>-55 &gt;&gt;&gt; 5;运算过程</strong></p>
+<blockquote>
+<ul>
+<li>55 的二进制是：<code>00000000000000000000000000110111</code></li>
+<li><code>反转+1</code>得到<code>-55</code>的二进制数<code>11111111111111111111111111001001</code></li>
+<li>右移5位，用<code>0</code>填充空缺：<code>00000111111111111111111111111110</code></li>
+<li>公式法得到十进制结果：<code>134217726</code><blockquote>
+<p>负数，在无符号位移后（至少 1 位），会被转换成一个正数</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="位移操作符的应用"><a href="#位移操作符的应用" class="headerlink" title="位移操作符的应用"></a>位移操作符的应用</h4><ol>
+<li>随机数函数<blockquote>
+<ul>
+<li>Math.random()方法，可以得到 0-1 之间的小数，随机生成</li>
+<li>得到 [a , b] 区间的整数，方式如下:<ul>
+<li>方法1：parseInt(Math.random() * (b - a + 1)) + a;</li>
+<li>方法2：(Math.random() * (b - a + 1)&gt;&gt;0) + a;用任一位<strong>运算符</strong>都可以</li>
+<li>方法3：Math.floor(Math.random() * (b - a + 1)) + a;</li>
+<li>方法4：Math.round(Math.random() * b)+a;<blockquote>
+<p>只有<code>Math.round</code>是向上取整，四舍五入，可以取到<code>1</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>推算过程：</strong></p>
+<blockquote>
+<p>要得到 [0 , 5] 区间的<strong>整数</strong></p>
+<ul>
+<li>Math.random()方法，可以得到 0-1 之间的小数</li>
+<li>Math.random()*6，可以得到<code>0-6</code>之间的随机数</li>
+<li>去掉小数，就可以得到[0 , 5] 区间的整数</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>要得到 [5 , 8] 区间的<strong>整数</strong></p>
+</blockquote>
+<ul>
+<li>Math.random()方法，可以得到 0-1 之间的小数</li>
+<li><code>Math.random()*4</code>，可以得到<code>0-4</code>之间的随机数</li>
+<li>Math.random()*4+5,可以得到 5-9 之间的小数</li>
+<li>去掉小数，就可以得到[5 , 8] 区间的整数</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>如何随机生成随机色（经典面试题）<br><strong>生成rgb(r,g,b)原理：</strong><blockquote>
+<blockquote>
+<p>十进制转rgb</p>
+</blockquote>
+<ul>
+<li>利用<code>Math.random()</code>生成随机数<ul>
+<li>var r &#x3D; parseInt(Math.random() * 256);</li>
+<li>var g&#x3D; parseInt(Math.random() * 256);</li>
+<li>var b &#x3D; parseInt(Math.random() * 256);</li>
+</ul>
+</li>
+<li>用+号拼接出<code>rgb()</code>的值<ul>
+<li><code>var rgb=&quot;(&quot;+r+&quot;,&quot;+g+&quot;,&quot;+b+&quot;)&quot;;</code></li>
+<li>括号和逗号用<strong>引号</strong>包裹、用<strong>加号</strong>拼接，变量不需要</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>生成HEX十六进制颜色原理：</strong></p>
+<blockquote>
+<blockquote>
+<p>十进制转十六进制</p>
+</blockquote>
+<ul>
+<li>随机生成十进制的数字，范围是<code>0~255</code></li>
+<li>使用向上取整的<code>Math.round</code><ul>
+<li><code>Math.round(Math.random() * 0xffffff)</code></li>
+</ul>
+</li>
+<li>转换为十六进制<ul>
+<li><code>.toString(16)</code></li>
+</ul>
+</li>
+<li>不一定是六位数，所以需要在前面自动补<code>0</code><ul>
+<li><code>.padStart(6, &quot;0&quot;)</code></li>
+</ul>
+</li>
+<li>加上<code>#</code>号，使用+拼接</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>// rgb颜色随机
+function rgb() &#123;
+ var r = Math.floor(Math.random() * 256);
+ var g = Math.floor(Math.random() * 256);
+ var b = Math.floor(Math.random() * 256);
+ var rgb = &quot;(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
+ return rgb;
+&#125;
+
+// 十六进制颜色
+var randomHex = function () &#123;
+ return (
+   &quot;#&quot; +
+   Math.round(Math.random() * 0xffffff)
+     .toString(16)
+     .padStart(6, &quot;0&quot;)
+ );
+&#125;;
+console.log(randomHex());
+
+// 十六进制颜色
+const randomColor = function () &#123;
+ return &quot;#&quot; + Math.random().toString(16).substr(2, 6);
+&#125;;
+console.log(randomColor());
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>GRB 颜色 转 16 进制颜色</li>
+</ol>
+<p><strong>基础知识</strong></p>
+<table>
+<thead>
+<tr>
+<th>RGB</th>
+<th>R 对应范围</th>
+<th>G 对应范围</th>
+<th>B 对应范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>rgb(0,24,255)</td>
+<td>0-255</td>
+<td>0-255</td>
+<td>0-255</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>16 进制</th>
+<th>前两位对应 R，取值范围</th>
+<th>中间两位对应 G，取值范围</th>
+<th>最后两位对应 B，取值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#05f3df</td>
+<td>00-ff</td>
+<td>00-ff</td>
+<td>00-ff</td>
+</tr>
+</tbody></table>
+<blockquote>
+<img src="rgb转十六进制.png">
+</blockquote>
+<p><strong>底层原理</strong></p>
+<blockquote>
+<p>将 rgb 的值，转成 32 位的二进制，然后再将 32 位二进制转成对应的 16 进制<br><img src="rgb转十六进制原理.png"></p>
+</blockquote>
+<blockquote>
+<p><strong>过程分析：</strong></p>
+<blockquote>
+<ul>
+<li>分别将rgb的三个值转为二进制，根据十六进制对应位置进行位移，组成一个二进制数，然后将它转为十六进制</li>
+<li>每一个rgb值对应八位数，因为最大值255转换成八位数是<code>ffffffff</code></li>
+<li>三个值拼接成32位的二进制数，最左边八位补0</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>r</code>的值对应十六进制的前两位，也就是从右往左，第三个八位数，所以要左移16位才能到达</li>
+<li><code>g</code>的值对应十六进制的中间两位，也就是从右往左，第二个八位数，所以要左移8位才能到达</li>
+<li><code>b</code>的值对应十六进制的最后两位，也就是从右往左，第一个八位数，不用位移</li>
+<li>位移之后怎么拼接？使用按位或<code>|</code><ul>
+<li>按位或操作的两个位数，<strong>只要有一个</strong>是 1 就返回 1，两位都是 0 时返回 0</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>// rgb颜色转 16进制颜色
+function colorRGBToHex(rgb) &#123;
+ // rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;]
+ var rgbArr = rgb.split(/[^\d]+/);
+ // r 移掉丢掉高位   g移掉高位  b 不变
+ var color = (rgbArr[1] &lt;&lt; 16) | (rgbArr[2] &lt;&lt; 8) | rgbArr[3];
+ // color.toString(16) 的值，有可能不足6位，则需要向前补0
+ var _color = color.toString(16); // 转换成16进制
+ // padStart(6,&#39;0&#39;); // 不足6位，前面补0
+ return &quot;#&quot; + _color.padStart(6, &quot;0&quot;);
+&#125;
+var hexColor = colorRGBToHex(&quot;rgb(2,33,55)&quot;);
+console.log(hexColor); // #022137
+</code></pre>
+</blockquote>
+<blockquote>
+<p>**<code>.split(/[^\d]+/)</code>**，用非数字的值作为分隔符，将rgb值拆出来</p>
+<pre><code>var hexColor =(&quot;rgb(2,33,55)&quot;);
+var rgbArr = rgb.split(/[^\d]+/);
+console.log(rgbArr);
+// rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;,&#39;&#39;]
+console.log(rgbArr[1]);
+//rgbArr[1]=2
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>toString 方法的三个作用</strong></p>
+<ul>
+<li>将其它类型转换为字符串类型</li>
+<li>检测对象的类型</li>
+</ul>
+<pre><code>Object.prototype.toString.call(arr) === &quot;[object Array]&quot;;
+</code></pre>
+<ul>
+<li>返回该数字对应进制的字符串</li>
+</ul>
+<pre><code>(10).toString(2); // 10 专为2进制是 &#39;1010&#39;
+(10).toString(16); // 10 转为 16制进是 &#39;a&#39;
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>16 进制转 RGB 颜色<blockquote>
+<p><strong>原理：</strong>本质就是要把对应 16 进制的</p>
+<ul>
+<li>前 2 位转成 r 的值，</li>
+<li>中间 2 位转成 g 的值，</li>
+<li>后两位转成 b 的值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>思路</strong></p>
+<ul>
+<li>先去掉<code>#</code>，换成对应的<code>0x</code></li>
+<li>把十六进制转换为32位的二进制数(只要做位移运算，就会<strong>自动</strong>把操作数转成 32 位二进制)</li>
+<li>右移16位，得到<code>r</code>的二进制数，赋值时自动转成 10 进制</li>
+<li>右移8位，同时<code>&amp; 0xff</code>，得到<code>g</code>的二进制数，赋值时自动转成 10 进制</li>
+<li><code>&amp;0xff</code>，得到<code>b</code>的二进制数，赋值时自动转成 10 进制<img src="16进制转rgb.jpg"></li>
+</ul>
+<pre><code>// 16进制颜色，转rgb
+function colorHexToRGB(hex) &#123;
+ var newHex = hex.replace(&quot;#&quot;, &quot;0x&quot;);
+ var r = newHex &gt;&gt; 16;
+ var g = (newHex &gt;&gt; 8) &amp; 0xff;
+ var b = newHex &amp; 0xff;
+ return &quot;rgb(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
+&#125;
+console.log(colorHexToRGB(&quot;#022137&quot;)); // rgb(2,33,55)
+</code></pre>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/02/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/">https://hermiablog.github.io/2023/12/02/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/02/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JS数据类型和类型转换">
+                        
+                        <span class="card-title">JS数据类型和类型转换</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS表达式、操作符、位运算符
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/01/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="JS核心知识点（一）">
+                        
+                        <span class="card-title">JS核心知识点（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS简介、核心语法、变量、数据类型和类型转换
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/CSS/">
+                        <span class="chip bg-color">CSS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

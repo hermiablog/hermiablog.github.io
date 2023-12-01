@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JS简介、核心语法、变量, 技术博客">
+    <meta name="keywords" content="JS核心知识点（一）, 技术博客">
     <meta name="description" content="个人技术博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JS简介、核心语法、变量 | hermia&#39;s blog</title>
+    <title>JS核心知识点（一） | hermia&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -240,7 +240,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JS简介、核心语法、变量</h1>
+                    <h1 class="description center-align post-title">JS核心知识点（一）</h1>
                 </div>
             </div>
         </div>
@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-01
+                    2023-12-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.8k
+                    10k
                 </div>
                 
 
@@ -424,7 +424,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <span id="more"></span>
-<h3 id="一、js简介"><a href="#一、js简介" class="headerlink" title="一、js简介"></a>一、js简介</h3><ol>
+<h2 id="JS简介、核心语法、变量"><a href="#JS简介、核心语法、变量" class="headerlink" title="JS简介、核心语法、变量"></a>JS简介、核心语法、变量</h2><h3 id="一、js简介"><a href="#一、js简介" class="headerlink" title="一、js简介"></a>一、js简介</h3><ol>
 <li>HTML、CSS、JavaScript 三者之间的关系<table>
 <thead>
 <tr>
@@ -1155,6 +1155,802 @@ iMyStudentCount<span class="token punctuation">;</span>
 <li>接着在控制台书写代码，然后回车，又会进入上面四个流程</li>
 </ul>
 </blockquote>
+<h2 id="JS数据类型和类型转换"><a href="#JS数据类型和类型转换" class="headerlink" title="JS数据类型和类型转换"></a>JS数据类型和类型转换</h2><h3 id="一、数据类型简介和检测"><a href="#一、数据类型简介和检测" class="headerlink" title="一、数据类型简介和检测"></a>一、数据类型简介和检测</h3><ol>
+<li><p>为什么需要数据类型</p>
+<blockquote>
+<ul>
+<li>程序需要处理大量的不同数据，如果用同一种方式处理那肯定是处理不了的。所以在计算机中同样需要将数据分成不同类型，然后用不同的方式来处理和计算。</li>
+<li>数据类型背后，隐藏的是编译器或者解释器对数据处理方式的定义。把数据分成不同的数据类型，然后用使用不同的处理方式</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JS 中数据类型的分类</p>
+<blockquote>
+<p>7 种<strong>基本</strong>数据类型（值类型）</p>
+<ul>
+<li>String 字符串类型</li>
+<li>Number 数字类型</li>
+<li>Boolean 布尔类型</li>
+<li>Null 类型</li>
+<li>Undefined 未定义</li>
+<li>Symbol 符号</li>
+<li>BigInt 任意精度的整数<br><strong>引用数据</strong>类型（对象类型）</li>
+<li>对象（Object）、数组（Array）、函数（Function）</li>
+<li>还有两个特殊的对象：正则（RegExp）和日期（Date）。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>变量的类型</p>
+<blockquote>
+<ul>
+<li>在 JS 中，变量的数据类型是由变量中存储的值的数据类型来决定的。</li>
+<li>同时 JS 是一种弱类型的语言，他不用提前声明变量的类型。</li>
+<li>代码运行时，变量的数据类型是由JS引擎根据=右边变量的数据类型来判断的。</li>
+<li>运行完毕之后，变量就确定了数据类型。</li>
+<li>也就是说相同的变量在不同的时刻可以是不同的类型。</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a是 string字符串类型</span>
+ a <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 number 数字类型</span>
+ a <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 boolean布尔型</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>typeof 操作符</p>
+<blockquote>
+<p><code>typeof</code> 检测返回值的类型，然后 <code>console.log</code> 把值的类型在控制台输出。</p>
+<ul>
+<li>JS 有很多种数据类型，我们需要有一种手段来确定变量的数据类型，那么<code>typeof</code>运算符就可以做到。</li>
+<li>使用 typeof 运算符可以检测值或者变量的类型。</li>
+<li>用法：<ul>
+<li>检测<strong>值</strong>类型 typeof 值; 或 typeof(值)</li>
+<li>检测<strong>变量</strong>类型 typeof 变量名; 或 typeof(变量名)</li>
+<li>如果 typeof 标测的是一个<strong>表达式</strong>，则一定要带上括号,如 typeof(2+'2');</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//值类型</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token string">"艾编程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+<span class="token comment" spellcheck="true">//变量类型</span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+   b <span class="token operator">=</span> <span class="token string">"艾编程"</span><span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+</code></pre>
+<blockquote>
+<p>注意区分变量和值：变量是不能用' '单引号或"" 双引号包裹的，用<code>&#39;&#39;</code>或<code>“”</code>包裹的是字符串</p>
+</blockquote>
+<ul>
+<li>typeof的<strong>返回值类型</strong>是字符串类型</li>
+</ul>
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> 小米 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//string</span>
+<span class="token comment" spellcheck="true">//注意：</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+</code></pre>
+<ul>
+<li>只要是通过输入框得到的值，typeof类型都是<code>string</code>字符串类型</li>
+</ul>
+<pre><code>&lt;script&gt;
+ var age = prompt(&quot;请输入你的年龄&quot;); // 用户输入 18
+ console.log(typeof age);
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、5种基本数据类型"><a href="#二、5种基本数据类型" class="headerlink" title="二、5种基本数据类型"></a>二、5种基本数据类型</h3><blockquote>
+<p>在接下的数据类型学习中，我们主要学习Number、String、Boolean、null、undefined 的 5 种基础数据类型<br>关于BigInt和Symbol在后面的 ES6 中，我们再来学习。</p>
+</blockquote>
+<h4 id="Number-数字类型"><a href="#Number-数字类型" class="headerlink" title="Number 数字类型"></a>Number 数字类型</h4><ol>
+<li><p>什么是 Number 数字类型</p>
+<blockquote>
+<ul>
+<li>所有数字都是 Number 类型，包括整数（正负数）和浮点数（小数）；</li>
+<li>在表达小于 1 的数时，小数点前面的 0 可以去掉，比如 0.2可以写成.2</li>
+</ul>
+</blockquote>
+</li>
+<li><p>不同进制的数字</p>
+<blockquote>
+<p>不同进制在线转换工具：<a target="_blank" rel="noopener" href="https://tool.lu/hexconvert/">https://tool.lu/hexconvert/</a></p>
+</blockquote>
+</li>
+</ol>
+<p><strong>二进制数</strong></p>
+<blockquote>
+<ul>
+<li>二进制数以<code>0b</code>开头</li>
+<li>二进制数字序列范围 0-1，逢 2 进 1</li>
+</ul>
+</blockquote>
+<p><strong>八进制数</strong></p>
+<blockquote>
+<ul>
+<li>八进制数值以<code>0</code>开头</li>
+<li>八进制数字序列范围 0-7 ,逢 8 进 1</li>
+</ul>
+</blockquote>
+<p><strong>十六进制数</strong></p>
+<blockquote>
+<ul>
+<li>十六进制数以<code>0x</code>开头</li>
+<li>十六进制序列范围 0-9 以及 A-F</li>
+</ul>
+</blockquote>
+<p><strong>科学记数法</strong></p>
+<blockquote>
+<ul>
+<li>对于非常大或非常小的数，我们可以用科学记数法来表示</li>
+<li><code>e7</code>表示 <code>10</code> 的 7 次方，小数点<strong>向右</strong>移动 7 个点的位置</li>
+<li><code>e-7</code>表示 <code>0.1</code> 的 7 次方，小数点<strong>向左</strong>移动 7 个点的位置</li>
+</ul>
+</blockquote>
+<p><strong>数字中最大值和最小值</strong></p>
+<blockquote>
+<ul>
+<li>由于内存的限制，js 中不支持表示这个世界上所有数值。js 中能表示的</li>
+<li>最小数保存在 <code>Number.MIN_VALUE</code> 中</li>
+<li>最大数保存在 <code>Number.MAX_VALUE</code> 中</li>
+</ul>
+</blockquote>
+<p><strong>正无穷和负无穷大</strong></p>
+<blockquote>
+<ul>
+<li>因为计算机内存限制，js 中不支持表示这个世界上所有数值。</li>
+<li>如果计算的数值超出了 js 能表示正数范围，则会以 <code>Infinity</code> 正无穷表示</li>
+<li>如果计算的数值超出了 js 能表示负数范围，则以<code>-Infinity</code> 负无穷表示<blockquote>
+<p>非零数字除以<code>0</code>时，结果是<code>infinity</code>或<code>-infinity</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>NaN<blockquote>
+<ul>
+<li>NaN(Not a number) 不是一个数字</li>
+<li>NaN 用 typeof 检测，得到的结果是 number，说明 NaN 是一个<strong>数字类型</strong></li>
+<li>可以理解为 NaN <strong>不是数字</strong>的数字类型</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>NaN 的作用</strong></p>
+<blockquote>
+<ul>
+<li>NaN 表示本来要返回的数值<strong>操作失败</strong>了</li>
+<li>两个数值做运算，如果操作失败了，就会返回 NaN，而不是抛出错误</li>
+<li>用 0 除任意数值<strong>在其他语言中</strong>通常都会导致错误，从而中止代码执行。<strong>但是在 js</strong> 中，不会，而是返回 NaN</li>
+</ul>
+</blockquote>
+<p><strong>关于 NaN 的运算</strong></p>
+<blockquote>
+<ul>
+<li>0 除以 0 的结果是 NaN</li>
+<li>在数学运算中，如果得不到数字的结果，其结果往往是 NaN。</li>
+<li>任何数与 NaN 做运算，都会得到 NaN，<strong>除了</strong>与<strong>字符串</strong>拼接。</li>
+</ul>
+<pre><code>&lt;script&gt;
+ console.log(NaN + true + &quot;false&quot;);
+//NaN+true=NaN,NaN+字符串即拼接
+//结果为&quot;NaNfalse&quot;,typeof为string
+//字符串与任何类型拼接，得到的都是字符串类型
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>NaN 自己不与自己相等</li>
+</ul>
+<pre class=" language-js"><code class="language-js">script<span class="token operator">></span>
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">-</span> <span class="token string">"b"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token string">"1"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//'NaN1'</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">NaN</span> <span class="token operator">==</span> <span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+<p><strong>isNaN()</strong></p>
+<blockquote>
+<ul>
+<li>这个函数接收一个参数，可以是<strong>任意</strong>数据类型，然后判断这个参数是否<strong>“不是数值”</strong></li>
+<li>isNaN 会尝试把它<strong>个值转换为数值</strong>，如果转换成数值字成功，也会认为是数字，则结果也是 false<blockquote>
+<p>特别注意：isNaN 并不是用来判断这个参数是不是NaN这个值<br>isNaN(NAN)结果是true</p>
+</blockquote>
+</li>
+<li>如果参数是数值，则返回 false，否则返回 true</li>
+</ul>
+<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false  1是一个数字，所以返回false假的</span>
+<span class="token comment" spellcheck="true">//特别注意："1"原本是字符串，但被转换成了数字</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false '1'被转成数字1，所以返回false</span>
+</code></pre>
+</blockquote>
+<h4 id="String字符串类型"><a href="#String字符串类型" class="headerlink" title="String字符串类型"></a>String字符串类型</h4><blockquote>
+<ul>
+<li>符串就是 "人类的自然语言"</li>
+<li>字符串要用引号包裹，<strong>双引号</strong>或者<strong>单引号</strong>均可</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>分清数字和字符串</p>
+<blockquote>
+<ul>
+<li>数字11和字符串'11'在语义上是不同的，前者表达一个数量，后者是一个文本</li>
+</ul>
+</blockquote>
+</li>
+<li><p>双引号 与 单引号嵌套</p>
+<blockquote>
+<ul>
+<li>双引号里面可以嵌套''单引号，单引号也可以嵌套""双引号</li>
+<li><strong>但</strong>双引号里不能直接嵌套双引号，单引号里也不能直接嵌套单引号</li>
+<li>单引号或双引号，在匹配的时候，都是以就近原则来进行匹配的</li>
+<li>推荐使用单引号内嵌套双引号</li>
+</ul>
+</blockquote>
+</li>
+<li><p>转义字符</p>
+<blockquote>
+<p>如果需要在字符串中使用特殊字符，可以用转义符 \ 转义</p>
+<table>
+<thead>
+<tr>
+<th>转义符</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\n</code></td>
+<td>换行符， n 是 newline 的意思</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杠<code> \</code></td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td><code>&#39;</code>单引号</td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td><code>&quot;</code>双引号</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>tab 缩进</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+<li><p>字符串的拼接</p>
+<blockquote>
+<ul>
+<li><code>+ </code>号，可以用来拼接两个 或 多个字符串</li>
+<li>字符串与<strong>任何</strong>类型拼接，得到的都是字符串</li>
+<li>字符串与变量拼接时，变量不能添加引号</li>
+</ul>
+</blockquote>
+</li>
+<li><p>空字符串</p>
+<blockquote>
+<ul>
+<li>空字符串，直按书写空的 ''单引号 或 ""双引号 表示空字符串</li>
+<li>空字符中的空格会占一个字符</li>
+<li>空字符串有什么用 ？<ul>
+<li>可以用来转换数据类型</li>
+<li>可以提前预设变量保存值为字符串类型，如果不设置为<code>&#39;&#39;</code>，有可能会出现错误的结果</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>length 属性</p>
+<blockquote>
+<ul>
+<li>通过 length 属性，可以获取整个字符串的长度</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"我就是我，不一样的花朵"</span><span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h4><blockquote>
+<ul>
+<li>布尔值主要是用来做<strong>逻辑判断</strong></li>
+<li>布尔类型只有两个值：true(真)和false（假），没有引号</li>
+<li>如果给true和false加上<code>&quot;&quot;</code>双引号或<code>&#39;&#39;</code>单引号，那就变成了字符串了</li>
+</ul>
+</blockquote>
+<h4 id="null-空类型"><a href="#null-空类型" class="headerlink" title="null 空类型"></a>null 空类型</h4><blockquote>
+<ul>
+<li>null 类型只有一个值，就是<code>null</code></li>
+<li>null 表示一个<strong>空对象指针</strong></li>
+<li>用typeof检测 null 的类型，得到的是<code>Object</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>虽然 typeof null 得到值为 Object,但是 null 是基本数据类型，这是一个历史遗留问题，如果要深究，那就只能用下面这段话来解释 (以下内容来自：你不知道的 JavaScript 上卷-103 页)</p>
+</blockquote>
+<ul>
+<li>不同的对象在底层都表示为二进制，在 JavaScript 中二进制前三位都为 0 的话会被判断为 object 类型</li>
+<li>null 的二进制表示是全 0，自然前三位也是 0，所以执行 typeof 时会返回 "object"<blockquote>
+<p>面试中会问到这个点，问这个问题的本质不是考这个点，因为没有意义，而是想通过这个点，看你平时学习是否研究底层，会阅读相关 JS 书籍。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>null 的作用</strong></p>
+<blockquote>
+<ul>
+<li>如果一个变量被声明后，<strong>将来</strong>是用来保存<strong>对象值</strong>的，那建议用 null 来初始化，不要使用其他值。</li>
+<li>当我们需要将对象、数组、事件监听进行销毁时，我们就可以把他们设置为 null，只有把他们设置为 null 时，JS 垃圾回收器才会把他们当成垃圾，进行<strong>垃圾回收</strong></li>
+</ul>
+</blockquote>
+<h4 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h4><blockquote>
+<ul>
+<li>undefined 类型，只有一个值，就是undefined</li>
+<li>当声明一个变量，但是<strong>并不给变量赋值</strong>时，它的值就是<code>undefined</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token keyword">var</span> a<span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// a的值是undefined</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 变量a的类型是 undefined</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<blockquote>
+<p>我们经常在调试中或报错中会发现有些值打印是 undefined，就说明这个变量定义了，没有赋值，或赋值不成功。</p>
+</blockquote>
+</blockquote>
+<h3 id="三、数据类型转换"><a href="#三、数据类型转换" class="headerlink" title="三、数据类型转换"></a>三、数据类型转换</h3><blockquote>
+<ul>
+<li>JavaScript 是一种<strong>动态类型语言</strong>(dynamically typed language)。</li>
+<li>这意味着你在声明变量时可以不必指定数据类型，而数据类型会在代码执行时会根据需要<strong>自动转换</strong>。</li>
+<li>JS 中通常会有三种方式的数据类型转换<ul>
+<li>其它类型 --> 数值</li>
+<li>其它类型 --> 字符串</li>
+<li>其它类型 --> 布尔值</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="其它类型转换为数字型"><a href="#其它类型转换为数字型" class="headerlink" title="其它类型转换为数字型"></a>其它类型转换为数字型</h4><blockquote>
+<p>将其它数据类型转换为数字型，有以下 4 种方法</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number()函数 强制转换</td>
+<td>将<strong>非数字类型</strong>转换成数字</td>
+<td>Number(''); // 0 或 Number(' '); // 0</td>
+</tr>
+<tr>
+<td>paresInt() 函数</td>
+<td>将<strong>字符串</strong>转换为数字</td>
+<td>parseInt('ab123'); // NaN 或 parseInt('200px'); // 200</td>
+</tr>
+<tr>
+<td>parseFloat() 函数</td>
+<td>将<strong>字符串</strong>转换为浮点数</td>
+<td>parseFloat('3.14 元'); // 3.14 或 parseFloat('圆周率 3.14'); // NaN</td>
+</tr>
+<tr>
+<td>（+ - * /） JS 隐式转换</td>
+<td>利用算术运算隐式转换为数字型</td>
+<td>-</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ol>
+<li><p>Number 函数</p>
+<blockquote>
+<p>Number()函数：用来将非数字类型转换成数字。</p>
+<ul>
+<li>''空字符串会转换成数字0</li>
+<li>只有前后包含：空格、纯数字类字符串、2 进制或 16 进制表示的数字、科学记数表示法的<strong>字符串</strong>能转换成数字</li>
+<li>其它会转换成 <code>NaN</code></li>
+<li>以上规则，只针对基本数据类型而言</li>
+<li>Number([]) 结果是 0</li>
+<li>Number({})结果是 NaN</li>
+</ul>
+<pre><code>&lt;script&gt;
+Number(&quot;-12&quot;); // -12
+Number(&quot;2e3&quot;); // 2000
+Number(&quot;0b11&quot;); // 3
+Number(&quot;2021年&quot;); // NaN
+Number(&quot;&quot;); // 0
+Number(&quot; &quot;); // 0
+Number(true); // 1
+Number(false); // 0
+Number(null); // 0
+Number(undefined); // NaN
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>parseInt(函数)</p>
+<blockquote>
+<ul>
+<li>parseInt()函数，主要是将<strong>字符串类型</strong>转换为<strong>整数</strong>数字</li>
+<li><strong>转换规则</strong><ul>
+<li>从第一个非空字符开始转换，如果<strong>第一个字符</strong>不是数值、加号或减号，parseInt 立即返回 <code>NaN</code></li>
+<li>这就意味着<strong>空字符串</strong>也会返回 <code>NaN</code>。</li>
+<li>如果第一个非空字符是<strong>数值、加号、减号</strong>，则继续检测，直到字符串末尾，或碰到<strong>非数值字符</strong>，就停止。</li>
+</ul>
+</li>
+<li>parseInt() 函数，<strong>不能</strong>识别二进制，八进制，<strong>但是</strong>他可以识别十六进制</li>
+<li>parseInt() 函数，还有第二个参数，可以指定以什么进制数来进行转换parseInt() 函数,指定之后就可以进行转换,但仍然识别不了二、八进制</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14年"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"2.3"</span> <span class="token operator">+</span> <span class="token string">"3.5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//2</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 8</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b1001"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//0</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>parseFloat(函数)</p>
+<blockquote>
+<ul>
+<li>他的转换原则 和 parseInt()函数一样，唯一两点区别在于：<ul>
+<li>parseFloat() 函数，主要是将<strong>字符串类型</strong>转换为<strong>浮点数</strong></li>
+<li>parseFloat( )函数，他<strong>不能</strong>识别进制数</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.2.32"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.2</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14元"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"圆周率3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
+ <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>JS 隐式转换 (+ - * /)</p>
+<blockquote>
+<ul>
+<li>利用算术运算隐式将其它类型转换为数字</li>
+<li>在单个字符串前面加上 +号，可以将字符串转成数字,多个字符串，是字符串拼接<br><code>typeof +&quot;1&quot;; // number</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="其它类型转换为字符串"><a href="#其它类型转换为字符串" class="headerlink" title="其它类型转换为字符串"></a>其它类型转换为字符串</h4><table>
+<thead>
+<tr>
+<th>方法或函数</th>
+<th>说明</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String()函数 强制转换</td>
+<td>其它类型转换字符串</td>
+<td>String(0b10); // '2' 或 String(NaN); // 'NaN'</td>
+</tr>
+<tr>
+<td>toString() 方法</td>
+<td>数字和boolean类型转换为字符串	0b10.toString(); // '2' 或 NaN.toString(); // 'NaN'</td>
+<td></td>
+</tr>
+<tr>
+<td>+ '' 空字符串拼接</td>
+<td>所有类型与''空字符串拼接得到的都是字符串类型。</td>
+<td>typeof (1 + ""); // 'string'</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>以上方法或函数，将任何类型转换为字符串，都会转换成长得相同的字符串，除了科学记数法和非10进制数字会将其转换为 10 进制值的字符串</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>String()函数<br><strong>数字转换字符串</strong><blockquote>
+<pre><code>&lt;script&gt;
+ String(123); // &#39;123&#39;
+ String(2.14); // &#39;2.14&#39;
+ String(2e4); // &#39;20000&#39;
+ String(0b10); // &#39;2&#39;
+ String(NaN); // &#39;NaN&#39;
+ String(Infinity); //&#39; Infinity&#39;
+&lt;/script&gt;
+&gt;```
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>布尔值转换为字符串</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ String(true); // &#39;true&#39;
+ String(false); // &#39;false&#39;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<p><strong>undefined 和 null 转换为字符串</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ String(undefined); // &#39;undefined&#39;
+ String(null); // &#39;null&#39;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>toString() 方法<br><strong>数字转换为字符串</strong><blockquote>
+<pre><code>&lt;script&gt;
+ (123).toString(); // &#39;123&#39;
+ (2e4).toString(); // &#39;20000&#39;
+ (0b10).toString(); //&#39;2&#39;;
+ NaN.toString(); // &#39;NaN&#39;
+ Infinity.toString(); // &#39;Infinity&#39;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>boolean 类型转换为字符串</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ true.toString(); // &#39;true&#39;
+ false.toString(); // &#39;false&#39;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>null和undefined没有 toString()这个方法</p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li><code>+ &#39;&#39;</code> 空字符串<blockquote>
+<p>所有类型与<code>&#39;&#39;</code>空字符串拼接得到的都是字符串类型。</p>
+<pre><code>&lt;script&gt;
+ true + &quot;&quot;; // &#39;true&#39;
+ false + &quot;&quot;; // &#39;false&#39;
+ NaN + &quot;&quot;; // &#39;NaN&#39;
+ 0 + &quot;&quot;; // &#39;0&#39;
+ 0b10 + &quot;&quot;; // &#39;2&#39;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="其他类型转boolean-布尔类型"><a href="#其他类型转boolean-布尔类型" class="headerlink" title="其他类型转boolean 布尔类型"></a>其他类型转boolean 布尔类型</h4><blockquote>
+<p>其它数据类型转换成 Boolean 方法：</p>
+<ul>
+<li>方法一：调用Boolean()函数来实现</li>
+<li>方法二：在一个数值或变量前加!!(两次取反)操作，也可以实现<br><strong>转换原则：</strong></li>
+<li>代表空、否定的值会被转换为false。 如：''、0、NaN、null、undefined</li>
+<li>除了上面列出的 5 个值，其它值字都转换为 true</li>
+</ul>
+</blockquote>
+<p><strong>字符串转换为布尔类型</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ Boolean(&quot;&quot;); // false
+ Boolean(&quot; &quot;); // true
+ Boolean(&quot;NaN&quot;); // true
+ Boolean(&quot;false&quot;); // true
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<p><strong>数字类型转换为布尔类型值</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ Boolean(NaN); // false
+ Boolean(0); // false
+ Boolean(Infinity); // true
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<p><strong>null 和 undefined 转换为布尔类型值</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ Boolean(null); // false
+ Boolean(undefined); // false
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<h4 id="常见的类型转换"><a href="#常见的类型转换" class="headerlink" title="常见的类型转换"></a>常见的类型转换</h4><table>
+<thead>
+<tr>
+<th>原始值</th>
+<th>转换为 数字</th>
+<th>转换为 字符串</th>
+<th>转换为 布尔值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>false</td>
+<td>0</td>
+<td>"false"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td>1</td>
+<td>"true"</td>
+<td>true</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>"0"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>"0"</td>
+<td>0</td>
+<td>"0"</td>
+<td>true</td>
+</tr>
+<tr>
+<td>''</td>
+<td>0</td>
+<td>''</td>
+<td>false</td>
+</tr>
+<tr>
+<td>' '</td>
+<td>0</td>
+<td>' '</td>
+<td>true</td>
+</tr>
+<tr>
+<td>"30"</td>
+<td>30</td>
+<td>"30"</td>
+<td>true</td>
+</tr>
+<tr>
+<td>null</td>
+<td>0</td>
+<td>"null"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>NaN</td>
+<td>"undefined"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>NaN</td>
+<td>"NaN"</td>
+<td>false</td>
+</tr>
+<tr>
+<td>Infinity</td>
+<td>Infinity</td>
+<td>"Infinity"</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id="四、综合案例-1"><a href="#四、综合案例-1" class="headerlink" title="四、综合案例"></a>四、综合案例</h3><p><strong>简单计算器</strong></p>
+<blockquote>
+<p><strong>需求分析</strong>：</p>
+<ul>
+<li>当用户在浏览器打开页面时，弹出一输入框，要求用户输入数字，用户确认后，再弹出一输入框，再输入一个数字，确认后，最后弹出两次输入的数字之和。<br><strong>代码实现思路：</strong></li>
+<li>使用 prompt() 函数弹出输入框，让用户输入两个数字</li>
+<li>对用户输入两个数字进行<strong>加法运算</strong>，而由于用户输入的内容是字符串类型，所以必须<strong>先转为数字类型</strong>，才能做加法运算</li>
+<li>最后用 alert() 显示结果，使用字符串拼接进行语句输出</li>
+<li>程序虽小，却体现了普遍计算机程序的执行步骤：用户输入->计算机处理 -> 显示结果<blockquote>
+<p>注意：</p>
+<ul>
+<li>通过输入框得到的值都是字符串类型</li>
+<li>进行加法运算的值必须为<strong>数字类型</strong></li>
+<li>减法不用进行类型转换（因为JS支持隐式类型转换）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="五、扩展知识"><a href="#五、扩展知识" class="headerlink" title="五、扩展知识"></a>五、扩展知识</h3><ol>
+<li><p>Javascript 为何称为弱类型的动态脚本语言</p>
+<blockquote>
+<ul>
+<li>在前面我们一直说，Javascript 是一种运行在客户端的脚本语言（Script 是脚本的意思）。</li>
+<li>本质上 Javascript 是一种弱类型的动态脚本语言。接下来我们分别来解释下，何为<strong>弱类型</strong>，何为<strong>动态</strong>，何为<strong>脚本语言</strong>。<img src="语言类型.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>何为<strong>动态</strong>语言和<strong>静态</strong>语言</p>
+<blockquote>
+<ul>
+<li>在声明变量时，<strong>不需要</strong>确定变量类型的语言，称为动态语言。比如：Javascript，Python、Ruby、PHP等</li>
+<li>在声明变量时，需要确定变量类型的语言，称为静态语言。比如 Java、C、C++ 、C# 等</li>
+<li>JS 在声明变量声明时，并不需要确定变量的类型，其类型是在代码执行的过程中,由变量对应值的类型来动态决定的。所以 JS 在执行过程中，需要检查数据的类型。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>何为<strong>弱</strong>类型语言和<strong>强</strong>类型语言</p>
+<blockquote>
+<ul>
+<li>支持<strong>隐式类型</strong>转换的语言，称为 弱类型语言<ul>
+<li>弱类型语言：C、C++、Javascript、PHP、VB、Perl</li>
+</ul>
+</li>
+<li>不支持隐式类型转换的语言，称为 强类型语言<ul>
+<li>强类型语言：C# 、Java 、Ruby、Python</li>
+</ul>
+</li>
+</ul>
+<pre><code>var a = &quot;4&quot;;
+var b = 1;
+console.log(a - b); //3
+</code></pre>
+<ul>
+<li>变量a是字符串，b是数字，a-b='4'-1，在这个过程中会<strong>自动</strong>把字符串'4'转换成数字4，然后再做运算。</li>
+<li>这种在运算过程中会悄悄把数据类型转换的操作，叫<strong>隐式类型转换</strong>。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>何为脚本语言</p>
+<blockquote>
+<ul>
+<li>所谓的脚本语言：是指不需要<strong>提前编译</strong>，而是在运行的过程中边编译，边执行。</li>
+<li>而 JS 本质上就是在运行过程中边编译，边执行的，JS 是由 <strong>JS 解释器（JS 引擎）</strong>来逐行进行解释并执行</li>
+<li>所以 JS 也称为<strong>解释型</strong>语言。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>编译型语言 和 解释性语言</p>
+<blockquote>
+<p><strong>编译器和解释器</strong></p>
+<ul>
+<li>之所以存在编译器和解释器，是因为机器不能直接理解我们所写的代码，所以在执行程序之前，需要将我们所写的代码“翻译”成机器能读懂的机器语言。</li>
+<li>按语言的执行流程，可以把语言划分为编译型语言和解释型语言。<br><strong>编译型语言</strong></li>
+<li>在程序<strong>执行之前</strong>，需要经过编译器的编译过程，并且编译之后会直接保留机器能读懂的二进制文件，这样每次运行程序时，都可以直接运行该二进制文件，而不需要再次重新编译了。比如 C/C++、GO 等都是编译型语言。<br><strong>解释型语言</strong></li>
+<li>而由解释型语言编写的程序，在每次<strong>运行时</strong>都需要通过解释器对程序进行动态解释和执行。比如 Python、JavaScript 等都属于解释型语言。<blockquote>
+<ul>
+<li>大部分后端语言，都是编译型语言，也就是要先编译，再执行。而 JS 是解释型语言，一边编译一边执行。</li>
+<li>编译型是一开始慢，后面快，而解释是刚开始快，但过程中是慢的。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是 JavaScript 解释器 ？</p>
+<blockquote>
+<p>要理解什么是解释器，就需要我们了解浏览器的两大组成部分：渲染引擎 和 JavaScript 引擎</p>
+<ul>
+<li>渲染引擎：用来解析 <strong>HTML 与 CSS</strong>，俗称内核，比如 chrome 浏览器的 blink，老板本的 webkit</li>
+<li>JS 引擎：也称为 <strong>JS 解释器</strong>，用来读取网页中的 <strong>JavaScript 代码</strong>，对其处理后运行。比如 chrome 浏览器的 V8 引擎。<blockquote>
+<ul>
+<li>浏览器本身并不会执行 JS 代码，而是通过内置 JavaScript 引擎（解释器）来编译和执行 Js 代码。</li>
+<li>JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
 
                 
             </div>
@@ -1181,7 +1977,7 @@ iMyStudentCount<span class="token punctuation">;</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://hermiablog.github.io/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/">https://hermiablog.github.io/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/</a>
+                    <a href="https://hermiablog.github.io/2023/12/01/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/">https://hermiablog.github.io/2023/12/01/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1390,29 +2186,28 @@ iMyStudentCount<span class="token punctuation">;</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/12/01/JS%E7%AE%80%E4%BB%8B%E3%80%81%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95%E3%80%81%E5%8F%98%E9%87%8F/">
+                <a href="/2023/12/02/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%BA%8C%EF%BC%89/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="JS简介、核心语法、变量">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JS数据类型和类型转换">
                         
-                        <span class="card-title">JS简介、核心语法、变量</span>
+                        <span class="card-title">JS数据类型和类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JS基础知识
+                            JS表达式、操作符、位运算符
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1425,12 +2220,11 @@ iMyStudentCount<span class="token punctuation">;</span>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/CSS/">
-                        <span class="chip bg-color">CSS</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
