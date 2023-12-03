@@ -1,0 +1,2119 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（四）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（四） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（四）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-03
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-03
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.5k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<blockquote>
+<p>在数据类型那一章节，我们知道 JS 中数据类型分为：基本数据类型和引用数据类型</p>
+<ul>
+<li>基本数据类型有 7 种：Number、String、Boolean、null、undefined、Bigint、Symbol</li>
+<li>引用数据类型（Object 对象类型）有：Array、Function、Date、Math、RegExp 等对象<br>本章节我们要学习的数组 Array 对象就是引用数据类型，接下来我们会从以下三个部分来展开讲解</li>
+<li>数组的语法和基本用法</li>
+<li>冒泡排序（基础版，中级版，最优版）</li>
+<li>引用数据类型和基本数据类型</li>
+</ul>
+</blockquote>
+<h3 id="一、数组的语法和基本用法"><a href="#一、数组的语法和基本用法" class="headerlink" title="一、数组的语法和基本用法"></a>一、数组的语法和基本用法</h3><blockquote>
+<ul>
+<li>编程过程中，我们经常会遇见处理 “一组数值” 的情况</li>
+<li>按照之前的学习，我们只能定义 10 个变量来分别存储每个数值，但这样的方式显然是不合理的<ul>
+<li>因为我们是没法看出这些值之间有什么相互关系和作用</li>
+<li>其次我们在定义和使用这些数据时也特别麻烦</li>
+</ul>
+</li>
+<li>所以我们需要有一种新的数据结构来存储这样一组具有相关性的数值，接下来要讲到的 <code>Array 数组</code>，就符合这一特点。</li>
+</ul>
+</blockquote>
+<h4 id="什么是数组"><a href="#什么是数组" class="headerlink" title="什么是数组"></a>什么是数组</h4><blockquote>
+<ul>
+<li>数组（Array），简单理解为是指<strong>一组数据的集合</strong>，用来存储一组相关的数据；</li>
+<li>数据可以是<strong>任意的数据类型</strong>；</li>
+<li>每种高级编程语言中都有数组，它是非常重要的一种数据结构。</li>
+</ul>
+</blockquote>
+<h4 id="创建数组"><a href="#创建数组" class="headerlink" title="创建数组"></a>创建数组</h4><blockquote>
+<p>在 <code>ES5</code> 标准下，创建数组有以下 2 种形式：</p>
+<ul>
+<li>数组字面量方式创建数组 和 new Array() 方式创建数组</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>数组字面量方式创建数组</p>
+<blockquote>
+<ul>
+<li>一个封闭在方括号对<code>[]</code>中的包含有<strong>零个或多个</strong>数据</li>
+<li>数组中的每个数据被称作<strong>元素</strong>，元素可以是<strong>任意的</strong>数据类型。</li>
+</ul>
+<pre><code>// 使用数组字面量方式创建了一个空数组,arr是数组名
+var arr = [];
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 使用数组字面量方式创一个带初始值的数组<br>&#x2F;&#x2F; A，B，C，D 称为数组元素（项），数组的长度为4<br>var arr &#x3D; [“A”, “B”, “C”, “D”];</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 使用数组字面量方式创一个带初始值的数组，数组长度为6<br>&#x2F;&#x2F; 数组元素(项)可以是任意数据类型<br>var arr &#x3D; [1, “name”, null, undefined, {}, function () {}]; &#x2F;&#x2F; 一般不会这样用，仅当前了解</p>
+<blockquote>
+<pre><code>&gt;数据创建同时赋值，称为数组初始化
+**注意：**
+- `var arr=[1,2,3,,4];`长度是5
+- `var arr=[1,2,3,4,];`长度是4
+&gt;有空元素的数组，称为**稀疏数组**
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>new Array()</code> 方式创建数组</p>
+<blockquote>
+<ul>
+<li>在实际开发中，这种方式用的少，大家只要了解即可</li>
+<li>建议大家掌握了数组字面量创建方式，再来了解这种方式<blockquote>
+<p>注意：</p>
+</blockquote>
+</li>
+<li>不支持<code>var arr=new Array(1,2,,3);</code>的写法</li>
+<li><code>var arr=new Array(1,2,);</code>，长度是2</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>括号内只有一个数字时，创建的是数组长度</p>
+</blockquote>
+<pre><code>var arr = new Array(5);
+console.log(arr.length); // 5
+console.log(arr[0]); // undefined;
+//创建一个数组，数组长度为5 ，每一项为空，打印出来为undefined
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>括号内是一个字符串时，是创建一个数组</p>
+</blockquote>
+<pre><code>var arr = new Array(&quot;5&quot;);
+console.log(arr.length); // 1
+console.log(arr[0]); // 5
+// 创建一个数组，数组长度为1，同时赋初始值为‘5’
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>括号内为多个值时，创建的是数组</p>
+</blockquote>
+<pre><code>var arr = new Array(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
+console.log(arr.length); // 3
+console.log(arr[0]); // A
+// 创建一个数组，数组长度为3，同时赋初始值为 &#39;A&#39;、&#39;B&#39;、&#39;C&#39;&gt;```
+</code></pre>
+</blockquote>
+<h4 id="访问数组元素（项）"><a href="#访问数组元素（项）" class="headerlink" title="访问数组元素（项）"></a>访问数组元素（项）</h4><blockquote>
+<ul>
+<li>数组的每一项都有索引（下标），索引是从 0 开始的正整数，从左至右，从0开始</li>
+<li>我们通过 数组名<code>[索引]</code>的方式来访问数组中元素，如下</li>
+</ul>
+<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
+// 通过索引来访问数组中元素
+console.log(arr[0]); // A
+console.log(arr[1]); // B
+console.log(arr[2]); // C
+console.log(arr[3]); // D
+</code></pre>
+</blockquote>
+<h4 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h4><blockquote>
+<ul>
+<li>数组的 <code>length</code> 属性，表示它的长度</li>
+<li>用<code>.length</code>的方式访问数组长度</li>
+</ul>
+<pre><code>// 创建数组
+var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
+// arr.lenght 访问数组长度
+console.log(arr.length); // 4
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>数组最后一项的下标&#x3D; 数组长度- 1</li>
+</ul>
+</blockquote>
+<h4 id="修改数组项的值"><a href="#修改数组项的值" class="headerlink" title="修改数组项的值"></a>修改数组项的值</h4><blockquote>
+<p><strong>方式一：</strong></p>
+<ul>
+<li>如果修改项的索引在0 到数组长度 -1 内，<strong>正常修改值</strong></li>
+</ul>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+// 更改第二项值，也就是下标为1的项的值
+arr[1] = &quot;A&quot;;
+console.log(arr); // [1, &#39;A&#39;, 3, 4, 5]
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>方式二：</strong></p>
+<ul>
+<li>如果修改项的索引不在0 到数组长度 -1 内，相当于<strong>创建</strong>这一项</li>
+<li>而且会<strong>修改</strong>数组的<strong>长度</strong>，同时在这个长度内<strong>没有值的项都是空</strong>，通过下标访问这些没有值的项时，结果是<code>undefined</code>;</li>
+</ul>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+var arr[9]=&#39;B&#39;;
+console.log(arr); 
+// [1, &#39;A&#39;, 3, 4, 5, empty × 4, &#39;B&#39;]
+console.log(arr.length); // 10 数据长度变为10
+console.log(arr[5]); // undefined 下标为5的这一项，访问值为undefined
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>方式三：</strong></p>
+<ul>
+<li>先创建一个空数组，然后再赋值</li>
+<li>而且会根据索引修改数组长度，没有赋值的项都是空的，通过下标访问这些没有值的项时，结果是<code>undefined</code>;</li>
+</ul>
+<pre><code>var arr = [];
+arr[0] = 1;
+arr[2] = 2;
+arr[5] = 5;
+console.log(arr.length); // 6
+console.log(arr); // [1, empty, 2, empty × 2, 5]
+</code></pre>
+</blockquote>
+<h4 id="访问数组注意事项"><a href="#访问数组注意事项" class="headerlink" title="访问数组注意事项"></a>访问数组注意事项</h4><ol>
+<li><p>访问数组中不存在的项，不会报错，回返回undefined</p>
+<blockquote>
+<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
+console.log(arr[5]); // undefined
+</code></pre>
+</blockquote>
+</li>
+<li><p>数组项对应的值为空时，在访问时，返回undefined</p>
+<blockquote>
+<pre><code>var arr = [&quot;A&quot;, , &quot;B&quot;, &quot;C&quot;];
+console.log(arr[1]); // undefined
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 这两种情况，要注意区分<br>var arr &#x3D; [“A”, undefined, “B”, “C”];<br>console.log(arr[1]); &#x2F;&#x2F; undefined</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>经典面试题：</p>
+<blockquote>
+<p>将数组的length设置为 0，取第一个元素会返回什么 ？</p>
+<pre><code>var arr = [1, 2, 3, 4, 5];
+arr.length = 0;
+console.log(arr);
+//arr=[],数组值清空
+console.log(arr[0]);
+//undefined
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><blockquote>
+<ul>
+<li>所谓数组遍历，就是把数组中的每一项都访问一遍。就好比篮子里有 10 个苹果，一个一个拿 出来。</li>
+<li>至于拿出来做什么，这就要看实际的需求了。比如可以拿出来放在桌子上，什么都不做，也可以拿出来一个一个洗一下。</li>
+<li>这里我们利用 <code>for</code> 循环，把数组中的<strong>每一项</strong>拿出来，在控制台打印输出。<ul>
+<li>for循环中的i是从 0 开始的，是计数器，当<strong>索引</strong>使用</li>
+<li><code>arr[i]</code>就是访问数组中下标为i的那一项</li>
+</ul>
+</li>
+</ul>
+<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, , , , &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, ,];
+for (var i = 0; i &lt; arr.length; i++) &#123;
+  console.log(arr[i]);
+&#125;
+// 输出：A B C undefined undefined undefined G H I undefined
+</code></pre>
+</blockquote>
+<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><blockquote>
+<ul>
+<li>以<strong>数组</strong>作为<strong>数组元素</strong>的数组，即：”数组的数组”</li>
+<li>二维数组，可以认为是数组中的元素也是一个数组</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>创建二维数组</p>
+<blockquote>
+<pre><code>var arr = [
+  [2, 5, 8],
+  [11, 22, 33],
+  [55, 88, 66],
+  [23, 56, 89],
+];
+console.log(&quot;数组的长度：&quot; + arr.length); // 4
+</code></pre>
+</blockquote>
+</li>
+<li><p>访问数组的长度与值：</p>
+<blockquote>
+<ul>
+<li>外侧数组长度：<code>arr.length</code></li>
+<li>内数组长度：<code>arr[i].length</code>,i是所访问数组的下标</li>
+<li>访问内侧数组的值：<code>arr[i][j]</code></li>
+</ul>
+<pre><code>var arr = [
+     [2, 5, 8],
+     [11, 22, 33],
+     [55, 88, 66],
+     [23, 56, 89],
+   ];
+  console.log(arr.length); //4
+  console.log(arr[1].length); //3
+  console.log(arr[2][1]); //88
+</code></pre>
+</blockquote>
+</li>
+<li><p>循环遍历二维数组中的每一项</p>
+<blockquote>
+<pre><code>var arr = [
+  [2, 5, 8],
+  [11, 22, 33],
+  [55, 88, 66],
+  [23, 56, 89],
+];
+// 循环输出二维数组中的每一个项
+for (var i = 0; i &lt; arr.length; i++) &#123;
+  for (var j = 0; j &lt; arr[i].length; j++) &#123;
+ console.log(arr[i][j]);
+  &#125;
+&#125;
+// 最终输出结果 2 5 8 11 22 33 55 88 66 23 56 89
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="数组类型的检测"><a href="#数组类型的检测" class="headerlink" title="数组类型的检测"></a>数组类型的检测</h4><ol>
+<li><p>用<code>typeof</code>检测数组和对象，得到的是<code>object</code></p>
+<blockquote>
+<pre><code>typeof [1, 2, 3]; // object
+typeof &#123; name: &quot;清心老师&quot;, age: 18 &#125;; // object
+</code></pre>
+</blockquote>
+</li>
+<li><p>如果要区分数组和对象，我们可以用<code>Array.isArray()</code>来检测是否是<strong>数组类型</strong></p>
+<blockquote>
+<ul>
+<li>如果Array.isArray()的返回值是true，就是数组类型，否则就不是</li>
+</ul>
+<pre><code>Array.isArray([1, 2, 3]); // true
+Array.isArray(&#123; name: &quot;清心老师&quot;, age: 18 &#125;); // false
+Array.isArray([]); // true
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、数组相关实践应用"><a href="#二、数组相关实践应用" class="headerlink" title="二、数组相关实践应用"></a>二、数组相关实践应用</h3><ol>
+<li>数组相关实践应用<blockquote>
+<p>将数组[1, 43, 23, 8, 4, 6, 8, 22, 9]翻转过来</p>
+<pre><code>var arr = [1, 43, 23, 8, 4, 6, 8, 22, 9];
+  var arr1 = [];
+  for (var i = arr.length - 1; i &gt;= 0; i--) &#123;
+ arr1[arr1.length] = arr[i];
+  &#125;
+  console.log(arr1);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>思考：</p>
+</blockquote>
+<ul>
+<li>我们如何在不增加新数组的情况下，在原数组上对数组进行翻转 ？</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>找出数组 [1, 43, 23, 8, 4, 6, 8, 22, 9] 中的最大值<blockquote>
+<ul>
+<li>声明一个变量 <code>max</code>，用来保存数组中的最大值</li>
+<li>刚开始默认数组中的第一项为最大值，存入变量 max</li>
+<li>然后拿 max 与数组中<strong>每一项</strong>（除第一项）去做比较</li>
+<li>如果数组中值大于 max，就把这个数存到 max 变量中去，否则就继续往下比</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var arr = [1, 43, 23, 8, 4, 6, 8, 22, 9];
+var max = arr[0]; // max用来保存最大值，刚开始默认取数组中第一项为最大值
+for (var i = 0; i &lt; arr.length; i++) &#123;
+  if (max &lt; arr[i]) &#123;
+    max = arr[i];
+  &#125;
+&#125;
+console.log(&quot;数组中的最大值为:&quot; + max);
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>删除数组中指定元素<blockquote>
+<p>要求删除数组[1, 4, 12, 6, 33, 15, 30, 5, 8];中的所有大于 10 的数<br><img src="删除指定元素.png"></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>开启两层循环</strong></p>
+<ul>
+<li><strong>外层</strong>循环把数组中所有数遍历出来与 10 做比较，当判断当前项值<code>&gt; 10</code> 时</li>
+<li>开启<strong>内层</strong>循环，用来<strong>删除当前项</strong>（从当前项开始，把后面的每一项，赋值给前一项，达到删除当前项效果）</li>
+<li>每次有删除项时，其数组的长度就会减 1，数组长度减 1，可以<strong>把最后一项干掉</strong>。</li>
+<li>删除当前项后，下次外层循环开始位置，又要从<strong>当前删除项</strong>的下标开始查找(删除后，该项后面的数就会往前移一位)</li>
+</ul>
+<pre><code>var arr = [1, 4, 12, 6, 33, 15, 30, 5, 8];
+// 外层循环，把数组中每个数拿出来与10做比较
+for (var i = 0; i &lt; arr.length; i++) &#123;
+  if (arr[i] &gt; 10) &#123;
+    // 把当前项后面的每一项，都赋值给前一项，达到删除当前项效果
+    for (var j = i; j &lt; arr.length; j++) &#123;
+      arr[j] = arr[j + 1];
+    &#125;
+    // 删除一项后，数组的总长度就要减1，这样就把数组中最后一项给干掉了
+    arr.length = arr.length - 1;
+    // 保证删除项后，下次遍历从当前删除项的序号开始遍历
+    i--;
+  &#125;
+&#125;
+console.log(arr);
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>重点学习：</p>
+<ul>
+<li>如何删除数组中元素</li>
+<li>删除数组中元素后，对后续元素和数组带的影响</li>
+<li>后面数组有提供相关删除数组中元素的方法，这里就是让大家学习这种思维方式。</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>随机生成指定范围内的颜色<br>基础：<blockquote>
+<pre><code>var arr = [&quot;pink&quot;, &quot;khaki&quot;, &quot;skyblue&quot;, &quot;tomato&quot;, &quot;orange&quot;, &quot;orchid&quot;];
+ var len = arr.length;
+ color = arr[(Math.random() * len) &gt;&gt; 0];
+ console.log(color);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>当我们在做烟花效果时，我们需要随机为 100 个小圆或正方形产生（指定范围内的）不同颜色。</p>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>style<span class="token operator">></span>
+  <span class="token punctuation">.</span>ball <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    width<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+    height<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+    border<span class="token operator">-</span>radius<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"ball"</span> id<span class="token operator">=</span><span class="token string">"J_ball"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">// 获取id为ball的元素</span>
+  <span class="token keyword">var</span> ball <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"J_ball"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 定义一组颜色，存入到数组中</span>
+  <span class="token keyword">var</span> bgColor <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"pink"</span><span class="token punctuation">,</span> <span class="token string">"khaki"</span><span class="token punctuation">,</span> <span class="token string">"skyblue"</span><span class="token punctuation">,</span> <span class="token string">"tomato"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"orchid"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 数组长度</span>
+  <span class="token keyword">var</span> len <span class="token operator">=</span> bgColor<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// Math.random() * (len) 产生 0- len-1之间的随机数</span>
+  <span class="token comment" spellcheck="true">// Math.random() * (len) >> 0  去掉小数，只留下整数部分</span>
+  ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> bgColor<span class="token punctuation">[</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> len<span class="token punctuation">)</span> <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+ <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+</code></pre>
+</blockquote>
+<h3 id="三、引用数据类型和基本数据类型的区别"><a href="#三、引用数据类型和基本数据类型的区别" class="headerlink" title="三、引用数据类型和基本数据类型的区别"></a>三、引用数据类型和基本数据类型的区别</h3><blockquote>
+<p>我们知道在 JS 中数据分为：<strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>两大类</p>
+<ul>
+<li>基本类型：number、boolean、string、undefined、null</li>
+<li>引用类型：array、object、function、regexp（正则表达式） …<blockquote>
+<p>那这两类数据类型在内存中是<strong>如何存储</strong>的呢 ？这就是我们接下来要讨论的重点。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><strong>先来看下面两段代码：</strong></p>
+<blockquote>
+<pre><code>// 代码片段一
+var a = 10;
+var b = a;
+a = 20;
+console.log(a); // 20
+console.log(b); // 10
+</code></pre>
+</blockquote>
+<blockquote>
+<pre><code>// 代码片段二
+var arr1 = [1, 2, 3, 4];
+var arr2 = arr1;
+arr1[0] = &quot;A&quot;;
+console.log(arr1[0]); // A
+console.log(arr2[0]); // A
+</code></pre>
+<p><strong>以上代码解读</strong></p>
+<ul>
+<li>通过代码片段一，我们发现，当 b&#x3D;a，赋值完成后，后续对 a 的操作并不会对 b 产生影响。</li>
+<li>而代码代码片段二中的数组就不一样，当 arr2&#x3D;arr1 且，我们对 arr1 的操作，直接影响了 arr2，为什么会出现这个情况呢？</li>
+<li>这就涉及到 Javascript 的基础数据类型和引用数据类型在内存中是如何存储的。</li>
+</ul>
+</blockquote>
+<ol>
+<li>基本数据类型在内存中的存储<blockquote>
+<ul>
+<li>基本数据类型存储在<strong>栈空间</strong>中</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>基本数据类型赋值过程</strong></p>
+<blockquote>
+<ul>
+<li>变量a 是基本数据类型, 当代执行到 <code>var a = 10</code> 时，在<strong>栈内存</strong>中开辟一块空间，把值 <code>10</code> 存入进去</li>
+<li>当执行到 <code>var b = a</code> 时，把 a 的值 10,<strong>复制</strong>一份保存在 b 对应的内存空间中</li>
+<li>当执行 <code>a = 20</code> 时，其本质是修改了<code>a</code>对应内存中的值，并<strong>不会</strong>影响到 b<img src="基本数据类型的存储.png"></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>引用数据类型在内存中的存储<blockquote>
+<ul>
+<li><strong>栈内存</strong>中存着引用数据类型的<strong>地址</strong>，<strong>堆内存</strong>中存着引用数据类型的<strong>最终数据内容</strong>。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>引用数据类型赋值的整个过程：</strong></p>
+<blockquote>
+<ul>
+<li>变量<code>arr1</code><strong>声明</strong>后，首先会在<strong>栈内存</strong>开辟一块内存空间，然后在<strong>赋值时</strong>，再在<strong>堆内存</strong>中开辟一块空间，堆内存存放引用数据类型的数据，然后在堆中就会有一个存放数据的<strong>地址</strong>，把这个地址存入变量对应的栈内存中。</li>
+<li><strong>栈内存</strong>中存着指向堆内存中数据的<strong>地址</strong>。</li>
+<li>当代码执行到<code>arr2=arr1</code>时，这里是把<code>arr1</code>存入栈中的<strong>地址</strong>复制给了<code>arr2</code>，所以本质上arr1和arr2<strong>指向</strong>的是堆内存中的<strong>同一个值</strong>（数据）</li>
+<li>所以当我们操作<code>arr1[0]=&#39;A&#39;</code>时，<code>arr2[0]</code>的值也是’A’</li>
+</ul>
+</blockquote>
+<p><strong>结论：</strong></p>
+<blockquote>
+<ul>
+<li>当我们把一个引用数据类型当做值来赋值时，是把它存在栈中的<strong>地址复制一份</strong>来赋值。</li>
+<li>当我们访问引用数据类型时，是通过栈中的<strong>引用地址</strong>来访问到堆中的数据。<img src="引用数据类型的存储.png"></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><p>栈和堆的的介绍</p>
+<blockquote>
+<ul>
+<li>到这里，你肯定会有一个疑问，为什么一定要分堆和 栈这两个存储空间呢？所有的数据都存放在栈中不就可以了吗？答案是不可以</li>
+<li>因为 Javascript 引擎需要用栈来维护程序执行期间上下文的状态，如果栈空间太大的话，所有数据都存放在栈空间里面，那么会影响到上下文切换的效率，进而又影响到整个程序的执行效率。<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>栈</th>
+<th>堆</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>大小固定</td>
+<td>创建时，<strong>确定大小</strong>（值大小固定），故可能会<strong>溢出</strong></td>
+<td>大小<strong>不固定</strong>，可随时增加</td>
+</tr>
+<tr>
+<td>存储类型</td>
+<td>存储基本数据类型及引用类型数据的堆地址</td>
+<td>存储引用类型数据</td>
+</tr>
+<tr>
+<td>如何访问</td>
+<td>按<strong>值</strong>(by value)访问</td>
+<td>按<strong>引用</strong>(by reference)（堆内存地址）访问</td>
+</tr>
+<tr>
+<td>特点</td>
+<td>空间小，运行效率高</td>
+<td>空间大，运行效率相对较低</td>
+</tr>
+<tr>
+<td>存放规则</td>
+<td>按顺序存放，先进后出</td>
+<td>无序存储，可根据引用（地址）直接获取</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>总结：基本数据类型和引用数据类型的区别</p>
+<table>
+<thead>
+<tr>
+<th>比较</th>
+<th>基本数据类型</th>
+<th>引用数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据存放位置</td>
+<td>基本数据类型存放在<strong>栈</strong>中，数据大小确定，内存空间大小可以分配</td>
+<td>引用数据类型存放在<strong>堆</strong>中，每个空间大小不一样，要根据情况进行特定的配置</td>
+</tr>
+<tr>
+<td>变量存储内容</td>
+<td>变量中存储的是<strong>值本身</strong></td>
+<td>变量存储的是<strong>地址</strong></td>
+</tr>
+<tr>
+<td>变量用来赋值时</td>
+<td>把变量的<strong>值复制</strong>一份去赋值</td>
+<td>把变量的<strong>内存地址复制</strong>一份去赋值</td>
+</tr>
+<tr>
+<td>存储内容大小</td>
+<td>存储值<strong>较小</strong></td>
+<td>存储值<strong>较大</strong></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>数组的深克隆(拷贝)和浅克隆(拷贝)</p>
+<blockquote>
+<ul>
+<li>引用类型在赋值的过程中，指向的是同一个地址，所以本质上两个变量指向的是同一个东西。</li>
+<li>那我们如何把一个引用类型（这里以数组为例），完全拷贝一份给到另一个变量，并且两者之间是<strong>完全独立</strong>的，没有任何的关联呢？</li>
+<li>这就涉及到我们这里说的克隆问题。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><strong>浅</strong>克隆： 只克隆了数组的<strong>第一层</strong>，如果数组是多维数组，或数组中的项是其它的引用类型值，则不克隆其他层。</li>
+<li><strong>深</strong>克隆：克隆数组的<strong>所有层</strong>，要使用递归技术，在讲到递归的时候再介绍。</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var arr = [1, 2, 3, [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]];
+  var arr2 = [];
+  for (var i = 0; i &lt; arr.length; i++) &#123;
+    arr2[arr2.length] = arr[i];
+  &#125;
+  console.log(arr, arr2);
+  // arr[3] = &quot;更改&quot;;
+  // console.log(arr, arr2);
+  arr[3][0] = 1;
+  console.log(arr, arr2);
+</code></pre>
+<ul>
+<li>更改arr的第一层值，不会影响arr2</li>
+<li>但若是更改arr[3]这个引用数据类型里面的值(第二层)，就会同时影响arr2的值</li>
+<li>因为第二层的是引用数据类型，存放的是<strong>地址</strong></li>
+<li>arr[3]和arr2[3]指向的是同一地址<blockquote>
+<p>关于深拷贝，讲完递归之后再来讲</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="四、冒泡排序-著名排序算法"><a href="#四、冒泡排序-著名排序算法" class="headerlink" title="四、冒泡排序 - 著名排序算法"></a>四、冒泡排序 - 著名排序算法</h3><blockquote>
+<ul>
+<li>冒泡排序的英文是bubble sort 的是一个著名的排序算法，也是在面试时，非常爱考察的算法</li>
+<li>假设，我们现在要将这个无序数组[1,5,3,2,6]从小到大来排列<br><strong>按冒泡排序的思想：</strong></li>
+<li>我们要把相邻的元素<strong>两两比较</strong>，当一个元素<strong>大于</strong>右侧相邻元素时，<strong>交换</strong>它们的位置；当一个元素<strong>小于或等于</strong>右侧相邻元素时，<strong>位置不变</strong>（啥也不做）</li>
+</ul>
+</blockquote>
+<h4 id="基础版："><a href="#基础版：" class="headerlink" title="基础版："></a>基础版：</h4><ol>
+<li>冒泡排序整个过程<blockquote>
+<p>第一轮：交换过程<br><img src="冒泡排序第一轮.png"></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>第二轮：交换过程<br><img src="冒泡排序第二轮.png"></p>
+</blockquote>
+<blockquote>
+<p>第三轮：交换过程<br><img src="冒泡排序第三轮.png"></p>
+</blockquote>
+<blockquote>
+<p>第四轮：交换过程<br><img src="冒泡排序第四轮.png"></p>
+</blockquote>
+<p><strong>我们来分析下面的过程</strong></p>
+<blockquote>
+<blockquote>
+<p>我们来用表格来分析上面的执行过程，上面数组中有<code>5</code>个元素，数组长度为<code>5</code>，经过了<code>4</code>轮交换。具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>轮数</th>
+<th>对比次数</th>
+<th>确认元素个数</th>
+<th>有序区个数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1轮</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>第2轮</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>第3轮</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr>
+<td>第4轮</td>
+<td>1</td>
+<td>1</td>
+<td>5</td>
+</tr>
+</tbody></table>
+</blockquote>
+</blockquote>
+<p><strong>其实我们可以得出结论：</strong></p>
+<blockquote>
+<ul>
+<li>元素交换轮数&#x3D;数组长度-1</li>
+<li>每一轮交换次数&#x3D;数组长度-当前交换轮</li>
+</ul>
+</blockquote>
+<p><strong>代码实现思路</strong></p>
+<blockquote>
+<ul>
+<li>我们可以用<code>for</code>循环嵌套来实现，<strong>外部循环</strong>控制<strong>交换轮数</strong></li>
+<li><strong>内部循环</strong>用来实现<strong>每一轮的交换处理</strong>。先进行元素比较，如果元素大于右侧相邻相元素，则两元素位置交换，如果不大于，则啥也不做</li>
+<li>声明变量tmp用作<strong>交换变量</strong></li>
+</ul>
+<pre><code>// 排序数组
+var arr = [1, 5, 3, 2, 6];
+// 数组长度
+var len = arr.length;
+// 外层for控制交换轮数
+for (var i = 0; i &lt; len - 1; i++) &#123;
+  // 内层for控制每一轮，元素交换次数处理
+  for (var j = 0; j &lt; len - i - 1; j++) &#123;
+    if (arr[j] &gt; arr[j + 1]) &#123;
+      // 交换两元素位置
+      var tmp; // 用来交换两个变量的中间变量
+      tmp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = tmp;
+    &#125;
+  &#125;
+&#125;
+console.log(arr); // [1, 2, 3, 5, 6]
+</code></pre>
+</blockquote>
+<h4 id="冒泡排序优化-1"><a href="#冒泡排序优化-1" class="headerlink" title="冒泡排序优化 1"></a>冒泡排序优化 1</h4><blockquote>
+<blockquote>
+<p>在每一轮开始时，默认打上 isSorted&#x3D;’有序’ 标记，数据一旦发生交换，就打上 isSorted&#x3D;’无序’，退出<strong>整个</strong> <code>for</code> 循环的执行。</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>优化思路<blockquote>
+<ul>
+<li>让我们来回顾下刚才上面那个冒泡排序的细节，当我们第过第二轮排序后。<img src="冒泡排序第二轮.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>其实这个时候整个数组中的元素<strong>已经是有序的</strong>了，可是排序算法还是按部就班的执行第三，四轮的排序。</li>
+<li>如果在第二轮完成后，我们就<strong>能判断出数列已经有序的，并做出标记</strong>，那么剩下的几轮排序就不必执行了，可以提前结束工作。这样是不是性能更高呢？</li>
+<li>那如何判断出数列当前已经是有序的呢 ？<ul>
+<li>在第二轮结束后，数列才是有序的了，所以第二轮中我们是找不到数组有序的标记</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>看第三轮：<img src="冒泡排序第三轮.png"></li>
+</ol>
+<p><strong>在第三轮中</strong></p>
+<blockquote>
+<ul>
+<li>整个过程都没有发生数据交换，也就是说，如果在这一轮中，数据如果<strong>没有经过任何的交换</strong>，那就说明，在这一轮当中，数据<strong>已经是有序</strong>的了。</li>
+<li>所以我们在<strong>每一轮开始时</strong>，默认<strong>打上 <code>isSorted=&#39;有序&#39;</code> 标记</strong>，如果在这一轮交换中，数据一旦发生交换，就打上 <code>isSorted=&#39;无序&#39;</code>，如果整轮交换中，都没有发生交换，那就表示数组是有序的了。我们就可以退出<strong>整个</strong> for 循环的执行。</li>
+</ul>
+<pre><code>// 排序数组
+var arr = [1, 2, 3, 5, 6];
+// 数组长度
+var len = arr.length;
+// 外层for控制交换轮数
+var isSorted;
+for (var i = 0; i &lt; len - 1; i++) &#123;
+  // 内层for控制每一轮，元素交换次数处理
+  isSorted = true; // 有序标记，每轮开始默认为有序，如果一旦发生交换，就会变成flag=false,无序
+  for (var j = 0; j &lt; len - i - 1; j++) &#123;
+    if (arr[j] &gt; arr[j + 1]) &#123;
+      // 交换两元素位置
+      var tmp; // 用来交换两个变量的中间变量
+      tmp = arr[j];
+      arr[j] = arr[j + 1];
+      arr[j + 1] = tmp;
+      isSorted = false;
+    &#125;
+  &#125;
+  // 这一轮多次交换下来，flag没有变为false,说明没有发生元素交换，此时数组已是有序的
+  if (isSorted) &#123;
+    break; // 退出最外层for循环
+  &#125;
+&#125;
+console.log(arr); // [1, 2, 3, 5, 6]
+</code></pre>
+</blockquote>
+<h4 id="进一步优化：冒泡排序优化-2"><a href="#进一步优化：冒泡排序优化-2" class="headerlink" title="进一步优化：冒泡排序优化 2"></a>进一步优化：冒泡排序优化 2</h4><blockquote>
+<blockquote>
+<p>记录每一轮最后一次交换元素的位置，该位置为无序列表的边界</p>
+</blockquote>
+</blockquote>
+<ol>
+<li><p>优化思路</p>
+<blockquote>
+<ul>
+<li>为了让大家更好的理解最优的解决方案带来的好处，我们重新拿一个数组<code>[2,3,4,1,5,6,7,8]</code>来做为案例讲解。</li>
+<li>我们先来观察上面的数列，这个数列有一个明显的特点，就是前半部分<code>2,3,4,1</code>是<strong>无序</strong>的，后半部分<code>5,6,7,8</code>是<strong>有序</strong>的,并且后半部分是<strong>升序排列</strong>的，其<strong>最小值</strong>也比前面部分的最大值要大。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>交换过程</p>
+<blockquote>
+<ul>
+<li>第一轮<img src="冒泡优化2-第一轮.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>第二轮<img src="冒泡优化2-第二轮.png"></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>从上面的两轮交换中，大家有没有发现什么问题呢 ？<blockquote>
+<ul>
+<li>其实右边的许多元素已经是有序的了，但是每一轮还是规规矩矩的把所有数都比一轮，浪费了很多时间。</li>
+<li>按正常的(系统的)冒泡排序逻辑，第一轮排序过后，有序区长度为 1，第二轮排序过后，有序区长度为 2，…..</li>
+<li>但在实际的排序过程中，有序区的长度<strong>可能会大于</strong>系统的有序区长度。<ul>
+<li>比如说，第一轮后，有序区的长度为 5，1 之后就是有序区了，但在计算机看来，有序区的长度是1</li>
+</ul>
+</li>
+<li>有没有什么办法可以确定，<strong>有序区的长度呢</strong> ？<strong>每一轮比较时</strong>，比较到实际有序区的前一位就不再发生比较了呢 ？<ul>
+<li>我们可以<strong>记录</strong>每一轮最后一次交换元素的<strong>位置</strong>，该位置为无序列表的边界，再往右就是有序区了</li>
+<li>每一轮比较，<strong>比较到上一轮元素最后一次交换的位置</strong>就不再比较了。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 排序数组
+var arr = [98, 2, 3, 45, 4, 1, 5, 78, 6, 7, 8, 20];
+// 数组长度
+var len = arr.length;
+// 当前是否是有序的
+var isSorted;
+// 有序的边界
+var sortBorder = len - 1;
+// 记录每一轮最后一次交换的值，确定下一次循有序边界
+var index;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 外层for控制交换轮数<br>for (var i &#x3D; 0; i &lt; len - 1; i++) {<br>    &#x2F;&#x2F; 内层for控制每一轮，元素交换次数处理<br>    isSorted &#x3D; true; &#x2F;&#x2F; 有序标记，每轮开始默认为有序，如果一旦发生交换，就会变成flag&#x3D;false,无序<br>    for (var j &#x3D; 0; j &lt; sortBorder; j++) {<br>        if (arr[j] &gt; arr[j + 1]) {<br>            &#x2F;&#x2F; 交换两元素位置<br>            var tmp; &#x2F;&#x2F; 用来交换两个变量的中间变量<br>            tmp &#x3D; arr[j];<br>            arr[j] &#x3D; arr[j + 1];<br>            arr[j + 1] &#x3D; tmp;<br>            isSorted &#x3D; false;<br>            &#x2F;&#x2F; 把无序列表的边界，更新为最后一次交换元素的位置<br>            index &#x3D; j;<br>        }<br>    }<br>    &#x2F;&#x2F; 如果无序，记录上一次最后一次交换的元素下标<br>    if (!isSorted) {<br>        sortBorder &#x3D; index;<br>    }<br>    &#x2F;&#x2F; 这一轮多次交换下来，flag没有变为false,说明没有发生元素交换，此时数组已是有序的<br>    if (isSorted) {<br>        break; &#x2F;&#x2F; 退出最外层for循环<br>    }<br>}<br>console.log(arr);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="五、编码题"><a href="#五、编码题" class="headerlink" title="五、编码题"></a>五、编码题</h3><blockquote>
+<p>题目如下：</p>
+<ul>
+<li>当用户进入页面时，<strong>不停的</strong>弹出输入框让用户输入班级学员的成绩，直到<strong>输出退出</strong>后，就不再弹出输入框，而是把全班同学的<strong>平均成绩</strong>以弹窗形式显示出来。</li>
+</ul>
+<pre><code>var item; // 接收每次输入的值
+      var arr = []; // 把接收过的成绩，保存到数组中
+      var sum = 0; //累加器
+      while (item != &quot;退出&quot;) &#123;
+        item = prompt(&quot;请输入学员成绩&quot;);
+        arr[arr.length] = item;
+      &#125;
+      // 把数组长度-1,目的是为了去掉最后一次存入数组中的&#39;退出&#39;
+      arr.length = arr.length - 1;
+      //计算总和
+      for (var i = 0; i &lt; arr.length; i++) &#123;
+        sum = sum + Number(arr[i]);
+      &#125;
+      //   计算平均数
+      alert(sum / arr.length);
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>判断适合使用哪一个循环语句，只知道结果用<code>while</code></li>
+<li>数组长度一定要<code>-1</code></li>
+</ul>
+</blockquote>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/03/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%9B%9B%EF%BC%89/">https://hermiablog.github.io/2023/12/03/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%9B%9B%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/03/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="JS核心知识点（四）">
+                        
+                        <span class="card-title">JS核心知识点（四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS流程控制语句和算法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/03/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="JS核心知识点（三）">
+                        
+                        <span class="card-title">JS核心知识点（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS流程控制语句和算法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
