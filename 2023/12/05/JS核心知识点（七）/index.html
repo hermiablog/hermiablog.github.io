@@ -1,0 +1,2310 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（七）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（七） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（七）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、手写-flat-方法，指定深度，实现数组的扁平化"><a href="#一、手写-flat-方法，指定深度，实现数组的扁平化" class="headerlink" title="一、手写 flat 方法，指定深度，实现数组的扁平化"></a>一、手写 flat 方法，指定深度，实现数组的扁平化</h3><blockquote>
+<ul>
+<li><code>flat()</code>方法会按照一个<strong>可指定的深度</strong>递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>我们首先来看下 JS 中数组的 flat 方法</p>
+<blockquote>
+<ul>
+<li><code>arr.flat(层数)</code></li>
+</ul>
+<pre><code>var arr = [0, 1, 2, [3, [4, 5], 6], 7, 8, 9];
+var arr1 = arr.flat(); // 默认将数组展平1层
+console.log(arr1); //  [0, 1, 2, 3, [4, 5], 6, 7, 8, 9]
+</code></pre>
+</blockquote>
+<p>var arr2 &#x3D; arr.flat(2); &#x2F;&#x2F; 将数组展平2层<br>console.log(arr2); &#x2F;&#x2F; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>手写<code>flat</code>方法源码</p>
+<blockquote>
+<ul>
+<li>可以用for循环，也可以用forEach</li>
+<li>由于嵌套了两个函数，所以在第一层一定要<strong>自己调用</strong>第二层的函数</li>
+<li>注意为什么要n–、n++</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>function flat(arr, n) &#123;
+var newArr = [];
+//for循环遍历
+function fn(arr, n) &#123;
+  //for循环遍历数组的每一个元素
+  for (var i = 0; i &lt; arr.length; i++) &#123;
+    //如果是数组，则再次进入函数
+    if (Array.isArray(arr[i])) &#123;
+      //用n控制层数，一层代表进入一次本if语句
+      if (n &lt;= 0) &#123;
+        //层数用完,直接把该数组塞进新数组
+        newArr.push(arr[i]);
+      &#125; else &#123;
+        //有次数，每进来一次就展开一层，进一次减一次
+        n--; //n-1后会直接成为后面fn的实参
+        fn(arr[i], n);
+        n++; //为了不影响同一层级数组的展开次数
+      &#125;
+    &#125; else &#123;
+      //如果不是数组，则加入新数组
+      newArr.push(arr[i]);
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;forEach方法<br>function fn(arr) {<br>  &#x2F;&#x2F;for循环遍历数组的每一个元素<br>  arr.forEach(function (el) {<br>    if (Array.isArray(el)) {<br>      &#x2F;&#x2F;用n控制层数，一层代表进入一次本if语句<br>      if (n &lt;&#x3D; 0) {<br>        &#x2F;&#x2F;层数用完,直接把该数组塞进新数组<br>        newArr.push(el);<br>      } else {<br>        &#x2F;&#x2F;有次数，每进来一次就展开一层，进一次减一次<br>        n–; &#x2F;&#x2F;n-1后会直接成为后面fn的实参<br>        fn(el, n);<br>        n++; &#x2F;&#x2F;为了不影响同一层级数组的展开次数<br>      }<br>    } else {<br>      &#x2F;&#x2F;如果不是数组，则加入新数组<br>      newArr.push(el);<br>    }<br>  });<br>}<br>&#x2F;&#x2F;自己调用fn函数<br>fn(arr, n);<br>return newArr;<br>}<br>var arr &#x3D; [0, 1, 2, [3, [4, 5], 6], 7, [8, [ [9], 10]]] ;<br>console.log(flat(arr, 1));</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="二、将一个数组旋转-k-步"><a href="#二、将一个数组旋转-k-步" class="headerlink" title="二、将一个数组旋转 k 步"></a>二、将一个数组旋转 k 步</h3><blockquote>
+<ul>
+<li>将数组<code>[1, 3, 5, 7, 9, 11, 13]</code>旋转 K 步</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>审题：理解题目的意思</p>
+<blockquote>
+<p>假设 k&#x3D;4 ，即旋转 4 步</p>
+<ul>
+<li>第一步，得到数组 <code>[ 13, 1, 3, 5, 7, 9, 11 ]</code></li>
+<li>第二步，得到数组 <code>[ 11, 13, 1, 3, 5, 7, 9 ]</code></li>
+<li>第三步，得到数组 <code>[ 9 , 11, 13, 1, 3, 5, 7]</code></li>
+<li>第四步，得到数组 <code>[ 7, 9, 11, 13，1, 3, 5]</code><br>即数组旋转 4 步后，得到数组[ 7, 9, 11, 13，1, 3, 5]</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解题思路</p>
+</li>
+</ol>
+<ul>
+<li><p>方法1：去尾插头</p>
+<blockquote>
+<ul>
+<li>每旋转一步，就把最后一个元素<strong>删除</strong>并<strong>调到最前面</strong></li>
+<li>删除最后一个元素：<code>.pop</code></li>
+<li>把元素填充到最前面<code>.unshift</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//检验输入值</span>
+<span class="token comment" spellcheck="true">//arr是否为数组</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//i &lt; k 有隐式转换，所以不用检测k是否为数字</span>
+<span class="token comment" spellcheck="true">//判断如果数组长度为0，或k不存在，则直接返回原数组</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//考虑k为负数、小数、k的长度大于数组长度的情况</span>
+k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//for循环</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> item <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+</li>
+<li><p>方法2：拆分数组，然后拼接</p>
+<blockquote>
+<ul>
+<li>要旋转k步，就把倒数k个元素组成数组，调到最前面</li>
+<li>把最后k个元素组成数组：<code>.slice</code></li>
+<li>把剩余元素组成一个数组：<code>.slice</code></li>
+<li>数组拼接：<code>.concat</code></li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//检验输入值</span>
+<span class="token comment" spellcheck="true">//arr是否为数组</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//i &lt; k 有隐式转换，所以不用检测k是否为数字</span>
+<span class="token comment" spellcheck="true">//判断如果数组长度为0，或k不存在，则直接返回原数组</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//考虑k为负数、小数、k的长度大于数组长度的情况</span>
+k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//取出倒数k个元素</span>
+<span class="token keyword">var</span> item1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//取出剩余元素</span>
+<span class="token keyword">var</span> item2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//组成新数组</span>
+<span class="token keyword">return</span> item1<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>item2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>复杂度分析<blockquote>
+<ul>
+<li>方法1：时间复杂度是 O(n<sup>2</sup>) 、空间复杂度 O(1)， 为什么呢？<ul>
+<li>因为<code>unshift</code>相当于一个for循环，每新增一个元素，其他所有元素的索引都会变化</li>
+<li>而所定义的变量都是基本数据类型，输出单值；与输入量无关</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>方法2：时间复杂度是 O(1)、空间复杂度是 O(n)<ul>
+<li>没有用到for循环，执行次数是可数的</li>
+<li>定义两个数组，并且所需要的内存空间与输入量成正比</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>性能测试</li>
+</ol>
+<ul>
+<li><p>测试得出结果的时长</p>
+<blockquote>
+<pre><code>// 输入量要比较大
+var arr = [];
+for (var i = 0; i &lt; 100 * 1000; i++) &#123;
+arr.push(i);
+&#125;
+</code></pre>
+</blockquote>
+<p>console.time(“rotate”);<br>rotateArr(arr, 4000);<br>console.timeEnd(“rotate”);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>对比结果</p>
+<blockquote>
+<ul>
+<li>随着数据规模量变大和旋转次数的增多，方法2的耗时变化不大，但方法1的耗时巨增。</li>
+<li>在前端领域是重时间轻空间的，所以我们肯定首先思路 1</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="三、字符串中括号匹配是否正常"><a href="#三、字符串中括号匹配是否正常" class="headerlink" title="三、字符串中括号匹配是否正常"></a>三、字符串中括号匹配是否正常</h3><blockquote>
+<p>判断一个字符串中的括号{} [] ()是否匹配正常，这是一个非常经典的面试题。</p>
+</blockquote>
+<ol>
+<li><p>审题：理解题目的意思</p>
+<blockquote>
+<ul>
+<li>字符串1：<code>a&#123;(b&#123;c[1,2,3]&#125;)&#125;</code>的匹配是正常的</li>
+<li>字符串2：<code>a&#123;(b&#123;c[1,2,(3)&#125;]</code>的匹配是错的</li>
+</ul>
+</blockquote>
+</li>
+<li><p>栈</p>
+<blockquote>
+<p>这个问题本质是在考查什么呢 ？</p>
+<ul>
+<li>他是在考你理不理解<strong>栈</strong>这种数据结构，如果你会，那这个题就很容易做了。</li>
+<li>所以我们先来了解下，栈这种数据结构，然后再回过头来看，这道题如何解。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>什么是栈</strong><blockquote>
+<ul>
+<li>栈是一种<strong>先进后出</strong>的数据结构，要弄明白什么是栈，我们先举一个生活中的例子来帮助大家理解</li>
+<li>假如你现在有一个长长的圆筒，圆筒的一端是封闭的，另一端是开口，现在往圆筒底部放气球，那先放的是不是在圆筒的底部，后放的是不是在靠近圆筒的位置，如下图：<img src="栈.jpg"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>我们现在要从圆筒中取出气球，那我们是不是得<strong>先取离圆筒出口最近的</strong>一个，即取球时的顺序正好和放的时候的顺序是<strong>反</strong>的。</li>
+<li>我们把圆筒比喻从栈，那<strong>放气球</strong>的过程叫入栈(压栈)，<strong>拿气球</strong>的过程叫<strong>出栈</strong>；</li>
+<li>圆筒的底部称为<strong>栈底</strong>，圆筒出口的第一个气球位置叫<strong>栈顶。</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>栈是什么：栈是一种<strong>先进后出</strong>的数据结构（逻辑层面）</li>
+<li><strong>入栈</strong>：进栈时，先进去的在底部，后进去的在栈顶</li>
+<li><strong>出栈</strong>：出栈时，先进去的后出，后进去的先出</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>数组演示入栈和出栈</p>
+<blockquote>
+<ul>
+<li>如果我们把<strong>数组想象成一个栈结构</strong>，最左边是栈底，最先放入元素，最右边是栈顶</li>
+<li>入栈：相当于 <code>push</code> 元素时，从左往右放入元素</li>
+<li>出栈：相当于 <code>pop</code> 删除数据，从最右边的第一个元素开始删</li>
+</ul>
+<pre><code>// 声明一个空数组，用来当成栈
+var arr = [];
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 向数组中添加元素<br>for (var i &#x3D; 0; i &lt; 6; i++) {<br>arr.push(i); &#x2F;&#x2F; 入栈<br>console.log(arr);<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 取出数组中的元素<br>for (var i &#x3D; 0; i &lt; 6; i++) {<br>arr.pop(); &#x2F;&#x2F; 出栈<br>console.log(arr);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>栈和数组的关系</strong></p>
+<blockquote>
+<ul>
+<li><strong>本质上</strong>栈和数组完全不是一个层面上的东西，是不能拿 来做比较的</li>
+<li>栈：是一种<strong>逻辑结构</strong>，是一种<strong>理论模型</strong>，他是抽象出来的一种结构。</li>
+<li>数组：数组是一种<strong>物理结构</strong>，是实实在在<strong>存在的</strong>，可能用来操作的和存储数据的，同时还提供了相关的 API，让我们来操作数组。<blockquote>
+<p>我们有很多种方式来实现栈这种结构来存储和取数据等，其中数组就可以实现栈这种结构来存储和操作数据。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>利用栈结构思想来解题<blockquote>
+<ul>
+<li>我们可以用 <code>for</code> 循环来遍历字符串中的每一个字符串</li>
+<li>声明一个空数组</li>
+<li>遇到左括号 <code>&#123; ( [</code>就压栈，存入数组中</li>
+<li>遇到右括号<code>] ) &#125;</code> ，就判断栈顶是否与当前括号匹配，匹配就<strong>出栈</strong>，删除该括号，接着查看下一个符号<blockquote>
+<p>因为右括号只能与离自己最近的左括号匹配，不会间隔其他括号，所以只需逐个排除</p>
+</blockquote>
+</li>
+<li>最后判断栈中数据的 <code>length</code> 长度是否为 0，如果不为 <code>0</code>，则不匹配，为 0 就匹配成功<blockquote>
+<p>一旦有一个括号不匹配，整个数组就是不匹配的</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<img src="符号匹配.jpg">
+</blockquote>
+<ol start="4">
+<li>代码实现</li>
+</ol>
+<ul>
+<li><p>粗糙版</p>
+<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">matchStr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//先转为字符串</span>
+str <span class="token operator">=</span> str <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 如果长度为0，则直接返回true</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//定义新数组</span>
+<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//for循环,遍历字符串的每个元素</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//遇到左括号就存入/压栈</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">||</span> 
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">||</span> 
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"("</span><span class="token punctuation">)</span> 
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span> <span class="token operator">||</span> 
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span> <span class="token operator">||</span> 
+    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span> 
+    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">var</span> arrTop <span class="token operator">=</span> arr<span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"("</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">// 如果不匹配，直接返回false，也就意示着整个字符串括号不匹配</span>
+ <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+<p> var str &#x3D; “a{(b{c[1,2,3]})}”;<br> var str1 &#x3D; “a{(b{c[1,2,(3)}]”;<br> console.log(matchStr(str)); &#x2F;&#x2F;true<br> console.log(matchStr(str1)); &#x2F;&#x2F;false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>完善版</p>
+<blockquote>
+<pre><code>function matchStr1(str) &#123;
+//先转为字符串
+str = str + &quot;&quot;;
+// 如果长度为0，则直接返回true
+if (str.length === 0) return true;
+//定义新数组
+var arr = [];
+// 定义一个变量用来放左括号的字符串
+var leftSymbols = &quot;&#123;[(&quot;;
+// 定义一个变量用来放右括号的字符串
+var rightSymbols = &quot;)]&#125;&quot;;
+//for循环,遍历字符串的每个元素
+for (var i = 0; i &lt; str.length; i++) &#123;
+//遇到左括号就存入/压栈
+if (leftSymbols.includes(str[i])) &#123;
+  arr.push(str[i]);
+&#125; else if (rightSymbols.includes(str[i])) &#123;
+  var arrTop = arr[arr.length - 1];
+  if (isMatch(arrTop, str[i])) &#123;
+    arr.pop();
+  &#125; else &#123;
+    return false;
+  &#125;
+&#125;
+ &#125;
+// 如果arr长度为0，说明全部匹配成功，返回true，不匹配就返回false
+return arr.length === 0;
+&#125;
+// 检测栈顶元素与当前右括号元素是否匹配
+function isMatch(left, right) &#123;
+if (left === &quot;&#123;&quot; &amp;&amp; right === &quot;&#125;&quot;) return true;
+if (left === &quot;[&quot; &amp;&amp; right === &quot;]&quot;) return true;
+if (left === &quot;(&quot; &amp;&amp; right === &quot;)&quot;) return true;
+return false;
+&#125;
+</code></pre>
+</blockquote>
+<p>var str &#x3D; “{[]}”;<br>console.log(matchStr1(str)); &#x2F;&#x2F;true<br>var str1 &#x3D; “a{(b{c[1,2,(3)}]”;<br>console.log(matchStr1(str1)); &#x2F;&#x2F;false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>算法复杂度分析<blockquote>
+<ul>
+<li>时间复杂度 O(n)</li>
+<li>整个过程就一次 <code>for</code> 循环，其内部的 <code>includes</code> 判断，其遍历次数不受输入量的影响，一直是 3 次</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>空间复杂度 O(n)</li>
+<li>主要是要用一个变量 <code>arr</code> 来存储<strong>入栈</strong>的数据，其大小<strong>不会完全</strong>受输入量的影响，但是输入量大，也是有一定影响的，所以定为 O(n)</li>
+</ul>
+</blockquote>
+<h3 id="四、找出一个数组中和为-n-的两个数"><a href="#四、找出一个数组中和为-n-的两个数" class="headerlink" title="四、找出一个数组中和为 n 的两个数"></a>四、找出一个数组中和为 n 的两个数</h3><blockquote>
+<p>给出一个有序的递增数组，找出数组中和为 n 的两个数的所有情况</p>
+</blockquote>
+<ol>
+<li><p>审题</p>
+<blockquote>
+<p>如：</p>
+<ul>
+<li>找出数组<code>[1,3,5,7,10,13,15,20,22,25]</code>中和为 20 的两个数的所有情况</li>
+<li>满足条件的有两组：5 和 15 是一组，7 和 13 是一组</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解题思路</p>
+<blockquote>
+<ul>
+<li>方法一：<strong>嵌套循环</strong>，找到一个数，然后和数组中的其它数都加一遍，如果和为 20，则就保存这两个数</li>
+<li>方法二：利用<strong>单层 for 循环+双指针</strong>来实现。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>方法一：两层 for 循环嵌套</p>
+<blockquote>
+<ul>
+<li>最基础思想：每一个数与数组的每个元素相加遍历一遍</li>
+<li>优化：<ul>
+<li>每一次循环不用从第一个数开始加，而是从<code>i+1</code>开始；第一，按照题目要求不能和自己加；第二，在前一轮循环中外层的数已经和本次循环的数加过了</li>
+<li>每一次内层循环的终点是上一次符合要求的下标</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>function findNumber(arr, n) &#123;
+  var result = []; // 用来存入符合要求的元素
+  //检查数组
+  if (!Array.isArray(arr)) return result;
+  //检查数组
+  if (isNaN(n)) return result;
+  var len = arr.length - 1;
+  var maxLen = arr.length; // 记录上一次找到的元素的下标，确定下次查找的范围
+  for (var i = 0; i &lt; arr.length; i++) &#123;
+    for (var j = i + 1; j &lt; maxLen; j++) &#123;
+      var sum = arr[i] + arr[j];
+      if (sum == 20) &#123;
+        var obj = &#123;&#125;;
+        obj.a = arr[i];
+        obj.b = arr[j];
+        result.push(obj);
+        maxLen = j; // 因为是升序，所以下次查找的范围，肯定要小于第一次找到的元素下标
+        break; // 找到就退出
+      &#125;
+    &#125;
+  &#125;
+  return result;
+&#125;
+var arr = [1, 3, 5, 7, 10, 13, 15, 20, 22, 25];
+console.log(findNumber(arr, 20));
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>方法二：双指针</li>
+</ol>
+<ul>
+<li><p>指针：</p>
+<blockquote>
+<ul>
+<li>在汉语里，指钟表、仪器上面指示时间和度数的针</li>
+<li>在程序中，指针就是一个<strong>变量</strong>，相当于保持了对某一数据的引用</li>
+<li>比如，你定义了两个变量，分别保存数组中的两个不同的元素，就相当于定义了两个指针，分别用来指向数组中的不同元素。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>双指针解题思路</p>
+<blockquote>
+<ul>
+<li>我们以查找数组 arr &#x3D; <code>[1,3,5,7,10,13,15,20,22,25]</code>中和为 <code>20</code> 的两个数的所有情况为例来讲解</li>
+<li>这是一个递增的数组 arr，我们定义两个变量<code>i=0</code> ;<code>j=数组长度-1</code>，从数组的头尾开始<ul>
+<li>如果<code>arr[i] + arr[j] &gt; 20</code> 则 <code>j--</code></li>
+<li>如果<code>arr[i] + arr[j] &lt; 20</code> 则<code>i++</code></li>
+<li>如果<code>arr[i] + arr[j] = 20</code>则找到了一组满足要求的数，保存<code>arr[i]</code>和<code>arr[j]</code>，同时<code>i++</code>,<code>j--</code>，继续查找</li>
+</ul>
+</li>
+<li>当 <code>i = j</code> 时，两者重合，就没有查找的必要，所以当<code>i &lt; j</code>时，一直查找</li>
+</ul>
+<pre><code>function findNumber(arr, n) &#123;
+var result = []; // 用来存入符合要求的元素
+//检查数组
+if (!Array.isArray(arr)) return result;
+//检查数组
+if (isNaN(n)) return result;
+len = arr.length - 1;
+var i = 0;
+var j = len;
+while (i &lt; j) &#123;
+  if (arr[i] + arr[j] &gt; n) &#123;
+    j--;
+  &#125; else if (arr[i] + arr[j] &lt; n) &#123;
+    i++;
+  &#125; else &#123;
+    var obj = &#123;&#125;;
+    obj.a = arr[i];
+    obj.b = arr[j];
+    result.push(obj);
+    i++;
+    j--;
+  &#125;
+&#125;
+return result;
+&#125;
+var arr = [1, 3, 5, 7, 10, 13, 15, 20, 22, 25];
+console.log(findNumber(arr, 20));
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>算法复杂度分析</li>
+</ol>
+<ul>
+<li>时间复杂度<blockquote>
+<p>第一种方式：</p>
+<ul>
+<li>时间复杂度介于 O(n) 与 O(n<sup>2</sup>) 之间，如果查找的两数之后比较大，则每次要遍历到数且的最后面才能找到对应的数，如果查找的两数之后较小，则时间复杂度就低，因为很快就找到，并且后面的查找范围也会相应索小<br>第二种方式：</li>
+<li>时间复杂度为 O(n)</li>
+</ul>
+</blockquote>
+</li>
+<li>空间复杂度<blockquote>
+<ul>
+<li>两者的空间复杂度都为 O(1) ，其内存占用，并不因为 arr 增大而成倍成大。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="五、二分法找查数组的的某个元素"><a href="#五、二分法找查数组的的某个元素" class="headerlink" title="五、二分法找查数组的的某个元素"></a>五、二分法找查数组的的某个元素</h3><blockquote>
+<p>我们要查找<strong>有序</strong>数组<code>[1,3,4,5,7,8,9,12,15,18,30,32,45]</code>中元素值为 15 的元素的下标。</p>
+</blockquote>
+<ol>
+<li><p>审题：理解题目的意思</p>
+<blockquote>
+<ul>
+<li>比如，要找到数组中元素为 5 的下标，则 5 的下标是 3</li>
+<li>比如，要找到数组中元素为 9 的下标，则 9 的下标是 6</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解题思路</p>
+</li>
+</ol>
+<ul>
+<li><p>思路一：for 循环遍历查找<br>最简单的方式，就是通过一次 for 循环的遍历，拿当前值与数组中的每个值一个一个做比较，如果全等，则就返回当前数组中元素的下标</p>
+</li>
+<li><p>思路二：二分查找</p>
+<blockquote>
+<ul>
+<li>每一次都从剩下元素的中间位置开始查找。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>二分查找思路和规律<blockquote>
+<ul>
+<li>我们每一次都要从<strong>中间位置</strong>查找，所以我们需要有办法得到中间位置元素</li>
+<li>我们定义三个变量 <code>startIndex</code>、<code>endIndex</code>、<code>midIndex</code> 分别来记录当前的起始、结束、中间下标</li>
+<li>刚开始 <code>startIndex</code> 和 <code>endIndex</code> 的值是知道的，<code>startIndex = 0</code>, <code>endIndex = arr.length - 1</code></li>
+<li>通过公式 <code>midIndex = Math.floor((starIndex+endIndex/2))</code> ，得到<strong>中间元素下标</strong>，获取中间元素</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果，<strong>当前值 &gt; 中间值</strong> ，则下一轮在中间值<strong>右边</strong>部分的中间查找，这时<ul>
+<li>startIndex &#x3D; midIndex + 1;</li>
+<li>endIndex值不变</li>
+<li>midIndex &#x3D; Math.floor((startIndex+midIndex)&#x2F;2)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果，<strong>当前值 &lt; 中间值</strong> ，则下一轮在中间值的左边部分中间查找，这时<ul>
+<li>startIndex 不变</li>
+<li>endIndex &#x3D; midIndex - 1;</li>
+<li>midIndex &#x3D; Math.floor((startIndex+midIndex)&#x2F;2)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果，<strong>当前值 &#x3D;&#x3D;&#x3D; 中间值</strong> ，则找到，返回midIndex ，即元素下标</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果，一轮找下来 ，当midIndex &#x3D;&#x3D;&#x3D; endIndex时还找不到元素，则说明当前值不在数组中。</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><p>二分法 + while 循环代码实现</p>
+<blockquote>
+<ul>
+<li>上面要重复循环做相同的事，但是我们<strong>并不能确定具体的循环次数</strong>，所以这里我们不用 for 循环，选用<strong>while 循环</strong>，只要<code>startIndex &lt;= endIndex</code>，就可以一直循环下</li>
+</ul>
+<pre><code>//如果没找到就返回-1
+function findIndex(arr, num) &#123;
+  //检测数组
+  if (!Array.isArray(arr)) return -1;
+  //检测数字
+  if (isNaN(num)) return -1;
+  var len = arr.length;
+  var startIndex = 0;
+  var endIndex = len - 1;
+  while (startIndex &lt;= endIndex) &#123;
+ var midIndex = ((startIndex + endIndex) / 2) &gt;&gt; 0;
+ var midvalue = arr[midIndex];
+ if (num &gt; midvalue) &#123;
+   startIndex = midIndex + 1;
+ &#125; else if (num &lt; midvalue) &#123;
+   endIndex = midIndex - 1;
+ &#125; else &#123;
+   return midIndex;
+ &#125;
+  &#125;
+  return -1;
+&#125;
+var arr = [1, 3, 4, 5, 7, 8, 9, 12, 15, 18, 30, 32, 45];
+console.log(findIndex(arr, 15));
+</code></pre>
+</blockquote>
+</li>
+<li><p>二分 + 递归实现</p>
+<blockquote>
+<blockquote>
+<p>这里还要考虑传过来的参数 <code>startIndex</code>和<code>endIndex</code>的类型处理，参考手写的slice方法来处理，（在面向对象原型和原型链那里），两者代码实现上一模一样</p>
+</blockquote>
+<pre><code>function findIndex(arr, num, startIndex, endIndex) &#123;
+ //检测数组
+ if (!Array.isArray(arr)) return -1;
+ //检测数字
+ if (isNaN(num)) return -1;
+ //假如没有传入startIndex和endIndex
+ if (startIndex == null) startIndex = 0;
+ if (endIndex == null) endIndex = arr.length - 1;
+ if (startIndex &gt; endIndex) return -1;
+ var midIndex = ((startIndex + endIndex) / 2) &gt;&gt; 0;
+ var midValue = arr[midIndex];
+ if (num &gt; midValue) &#123;
+return findIndex(arr, num, midIndex + 1, endIndex);
+ &#125; else if (num &lt; midValue) &#123;
+ return findIndex(arr, num, startIndex, midIndex - 1);
+  &#125; else &#123;
+ return midIndex;
+  &#125;
+&#125;
+var arr = [1, 3, 4, 5, 7, 8, 9, 12, 15, 18, 30, 32, 45];
+var result = findIndex(arr, 9, 0, 15);
+console.log(result);
+</code></pre>
+</blockquote>
+</li>
+<li><p>算法复杂度分析</p>
+<blockquote>
+<ul>
+<li>二分法+while 和 二分+递归 的时间复杂度都是<code>O(logn)</code>，空间复杂度都是<code>O(1)</code>级别</li>
+<li>但循环要比递归在<strong>性能上</strong>更好，因为递归在内部会一直调用函数，所以会更消耗性能。</li>
+<li>递归代码逻辑更清晰</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<ul>
+<li>只要是有序查找(有序数组)，则必定考虑必二分法 ！</li>
+<li>只要是二分查找，时间复杂度必包含 <code>O(logn)</code></li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="六、求字符串中连续最多的字符，以及次数"><a href="#六、求字符串中连续最多的字符，以及次数" class="headerlink" title="六、求字符串中连续最多的字符，以及次数"></a>六、求字符串中连续最多的字符，以及次数</h3><blockquote>
+<ul>
+<li>求以字符串<code>aaabbccddaaaaaffffdddd</code>中，连续出现最多的字符及字数 （以<strong>最先出现</strong>的为主）</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>解题思路</p>
+<blockquote>
+<ul>
+<li>方法一：for 循环嵌套 + 跳步思想来解决</li>
+<li>方法二：for 循环 + 双指针</li>
+</ul>
+</blockquote>
+</li>
+<li><p>方法一： for 循环嵌套+跳步</p>
+<blockquote>
+<ul>
+<li>count 用来<strong>临时存储</strong>连续相同字符出现的次数</li>
+<li>定义变量 var obj &#x3D; {char:’’,len&#x3D;0} 用来保存连续出现最多的字符及次数</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>用两层 for 循环来遍历元素，取出每一个元素，与原字符串做比较<ul>
+<li>如果相等，则统计次数加 1，即 <code>count++</code></li>
+<li>如果不相等，则把当前统计的次数与<code>obj.len</code>作比较</li>
+<li>如果<code>obj.len &gt; count</code> ，则更新 <code>count</code> 的值，同时更新 <code>i 和 j</code> 的值，开始下一个字符的比较</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>要特别注意</p>
+</blockquote>
+<ul>
+<li>最后一次比较，如果<strong>最后的字符</strong>是多个连续相同字符，那比较结果相等时，也是要<strong>更新数据</strong>的</li>
+<li>如果字符串中只有一个字符时，其第一次比较也就是最后一次比较，两都也是相等，也要更新数据</li>
+</ul>
+<pre><code>function findContinuousChar(str) &#123;
+  // 不管传入的是啥，统一转成字符串
+  str = str + &quot;&quot;;
+  // obj用来存储连续出现字符最多的字符和次数
+  var obj = &#123;
+    char: &quot;&quot;,
+    len: 0,
+  &#125;;
+  // 如果字符串长度为0
+  if (str.length === 0) return obj;
+  // 临时记录当前连续字符的长度,最少出现1次
+  var count = 0;
+  for (var i = 0; i &lt; str.length; i++) &#123;
+    // 每一次循环，重置count的值为0
+    count = 0;
+    for (var j = i; j &lt; str.length; j++) &#123;
+      if (str[i] === str[j]) &#123;
+        count++;
+      &#125;
+      // 如果比较到数组的最后一个元素是相等的，也要更新数据
+      if (str[i] !== str[j] || j === str.length - 1) &#123;
+        if (obj.len &lt; count) &#123;
+          obj.char = str[i];
+          obj.len = count;
+        &#125;
+        // 写在外面，否则会进入死循环
+        if (j &lt; str.length - 1) &#123;
+          i = j - 1;
+        &#125;
+        break; // 不相等或最后一个元素，退出for循环
+      &#125;
+    &#125;
+  &#125;
+  return obj;
+&#125;
+</code></pre>
+</blockquote>
+<p>var str &#x3D; “aaabbccddaaaaaffffdddd”;<br>var obj &#x3D; findContinuousChar(str);<br>console.log(obj);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>方法二：for 循环 + 双指针<blockquote>
+<ul>
+<li>我们可以利用 for 循环来遍历字符串，把每个字符串取出来</li>
+<li>定义变量 count 统计临时出现的次数</li>
+<li>定义变量 obj &#x3D; {char:’’,len&#x3D;0} 来记录连续出现次数最多的字符及次数</li>
+<li>我们定义两个变量，i 和 j，相当两个指针，最开始两个字符串指向同一个元素</li>
+</ul>
+<pre><code>function findContinuousChar(str) &#123;
+  // 用来存储出现连续次数最多的字符及次数
+  var obj = &#123;
+ char: &quot;&quot;,
+ len: 0,
+  &#125;;
+  str = str + &quot;&quot;; // 不管输入的是否是字符串，统一转成字符串
+  var len = str.length; // 字符串长度
+  if (len === 0) return obj;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p>  &#x2F;&#x2F; 定义两个变量，用来做为两个指针，指定元素</p>
+<p>  var i &#x3D; 0;<br>  var j &#x3D; 0;<br>  var count &#x3D; 0; &#x2F;&#x2F; 临时记录当前连续字符出现的次数<br>  for (; i &lt; len; i++) {<br>    if (str[i] &#x3D;&#x3D;&#x3D; str[j]) {<br>      count++;<br>    }<br>    &#x2F;&#x2F; 这里移动的是i，所以要拿i来做判断<br>    if (str[i] !&#x3D;&#x3D; str[j] || i &#x3D;&#x3D;&#x3D; len - 1) {<br>      &#x2F;&#x2F; 等于的情况没有处理，则不会进到这里面来<br>      if (obj.len &lt; count) {<br>        obj.len &#x3D; count;<br>        obj.char &#x3D; str[j]; &#x2F;&#x2F; 这里是str[j],不要写成str[i]了<br>      }<br>      count &#x3D; 0; &#x2F;&#x2F; 重置count的值<br>      j &#x3D; i; &#x2F;&#x2F; 更新j的值，开始下一个字符统计</p>
+<pre><code>  if (i &lt; len - 1) &#123;
+    i--; // 这里的i--不能放在上面的if中，否则某种情况下会死循环
+  &#125;
+&#125;
+</code></pre>
+<p>  }<br>  return obj;<br>}<br>var str &#x3D; “12345566”;<br>var obj &#x3D; findContinuousChar(str);<br>console.log(obj);</p>
+<blockquote>
+<pre><code>&gt;双指针常用于解决嵌套循环
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>算法复杂度分析<blockquote>
+<ul>
+<li>方法一 和 方法二的时间复杂度都为 <code>O(n)</code>，空间复杂度也是 <code>O(1)</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="七、快速排序"><a href="#七、快速排序" class="headerlink" title="七、快速排序"></a>七、快速排序</h3><blockquote>
+<p>采用快速排序的算法，将以下数组<code>[1,33,43,5,76,8,9,12,15,18,30,32,45]</code>按<strong>升序</strong>来进行排序</p>
+</blockquote>
+<ol>
+<li><p>什么是快速排序？</p>
+<blockquote>
+<ul>
+<li>快速排序是在每一轮排序时，会将数组的<strong>中间元素</strong>作为基准元素</li>
+<li>并让其他比基准元素大的元素移到基准元素的一边</li>
+<li>比基准元素小的元素移到基准元素的另一边</li>
+</ul>
+</blockquote>
+</li>
+<li><p>利用二分思想</p>
+<blockquote>
+<ul>
+<li>首先找到中间元素</li>
+<li>遍历数组中的每个元素，每个元素都与中间元素作比较<ul>
+<li>所有小于中间元素的，放一个数组leftArr</li>
+<li>所有除中间元素外等于中间元素的，放一个数组midArr</li>
+<li>所以大于中间元素的，放一个数组rightArr</li>
+</ul>
+</li>
+<li>然后将这几个数组从左到右拼接到一起</li>
+<li>当 leftArr 和 rightArrr 长度为 1 时，不用再查找和判了<blockquote>
+<p>如果找到midValue值为当前数组中的最大值或最小值时，本次排序相当于只排了一个元素，效率也是会很低。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解题思路</p>
+<blockquote>
+<p>我们有三种方式来实现</p>
+<ul>
+<li>方法一：利用递归 + slice()方法，这种情况不会动原数组，返回的是一个新数组</li>
+<li>方法二：利用递归 + splice() 方法，这种情况会动原数组，返回的是一个新数组</li>
+<li>方法三：利用递归 + 双指针，这种情况不会动原数组，返回的也是原数组</li>
+</ul>
+</blockquote>
+</li>
+<li><p>方法一：利用递归 + slice()法</p>
+<blockquote>
+<ul>
+<li>slice(start,end)查找元素，返回的是包含所查元素的新数组</li>
+</ul>
+<pre><code> function quickArr(arr) &#123;
+//检查数组
+if (!Array.isArray(arr)) return;
+if (arr.length &lt;= 1) return arr;
+//检查长度
+var len = arr.length;
+var midIndex = (len / 2) &gt;&gt; 0;
+// var midValue=arr[midIndex];
+var midValue = arr.slice(midIndex, midIndex + 1)[0]; //slice返回的是一个包含查询元素的数组
+var leftArr = [];
+var midArr = [];
+var rightArr = [];
+if (leftArr.length == 1) return leftArr;
+if (rightArr.length == 1) return rightArr;
+for (var i = 0; i &lt; len; i++) &#123;
+  if (i == midIndex) continue;
+  if (arr[i] &lt; midValue) &#123;
+    leftArr.push(arr[i]);
+  &#125;
+  if (arr[i] === midValue) &#123;
+    midArr.push(arr[i]);
+  &#125;
+  if (arr[i] &gt; midValue) &#123;
+    rightArr.push(arr[i]);
+  &#125;
+&#125;
+return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
+ &#125;
+ var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+ var result = quickArr(arr);
+ console.log(result);
+</code></pre>
+</blockquote>
+</li>
+<li><p>方法二：利用递归 + splice()法</p>
+<blockquote>
+<ul>
+<li>splice(index, deleteCount);删除元素，被删除的元素组成一个数组，被返回</li>
+</ul>
+<pre><code> function quickArr(arr) &#123;
+//检查数组
+if (!Array.isArray(arr)) return;
+if (arr.length &lt;= 1) return arr;
+//检查长度
+var len = arr.length;
+var midIndex = (len / 2) &gt;&gt; 0;
+// var midValue=arr[midIndex];
+var midValue = arr.splice(midIndex, 1)[0]; 
+//slice返回的是一个包含查询元素的数组
+var leftArr = [];
+var midArr = [];
+var rightArr = [];
+if (leftArr.length == 1) return leftArr;
+if (rightArr.length == 1) return rightArr;
+for (var i = 0; i &lt; len; i++) &#123;
+  if (arr[i] &lt; midValue) &#123;
+    leftArr.push(arr[i]);
+  &#125;
+  if (arr[i] === midValue) &#123;
+    midArr.push(arr[i]);
+  &#125;
+  if (arr[i] &gt; midValue) &#123;
+    rightArr.push(arr[i]);
+  &#125;
+&#125;
+return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
+ &#125;
+ var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+ var result = quickArr(arr);
+ console.log(result);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>方法1和方法2的区别：</p>
+<ul>
+<li>语法不一样</li>
+<li>splice每次都会删除中间元素，所以在进行for循环时，不需要再像slice一样，循环到中间元素就跳过</li>
+<li>splice会改变原数组，slice不会</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol start="6">
+<li>方法三：利用递归+双指针<blockquote>
+<ul>
+<li>选定当前组组中的<strong>第一个元素</strong>作为基准元素（pivot）</li>
+<li>定义两个变量 <code>left</code> 和 <code>right</code>，分别指向数组的第一个元素和最后一个元素</li>
+<li>接下来进行第一次循环<ul>
+<li><code>right</code> 指针开始(一定要先进行right)，让指针所指向的元素与基准元素比较。如果<strong>大于或等于 pivot</strong>，则指针向左移动;如果小于 pivot，则 right 指针停止移动，切换到 left 指针</li>
+<li>left 指针开始，让指针所指向的元素与基准元素做比较，如果<strong>小于等于 pivot</strong>，则指针向右移动;如果大于 pivot，则 left 指针停止移动。</li>
+</ul>
+</li>
+<li>当 left 与 right 指针<strong>都停止</strong>后，让 left 指针和 right 指针所指向的元素进行<strong>交换</strong>。</li>
+<li>循环条件：left !&#x3D;&#x3D; right 时才循环，即 left &gt;&#x3D; right，则停止循环</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>接下来重第一次循环的动作，开始第二次循环。</p>
+<ul>
+<li>一直到 left 与 right 指针<strong>重合时</strong>（相等时），则让 <code>left</code> 指针指向的元素与 <code>pivot</code> 中元素交换。</li>
+<li>接下来 left 左边的元素再循环一遍，left &#x3D; stratIndex,right &#x3D; left-1;</li>
+<li>left 右边元素再循环一遍,left &#x3D; left+1 right &#x3D; endIndex</li>
+<li>递归出口：startIndex&gt;&#x3D;endIndex</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>function quickArr(arr, startIndex, endIndex) &#123;
+ if (startIndex == null) startIndex = 0;
+ if (endIndex == null) endIndex = arr.length - 1;
+ //递归的出口
+ if (startIndex &gt;= endIndex) return;
+ var left = startIndex;
+ var right = endIndex;
+ var pivot = arr[startIndex];
+ //不相等时
+ while (left !== right) &#123;
+   while (arr[right] &gt;= pivot &amp;&amp; left &lt; right) &#123;
+     right--;
+     &#125;
+     while (arr[left] &lt;= pivot &amp;&amp; left &lt; right) &#123;
+       left++;
+     &#125;
+     //left和right都不动时
+     if (left &lt; right) &#123;
+       var tempt = arr[left];
+       arr[left] = arr[right];
+       arr[right] = tempt;
+     &#125;
+   &#125;
+   //相等时
+   arr[startIndex] = arr[left];
+   arr[left] = pivot;
+   //左边元素排序
+   quickArr(arr, startIndex, left - 1);
+   //右边元素排序
+   quickArr(arr, left + 1, endIndex);
+ &#125;
+ var arr = [1, 33, 5, 43, 5, 76, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+ quickArr(arr);
+ console.log(arr);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>另一种写法：</li>
+</ul>
+<pre><code>function quickSort(arr, startIndex, endIndex) &#123;
+  if (startIndex &gt;= endIndex) &#123;
+    return;
+  &#125;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 第一轮排序，得到基准元素<br>  var pivotIndex &#x3D; partition(arr, startIndex, endIndex);<br>  &#x2F;&#x2F; 根据基准元素，排序左边<br>  quickSort(arr, startIndex, pivotIndex - 1);<br>  &#x2F;&#x2F; 根据基准元素，排序右边<br>  quickSort(arr, pivotIndex + 1, endIndex);<br>}</p>
+<blockquote>
+</blockquote>
+<p>  function partition(arr, startIndex, endIndex) {<br>  &#x2F;&#x2F; 获取基准元素<br>  var pivot &#x3D; arr[startIndex];<br>  var left &#x3D; startIndex;<br>  var right &#x3D; endIndex;</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 不相等时<br>  while (left !&#x3D; right) {<br>    &#x2F;&#x2F; 右指针向左移动<br>    while (left &lt; right &amp;&amp; arr[right] &gt; pivot) {<br>      right–;<br>    }<br>    &#x2F;&#x2F; 左指针向右移<br>    while (left &lt; right &amp;&amp; arr[left] &lt;&#x3D; pivot) {<br>      left++;<br>    }<br>    &#x2F;&#x2F; 交换两者的位置<br>    if (left &lt; right) {<br>      var temp &#x3D; arr[left];<br>      arr[left] &#x3D; arr[right];<br>      arr[right] &#x3D; temp;<br>    }<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 相等时<br>  arr[startIndex] &#x3D; arr[left];<br>  arr[left] &#x3D; pivot;</p>
+<blockquote>
+</blockquote>
+<p>  return left;<br>}</p>
+<blockquote>
+</blockquote>
+<p>var arr &#x3D; [10, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];<br>quickSort(arr, 0, 12);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="7">
+<li>算法复杂度分析<blockquote>
+<ul>
+<li>方法一和方法二的时间复杂度是 <code>O(nlogn)</code> ，外层 for 循环是 <code>O(n)</code> ，for 循环里面是二分 <code>O(logn)</code></li>
+<li>方法一和方法二的空间复杂度是 <code>O(n)</code>，它所定义的变量是可数的</li>
+<li>方法三的时间复杂度是 <code>O(nlogn)</code>，但比方法一二所用时间更短，因为<code>concat</code>比较消耗性能，空间复杂度是 <code>O(n)</code>，但它所定义的变量是不可数的，因为它不断要进行递归</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%83%EF%BC%89/">https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%83%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%85%AB%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="JS核心知识点（八）">
+                        
+                        <span class="card-title">JS核心知识点（八）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS面向对象，原型和原型链
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/04/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%85%AD%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="JS核心知识点（六）">
+                        
+                        <span class="card-title">JS核心知识点（六）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 数组相关方法 和 API
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

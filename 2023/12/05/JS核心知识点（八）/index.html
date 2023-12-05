@@ -1,0 +1,3750 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（八）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（八） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（八）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    17.7k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、对象的基本概念"><a href="#一、对象的基本概念" class="headerlink" title="一、对象的基本概念"></a>一、对象的基本概念</h3><ol>
+<li><p>现实生活角度-理解对象</p>
+<blockquote>
+<ul>
+<li>在现实生活中，万物皆对象，对象是一个具体的，看得见摸得着的实实在在存在的实物。</li>
+<li>如：一个苹果，一本书，一个杯子，一个人等，这些实实在在存在颜的实物，就是一个对象。</li>
+<li>一个对象有两个重要的组成部分：<strong>属性、功能</strong><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可以简单理解为一个对象的特征和外观等，如：形状、颜色、气味、大小、重量、味道</td>
+<td>可以简单的理解为一个对象功能和行为等，他能用来做什么</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JavaScript 语言角度-理解对象</p>
+<blockquote>
+<ul>
+<li>在 JavaScript 中,对象是由一组<strong>无序的</strong>相关属性和方法的集合。</li>
+<li>JS 中的对象，本质就是用代码来模拟现实生活中的对象，他由<strong>属性和方法</strong>两个部分组成。<ul>
+<li>对象属性与现实生活中对象的属性是对应</li>
+<li>对象方法与现实生活中对象的功能是对应</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>比如，我们要在 JS 中定义一个手机对象，我们可以写成如下：</p>
+<pre><code>// 定义了一个手机对象
+var phone = &#123;
+  brand: &quot;苹果&quot;, // 品牌名
+  size: &quot;5.8英寸&quot;, // 手机尺寸
+  color: &quot;黑色&quot;, // 颜色
+  weight: &quot;100g&quot;, // 重量
+  quality: &quot;铝合金&quot;, // 材质
+  ringUp: function () &#123;
+    console.log(&quot;打电话&quot;); // 方法：打电话
+  &#125;,
+  playMovie: function () &#123;
+    console.log(&quot;播放电影&quot;); // 方法： 播放电影
+  &#125;,
+  // 更多方法省略......
+&#125;;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>为什么需要对象<blockquote>
+<ul>
+<li>前面我们学过变量和数组，如果要保存一个基本数据类型的值，我们可以用变量来保存; 如果要保存一且具有相关性的值和数据，我们可以用数组;</li>
+<li>但如果要保存一个完整的对象（比如人）的信息？变量和数组呢都不能做到</li>
+<li>而对象的形式保存数据，非常直观和清淅，很明确的知道每一项保存的是什么信息。</li>
+</ul>
+<pre><code>var person = &#123;
+  name: &quot;小明&quot;,
+  sex: &quot;女&quot;,
+  age: 45,
+  weight: 45,
+  height: 128,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、对象的创建"><a href="#二、对象的创建" class="headerlink" title="二、对象的创建"></a>二、对象的创建</h3><blockquote>
+<p>在 JS 中创建一个对象有以下三种方式：</p>
+<ul>
+<li>利用<strong>字面量</strong>方式，创建一个对象</li>
+<li>利用 <code>new Object()</code> 方式，创建对象</li>
+<li>利用<strong>构造函数</strong>方式，创建一个对象</li>
+</ul>
+</blockquote>
+<ol>
+<li>字面量方式创建对象<blockquote>
+<pre><code>// 对象的抽象写法
+var obj = &#123;
+ key:value,
+ key:value,
+  ....
+&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 创建一个对象<br>var obj &#x3D; {<br> name:’小明’, &#x2F;&#x2F; 属性<br> age:23,  &#x2F;&#x2F; 属性<br> sing:function(){  &#x2F;&#x2F; 方法<br> console.log(‘我在唱歌’)<br> }<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 创建一个空对象 对象中没有任何属性和方法<br>var obj &#x3D; {};<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>语法解读</strong></p>
+<blockquote>
+<ul>
+<li>{}表示的就是一个对象，我们把这个对象赋值给到一个变量，我们通过变量来访问这个对象。</li>
+<li>{}括号里面表达了对象的属性和方法，对象的属性和方法，是以<strong>键值对</strong>的形式来书写的<ul>
+<li><code>key: value;</code>键值对形式， key表示属性名，value表示属性值，即： name: ‘小明’</li>
+<li>name、age 就是对象的<strong>属性</strong></li>
+<li>sing 是对象的方法，其实他<strong>也是对象属性</strong>，不过一个属性的值如果是一个<strong>函数</strong>，我们把这个属性称为对象的<strong>方法</strong></li>
+</ul>
+</li>
+<li>属性的值，可以是<strong>任意的</strong>数据类型</li>
+<li>每个属性之间用<code>,</code>逗号隔开</li>
+<li>最后一个属性,逗号不写</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>对象中属性名规范<blockquote>
+<ul>
+<li>如果对象的属性名<strong>符合</strong>JS 标识符命名规范，则属性名<strong>不需要</strong>加双引号</li>
+<li>否则就需要用 <code>“”</code> 双引号 或<code>&#39;&#39;</code>单引号包裹起来</li>
+<li>标识符命名规范：只能以<strong>字母，数字，_下划线，$<strong>组成，但</strong>不能以数字开头</strong></li>
+<li>对象中的属性名，如果是一个<strong>变量</strong>，则必需用<code>[]</code>的方式来书写</li>
+</ul>
+<pre><code>var name = &quot;abc&quot;;
+var person = &#123;
+  [name]: &quot;清心&quot;, //abc=&quot;清心“
+  [&quot;age&quot;]: 18, // 注意这里，age是一个字符串，不是一个变量
+  hobby: [&quot;游泳&quot;, &quot;健身&quot;, &quot;阅读&quot;],
+  &quot;to-sleep&quot;: function () &#123;
+ // to-sleep命名不符合标识符命名规范，则用&#39;&#39;包裹
+ console.log(&quot;我要睡觉了&quot;);
+  &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、对象属性的操作"><a href="#三、对象属性的操作" class="headerlink" title="三、对象属性的操作"></a>三、对象属性的操作</h3><ol>
+<li>访问对象中的属性<blockquote>
+<ul>
+<li>我们可用对象打点的方式来访问对象中的属性，即：对象.属性名</li>
+<li>如果属性名<strong>不符合</strong> JS 标识符命名规范，则必须用<strong>方括号</strong>的写法来访问，即： 对象[“属性名”]</li>
+<li>[]方括中的属性名，必需用’’单引号或””双引号包裹</li>
+<li>如果属性名以变量的形式存储，则可以使用方括号的形式访问，即 ：对象[变量名]</li>
+<li>如果访问对象中，不存在的属性，不会报错，其值为 undefined</li>
+</ul>
+<pre><code>// 创建了一个对象
+var user = &#123;
+  name: &quot;清心&quot;,
+  age: 18,
+  sex: &quot;女&quot;,
+  &quot;my-hobbies&quot;: [&quot;篮球&quot;, &quot;画画&quot;, &quot;阅读&quot;, &quot;编程&quot;],
+&#125;;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 对象打点访问对象中的属性值<br>console.log(user.name); &#x2F;&#x2F; 清心<br>console.log(user.age); &#x2F;&#x2F; 18<br>console.log(user.sex); &#x2F;&#x2F; 女<br>&#x2F;&#x2F;如果属性名不符合 JS 标识符命名规范<br>console.log(user[“my-hobbies”]); &#x2F;&#x2F; [“篮球”, “画画”, “阅读”, “编程”]<br>&#x2F;&#x2F;如果属性名以变量的形式存储<br>var key &#x3D; “name”;<br>console.log(user[key]); &#x2F;&#x2F; 清心<br>&#x2F;&#x2F;如果访问对象中，不存在的属性<br>console.log(user.weight); &#x2F;&#x2F; undefined<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注意</p>
+<ul>
+<li>对象中的属性名，如果是一个变量 和 属性名以变量的形式存储是不一样的</li>
+</ul>
+</blockquote>
+<pre><code> var name = &quot;abc&quot;;
+ //属性名以变量的形式存储
+ var key = &quot;height&quot;;
+</code></pre>
+</blockquote>
+<p> var person &#x3D; {<br>&#x2F;&#x2F;对象中的属性名，如果是一个变量,则必需用[]的方式来书写<br>   [name]: “hermia”,<br>   height: 188,<br> };<br> console.log(person);<br> &#x2F;&#x2F;{abc:”hermia”, height:188}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;如果属性名以变量的形式存储,则以使用方括号的形式访问<br> console.log(person[key]);<br> &#x2F;&#x2F;188</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li><p>添加或修改对象属性值</p>
+<blockquote>
+<ul>
+<li>我们通过 <code>对象.属性名 = 属性值</code> 或 <code>对象[属性名] = 属性值</code>的方式来添加或修改对象的属性值</li>
+<li>如果属性名<strong>不存在</strong>，则为对象<strong>添加属性</strong></li>
+<li>如果属性名<strong>存在</strong>，则相当于<strong>修改</strong>属性的值。</li>
+</ul>
+<pre><code>// 定义一个对象 dog
+var dog = &#123;
+  name: &quot;小黑&quot;,
+  &quot;skin-color&quot;: &quot;黑色&quot;,
+&#125;;
+</code></pre>
+</blockquote>
+<p>dog.name &#x3D; “小红”; &#x2F;&#x2F; 修改属性值<br>dog[“skin-color”] &#x3D; “红色”; &#x2F;&#x2F; 修改属性值</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>删除对象属性</p>
+<blockquote>
+<ul>
+<li>如果要删除某个属性，则使用<code>delete obj.属性</code></li>
+</ul>
+<pre><code>// 创建一个对象
+var dog = &#123;
+  name: &quot;小黑&quot;,
+  &quot;skin-color&quot;: &quot;黑色&quot;,
+  age: 18,
+&#125;;
+delete dog.name; // 删除属性
+delete dog[&quot;skin-color&quot;]; // 删除属性
+console.log(dog); // &#123;age: 18&#125;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、对象方法的操作"><a href="#四、对象方法的操作" class="headerlink" title="四、对象方法的操作"></a>四、对象方法的操作</h3><blockquote>
+<ul>
+<li>如果对象的某个属性值是一个函数，则我们把他称为对象的方法</li>
+<li>我们采用 <code>对象.属性名()</code> 或 <code>对象[属性名]()</code> 的方式来调用对象的方法</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>  var user = &#123;
+  name: &quot;清心
+  age: 18,
+  sayHello: function () &#123;
+    console.log(&quot;大家好，我是清心，永远18岁 ！&quot;);
+  &#125;,
+  &quot;to-sleep&quot;: function () &#123;
+    console.log(&quot;我正在睡觉&quot;);
+  &#125;,
+&#125;;
+user.sayHello(); // 大家好，我是清心，永远18岁 ！
+user[&quot;to-sleep&quot;](); // 我正在睡觉
+console.log(user.sayHello);
+//f()&#123;
+  console.log(&quot;大家好，我是清心，永远18岁 ！&quot;);
+  &#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>属性名后加<code>()</code>是调用方法，不加括号是打印该方法</li>
+<li>对象方法的修改，新增、删除和属性的操作方法是一样，不过我们一般不会对一个对象的方法去做这些操作。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>方法和函数的关系<blockquote>
+<ul>
+<li>方法也是函数，只不过方法是对象的 “属性” ，它需要用对象打点调用等方式调用</li>
+<li>我们之前讲的 Math.random()随机函数，本质上 random 就是 Math 对象上的一个方法</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、对象的遍历"><a href="#五、对象的遍历" class="headerlink" title="五、对象的遍历"></a>五、对象的遍历</h3><blockquote>
+<ul>
+<li>我们使用<code>for....in ....</code>循环来遍历<strong>对象</strong></li>
+<li>使用<code>for...in...</code>循环可以遍历对象的每个键</li>
+<li><code>for...in...</code>只能遍历对象的<strong>非符号键属性</strong></li>
+</ul>
+</blockquote>
+<ul>
+<li>for…in…循环语句语法<blockquote>
+<pre><code>// obj 要遍历的对象
+// key 循环变量，它会依次成为对象的每一个键
+// key 可以换成任何标识符，只是在长期的习惯中，大家习惯用key来表示对象的键，用来遍历
+for (var key in obj) &#123;
+console.log(&quot;对象obj的属性&quot; + key + &quot;的值是：&quot; + obj[key]);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>key是变量，它会依次成为对象的每一个键；</li>
+<li>对象的属性名以变量的形式存储，则可以使用方括号的形式访问</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>for…in…只能遍历对象的非符号键属性</p>
+<blockquote>
+<pre><code>var s = Symbol(&quot;符号属性&quot;);
+var obj = &#123;
+a: 1,
+b: 2,
+c: 3,
+[s]: &quot;我用for-in无法遍历&quot;, // 符号属性
+&#125;;
+for (var key in obj) &#123;
+console.log(key + &quot;:&quot; + obj[key]);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>数组也是一个对象，他的<strong>属性名就是对应的索引下标</strong> 0,1,2…. 他也可以用 for…in 遍历</p>
+<blockquote>
+<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
+for (var key in arr) &#123;
+console.log(key); // 0 1 2 3
+console.log(arr[key]); // A B C D
+&#125;
+//相当于：
+arr=&#123;
+  0:A
+  1:B
+  2:C
+  3:D
+&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="六、对象的深克隆与浅克隆"><a href="#六、对象的深克隆与浅克隆" class="headerlink" title="六、对象的深克隆与浅克隆"></a>六、对象的深克隆与浅克隆</h3><ol>
+<li>复习<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>举例</th>
+<th>变量中存储内容</th>
+<th>赋值</th>
+<th><code>==</code>和<code>===</code>比较时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基本数据类型</td>
+<td>数字型、字符串型、布尔型、null 空类型、undefined类型</td>
+<td>变量中存的是值</td>
+<td>把值复制一份，来赋值</td>
+<td><code>==</code> 比较值是否相等;<code>===</code> 比较值和类型</td>
+</tr>
+<tr>
+<td>引用数据类型</td>
+<td>对象、数组、函数</td>
+<td>变量中存的是地址</td>
+<td>把地址复制一份，来赋值</td>
+<td>&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 比较的都是<strong>地址</strong></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>如果要判断一个值是否为<code>null</code>或<code>undefined</code></p>
+<ul>
+<li>由于<code>null==undefined</code>，所以：</li>
+</ul>
+<pre><code>if(num==null || num==undefined) return;
+if(num==null) return;
+第一句可以写成第二句，意思相同
+</code></pre>
+<blockquote>
+<p>但是不能写成全等</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><p>基本数据类型，赋值 和 &#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 比较</p>
+<blockquote>
+<ul>
+<li>基本数据类型在使用<code>==</code>来比较时，会自动进行隐式转换</li>
+</ul>
+<pre><code>// 基本数据类型
+var a = 10;
+var b = a;
+a = 20;
+console.log(a, b); // 20 ,10
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;比较<br>console.log(“5” &#x3D;&#x3D; 5);<br>console.log(“5” &#x3D;&#x3D;&#x3D; 5);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>引用数据类型，赋值 和 &#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 比较</p>
+<blockquote>
+<ul>
+<li>引用数据类型是进行地址的比较</li>
+</ul>
+<pre><code>var arr1 = [1, 2, 3];
+var arr2 = arr1;
+//arr1和arr2指向的是同一个地址
+arr1[0] = &quot;A&quot;;
+console.log(arr1); // [&#39;A&#39;, 2, 3]
+console.log(arr2); // [&#39;A&#39;, 2, 3]
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; &#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D; 比较<br>console.log(arr1 &#x3D;&#x3D; arr2); &#x2F;&#x2F; true<br>console.log(arr1 &#x3D;&#x3D;&#x3D; arr2); &#x2F;&#x2F; true<br>console.log([1, 2] &#x3D;&#x3D; [1, 2]); &#x2F;&#x2F; false<br>console.log([1, 2] &#x3D;&#x3D;&#x3D; [1, 2]); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>对象是引用类型<blockquote>
+<p>对象是引用类型值，这意味着：</p>
+<ul>
+<li>不能使用<code>var obj2 = obj1</code>这样的语法克隆一个对象</li>
+<li>使用<code>==</code> 或 <code>===</code> 进行对象的比较时，比较的也是两个对象是否指向堆内存中的<strong>同一个地址</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>对象 &#x3D;&#x3D; 或 &#x3D;&#x3D;&#x3D;比较时</p>
+<blockquote>
+<pre><code>// 案例一
+var obj1 = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+var obj2 = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+</code></pre>
+</blockquote>
+<p>console.log(obj1 &#x3D;&#x3D; obj2); &#x2F;&#x2F; false<br>console.log(obj1 &#x3D;&#x3D;&#x3D; obj2); &#x2F;&#x2F; false</p>
+<blockquote>
+</blockquote>
+<p>console.log({} &#x3D;&#x3D; {}); &#x2F;&#x2F; false<br>console.log({} &#x3D;&#x3D;&#x3D; {}); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>对象赋值</p>
+<blockquote>
+<ul>
+<li>对象赋值，本质也是把对象存在栈内存中的地址赋值给另一个变量</li>
+</ul>
+<pre><code>var obj1 = &#123;
+a: 1,
+b: 2,
+&#125;;
+var obj2 = obj1;
+obj2.a = &quot;A&quot;;
+console.log(obj1); // &#123;a: &#39;A&#39;, b: 2&#125;
+console.log(obj2); // &#123;a: &#39;A&#39;, b: 2&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>对象的浅克隆<blockquote>
+<ul>
+<li>对象的浅克隆，本质也就是只能克隆对象的<strong>第一层</strong></li>
+<li>我们创建一个新的空对象 <code>obj1</code>，然后<strong>遍历</strong>现在的对象 obj，把对象的属性全部遍历出来，添加 <code>obj</code> 中</li>
+<li>基本数据类型，复制的是值，不会受原数组影响</li>
+<li>数组和对象，复制的是地址，与原数组会相互影响</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 用来克隆的对象
+var obj = &#123;
+  a: 1,
+  b: 2,
+  c: [&quot;你&quot;, &quot;我&quot;, &quot;他&quot;],
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 被克隆后的对象<br>var obj1 &#x3D; {};<br>&#x2F;&#x2F; 浅克隆对象<br>for (var key in obj) {<br>  obj1[key] &#x3D; obj[key]; &#x2F;&#x2F; 赋值<br>}</p>
+<blockquote>
+</blockquote>
+<p>obj1.a &#x3D; “A”;<br>console.log(obj);<br>&#x2F;&#x2F;{a: 1, b: 2 , c: [“你”, “我”, “他”]}<br>console.log(obj1);<br>&#x2F;&#x2F;{a: “A”, b: 2 , c: [“你”, “我”, “他”]}</p>
+<blockquote>
+</blockquote>
+<p>console.log(obj1.c &#x3D;&#x3D; obj.c); &#x2F;&#x2F; true<br>obj1[“c”].push(“哈哈”);&#x2F;&#x2F;改变了它的数据类型</p>
+<blockquote>
+</blockquote>
+<p>console.log(obj);<br>&#x2F;&#x2F;{a: 1, b: 2 , c: [“你”, “我”, “他”]}<br>console.log(obj1);<br>&#x2F;&#x2F;{a: “A”, b: 2 , c: [“你”, “我”, “他”,”哈哈”]}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>对象的深克隆<blockquote>
+<ul>
+<li>深克隆：就是克隆对象的所有，不论对象的属性值是否是引用类型，都能将它们实现克隆</li>
+<li>深克隆后原对象与克隆后的对象，克隆出来后长的一样，但本质两者都互相独立，互不干扰。<blockquote>
+<p>以下对象克隆，只考对象{} 、数组[]、函数、基本数据类型，其它 es6 相关的类型暂时不考虑</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>递归实现深克隆</strong></p>
+<blockquote>
+<ul>
+<li>判断传过来的数据类是数组，还是对象，还是其它数据类型</li>
+</ul>
+<pre><code> function depClone(obj) &#123;
+  var result;
+  //判断第一层
+  if (Array.isArray(obj)) &#123;
+    //传过来的是数组
+    result = [];
+    for (var i = 0; i &lt; obj.length; i++) &#123;
+      result.push(depClone(obj[i]));
+    &#125;
+  &#125; else if (Object.prototype.toString.call(obj) == &quot;[object Object]&quot;) &#123;
+    //传过来的是对象
+    result = &#123;&#125;;
+    for (var key in obj) &#123;
+      result[key] = depClone(obj[key]);
+    &#125;
+  &#125; else &#123;
+    //传过来的是基本数据类型
+    return obj;
+  &#125;
+  return result;
+&#125;
+</code></pre>
+</blockquote>
+<h3 id="七、this-关键字"><a href="#七、this-关键字" class="headerlink" title="七、this 关键字"></a>七、this 关键字</h3><blockquote>
+<blockquote>
+<p>最好不要在全局作用域下声明一个叫<code>name</code>的变量，因为它在window里已经存在，是预留变量</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>this 是什么 <blockquote>
+<p>在函数中，其内部<code>this</code>指向把函数当成方法调用的<strong>上下文对象</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>什么是上下文 ？<blockquote>
+<ul>
+<li>垃圾分类，这是非常好的习惯，值得表扬。</li>
+<li>随手关灯，这是非常好的习惯，值得表扬。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>这里的 “这” 字，就是这个语句的上下文。</li>
+<li>就是说 “这” 这个代词的意思是需要通过这条中文语句的前言后语来判断</li>
+<li><code>this</code>指向把<strong>函数当成方法</strong>调用的上下文对象，即<strong>谁来调用这个函数或方法，当前函数或方法体内的<code>this</code>就指向谁</strong>。</li>
+<li>所以 this 的指向在定义时是不确定的，只有在调用的时候才能被确定</li>
+<li>接下来，我们来看下面几个不同场景下，函数内部的 this 指向<ul>
+<li>函数作为普通函数直接调用</li>
+<li>函数作为对象的方法被调用</li>
+<li>函数.call() 与 函数.apply()方式调用</li>
+<li>函数作为构造器被调用</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>函数作为普通函数直接调用<blockquote>
+<ul>
+<li><code>函数名()</code> 的方式调用函数，其本质是<code>window.函数名()</code> 的方式在调用函数</li>
+<li>所以这种方式调用函数，函数内部的 <code>this</code> 指向<code>window</code> 。 谁调用函数，this 就是谁<blockquote>
+<p>所有<strong>全局作用域下</strong>声明的变量和函数，都是 window 对象的属性</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var a = 10;
+var b = 20;
+function sum() &#123;
+  return this.a + this.b;
+&#125;
+console.log(sum());
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>IIFE 立即执行函数<blockquote>
+<ul>
+<li>立即执行函数，本质也是 window 对象调用的，所以其内部 this 指向 window</li>
+</ul>
+<pre><code>(function()&#123;
+&#125;)()
+//表示立即执行该函数，执行完即刻销毁
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>函数作为对象的方法被调用<blockquote>
+<ul>
+<li>函数作为对象的方法被调用，this 指向这个对象，谁调用函数，this 就是谁</li>
+</ul>
+<pre><code>// 定义一个对象
+var dog = &#123;
+  name: &quot;小黑&quot;,
+  &quot;skin-color&quot;: &quot;黑色&quot;,
+  say: function () &#123;
+ console.log(&quot;我叫&quot; + this.name + &quot;，因为我的毛是&quot; + this[&quot;skin-color&quot;]);
+ console.log(this);
+  &#125;,
+&#125;;
+dog.say(); //  this 是 dog对象
+var say2 = dog.say;
+say2(); // this 是 window对象
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>当代码执行到 <code>var say2 = dog.say</code> 时，本质是把函数当做<strong>值赋</strong>给了变量 <code>say2</code>，即</li>
+</ul>
+<pre><code>var say2 = function () &#123;
+  console.log(&quot;我叫&quot; + this.name + &quot;，因为我的毛是&quot; + this[&quot;skin-color&quot;]);
+  console.log(this);
+&#125;;
+</code></pre>
+<ul>
+<li>所以往后执行 say2() 时，本质是 window 对象调用了这个函数。</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><p>数组<a href="">下标</a></p>
+<blockquote>
+<ul>
+<li>数组（类数组对象）枚举出函数进行调用，this 指向的是这个<strong>数组（类数组对象）</strong></li>
+<li>谁调用函数，this 就是谁</li>
+</ul>
+<pre><code>var arr = [
+  &quot;A&quot;,
+  2,
+  3,
+  function () &#123;
+ console.log(this[0]);
+  &#125;,
+];
+arr[3](); // A 这里 函数是数组身上的一个属性
+console.log(arr); //打印出数组arr
+var fn = arr[3];
+fn(); // undefined  这里的this是window
+</code></pre>
+</blockquote>
+</li>
+<li><p>测试题</p>
+</li>
+</ol>
+<ul>
+<li><p>题1：</p>
+<blockquote>
+<pre><code>var obj1 = &#123;
+a: 1,
+b: 2,
+sum: function () &#123;
+  return this.a + this.b;
+&#125;,
+&#125;;
+var obj2 = &#123;
+a: 3,
+b: 4,
+sum: obj1.sum, // 这里只是完成简单的赋值操作
+&#125;;
+console.log(obj2.sum()); // 7
+// 相当于：
+var obj2 = &#123;
+a: 3,
+b: 4,
+sum: function () &#123;
+  return this.a + this.b;
+&#125;,
+&#125;
+console.log(obj2.sum());//obj2调用了函数，this是obj2
+</code></pre>
+</blockquote>
+</li>
+<li><p>题2：</p>
+<blockquote>
+<pre><code>function add() &#123;
+var a = 1,
+  b = 2;
+return &#123;
+  // 将对作为返回值，返回
+  a: 10,
+  b: 20,
+  sum: function () &#123;
+    return this.a + this.b;
+  &#125;,
+&#125;;
+&#125;
+console.log(add().sum()); // 30
+//先执行add(),得到返回值：
+&#123; a: 10,
+ b: 20,
+ sum: function () &#123;
+ return this.a + this.b;
+ &#125;
+&#125;
+//返回的函数调用sum(),this指的就是该函数
+</code></pre>
+</blockquote>
+</li>
+<li><p>题3：</p>
+<blockquote>
+<pre><code>var a = 1;
+var b = 2;
+function add() &#123;
+return this.a + this.b;
+&#125;
+var obj = &#123;
+a: 10,
+b: add(), // 该函数执行后才赋值给b，this是window  得出结果是 3
+sum: add,
+&#125;;
+var result = obj.sum();
+console.log(result); //13
+//也就是：
+var obj = &#123;
+a: 10,
+b: 3,
+sum: function add() &#123;
+return this.a + this.b;//obj调用的sum函数
+&#125;,
+&#125;;
+console.log(obj.sum());
+</code></pre>
+</blockquote>
+</li>
+<li><p>题四：</p>
+<blockquote>
+<pre><code>var a = 1;
+var obj = &#123;
+a: 2,
+add: (function () &#123;
+  var a = this.a; // 立即执行函数的this是window，则this.a得到1
+  return function () &#123;
+    console.log(a + this.a);
+  &#125;;
+&#125;)(),
+&#125;;
+obj.add(); // 3
+//obj.add()首先得到返回函数
+return function () &#123;
+    console.log(a + this.a);
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>&#x2F;&#x2F;第一个a根据作用域可知，等于上面的1；<br>&#x2F;&#x2F;是obj调用的add函数,所以this指obj,a&#x3D;2<br>    };</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="6">
+<li>call 与 apply 更改 this 指向<blockquote>
+<ul>
+<li>函数调用<code>call()</code>和 <code>apply()</code>方法，可以<strong>更改</strong> <code>this</code> 的指向，同时<strong>立即执行</strong></li>
+<li><code>call()</code> 和 <code>apply()</code>方法中的<strong>第一个参数</strong>是一个<strong>对象</strong>，这个对象指向函数内部的 this</li>
+<li>apply中的参数必须用方括号包裹</li>
+</ul>
+<pre><code>// obj 是一个对象，此时，函数内部的this指向了obj
+// 这种方式，类似于把函数当成了obj的方法来使用
+函数.call(obj, arg1, arg2, arg3);
+函数.apply(obj, [arg1, arg2, arg3]);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>我们来看一个案例，定义一个方法，用来统计数组中所有数字之和</li>
+</ul>
+<pre><code>var arr1 = [1, 2, 3, 4, 5];
+var arr2 = [5, 6, 7, 4, 3];
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 函数 sum用来统计数组中所有元素之后<br>function sum() {<br>  var result &#x3D; 0;<br>  for (var i &#x3D; 0; i &lt; this.length; i++) {<br>    result +&#x3D; this[i];<br>  }<br>  return result;<br>}</p>
+<blockquote>
+</blockquote>
+<p>console.log(sum.call(arr1));<br>console.log(sum.call(arr2));<br>console.log(sum.apply(arr1));<br>console.log(sum.apply(arr2));</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>重点<blockquote>
+<ul>
+<li>某个函数或方法调用 call 时，等同于把方法或函数作为 call 的<strong>第一个参数的方法</strong>在调用。即：</li>
+<li>函数.call(obj) 和 函数.apply(obj) 的方式，类似于把函数转换成了对象obj身上的方法来使用</li>
+<li><code>fn.call(obj,arg1,arg2)   等同于 obj.fn(arg1,arg2)</code></li>
+<li>但obj身上不会真的添加fn方法，只是类似于把fn当成obj的方法一样使用</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>var obj = &#123;
+  a: 1,
+  b: 2,
+&#125;;
+function fn() &#123;
+  console.log(this.a + this.b); 
+&#125;
+fn.call(obj);
+//fn.call(obj)相当于：
+var obj = &#123;
+  a: 1,
+  b: 2,
+  fn:function fn() &#123;
+  console.log(this.a + this.b); 
+&#125;，
+&#125;;
+</code></pre>
+</blockquote>
+<ul>
+<li>call 和 apply 的注意事项<blockquote>
+<ul>
+<li>如果 call 和 apply 的第一个参数<code>obj</code></li>
+<li>当obj 是一个 <code>null</code> 或 <code>undefined</code> 时，其函数会自动将 this 替换为指向<strong>全局对象</strong></li>
+<li>如果 obj 是一个<strong>原始值</strong>(基本数据类型)会被包装成一个对象</li>
+</ul>
+<pre><code>function fn() &#123;
+console.log(this);
+&#125;
+fn.call(null); //window &#123;&#125;
+fn.apply(undefined);//window &#123;&#125;
+fn.call(1);// Number &#123;1&#125;
+fn.call(&quot;abc&quot;);// String &#123;&quot;abc&quot;&#125;
+fn.call(true);// Boolean &#123;true&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="7">
+<li>bind 函数<blockquote>
+<ul>
+<li>bind方法创建一个新的函数（简单理解为<strong>原函数的拷贝</strong>）</li>
+<li>bind在使用时是返回一个新函数，需要接收后再调用</li>
+<li>在bind被调时，这个<strong>新函数</strong>的this被指定为bind()的<strong>第一个参数</strong>。</li>
+<li>其余参数将作为<strong>新函数的参数</strong>，供调用时使用。</li>
+<li><code>var fn2 = fn.bind(thisArg, arg1, arg2, arg3);</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>bind 用法一： 改变 this 指向</p>
+<blockquote>
+<pre><code>var obj = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+function sum(a, b, c) &#123;
+console.log(this.a, this.b, c);
+&#125;
+// 这里的fn接收sum的拷贝函数，此时fn函数内部的this变成了obj
+var fn = sum.bind(obj, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
+//调用新函数
+fn();
+</code></pre>
+<ul>
+<li>不改变this时,thisArg可以填null或undefined</li>
+</ul>
+</blockquote>
+</li>
+<li><p>bind 用法二：创建一个拥有预设参数列表</p>
+<blockquote>
+<blockquote>
+<p>也就是我们在第一次调用 bind 方法时，除了第一个参数外，后面还可以传递 <code>&gt;= 0</code> 个参数</p>
+</blockquote>
+<pre><code>var obj = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+var c = 5;
+function sum(a, b, c) &#123;
+console.log(a, this.b, c);
+&#125;
+// 创建一个函数，它拥有预设的第一个参数
+var fn = sum.bind(obj, &quot;A&quot;);
+fn(&quot;B&quot;, &quot;C&quot;);//补充参数，相当于(obj, &quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+</code></pre>
+</blockquote>
+</li>
+<li><p>bind 返回的新函数，作为构造函数使用</p>
+<blockquote>
+<ul>
+<li>如果 bind 返回的新函数作为<strong>构造函数</strong>，则会<strong>忽略</strong> thisArg 这个参数</li>
+<li>也就是<strong>不更改</strong>原函数中 this，其作为构造函数使用，内部的 this 是 new 出来的实例对象</li>
+</ul>
+<pre><code>// 构造函数
+function Point(x, y) &#123;
+this.x = x;
+this.y = y;
+&#125;
+Point.prototype.getPosition = function () &#123;
+console.log(&quot;指向位置&quot; + this.x, this.y);
+&#125;;
+</code></pre>
+</blockquote>
+<p>var Fn &#x3D; Point.bind([], 1);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; bind返回的新函数和调用的函数是两个函数，只是长得一样<br>console.log(Fn);<br>console.log(Fn &#x3D;&#x3D;&#x3D; Point); &#x2F;&#x2F; false<br>console.log(Fn.prototype &#x3D;&#x3D;&#x3D; Point.prototype); &#x2F;&#x2F; false</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; point1是Point的实例, 并不是Fn的实例,也不是[]的实例<br>var point1 &#x3D; new Fn(2);<br>console.log(point1); &#x2F;&#x2F; Point {x: 1, y: 2}<br>console.log(point1 instanceof Point); &#x2F;&#x2F; true<br>console.log(point1.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Point.prototype); &#x2F;&#x2F; true</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; point1是Point实例，所以point1能访问Point.prototype上的属性<br>point1.getPosition();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>特别注意</p>
+</blockquote>
+<ul>
+<li>我们返回的新函数，每一个函数，都有自己的 prototype</li>
+<li>如何让新函数的 prototype 指向原函数的 prototype，两者相互独立呢？</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>bind 注意事项</p>
+<blockquote>
+<p>如果 bind 的第一个参数 <code>thisArg</code> </p>
+<ul>
+<li>是一个 <code>null</code> 或 <code>undefined</code> 时，其函数会自动将this替换为指向<strong>全局对象</strong></li>
+<li>是一个<strong>原始值</strong>会被包装成一个对象</li>
+</ul>
+<pre><code>var obj = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+function sum(a, b, c) &#123;
+console.log(this);
+&#125;
+var fn1 = sum.bind();
+var fn2 = sum.bind(null);
+var fn3 = sum.bind(1);
+fn1(3, 4);//window
+fn2(3, 4);//window
+fn3(3, 4);//Number&#123;1&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>bind总结</p>
+<blockquote>
+<ul>
+<li><code>var fn2 = fn.bind(thisArg, arg1, arg2);</code></li>
+<li>fn 调用 bind 方法，相当于 fn 被当成了 thisArg 对象身上的方法，即 thisArg.fn();</li>
+<li>但是，函数调用 bind 方法，并不会立即执行 fn 函数，而是返回一个新的函数 fn2</li>
+<li>当调用 fn2 时，相当于内部执行了 <code>thisArg.fn()</code>;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="8">
+<li>call、apply、bind 的区别和使用场景<blockquote>
+<ul>
+<li>call,apply和bind方法就是Function原型中的方法，所以所有的函数都可以使用这三个方法</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>作用相同</th>
+<th>传参方式不同</th>
+<th>返回值不同</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>call</td>
+<td>用来改变 this 指向</td>
+<td>第一参数是 thisArg，后续参数是一个参数列表</td>
+<td>立即执行函数，返回值为原函数返回值</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>用来改变 this 指向</td>
+<td>第一参数是 thisArg,后续参数是包含一个或多个参数的数组</td>
+<td>立即执行函数，返回值为原函数返回值</td>
+</tr>
+<tr>
+<td>bind</td>
+<td>用来改变 this 指向</td>
+<td>第一参数是 thisArg，后续参数是一个参数列表</td>
+<td>返回一个新函数，相当于原函数拷贝</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>改变 this 指向，本质就是把某个函数当成对象的方法来使用。</p>
+</blockquote>
+</blockquote>
+<ol start="9">
+<li>this 指向总结<table>
+<thead>
+<tr>
+<th>函数的调用方式</th>
+<th>this 指向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象.函数()</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>函数名()</td>
+<td>window</td>
+</tr>
+<tr>
+<td>IIFE 立即执行函数</td>
+<td>window</td>
+</tr>
+<tr>
+<td>数组<a href="">下标</a></td>
+<td>数组</td>
+</tr>
+<tr>
+<td>call(对象,arg1,arg2)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>apply(对象,arry)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>bind(对象,arg1,arg2)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>定时器中的回调函数</td>
+<td>window</td>
+</tr>
+<tr>
+<td>DOM 事件处理函数</td>
+<td>添加事件监听的元素</td>
+</tr>
+<tr>
+<td>new 函数()</td>
+<td>对象的实例</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><code>数组[下标]()</code>这种方式，数组就是一个对象，下标就是他的属性，所以<code>数组[下标]()</code>就是调用数组身上的方法</p>
+</blockquote>
+</blockquote>
+<h3 id="八、构造函数与类"><a href="#八、构造函数与类" class="headerlink" title="八、构造函数与类"></a>八、构造函数与类</h3><blockquote>
+<p>在学习构造函数之前，我们来思考一个问题，我们如何批量创建一批相似的对象（结构相似）？</p>
+<ul>
+<li>比如说，我们现在要批量创建下面这样一批对象，这些对象有相同的属性和方法，我们会如何创建<table>
+<thead>
+<tr>
+<th>相似对象（人）</th>
+<th>属性</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>小明</td>
+<td>姓名：小明，年龄：22 岁，性别：男</td>
+<td>自我介绍：大家好，我是小明，性别男，今年 22</td>
+</tr>
+<tr>
+<td>小红</td>
+<td>姓名：小红，年龄：32 岁，性别：女</td>
+<td>自我介绍：大家好，我是小红，性别女，今年 32</td>
+</tr>
+<tr>
+<td>小丽</td>
+<td>姓名：小丽，年龄：43 岁，性别：女</td>
+<td>自我介绍：大家好，我是小丽，性别女，今年 43</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>根据之前学过的知识，可以一个一个来单独创建</li>
+</ul>
+<pre><code>// 创建对象小明
+var obj1 = &#123;
+  name: &quot;小明&quot;,
+  age: 22,
+  sex: &quot;男&quot;,
+  sayHello: function () &#123;
+    console.log(&quot;大家好，我叫&quot; + this.name + &quot;,&quot; + this.sex + &quot;今年&quot; + obj.age);
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>显然是不合理的，如果我们要创建 100 个这样的相似对象，难道我们要写 100 次吗 ？</p>
+</blockquote>
+</blockquote>
+<ol>
+<li><p>工厂方法 - 批量创建对象</p>
+<blockquote>
+<ul>
+<li>利用<strong>函数的封装特性</strong>来创建对象，只要调用下函数，就能产生一个类似的对象，我们把这种方式称为<strong>工厂模式</strong>。</li>
+<li>因为他有点类似于工厂批量生产物品，把材料放到机器中，修改下参数，就能出来一个类似的物品。</li>
+</ul>
+<pre><code>function Person(name, age, sex) &#123;
+  var obj = &#123;&#125;;
+  obj.name = name;
+  obj.age = age;
+  obj.sex = sex;
+  obj.sayHello = function () &#123;
+ console.log(
+   &quot;大家好，我叫&quot; + this.name + &quot;,&quot; + this.sex + &quot;,&quot; + &quot;今年&quot; + obj.age
+ );
+  &#125;;
+  return obj;
+&#125;
+// 创建对象小明
+var obj1 = Person(&quot;小明&quot;, 22, &quot;男&quot;);
+console.log(obj1); //&#123;name: &#39;小明&#39;, age: 22,sex:&#39;男&#39;，sayHello:f&#125;
+obj1.sayHello(); //大家好，我叫小明，男，今年22
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 用来创建狗对象的 函数<br>function Dog(name, age) {<br>  var obj &#x3D; {};<br>  obj.name &#x3D; name;<br>  obj.age &#x3D; age;<br>  return obj;<br>}<br>var dog &#x3D; Dog(“小黑”, 7);<br>console.log(dog); &#x2F;&#x2F;{name: ‘小黑’, age: 7}</p>
+<blockquote>
+<p>&#x2F;&#x2F;检测类型<br>console.log(typeof obj1); &#x2F;&#x2F; object<br>console.log(typeof dog); &#x2F;&#x2F; object</p>
+<pre><code>&gt;工厂方式创建对象，看似完美，其实他还有一个很大的问题 !
+&gt;- 我们用 `typeof` 来检测两个对象的类型时，得到的都是 `Object`，也就是我们用这种方法创建出来的对象，我们是没有办法区分他们的具体类型。
+&gt;- 如果我们希望在类型检测时得到的是 Person 和 Dog 类型，那要如何办呢？这就需要用到我们接下来讲到的构建函数的方式创建对象
+</code></pre>
+</blockquote>
+</li>
+<li><p>构造函数 - 创建对象</p>
+<blockquote>
+<ul>
+<li>用<code>new</code>调用一个函数，这个函数就被称为构造函数，任何函数都可以是构造函数，只需要用new调用它。</li>
+<li>构造函数：主要用来<strong>在创建对象时初始化对象</strong>， 即为对象成员变量赋初始值</li>
+<li>构造函数的<strong>首字母需要大写</strong>，这是开发者约定的规范，并非说首字不大写就是错</li>
+<li>声明一个变量接收不同参数的new函数<br><code>var p1 = new Person(&quot;小明&quot;, 22, &quot;男&quot;);</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>new 调用函数四步曲</p>
+<blockquote>
+<ul>
+<li>第一步：会在函数体内<strong>自动</strong>创建一个新的空对象{} 即：<code>var obj = &#123;&#125;</code></li>
+<li>第二步：函数体内的 this 被赋值为这个新对象, 即 <code>this = obj</code></li>
+<li>第三步：从上往下，执行函数体内的代码，相当于给新创建的空对象 obj <strong>添加属性</strong></li>
+<li>第四步：函数体内代码执行完，会<strong>自动返回</strong>创建的新对象 obj（所以构造函数体内不需要 return）<blockquote>
+<p>提示：在第一步和第二步中间，其实还省略了一步：将新对象 obj 的__proto__指向构造函数的prototype属性</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code> // 用来创建人对象的 函数
+ function Person(name, age, sex) &#123;
+   // 第一步：创建一个新对象 var obj=&#123; &#125;
+   // 第二步：把函数体内的this指向新对象 this=obj;
+   this.name = name;
+   this.age = age;
+   this.sex = sex;
+   // 第三步：从上往下执行代码，相当于给obj对象添加属性
+   // 		obj.name=name,obj.age=age,obj.sex=sex
+   // 第四步：代码执行完，自动返回obj这个对象，相当于return obj;
+ &#125;
+</code></pre>
+</blockquote>
+<p> &#x2F;&#x2F; new调用函数<br> var p1 &#x3D; new Person(“小明”, 22, “男”);<br> console.log(p1); &#x2F;&#x2F;Person{name:’小明’，age:22,sex:’男’}<br> var p2 &#x3D; new Person(“小红”, 32, “女”);<br> console.log(p2); &#x2F;&#x2F;Person{name:’小红’，age:32,sex:’女’}</p>
+<blockquote>
+<pre><code>&gt;其实最后`p1 = this = obj`，也就是 p1 和 this 都指向 new 调用函数 内部新创建的对象 obj。
+</code></pre>
+</blockquote>
+<ol start="4">
+<li><p>构造函数中的 this 指向</p>
+<blockquote>
+<ul>
+<li>构造函数中的 this，指向的是 new 调用函数 创建出来的新对象</li>
+</ul>
+</blockquote>
+</li>
+<li><p>构造函数注意事项</p>
+<blockquote>
+<ul>
+<li>一定要记住：<strong>一个函数是不是构造函数，要看它是否用 new 调用</strong>，而至于名称首字母大写，完全是开发者的习惯约定</li>
+<li>如果一个函数名首字母大写，但调用是没有用 new，而是<strong>直接调用</strong>，其不是构造函数，内部 this 指向 window</li>
+</ul>
+<pre><code>function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+  console.log(this);
+&#125;
+//直接调用，this指向window
+People(&quot;arry老师&quot;, 18, &quot;男&quot;);
+//new调用,this指向新创建的对象
+var p1=new People(&quot;arry老师&quot;, 18, &quot;男&quot;);
+</code></pre>
+</blockquote>
+</li>
+<li><p>构造函数的问题</p>
+<blockquote>
+<ul>
+<li>构造函数虽然很有用，但也有他的问题存在。他的主要问题在于，其定义的方法会在<strong>每个实例</strong>上都创建一遍。</li>
+<li>如果我们用这个构造函数创建出来 10 个实例，那这 10 个实例上都有相同的方法，这些相同的方法在创建实都会单独占用一定的内存空间，所以<strong>增大了内存的开销</strong>。</li>
+<li>但是这些方法本质上是做的相同的事情，所以没必要定义那么多同名函数。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>当然，我们可以把这些方法写在外面，然后在构造函数中引用他们，如下：<blockquote>
+<pre><code>function Person(name, age, sex) &#123;
+this.name = name;
+this.age = age;
+this.sex = sex;
+this.sayHello = sayHello;
+&#125;
+</code></pre>
+</blockquote>
+function sayHello() {<br>console.log(“大家好，我叫” + this.name + “,” + this.sex + “今年” + this.age);<br>}<blockquote>
+</blockquote>
+var p &#x3D; new Person(“小明”, 32, “男”);<br>p.sayHello();<blockquote>
+<pre><code>&gt;- 但这种做法，会**造成全局作用域的污染**。因为这些(函数)方法只是供这些对象来调用的。
+&gt;- 在 JS 中为每个函数提供了**原型**这个属性，后面我们可以通过原型的方实来解决。后面接下来就会学到。
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="九、类和实例（对象）"><a href="#九、类和实例（对象）" class="headerlink" title="九、类和实例（对象）"></a>九、类和实例（对象）</h3><ol>
+<li>现实生活角度理解类和实例<blockquote>
+<p><strong>什么是类</strong></p>
+<ul>
+<li>我们常说分门别类，其实就是根据事物的特点、性质将其分成各种<strong>门类</strong>。</li>
+<li>这里的类<strong>并不指具体的东西</strong>，而是一类具有相同特点事物抽象的一个分类。</li>
+<li>类好比一类物体的抽象出来的一个画像或模型。<br><strong>什么是实例</strong></li>
+<li>实例可以理解为我们之前说的对象，他是一个实实在在，能摸得着，看得见的<strong>实物</strong>。</li>
+<li>类可以理解为<strong>模型</strong>，那实例就是<strong>由模型制作出来的</strong>具体的一件东西。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>区分类与实例<table>
+<thead>
+<tr>
+<th>类</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>苹果、书包、人、动物、小猫、狗</td>
+<td>这个苹果、小明的书包、清心、这条黑狗</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ol start="2">
+<li><p>JS 角度来理解类和实例</p>
+<blockquote>
+<p><strong>什么是类</strong></p>
+<ul>
+<li>在 JS 中，类是用来<strong>描述</strong>对象会拥有那些属性和方法，但是并不具体指明属性的值。</li>
+<li>JS 中的<strong>构造函数</strong>就好比是一个类，他只描述了这个类有那些属性和方法，但并不具体指明属性的值。<br><strong>什么是实例</strong></li>
+<li>在 JS 中，实例就可以理解为 JS 中的对象，他有自己的属性和方法，同时有自己的<strong>属性值</strong></li>
+<li>我们用 new 调用函数，本质就是创建了一个对象（实例化一个对象），我们称为对象实例化</li>
+<li><strong>对象实例化</strong>： 是指将一个类实例化成对象,即用类创建对象的过程<blockquote>
+<p>构造函数描述出属性和方法，new调用函数、赋值来创建不同实例</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>创建一个球类和球对象</p>
+<blockquote>
+<ul>
+<li>要求将创建好的球对象，添加到 body 中，在页面呈现出来。<table>
+<thead>
+<tr>
+<th>类</th>
+<th>属性</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>球</td>
+<td>半径、颜色、透明度、坐标、DOM 元素</td>
+<td>初始化，变色，运动</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code> // 构建函数,描述出对象和方法
+ // 对象：半径、颜色、透明度、坐标、DOM属性
+ // 方法：init()初始化将DOM插入到网页中、运动、改变颜色
+ function Ball(r, color, opacity, x, y) &#123;
+this.r = r;
+this.color = color;
+this.opacity = opacity;
+this.x = x;
+this.y = y;
+// 初始化小球，把球插入到页面中
+this.init = function () &#123;
+  // 创建一个真实的DOM球放在页面中展示
+  this.dom = document.createElement(&quot;div&quot;);
+  this.dom.style.width = this.r + &quot;px&quot;;
+  this.dom.style.height = this.r + &quot;px&quot;;
+  this.dom.style.borderRadius = this.r + &quot;px&quot;;
+  this.dom.style.backgroundColor = this.color;
+  this.dom.style.opacity = this.opacity;
+  //一个球要动起来，必须是个定位元素
+  this.dom.style.position = &quot;absolute&quot;;
+  this.dom.style.left = this.x + &quot;px&quot;;
+  this.dom.style.top = this.y + &quot;px&quot;;
+  // 将小球添加到body上
+  document.body.appendChild(this.dom);
+ &#125;;
+  // 当我调用这个方法，就让小球动起来
+  this.move = function () &#123;
+ this.dom.style.left = this.x + 250 + &quot;px&quot;;
+ this.dom.style.top = this.y + 250 + &quot;px&quot;;
+  &#125;;
+  // 当我调用这个方法，就让小球变色
+  this.changeColor = function () &#123;
+ this.dom.style.backgroundColor = &quot;skyblue&quot;;
+  &#125;;
+&#125;
+//new一个对象实例
+var ball = new Ball(100, &quot;pink&quot;, 0.5, 100, 100);
+ball.init(); // 初始化
+ball.changeColor(); // 变色
+ball.move(); // 移动
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<ul>
+<li>Javascript是<strong>基于对象</strong>（object-based）的语言，他<strong>并不是完全面向对象</strong>（object-oriented）语言。</li>
+<li>java 、c++等是 “面向对象（object-oriented）” 语言</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="十、Object-构造函数"><a href="#十、Object-构造函数" class="headerlink" title="十、Object() 构造函数"></a>十、Object() 构造函数</h3><blockquote>
+<p>Object 构造函数将给定的值包装为一个<strong>新对象</strong>。</p>
+<ul>
+<li>如果给定的值是<code>null</code>或<code>undefined</code>, 它会<strong>创建并返回</strong>一个<strong>空对象</strong>。</li>
+<li>否则，它将返回一个和给定的值<strong>相对应</strong>的类型的对象。</li>
+<li>如果给定值是一个<strong>已经存在</strong>的对象，则会返回这个已经存在的值（相同地址）。</li>
+<li>语法：</li>
+</ul>
+<pre><code>new Object();
+new Object(value);
+</code></pre>
+</blockquote>
+<ul>
+<li>创建一个新对象<blockquote>
+<pre><code>var obj = new Object();
+console.log(obj); // &#123;&#125;
+obj.a = 1;
+obj.b = 2;
+console.log(obj); // &#123;a: 1, b: 2&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 如果给定的值是<code>null</code>或 <code>undefined</code>, 它会创建并返回一个空对象<br>var obj1 &#x3D; new Object(null);<br>var obj2 &#x3D; new Object(undefined);<br>console.log(obj1); &#x2F;&#x2F; {}<br>console.log(obj2); &#x2F;&#x2F; {}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 给定值是基本数据类型  数字、字符串、boolean值<br>var strObject &#x3D; new Object(“字符串包装成一个对象”);<br>console.log(strObject); &#x2F;&#x2F;  String {‘字符串包装成一个对象’}<blockquote>
+</blockquote>
+var numberObject &#x3D; new Object(11);<br>console.log(strObject); &#x2F;&#x2F; Number {11}<blockquote>
+</blockquote>
+var booleanObject &#x3D; new Object(true);<br>console.log(strObject); &#x2F;&#x2F; Boolean {true}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 给定值本身就是一个对象，返回这个对象<br>var arr &#x3D; [1, 2, 3];<br>arrObject &#x3D; new Object(arr);<br>console.log(arr); &#x2F;&#x2F; [1, 2, 3]<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="十一、原型（prototype）和原型链"><a href="#十一、原型（prototype）和原型链" class="headerlink" title="十一、原型（prototype）和原型链"></a>十一、原型（prototype）和原型链</h3><ol>
+<li><p>什么是原型（prototype）</p>
+<blockquote>
+<ul>
+<li>任何函数都有一个<code>prototype</code>属性，<code>pr</code>ototype的翻译成英语，就是“原型”的意思</li>
+<li><code>prototype</code>属性值是一个<strong>对象</strong>，这个对象中拥有一个<code>constructor</code>属性，这个属性指向<strong>这个函数本身</strong>。</li>
+</ul>
+<pre><code>function sum(a, b) &#123;
+  return a + b;
+&#125;
+</code></pre>
+</blockquote>
+<p>console.log(sum.prototype); &#x2F;&#x2F; {constructor: ƒ}<br>console.log(typeof sum.prototype); &#x2F;&#x2F; object<br>console.log(sum.prototype.constructor &#x3D;&#x3D;&#x3D; sum); &#x2F;&#x2F; true</p>
+<blockquote>
+<pre><code>&gt;对于普通函数， prototype属性没有任何用处，而 构造函数的 prototype 属性非常有用
+</code></pre>
+</blockquote>
+</li>
+<li><p>构造函数的 prototype 属性</p>
+<blockquote>
+<ul>
+<li>构造函数的prototype属性是它的<strong>实例的原型</strong></li>
+<li>在构造函数的实例中有一个<strong>隐含</strong>的属性<code>__proto__</code>，指向该构造函数的原型<code>prototype</code><br><code>实例.__proto__===构造函数.prototype</code><img src="prototype属性.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>实例的__proto__属性，指向构造函数的原型 prototype，到底有什么用 ？</p>
+<ul>
+<li>答案就是：原型链查找</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol>
+<li>什么是原型链查找<blockquote>
+<ul>
+<li>构造函数的原型 <code>prototype</code> 对象，相当于一个<strong>公共的区域</strong>，所有<strong>同一个类的实例</strong>都可以访问到这个原型对象</li>
+<li>所以我们可以将对象中<strong>共有的内容</strong>，统一设置到原型对象中。</li>
+<li>当我们通过对象访问属性时，会按照属性的名称开始查找，他<strong>最先</strong>开始在对象<strong>实例本身</strong>来查找，如果在实例身上找到了，则返回该属性对应的值。</li>
+<li>如果没有找到，会去<strong>原型对象</strong>中寻找，如果原型对象中有，则使用</li>
+<li>如原型对象中没有，则继续去<strong>原型的原型</strong>中寻找，直到找到 <code>Object</code>对象的原型</li>
+<li>Object 对象的原型没有原型，如果在 Object 对象的原型中依然没有，则返回 <code>undefined</code><blockquote>
+<p>对象访问属性时，会沿着原型去查找，好比原型形成了一个链条，一层一层向上找，我们把这种现象称为 原型链查找 。</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 在构造函数的prototype上添加nationality属性<br>People.prototype.nationality &#x3D; “中国”;<blockquote>
+</blockquote>
+&#x2F;&#x2F; 实例化<br>var cuihua &#x3D; new People(“翠花”, 18, “男”);<blockquote>
+</blockquote>
+console.log(cuihua.nationality); &#x2F;&#x2F; 输出：中国，这个就叫做原型链查找<br>console.log(cuihua); &#x2F;&#x2F; {name: ‘翠花’, age: 18, sex: ‘男’}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 总结：当一个对象打点调用一个属性时，这个对象的身上并没有这个属性的时候，系统并不会直接报错，它会寻找这个对象的原型上有没有这个属性，如果能找到这个属性，则证明打点调用是可以的<blockquote>
+<pre><code>&lt;img src=&quot;原型链查找.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>JS 规定：一个对象（或一个实例）是可以<strong>打点调用</strong>原型上的属性的；因此：cuihua 是可以打点调用 nationality 属性的</p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li><p>原型链的遮蔽效应</p>
+<blockquote>
+<ul>
+<li>我们说当访问对象中的属性时，会<strong>先在自身</strong>找，如果找到就用自身的。</li>
+<li>也就是说，如果自身有一个与原型对象上同名的属性，那自然在查找时，<strong>会以自身的为主</strong></li>
+<li>这就相当于<strong>原型上的同名属性被遮蔽</strong>了，我们把这种现象称为原型链的遮蔽效应</li>
+</ul>
+<pre><code>function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+// 在构造函数的prototype(原型)上添加nationality属性
+People.prototype.nationality = &quot;中国&quot;;
+// 实例化
+var cuihua = new People(&quot;翠花&quot;, 18, &quot;男&quot;);
+// 再实例化一个mini对象
+var mini = new People(&quot;mini&quot;, 19, &quot;女&quot;);
+// 给mini本身添加nationality属性
+mini.nationality = &quot;美国&quot;;
+</code></pre>
+</blockquote>
+<p>console.log(cuihua.nationality); &#x2F;&#x2F; 输出：中国<br>console.log(cuihua); &#x2F;&#x2F; {name: ‘翠花’, age: 18, sex: ‘男’}</p>
+<blockquote>
+</blockquote>
+<p>console.log(mini.nationality); &#x2F;&#x2F; 输出：美国，这就是原型链的遮蔽效应</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>hasOwnProperty</p>
+<blockquote>
+<ul>
+<li><code>hasOwnProperty</code>方法可以检查对象是否真正 “<strong>自己拥有</strong>” 某属性或者方法</li>
+<li>也就是这个属性或方法，是<strong>在实例本身</strong>身上，并不是在原型上。</li>
+<li>如果是真正自身属性，返回 true，否则返回 false</li>
+</ul>
+<pre><code>function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+// 在构造函数的prototype(原型)上添加nationality属性
+People.prototype.nationality = &quot;中国&quot;;
+//new一个实例
+var cuihua = new People(&quot;翠花&quot;, 18, &quot;男&quot;);
+</code></pre>
+</blockquote>
+<p>console.log(cuihua.hasOwnProperty(“name”)); &#x2F;&#x2F; true<br>console.log(cuihua.hasOwnProperty(“age”)); &#x2F;&#x2F; true<br>console.log(cuihua.hasOwnProperty(“sex”)); &#x2F;&#x2F; true<br>console.log(cuihua.hasOwnProperty(“nationality”)); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>in</p>
+<blockquote>
+<ul>
+<li>in 运算符<strong>只能</strong>检查某个属性或方法是否可以被对象访问，<strong>不能</strong>检查<strong>是否是自己的</strong>属性或方法</li>
+<li>也就是不管这个属性是对象自身还是原型上的，都返回 true,找不到，则返回 false</li>
+</ul>
+<pre><code>function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+// 在构造函数的prototype(原型)上添加nationality属性
+People.prototype.nationality = &quot;中国&quot;;
+var cuihua = new People(&quot;翠花&quot;, 18, &quot;男&quot;);
+console.log(&quot;name&quot; in cuihua); // true
+console.log(&quot;age&quot; in cuihua); // true
+console.log(&quot;sex&quot; in cuihua); // true
+console.log(&quot;nationality&quot; in cuihua); // true
+</code></pre>
+</blockquote>
+</li>
+<li><p>在 prototype 添加方法</p>
+<blockquote>
+<ul>
+<li>在之前的课程中，我们把方法都是直接写到了构造函数身上，这种方式会造成<strong>内存的浪费</strong>，因为每创建一个实例，就需要单独为同一个方法分配一块内存空间。</li>
+<li>如果将方法写在构造函数的原型 prototype 上，就不会了，因为并不会创建一个实例，就为方法分配一块内存，所有实例都是共用原型上的同一个方法。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>写在构造函数身上</p>
+<blockquote>
+<pre><code>function Count(a, b) &#123;
+this.a = a;
+this.b = b;
+// 方法写在构造函数中
+this.add = function () &#123;
+  return this.a + this.b;
+&#125;;
+&#125;
+</code></pre>
+</blockquote>
+<p>var c1 &#x3D; new Count(2, 3);<br>var c2 &#x3D; new Count(2, 3);<br>var c3 &#x3D; new Count(2, 3);<br>&#x2F;&#x2F; 指向内存中的不同地址，每个对象身上的方法都分配了一块内存<br>console.log(c1.add &#x3D;&#x3D;&#x3D; c2.add); &#x2F;&#x2F;  false<br>console.log(c2.add &#x3D;&#x3D;&#x3D; c3.add); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>写在构造函数的原型上</p>
+<blockquote>
+<pre><code>function Count(a, b) &#123;
+this.a = a;
+this.b = b;
+&#125;
+// 将方法，加在构造函数的原型上
+Count.prototype.add = function () &#123;
+return this.a + this.b;
+&#125;;
+</code></pre>
+</blockquote>
+<p>var c1 &#x3D; new Count(2, 3);<br>var c2 &#x3D; new Count(3, 3);<br>var c3 &#x3D; new Count(6, 3);<br>console.log(c1.add &#x3D;&#x3D;&#x3D; c2.add); &#x2F;&#x2F; true<br>console.log(c2.add &#x3D;&#x3D;&#x3D; c3.add); &#x2F;&#x2F; true;<br>console.log(c1.add(), c2.add(), c3.add()); &#x2F;&#x2F; 5 6 9</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="8">
+<li><p>原型链的终点</p>
+<blockquote>
+<ul>
+<li>原型对象也是对象，所以原型也有原型，最终所有的对象都会继承 Object 的原型</li>
+<li>Object 原型的的原型是 <code>null</code>，即原型链的<strong>终点</strong></li>
+</ul>
+<pre><code>function People(name, age) &#123;
+  this.name = name;
+  this.age = age;
+&#125;
+</code></pre>
+</blockquote>
+<p>var p1 &#x3D; new People(“小丽”, 32);<br>console.log(People.prototype &#x3D;&#x3D;&#x3D; p1.<strong>proto</strong>);<br>console.log(People.prototype.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype);<br>console.log(Object.prototype.<strong>proto</strong> &#x3D;&#x3D;&#x3D; null);</p>
+<blockquote>
+<pre><code>&lt;img src=&quot;原型链的终点.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>原型链</p>
+</li>
+</ol>
+<ul>
+<li><p>数组是<code>Array</code>类（构造函数）构造出来的，Array的原型指向 <code>Object</code>的原型</p>
+<blockquote>
+<pre><code>var arr = [123, 55, 33, 66, 88];
+</code></pre>
+</blockquote>
+<p>console.log(arr.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Array.prototype); &#x2F;&#x2F; true<br>console.log(Array.prototype.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype);<br>console.log(arr.<strong>proto</strong>.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true</p>
+<blockquote>
+<pre><code>&lt;img src=&quot;数组的原型链.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>验证 hasOwnProperty() 和 toString() 方法</p>
+<blockquote>
+<pre><code>function People(name, age, sex) &#123;
+this.name = name;
+this.age = age;
+&#125;
+</code></pre>
+</blockquote>
+<p>var cuihua &#x3D; new People();<br>console.log(cuihua.<strong>proto</strong>.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true,说明cuihua的原型的原型是 Object.prototype<br>console.log(Object.prototype.<strong>proto</strong>); &#x2F;&#x2F; null，说明Object.prototype没有自己的原型了，即 它就是原型链的终点</p>
+<blockquote>
+</blockquote>
+<p>console.log(Object.prototype.hasOwnProperty(“hasOwnProperty”)); &#x2F;&#x2F; true，说明hasOwnProperty方法是定义在Object.prototype<br>console.log(Object.prototype.hasOwnProperty(“toString”)); &#x2F;&#x2F; true，同理</p>
+<blockquote>
+<pre><code>&gt;每个对象，比如数组、字符串、数字等**都重写**了`toString()`方法
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="10">
+<li>函数的原型链<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+console.log(fn.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Function.prototype); &#x2F;&#x2F; true<br>console.log(Function.prototype.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 所有对象，本质都是构造函数构造出来的<br>console.log(Object.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Function.prototype); &#x2F;&#x2F; true<br>console.log(Object.<strong>proto</strong>); &#x2F;&#x2F; ƒ () { [native code] }<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>Object也是一个函数，所有的函数都是Function构造出来的；所以Object是Function的一个实例，因此<code>Object.__proto__ === Function.prototype</code><img src="函数的原型链.png"></li>
+</ul>
+</blockquote>
+<ol start="11">
+<li><p>instanceof</p>
+<blockquote>
+<ul>
+<li>检查一个对象是否是一个类的<strong>实例</strong>。</li>
+<li>底层机理:就是检查<strong>构造函数.prototype 属性</strong>是否在实例的<strong>原型链</strong>上（多少层都行）</li>
+<li>所有对象都是 <code>Object</code> 的后代，所以任何对象与 Object 做 instanceof 检查时都会返回 true</li>
+</ul>
+<pre><code>function People(name, age) &#123;
+  this.name = name;
+  this.age = age;
+&#125;
+function Dog(name, age) &#123;
+  this.name = name;
+  this.age = age;
+&#125;
+</code></pre>
+</blockquote>
+<p>var p1 &#x3D; new People(“小丽”, 32);<br>var dog &#x3D; new Dog(“小黑”, 3);<br>console.log(p1 instanceof People); &#x2F;&#x2F;true<br>console.log(dog instanceof People); &#x2F;&#x2F;false<br>console.log(dog instanceof Dog); &#x2F;&#x2F;true<br>console.log(dog instanceof Object); &#x2F;&#x2F;true<br>console.log(p1 instanceof Object); &#x2F;&#x2F;true</p>
+<blockquote>
+</blockquote>
+<p>console.log(p1.<strong>proto</strong>.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true<br>console.log(dog.<strong>proto</strong>.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true<br>console.log(People.prototype.<strong>proto</strong> &#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true<br>console.log(Dog.prototype.<strong>proto</strong> &#x3D;&#x3D; Object.prototype); &#x2F;&#x2F; true<br>console.log(Object.prototype.<strong>proto</strong>); &#x2F;&#x2F; null</p>
+<blockquote>
+<pre><code>&lt;img src=&quot;instanceof.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>类数组转换数组</p>
+<blockquote>
+<blockquote>
+<p>常用来将类数组转换为数组的方法有</p>
+</blockquote>
+<ul>
+<li><code>Array.prototype.slice.call(arguments);</code> &#x2F;&#x2F; 把slice当成arguments的一个方法<ul>
+<li><code>Array.prototype.slice()</code>是返回一个包含所有元素的新数组</li>
+<li><code>.call(arguments)</code>改变this指向；组合起来就是把arguments的所有元素塞到一个新数组里</li>
+<li>如果arguments后有参数，表示start和end</li>
+</ul>
+</li>
+<li><h2 id="Array-prototype-concat-apply-arguments-concat-是返回一个合并所有元素后的新数组-合并arguments和-apply-arguments-改变this指向"><a href="#Array-prototype-concat-apply-arguments-concat-是返回一个合并所有元素后的新数组-合并arguments和-apply-arguments-改变this指向" class="headerlink" title="Array.prototype.concat.apply([], arguments);- .concat([])是返回一个合并所有元素后的新数组,合并arguments和[]- .apply(arguments)改变this指向"></a><code>Array.prototype.concat.apply([], arguments);</code><br>- <code>.concat([])</code>是返回一个合并所有元素后的新数组,合并arguments和[]<br>- <code>.apply(arguments)</code>改变this指向</h2></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>function sum(a, b, c) &#123;
+  var arr1 = Array.prototype.slice.call(arguments);
+  var arr2 = Array.prototype.concat.apply([], arguments);
+  console.log(arr1);
+  console.log(arr2);
+&#125;
+sum(1, 2, 3);
+//[1,2,3]
+//[1,2,3]
+</code></pre>
+</blockquote>
+<ol start="13">
+<li>手写 JS 的 slice 方法<blockquote>
+<pre><code> /**
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>slice(start,end)方法的功能，返回值，注意事项</li>
+<li>1、功能：从指定start下标开始复制数组中元素，添加到新数组中，到下标end结束，不包括end</li>
+<li>2、返回值：查询到的元素组成的新数组</li>
+<li>3、注意事项</li>
+<li><ul>
+<li>如果start和end为null 、undefind，和非数字类型，则start&#x3D;0</li>
+</ul>
+</li>
+<li><ul>
+<li>如果end 为null或其它类型，end&#x3D;0,如果end为undefined则表示数组长度</li>
+</ul>
+</li>
+<li><ul>
+<li>如果start或end为负值时，要确定好查询的起始于结束的位置</li>
+</ul>
+</li>
+<li><ul>
+<li>本质就是要把对应的负数转成正数对应下标 （难点，很多同学想不到）<br>*&#x2F;<br> Array.prototype._slice &#x3D; function (start, end) {<br> var result &#x3D; [];<br> &#x2F;&#x2F; null和数字类型转成 0或数字;其它都转为NaN，start赋值为0<br> start &#x3D; Number(start) !&#x3D;&#x3D; Number(start) ? 0 : Number(start);<br> &#x2F;&#x2F; 这里不用处理NaN的情况，因为结束是NaN时,本质上是什么也查不到，也就相当于0，不做任何查询<br> end &#x3D; end &#x3D;&#x3D;&#x3D; undefined ? arr.length : Number(end);<br> &#x2F;&#x2F; 如果start小于0，则确定start的查找位置<br> if (start &lt; 0) {<br> start &#x3D; -start &gt; this.length ? 0 : this.length + start;<br> }<br> &#x2F;&#x2F; 如果start小于0，则确定end的结束位置<br> if (end &lt; 0) {<br> end &#x3D; -end &gt; this.length ? 0 : this.length + end;<br> }<br> &#x2F;&#x2F; 循环遍历，从起始位置到结束位置，查找元素，添加到新数组中<br> &#x2F;&#x2F; 不用判断 start与end的大小关小，因为start如果大于end不会执行<br> for (var i &#x3D; start; i &lt; end; i++) {<br> result[result.length] &#x3D; this[i];<br> }<br> return result;<br> };<blockquote>
+</blockquote>
+ var arr &#x3D; [1, 9, 3, 4, 5];<br> arr2 &#x3D; arr._slice(NaN, “2”); &#x2F;&#x2F;[1,9]<br> arr3 &#x3D; arr.slice(true, NaN); &#x2F;&#x2F;[]<br> arr4 &#x3D; arr.slice(undefined, “4”); &#x2F;&#x2F;[1,9,3,4]<br> console.log(arr2);<br> console.log(arr3);<br> console.log(arr4);<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="14">
+<li><p>手写数组的 concat 方法</p>
+<blockquote>
+<pre><code>/**
+* concat(value,value2) 方法的功能，返回值，注意事项
+* 功能：将数组或值，被合并到一个新的数组中
+* 返回值：返回合并后组成的新数组
+* 注意事项：concat后的参数如果不是数组的情况，要考虑进去，不要漏掉
+*/
+Array.prototype._concat = function () &#123;
+  var newArr = [];
+  // 浅浅拷贝调用concat方法的数组
+  for (var i = 0; i &lt; this.length; i++) &#123;
+newArr.push(this[i]);
+  &#125;
+  for (var i = 0; i &lt; arguments.length; i++) &#123;
+if (!Array.isArray(arguments[i])) &#123;
+  newArr[newArr.length] = arguments[i];
+&#125; else &#123;
+  for (var j = 0; j &lt; arguments[i].length; j++) &#123;
+    newArr[newArr.length] = arguments[i][j];
+  &#125;
+&#125;
+  &#125;
+  return newArr;
+&#125;;
+</code></pre>
+</blockquote>
+<p>var arr &#x3D; [1, 2, 3];<br>&#x2F;&#x2F;   var arr2 &#x3D; arr._concat(1, [5, 6], [7], 9);<br>var arr2 &#x3D; [].concat(1, 2, 3);<br>console.log(arr2);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>Object.prototype.toString()方法</p>
+<blockquote>
+<ul>
+<li>该方法返回一个表示该对象的字符串。</li>
+<li>返回值为”[object type]”，其中 type 是对象的类型</li>
+</ul>
+<pre><code>Object.prototype.toString([]); // &#39;[object Object]&#39;
+Object.prototype.toString(&#123;&#125;); // &#39;[object Object]&#39;
+Object.prototype.toString(function () &#123;&#125;); // &#39;[object Object]&#39;
+Object.prototype.toString(1); // &#39;[object Object]
+</code></pre>
+</blockquote>
+</li>
+<li><p>经典应用：toString() 来获取每个对象的类型</p>
+<blockquote>
+<ul>
+<li>通过<code>Object.prototype.toString.call(thisArg)</code>或</li>
+<li><code>Object.prototype.toString.apply(thisArg)</code>来判断<code>thisArg</code>的类型</li>
+<li>要检查的对象作为第一个参数，称为<code>thisArg</code></li>
+</ul>
+<pre><code> console.log(Object.prototype.toString.call([])); //&#39;[object Array]&#39;
+ console.log(Object.prototype.toString.call(&#123;&#125;)); //&#39;[object object]&#39;
+ console.log(Object.prototype.toString.call(function () &#123;&#125;)); //&#39;[object Function]&#39;
+ console.log(Object.prototype.toString.call(null)); //&#39;[object Null]&#39;
+ console.log(Object.prototype.toString.call(undefined)); //&#39;[object Undefined]&#39;
+ console.log(Object.prototype.toString.call(true)); //&#39;[object Boolean]&#39;
+ console.log(Object.prototype.toString.call(111)); //&#39;[object Number]&#39;
+ console.log(Object.prototype.toString.call(&quot;aaa&quot;)); //&#39;[object string]&#39;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>温馨提示：</p>
+</blockquote>
+<ul>
+<li>Array、String、Number、Boolean、RegExp、Date 等类型都重写了 toString()<ul>
+<li>数组的toString()方法是将数组转成以<code>,</code>逗号分隔的字符串，同时返回该字符串</li>
+</ul>
+</li>
+<li>所以实例本身调用 toString()方法，并不能达到检测类型的作用。</li>
+<li>因为直接调用是调用自身的原型对象上已有 toString()方法,就不会调用到 Object 原型对象上的 toString()方法了</li>
+</ul>
+</blockquote>
+<h3 id="十二、本章节经典面试题"><a href="#十二、本章节经典面试题" class="headerlink" title="十二、本章节经典面试题"></a>十二、本章节经典面试题</h3><ol>
+<li><p>手写一个 getType 方法，可以判断出任意的<strong>数据类型</strong>（经典面试题）</p>
+<blockquote>
+<ul>
+<li>getType 方法可以准确获取任意数据类型，如 number、string、boolean、null、undefined、object、array、function 、regexp</li>
+<li>上面我们学习了<code>Object.prototype.toString()</code>方法，我们知道他可以判断出任意的类型，所以我们就用这个方法实现</li>
+<li><code>indexOf()</code>方法,返回在数组中可以找到给定元素的第一个索引，如果不存在，则返回-1</li>
+<li><code>slice()</code>提取原数组的一部分并返回一个新数组</li>
+</ul>
+<pre><code>function getType(x) &#123;
+  var originType = Object.prototype.toString.call(x); // &#39;[object type]&#39;
+  var spaceIndex = originType.indexOf(&quot; &quot;); // 查找空隙所在下标
+  var type = originType.slice(spaceIndex + 1, -1); // 从空格下标+1位位置查询字符串，查询到字符串最后一位
+  return type.toLowerCase(); // 将分格出来的类型，统一转成小写字
+&#125;
+var type = getType(2); //number
+var type1 = getType(&quot;ss&quot;); //string
+var type2 = getType(null); //null
+var type3 = getType(&#123;&#125;); //object
+console.log(type, type1, type2, type3);
+</code></pre>
+</blockquote>
+</li>
+<li><p>判断数据类型有那些方法，分别有什么区别 ？</p>
+<table>
+<thead>
+<tr>
+<th>判断数据类操作符或方法</th>
+<th>功能</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>typeof</td>
+<td>只能区分基本数据类型和引用数据类型;但不能区分 null、Object、array;typeof null得到object;typeof 检测函数得到 function</td>
+<td>typeof a;</td>
+</tr>
+<tr>
+<td>Array.isArray()</td>
+<td>判断某个变量，是不是数组</td>
+<td>Array.isArray(arr)</td>
+</tr>
+<tr>
+<td>in</td>
+<td>检查某个属性或方法<strong>是否可以被对象访问</strong>，不能检查是否是自己的属性或方法</td>
+<td>‘name’ in obj</td>
+</tr>
+<tr>
+<td>hasOwnProperty</td>
+<td>检查对象是否真正 “自己拥有” 某属性或者方法</td>
+<td>obj.hasOwnProperty(属性&#x2F;方法)</td>
+</tr>
+<tr>
+<td>instanceof</td>
+<td>检查一个对象是否是一个类的实例</td>
+<td>实例 instanceof Object</td>
+</tr>
+<tr>
+<td>constructor</td>
+<td>判断实例对象是不是这个构造函数的实例</td>
+<td>an1.constructor &#x3D;&#x3D; Anamil</td>
+</tr>
+<tr>
+<td>Object.prototype.toString().call()</td>
+<td>可以用来判断任意数据类型</td>
+<td>Object.prototype.toString().call(X)</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ul>
+<li>constructor<blockquote>
+<ul>
+<li>构造函数的原型<code>prototype</code>上有一个属性 constructor，这个属性指向<strong>构造函数本身</strong></li>
+<li>构造函数构造的<strong>实例</strong>可以直接访问<code>prototype</code>对象身上的属性和方法</li>
+<li>即：<code>实例.constructor === 构造函数</code> 那就说明这个实例是这个构造函数的实例</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>constructor 是<strong>不稳定</strong>的，因为开发者可以重写 prototype，重写后，原有的 constructor 引用会<strong>丢失</strong>，需要我们<strong>重新指定</strong> constructor 的引用</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>未重写prototype时</li>
+</ul>
+<pre><code> function People(name, age) &#123;
+   this.name = name;
+   this.age = age;
+ &#125;
+ var p1 = new People(&quot;小明&quot;, 32);
+ console.log(p1.__proto__ === People.prototype);
+ console.log(People.__proto__ === Function.prototype);
+ console.log(Function.prototype.__proto__ === Object.prototype);
+ console.log(Object.prototype.__proto__ === null);
+ console.log(Object.__proto__ === Function.prototype);
+ console.log(People.prototype.constructor); //People
+ console.log(p1.constructor); //People,说明这个p1是这个构造函数People的实例
+</code></pre>
+<img src="未改写constructor.png">
+</blockquote>
+<ul>
+<li>重写prototype后<blockquote>
+<pre><code> function F() &#123;&#125;
+ F.prototype = &#123;&#125;;
+ var p = new F();
+ console.log(p.constructor); //Object,改写后p1变成了Object的实例，因为&#123;&#125;所有对象都是Object构造出来的
+ console.log(p.__proto__.__proto__.constructor); //Object
+ console.log(F.prototype.constructor); //Object
+ console.log(F.prototype.__proto__.constructor); //Object
+</code></pre>
+<img src="改写constructor.png"></blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>当 <code>F.prototype = &#123;&#125;</code> 时， {} 是 new Object() 创建出来的实例</li>
+<li>所以{}的proto指向<code>Object</code>构造函数的原型prototype,Object 的 prototype 对象上的属性 <code>constructor</code> 指 Object 构造函数</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>ES6版本——手写 call 方法（经典面试题）<blockquote>
+<ul>
+<li>函数.call(obj),类似于把函数当成了obj 的方法来使用</li>
+<li>我们就是要利用这个特点来实现 手写 call 函数</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>第一步：</p>
+<blockquote>
+<ul>
+<li>call 方法，是函数身上的方法，所以肯定手写的 call 方法，是要绑定到函数的原型上。</li>
+<li>因为构造函数的原型 prototype 对象，相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象<br><code>Function.prototype._call = function () &#123;&#125;;</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>第二步：搭建基础结构</p>
+<blockquote>
+<ul>
+<li>call 方法的第一个参数是用来改变 this 指向（函数上下文），后面的参数相当于是传递给函数的参数,且个数不定，所以我们定义函数时，可以用写形参，最后用实参来接受传过来的参数</li>
+</ul>
+<pre><code>// context 表示传入的上下文对象
+Function.prototype._call = function (context) &#123;&#125;;&gt;```
+</code></pre>
+</blockquote>
+</li>
+<li><p>第三步：把函数处理成 context 对象的方法</p>
+<blockquote>
+<ul>
+<li>要主函数成为<code>context</code>的方法，我们需要为 context 对象添加一个属性 key，然后把这个属性指向这个函数</li>
+<li><code>_call</code>方法内部的 this 就是调用_call方法的函数，即 <code>context[key]=this</code></li>
+<li>当然要保证 context 对象新添加的属性 key 不能与对象原有的属性<strong>重名</strong>，如果重名就会对象原有的属性给覆盖了。</li>
+<li>用 ES6 的 <code>Symbol</code> 来创建一个唯一的标识符。</li>
+</ul>
+<pre><code>Function.prototype._call = function (context) &#123;
+// 创建一个变量，用来做为context对象的属性
+// 防止属性名与context身上的属性重名，则我们需要用Symbol();方式来创建
+var key = Symbol();
+// 这里的this指向的是函数本身，把函数转换成context身上的方法
+context[key] = this;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>第四步：调用函数，并处理参数</p>
+<blockquote>
+<ul>
+<li>调用_call方法的函数如果有对应的参数，我们需要在调用函数即<code>context[key]()</code>时，把对应的参数传递进去</li>
+<li>我们不清楚调用 call 方法的函数，具体有多少个参数，（这里用 <code>arguments</code> 来处理相对麻烦，在 es5 版本中，我们来讲 arguments 的方式如何处理）所以我们用剩余参数<code>..args</code>来接受所有参数，接受过来的参数是以数组的形式组合在一起 ,即类传于<code>args=[1,2,3]</code></li>
+<li>利用<code>ES6</code>的<strong>展开运算符</strong>，把args数组展开放在调用的函数后面，作为实参传递过去</li>
+</ul>
+<pre><code>// 调用函数，取得函数的返回结果
+var result = context[key](...args);
+// 返回函数执行后的返回值
+return result;
+</code></pre>
+</blockquote>
+</li>
+<li><p>第五步：<strong>删除</strong>新创建的属性，保证 context 不被修改，恢复原貌</p>
+<blockquote>
+<pre><code>Function.prototype._call = function (context, ...args) &#123;
+// 创建一个变量，用来做为context对象的属性
+// 防止属性名与context身上的属性重名，则我们需要用Symbol();方式来创建
+var key = Symbol();
+// 这里的this指向的是函数本身，把函数转换成context身上的方法
+context[key] = this;
+// 调用函数，取得函数的返回结果
+var result = context[key](...args);
+// 这里要特别注意，我们不能修改context对象
+// 所以这里要把创建的属性，使用完，删除掉
+delete context[key];
+// 返回执行结果
+return result;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>第六步：考虑 context 的数据类型</p>
+<blockquote>
+<p>如果传递过来的第一个参数context，不是一个对象呢 ？</p>
+<ul>
+<li>如果传过的是<code>null、nudefined</code> ，此时 context 指向全局对象 <code>globalThis</code></li>
+<li>如果是<strong>原始</strong>数据类型呢 ？context 要被转换成对应的<strong>包装对象</strong></li>
+</ul>
+<pre><code> // 如果传过来的是null 或undefind，则this指向window
+// null ==null 返回true  undefined==null也是true
+// globalThis 在浏览器中指向window ，在nodejs中指向global
+if (context == null) context = globalThis;
+// 如果传过来的是基本数据类型（原始数据类型）
+// new Object(1) 转成 Number &#123;1&#125; ....
+if (typeof context !== &quot;object&quot;) context = new Object(context);
+</code></pre>
+</blockquote>
+</li>
+<li><p>第七步：判断调用 call 方法的对象，是不是一个函数</p>
+<blockquote>
+<ul>
+<li>按正常思维来思考，call 方法是在 <code>Function.prototype</code>上，只有函数才会调用到 call 方法。</li>
+<li>在实际上，会有一些特殊的情况，一个对象也能访问到 call 方法。<br>比如：</li>
+<li>如果一个对象是用 <code>Function.prototype</code> 构造出来的，那他这个对象就能调用 call 方法，但他不是一个函数</li>
+<li>Object.create()方法用于创建一个新对象，使用现有的对象来作为新创建对象的原型（prototype）</li>
+</ul>
+<pre><code>var obj = Object.create(Function.prototype);
+// obj是一个对象，但他能调用call方法
+</code></pre>
+</blockquote>
+<p>console.log(obj.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Function.prototype); &#x2F;&#x2F; true</p>
+<blockquote>
+<pre><code>- 所以需要判断调用 call方法的对象，是不是一个函数
+</code></pre>
+<p> &#x2F;&#x2F; 判断调用 call方法的对象，是不是一个函数<br>if (typeof this !&#x3D;&#x3D; “function”) {<br>  throw new TypeError(“Type Error !”);<br>}</p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>ES6版本——手写call方法</p>
+<blockquote>
+<pre><code>//实现：函数._call(obj,arg1,arg2,……)
+//context是指obj,参数通过...args传进去
+Function.prototype._call = function (context, ...args) &#123;
+// 判断调用 call方法的对象，是不是一个函数
+if (typeof this !== &quot;function&quot;) &#123;
+  throw new TypeError(&quot;Type Error !&quot;);
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 如果传过来的是null 或undefind，则this指向window<br>&#x2F;&#x2F; null &#x3D;&#x3D;null 返回true  undefined&#x3D;&#x3D;null也是true<br>&#x2F;&#x2F; globalThis 在浏览器中指向window ，在nodejs中指向global<br>if (context &#x3D;&#x3D; null) context &#x3D; globalThis;<br>&#x2F;&#x2F; 如果传过来的是基本数据类型（原始数据类型）<br>&#x2F;&#x2F; new Object(1) 转成 Number {1} ….<br>if (typeof context !&#x3D;&#x3D; “object”) context &#x3D; new Object(context);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 创建一个变量，用来做为context对象的属性<br>&#x2F;&#x2F; 防止属性名与context身上的属性重名，则我们需要用Symbol();方式来创建<br>var key &#x3D; Symbol();<br>&#x2F;&#x2F; 这里的this指向的是函数本身，把函数转换成context身上的方法<br>context[key] &#x3D; this;<br>&#x2F;&#x2F; 调用函数，取得函数的返回结果<br>var result &#x3D; context<a href="...args">key</a>;<br>&#x2F;&#x2F; 这里要特别注意，我们不能修改context对象<br>&#x2F;&#x2F; 所以这里要把创建的属性，使用完，删除掉<br>delete context[key];<br>&#x2F;&#x2F; 返回执行结果<br>return result;<br>};<br>var a &#x3D; 0;<br>var obj &#x3D; {<br>  a: 1,<br>  b: 2,<br>  c: 3,<br>};<br>function sum(a, b, c) {<br>  console.log(this.a + b + c);<br>}<br>sum(5, 6, 7); &#x2F;&#x2F;13 this是window<br>sum._call(obj, 8, 9, 10); &#x2F;&#x2F;20 this是obj</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>ES5 版本-手写 Call 方法（经典面试题）<blockquote>
+<p>在 ES5 中，是没有 Symbol 、 剩余参数 和 扩展运算符的，所以在 ES5 中，我们要如何处理下面两个问题 ？</p>
+<ul>
+<li>第一：如何创建出一个 context 对象身上没有的属性</li>
+<li>第二：如何解决动态传参的问题</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>如何创建出一个 context 对象身上没有的属性名</p>
+<blockquote>
+<ul>
+<li>随机生成属性名，</li>
+<li>然后判断这个属性名是否在原来的上下文对象中存在,如果存在，重新生成，如果不存在就可以使用</li>
+</ul>
+<pre><code>// 随机生成一个属性名，保证context对象身上没有与之同名的属性
+var key=&quot;fn&quot;+Math.random()+new Date().getTime();
+while(context.hasOwnProperty(key))&#123;
+key=&quot;fn&quot;+Math.random()+new Date().getTime();
+&#125;
+</code></pre>
+<blockquote>
+<p><code>new Date().getTime()</code>用来获取当前时间的时间戳</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Function 构造函数</p>
+<blockquote>
+<ul>
+<li>ES5要解决动态传参的问题，就要利用<code>new Function()</code>动态创建函数来实现</li>
+<li>语法：<code>var fn = new Function(arg1,arg2,arg3...,functionBody)</code></li>
+<li>fn 为新创建出来的函数</li>
+<li><code>arg1,arg2，arg3...</code> 都是一个字符串，为新创建出来的函数的<strong>形参</strong></li>
+<li><code>functionBod</code>是Function()构造函数的<strong>最后一个参数</strong>，表示新创建出来的函数的<strong>函数体代码</strong>，如果<code>new Function()</code>中只一个参数，那这个函数就是函数体代码，这个新创建出来的函数没有参数。</li>
+</ul>
+<pre><code>// 以下代码相当于创建了匿名函数  sum= function anonymous(a,b)&#123;return a+b&#125;
+var sum = new Function(&quot;a&quot;, &quot;b&quot;, &quot;return a+b&quot;);
+sum(1, 2); // 3
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 相当于创建了匿名函数<br>&#x2F;&#x2F; sayHello&#x3D;sayHell&#x3D;function anonymous(){console.log(“大家好，我是…”)}<br>var sayHello &#x3D; new Function(‘console.log(“大家好，我是…”)’);<br>sayHello(); &#x2F;&#x2F; 大家好，我是…</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>实现动态传递参数</strong></li>
+<li>fn 函数，除去第一个参数外，后面传过来多少个参数，就要把这些参数一一作为sum()的实参<br><strong>解决办法</strong></li>
+<li>我们可以根据 argArr 的长度，结合 new Function 来动态创建如下函数</li>
+</ul>
+<pre><code>// 假设argArr的长度是2,则创建出如下函数
+function anonymous(argArr) &#123;
+  return sum(argArr[0], argArr[1]);
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 假设argArr的长度为3，则创建出如下函数<br>function anonymous(argArr) {<br>  return sum(argArr[0], argArr[1], argArr[2]);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>相当于，我在 fn 的函数体内，只要调用上面创建出来的函数，就可以达到动态传参，并执行 sum 函数。</li>
+</ul>
+<pre><code>function fn(context) &#123;
+  // 处理fn动态传过来的参数，除去第一个参数，你传几个，我这里就接受几个
+  // 处理办法，先把接受过来的实参，添加到一个数组中
+  var argArr = [];
+  for (var i = 1; i &lt; arguments.length; i++) &#123;
+    argArr.push(arguments[i]);
+  &#125;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 假设 argArr长度为3 ，则下面代码<br>  &#x2F;&#x2F; 内部会执行  sum(argArr[0],argArr[1],argArr[2])<br>  return anonymous(argArr);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>根据 argArr 长度，动态创建需要的函数<blockquote>
+<ul>
+<li>要构造的函数：</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>function fn(context,key,args)&#123;
+  return context[key](args[0],args[1],args[2]...)；//code拼接函数体
+&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>因为参数个数不定，所以用new function构造函数</p>
+</blockquote>
+<pre><code>function createFn(argArrLength) &#123;
+  var code = &quot;return sum(&quot;;
+  for (var i = 0; i &lt; argArrLength; i++) &#123;
+    if (i &gt; 0) &#123;
+      code += &quot;,&quot;;
+    &#125;
+    code += &quot;argArr[&quot; + i + &quot;]&quot;;
+  &#125;
+  code += &quot;)&quot;;
+</code></pre>
+</blockquote>
+<p>  return new Function(“argArr”, code);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>最终我们只需要在 fn 函数内部调用 createFn 函数就可以实现了</li>
+</ul>
+<pre><code>function fn(context) &#123;
+  // 处理fn动态传过来的参数，除去第一个参数，你传几个，我这里就接受几个
+  // 处理办法，先把接受过来的实参，添加到一个数组中
+  var argArr = [];
+  for (var i = 1; i &lt; arguments.length; i++) &#123;
+    argArr.push(arguments[i]);
+  &#125;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 假设 argArr长度为3 ，则下面代码<br>  &#x2F;&#x2F; 内部会执行  sum(argArr[0],argArr[1],argArr[2])<br>  return createFn(argArr.length)(argArr);&#x2F;&#x2F;立即执行函数<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>实现动态传递参数 - 优化版<blockquote>
+<pre><code>function createFn(argArrLength) &#123;
+var code = &quot;return sum(&quot;;
+for (var i = 0; i &lt; argArrLength; i++) &#123;
+  if (i &gt; 0) &#123;
+    code += &quot;,&quot;;
+  &#125;
+  code += &quot;argArr[&quot; + i + &quot;]&quot;;
+&#125;
+code += &quot;)&quot;;
+</code></pre>
+</blockquote>
+return new Function(“argArr”, code);<br>}<blockquote>
+<pre><code>以上方法还有很大的局限性
+- 如果 fn 内部调用的函数不是sum是add、min、max呢 ？
+- 那就得把最开始的`var code=&#39;return sum(&#39;` 修改成`var code=&#39;return add(&#39;`
+- 为了让所有代码都能通用，我们把上面函数再做简单修改，修改如下：
+</code></pre>
+<p>function createFn(argArrLength) {<br>var code &#x3D; “return fnName(“;<br>for (var i &#x3D; 0; i &lt; argArrLength; i++) {<br>  if (i &gt; 0) {<br>    code +&#x3D; “,”;<br>  }<br>  code +&#x3D; “argArr[“ + i + “]”;<br>}<br>code +&#x3D; “)”;</p>
+</blockquote>
+return new Function(“argArr”, “fnName”, code);<br>}<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>这样修改后，不管 fn 内部调用的函数名是什么，我们只需要在调用 createFn 函数时，把对应的函数名传进去就可以了。</li>
+</ul>
+<pre><code>return createFn(argArr.length)(argArr, add); // fn内调用add函数
+</code></pre>
+</blockquote>
+<p>return createFn(argArr.length)(argArr, min); &#x2F;&#x2F; fn内调用min函数</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>总结：解决 call 方法内部动态传参问题<blockquote>
+<ul>
+<li>我们需要根据 argArr 的长度，来动态创建一个如下形式的函数</li>
+</ul>
+<pre><code>/**
+* 如果argArr长度为 3，则创建如下函数
+*  context 上下文对象，call中的第一个参数
+*  key 对象context的属性名
+*  argArrs参数数组
+*/
+function anonymous(context, key, argArr) &#123;
+return context[key](argArr[0], argArr[1], argArr[2]);
+&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 如果argArr 长度为2，则创建如下函数<br>function anonymous(context, key, argArr) {<br>return context[key](argArr[0], argArr[1]);<br>}<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>创建上面函数的函数</li>
+</ul>
+<pre><code>/**
+* 此函数用来处理call内部动态传参问题，根据数组长度来创建函数
+* argsLength 传入的数组的长度
+*/
+function createFun(argsLength) &#123;
+  // 动态创建函数体执行代码
+  var code = &quot;return context[key](&quot;;
+  // 拼接参数
+  for (var i = 0; i &lt; argsLength; i++) &#123;
+    // 第二个开始加逗号
+    if (i &gt; 0) &#123;
+      code += &quot;,&quot;;
+    &#125;
+    code += &quot;argArr[&quot; + i + &quot;]&quot;;
+  &#125;
+  code += &quot;)&quot;;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;  return context<a href="args%5B0%5D,args%5B1%5D,args%5B2%5D....">key</a><br>  &#x2F;&#x2F; 函数前三个参数分别代表： 执行上下文   属性名    参数   context<a href="args">key</a><br>  &#x2F;&#x2F; 但args是数组，所以需要动态的来拼接，不能直接用<br>  return new Function(“context”, “key”, “argArr”, code);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>完整版代码<br><code>函数.call(thisArg,arg1,arg2,arg3,...);</code></li>
+</ul>
+<pre><code>Function.prototype._call = function (context) &#123;
+  // context 表示传入的上下文对象，用实参来接受传过来的参数
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 判断调用 call方法的对象，是不是一个函数<br>  if (typeof this !&#x3D;&#x3D; “function”) {<br>    throw new TypeError(“Type Error !”);<br>  }<br>  if (context &#x3D;&#x3D; null) context &#x3D; globalThis;<br>  if (typeof context !&#x3D;&#x3D; “object”) context &#x3D; new Object(context);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 随机生成一个属性名，保证context对象身上没有与之同名的属性<br>  var key &#x3D; “fn_” + Math.random() * new Date().getTime();<br>  while (context.hasOwnProperty(key)) {<br>    key &#x3D; “fn_” + Math.random() * new Date().getTime();<br>  }</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;把调用call的函数改成obj的方法，所以为context对象添加一个属性key<br>  context[key] &#x3D; this;</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 解决动态传参问题：<br>  &#x2F;&#x2F;1.获取参数组成的数组和参数个数<br>  var argArr &#x3D; [];<br>  var len &#x3D; arguments.length;<br>  &#x2F;&#x2F;索引为0的是this&#x2F;obj对象<br>  for (var i &#x3D; 1; i &lt; len; i++) {<br>    argArr[i - 1] &#x3D; arguments[i];<br>  }<br>  &#x2F;&#x2F; 2. 传参给createFun函数来解决<br>  var result &#x3D; createFun(len - 1)(context, key, argArr);<br>  &#x2F;&#x2F;立即执行createFun(len - 1)函数<br>  &#x2F;&#x2F;并把(context, key, argArr)传参给new Function函数，执行code代码</p>
+<blockquote>
+</blockquote>
+<p>  delete context[key];<br>  return result;<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;传入实参len-1<br>function createFun(argsLength) {<br>  &#x2F;&#x2F; 动态创建函数体执行代码<br>  var code &#x3D; “return context[key](“;<br>  &#x2F;&#x2F; 拼接参数，第二个起是参数<br>  for (var i &#x3D; 0; i &lt; argsLength; i++) {<br>    if (i &gt; 0) {<br>      code +&#x3D; “,”;<br>    }<br>    code +&#x3D; “argArr[“ + i + “]”;<br>  }<br>  code +&#x3D; “)”;<br>  &#x2F;&#x2F;传入(context, key, argArr)参数，执行code函数体<br>  return new Function(“context”, “key”, “argArr”, code);<br>}</p>
+<blockquote>
+</blockquote>
+<p>var obj &#x3D; {<br>  a: 1,<br>  b: 2,<br>};<br>&#x2F;&#x2F;函数名随意，可以不是sum<br>function sum(a, b, c) {<br>  console.log(this.a, b, c);<br>}<br>sum._call(obj, 7, 8, 9);&#x2F;&#x2F;1 8 9</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol>
+<li>手写 apply 方法（经典面试题）<blockquote>
+<ul>
+<li>apply 和 call 方法一样，唯一的区别就在于，<strong>其后的参数是数组</strong></li>
+<li>所以要判断下，传过来的值是不是数组类型，如果不是，则赋值一个空数组</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>ES6方法</p>
+<blockquote>
+<pre><code>Function.prototype._apply = function (context, args = []) &#123;
+// 判断传过来的是不是一个数组,不是就赋值一个空数组
+args = Array.isArray(args) ? args : [];
+// 如果传过来的是null 或undefind，则this指向window
+// null ==null 返回true  undefined==null也是true
+// globalThis 在浏览器中指向window ，在nodejs中指向global
+if (context == null) context = globalThis;
+// 如果传过来的是基本数据类型（原始数据类型）
+// new Object(1) 转成 Number &#123;1&#125; ....
+if (typeof context !== &quot;object&quot;) context = new Object(context);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 创建一个变量，用来做为context对象的属性<br>&#x2F;&#x2F; 防止属性名与context身上的属性重名，则我们需要用Symbol();方式来创建<br>var key &#x3D; Symbol();<br>&#x2F;&#x2F; 这里的this指向的是函数本身，把函数转换成context身上的方法<br>context[key] &#x3D; this;<br>&#x2F;&#x2F; 调用函数，取得函数的返回结果<br>var result &#x3D; context<a href="...args">key</a>;<br>&#x2F;&#x2F; 这里要特别注意，我们并没有真正的在context对象上，创建了属性<br>&#x2F;&#x2F; 所以这里要把创建的属性，使用完，删除掉<br>delete context[key];<br>&#x2F;&#x2F; 返回执行结果<br>return result;<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>ES5方法</p>
+<blockquote>
+<pre><code>Function.prototype._call = function (context,args = []) &#123;
+// context 表示传入的上下文对象，用实参来接受传过来的参数
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 判断传过来的是不是一个数组,不是就赋值一个空数组<br>args &#x3D; Array.isArray(args) ? args : [];</p>
+<blockquote>
+<p>&#x2F;&#x2F; 判断调用 call方法的对象，是不是一个函数<br>if (typeof this !&#x3D;&#x3D; “function”) {<br>throw new TypeError(“Type Error !”);<br>}<br>if (context &#x3D;&#x3D; null) context &#x3D; globalThis;<br>if (typeof context !&#x3D;&#x3D; “object”) context &#x3D; new Object(context);</p>
+</blockquote>
+<p>&#x2F;&#x2F; 随机生成一个属性名，保证context对象身上没有与之同名的属性<br>var key &#x3D; “fn_” + Math.random() * new Date().getTime();<br>while (context.hasOwnProperty(key)) {<br>key &#x3D; “fn_” + Math.random() * new Date().getTime();<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;把调用call的函数改成obj的方法，所以为context 对象添加一个属性key<br>context[key] &#x3D; this;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 解决动态传参问题：<br>&#x2F;&#x2F;1.获取参数组成的数组和参数个数<br>var argArr &#x3D; args;<br>var len &#x3D; arguments.length;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 2. 传参给createFun函数来解决<br>var result &#x3D; createFun(len - 1)(context, key, argArr);<br>&#x2F;&#x2F;立即执行createFun(len - 1)函数<br>&#x2F;&#x2F;并把(context, key, argArr)传参给new Function函数，执行code代码</p>
+<blockquote>
+</blockquote>
+<p>delete context[key];<br>return result;<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;传入实参len-1<br>function createFun(argsLength) {<br>&#x2F;&#x2F; 动态创建函数体执行代码<br>var code &#x3D; “return context[key](“;<br>&#x2F;&#x2F; 拼接参数，第二个起是参数<br>for (var i &#x3D; 0; i &lt; argsLength; i++) {<br>if (i &gt; 0) {<br>  code +&#x3D; “,”;<br>}<br>code +&#x3D; “argArr[“ + i + “]”;<br>}<br>code +&#x3D; “)”;<br>&#x2F;&#x2F;传入(context, key, argArr)参数，执行code函数体<br>return new Function(“context”, “key”, “argArr”, code);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="6">
+<li>手写 bind 方法</li>
+</ol>
+<ul>
+<li><p>核心功能</p>
+<blockquote>
+<ul>
+<li>改变函数的this指向</li>
+<li>返回一个新函数</li>
+<li>可以提前预设参数</li>
+</ul>
+</blockquote>
+</li>
+<li><p>思路</p>
+<blockquote>
+<ul>
+<li>bind 的方法在 Function 的原型上</li>
+</ul>
+<pre><code>Function.prototype._bind = function () &#123;&#125;;
+</code></pre>
+<ul>
+<li>bind 的第一个参数是更改原函数中的 this 指向，后面参数个数不限</li>
+<li>改变原函数中 this，可以用原函数.apply(context)方法</li>
+<li>预设参数：用 concat 来拼接两次调用函数传来参数</li>
+<li>bind 函数的返回值，又是一个函数</li>
+</ul>
+<pre><code>Function.prototype._bind = function (context) &#123;
+return function () &#123;&#125;;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>考虑 bind 返回的新函数作为构造函数的情况<ul>
+<li>bind 的新函数作为构造函数，其内部 this 指向的还是原函数 new 出来的实例对象</li>
+<li>同时内部相当于直接调用了<code>new 原函数()</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>考虑调用 bind 的对象不是一个函数</li>
+<li>如果 bind 的第一个参数 thisArg 是<ul>
+<li>一个 null 或 undefined 时，其函数会自动将 this 替换为指向全局对象</li>
+<li>如果 thisArg 是一个原始值会被包装成一个对象</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>完整代码<blockquote>
+<pre><code>Function.prototype._bind = function (context) &#123;
+// null ==null 返回true  undefined==null也是true
+// globalThis 在浏览器中指向window ，在nodejs中指向global
+if (context == null) context = globalThis;
+// 如果传过来的是基本数据类型（原始数据类型）
+// new Object(1) 转成 Number &#123;1&#125; ....
+if (typeof context !== &quot;object&quot;) context = new Object(context);
+</code></pre>
+</blockquote>
+var self &#x3D; this; &#x2F;&#x2F; 保存原函数<br>&#x2F;&#x2F; 第一次传入的参数<br>var arg1 &#x3D; Array.prototype.slice.call(arguments, 1);<br>function fn() {<br>  &#x2F;&#x2F; 第二次传入的参数<br>  var arg2 &#x3D; Array.prototype.slice.call(arguments);<br>  &#x2F;&#x2F; 合并两次传入的参数<br>  var arg &#x3D; arg1.concat(arg2);<br>  &#x2F;&#x2F; 如果this指向的是fn的实例,则说明外部是以构造函数形式调用的<br>  if (this instanceof fn) {<br>return new self(…arg1, …arg2);<br>  } else {<br>return self.apply(context, arg);<br>  }<br>}<br>return fn;<br>};<blockquote>
+</blockquote>
+function Point(x, y) {<br>this.x &#x3D; x;<br>this.y &#x3D; y;<br>&#x2F;&#x2F; console.log(this.x, this.y);<br>}<br>Point.prototype.toString &#x3D; function () {<br>return this.x + “,” + this.y;<br>};<blockquote>
+</blockquote>
+var point &#x3D; Point._bind([], 0);<br>var p &#x3D; new point(5, 9);<br>console.log(p.toString());<blockquote>
+</blockquote>
+&#x2F;&#x2F; 测试样例<br>var obj &#x3D; {<br>a: 1,<br>b: 2,<br>c: 3,<br>};<br>function sum(a, b, c) {<br>console.log(this.a, this.b, c);<br>}<br>var fn &#x3D; sum.bind(obj, 6);<br>fn(3, 4);<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%85%AB%EF%BC%89/">https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%85%AB%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B9%9D%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JS核心知识点（九）">
+                        
+                        <span class="card-title">JS核心知识点（九）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS DOM样式与节点操作
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="JS核心知识点（七）">
+                        
+                        <span class="card-title">JS核心知识点（七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 算法，大厂前端面试真题
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

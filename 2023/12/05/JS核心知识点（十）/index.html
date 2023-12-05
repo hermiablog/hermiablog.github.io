@@ -1,0 +1,3990 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-05
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    16.8k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、DOM-事件的基本介绍"><a href="#一、DOM-事件的基本介绍" class="headerlink" title="一、DOM 事件的基本介绍"></a>一、DOM 事件的基本介绍</h3><ol>
+<li><p>什么是 DOM 事件 ？</p>
+<blockquote>
+<p>事件可以理解为：用户与网页发生的<strong>交互动作</strong>，比如：</p>
+<ul>
+<li>当鼠标移动到元素上面，会触发<code>mouseover</code>事件</li>
+<li>当鼠标标点击中某个页面元素 ，会触发<code>click</code>事件</li>
+<li>当用户进入或离开页面时，会触发 load 和 unload 事件</li>
+<li>…. DOM 中的事件非常多，我们后面慢慢来学习<blockquote>
+<p>当我们触发了上面这些事件时，计算机是如何知道用户与浏览器（网页）发生了这些交互呢 ？这就涉及到事件监听。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>什么是事件监听 ？</p>
+<blockquote>
+<ul>
+<li>事件监听：就是计算机对事件进行监听，知道什么时候发生了这个事件，从而执行一些程序员预先编写好的程序。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>设置事件监听的方法</p>
+<blockquote>
+<p>设置事件监听的方法有 2 种</p>
+<ul>
+<li>以 on 方式注册事件（绑定事件）</li>
+<li>以 addEventListener() 方式监听注册事件</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>on 方式注册事件</p>
+<blockquote>
+<p>基本用法：</p>
+<ul>
+<li>语法<br><code>eventTarget.on事件类型 = fn;</code></li>
+<li><code>eventTarget</code> 触发事件的<strong>目标对象</strong>，称为<strong>事件源</strong></li>
+<li>on后面是<strong>事件类型</strong>，事件类型有很多如 click、mouseover、keydown、focus 等</li>
+<li>fn是一个函数，事件触发时调用的函数，被称为<strong>事件处理函数</strong></li>
+<li>一个完整的 DOM 事件，需要具备以上三部分：事件源、事件类型、事件处理函数</li>
+</ul>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&lt;script&gt;
+// 获取dom元素
+var btn = document.getElementById(&quot;btn&quot;);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; btn 为事件源 click 为事件类型名，这里的函数为事件处理函数<br>btn.onclick &#x3D; function () {<br>  alert(“我被点击了1”);<br>};<br>btn.onclick &#x3D; function () {<br>  alert(“我被点击了2”);<br>};</p>
+<blockquote>
+<p></script></p>
+<pre><code>&gt;on 方式注册事件，同一元素的同一事件，**只能有一个**事件处理函数，同时以写在**后面的为主**
+</code></pre>
+</blockquote>
+</li>
+<li><p>以 addEventListener 方式监听注册事件</p>
+<blockquote>
+<p>基本用法</p>
+<ul>
+<li>语法<br><code>eventTarget.addEventListener(type, fn, useCapture);</code></li>
+<li><code>eventTarget</code>为事件源, 触发事件的目标对象</li>
+<li><code>type</code>监听事件的类型，type要加引号</li>
+<li><code>fn</code>事件处理函数</li>
+<li><code>useCapture</code>设置事件触发是捕获阶段还是冒泡阶段，其值只能是 false 和 true<ul>
+<li>true 表示在捕获阶段触发</li>
+<li>false 默认值，表示在冒泡阶段触发</li>
+</ul>
+</li>
+<li>addEventListener方式，可以给元素的同一个事件添加<strong>多个</strong>事件监听（即绑定多个事件处理函数）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>应用场景</p>
+<ul>
+<li>同一个页面要实现<strong>吸顶盒效果、楼梯式导航、滚动到底部加载更多</strong>等效果，这些效果都会用到<code>window.srcoll事件</code></li>
+<li>所以我们需要为 window 的 scroll 事件，添加三个事件处理函数来分别处理以上三种效果。</li>
+</ul>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&lt;script&gt;
+  // 获取dom元素
+  var btn = document.getElementById(&quot;btn&quot;);
+  // btn 为事件源 click 为事件类型名，fn为事件处理函数  false表示在冒泡阶段触发
+  btn.addEventListener(&quot;click&quot;, fn1, false);
+  btn.addEventListener(&quot;click&quot;, fn2, false);
+  function fn1() &#123;
+    alert(&quot;我被点击了fn1&quot;);
+  &#125;
+  function fn2() &#123;
+    alert(&quot;我被点击了fn2&quot;);
+  &#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>移除事件监听</li>
+</ol>
+<ul>
+<li><p>移除<code>on</code>方式绑定（注册）的事件</p>
+<blockquote>
+<p><code>eventTarget.on事件类型 = null; // 移除事件处理程序</code></p>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+
+&lt;script&gt;
+// 获取dom元素
+var btn = document.getElementById(&quot;btn&quot;);
+btn.onclick = function () &#123;
+  console.log(&quot;点击后要执行的内容&quot;);
+&#125;;
+btn.onclick = null; // 移除 click事件
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>移除<code>addEventListener</code>方式的事件监听，需要通过 <code>removeEventListener</code>方法来实现</p>
+<blockquote>
+<pre><code>removeEventListener(事件名，事件处理函数，布尔值); // 用来移除具体的某一个事件监听
+// 移除时的，事件名，事件处理函数，布尔值 要与addEventListener添加时的参数完全相同
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>因为<code>addEventListener</code>可以为同一元素的的同一事件绑定多个事件处理函数</li>
+<li>所以，用<code>removeEventListener</code>方法来移除对应事件监听时，要<strong>保证移除的事件名，事件处理函数，布尔值</strong>要与 <code>addEventListener</code><strong>添加时的参数完全相同</strong>。才能移除具体的某个事件监听</li>
+</ul>
+<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&lt;script&gt;
+  // 获取dom元素
+  var btn = document.getElementById(&quot;btn&quot;);
+  btn.addEventListener(&quot;click&quot;, fn1, false);
+  // 不能移除，因为没有相对应的事件监听
+  // btn.removeEventListener(&quot;click&quot;, fn1, true);
+  // 移除第一次添加的事件监听
+  btn.removeEventListener(&quot;click&quot;, fn1, false);
+  function fn1() &#123;
+    console.log(&quot;执行了fn1&quot;);
+  &#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>如果注册事件时，fn写的是整个函数，而不是函数名，则无法移除</li>
+<li>以下写法，不能移除事件</li>
+</ul>
+<pre><code>//注册事件
+ btn.addEventListener(
+   &quot;click&quot;,
+   function fn1() &#123;
+     alert(&quot;你被点击了&quot;);
+   &#125;,
+   false
+ );
+ //   移除事件
+ btn.removeEventListener(
+   &quot;click&quot;,
+   function fn1() &#123;
+     alert(&quot;你被点击了&quot;);
+   &#125;,
+   false
+ );
+</code></pre>
+</blockquote>
+<h3 id="二、常见鼠标事件"><a href="#二、常见鼠标事件" class="headerlink" title="二、常见鼠标事件"></a>二、常见鼠标事件</h3><blockquote>
+<ul>
+<li>用<code>addEventListener</code>时，去掉<code>on</code><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>当鼠标单击某个对象</td>
+</tr>
+<tr>
+<td>ondbclick</td>
+<td>当鼠标双击某个对象</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>当鼠标进入某个对象</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>当鼠标离开某个对象</td>
+</tr>
+<tr>
+<td>onmouseenter</td>
+<td>当鼠标进入某个对象（相似事件 onmouseover）不能向上冒泡</td>
+</tr>
+<tr>
+<td>onmouseleave</td>
+<td>当鼠标离开某个对象（相似事件 onmouseout）不能向上冒泡</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>当某个鼠标按键在某个对象上被按下</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>当某个鼠标按键在某个对象上被松开</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>当某个鼠标按键在某个对象上被移动</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h4 id="onclick-与-ondblclick-事件"><a href="#onclick-与-ondblclick-事件" class="headerlink" title="onclick 与 ondblclick 事件"></a>onclick 与 ondblclick 事件</h4><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onclick</td>
+<td>鼠标单击事件，当鼠标单击某个对象时触发</td>
+</tr>
+<tr>
+<td>ondblclick</td>
+<td>鼠标双击事件，当鼠标双击某个对象时触发</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>&lt;style&gt;
+ .box &#123;
+   width: 200px;
+   height: 200px;
+   background-color: skyblue;
+ &#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  // 单击事件
+  box.onclick = function () &#123;
+    console.log(&quot;我是 onclick&quot;);
+  &#125;;
+  // 双击事件
+  box.ondblclick = function () &#123;
+    alert(&quot;我是 ondblclick&quot;);
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<h4 id="事件处理函数中的-this-指向"><a href="#事件处理函数中的-this-指向" class="headerlink" title="事件处理函数中的 this 指向"></a>事件处理函数中的 this 指向</h4><blockquote>
+<ul>
+<li>事件处理函数中的 this 指向<strong>绑定事件的那个对象</strong></li>
+</ul>
+<pre><code>&lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  // on开头绑定事件
+  box.onclick = function () &#123;
+    console.log(this); // &lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
+  &#125;;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; addEventListener 绑定事件<br>  box.addEventListener(“click”, fn, false);<br>  function fn() {<br>    console.log(this); &#x2F;&#x2F; <div class="box">点我</div><br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ol>
+<li><p>案例1：当用户点击页面上的 div 后，更改 div 的背景色</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+ .box &#123;
+   width: 200px;
+   height: 200px;
+   background-color: skyblue;
+ &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // 获取class名为box的div
+  var box = document.querySelector(&quot;.box&quot;);
+  // on开头的方式给box元素添加click点击事件
+  // 当box元素被点击后，就会触发click事件，从而执行后面函数中的代码
+  box.onclick = function () &#123;
+ this.style.backgroundColor = &quot;khaki&quot;; // 更改div的背景颜色
+  &#125;;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 以addEventListener（）方法给 box元素添加click事件<br>  &#x2F;&#x2F; 当box元素被点击后，就会触发click事件，从而执行bgColor函数<br>  box.addEventListener(“click”, bgColor, false);<br>  function bgColor() {<br> this.style.backgroundColor &#x3D; “blue”;<br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>案例2：点击显示和隐藏</p>
+<blockquote>
+<ul>
+<li>默认状态为隐藏，点击按钮切换状态</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>方法1：<blockquote>
+<ul>
+<li>操作样式（控制元素显示与隐藏），改变<code>display</code></li>
+<li>开关锁：定义一个变量来标记当前状态<blockquote>
+<p>注意：这里不能用<code>this</code>，因为事件源是<code>button</code>，而做出改变的是<code>box</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    display: none;
+  &#125;
+&lt;/style&gt;
+
+&lt;button&gt;点击&lt;/button&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  btn = document.querySelector(&quot;button&quot;);
+  box = document.querySelector(&quot;.box&quot;);
+  var flag = false; //默认情况下不显示
+  btn.onclick = function () &#123;
+    // 如果flag是true，则点击后隐藏
+  if (flag) &#123;
+    box.style.display = &quot;none&quot;;
+    flag = false;
+  &#125; else &#123;
+    // 如果flag是false，则点击后显示出来
+    box.style.display = &quot;block&quot;;
+    flag = true;
+  &#125;
+&#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li>方法2<blockquote>
+<ul>
+<li>利用<code>classList.toggle()</code>方法，实现两种样式之间相互转换</li>
+<li><code>toggle()</code>：如果有这个类名,则删除这个类名，返回 <code>false</code>，如果没有，则添加该类名，返回 <code>true</code></li>
+</ul>
+<pre><code>&lt;style&gt;
+.box &#123;
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  display: none;
+&#125;
+.hide &#123;
+display: none;
+&#125;
+&lt;/style&gt;
+
+&lt;button&gt;点击&lt;/button&gt;
+&lt;div class=&quot;box hide&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+btn = document.querySelector(&quot;button&quot;);
+box = document.querySelector(&quot;.box&quot;);
+// 方法2：
+btn.onclick = function () &#123;
+  box.classList.toggle(&quot;hide&quot;);
+&#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>案例 3：变色小球<blockquote>
+<ul>
+<li>让小球在红（red)，绿(green)，黄(yellow)，蓝(blue) 4 个颜色之间切换</li>
+<li>小球初始颜色为红色（red），第一次点击后，变为绿色（green），第二次点击，变为黄色（yellow），第三次点击变为蓝色（blue），第四点击后变为红色（red）</li>
+<li>后面点击依次按上面步骤来切换不同颜色</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>解题思路：<blockquote>
+<ul>
+<li>我们可以定义一个变量<code>bgColor</code>，用来保存元素的当前的颜色状态</li>
+<li>刚开始小球颜色为红色，即<code>bgColor = &#39;red&#39;;</code></li>
+<li>然后每次点击后，判断下当前的颜色，</li>
+<li>如果为<code>red</code>，则把小球背景色变为<code>green</code>，同时<code>bgColor = &#39;green&#39;</code>,更改为当前球的背景色</li>
+<li>如果为<code>green</code>，则把小球背景色变为<code>yellow</code>，同时<code>bgColor = &#39;yellow&#39;</code>,更改为当前球的背景色</li>
+<li>如果为<code>yellow</code>，则把小球背景色变为<code>blue</code>，同时<code>bgColor = &#39;blue&#39;</code>,更改为当前球的背景色</li>
+<li>如果为<code>blue</code>，则把小球背景色变为<code>red</code>，同时<code>bgColor = &#39;red&#39;</code>,更改为当前球的背景色</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .ball &#123;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;ball&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var ball = document.querySelector(&quot;.ball&quot;);
+  var bgColor = &quot;red&quot;;
+  ball.onclick = function () &#123;
+    if (bgColor === &quot;red&quot;) &#123;
+      this.style.backgroundColor = &quot;green&quot;;
+      bgColor = &quot;green&quot;;
+    &#125; else if (bgColor === &quot;green&quot;) &#123;
+      this.style.backgroundColor = &quot;yellow&quot;;
+      bgColor = &quot;yellow&quot;;
+    &#125; else if (bgColor === &quot;yellow&quot;) &#123;
+      this.style.backgroundColor = &quot;blue&quot;;
+      bgColor = &quot;blue&quot;;
+    &#125; else if (bgColor === &quot;blue&quot;) &#123;
+      this.style.backgroundColor = &quot;red&quot;;
+      bgColor = &quot;red&quot;;
+    &#125;
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li><strong>优化版</strong><blockquote>
+<ul>
+<li>元素在多个状态之间切换，可以把 <code>if</code> 这种方式，改成用 <code>switch 语句</code>来实现，条理更清淅</li>
+<li>把 <code>bgColor</code> 这个变量，更改为<strong>对象自身的一个属性</strong>，更好，这样就可以<strong>消除全局变量</strong>，同时如果页面有多个相似的对象，那这些对象之间互不干扰</li>
+<li>把这个改变元素背景颜色的<strong>函数封装</strong>成一个大家共用的方法</li>
+</ul>
+<pre><code>&lt;style&gt;
+.ball1 &#123;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+&#125;
+.ball2 &#123;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: green;
+&#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;ball1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;ball2&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+var ball1 = document.querySelector(&quot;.ball1&quot;);
+var ball2 = document.querySelector(&quot;.ball2&quot;);
+ball1.bgColor = &quot;red&quot;; // bgColor为对象的一个属性
+ball1.onclick = changeBgColor;
+ball2.bgColor = &quot;green&quot;; // bgColor为对象的一个属性
+ball2.onclick = changeBgColor;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 把切换背景的功能，抽离成一个公共方法<br>function changeBgColor() {<br>  switch (this.bgColor) {<br>case “red”:<br>  this.style.backgroundColor &#x3D; “green”;<br>  this.bgColor &#x3D; “green”;<br>  break;<br>case “green”:<br>  this.style.backgroundColor &#x3D; “yellow”;<br>  this.bgColor &#x3D; “yellow”;<br>  break;<br>case “yellow”:<br>  this.style.backgroundColor &#x3D; “blue”;<br>  this.bgColor &#x3D; “blue”;<br>  break;<br>case “blue”:<br>  this.style.backgroundColor &#x3D; “red”;<br>  this.bgColor &#x3D; “red”;<br>  break;<br>  }<br>}<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>如果一个元素在<strong>多个状态</strong>之间相互切换，我们可以在元素身上<strong>定义一个属性</strong>，这个属性用来保存当前元素的当前状态。</li>
+<li>然后在每次切换状态前，判断下当前的状态，再根据不同的状态来实现不同效果。</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>案例 4：点击弹出对应 li 的序号<blockquote>
+<p>涉及知识点</p>
+<ul>
+<li>对象自定义属性的应用</li>
+<li>闭包的应用<blockquote>
+<p>如下：当点击第一个 1，弹出 0，第二个弹出 1，第三个弹出 2，第 4 个弹出 3</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;body&gt;
+&lt;ul class=&quot;list&quot;&gt;
+    &lt;li&gt;1&lt;/li&gt;
+    &lt;li&gt;2&lt;/li&gt;
+    &lt;li&gt;3&lt;/li&gt;
+    &lt;li&gt;4&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    var liList = document.querySelectorAll(&quot;.list li&quot;);
+    // 常见错误写法
+    for (var i = 0; i &lt; liList.length; i++) &#123;
+      liList[i].onclick = function () &#123;
+        alert(i);
+      &#125;;
+    &#125;
+</code></pre>
+</blockquote>
+<pre><code>// 正确写法一：自定义属性
+for (var i = 0; i &lt; liList.length; i++) &#123;
+  liList[i].index = i; // 给每个对象添加自定义属性，来保存对应下标
+  liList[i].onclick = function () &#123;
+    alert(this.index);
+  &#125;;
+&#125;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 正确写法二：利用闭包
+for (var i = 0; i &lt; liList.length; i++) &#123;
+  (function (i) &#123;
+    liList[i].onclick = function () &#123;
+      alert(i);
+    &#125;;
+  &#125;)(i);
+&#125;
+</code></pre>
+<blockquote>
+<p> </script></p>
+</body>
+```
+</blockquote>
+<blockquote>
+<p><strong>错误写法解读</strong></p>
+<ul>
+<li><code>liList[0].onclick = function () &#123; alert(i); &#125;</code></li>
+<li><code>alert(i);</code>在函数里，所以他并不会马上执行，只有当函数被调用，也就是被点击的时候才会执行</li>
+<li>而执行时，i是全局变量，在for循环结束后，i已经变成了4，所以每个li被点击时，都会得到4；</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>解决办法1解读</strong></p>
+<ul>
+<li>通过for循环，给每个li添加自定义属性，里面保存i的值作为li的下标，点击事件发生时，就调用该属性</li>
+<li>每次循环都会保存不同的值，而且互不影响</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>解决办法2解读</strong></p>
+<ul>
+<li>使用立即执行函数，每次for循环开始，就马上执行该函数</li>
+<li>由于点击事件里面的函数，在点击时才会执行，所以立即执行函数会产生一个闭包，里面保存当前for循环的i值</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>案例 5：点击随机生成 6 位符号验证码<blockquote>
+<p>涉及知识</p>
+<ul>
+<li>创建 DOM 元素，同时添加样式，事件等</li>
+<li>随机函数：随机数字及颜色，随机背景图片<br><strong>思路：</strong></li>
+<li>效果：用元素调用函数，就直接能在该函数里生成随机验证码</li>
+<li>因此，该效果里的html元素都要在函数内用JS生成，不能写死</li>
+<li>验证码里的数字、字母、背景干扰图片也是自动生成的，可以各写成两个独立函数，在主函数内调用</li>
+<li>设置点击事件，每点击一次，更新验证码背景图片<blockquote>
+<p>注意：更新数字和字母前，一定要把之前的内容清空</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;style&gt;
+  /* .yzm &#123;
+    position: relative;
+    width: 150px;
+    height: 50px;
+  &#125; */
+  /* .yzm .yzm-code &#123;
+    background-color: #ddd;
+    height: 100%;
+    font-size: 0;
+    text-align: center;
+    line-height: 50px;
+  &#125; */
+  /* .yzm .yzm-code span &#123;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 2px;
+    user-select: none;
+  &#125; */
+  /* .yzm-bg &#123;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../src/yzm/line1.png) no-repeat center;
+    background-size: cover;
+    cursor: pointer;
+  &#125; */
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;
+  &lt;!-- &lt;div class=&quot;yzm&quot;&gt;
+    &lt;div class=&quot;yzm-code&quot;&gt;
+      &lt;span&gt;1&lt;/span&gt;
+      &lt;span&gt;d&lt;/span&gt;
+      &lt;span&gt;b&lt;/span&gt;
+      &lt;span&gt;a&lt;/span&gt;
+      &lt;span&gt;9&lt;/span&gt;
+      &lt;span&gt;5&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;yzm-bg&quot;&gt;&lt;/div&gt; --&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  // 用js写出html元素
+  function getYzm(el) &#123;
+    // 首先创建yzm的html结构
+    var yzm = document.createElement(&quot;div&quot;);
+    // 给yzm添加样式
+    yzm.style.cssText = &quot;position: relative;width: 150px;height: 50px;&quot;;
+    // 创建数字结构
+    var yzmCode = document.createElement(&quot;div&quot;);
+    // 给yzmCode添加样式
+    yzmCode.style.cssText =
+      &quot;background-color: #ddd;height: 100%;font-size: 0;text-align: center;line-height: 50px;&quot;;
+    // 创建背景结构
+    var yzmBg = document.createElement(&quot;div&quot;);
+    // 给背景添加样式
+    yzmBg.style.cssText =
+      &quot;position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: url(../src/yzm/line1.png) no-repeat center;background-size: cover;cursor: pointer;&quot;;
+    // 把yzmCode添加到yam上
+    yzm.appendChild(yzmCode);
+    // 将背景添加到yzm上
+    yzm.appendChild(yzmBg);
+    // 将yzm添加到容器元素上
+    el.appendChild(yzm);
+    // 调用随机数字函数
+    updateCode(yzmCode);
+      // 添加点击事件
+      yzm.addEventListener(&quot;click&quot;, updateYzm, false);
+      function updateYzm() &#123;
+        updateCode(yzmCode);
+        // 调用随机背景函数
+        updateBg(yzmBg);
+      &#125;
+    &#125;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 生成随机数字、颜色<br>  function updateCode(el) {<br>    &#x2F;&#x2F; 在赋值前，先把之前内容全部清空<br>    el.innerHTML &#x3D; “”;<br>    &#x2F;&#x2F; 声明数字组成的数组<br>    var codeArr &#x3D; [1, 2, 3, 4, 5, 6, 7, 8, 9, “a”, “f”, “r”, “l”, “i”, “o”];<br>    var colorArr &#x3D; [“#000”, “blue”, “green”, “tomato”, “red”, “purple”];<br>    for (var i &#x3D; 0; i &lt; 6; i++) {<br>      var span &#x3D; document.createElement(“span”);<br>      &#x2F;&#x2F;   添加样式<br>      span.style.cssText &#x3D;<br>        “font-weight: bold;font-size: 30px;margin: 2px; user-select: none;”;<br>      &#x2F;&#x2F; 生成随机数字<br>      var codeIndex &#x3D; (Math.random() * codeArr.length) &gt;&gt; 0;<br>      span.innerText &#x3D; codeArr[codeIndex];<br>      &#x2F;&#x2F; 生成随机颜色<br>      var colorIndex &#x3D; (Math.random() * colorArr.length) &gt;&gt; 0;<br>      span.style.color &#x3D; colorArr[colorIndex];<br>      &#x2F;&#x2F; 添加到yzmCode中<br>      el.appendChild(span);<br>    }<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 生成随机背景<br>  function updateBg(el) {<br>    var bgArr &#x3D; [<br>      “..&#x2F;src&#x2F;yzm&#x2F;line1.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line2.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line3.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line4.png”,<br>    ];<br>    var bgIndex &#x3D; (Math.random() * bgArr.length) &gt;&gt; 0;<br>    &#x2F;&#x2F; 把背景添加到el样式中<br>    el.style.backgroundImage &#x3D; “url(“ + bgArr[bgIndex] + “)”;<br>  }<br>  var box &#x3D; document.querySelector(“.box”);<br>  getYzm(box);</p>
+<blockquote>
+<p></script></p>
+</body>
+```
+</blockquote>
+<blockquote>
+<ul>
+<li><code>user-select: none;</code>不能选中文字</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>案例 6：点击换肤效果<img src="换肤效果.gif"></li>
+</ol>
+<p><strong>涉及知识点</strong></p>
+<blockquote>
+<ul>
+<li>背景图片撑满整个屏幕(body不设置宽高时)<ul>
+<li><code>html,body&#123;width:100%;height:100%&#125;</code></li>
+<li><code>body&#123;background-size:cover&#125;</code></li>
+</ul>
+</li>
+<li>选择皮肤时的边框<ul>
+<li>为了不影响图片的位置和效果，不能设置成<code>border</code>，而是要设置成<code>outline</code></li>
+<li><code>outline</code>不占据空间，绘制于元素内容周围的轮廓 ，不参于盒子模型的占位计算，不会因为添加这个属性，而造成盒子占位空间变化。</li>
+<li>边框只能出现在一个皮肤上，两个解决办法：<strong>排他思想</strong>、<strong>标记前一个并删除边框</strong>，后一个性能更高</li>
+</ul>
+</li>
+<li>点击小图更换皮肤<ul>
+<li>设置<strong>自定义属性</strong>，使大图与小图相对应</li>
+<li>设置方式：直接在标签上书写，命名规则：以<code>data-</code>开头</li>
+<li>获取方式：直接通过<code>对象.dataset.属性名</code>（属性名书写格式：属性去掉 data-之后的单词，以驼峰命名）</li>
+</ul>
+</li>
+<li>点击叉叉关闭遮罩层和皮肤选择框<blockquote>
+<p>重难点：利用自定义属性保存每个元素标签不同的数据；</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  ul,
+  li &#123;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  &#125;
+  /* 清除浮动 */
+  .clearfix::after &#123;
+    display: block;
+    clear: both;
+    content: &quot;&quot;;
+  &#125;
+  /* 皮肤撑满屏幕 */
+  html,
+  body &#123;
+    width: 100%;
+    height: 100%;
+  &#125;
+  body &#123;
+    margin: 0;
+    background: url(../src/skin/big1.jpg) no-repeat;
+    background-size: cover;
+  &#125;
+  /* 换肤按钮 */
+  .update-skin &#123;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    user-select: none;
+  &#125;
+  /* 皮肤容器 */
+  .container-skin &#123;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    width: 540px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 5px;
+  &#125;
+  /* 皮肤框 */
+  .select-skin li img &#123;
+    width: 260px;
+    height: 163px;
+    float: left;
+    margin: 5px;
+    cursor: pointer;
+  &#125;
+  /* 关闭框 */
+  .container-skin .close &#123;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    font-size: 20px;
+    background-color: #000;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  &#125;
+  .mask &#123;
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.5;
+  &#125;
+  .hide &#123;
+    display: none;
+  &#125;
+&lt;/style&gt;
+
+&lt;body&gt;
+&lt;div class=&quot;update-skin&quot;&gt;更换皮肤&lt;/div&gt;
+&lt;div class=&quot;container-skin&quot;&gt;
+  &lt;!-- 皮肤 --&gt;
+  &lt;ul class=&quot;select-skin clearfix&quot;&gt;
+    &lt;li&gt;
+      &lt;img
+        src=&quot;../src/skin/min1.jpg&quot;
+        alt=&quot;&quot;
+        data-skin=&quot;../src/skin/big1.jpg&quot;
+      /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;img
+        src=&quot;../src/skin/min2.jpg&quot;
+        alt=&quot;&quot;
+        data-skin=&quot;../src/skin/big2.jpg&quot;
+      /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;img
+        src=&quot;../src/skin/min3.jpg&quot;
+        alt=&quot;&quot;
+        data-skin=&quot;../src/skin/big3.jpg&quot;
+      /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;img
+        src=&quot;../src/skin/min4.jpg&quot;
+        alt=&quot;&quot;
+        data-skin=&quot;../src/skin/big4.jpg&quot;
+      /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;!-- 关闭按钮 --&gt;
+  &lt;div class=&quot;close&quot;&gt;X&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- 遮罩层 --&gt;
+&lt;div class=&quot;mask hide&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+ // 点击换肤按钮，跳出选择框、遮罩层
+  var btnSkin = document.querySelector(&quot;.update-skin&quot;);
+  var container = document.querySelector(&quot;.container-skin&quot;);
+  var mask = document.querySelector(&quot;.mask&quot;);
+  btnSkin.onclick = function () &#123;
+    container.style.display = &quot;block&quot;;
+    mask.classList.toggle(&quot;hide&quot;);
+    // mask.style.display = &quot;block&quot;;
+  &#125;;
+  // 点击关闭按钮，关闭皮肤框
+  var btnClose = document.querySelector(&quot;.container-skin .close&quot;);
+  btnClose.onclick = function () &#123;
+    container.style.display = &quot;none&quot;;
+    mask.classList.toggle(&quot;hide&quot;);
+    // mask.style.display = &quot;none&quot;;
+  &#125;;
+  //自定义属性，点击换肤；设置边框
+  var imgList = document.querySelectorAll(&quot;.select-skin li img&quot;);
+  var len = imgList.length;
+  var selectImg = imgList[0]; //用来标记前一个被选中的图片
+  selectImg.style.outline = &quot;1px solid red&quot;; //默认选中第一个
+  for (var i = 0; i &lt; len; i++) &#123;
+    //给每个imgList添加点击事件
+    imgList[i].onclick = function () &#123;
+      //   排他法：每次点击后，先清楚所有图片的外轮廓
+      //   for (var j = 0; j &lt; len; j++) &#123;
+      //     imgList[j].style.outline = &quot;&quot;;
+      //   &#125;
+      //   this.style.outline = &quot;1px solid red&quot;;
+      //清除前一个法
+      selectImg.style.outline = &quot;&quot;; //清除前一个被选中图片样式
+      this.style.outline = &quot;1px solid #000&quot;; //给当前选中元素加样式
+      selectImg = this; //标记当前选中
+      // 换肤
+      var url = this.dataset.skin;
+      document.body.style.backgroundImage = &quot;url(&quot; + url + &quot;)&quot;;
+    &#125;;
+  &#125;
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+</blockquote>
+<h4 id="onmouseover-和-onmouseout-事件"><a href="#onmouseover-和-onmouseout-事件" class="headerlink" title="onmouseover 和 onmouseout 事件"></a>onmouseover 和 onmouseout 事件</h4><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onmouseover</td>
+<td>当鼠标进入某个对象</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>当鼠标离开某个对象</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>如果是能用<code>:hover</code>就能实现的功能，尽量用<code>:hover</code>，更加方便简捷</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>案例1：鼠标滑动，表格隔行变色</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+  ul,
+  li &#123;
+ padding: 0;
+ margin: 0;
+ list-style: none;
+  &#125;
+  ul li &#123;
+ width: 400px;
+ height: 50px;
+  &#125;
+  li:nth-child(even) &#123;
+ background-color: #ddd;
+  &#125;
+  li:nth-child(odd) &#123;
+ background-color: #8b7f7f;
+  &#125;
+  li.color &#123;
+ background-color: plum;
+  &#125;
+  /* li:hover &#123;
+ background-color: palegreen;
+  &#125; */
+&lt;/style&gt;
+&lt;body&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+  var liList = document.querySelectorAll(&quot;ul li&quot;);
+  var len = liList.length;
+  // 方法1
+  //   for (var i = 0; i &lt; len; i++) &#123;
+  //     liList[i].onmouseover = function () &#123;
+  //       this.style.backgroundColor = &quot;purple&quot;;
+  //     &#125;;
+  //     liList[i].onmouseout = function () &#123;
+  //       this.style.backgroundColor = &quot;&quot;;
+  //     &#125;;
+  //   &#125;
+  // 方法2
+  for (var i = 0; i &lt; len; i++) &#123;
+ liList[i].onmouseover = function () &#123;
+   this.classList.add(&quot;color&quot;);
+ &#125;;
+ liList[i].onmouseout = function () &#123;
+   this.classList.remove(&quot;color&quot;);
+ &#125;;
+  &#125;
+  //方法3`:hover`
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>案例 2：扫图游戏</p>
+<blockquote>
+<ul>
+<li>当图形中的花全部被扫出来，整个游戏就结束了<img src="扫图游戏.gif"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>思路</strong></p>
+<blockquote>
+<ul>
+<li>用一层小方块盖住图片，每个小方块都有对应的下标</li>
+<li>当花对应小方块全部被扫掉，游戏结束</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>花朵部分</strong></p>
+<ul>
+<li>方法1：<ul>
+<li>我们用一个数组保存花朵对应的小方块的下标</li>
+<li>每扫掉一块，先查询该下标是否在数组中，如果是，再从数组中删除对应的下标</li>
+<li>当数组长度为0时，游戏结束</li>
+</ul>
+</li>
+</ul>
+<pre><code>li.onmouseover = function () &#123;
+  //鼠标划到小方块时，变透明
+  this.style.opacity = 0;
+  if (data.length === 0) &#123;
+    // 游戏结束
+    mask.style.display = &quot;block&quot;;
+  &#125;
+  // 查询其下标，删除
+  var k = data.indexOf(this.index);
+  // 如果它存在于结果数组中，则返回所查元素的下标
+  if (k !== -1) &#123;
+    //根据所返回的下标，删掉该元素
+    data.splice(k, 1);
+  &#125;
+  // 被扫过的元素，把身上的onmouseover事件取消
+  this.onmouseover = null;
+&#125;;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>方法2：<ul>
+<li>我们用一个数组保存花朵对应的小方块的下标</li>
+<li>再声明一个变量，作为累加器</li>
+<li>每扫掉一块，先查询该下标是否在数组中，如果是，则累加器+1，当累加器等于结果数组长度时，游戏结束</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var item = 0; //记录结果数组中已经变透明的方块数
+li.onmouseover = function () &#123;
+  //鼠标划到小方块时，变透明
+  this.style.opacity = 0;
+  if (item === data.length) &#123;
+    // 游戏结束
+    mask.style.display = &quot;block&quot;;
+  &#125;
+  // 查询其下标，删除
+  var k = data.indexOf(this.index);
+  // 如果它存在于结果数组中，则item+1
+  if (k !== -1) &#123;
+    item++;
+  &#125;
+  // 被扫过的元素，把身上的onmouseover事件取消
+  this.onmouseover = null;
+&#125;;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>两种方法各有优劣，视具体情况而定</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>构建方块</strong></p>
+<ul>
+<li>方法1：<ul>
+<li>设置一个for循环，每循环一次，创建一个li元素</li>
+<li>自定义一个属性保存当前li元素的下标，属性值等于for循环的变量值</li>
+<li>给li元素设置浮动</li>
+<li>扫掉方块时，<strong>只能</strong>将该块设置为透明；否则将会影响其他方块的位置</li>
+</ul>
+</li>
+</ul>
+<pre><code>for (var i = 0; i &lt; 12 * 16; i++) &#123;
+  var li = document.createElement(&quot;li&quot;);
+  li.index = i;
+  li.innerText = i;
+  ul.appendChild(li);
+&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>方法2：<ul>
+<li>设置两层for循环，第一层是行，第二层是列，只需要在第二层创建li元素</li>
+<li>必须在外面定义一个累加器，每次循环<code>+1</code>；<blockquote>
+<p>但这与九九乘法表(li&gt;span)不一样！！</p>
+</blockquote>
+</li>
+<li>给每个li设置<strong>绝对定位</strong>(重点)</li>
+<li>扫掉方块时，可以删除该方块，也可以将它设置为透明</li>
+</ul>
+</li>
+</ul>
+<pre><code>var sum = 0;
+for (var i = 0; i &lt; 12; i++) &#123;
+  // 行
+  for (var j = 0; j &lt; 16; j++) &#123;
+    // 列
+    var li = document.createElement(&quot;li&quot;);
+    li.index = sum;
+    //   li.innerText = sum;
+    sum++;
+    ul.appendChild(li);
+  &#125;
+&#125;
+</code></pre>
+</blockquote>
+<p><strong>扫方块后，变透明</strong></p>
+<blockquote>
+<ul>
+<li>给每个li添加<code>onmouseover</code>事件，扫过之后，该方块的透明度为0；同时根据上面的思路，会对该下标进行一系列操作</li>
+<li>注意：移出鼠标后要马上删掉该li身上的<code>onmouseover</code>事件</li>
+<li>因为我们只是把它变透明，下次滑到，仍然会进行该事件，会影响对下标的操作</li>
+</ul>
+<pre><code>li.onmouseover = function () &#123;
+  //鼠标划到小方块时，变透明
+  this.style.opacity = 0;
+  //游戏结束条件
+  // 下标操作
+  // 被扫过的元素，把身上的onmouseover事件取消
+  this.onmouseover = null;
+&#125;;
+</code></pre>
+</blockquote>
+<ul>
+<li>最终代码<blockquote>
+<pre><code>&lt;style&gt;
+ body &#123;
+ margin: 0;
+ &#125;
+ .container &#123;
+ width: 800px;
+ margin: 50px auto;
+ border: 1px solid #000;
+ &#125;
+ .container h1 &#123;
+ text-align: center;
+ &#125;
+ .container .game &#123;
+ width: 800px;
+ height: 600px;
+ background: url(../src/games/flower.png) no-repeat;
+ &#125;
+ ul,
+ li &#123;
+ padding: 0;
+ margin: 0;
+ list-style: none;
+ &#125;
+ ul li &#123;
+ float: left;
+ width: 50px;
+ height: 50px;
+ background-color: #ddd;
+ &#125;
+ /* 游戏结束 */
+ .mask &#123;
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+ &#125;
+ .mask p &#123;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ color: red;
+ font-size: 50px;
+ margin: 0;
+ &#125;
+&lt;/style&gt;
+&lt;div class=&quot;container&quot;&gt;
+ &lt;h1&gt;扫图游戏&lt;/h1&gt;
+ &lt;div class=&quot;game&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;mask&quot;&gt;&lt;p&gt;游戏结束！&lt;/p&gt;&lt;/div&gt;
+&lt;script&gt;
+var game = document.querySelector(&quot;.game&quot;);
+var ul = document.createElement(&quot;ul&quot;);
+var mask = document.querySelector(&quot;.mask&quot;);
+var data = [
+  23, 24, 25, 38, 39, 40, 41, 42, 43, 53, 54, 55, 56, 57, 58, 59, 67, 68,
+  69, 70, 71, 72, 73, 74, 75, 76, 77, 83, 84, 85, 86, 87, 88, 89, 91, 92,
+  93, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 115, 116, 117, 118,
+  119, 120, 121, 122, 123, 124, 130, 131, 132, 133, 134, 135, 136, 137,
+  138, 139, 147, 148, 149, 150, 151, 152, 153, 166, 167, 168, 169,
+]; //结果数组
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 构建小方块，方法1：一层for循环+浮动<br>&#x2F;&#x2F; 在图上构建li，并标记数字<br>&#x2F;&#x2F;   for (var i &#x3D; 0; i &lt; 12 * 16; i++) {<br>&#x2F;&#x2F;     var li &#x3D; document.createElement(“li”);<br>&#x2F;&#x2F;     li.index &#x3D; i;<br>&#x2F;&#x2F;     li.innerText &#x3D; i;<br>&#x2F;&#x2F;     ul.appendChild(li);<br>&#x2F;&#x2F;     onmouseover事件<br>&#x2F;&#x2F;   }<blockquote>
+</blockquote>
+&#x2F;&#x2F; 构建小方块，方法2：两层for循环+绝对定位<br>var item &#x3D; 0; &#x2F;&#x2F;记录结果数组中已经变透明的方块数<br>var sum &#x3D; 0;  &#x2F;&#x2F;记录下标<br>for (var i &#x3D; 0; i &lt; 12; i++) {<br>  &#x2F;&#x2F; 行<br>  for (var j &#x3D; 0; j &lt; 16; j++) {<br>&#x2F;&#x2F; 列<br>var li &#x3D; document.createElement(“li”);<br>li.index &#x3D; sum;<br>&#x2F;&#x2F;   li.innerText &#x3D; sum;<br>sum++;<br>ul.appendChild(li);&#x2F;&#x2F;将每个li添加到ul上</li>
+</ul>
+<blockquote>
+</blockquote>
+<pre><code>  //查询删除结果数组的下标,方法1：
+  // 给每一个li添加一个onmouseover事件
+  //   li.onmouseover = function () &#123;
+  //     //鼠标划到小方块时，变透明
+  //     this.style.opacity = 0;
+  //     if (data.length === 0) &#123;
+  //       // 游戏结束
+  //       mask.style.display = &quot;block&quot;;
+  //     &#125;
+  //     // 查询其下标，删除
+  //     var k = data.indexOf(this.index);
+  //     // 如果它存在于结果数组中，则返回所查元素的下标
+  //     if (k !== -1) &#123;
+  //       //根据所返回的下标，删掉该元素
+  //       data.splice(k, 1);
+  //     &#125;
+  //     // 被扫过的元素，把身上的onmouseover事件取消
+  //     this.onmouseover = null;
+  //   &#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>//方法2：用item记录变透明的结果数组的个数
+  li.onmouseover = function () &#123;
+    //鼠标划到小方块时，变透明
+    this.style.opacity = 0;
+    if (item === data.length) &#123;
+      // 游戏结束
+      mask.style.display = &quot;block&quot;;
+    &#125;
+    // 查询其下标，删除
+    var k = data.indexOf(this.index);
+    // 如果它存在于结果数组中，则item+1
+    if (k !== -1) &#123;
+      item++;
+    &#125;
+    // 被扫过的元素，把身上的onmouseover事件取消
+    this.onmouseover = null;
+  &#125;;
+&#125;
+</code></pre>
+<p>  }<br>&#x2F;&#x2F;将ul添加到game上<br>  game.appendChild(ul);</p>
+<blockquote>
+<p></script></p>
+<pre><code>&gt;还有一个综合案例：放大镜效果，放在后面的综合案例应用中讲解
+</code></pre>
+</blockquote>
+<h4 id="onmousedown、onmouseup-和-onmousemove"><a href="#onmousedown、onmouseup-和-onmousemove" class="headerlink" title="onmousedown、onmouseup 和 onmousemove"></a>onmousedown、onmouseup 和 onmousemove</h4><table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onmousedown</td>
+<td>当某个鼠标按键在某个对象上被按下时触发</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>当某个鼠标按键在某个对象上被松开时触发</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>当某个鼠标按键在某个对象上被移动时触发</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>&lt;style&gt;
+      .box &#123;
+        width: 300px;
+        height: 300px;
+        background-color: lightblue;
+      &#125;
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.onmousedown = function () &#123;
+    box.style.width = &quot;500px&quot;;
+  &#125;;
+  box.onmouseup = function () &#123;
+    box.style.width = &quot;300px&quot;;
+  &#125;;
+  box.onmousemove = function () &#123;
+    box.style.backgroundColor = &quot;pink&quot;;
+    console.log(&quot;鼠标在我上面移动&quot;);//触发频率特别高
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<p><strong>代码解读</strong></p>
+<blockquote>
+<ul>
+<li><code>onmousedown</code>只会在鼠标按键被按下时触发一次</li>
+<li><code>onmouseup</code>只会在鼠标标按键松开时触发一次</li>
+<li><code>onmousemove</code>的触发频率特别高，只要稍会移动下，就会触发好多次<br>相关案例：参考本章综合案例应用中以下两个案例</li>
+<li>案例 1：拖拽动画</li>
+<li>案例 2：拖拽交换两元素位置</li>
+</ul>
+</blockquote>
+<h3 id="三、常见键盘事件（keypress、keydown-和-keyup-事件）"><a href="#三、常见键盘事件（keypress、keydown-和-keyup-事件）" class="headerlink" title="三、常见键盘事件（keypress、keydown 和 keyup 事件）"></a>三、常见键盘事件（keypress、keydown 和 keyup 事件）</h3><blockquote>
+<p>以下是常见的键盘事件</p>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onkeypress</td>
+<td><strong>被弃用</strong>（他会后于 onkeydown 触发）</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>当某个键盘的键被按下（系统按钮可以识别）</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>当某个键盘的键被松开</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>一般使用键盘事件都是 <code>document</code> 和 <code>input</code></li>
+<li>如果需要在一个 <code>div</code> 中使用时，需要在<code>div</code>标签中增加<code>contenteditable=&quot;true&quot;</code>，div就会变成一个输入框</li>
+<li>在<code>input</code>输入框<strong>长按</strong>键盘时，第一个字输入后<strong>间隔一段时间</strong>，才会<strong>不停歇地</strong>输入后面的内容</li>
+<li>可以通过 <code>keyup</code> 事件，来获取每次键盘抬起时，文本输入框中的内容</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 50px;
+    background-color: aqua;
+    margin: 10px;
+  &#125;
+&lt;/style&gt;
+&lt;input type=&quot;text&quot; /&gt;
+&lt;div class=&quot;box&quot; contenteditable=&quot;true&quot; ;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var user = document.querySelector(&quot;input&quot;);
+  var box = document.querySelector(&quot;.box&quot;);
+  document.onkeydown = function () &#123;
+    // console.log(&quot;按下键盘了&quot;);
+  &#125;;
+  user.onkeydown = function () &#123;
+    // console.log(&quot;在输入内容了哦&quot;);
+  &#125;;
+  //div使用键盘事件
+  box.onkeydown = function () &#123;
+    console.log(&quot;div也能用&quot;);
+  &#125;;
+  user.onkeyup = function () &#123;
+    // console.log(&quot;键盘松开了&quot;);
+  &#125;;
+  //通过 keyup 事件，来获取每次键盘抬起时，文本输入框中的内容
+  user.onkeyup = function () &#123;
+    console.log(this.value);
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<h3 id="四、常见表单事件"><a href="#四、常见表单事件" class="headerlink" title="四、常见表单事件"></a>四、常见表单事件</h3><blockquote>
+<p>常见的表单事件如下</p>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>focus</td>
+<td>当某元素获得焦点（比如 tab 键或鼠标点击）</td>
+</tr>
+<tr>
+<td>blur</td>
+<td>当某元素失去焦点</td>
+</tr>
+<tr>
+<td>change</td>
+<td>当用户改变域的内容</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>1、focus 和 blur 事件</p>
+<blockquote>
+<pre><code>&lt;input type=&quot;text&quot; /&gt;
+&lt;script&gt;
+  var text = document.querySelector(&quot;input&quot;);
+  text.onfocus = function () &#123;
+    //输入框获取焦点时，改变外轮廓
+    this.style.outline = &quot;2px solid red&quot;; //不能是border
+  &#125;;
+  //失去焦点时，取消外轮廓
+  text.addEventListener(&quot;blur&quot;, fn, false);
+  function fn() &#123;
+    this.style.outline = &quot;&quot;;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>change 事件<blockquote>
+<ul>
+<li>change 事件，只会在内容发生改变时才触发，如果重复选择，内容不变，不会触发</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>案例：当选中下拉列表中的某个元素，把对应选中的内容显示在控制台<blockquote>
+<pre><code>你最喜欢的水果
+&lt;select id=&quot;friut&quot;&gt;
+ &lt;option value=&quot;apple&quot;&gt;苹果&lt;/option&gt;
+ &lt;option value=&quot;banana&quot;&gt;香蕉&lt;/option&gt;
+ &lt;option value=&quot;pear&quot;&gt;梨子&lt;/option&gt;
+ &lt;option value=&quot;watermelon&quot;&gt;西瓜&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;script&gt;
+var friut = document.getElementById(&quot;friut&quot;);
+friut.addEventListener(&quot;change&quot;, fn, false);
+function fn() &#123;
+  var _index = this.selectedIndex; // 被选中元素的下标
+  var value = this.options[_index].value; // 被选中元素的value值,如 pear
+  var text = this.options[_index].text; // 被选中元素的文本 如 梨子
+  console.log(value, text);
+&#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>_index =this.selectedIndex;</code>：被选中元素的下标</li>
+<li><code>this.options[_index].value;</code>：被选中元素的value值</li>
+<li><code>this.options[_index].text;</code>：被选中元素的文本<blockquote>
+<ul>
+<li><code>.selectedIndex</code>是<code>select</code>自带的属性</li>
+<li>先获取下标，再根据下表获取值和文本</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>二级联动下拉</li>
+</ol>
+<ul>
+<li><p>思路</p>
+<blockquote>
+<ul>
+<li>将省份信息、城市信息添加进下拉菜单</li>
+<li>选择后展示不同省份所对应的城市</li>
+</ul>
+</blockquote>
+</li>
+<li><p>结构搭建</p>
+<blockquote>
+<ul>
+<li>在body里设置省份、城市这两个下拉框<code>select</code>，不写任何值</li>
+<li>用数组保存省份和城市的数据，以对象的形式一一对应</li>
+</ul>
+<pre><code>&lt;select name=&quot;&quot; id=&quot;province&quot;&gt;&lt;/select&gt;
+</code></pre>
+</blockquote>
+<!-- <option data-city="长沙市,株洲市,湘潭市,常德市"></option> -->
+<blockquote>
+<p><select name="" id="city"></select><br>&#x2F;&#x2F;script<br>var data &#x3D; [<br>{<br>  province: “湖南”,<br>  city: [“长沙市”, “株洲市”, “湘潭市”, “常德市”],<br>},<br>{<br>  province: “陕西”,<br>  city: [“西安市”, “铜川市”, “咸阳市”, “安康市”, “宝鸡市”],<br>},<br>{<br>  province: “四川”,<br>  city: [“成都市”, “广元市”, “德阳市”, “眉山市”],<br>},<br>];</p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>初始化：填充省份数据和默认的城市数据</p>
+<blockquote>
+<ul>
+<li>由于每个部分都是用的是函数，所以定义一个初始化函数，统一调用其他函数</li>
+</ul>
+<pre><code>function init(data) &#123;
+//添加省份数据
+addProvince(province, data);
+//添加默认城市数据
+addCityDate(city, data[0].city); // addCitydate(city元素，城市数据)
+&#125;
+init(data);
+</code></pre>
+<blockquote>
+<p>注意：要设置一个默认显示的城市信息，在’change’事件发生之前显示</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>添加省份信息</p>
+<blockquote>
+<ul>
+<li>构建函数</li>
+<li>用for循环遍历数组，有多少省份，就有多少个对象</li>
+<li>每循环到一个对象，就创建一个<code>option</code>元素</li>
+<li>每循环到一个对象，就打点调用它的省份属性，将属性值赋给所创建的<code>option</code>元素，作为它的<code>text</code>值</li>
+<li>每循环一次将<code>option</code>元素传入储存省份信息的下拉菜单中</li>
+<li>为了提升性能，可以创建一个虚拟仓库<code>.createDocumentFragment()</code>来储存每一次创建的<code>option</code></li>
+<li>在循环结束后，用仓库一次性将所有option添加进对应的<code>select</code></li>
+</ul>
+<pre><code>//添加省份信息
+ function addProvince(el, data) &#123;
+ // 用for循环，将省份添加进去
+ var frag = document.createDocumentFragment();
+ for (var i = 0; i &lt; data.length; i++) &#123;
+   var option = document.createElement(&quot;option&quot;);
+   option.text = data[i].province;
+   //先存储到仓库里，再添加到province，提升性能
+   // 将城市信息以自定义属性的方式绑定到省份上
+   //option.dataset.city = data[i].city;
+   frag.appendChild(option);
+ &#125;
+ el.appendChild(frag);
+ &#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>添加城市信息</p>
+<blockquote>
+<ul>
+<li>构建函数</li>
+<li>用for循环遍历包含了<strong>对应城市信息的数组</strong>，这个数组需要另外的函数来得到</li>
+<li>每循环到一个城市，就创建一个<code>option</code>元素</li>
+<li>每循环到一个城市，就将城市名赋给所创建的<code>option</code>元素，作为它的<code>text</code>值</li>
+<li>每循环一次将<code>option</code>元素传入储存城市信息的下拉菜单中</li>
+<li>为了提升性能，可以创建一个虚拟仓库<code>.createDocumentFragment()</code>来储存每一次创建的<code>option</code></li>
+<li>在循环结束后，用仓库一次性将所有option添加进对应的<code>select</code></li>
+</ul>
+<pre><code>//要先获得城市数据，el是city元素
+ function addCityDate(el, citydate) &#123;
+ el.innerHTML = &quot;&quot;;
+ var frag = document.createDocumentFragment();
+ for (var i = 0; i &lt; citydate.length; i++) &#123;
+   var option = document.createElement(&quot;option&quot;);
+   option.text = citydate[i];
+   frag.appendChild(option);
+ &#125;
+ el.appendChild(frag);
+ &#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>怎么拿到对应城市信息的<strong>数组</strong></p>
+<blockquote>
+<ul>
+<li>定义一个函数，通过省份名字，返回对应省份的市信息</li>
+<li>使用<code>change</code>事件</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>方法1：</strong></p>
+<ul>
+<li>拿到当前选中的省份名<ul>
+<li>用<code>.selectedIndex</code>拿到当前选项的下标</li>
+<li>用<code>.options[_index].text</code>拿到省份名</li>
+</ul>
+</li>
+<li>再获取对应的城市信息，用这个数据来调用添加城市的函数<ul>
+<li>设置一个<code>filter</code>函数来获得当前选中省份的城市信息</li>
+<li>设置一个for循环，循环原始数组</li>
+<li>打点调用出省份属性，当它的值等于上一步得到的<code>text</code>时</li>
+<li>就打点调用出该省份对应的城市数据</li>
+</ul>
+</li>
+<li>拿到城市数据后，调用添加城市信息的函数<blockquote>
+<p>原始数组中城市信息都保存在一个数组中，所以以带点调用来拿到城市数据的方式可以直接获得包含城市信息的数组</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>//通过省份名，返回对应的城市信息
+ province.addEventListener(&quot;change&quot;, connect, false);
+ function connect() &#123;
+   // 获取当前显示的省份下标
+   var _index = this.selectedIndex;
+   //获取它的文本
+   var text = this.options[_index].text;
+   //筛选省份，获得对应的城市数据
+   var citydate = filter(text, data);
+   //将城市数据添加进city元素
+   addCityDate(city, citydate);
+ &#125;
+ //筛选省份，获得对应的城市数据
+ function filter(text, data) &#123;
+   for (var i = 0; i &lt; data.length; i++) &#123;
+     if (data[i].province === text) &#123;
+       return data[i].city;
+     &#125;
+   &#125;
+ &#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>方法2：</strong></li>
+<li>在填充省份信息时，将对应的市数据绑定到每个省份<code>option</code>元素的自定义属性上<br><code>option.dataset.city = data[i].city;</code></li>
+<li>先拿到当前选中的省份名<ul>
+<li>用<code>.selectedIndex</code>拿到当前选项的下标</li>
+<li>调用该省份元素的自定义属性，获取城市信息</li>
+</ul>
+</li>
+<li>根据下标调用自定义属性<blockquote>
+<p>注意：</p>
+</blockquote>
+</li>
+<li>自定义属性的值是用双引号包裹的字符串，不是数组<br><code>&lt;option data-city=&quot;长沙市,株洲市,湘潭市,常德市&quot;&gt;&lt;/option&gt;</code></li>
+<li>赋值时，系统自动把数组转换成了字符串</li>
+<li>所以此时获得的是字符串</li>
+<li>用<code>split</code>方法转换成数组，以<code>,</code>分隔</li>
+<li>拿到数组形式的城市数据后，调用添加城市信息的函数<blockquote>
+<p>方法2只适合数据量较少的情况</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>//通过省份名，返回对应的城市信息
+ province.addEventListener(&quot;change&quot;, connect, false);
+ function connect() &#123;
+   // 获取当前显示的省份下标
+   var _index = this.selectedIndex;
+   //获取它的文本
+   var text = this.options[_index].text;
+   //调用自定义属性获得对应的城市数据
+   var citydate = this.options[_index].dataset.city;
+   //此时得到的citydate是字符串形式：&quot;西安市,铜川市,咸阳市,安康市,宝鸡市&quot;
+   //用split转成数组，以，分隔
+   citydate = citydate.split(&quot;,&quot;);
+   //将城市数据添加进city元素
+   addCityDate(city, citydate);
+ &#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>代码实现见html文件</p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>省市区三级联动<br><strong>思路</strong>：</li>
+</ol>
+<ul>
+<li><p>定义一个html元素，作为容器</p>
+<blockquote>
+<pre><code>&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>填充数据</p>
+<blockquote>
+<ul>
+<li>每个省市区都有对应的id名和<code>fullname</code></li>
+<li>在构建<code>option</code>时，要将id作为<code>option</code>的<code>value</code></li>
+<li>将<code>fullname</code>作为<code>option</code>的<code>text</code>值</li>
+</ul>
+</blockquote>
+</li>
+<li><p>省市县三个下拉菜单都通过js创建</p>
+</li>
+<li><p>初始化：填充省份数据、第一个省的市区数据——一个可递归的填充函数</p>
+<blockquote>
+<ul>
+<li>利用递归执行三次函数，分别创建三个下拉菜单</li>
+<li>利用for循环构建<code>option</code>，并将省份数据和第一个省的市、区数据分别填充进去</li>
+<li>将<code>option</code>添加进<code>select</code></li>
+<li>将<code>select</code>添加进容器<blockquote>
+<p>此时不需要用虚拟仓库</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>//初始化：填充省份数据和默认的市区数据
+ init(area, data);
+ function init(el, data) &#123;
+   // 创建下拉菜单
+   var select = document.createElement(&quot;select&quot;);
+   selectArr.push(select);//添加到数组
+   for (var i = 0; i &lt; data.length; i++) &#123;
+     var option = document.createElement(&quot;option&quot;);
+     option.value = data[i].pid || data[i].cid || data[i].aid;
+     option.text = data[i].fullname;
+     select.appendChild(option);
+   &#125;
+   el.appendChild(select);
+   //初始化默认数据，市、区
+   if (data[0].children) &#123;
+     //如果有第一个children就执行
+     init(el, data[0].children);
+     //省的第一个children是市，
+     //市的第一个children是区，区没有children就停止
+   &#125;
+ &#125;
+</code></pre>
+</blockquote>
+<ul>
+<li><p>利用<code>change</code>事件，拿到当前省、市id,并调用查找函数和填充函数</p>
+<blockquote>
+<ul>
+<li>选择省份时，才能拿到省id并填充市数据</li>
+<li>同样的选择市区时，才能拿到市id并填充区数据</li>
+<li>因此，在为了在选择省份后能显示出默认的区数据</li>
+<li>所以在填充市数据后，要把第一个市的<strong>区数据</strong>填充进去，作为默认值</li>
+</ul>
+<pre><code>//利用change事件，拿到当前点击的省份id
+ selectArr[0].onchange = function () &#123;
+ var _index = this.selectedIndex;
+ var id = this.options[_index].value; //省份编码
+ //找市数据
+ var children = find(id, data);
+ //拿到市数据后，将其填充到下拉菜单
+ addDate(selectArr[1], children);
+ // 驱动 默认的 区数据的变化
+ addDate(selectArr[2], children[0].children);
+ &#125;;
+</code></pre>
+</blockquote>
+<p> &#x2F;&#x2F;利用change事件，拿到当前点击的市id<br> selectArr[1].onchange &#x3D; function () {<br> var _index &#x3D; this.selectedIndex;<br> var id &#x3D; this.options[_index].value; &#x2F;&#x2F;省份编码<br>  &#x2F;&#x2F;找区数据<br> var children &#x3D; find(id, data);<br> &#x2F;&#x2F;拿到区数据后，将其填充到下拉菜单<br> addDate(selectArr[2], children);<br> };</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>将查到的<code>children</code>数据填充进下拉菜单</p>
+<blockquote>
+<pre><code>// 填充市区数据,el:selectArr[];date:市/区数据
+ function addDate(el, date) &#123;
+ el.innerHTML = &quot;&quot;;
+ var frag = document.createDocumentFragment();
+ for (var i = 0; i &lt; date.length; i++) &#123;
+   var option = document.createElement(&quot;option&quot;);
+   option.value = date[i].pid || date[i].cid || date[i].aid;
+   option.text = date[i].fullname;
+   frag.appendChild(option);
+ &#125;
+ el.appendChild(frag);
+ &#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>下拉菜单是在函数内构建的，并不是全局变量，所以在全局变量内定义一个数组，构建<code>&lt;select&gt;</code>后，将它<code>push</code>到数组里，以便其他函数对其元素的调用</li>
+<li>递归的函数，要适用于多种情况，在涉及到<code>pid</code>、<code>cid</code>、<code>aid</code>时，用<code>||</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>取得id后，查找该id的<code>children</code>数据——一个可递归的函数<br><strong>方法1：先深度再广度，全盘搜索</strong><blockquote>
+<p><strong>基础版</strong></p>
+<pre><code> //用id,找市、区数据
+ var result = &quot;&quot;;
+ function find(id, data) &#123;
+ //先深度再广度，每一个for循环查一个省，在这个for循环里，先查省，再查它的children市区
+ //如果拿到的是市id，那每个省市区都找一遍
+ for (var i = 0; i &lt; data.length; i++) &#123;
+   if (data[i].pid === id || data[i].cid === id || data[i].aid === id) &#123;
+     result = data[i].children;
+     return result;
+   //第一轮查的是省pid,查不到，如果它有children就下一轮
+   //第二轮到市，第三轮到区，区没有children就停止
+ &#125; else &#123;
+     if (data[i].children) &#123;
+       find(id, data[i].children);
+     &#125;
+   &#125;
+ &#125;
+ return result;
+ &#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>优化版</strong></p>
+<pre><code>/**
+* find 根据pid 或 cid 或aid来查找对应省或市或区的下一级
+* id为对应pid或 cid或aid
+* data为省市区数据
+* n表示递归的深度
+*/
+function find(id, data, n) &#123;
+  var result;
+  var flag = false; // 用来标记，退出整个for循环
+  n = n || 100;//设n的默认值为100
+  return search(id, data, n);
+  function search(id, data, n) &#123;
+    // 递归深度达到 或 数据不存在，则退出
+    if (n === -1 || !data) return;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 数据遍历<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      if (flag) break; &#x2F;&#x2F; 退出整个for循环<br>      if (data[i].pid &#x3D;&#x3D;&#x3D; id || data[i].cid &#x3D;&#x3D;&#x3D; id || data[i].aid &#x3D;&#x3D;&#x3D; id) {<br>        result &#x3D; data[i].children;<br>        flag &#x3D; true; &#x2F;&#x2F; 找到了标记为true,用来退出后面所有for循环<br>        break; &#x2F;&#x2F; 或 return result;<br>      } else {<br>        n–; &#x2F;&#x2F; 调用递归就开始减<br>        search(id, data[i].children, n); &#x2F;&#x2F; 值<br>        n++;&#x2F;&#x2F;下一次for循环的递归层数不能变<br>      }<br>    }<br>    return result;<br>  }<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<p><strong>方法2：逐级查询</strong></p>
+<blockquote>
+<ul>
+<li>据对应省 pid 查询对应省下面市信息</li>
+<li>根据对应省 pid 和市 cid 查询对应省-市下面的区信息</li>
+<li>根据省 pid 和市 cid 及 aid，查询对应省-市-区下面街道信息。因数据中没有提供区的下一级，即返回 <code>null</code></li>
+<li>我们定义一个对象<code>ids</code>，用来保存要查询的 id，然后当前参数传到 find 函数中</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>查省对应市 var ids &#x3D; {pid: “130000”};</li>
+<li>查省-市对应区var ids &#x3D; {pid: “130000”,cid: “130100”};</li>
+<li>查省-市-区对应街道 var ids &#x3D; {pid: “130000”,cid: “130100”,aid: “130102”};</li>
+</ul>
+<pre><code>/**
+* find 根据传递id集合，找到对应市、区、街道信息
+* ids查询id集合   &#123; pid: &quot;130000&quot;, cid: &quot;130100&quot; &#125;
+* data 查询的数据
+*/
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;   var a &#x3D; 0;  查看查询的次数<br>function find(ids, data) {<br>  &#x2F;&#x2F; 遍历对象<br>  for (var key in ids) {<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      &#x2F;&#x2F; a++;<br>      if (<br>        (data[i].pid &amp;&amp; data[i].pid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>        (data[i].cid &amp;&amp; data[i].cid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>        (data[i].aid &amp;&amp; data[i].aid &#x3D;&#x3D;&#x3D; ids[key])<br>      ) {<br>        data &#x3D; data[i].children; &#x2F;&#x2F; 每一轮查找下一轮要查询的数据<br>        break; &#x2F;&#x2F; 找到了就退出，不找了，只退出第一层for循环<br>      }<br>    }<br>  }<br>  &#x2F;&#x2F; console.log(a);<br>  return data || null;<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>如何记录每个下拉列表当前被选中项的 pid或cid或aid的值呢 ？<blockquote>
+<ul>
+<li>在当前对象上添加一个属性，用来记录</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>init()</code>函数初始化时，给对象添加对应属性保存对应值</li>
+</ul>
+<pre><code>data[0].pid &amp;&amp; (select.pid = data[0].pid);
+data[0].cid &amp;&amp; (select.cid = data[0].cid);
+data[0].aid &amp;&amp; (select.aid = data[0].aid);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>对应的 change 事件中</li>
+</ul>
+<pre><code>this.pid = this.options[_index].value;
+// 或
+this.cid = this.options[_index].value;
+// 或
+this.aid = this.options[_index].value;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>addDate 函数中</li>
+</ul>
+<pre><code>el.pid &amp;&amp; (el.pid = data[0].pid);
+el.cid &amp;&amp; (el.cid = data[0].cid);
+el.aid &amp;&amp; (el.aid = data[0].aid);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>完整实现</li>
+</ul>
+<pre><code>&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // 我们需要利用JS来动态创建三个下拉列表，同时把对应的数据填充好，然后再一次性插入到页面中来
+  var area = document.getElementById(&quot;area&quot;);
+  var selectArr = []; // 用来保存初始的三个下拉列表
+  init(area, data);
+  // 初始化函数
+  function init(el, data) &#123;
+    // 创建下拉列表
+    var select = document.createElement(&quot;select&quot;); // 创建一个下拉列表
+    selectArr.push(select);
+    // select.addEventListener(&#39;change&#39;,fn,false);
+    for (var i = 0; i &lt; data.length; i++) &#123;
+      // 创建option
+      var option = document.createElement(&quot;option&quot;);
+      // 这里是重点，这个对应的id等下要用来找数据
+      option.value = data[i].pid || data[i].cid || data[i].aid;
+      option.text = data[i].fullname;
+      select.appendChild(option);
+    &#125;
+    el.appendChild(select);
+</code></pre>
+</blockquote>
+<pre><code>// 保存对应pid或cid 或 aid到对象身上
+data[0].pid &amp;&amp; (select.pid = data[0].pid);
+data[0].cid &amp;&amp; (select.cid = data[0].cid);
+data[0].aid &amp;&amp; (select.aid = data[0].aid);
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 递归调用 初始化市 区数据
+if (data[0].children) &#123;
+  init(el, data[0].children);
+&#125;
+</code></pre>
+<p>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 开始级省份下拉列表添加change事件<br>  selectArr[0].onchange &#x3D; function () {<br>    &#x2F;&#x2F; 查找省份对应的id，然后用他来查找省份对应的市数据<br>    var _index &#x3D; this.selectedIndex;<br>    var pid &#x3D; this.options[_index].value;<br>    this.pid &#x3D; pid; &#x2F;&#x2F; 保存pid<br>    &#x2F;&#x2F; 找到对应省份的市数据 ，首先找到对应省份，然后找到对应的市数据，然后再填充<br>    &#x2F;&#x2F; 直接拿着对应的省份，去所有数据中找，然后把对应市数据拿到<br>    var children &#x3D; find({ pid: pid }, data);<br>    &#x2F;&#x2F; 拿省份对应的市数据，那就开始填充数据<br>    addDate(selectArr[1], children);<br>    &#x2F;&#x2F; 驱动区数据的变化<br>    addDate(selectArr[2], children[0].children);<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 开始市级下拉列表添加change事件<br>  selectArr[1].onchange &#x3D; function () {<br>    var _index &#x3D; this.selectedIndex;<br>    var cid &#x3D; this.options[_index].value;<br>    this.cid &#x3D; cid; &#x2F;&#x2F; 保存id<br>    &#x2F;&#x2F; 拿市 id要去找对应的区数据</p>
+<blockquote>
+</blockquote>
+<pre><code>var children = find(&#123; pid: selectArr[0].pid, cid: cid &#125;, data);
+// 填充数据
+addDate(selectArr[2], children);
+</code></pre>
+<p>  };</p>
+<blockquote>
+</blockquote>
+<p>  selectArr[2].onchange &#x3D; function () {<br>    var _index &#x3D; this.selectedIndex;<br>    var id &#x3D; this.options[_index].value;<br>    this.aid &#x3D; id; &#x2F;&#x2F; 保存aid<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 填充数据，el谁里面填数据 data用来填充的数据<br>  function addDate(el, data) {<br>    el.innerHTML &#x3D; “”; &#x2F;&#x2F; 往el中填数据前，要清空之前数据<br>    el.pid &amp;&amp; (el.pid &#x3D; data[0].pid);<br>    el.cid &amp;&amp; (el.cid &#x3D; data[0].cid);<br>    el.aid &amp;&amp; (el.aid &#x3D; data[0].aid);<br>    var frag &#x3D; document.createDocumentFragment();<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      var option &#x3D; document.createElement(“option”);<br>      option.value &#x3D; data[i].pid || data[i].cid || data[i].aid;<br>      option.text &#x3D; data[i].fullname;<br>      frag.appendChild(option);<br>    }<br>    el.appendChild(frag);<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  function find(ids, data) {<br>    &#x2F;&#x2F; 遍历对象<br>    for (var key in ids) {<br>      for (var i &#x3D; 0; i &lt; data.length; i++) {<br>        &#x2F;&#x2F; a++;<br>        if (<br>          (data[i].pid &amp;&amp; data[i].pid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>          (data[i].cid &amp;&amp; data[i].cid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>          (data[i].aid &amp;&amp; data[i].aid &#x3D;&#x3D;&#x3D; ids[key])<br>        ) {<br>          data &#x3D; data[i].children; &#x2F;&#x2F; 每一轮查找下一轮要查询的数据<br>          break; &#x2F;&#x2F; 找到了就退出，不找了，只退出第一层for循环<br>        }<br>      }<br>    }<br>    &#x2F;&#x2F; console.log(a);<br>    return data || null;<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 无关函数，用来询对象身上的pid或cid 或 aid属性<br>  function show() {<br>    for (var i &#x3D; 0; i &lt; selectArr.length; i++) {<br>      console.log(selectArr[i].pid || selectArr[i].cid || selectArr[i].aid);<br>    }<br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="五、DOM-事件流"><a href="#五、DOM-事件流" class="headerlink" title="五、DOM 事件流"></a>五、DOM 事件流</h3><ol>
+<li>事件流<blockquote>
+<p>在了解什么是事件流之前，我们先来回答下面这个问题。</p>
+<ul>
+<li>以下图中的四个圆<code>A、B、C、D</code>共用一个圆心，这个圆心称为同心圆。如果用手指点击中心，那我们按住了哪个圆？</li>
+<li>实际上我们<strong>按住了所有的圆</strong><img src="同心圆.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>网页事件监听也是类似的,如果多个元素发生嵌套，当我们点击最里面的元素，本质上相当于点击了所有元素。</p>
+</blockquote>
+</blockquote>
+<p><strong>假设</strong></p>
+<blockquote>
+<p>以上图中的<code>A、B、C、D</code>为嵌套的 4 个 div 元素，当我在中心点点击后，则相当于四个 div 元素都触发了click点击事件。那事件触发的顺序是以下那种情况？</p>
+<ul>
+<li>第一种情况： A —&gt; B —&gt; C —&gt; D</li>
+<li>第二种情况： D —&gt; C —&gt; B —&gt; A<br>以上两种情况<strong>都有可能</strong>，但在具体的应用中，到底是情况一，还是情况二呢？<br>这就需要我们了解事件流</li>
+<li>事件流描述了页面接收事件的顺序</li>
+<li>事件流分为 3 个阶段：<strong>事件捕获</strong>、<strong>到达目标</strong>、<strong>事件冒泡</strong><blockquote>
+<p>事件的传播本质是：先从外到内，到达实际的目标元素，然后再从内到外</p>
+</blockquote>
+</li>
+<li><strong>从外到内</strong>的阶段称为：事件捕获阶段</li>
+<li><strong>从内到外</strong>的阶段称为：事件冒泡阶段<img src="事件流.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>事件冒泡： 最先由<code>IE公司</code>提出，事件定义为从最具体的元素开始触发，然后向上传播至文档</li>
+<li>事件捕获： 最先由<code>网景公司</code>提出，事件定义为从最外层（最不具体的节点）开骀先收到（触发）事件，然后再传到具体的节点。</li>
+<li>最后规范中规定事件流分为 3 个阶段：事件捕获、到达目标、事件冒泡</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>如何监听事件捕获与冒泡<blockquote>
+<p><strong>监听事件有两种方式：</strong></p>
+<ul>
+<li>on 开头方式</li>
+<li>addEventListener 方式<blockquote>
+<p>那这两种方式在事件监听上有何不同 ？</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>on开头方式，只能监听到事件冒泡阶段，不支持监听事件捕获阶段</p>
+<blockquote>
+<ul>
+<li>书写顺序不影响冒泡顺序，只会从内往外触发</li>
+</ul>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;
+ &lt;div class=&quot;box2&quot;&gt;
+   &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var box1 = document.querySelector(&quot;.box1&quot;);
+var box2 = document.querySelector(&quot;.box2&quot;);
+var box3 = document.querySelector(&quot;.box3&quot;);
+ box2.onclick = function () &#123;
+  console.log(&quot;冒泡2&quot;);
+&#125;;
+ box1.onclick = function () &#123;
+  console.log(&quot;冒泡1&quot;);
+&#125;;
+ box3.onclick = function () &#123;
+  console.log(&quot;冒泡3&quot;);
+&#125;;
+//冒泡3-&gt;冒泡2-&gt;冒泡1
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>addEventListener 方式监听事件</p>
+<blockquote>
+<p>由它的第三个参数决定，是监听捕获还是冒泡阶段</p>
+<ul>
+<li>如果第三个参数是true ， 表示监听捕获阶段</li>
+<li>如果第三个参数是false ，表示监听冒泡阶段</li>
+<li>同一个事件的不同阶段，先执行捕获阶段，再执行冒泡阶段</li>
+<li>不同事件的同一阶段，如果是”true”则由外向内执行，如果是”false”则由内向外执行，书写顺序不影响执行顺序</li>
+</ul>
+<pre><code>// 监听捕获阶段
+element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 监听冒泡阶段<br>element.addEventListener(“click”, function () {}, false);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;
+ &lt;div class=&quot;box2&quot;&gt;
+   &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  var box3 = document.querySelector(&quot;.box3&quot;);
+  box1.addEventListener(
+    &quot;click&quot;,
+    function () &#123;
+      console.log(&quot;冒泡1&quot;);
+    &#125;,
+    false
+  );
+  box2.addEventListener(
+    &quot;click&quot;,
+    function () &#123;
+      console.log(&quot;捕获2&quot;);
+    &#125;,
+    true
+  );
+  box2.addEventListener(
+    &quot;click&quot;,
+    function () &#123;
+      console.log(&quot;冒泡2&quot;);
+    &#125;,
+    false
+  );
+  box3.addEventListener(
+    &quot;click&quot;,
+    function () &#123;
+      console.log(&quot;冒泡3&quot;);
+    &#125;,
+    false
+  );
+  //捕获2-&gt;冒泡3-&gt;冒泡2-&gt;冒泡1
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>mouseenter 和 mouseleave 事件不支持冒泡<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mouseenter</td>
+<td>当鼠标进入某个对象（相似事件 onmouseover）不能向上冒泡</td>
+</tr>
+<tr>
+<td>mouseleave</td>
+<td>当鼠标离开某个对象（相似事件 onmouseout）不能向上冒泡</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;
+ &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  //   mouseenter不会冒泡
+  box1.addEventListener(
+    &quot;mouseenter&quot;,
+    function () &#123;
+      console.log(&quot;冒泡移入1&quot;);
+    &#125;,
+    false
+  );
+  box2.addEventListener(
+    &quot;mouseenter&quot;,
+    function () &#123;
+      console.log(&quot;冒泡移入2&quot;);
+    &#125;,
+    false
+  );
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;mouseover会冒泡<br>  box1.addEventListener(<br>    “mouseover”,<br>    function () {<br>      console.log(“冒泡移入1”);<br>    },<br>    false<br>  );<br>  box2.addEventListener(<br>    “mouseover”,<br>    function () {<br>      console.log(“冒泡移入2”);<br>    },<br>    false<br>  );</p>
+<blockquote>
+<p></script></p>
+<pre><code>&gt;当鼠标从外往内移入时
+&gt;- mouseenter：冒泡移入1-&gt;冒泡移入2
+&gt;- mouseover：冒泡移入1-&gt;冒泡移入2-&gt;冒泡移入1，也就是当鼠标放在里面的div时，会同时触发两个冒泡事件
+</code></pre>
+</blockquote>
+<ol start="4">
+<li><p>on 与 addEventListener 两者监听事件的区别</p>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>on 方式监听</th>
+<th>addEventListener 方式监听</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>事件捕获与冒泡</td>
+<td>只能监听到冒泡阶段</td>
+<td>第三个参数是 true，监听捕获阶段</td>
+</tr>
+<tr>
+<td>事件处理函数</td>
+<td>同一事件，只能有一个</td>
+<td>同一事件，任意个都行</td>
+</tr>
+<tr>
+<td>事件处理函数执行顺序</td>
+<td>写在后面的覆盖前面的，以最后的一个为主</td>
+<td>先执行捕获阶段，再执行冒泡阶段，在这两个阶段，以代码书写时的顺序为主，从上往下执行每个事件处理函数</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>经典面试题</p>
+<blockquote>
+<p>面试真题</p>
+<ul>
+<li>给一个 DOM 同时绑定两个点击事件，一个用捕获，一个用冒泡，说下会执行几次事件，然后会先执行冒泡还是捕获（知乎）</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>会执行两次事件，先执行捕获事件，再执行冒泡事件，不管两个事件绑定的先后顺序如何，结果都不会变。</li>
+</ul>
+</blockquote>
+<h3 id="六、event-事件对象"><a href="#六、event-事件对象" class="headerlink" title="六、event 事件对象"></a>六、event 事件对象</h3><blockquote>
+<ul>
+<li>事件处理函数提供了一个形参，它是一个对象，封装了本次<strong>事件的所有细节</strong></li>
+<li>这个参数通常用单词<code>event</code>或<code>e</code>、<code>ev</code>表示</li>
+</ul>
+<pre><code>box.onmousemove = function (e) &#123;
+  // 对象e就是这次事件的 “事件对象”
+&#125;;
+</code></pre>
+</blockquote>
+<ol>
+<li>鼠标位置<blockquote>
+<p>事件对象 event 上提供了鼠标位置相关的属性，具体如下表</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clientX</td>
+<td>鼠标指针相对于<strong>浏览器</strong>的水平坐标</td>
+</tr>
+<tr>
+<td>clientY</td>
+<td>鼠标指针相对于<strong>浏览器</strong>的垂直坐标</td>
+</tr>
+<tr>
+<td>pageX</td>
+<td>鼠标指针相对于<strong>整张网页</strong>的水平坐标</td>
+</tr>
+<tr>
+<td>pageY</td>
+<td>鼠标指针相对于<strong>整张网页</strong>的垂直坐标</td>
+</tr>
+<tr>
+<td>offsetX</td>
+<td>鼠标指针相对于<strong>事件源元素</strong>的水平坐标</td>
+</tr>
+<tr>
+<td>offsetY</td>
+<td>鼠标指针相对于<strong>事件源元素</strong>的垂直坐标</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;style&gt;
+  body &#123;
+    margin: 0;
+    height: 3000px;
+  &#125;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    border: 50px solid skyblue;
+    background-color: khaki;
+    margin: 100px;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.onclick = function (e) &#123;
+    console.log(&quot;clientX:&quot; + e.clientX);
+    console.log(&quot;clientY:&quot; + e.clientY);
+    console.log(&quot;pageX:&quot; + e.pageX);
+    console.log(&quot;pageY:&quot; + e.pageY);
+    console.log(&quot;offsetX:&quot; + e.offsetX);
+    console.log(&quot;offsetY:&quot; + e.offsetY);
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li><p>滚动条到顶时</p>
+<blockquote>
+<ul>
+<li>此时<code>client</code>与<code>page</code>得到的数值一样</li>
+<li><code>offset</code>：相对于<strong>事件源元素</strong>的坐标，如果点击的位置在边框里，则会得到负值；事件源元素不包括边框<img src="鼠标位置-滚动条到顶.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>拉动滚动条时</p>
+<blockquote>
+<ul>
+<li>移动滚动条时，<code>pageY</code>会受到影响，与<code>clientY</code>数值不一样<img src="鼠标位置—移动滚动条.png"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>e.key 和 e.code<blockquote>
+<p>事件对象上提供了获取<strong>键盘键码</strong>相关的属性，主要与<code>onkeydown</code>、<code>onkeyup</code>事件结合使用。</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>用处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>key</td>
+<td>返回用户按下的物理按键的值。按下的键如果是可打印内容，返回的就是对应按扭的值；如果是一个控制键或特殊字符，返回一个事先定义好的值，参考以下表</td>
+</tr>
+<tr>
+<td>code</td>
+<td>表示键盘上的物理键</td>
+</tr>
+<tr>
+<td>charCode</td>
+<td>被弃用</td>
+</tr>
+<tr>
+<td>keyCode</td>
+<td>被弃用</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>控制键或特殊字符<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>键值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>四个方键← ↑ → ↓</td>
+<td><code>ArrowLeft</code>、<code>ArrowUp</code>、<code>ArrowRight</code>、<code>ArrowDown</code></td>
+</tr>
+<tr>
+<td>回车键</td>
+<td>Enter</td>
+</tr>
+<tr>
+<td>空格键</td>
+<td>“”</td>
+</tr>
+<tr>
+<td>删除键</td>
+<td>Backspace</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code>document.onkeydown = function (e) &#123;
+  console.log(&quot;key:&quot; + e.key);
+  console.log(&quot;code:&quot; + e.code);
+&#125;;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li><p>e.altKey、e.ctrlKey、e.shiftKey</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ctrlKey</td>
+<td>表示事件触发时<code>ctrl键</code>是否按下；如果按下，则<code>e.ctrlKey</code>返回值为<code>true</code>，否则为<code>false</code></td>
+</tr>
+<tr>
+<td>altKey</td>
+<td>表示事件触发时<code>alt键</code>是否按下；如果按下，则<code>e.altKey</code>返回值为<code>true</code>，否则为<code>false</code></td>
+</tr>
+<tr>
+<td>shiftKey</td>
+<td>表示事件触发时<code>shift键</code>是否按下；如果按下，则 <code>e.shiftKey</code>返回值为<code>true</code>，否则为<code>false</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>document.onkeydown = function (e) &#123;
+  console.log(&quot;altkey:&quot; + e.altKey);
+  console.log(&quot;ctrlkey:&quot; + e.ctrlKey);
+  console.log(&quot;shift:&quot; + e.shiftKey);
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>e.preventDefault() 方法</p>
+<blockquote>
+<ul>
+<li><code>e.preventDefault()</code>方法用来阻止事件产生的**”默认动作”**</li>
+<li>常见图片默认的拖拽行为、超链接的默认点击跳转行为</li>
+</ul>
+<pre><code>&lt;img src=&quot;../src/games/flower.png&quot; alt=&quot;&quot; width=&quot;300px&quot; /&gt;
+&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
+&lt;script&gt;
+  var img = document.querySelector(&quot;img&quot;);
+  var a = document.querySelector(&quot;a&quot;);
+  img.onmousedown = function (e) &#123;
+ e.preventDefault();
+  &#125;;
+  a.onclick = function (e) &#123;
+ e.preventDefault();
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>e.stopPropagation() 方法</p>
+<blockquote>
+<ul>
+<li><code>e.stopPropagation()</code>方法<strong>用来阻止事件冒泡</strong></li>
+<li>在一些场合，非常有必要切断事件继续传播，否则会造成页面特效显示出bug</li>
+</ul>
+<pre><code>&lt;div class=&quot;box1&quot;&gt;
+ &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  box1.onclick = function (e) &#123;
+ console.log(&quot;冒泡box1&quot;);
+  &#125;;
+  box2.onclick = function (e) &#123;
+ console.log(&quot;冒泡box2&quot;);
+ e.stopPropagation();//加了之后，阻止冒泡
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>案例</p>
+<blockquote>
+<ul>
+<li><code>ctrl+a</code>改变网页背景颜色</li>
+</ul>
+<pre><code>&lt;script&gt;
+  document.onkeydown = function (e) &#123;
+ console.log(e.key);
+ console.log(e.ctrlKey);
+ if (e.key === &quot;a&quot; &amp;&amp; e.ctrlKey) &#123;
+   document.body.style.backgroundColor = &quot;red&quot;;
+ &#125;
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="七、事件委托"><a href="#七、事件委托" class="headerlink" title="七、事件委托"></a>七、事件委托</h3><h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><blockquote>
+<ul>
+<li>事件委托可以理解为，本来是 A 要处理的事情，现在委托给了 B 来处理，事件委托也称为<strong>事件代理</strong>。</li>
+<li>事件委托是通过<strong>事件冒泡机制</strong>来实现，本来由各个子节点处理的事情，现在全部委托给其<strong>父节点</strong>来处理。<blockquote>
+<p>接下来我们通过下面这个案例来演示，对比常规方法和事件委托处理之间的优缺点。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>案例1：批量给子元素添加事件<blockquote>
+<ul>
+<li>页面上有一个无序列表<ul>，它内部共有10个<li>元素，请批量给它们添加点击事件监听</li>
+<li>实现效果：点击哪个<li>元素，哪个<li>元素的文字颜色就变红</li>
+</ul>
+<pre><code>&lt;ul&gt;
+ &lt;li&gt;我是第1个li&lt;/li&gt;
+ &lt;li&gt;我是第2个li&lt;/li&gt;
+ &lt;li&gt;我是第3个li&lt;/li&gt;
+ &lt;li&gt;我是第4个li&lt;/li&gt;
+ &lt;li&gt;我是第5个li&lt;/li&gt;
+ &lt;li&gt;我是第6个li&lt;/li&gt;
+ &lt;li&gt;我是第7个li&lt;/li&gt;
+ &lt;li&gt;我是第8个li&lt;/li&gt;
+ &lt;li&gt;我是第9个li&lt;/li&gt;
+ &lt;li&gt;我是第10个li&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+  //点击哪个&lt;li&gt;元素，哪个&lt;li&gt;元素的文字颜色就变红
+  var ul = document.getElementsByTagName(&quot;ul&quot;)[0];
+  var liList = document.getElementsByTagName(&quot;li&quot;);
+</code></pre>
+</blockquote>
+  &#x2F;&#x2F; 常规思路：for循环给每个li添加点击事件<br>  for (var i &#x3D; 0; i &lt; liList.length; i++) {<br> liList[i].onclick &#x3D; function () {<br>   this.style.color &#x3D; “red”;<br> };<br>  }<blockquote>
+</blockquote>
+  &#x2F;&#x2F;事件委托 基础版：<br>  ul.onclick &#x3D; function (e) {<br> console.log(e.target); &#x2F;&#x2F; <li>….</li>;<br> console.log(e.currentTarget); &#x2F;&#x2F; <ul>…</ul>;<br> e.target.style.color &#x3D; “red”; &#x2F;&#x2F;这时，如果点击ul的区域，那所有li都会变色<br>  };<blockquote>
+<p>  &#x2F;&#x2F;事件委托 优化版：<br>  ul.onclick &#x3D; function (e) {<br> var tag &#x3D; e.target.tagName; &#x2F;&#x2F;获取元素的标签名，大写形式<br> if (tag.toLowerCase() &#x3D;&#x3D;&#x3D; “li”) {<br>   e.target.style.color &#x3D; “red”;<br> }<br>  };<br></script></p>
+<pre><code>&gt;- `.toLowerCase()`大写转小写
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>常规思路：for循环批量给li添加点击事件</p>
+<blockquote>
+<p>批量添加事件监听的<strong>性能问题</strong></p>
+<ul>
+<li>每一个事件监听注册都会消耗一定的系统内存，而批量添加事件会导致监听数量太多，内存消耗会非常大</li>
+<li>再加上，每个 li 的事件处理函数都是不同的函数，这些函数本身也会占用内存</li>
+</ul>
+</blockquote>
+</li>
+<li><p>事件委托方式处理</p>
+<blockquote>
+<ul>
+<li>我们把所有子节点 li 的 click 事件全部委托给到他们对共同的父节点 ul 来处理</li>
+<li>给 ul 添加 click 事件，当点击每个 li 时，其 li 上的 click 事件会通过冒泡的机制，来触发父节点上的 click 事件<blockquote>
+<p>事件委托通常需要结合事件对象身上的<code>target</code>和 <code>currentTarget</code>属性来处理</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>target</td>
+<td>触发此事件的最早元素，即 “事件源元素”</td>
+</tr>
+<tr>
+<td>currentTarget</td>
+<td>绑定事件的那个元素</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>事件委托的<strong>优点</strong></p>
+<ul>
+<li>减少了事件监听的个数，同时绑定的函数个数也大大减少了。这些减少，本质就是减少内存的消耗，从而提高性能。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>案例 2：给新增元素动态绑定事件<blockquote>
+<ul>
+<li>页面上有一个无序列表<code>&lt;ul&gt;</code>，它内部没有<code>&lt;li&gt;</code> 元素，请制作一个按钮，点击这个按钮就能<strong>增加</strong>一个 li 元素</li>
+<li>并且要求每个 li 上有一个<strong>删除</strong>按扭，点击后删除当前这个 li 元素</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>常规方法</p>
+<blockquote>
+<ul>
+<li><code>span</code>的删除操作在新增按钮的点击事件里，因为在外面获取不到<code>span</code></li>
+</ul>
+<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
+&lt;ul id=&quot;J_list&quot;&gt;
+ &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+var addButton = document.getElementById(&quot;J_add&quot;);
+var ul = document.getElementById(&quot;J_list&quot;);
+var span = document.querySelector(&quot;span&quot;);
+var sum = 0;
+</code></pre>
+</blockquote>
+<p>addButton.onclick &#x3D; function () {<br>  &#x2F;&#x2F;新增li元素<br>  var li &#x3D; document.createElement(“li”);<br>  sum++;<br>  li.innerText &#x3D; “第” + sum + “个li元素”;<br>  ul.appendChild(li);<br>  &#x2F;&#x2F;新增span元素<br>  var span &#x3D; document.createElement(“span”);<br>  span.innerText &#x3D; “删除”;<br>  li.appendChild(span);<br>  ul.appendChild(li);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;删除操作——常规版 parent.removeChild(child)<br>  span.onclick &#x3D; function () {<br>var li &#x3D; this.parentNode;<br>li.parentNode.removeChild(li);<br>  };<br>};</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>事件委托版</p>
+<blockquote>
+<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
+&lt;ul id=&quot;J_list&quot;&gt;
+ &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+ &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+var addButton = document.getElementById(&quot;J_add&quot;);
+var ul = document.getElementById(&quot;J_list&quot;);
+var span = document.querySelector(&quot;span&quot;);
+var sum = 0;
+</code></pre>
+</blockquote>
+<p>addButton.onclick &#x3D; function () {<br>  &#x2F;&#x2F;新增li元素<br>  var li &#x3D; document.createElement(“li”);<br>  sum++;<br>  li.innerText &#x3D; “第” + sum + “个li元素”;<br>  ul.appendChild(li);<br>  &#x2F;&#x2F;新增span元素<br>  var span &#x3D; document.createElement(“span”);<br>  span.innerText &#x3D; “删除”;<br>  li.appendChild(span);<br>  ul.appendChild(li);<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;事件委托版<br>oul.onclick &#x3D; function (e) {<br>  var tag &#x3D; e.target;<br>  if (tag.tagName.toLowerCase() !&#x3D;&#x3D; “span”) return;<br>  this.removeChild(tag.parentNode); &#x2F;&#x2F;this是ul<br>};</p>
+<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>如果写成这样是报错的，因为此时的<code>tag</code>只是保存着字符串<code>&quot;span&quot;</code>的变量，找不到它的父元素</li>
+</ul>
+</blockquote>
+<pre><code>tag = e.target.tagName.toLowerCase()
+if (tag !== &quot;span&quot;) return;
+    this.removeChild(tag.parentNode); 
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>案例 3：选项卡效果<blockquote>
+<p>涉及知识点</p>
+<ul>
+<li>事件委托</li>
+<li>自定属性操作 dataset</li>
+<li>节点操作 firstElementChild</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>方式一：用相同的下标</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+ul,
+li &#123;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+&#125;
+.box &#123;
+  width: 400px;
+  height: 250px;
+  margin: 50px;
+  border: 1px solid #000;
+&#125;
+.box-tab &#123;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+&#125;
+.box-tab li &#123;
+  float: left;
+  width: 80px;
+  cursor: pointer;
+&#125;
+.box-tab li.current &#123;
+  color: red;
+&#125;
+.box-show .item &#123;
+  width: 100%;
+  height: 200px;
+  background-color: #ddd;
+  display: none;
+  font-size: 30px;
+  text-align: center;
+&#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;
+ &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
+   &lt;li class=&quot;current&quot;&gt;最新&lt;/li&gt;
+   &lt;li&gt;内地&lt;/li&gt;
+   &lt;li&gt;港台&lt;/li&gt;
+   &lt;li&gt;欧美&lt;/li&gt;
+   &lt;li&gt;韩国&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;div class=&quot;box-show&quot;&gt;
+   &lt;div class=&quot;item&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
+   &lt;div class=&quot;item&quot;&gt;内地&lt;/div&gt;
+   &lt;div class=&quot;item&quot;&gt;港台&lt;/div&gt;
+   &lt;div class=&quot;item&quot;&gt;欧美&lt;/div&gt;
+   &lt;div class=&quot;item&quot;&gt;韩国&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+var oUL = document.getElementById(&quot;J_tab&quot;);
+var liList = document.querySelectorAll(&quot;.box-tab li&quot;);
+var items = document.querySelectorAll(&quot;.box-show .item&quot;);
+</code></pre>
+</blockquote>
+<p>var currentLi &#x3D; oUL.firstElementChild; &#x2F;&#x2F;默认第一个<br>var currentItem &#x3D; items[0]; &#x2F;&#x2F;默认第一个<br> &#x2F;&#x2F;给每一个li添加下标<br>for (var i &#x3D; 0; i &lt; liList.length; i++) {<br>  liList[i].index &#x3D; i;<br>}<br>oUL.onclick &#x3D; function (e) {<br>  var tag &#x3D; e.target; &#x2F;&#x2F;获取事件源元素<br>  var tagName &#x3D; tag.tagName.toLowerCase();<br>  &#x2F;&#x2F;如果事件源是li<br>  if (tagName !&#x3D;&#x3D; “li”) return;<br>  &#x2F;&#x2F;移除上一个点击元素的类名<br>  currentLi.classList.remove(“current”);<br>  &#x2F;&#x2F;给每个被点击的li添加current<br>  tag.classList.add(“current”);<br>  currentLi &#x3D; tag;<br>   &#x2F;&#x2F;切换下方菜单<br>  var num &#x3D; tag.index; &#x2F;&#x2F;获得当前点击元素的下标<br>  currentItem.style &#x3D; “display:none”; &#x2F;&#x2F;将上一个点击的元素隐藏<br>  items[num].style &#x3D; “display:block”;<br>  currentItem &#x3D; items[num];<br>};</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>方式二：用相同的属性</p>
+<blockquote>
+<ul>
+<li>使用属性选择器获得与<code>li</code>的id相同的展示页</li>
+<li>属性选择器<code>标签名/类名[属性=&quot;&quot;]</code></li>
+</ul>
+<pre><code>&lt;div class=&quot;box&quot;&gt;
+ &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
+   &lt;li class=&quot;current&quot; data-id=&quot;a&quot;&gt;最新&lt;/li&gt;
+   &lt;li data-id=&quot;b&quot;&gt;内地&lt;/li&gt;
+   &lt;li data-id=&quot;c&quot;&gt;港台&lt;/li&gt;
+   &lt;li data-id=&quot;d&quot;&gt;欧美&lt;/li&gt;
+   &lt;li data-id=&quot;e&quot;&gt;韩国&lt;/li&gt;
+ &lt;/ul&gt;
+ &lt;div class=&quot;box-show&quot;&gt;
+   &lt;div class=&quot;item&quot; data-id=&quot;a&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
+   &lt;div class=&quot;item&quot; data-id=&quot;b&quot;&gt;内地&lt;/div&gt;
+   &lt;div class=&quot;item&quot; data-id=&quot;c&quot;&gt;港台&lt;/div&gt;
+   &lt;div class=&quot;item&quot; data-id=&quot;d&quot;&gt;欧美&lt;/div&gt;
+   &lt;div class=&quot;item&quot; data-id=&quot;e&quot;&gt;韩国&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var oUL = document.getElementById(&quot;J_tab&quot;);
+var items = document.querySelectorAll(&quot;.box-show .item&quot;);
+ var currentLi = oUL.firstElementChild; //默认第一个
+var currentItem = items[0]; //默认第一个
+ oUL.onclick = function (e) &#123;
+  var tag = e.target; //获取事件源元素
+  var tagName = tag.tagName.toLowerCase();
+  //如果事件源是li
+  if (tagName !== &quot;li&quot;) return;
+  //移除上一个点击元素的类名
+  currentLi.classList.remove(&quot;current&quot;);
+  //给每个被点击的li添加current
+  tag.classList.add(&quot;current&quot;);
+  currentLi = tag;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;切换下方菜单<br>var id &#x3D; tag.dataset.id; &#x2F;&#x2F;获得当前点击元素的id<br>&#x2F;&#x2F;选择属性与id相同的item，使用属性选择器img[alt&#x3D;””]<br>var item &#x3D; document.querySelector(<br>  “.box-show .item[data-id&#x3D;” + id + “]”<br>);<br>currentItem.style.display &#x3D; “none”; &#x2F;&#x2F;将上一个点击的元素隐藏<br>item.style.display &#x3D; “block”;<br>currentItem &#x3D; item;<br>};</p>
+<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li>事件委托的使用场景和注意事项和优点</li>
+</ol>
+<ul>
+<li><p>注意事项：<strong>不能</strong>委托不冒泡的事件给祖先元素</p>
+<blockquote>
+<ul>
+<li>通过上面的学习，我知道事件委托本质就是利用了事件的冒泡机制来实现</li>
+<li>所以对于不支持事件冒泡的事件是没有办法使用事件委托<blockquote>
+<p>如：onmouseenter 、 onmouseleave 、onload、onblur、onfocus，是不支持事件冒泡的</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用场景：</p>
+<blockquote>
+<ul>
+<li>当有大量类似元素需要批量添加相同的事件，处理相同的事情时，可以使用事件委托，把事件委托给这些元素的父级或祖先元素来处理。</li>
+<li>当我们需要动态添加某节点时，我们可以把这些动态节点需要处理的事件委托给到父元素或祖先元素来处理。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<ul>
+<li>可以减少事件的监听，减少内存的消耗，提升性能。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%EF%BC%89/">https://hermiablog.github.io/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="JS核心知识点（十）">
+                        
+                        <span class="card-title">JS核心知识点（十）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS DOM 事件，事件流，事件对象，事件委托
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/05/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E4%B9%9D%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JS核心知识点（九）">
+                        
+                        <span class="card-title">JS核心知识点（九）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS DOM样式与节点操作
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
