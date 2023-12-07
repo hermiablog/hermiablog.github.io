@@ -1,0 +1,3194 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十三）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十三） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十三）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<blockquote>
+<p>什么是 BOM</p>
+<ul>
+<li>BOM（Browser Object Model）浏览器对象模型，是 JS 与浏览器窗口交互的接口</li>
+<li>BOM 的核心是 window 对象，它表示浏览器的实例<blockquote>
+<p>前面学过的定时器属于BOM相关内容</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="一、window-对象"><a href="#一、window-对象" class="headerlink" title="一、window 对象"></a>一、window 对象</h3><blockquote>
+<ul>
+<li><code>window</code>作为全局变量，代表了脚本正在运行的窗口，暴露给<code>Javascript</code>代码</li>
+<li>在有标签页功能的浏览器中，每个标签都拥有自己的<code>window</code>对象</li>
+<li>也就是说，同一个窗口的标签页之间<strong>不会共享</strong>一个<code>window</code>对象</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>window对象有<strong>两重身份</strong></p>
+<ul>
+<li>在<code>ECMScript</code>中为<code>Global</code>对象，也就是后面常说的 <code>Node</code>中的全局对象。</li>
+<li>在浏览器窗口中为<code>window</code>对象，所有全局作用域下的 <code>var</code>声明的全局变量和函数都是<code>window</code>对象的属性</li>
+</ul>
+</blockquote>
+<ol>
+<li>全局变量是 window 属性<blockquote>
+<p>所有全局作用域下 var 声明的全局变量和函数都是<code>window</code>对象的属性</p>
+<pre><code>var a = 2;
+// hasOwnProperty 检测当前对象是否拥有该属性
+console.log(window.hasOwnProperty(&quot;a&quot;)); // true
+console.log(window.a); // 2
+console.log(window.a == a); // true
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>多个 JS 文件之间是<strong>共享全局作用域</strong>的，即 JS 文件没有作用域隔离功能</li>
+<li>创建<code>a.js</code>和<code>b.js</code>及<code>c.html</code>文件，在<code>c.html</code>页面引入<code>a.js</code>和<code>b.js</code></li>
+</ul>
+<pre><code>// a.js文件代码如下
+var i=2;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; b.js文件代码如下<br>var i++;</p>
+<!-- c.html文件代码如下 -->
+<blockquote>
+<script src="js/a.js"></script>
+<script src="js/b.js"></script>
+<script>
+  console.log(i); // 3
+</script>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li><p>内置函数普遍是 window 对象的方法</p>
+<blockquote>
+<ul>
+<li><code>setInterval()</code>、<code>alert()</code>、<code>Array</code>等普遍是 <code>window</code>的方法</li>
+</ul>
+</blockquote>
+</li>
+<li><p>浏览器窗口大小</p>
+<blockquote>
+<ul>
+<li>window 对象身上的以下 4 个属性用来确定浏览器窗品大小</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>innerWidth</td>
+<td>返回浏览器窗口中页面可视区宽（不包含 浏览器边框和工具栏，包括滚动条）</td>
+</tr>
+<tr>
+<td>innerHeight</td>
+<td>返回浏览器窗口中页面可视区高（不包含 浏览器边框和工具栏，包括滚动条）</td>
+</tr>
+<tr>
+<td>outerWidth</td>
+<td>返回浏览器窗口自身的实际宽(浏览器边框、工具栏、滚动条)</td>
+</tr>
+<tr>
+<td>outerHeight</td>
+<td>返回浏览器窗口自身的实际高(浏览器边框、工具栏、滚动条)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>因为 innerWidth 和 innerHeight 包括了滚动条的宽和高，所以很多时候我们获取页面可视宽和高是通过：<code>document.body.clientWidth || document.documentElement.clientWidth</code>来实现，它不包括滚动条宽高、浏览器边框和工具栏</li>
+</ul>
+<pre><code>// 浏览器窗口中页面视口大小 包括滚动条
+console.log(&quot;innerWidth:&quot; + window.innerWidth);
+console.log(&quot;innerHeight:&quot; + window.innerHeight);
+// 浏览器窗口大小
+console.log(&quot;outerWidth:&quot; + window.outerWidth);
+console.log(&quot;outerHeight:&quot; + window.outerHeight);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 页面可视区大小（不包括滚动条）<br>console.log(“clientWidth:” + document.documentElement.clientWidth);<br>console.log(“clientHeight:” + document.documentElement.clientHeight);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>滚动距离<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>window.scrollX</td>
+<td>返回文档&#x2F;页面在水平方向滚动的像素值</td>
+</tr>
+<tr>
+<td>window.scrollY</td>
+<td>返回文档在垂直方向已滚动的像素值</td>
+</tr>
+<tr>
+<td>window.pageXoffset</td>
+<td>相当于 scrollX 的别名</td>
+</tr>
+<tr>
+<td>window.pageYoffset</td>
+<td>相当于 scrollY 的别名</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>通常获取页面的水平和垂直滚动距离还会通过如下代码获取</p>
+</blockquote>
+<ul>
+<li>文档水平滚动距离：<code>document.documentElement.scrollLeft || document.body.scrollLeft</code></li>
+<li>文档垂直滚动距离：<code>document.documentElement.scrollTop || document.body.scrollTop</code></li>
+</ul>
+<pre><code>console.log(&quot;scrollX:&quot; + window.scrollX);
+console.log(&quot;scrollY:&quot; + window.scrollY);
+console.log(&quot;pageXoffset:&quot; + window.pageXOffset);
+console.log(&quot;pageYoffset:&quot; + window.pageYOffset);
+console.log(&quot;scrollTop:&quot; + document.documentElement.scrollTop);
+console.log(&quot;scrollLeft:&quot; + document.documentElement.scrollLeft);
+</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scroll(x,y)</td>
+<td>x，y表示相对视口距离的x和y坐标，<code>scroll(x,y)</code>表示文档滚动到<strong>指定坐标</strong>位置</td>
+</tr>
+<tr>
+<td>scrollBy(x,y)</td>
+<td>x表示水平方向上要滚动的<strong>偏移量</strong>，y表示垂直方向上要滚动的<strong>偏移量</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>与按钮绑定：</p>
+<ul>
+<li><code>scroll(x,y)</code>只能点击一次，直接滚动条指定位置</li>
+<li><code>scrollBy(x,y)</code>可多次点击，每次点击后移动指定距离</li>
+</ul>
+<pre><code>&lt;style&gt;
+  html,
+  body &#123;
+    margin: 0;
+    padding: 0;
+    height: 3000px;
+    width: 3000px;
+  &#125;
+  button &#123;
+    width: 150px;
+    height: 50px;
+    position: fixed;
+    right: 50px;
+    top: 200px;
+  &#125;
+  .by &#123;
+    top: 280px;
+  &#125;
+&lt;/style&gt;
+
+&lt;button class=&quot;to&quot;&gt;滚动到指定位置&lt;/button&gt;
+&lt;button class=&quot;by&quot;&gt;滚动一定距离&lt;/button&gt;
+
+&lt;script&gt;
+  var button = document.getElementsByTagName(&quot;button&quot;);
+  button[0].onclick = function () &#123;
+    window.scroll(100, 200); // 点击后，跳转到与视口x=100,y=200的坐标位置
+  &#125;;
+</code></pre>
+</blockquote>
+<p>  button[1].onclick &#x3D; function () {<br>    &#x2F;&#x2F; window.scrollBy(0, -100); &#x2F;&#x2F; 每次点击，滚动条向上滚动 100px<br>    window.scrollBy(0, 100); &#x2F;&#x2F; 每次点击，滚动条向上滚动100px<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="5">
+<li>window 其它属性<blockquote>
+<p>重点提示</p>
+<ul>
+<li>因为 window 对象的属性在全局作用域中有效，所以很多浏览器<code>API</code>及相关构造函数等都以<code>window</code>对象属性的形式暴露出来</li>
+<li>总结一句话：window 对象身上的属性<strong>并非全是</strong>与 BOM 操作相关的方法和属性<br>接下来我们学习<code>window</code>对象身上与<code>BOM</code>相关的属性</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location</td>
+<td>获取当前页面的 URL信息</td>
+</tr>
+<tr>
+<td>history</td>
+<td>对象提供了操作浏览器会话历史的接口</td>
+</tr>
+<tr>
+<td>navigator</td>
+<td>对象包含用户此次活动的浏览器的相关属性和标识</td>
+</tr>
+</tbody></table>
+<h3 id="二、window-location-对象"><a href="#二、window-location-对象" class="headerlink" title="二、window.location 对象"></a>二、window.location 对象</h3><blockquote>
+<ul>
+<li><code>window.location</code>只读属性，返回一个 <code>Location</code>对象，其中包含有关文档<strong>当前位置</strong>的信息。</li>
+<li><code>Location</code>接口表示其链接到的对象的位置（URL）<ul>
+<li><code>location.__proto__ === Location.prototype; // true</code><blockquote>
+<p>强调：location 对象虽然是只读属性，但它比较特殊，可以赋值，重新赋值URL，相当于跳转到URL</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>// 跳转到  http://www.icodingedu.com 这个页面
+window.location = &quot;http://www.icodingedu.com&quot;;
+</code></pre>
+</blockquote>
+<ol>
+<li>URL 组成部分<blockquote>
+<ul>
+<li><code>URL（Uniform Resource Locator）</code>统一资源定位符</li>
+<li>URL 无非就是一个给定的独特资源在 Web 上的地址</li>
+<li>理论上说，每个有效的 URL 都指向一个唯一的资源</li>
+<li>这个资源可以是一个 HTML 页面，一个 CSS 文档，一幅图像，等等</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>protocol://host[:port]/path/[?query]#fragment  /* [] 方括号表示可选 */
+http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
+</code></pre>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>组成</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>protocol</td>
+<td>URL 对应的协议名，常用的协议有：http、https、ftp、maito、file等</td>
+</tr>
+<tr>
+<td>host</td>
+<td>主机（域名），如 <code>www.arryblog.com</code></td>
+</tr>
+<tr>
+<td>port</td>
+<td>网络端口号，可选。如果省略，表示使用默认的端口。如 http 的默认端口是 80</td>
+</tr>
+<tr>
+<td>path</td>
+<td>路径，用来表示服务器上的一个目录或文件路径 如：<code>guide/html5/html5.html</code></td>
+</tr>
+<tr>
+<td>query</td>
+<td>查询字符串（参数），以键值对的形式表示，多个用&amp;符号分隔，如：<code>targetId=12&amp;preview=0</code></td>
+</tr>
+<tr>
+<td>fragment</td>
+<td>片段标识符，#后内容，用来标记已获取资源的文档内的某个位置。如：常见锚点 <code>#top</code></td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>location 对象的属性<blockquote>
+<ul>
+<li>location对象上有很多属性，以下就是其中的一部分</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location.href</td>
+<td>获取完整的 URL，也可以重新设置 URL</td>
+</tr>
+<tr>
+<td>location.host</td>
+<td>获取主机名（域名）</td>
+</tr>
+<tr>
+<td>location.port</td>
+<td>获取端口号，如果端口号省略，返回空字符串””</td>
+</tr>
+<tr>
+<td>location.pathname</td>
+<td>返回 URL 中 path 路径部分</td>
+</tr>
+<tr>
+<td>location.search</td>
+<td>返回 URL 中的 query 查询字符串部分内容</td>
+</tr>
+<tr>
+<td>location.hash</td>
+<td>返回 URL 中的 fragment 部分内容。</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>处理 URL 中 query 部分数据<blockquote>
+<ul>
+<li>写一个<strong>函数</strong>，把 URL 中的 query 部分参数转换成对象中的属性和值，然后将这个对象返回，同时要考虑参数的类型。</li>
+<li>MDN 官方参考地址：<code>https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// location.search得到 URL中的query数据
+&quot;?targetId=99&amp;sort=hot&amp;bool=true&amp;name=张三&quot;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 最终转换成下面这样一个对象<br>{ targetId: 99, sort: ‘hot’, bool: true, name: ‘张三’}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>思路：<blockquote>
+<p><strong>写一个函数，将传入的查询字符串query，处理成对象形式</strong></p>
+<ul>
+<li>第一步：去掉问号<code>slice(start);</code>，如果只有问号，就返回空对象</li>
+<li>第二步：分割<code>&amp;</code>前后的数据<code>split(&quot;&amp;&quot;)</code>，并返回一个数组</li>
+<li>第三步：将数组中的每一项，以键值对的形式存入一个对象中<ul>
+<li>遍历每一项，先用&#x3D;分隔，形成一个新数组</li>
+<li>再将新数组的每一项分别存成<code>key</code>和<code>value</code></li>
+</ul>
+</li>
+<li>第四步：给<code>value</code>转码，将已编码 URI 中所有能识别的转义序列转换成原字符<ul>
+<li><code>decodeURIComponent()</code>：用于解码由 <code>encodeURIComponent</code>方法或者其他类似方法编码的部分统一资源标识符（URI）<blockquote>
+<p>此时，返回的对象的值都是字符串的形式</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>第五步：处理数据类型</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>因此，还要写个代码，转换数据类型</strong></p>
+<ul>
+<li>查询字符串query一定是<strong>基本数据类型</strong></li>
+<li>考虑传过来的值是不是空的&#x2F;<code>&quot;  &quot;</code>&#x2F;<code>null</code>&#x2F;<code>undefined</code>，如果为空就返回<code>null</code></li>
+<li><code>.trim()</code>：从字符串的两端移除空白字符，并返回一个新的字符串<ul>
+<li><code>null==undefined</code></li>
+</ul>
+</li>
+<li>其次考虑布尔类型<ul>
+<li><code>.toLowerCase()</code>：将该字符串转换为小写形式</li>
+</ul>
+</li>
+<li>再次考虑数值<ul>
+<li><code>parseFloat()</code>：将给定值解析成浮点数</li>
+<li><code>isFinite()</code>：用来判断被传入的参数值是否为一个有限数值,是的话返回<code>true</code></li>
+</ul>
+</li>
+<li>最后考虑是否为日期<ul>
+<li><code>Date.parse()</code>：解析一个表示某个日期的字符串，并返回一个毫秒数，如果该字符串无法识别，则返回值为 NaN。</li>
+<li><code>Date() 构造函数</code>：可以创建一个Date实例或返回代表当前时间的字符串</li>
+</ul>
+</li>
+<li>如果上面的都不是，就只能是字符串了</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;script&gt;
+  var search = &quot;?targetId=99&amp;sort=hot&amp;bool=true&amp;name=张三&quot;;
+  var paramObj = getVars(search);
+  console.log(paramObj);
+  //将query转换成一个对象，并考虑数据类型
+/**
+ * getVars 将取得的查询参数以键值对形式存到对象中，同时考虑数据类型
+ * @param search查询的字符串内容
+ */
+  function getVars(search) &#123;
+    var obj = &#123;&#125;;
+    if (search.length === 1) return &#123;&#125;; //如果只有?就返回空对象
+    var arr = search.slice(1).split(&quot;&amp;&quot;);
+    arr.forEach(function (item) &#123;
+      var keyValue = item.split(&quot;=&quot;);
+      var key = keyValue[0];
+      var value = keyValue[1];
+      //解码
+      obj[key] = transferValue(decodeURIComponent(value));
+    &#125;);
+    return obj;
+  &#125;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;处理数据类型的函数<br>  function transferValue(value) {<br>    &#x2F;&#x2F;先考虑传入的值是否为空、null、undfined、”  “<br>    if (value &#x3D;&#x3D; undefined || value.trim() &#x3D;&#x3D; “”) return null;<br>    &#x2F;&#x2F;考虑布尔值<br>    if (value.toLowerCase() &#x3D;&#x3D;&#x3D; “true”) return true;<br>    if (value.toLowerCase() &#x3D;&#x3D;&#x3D; “false”) return false;<br>    &#x2F;&#x2F;考虑数值<br>    if (isFinite(value)) return parseFloat(value);<br>    &#x2F;&#x2F;考虑日期<br>    if (isFinite(Date.parse(value))) return new Date(value);<br>    return value;<br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>数据交互 - 根据参数显示页面内容<blockquote>
+<ul>
+<li><code>index.html</code>表示首页，用来显示产品列表</li>
+<li><code>goods.html</code>表示产品详细页，根据 URL 中的参数来决定显示那个产品的详细信息</li>
+<li>当点击<code>index.html</code>页面的产品名，就会跳转到<code>goods.html</code>页面，显示对应产品的详细信息</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>思路：</p>
+<blockquote>
+<ul>
+<li>后端提供一个接口数据，里面放着<code>query</code>数据、产品信息(图片、标题、价格)</li>
+<li><code>index.html</code>里面放的是a标签，它是由JS动态生成的，因为它的<code>href</code>放的是文件路径和<code>targetId</code></li>
+<li><code>goods.html</code>里面放的是产品信息，也需要根据不同的<code>targetId</code>来创建</li>
+<li>当本页面的<code>targetId</code>等于接口数据里<code>targetId</code>时，就提取该ID下的信息，并创建HTML节点，渲染出商品页面</li>
+<li>要取得本页面的<code>targetId</code>，就需要用前面写的函数处理<code>location.search</code><blockquote>
+<p>只有当我们从<code>index.html</code>页面跳转到<code>goods.html</code>时，<code>goods.html</code>才会获得相应的<code>targetId</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>index.html</code> 页面源代码</p>
+<blockquote>
+<pre><code>&lt;ul class=&quot;container&quot;&gt;
+</code></pre>
+</blockquote>
+<!-- <li>
+  <a href="./06-goods.html?targetID=93">
+    Web前端高级工程师系统课-星辰班
+  </a>
+</li>
+<li>
+  <a href="./06-goods.html?targetID=91"> 30个HTML+CSS实战小案例详解 </a>
+</li>
+<li>
+  <a href="./06-goods.html?targetID=77"
+    >云原生Kubernetes与云上DevOps新版系统实战课
+  </a>
+</li> -->
+<blockquote>
+</ul>
+<script>
+var data = [
+  {
+    targetId: 93,
+    title: "Web前端高级工程师系统课-星辰班",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg",
+    price: 8680,
+  },
+  {
+    targetId: 91,
+    title: "30个HTML+CSS实战小案例详解",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg",
+    price: 0,
+  },
+  {
+    targetId: 77,
+    title: "云原生Kubernetes与云上DevOps新版系统实战课",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png",
+    price: 2680,
+  },
+];
+var oUL = document.querySelector(".container");
+data.forEach(function (item) {
+  var li = document.createElement("li");
+  var a = document.createElement("a");
+  a.href = "./06-goods.html?targetId=" + item.targetId;
+  a.innerText = item.title;
+  a.target = "blank";
+  li.appendChild(a);
+  oUL.appendChild(li);
+});
+</script>
+```
+</blockquote>
+</li>
+<li><p><code>goods.html</code> 页面源代码</p>
+<blockquote>
+<pre><code>&lt;div class=&quot;show&quot;&gt;
+</code></pre>
+</blockquote>
+<!-- <img
+  src="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg"
+  alt=""
+/>
+<h3>Web前端高级工程师系统课-星辰班</h3>
+<p>价格：8680</p> -->
+<blockquote>
+</div>
+<script src="./getVars.js"></script>
+<script>
+var data = [
+  {
+    targetId: 93,
+    title: "Web前端高级工程师系统课-星辰班",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg",
+    price: 8680,
+  },
+  {
+    targetId: 91,
+    title: "30个HTML+CSS实战小案例详解",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg",
+    price: 0,
+  },
+  {
+    targetId: 77,
+    title: "云原生Kubernetes与云上DevOps新版系统实战课",
+    mainImage:
+      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png",
+    price: 2680,
+  },
+];
+var show = document.querySelector(".show");
+var search = location.search;
+var Vars = getVars(search);
+data.forEach(function (item) {
+  if (item.targetId === Vars.targetId) {
+    var frag = document.createDocumentFragment();
+    var img = document.createElement("img");
+    img.src = item.mainImage;
+    frag.appendChild(img);
+    var h3 = document.createElement("h3");
+    h3.innerText = item.title;
+    frag.appendChild(h3);
+    var p = document.createElement("p");
+    var price = item.price === 0 ? "免费" : item.price;
+    p.innerText = "价格：" + price;
+    frag.appendChild(p);
+    show.appendChild(frag);
+  }
+});
+</script>
+```</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li><p>404 页面，定时跳转功能</p>
+<blockquote>
+<ul>
+<li>写一个定时器，做倒计时效果</li>
+<li>当倒计时结束，就改变页面的<code>url</code>，使其跳转到另一个页面</li>
+</ul>
+<pre><code>&lt;style&gt;
+ body &#123;
+   margin: 0;
+   display: flex;
+   justify-content: center;
+ &#125;
+ span &#123;
+   font-size: 50px;
+   color: red;
+ &#125;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;p&gt;&lt;span class=&quot;time&quot;&gt;5&lt;/span&gt;秒后，跳转到首页&lt;/p&gt;
+&lt;script&gt;
+  var span = document.querySelector(&quot;.time&quot;);
+  var sum = 5;
+  var timer = setInterval(function () &#123;
+ sum--;
+ span.innerText = sum;
+ if (sum &lt;= 0) &#123;
+   clearInterval(timer);
+   location.href = &quot;https://www.icodingedu.com/&quot;;
+ &#125;
+  &#125;, 1000);
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>location 对象的方法</p>
+<blockquote>
+<p>以下是<code>location</code>对象身上的一些常见的方法</p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assign</td>
+<td><code>location.assign()</code>方法会触发窗口加载并显示指定的<code>URL</code>的内容，类似<code>location.href</code>；<strong>会有历史记录</strong>，可通过前进和后退按扭来追回历史页；如果传入一个无效的 URL，则会抛出一个<code>syntax_error</code>语法错误</td>
+</tr>
+<tr>
+<td>replace</td>
+<td>用给定的URL替换掉当前的资源，<strong>不会有历史记录</strong>，即不能用后退回到原页面</td>
+</tr>
+<tr>
+<td>reload</td>
+<td>重新加载当前页面，相当于刷新按扭或F5；如果参数 为<code>true</code>，表示强制刷新<code>ctrl + F5</code>，即：要<strong>从服务器上</strong>加载数据；如果参数为<code>false</code>，表示浏览器优先从缓存当中加载页面</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>&lt;script&gt;
+  document.onclick = function () &#123;
+    // assign 相当于href，跳转到一个新的页面
+    location.assign(&quot;https://www.baidu.com/&quot;);
+    // 用给定URL替换当前面 不会产生历史记录
+    location.replace(&quot;https://www.baidu.com/&quot;);
+    location.reload(true); // 强制制新，重新从服务器加载数据
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<h3 id="三、window-history-对象"><a href="#三、window-history-对象" class="headerlink" title="三、window.history 对象"></a>三、window.history 对象</h3><blockquote>
+<ul>
+<li><code>Window.history</code>是一个只读属性，用来获取<code>History</code>对象的引用，<code>History</code>对象提供了操作浏览器<strong>会话历史</strong>的接口<br>window.history对象相关方法</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>back</td>
+<td>后退功能，返回上一页，相当于用户点击了浏览的 <code>←</code> 等价 <code>history.go(-1)</code></td>
+</tr>
+<tr>
+<td>forward</td>
+<td>前进功能，进入下一页，相当于用户点击了浏览的 <code>➔</code> 等价<code>history.go(1)</code></td>
+</tr>
+<tr>
+<td>go</td>
+<td>前进与后退，当参数为<code>1</code>，表示进入下一页；当参数为<code>-1</code>，表示退回上一页，如果参数为<code>0</code>，则重新载入当前页面</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>history.back(); // 后退
+history.forward(); // 前进
+history.go(1); // 前进 进入下一页
+</code></pre>
+</blockquote>
+<h3 id="四、navigator-对象"><a href="#四、navigator-对象" class="headerlink" title="四、navigator 对象"></a>四、navigator 对象</h3><blockquote>
+<ul>
+<li><code>window.navigator</code>对象包含用户此次活动的浏览器的相关属性和标识</li>
+<li>他有很多属性，但最常用的是 <code>userAgent</code> 这个属性</li>
+<li><code>userAgent</code> 属性返回当前浏览器的用户代理字符串</li>
+<li><code>navigator.userAgent; // 返回用户代理（浏览器）相关信息</code><blockquote>
+<p>我们通常利用这个<code>userAgent</code>属性来判断当前的打开页面的浏览器和设备</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>检测浏览器并返回浏览器名称<blockquote>
+<ul>
+<li>以下代码来自MDN：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/navigator">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/navigator</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>function BrowserName() &#123;
+  var sBrowser,
+    sUsrAg = navigator.userAgent;
+  if (sUsrAg.indexOf(&quot;Firefox&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Mozilla Firefox&quot;; // 火狐
+  &#125; else if (sUsrAg.indexOf(&quot;Opera&quot;) &gt; -1 || sUsrAg.indexOf(&quot;OPR&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Opera&quot;; // 欧朋
+  &#125; else if (sUsrAg.indexOf(&quot;Trident&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Microsoft Internet Explorer&quot;;
+  &#125; else if (sUsrAg.indexOf(&quot;Edge&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Microsoft Edge&quot;; //Edge浏览器
+  &#125; else if (sUsrAg.indexOf(&quot;Chrome&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Google Chrome or Chromium&quot;; // Chrome
+  &#125; else if (sUsrAg.indexOf(&quot;Safari&quot;) &gt; -1) &#123;
+    sBrowser = &quot;Apple Safari&quot;; // Safari
+  &#125; else &#123;
+    sBrowser = &quot;unknown&quot;; // 不知道
+  &#125;
+  return sBrowser;
+&#125;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>判断是否为微信环境<blockquote>
+<ul>
+<li><code>micromessenger</code>为微信内嵌的浏览器，有此标识的基本上可以判断是微信环境，但此标识也<strong>可以伪造</strong></li>
+</ul>
+<pre><code>// 判断是否为微信
+const isWx = function () &#123;
+  var ua = window.navigator.userAgent.toLowerCase();
+  if (ua.indexOf(&quot;micromessenger&quot;) !== -1) return true;
+  return false;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p>3、设备判断：android、ios、web</p>
+<blockquote>
+<pre><code>function isDevice() &#123;
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) &#123;
+    return &quot;iOS&quot;;
+  &#125; else if (/(Android)/i.test(navigator.userAgent)) &#123;
+    return &quot;Android&quot;;
+  &#125;
+  return &quot;Web&quot;;
+&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>i：代表不区分大小写匹配</li>
+<li><code>()</code>是为了提取匹配字符串的，表达式中有几个<code>()</code>，就有几个相应的匹配字符串</li>
+</ul>
+</blockquote>
+<h3 id="五、window-相关事件"><a href="#五、window-相关事件" class="headerlink" title="五、window 相关事件"></a>五、window 相关事件</h3><blockquote>
+<p>接下来我们学习几个非常重要的事件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>load</td>
+<td>整个页面（包括所有外部资源，如：图片、JavaScript 文件和 CSS 文件）加载完成后触发，这里指的是<code>window</code>身上的load事件</td>
+</tr>
+<tr>
+<td>DOMContentLoaded</td>
+<td>在 DOM 树构建完成后立即触发，不用等待图片、JavaScript 文件、CSS 文件或其它资源加载完成。</td>
+</tr>
+<tr>
+<td>resize</td>
+<td>当调整浏览器的窗口大小时，会触发 resize 事件；resize 事件触发会很频繁，所以我们在处理时，可以设置<strong>节流</strong>操作</td>
+</tr>
+<tr>
+<td>scroll</td>
+<td>当浏览器滚动条发生滚动时触发<code>window.onsrcoll</code>事件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p><code>DOMContentLoaded</code>事件的实际目标是<code>document</code>，但会冒泡到<code>window</code>；所以我们可以在<code>document</code>上监听这个事件</p>
+</blockquote>
+</blockquote>
+<h4 id="load-和-DOMContentLoaded-事件"><a href="#load-和-DOMContentLoaded-事件" class="headerlink" title="load 和 DOMContentLoaded 事件"></a>load 和 DOMContentLoaded 事件</h4><blockquote>
+<ul>
+<li>load ：<strong>整个页面</strong>（包括所有外部资源，如：图片、JavaScript 文件和 CSS 文件）加载完成后触发</li>
+<li>DOMContentLoaded ：<strong>在 <code>DOM</code> 树构建完成后</strong>立即触发，不用等待图片、JavaScript 文件、CSS 文件或其它资源加载完成。<blockquote>
+<p><code>DOMContentLoaded</code>事件始终在<code>load</code>事件之前发生</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>console.log(&quot;我第一个出来&quot;);
+// DOM树构建完成时触发
+window.addEventListener(&quot;DOMContentLoaded&quot;, function () &#123;
+  alert(&quot;我第二个出来&quot;);
+&#125;);
+// 页面加载完成后触发
+window.onload = function () &#123;
+  alert(&quot;我第三个出来&quot;);
+&#125;;
+</code></pre>
+</blockquote>
+<ul>
+<li>除了页面加完会触发 load 事件外，其它元素也会触发与之对应的 load 的事件<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;img&gt;</code>标签</td>
+<td>图片会在<strong>图片加载完成后</strong>触发 load 事件；<strong>图片并不需要插入到页面</strong>。只要 img 对象添加 src 属性，就会发起 http 请求，下载成功就会触发 load 事件</td>
+</tr>
+<tr>
+<td><code>&lt;script&gt;</code>标签</td>
+<td>在 <strong>JS 加载完后</strong>会触发 load 事件；不过<code>&lt;script&gt;</code>标签要指定 src 属性，<strong>同时要插入到文档中</strong>，才会发起 http 请求，下载成功才会触发 load 事件</td>
+</tr>
+<tr>
+<td><code>&lt;link&gt;</code>标签</td>
+<td>需要指定<code>&lt;link&gt;</code>标签的<code>href</code>属性，<strong>同时要插入到文档中</strong>，才会发起 http 请求，在 <strong>CSS 文件</strong>全部加载完成后会触发 load 事件</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ol>
+<li>动态加载图片，插入页面<blockquote>
+<p>load 加载成功，触发 load 事件</p>
+<ul>
+<li>图片加载完成后触发<code>load</code>事件，图片并不需要插入到页面。</li>
+<li>只要 img 对象添加<code>src</code>属性，就会发起<code>http</code>请求，下载成功就会触发<code>load</code>事件</li>
+<li><code>error</code>加载失败，触发<code>error</code>事件</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>/**
+* loadImg 动态加载图片
+* @param url 图片地址
+*/
+function loadImg(url) &#123;
+  var img = new Image(); // 创建img对象
+  // 图片加载成功，插入到页面
+  img.onload = function () &#123;
+    // alert(&#39;加载成功&#39;)
+    document.body.appendChild(img);
+  &#125;;
+  // 图片加载失败，在页面显示图片加载失败
+  img.onerror = function () &#123;
+    document.body.innerText = &quot;图片加载失败&quot;;
+  &#125;;
+  img.src = url;
+&#125;
+</code></pre>
+</blockquote>
+<p>var url &#x3D;<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“;<br>loadImg(url);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>动态加载 JS<blockquote>
+<ul>
+<li>在 JS 加载完后会触发 load 事件</li>
+<li>不过<code>&lt;script&gt;</code>标签要指定 src 属性，同时<strong>要插入到文档中</strong>，才会发起 http 请求，下载成功才会触发 load 事件。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>/**
+* loadScript 动态加载JS文件
+* @param src js文件地址
+* @param callback回调函数，js加载完成后，要处理的事情
+*/
+function loadScript(src, callback) &#123;
+  var script = document.createElement(&quot;script&quot;);
+  script.onload = function () &#123;
+    typeof callback === &quot;function&quot; ? callback() : callback;
+  &#125;;
+  script.onerror = function () &#123;
+    alert(&quot;加载失败&quot;);
+  &#125;;
+  // 指定src属性值，并插入到页面中
+  script.src = src;
+  document.body.appendChild(script); // 不插入到页面，load事件永远不会触发
+&#125;
+</code></pre>
+</blockquote>
+<p>loadScript(“.&#x2F;a.js”, function () {<br>  alert(“加载成功”);<br>});</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>动态加载 CSS<blockquote>
+<ul>
+<li>在 CSS 文件全部加载完成后会触发 load 事件</li>
+<li>和<code>&lt;script&gt;</code>标签一样，需要指定 <code>href</code> 属性值，并且要把<code>&lt;link&gt;</code>标签插入到文档发中才会开始下载 <code>CSS</code> 样式，下载完成后才会触发 <code>load</code> 事件</li>
+<li>要设置<code>link.rel = &quot;stylesheet&quot;;</code></li>
+<li><code>&lt;link&gt;</code>标签是插入到<code>head</code>标签里面，不是<code>document</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>/**
+* 动态插入外链css
+* href css外链地址
+*/
+function loadCSS(href) &#123;
+  var link = document.createElement(&quot;link&quot;);
+  link.rel = &quot;stylesheet&quot;;
+  link.addEventListener(
+    &quot;load&quot;,
+    function () &#123;
+      alert(&quot;css加载成功&quot;);
+    &#125;,
+    false
+  );
+  link.href = href;
+  // 把link标签插入到head标签中
+  var head = document.getElementsByTagName(&quot;head&quot;)[0];
+  head.appendChild(link);
+&#125;
+loadCSS(&quot;./index.css&quot;);
+</code></pre>
+</blockquote>
+<h4 id="resize-事件"><a href="#resize-事件" class="headerlink" title="resize 事件"></a>resize 事件</h4><blockquote>
+<ul>
+<li>当调整浏览器的窗口大小时，会触发<code>resize</code>事件</li>
+<li><code>resize</code>事件触发会很频繁，所以我们在处理时，可以设置节流操作</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var a = 0;
+window.onresize = throttle(fn, 50);
+function fn() &#123;
+  console.log(a++);
+&#125;
+
+/**
+* 节流函数
+* fn 事件处理函数
+* delay 函数执行间隔时间
+*/
+function throttle(fn, delay) &#123;
+  var timer = null;
+</code></pre>
+</blockquote>
+<p>  return function () {<br>    var self &#x3D; this;<br>    var args &#x3D; arguments;<br>    if (timer) return;<br>    timer &#x3D; setTimeout(function () {<br>      &#x2F;&#x2F; 函数体执行代码<br>      fn.apply(self, args);<br>      &#x2F;&#x2F; 开锁<br>      timer &#x3D; null;<br>    }, delay);<br>  };<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="srcoll-事件"><a href="#srcoll-事件" class="headerlink" title="srcoll 事件"></a>srcoll 事件</h4><blockquote>
+<ul>
+<li>当浏览器滚动条发生滚动时触发<code>window.onsrcoll</code>事件</li>
+<li>如果<strong>某个元素</strong>内的内容溢出，显示了滚动条，滚动对应的滚动条，也会触发对应的<code>scroll</code>事件</li>
+<li><code>scroll</code>事件的触发频率也非常的快，所以了要根据实际业务场景来添加节流操作</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .body &#123;
+    margin: 0;
+    height: 3000px;
+  &#125;
+  .box &#123;
+    width: 200px;
+    height: 300px;
+    margin: 100px;
+    border: 1px solid #000;
+    overflow-y: scroll;
+  &#125;
+  p &#123;
+    width: 100%;
+    height: 800px;
+    margin: 0;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;
+ &lt;p&gt;
+   我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容
+ &lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  var a = 0;
+  //浏览器的scroll事件
+  window.onscroll = throttle(fn, 300);
+  function fn() &#123;
+    console.log(a++);
+  &#125;
+  //元素的scroll事件
+  box.onscroll = throttle(fn1, 300);
+  function fn1() &#123;
+    console.log(&quot;box&quot;);
+  &#125;
+
+/**
+ * 节流函数
+ * fn 事件处理函数
+ * delay 函数执行间隔时间
+ */
+  function throttle(fn, delay) &#123;
+    var timer = null;
+</code></pre>
+</blockquote>
+<pre><code>return function () &#123;
+  var self = this;
+  var args = arguments;
+  if (timer) return;
+  timer = setTimeout(function () &#123;
+    // 函数体执行代码
+    fn.apply(self, args);
+    // 开锁
+    timer = null;
+  &#125;, delay);
+&#125;;
+</code></pre>
+<p>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例1：返回顶部"><a href="#案例1：返回顶部" class="headerlink" title="案例1：返回顶部"></a>案例1：返回顶部</h4><blockquote>
+<ul>
+<li>实现效果：点击返回顶部按扭，页面滚动到最顶部，即滚动条与浏览器顶部的滚动距离<strong>不断的减小</strong>(不是直接到顶部)，直到减少到 0</li>
+</ul>
+</blockquote>
+<ol>
+<li>限定步长的匀速运动<blockquote>
+<p>实现方式有三种</p>
+<ul>
+<li>1、不断减小<code>window.scroll(x,y)</code>中 y 的值，直到y &lt;&#x3D; 0</li>
+<li>2、通过<code>window.scrollBy(x,y)</code> 方法，每次向上移动一点距离，直到<code>window.scrollY &lt;= 0</code></li>
+<li>3、通过不断减小<code>document.documentElement.scrollTop</code>的值，直到 <code>&lt;= 0</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>三种实现方式的通用布局</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+#back-top &#123;
+  width: 80px;
+  height: 80px;
+  background-color: #ddd;
+  text-align: center;
+  line-height: 80px;
+  cursor: pointer;
+  position: fixed;
+  right: 10px;
+  bottom: 100px;
+&#125;
+body &#123;
+  height: 3000px;
+&#125;
+&lt;/style&gt;
+
+&lt;div id=&quot;back-top&quot;&gt;返回顶部&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>实现方式1</p>
+<blockquote>
+<p>使用 <code>window.scroll(x,y)</code> 和 <code>window.scrollY</code></p>
+<ul>
+<li>点击后，首先获取当前滚动条滚动的距离<code>scrollY = window.scrollY</code></li>
+<li>然后开启一个定时器，隔一定时间让<code>window.scroll(0,y)</code>中 <code>y</code> 的值减小 100 ，直到<code>window.scrollY &lt;= 0</code>，说明滚动条滚动到页面的顶部，然后暂停定时器</li>
+<li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
+</ul>
+<pre><code>&lt;script&gt;
+var backTop = document.getElementById(&quot;back-top&quot;);
+// 第一套方案 window.scroll();
+var timer = null;
+var lock = false; // 可以点击
+// 点击事件
+backTop.onclick = function () &#123;
+  // 获取滚动条与浏览器顶部的距
+  if (lock) return;
+  lock = true;
+  var scrollY = window.scrollY; // 把他放在外面，不用频繁的读他
+  timer = setInterval(function () &#123;
+    scrollY -= 100;
+    if (scrollY &lt;= 0) &#123;
+      clearInterval(timer);
+      lock = false;
+    &#125;
+    window.scroll(0, scrollY);
+  &#125;, 20);
+&#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>实现方式二</p>
+<blockquote>
+<p>使用 <code>window.scrollBy</code> 和 <code>window.scrollY</code></p>
+<ul>
+<li>通过<code>window.scrollBy(x,y)</code> 方法，每次向上移动一点距离，直到<code>window.scrollY &lt;= 0</code></li>
+<li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
+</ul>
+<pre><code>&lt;script&gt;
+var backTop = document.getElementById(&quot;back-top&quot;);
+// 第一套方案 window.scroll();
+var timer = null;
+var lock = false; // 可以点击
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 点击事件<br>backTop.onclick &#x3D; function () {<br>  &#x2F;&#x2F; 获取滚动条与浏览器顶部的距离<br>  if (lock) return;<br>  lock &#x3D; true;</p>
+<blockquote>
+</blockquote>
+<p>  timer &#x3D; setInterval(function () {<br>var scrollY &#x3D; window.scrollY;<br>if (scrollY &lt;&#x3D; 0) {<br>  clearInterval(timer);<br>  lock &#x3D; false;<br>}<br>window.scrollBy(0, -20);<br>  }, 20);<br>};</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>实现方式三</p>
+<blockquote>
+<p>使用 <code>document.documentElement.scrollTop</code> 来实现</p>
+<ul>
+<li>首先获取当前滚动条滚动过的距离<code>document.documentElement.scrollTop</code></li>
+<li><code>Element.scrollTop</code>属性可以<strong>获取或设置</strong>一个元素的内容垂直滚动的像素数。</li>
+<li>开启定时器，不断的减小<code>scrollTop</code> 的值，直到 <code>&lt;= 0</code></li>
+<li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
+</ul>
+<pre><code>&lt;script&gt;
+var backTop = document.getElementById(&quot;back-top&quot;);
+backTop.addEventListener(&quot;click&quot;, backToTop, false);
+var lock = false;
+function backToTop() &#123;
+  if (lock) return;
+  lock = true;
+  // 获取当前滚动条滚动的距离
+  var doc = document.documentElement || document.body;
+  var top = doc.scrollTop;
+  clearInterval(this.timer); // 多次点击无效，以最后一次为主
+  var that = this; // 保存this，在定时器内需要用到
+</code></pre>
+</blockquote>
+<p>  this.timer &#x3D; setInterval(function () {<br>if (top &lt;&#x3D; 0) {<br>  clearInterval(that.timer); &#x2F;&#x2F; 如果top小于0清除定时器<br>  lock &#x3D; false;<br>} else {<br>  top &#x3D; top - 100; &#x2F;&#x2F; 每次减 100<br>  doc.scrollTop &#x3D; top; &#x2F;&#x2F; 动态更改滚动条件与浏览器的滚动的距离<br>}<br>  }, 20);<br>}</p>
+<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>限时匀速运动——最佳实践<blockquote>
+<ul>
+<li>T：<code>time</code>已经运动的时间</li>
+<li>B：<code>begin</code>开始位置</li>
+<li>C： <code>change</code>需要移动的总距离 &#x3D; Target - Begin</li>
+<li>D： <code>duration</code>动画运动的总时间 </li>
+<li>每次运动后，滚动条要到的位置(距顶部的距离)：<code>CurrentDistance = T / D * C + B</code> 即：<code>当前位置 = T / D * C + B</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>使用<code>window.scroll(x,y)</code>和<code>window.scrollY</code>实现</p>
+<blockquote>
+<pre><code>&lt;script&gt;
+var backTop = document.getElementById(&quot;back-top&quot;);
+var timer = null; //定时器
+var lock = false; //未上锁
+backTop.onclick = function () &#123;
+  if (lock) return;
+  lock = true;
+  var T = 0; //记录已经运动的时间
+  var B = window.scrollY; // 开始位置
+  var C = 0 - B; //需要移动的总距离,target=0
+  var D = 500; //限定时间
+  timer = setInterval(function () &#123;
+    T += 20;
+    // 当次滚动条要到的位置
+    var currentDistance = (T / D) * C + B;
+    if (T &gt; D) &#123;
+      clearInterval(timer);
+      currentDistance = 0;
+      lock = false;
+    &#125;
+    window.scroll(0, currentDistance);
+  &#125;, 20);
+&#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>使用 <code>document.documentElement.scrollTop</code> 实现</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>&lt;script&gt;
+  var backTop = document.getElementById(&quot;back-top&quot;);
+  var doc = document.documentElement || document.body;
+  var timer = null;
+  var lock = false;
+  //点击后要处理的事情
+  // 限定时间动画
+  backTop.onclick = function () &#123;
+    if (lock) return;
+    lock = true;
+    // 运动的时间
+    var T = 0;
+    var B = doc.scrollTop; // 开始位置
+    // target=0 目标位置
+    var C = 0 - B; // 总共需要改变的距离
+    var D = 500; // 总共运动的时间
+</code></pre>
+</blockquote>
+<pre><code>timer = setInterval(function () &#123;
+  // 记录运的时间
+  T += 20;
+  // 当前运动到的位置
+  var currentDistance = (T / D) * C + B;
+  // currentDistance &lt; 0
+  if (T &gt;= D) &#123;
+    clearInterval(timer);
+    currentDistance = 0;
+    lock = false;
+  &#125;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>  doc.scrollTop = currentDistance;
+&#125;, 20);
+</code></pre>
+<p>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例2：图片延时加载"><a href="#案例2：图片延时加载" class="headerlink" title="案例2：图片延时加载"></a>案例2：图片延时加载</h4><blockquote>
+<p><strong>实现原理：</strong></p>
+<ul>
+<li>页面中所有需要做延时加载的图片上加上<code>class = &#39;lazy&#39;</code> 和 <code>data-src = &#39; 图片真实地址&#39;</code></li>
+<li>获取页面中所有<code>class</code>中包含<code>lazy</code>的元素，同时要判断元素是否为<code>img</code>标签且<code>data-src</code>是否有值。确保操作的元素是 <code>img</code> 元素，同时<code>data-src</code>中有图片地址。</li>
+<li>当滚动浏览器的滚动条时，要判断对应的图片<strong>是否进入可视区</strong>，如果进入，则给<code>img.src</code>动态赋值</li>
+<li>如果图片一旦赋值，则后面就不需要再对此 <code>img</code> 标签做监听。则可以从数组对象中将其删除，同时把 <code>lazy</code> 样式删除</li>
+<li>最后考虑浏览器窗口大小改变时(响应式布局)的情况，还有要考虑对 <code>scroll</code> 和 <code>resize</code> 事件做节流操作</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>步骤</strong></p>
+<ul>
+<li>CSS布局</li>
+<li>用JS实现响应式布局</li>
+<li>JS实现延时加载效果</li>
+</ul>
+</blockquote>
+<ul>
+<li>布局</li>
+</ul>
+<blockquote>
+<pre><code>&lt;style&gt;
+  html,
+  body,
+  ul,
+  li &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  ul &#123;
+    /* width: 968px; */
+    margin: 0 auto;
+  &#125;
+  li &#123;
+    list-style: none;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    float: left;
+  &#125;
+  li img &#123;
+    width: 200px;
+    height: 200px;
+  &#125;
+&lt;/style&gt;
+
+&lt;ul id=&quot;J_container&quot;&gt;
+ &lt;li&gt;
+   &lt;img
+     src=&quot;./images/loading-svg/loading-bars.svg&quot;
+     data-src=&quot;./images/01.png&quot;
+     class=&quot;lazy&quot;
+   /&gt;
+ &lt;/li&gt;
+ &lt;li&gt;
+   &lt;img
+     src=&quot;./images/loading-svg/loading-bars.svg&quot;
+     data-src=&quot;./images/01.png&quot;
+     class=&quot;lazy&quot;
+   /&gt;
+ &lt;/li&gt;
+……
+&lt;/ul&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li>JS 实现页面响应式布局<blockquote>
+<ul>
+<li>效果：无论怎么调整浏览器窗口，ul都能居中对齐</li>
+<li>第一次打开页面或当浏览器窗口大小发生改变时，获取浏览器窗口的可视区宽 <code>clientWidth</code></li>
+</ul>
+<pre><code>var clientWidth =
+document.documentElement.clientWidth || document.body.clientWidth;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>然后用<code>clienwWidth / 每个li元素的占位宽</code>（包括 margin，border，padding），对结果向下取整，计算得出页面一行最多能放几个li</li>
+</ul>
+<pre><code>var count = Math.floor(clientWidth / 242);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>利用 <code>count * li占位宽</code> 动态计算得到其父容器ul的宽</li>
+</ul>
+<pre><code>container.style.width = count * 242 + &quot;px&quot;;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>ul</code>设置左右居中</li>
+</ul>
+</blockquote>
+<ul>
+<li>JS 实现懒加载（延时加载）效果<blockquote>
+<ul>
+<li>获取页面中所有<code>class = &#39;lazy&#39;</code> 的元素，同时过滤掉不是图片的元素</li>
+</ul>
+<pre><code>// 1、需要获取到所有需要延时加载的图片
+var imgs = document.querySelectorAll(&quot;.lazy&quot;);
+// 2、过滤掉不是图片的标签
+//方式一：
+var imgs = document.querySelectorAll(&quot;img.lazy&quot;);
+//方式二：
+imgs = Array.prototype.filter.call(imgs, function (item) &#123;
+return item instanceof Image;
+&#125;);
+//方式三：
+imgs = Array.prototype.filter.call(imgs, function (item) &#123;
+return item instanceof HTMLImageElement;
+&#125;);
+</code></pre>
+<blockquote>
+<p>注意：方式一得到的是类数组，没有<code>indexOf</code>方法</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>获取页面可视区的高</li>
+</ul>
+<pre><code>// 获取浏览器可视区的高
+var clientHeight =
+  document.documentElement.clientHeight || document.body.clientHeight;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>对获取的所有图片进行遍历，遍历时判断元素是否进入到可视区</li>
+<li>元素进入可视区原理：元素底部与浏览器可视区的高 &gt; 0 同时元素顶部与浏览器可视区的高要小于浏览器可视区高。 即<code>bottom &gt; 0 &amp;&amp; _top &lt; clientHeight</code></li>
+<li>如果元素进入可视区，将图片保存在<code>data-src</code>属性上的正确地址赋值给<code>src</code>属性</li>
+<li>同时将此图片从<code>imgs</code>数组中删除，以后不需要再监听了</li>
+<li>当<strong>滚动条滚动</strong>时，或<strong>浏览器窗口大小发生改变</strong>时，会有其它图片进入到当前浏览器可视区,则需要添加对应的<strong>事件来监听</strong>。</li>
+<li>当所有图片都被加载出来了，<code>imgs</code>是空数组；此时就不用再遍历了</li>
+<li>最后还要做相关节流操作<blockquote>
+<p>注意：</p>
+</blockquote>
+</li>
+<li>如果动态调整<code>ul</code>宽度的<code>resize</code>事件也做节流的话，那么，它的间隔时间必须短于懒加载函数中<code>resize</code>事件的间隔时间</li>
+<li>不要用<code>top</code>命名变量，因为，<code>window</code>里面有一个<code>top</code>方法，它指向<code>window</code>本身</li>
+</ul>
+</blockquote>
+<p><strong>主页面</strong></p>
+<blockquote>
+<pre><code>&lt;script&gt;
+  //获取元素
+  var container = document.getElementById(&quot;J_container&quot;);
+  //第一次进来时，初始化ul的宽度
+  initUlWidth();
+  //每次调整浏览器可视区时，动态调整ul的宽度
+  window.addEventListener(&quot;resize&quot;, throttle(initUlWidth, 90));
+  //调整ul宽度函数
+  function initUlWidth() &#123;
+    //获取可视区宽度
+    var clientWidth =
+      document.documentElement.clientWidth || document.body.clientWidth;
+    var count = Math.floor(clientWidth / 242);
+    container.style.width = count * 242 + &quot;px&quot;;
+  &#125;
+  lazyload(); //实现延迟加载效果
+/**
+ * 节流函数
+ * fn 事件处理函数
+ * delay 函数执行间隔时间
+ */
+  function throttle(fn, delay) &#123;
+    var timer = null;
+    return function () &#123;
+      var self = this;
+      var args = arguments;
+      if (timer) return;
+      timer = setTimeout(function () &#123;
+        // 函数体执行代码
+        fn.apply(self, args);
+        // 开锁
+        timer = null;
+      &#125;, delay);
+    &#125;;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<p><strong>完整JS文件</strong></p>
+<blockquote>
+<ul>
+<li>只需要将图片上添加<code>data-src</code>属性，存放真实图片地址，同时添加<code>class=&#39;lazy&quot;</code>,最后调用<code>lazyLoad()</code>即可</li>
+</ul>
+<pre><code>(function () &#123;
+  // 实现延时加载
+  function lazyLoad() &#123;
+    // 1、需要获取到所有需要延时加载的图片
+    var imgs = document.querySelectorAll(&quot;.lazy&quot;);
+    // 2、过滤掉不是图片的标签
+    imgs = Array.prototype.filter.call(imgs, function (item) &#123;
+      return item instanceof Image;
+    &#125;);
+    lazy(); // 调用
+    window.addEventListener(&quot;scroll&quot;, throttle(lazy, 100)); //  给window绑定滚动事件
+    window.addEventListener(&quot;resize&quot;, throttle(lazy, 100));
+    function lazy() &#123;
+      if (imgs.length === 0) return; // 当前数组中没有需要监听的图片了
+      // 获取浏览器可视区的高
+      var clientHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+</code></pre>
+</blockquote>
+<pre><code>  // 遍历所有过滤后得图片，然后查看图片是否进入到可视区，
+  // 如果进入到可视区，就动态给图片添加真实的图片地址
+  for (var i = 0; i &lt; imgs.length; i++) &#123;
+    // 判断图片是否进入可视区  bottom&gt;0  &amp;&amp; top&lt;浏览器可视区高
+    var rect = imgs[i].getBoundingClientRect();
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>    var bottom = rect.bottom;
+    var _top = rect.top;
+    // 以下条件成立，代表元素进入到可视区
+    if (bottom &gt; 0 &amp;&amp; _top &lt; clientHeight) &#123;
+      // 把自定义属性上的真实地址赋值给图片
+      imgs[i].src = imgs[i].dataset.src;
+      // 如果图片进入过一次可视区，动态赋过值，就不用再管他了
+      var index = imgs.indexOf(imgs[i]);
+      imgs.splice(index, 1);
+      i--; // 一定要注意，i--
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>  }</p>
+<blockquote>
+<p>&#x2F;**</p>
+<ul>
+<li>节流函数</li>
+<li>fn 事件处理函数</li>
+<li>delay 函数执行间隔时间<br>*&#x2F;<br>function throttle(fn, delay) {<br>  var timer &#x3D; null;<br>  return function () {<br>var self &#x3D; this;<br>var args &#x3D; arguments;<br>if (timer) return;<br>timer &#x3D; setTimeout(function () {<br>  &#x2F;&#x2F; 函数体执行代码<br>  fn.apply(self, args);<br>  &#x2F;&#x2F; 开锁<br>  timer &#x3D; null;<br>}, delay);<br>  };<br>}</li>
+</ul>
+</blockquote>
+<p>  window.lazyLoad &#x3D; lazyLoad;<br>})();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例3：吸顶盒导航"><a href="#案例3：吸顶盒导航" class="headerlink" title="案例3：吸顶盒导航"></a>案例3：吸顶盒导航</h4><blockquote>
+<p><strong>涉及知识点</strong></p>
+<ul>
+<li>过渡动画</li>
+<li><code>window.onsrcoll</code>事件</li>
+<li><code>offsetTop</code>、<code>offsetHeight</code>、<code>scrollTop</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>思路：</p>
+<ul>
+<li>给吸顶盒元素做一个<strong>副本</strong>，定在可视区之外</li>
+<li>滚动条往下走，当它滚动的距离 超过 元素自身高度+元素距顶部距离 时，副本<strong>缓慢</strong>定在最顶部<ul>
+<li>副本出现的时候，给它加动画效果的样式</li>
+</ul>
+</li>
+<li>滚动条往上走，当 它滚动的距离 小于 元素元素距浏览器顶部距离时，副本马上消失<ul>
+<li>副本消失时，去掉样式<blockquote>
+<p>注意<strong>副本消失时的条件</strong>，如果直接写在<code>else</code>里，就会发生抖动</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  html,
+  body &#123;
+    margin: 0;
+    height: 100%;
+  &#125;
+  .top &#123;
+    height: 50px;
+    background-color: #000;
+  &#125;
+  .header &#123;
+    height: 120px;
+    background-color: skyblue;
+  &#125;
+  .nav &#123;
+    width: 100%;
+    height: 100px;
+    background-color: red;
+  &#125;
+  .nav2 &#123;
+    background-color: red;
+    position: fixed;
+    top: -100px;
+  &#125;
+  .transition &#123;
+    transition: top 1s ease;
+  &#125;
+  .main &#123;
+    height: 3000px;
+  &#125;
+&lt;/style&gt;
+
+&lt;!-- 模拟的头部内部 --&gt;
+&lt;div class=&quot;top&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
+&lt;!-- 吸顶盒 --&gt;
+&lt;!-- nav2相当于nav1的副本，不过nav2是固定定位在浏览器的外部 --&gt;
+&lt;div class=&quot;nav nav1&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;nav nav2&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  // 获取nav1与nav2
+  var nav1 = document.querySelector(&quot;.nav1&quot;);
+  var nav2 = document.querySelector(&quot;.nav2&quot;);
+  var nav1Top = nav1.offsetTop; // nav1的顶部与浏览器顶部距离
+  var bottom = nav1Top + nav1.offsetHeight; // nav1的底部与浏览器顶部距离
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;添加 scroll事件<br>  window.addEventListener(“scroll”, fn);<br>  function fn() {<br>    var scrollTop &#x3D;<br>      document.documentElement.scrollTop || document.body.scrollTop;<br>    &#x2F;&#x2F; 滚动条滚动距离 &gt;&#x3D; 元素底部与浏览器顶部距离<br>    if (scrollTop &gt;&#x3D; bottom) {<br>      nav2.classList.add(“transition”);<br>      &#x2F;&#x2F;nav2 区块显示出<br>      nav2.style.top &#x3D; “0px”;<br>    }<br>    &#x2F;&#x2F; 滚动条滚动距离 &lt;&#x3D; 元素顶部与浏览器项部距离<br>    if (scrollTop &lt;&#x3D; nav1Top) {<br>      nav2.classList.remove(“transition”);<br>      nav2.style.top &#x3D; “-100px”;<br>    }<br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例4：滚动加载更多"><a href="#案例4：滚动加载更多" class="headerlink" title="案例4：滚动加载更多"></a>案例4：滚动加载更多</h4><blockquote>
+<ul>
+<li>当滚动条滚动到最底部时，加载一批数据，填充到页面上</li>
+<li>判断滚动条滚动到底部公式：<code>scrollHeight - scrollTop - clientHeight = 0</code></li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scrollTop</td>
+<td>元素滚动出去的高</td>
+</tr>
+<tr>
+<td>clientHeight</td>
+<td>元素的可视高（height + padding）</td>
+</tr>
+<tr>
+<td>scrollHeight</td>
+<td>元素实际内容的高</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>var doc = document.documentElement || document.body;
+if (doc.scrollHeight - doc.scrollTop - doc.clientHeight &lt; 100) &#123;
+  // 快滚动到底部时，就开始请求加载数据
+&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .main &#123;
+    height: 3000px;
+  &#125;
+  .box1 &#123;
+    background-color: khaki;
+    height: 500px;
+    margin: 50px;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  // window滚动事件
+  window.addEventListener(&quot;scroll&quot;, throttle(loadmore, 100));
+  // 加载更多函数
+  function loadmore() &#123;
+    var doc = document.documentElement || document.body;
+    var scrollHeight = doc.scrollHeight;
+    var scrollTop = doc.scrollTop;
+    var clientHeight = doc.clientHeight;
+    // 什么时开始加载下一批内容
+    // 当浏览器的srollHeight - scrollTop -clientHeight=0时，表示滚动到页面的底部
+    // 但我们更希望在快到达底部前，就开始加载下一批数据，所以可以设置100左右的差值
+    if (scrollHeight - scrollTop - clientHeight &lt; 100) &#123;
+      // 加载更多内容
+      //   console.log(&quot;加载更多内容&quot;);
+      // 每次滚动到底部，创建一批内容，加载到页面当中
+      var div = document.createElement(&quot;div&quot;);
+      div.className = &quot;box1&quot;;
+      document.body.appendChild(div);
+</code></pre>
+</blockquote>
+<pre><code>  // ajax请求
+  // 把数据渲染到页面当中来
+&#125;
+</code></pre>
+<p>  }</p>
+<blockquote>
+<p>&#x2F;**</p>
+<ul>
+<li>节流函数</li>
+<li>fn 事件处理函数</li>
+<li>delay 函数执行间隔时间<br> *&#x2F;<br>  function throttle(fn, delay) {<br> var timer &#x3D; null;<br> return function () {<br>   var self &#x3D; this;<br>   var args &#x3D; arguments;<br>   if (timer) return;<br>   timer &#x3D; setTimeout(function () {<br> &#x2F;&#x2F; 函数体执行代码<br> fn.apply(self, args);<br> &#x2F;&#x2F; 开锁<br> timer &#x3D; null;<br>   }, delay);<br> };<br>  }<br></script></li>
+</ul>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="案例5：楼梯式导航"><a href="#案例5：楼梯式导航" class="headerlink" title="案例5：楼梯式导航"></a>案例5：楼梯式导航</h4><blockquote>
+<p>涉及知识</p>
+<ul>
+<li>元素添加自定义属性绑定<strong>下标序号</strong></li>
+<li>事件委托</li>
+<li>查找数组中第一个大于 n 的数的下标</li>
+<li>限时匀速动画</li>
+<li>window.onscroll事件</li>
+<li>scrollTop、offsetTop</li>
+<li>函数节流</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>布局思路</p>
+<ul>
+<li><code>foor-nav</code>用来制作右侧楼梯导航，采用固定定位，定位到浏览右侧</li>
+<li><code>header</code> 和 <code>footer</code> 用来占位，模拟真实网站头部和尾部占用的空间</li>
+<li><code>main</code> 中的直接子元素<code>floor-item</code>区域为楼梯导航滚动相关内容区块</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>HTML结构</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+html &#123;
+  /* 滚动条平滑滚动效果 */
+  scroll-behavior: smooth;
+&#125;
+html,
+body,
+ul,
+li &#123;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+&#125;
+body &#123;
+  background-color: #ddd;
+&#125;
+.floor-nav &#123;
+  position: fixed;
+  right: 50px;
+  top: 100px;
+  width: 50px;
+  background-color: #fff;
+  padding: 10px 10px;
+&#125;
+.floor-nav li &#123;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+  border-bottom: 1px dashed #ddd;
+  cursor: pointer;
+&#125;
+.floor-nav li:hover,
+.floor-nav li.active:hover &#123;
+  background-color: red;
+  color: #fff;
+&#125;
+.floor-nav li.active &#123;
+  color: red;
+&#125;
+.main &#123;
+  width: 600px;
+  margin: 0px auto;
+&#125;
+.main .floor-item &#123;
+  width: 100%;
+  background-color: skyblue;
+  font-size: 50px;
+  text-align: center;
+  line-height: 200px;
+  margin-top: 50px;
+&#125;
+&lt;/style&gt;
+
+&lt;!-- 楼梯导航按扭开始 --&gt;
+&lt;ul class=&quot;floor-nav&quot; id=&quot;J_floor&quot;&gt;
+ &lt;li&gt;国创&lt;/li&gt;
+ &lt;li&gt;综艺&lt;/li&gt;
+ &lt;li&gt;娱乐&lt;/li&gt;
+ &lt;li&gt;电影&lt;/li&gt;
+ &lt;li&gt;游戏&lt;/li&gt;
+ &lt;li&gt;纪录片&lt;/li&gt;
+ &lt;li&gt;电视剧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- 楼梯导航按扭开始 --&gt;
+&lt;div class=&quot;header&quot; style=&quot;height: 500px&quot;&gt;&lt;/div&gt;
+&lt;!--楼梯内容开始--&gt;
+&lt;div id=&quot;J_app&quot; class=&quot;main&quot;&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 500px&quot;&gt;国创&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 530px&quot;&gt;综艺&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;娱乐&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 600px&quot;&gt;电影&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 560px&quot;&gt;游戏&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;纪录片&lt;/div&gt;
+ &lt;div class=&quot;floor-item&quot; style=&quot;height: 620px&quot;&gt;电视剧&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--楼梯内容结束--&gt;
+&lt;div class=&quot;footer&quot; style=&quot;height: 1500px&quot;&gt;&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>JS 实现思路</p>
+<blockquote>
+<p><strong>第一步：实现右侧楼梯导航按扭点击滚动效果</strong></p>
+<ul>
+<li>利用事件委托来实现，所有<code>li</code>的点击事件全委托给父元素<code>#J_floor</code>来实现</li>
+<li>点击对应按扭实现：当前点击元素文字变红，其它文字为灰色，同时滚动条滚动到对应楼层</li>
+<li>要实现当前文字变红，其它文字变灰，需要定义变量 <code>prevIndex</code>来保存前一项被点击元素的下标</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>// 获取id为 J_floor元素
+var floorNav = document.getElementById(&quot;J_floor&quot;);
+var navs = document.querySelectorAll(&quot;#J_floor li&quot;);
+var prevIndex = -1; // 前一个楼梯按扭序号
+// 事件委托，所有子元素li的点击事件委托给父元素来处理
+floorNav.onclick = function (e) &#123;
+  var target = e.target;
+  var tagName = target.tagName.toLowerCase();
+  // 如果不是点击对应的li啥也不做
+  if (tagName !== &quot;li&quot;) return;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 点击后要处理的事情<br>  &#x2F;&#x2F; 1.前面变红的li复原<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  &#x2F;&#x2F; 2.当前项变红色<br>  target.classList.add(“active”);<br>  &#x2F;&#x2F; 3、把前一个序号更新为当前序号，供后面使用<br>  prevIndex &#x3D; Array.prototype.indexOf.call(navs, target);<br>  &#x2F;&#x2F; 4、滚动条滚动到当前楼层所在位置<br>  &#x2F;&#x2F; ………具体实现思路看下一步，<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>第二步：实现点击导航按扭后，滚动条滚动到对应楼层</strong></p>
+<ul>
+<li>创建一个空数组<code>floorItemsTopArr = []</code>，用来保存每一个楼层的元素与浏览器顶部的距离</li>
+<li>点击按扭时，找到对应按扭元素的下标，再找到<code>floorItemsTopArr</code>数组中对应下标的元素，获得当前浏览器滚动条需要滚动到的距离。</li>
+<li>实现滚动条在滚动时能平滑滚动:<ul>
+<li>方法1：在html 标签的样式中添加<code>scroll-behavior: smooth;</code>样式;但目前在一些低版本浏览器中不支持</li>
+<li>方法2：JS手动封装实现滚动条平滑滚动的函数，利用限时匀速运动</li>
+</ul>
+</li>
+</ul>
+<pre><code>/**
+* scrollByTop 滚动条从当前位置滚动到目标位置（只针对垂直方向）
+* target 滚动到的目标位置
+* delay 滚动的总时间
+*/
+function scrollByTop(target, delay = 200) &#123;
+  // 已经运动的时间
+  var T = 0;
+  // 开始运动的位置
+  var B = window.scrollY;
+  // 目标位置是 0  var targe=0;
+  // 总共需要改变的距离
+  var C = target - B;
+  // 总共需要运动的时间
+  var D = delay;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 开始执行动画<br>  timer &#x3D; setInterval(function () {<br>    T +&#x3D; 20; &#x2F;&#x2F; 记录运动的时间<br>    &#x2F;&#x2F; 当前滚动条运动的距离<br>    var currentDistance &#x3D; (T &#x2F; D) * C + B;<br>    if (T &gt;&#x3D; D) {<br>      currentDistance &#x3D; target;<br>      clearInterval(timer);<br>    }<br>    window.scroll(0, currentDistance);<br>  }, 20);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>第三步：实现滚动浏览器窗口，对应楼层按扭显示对应样式</strong></p>
+<ul>
+<li>如何知道当前滚动条滚动所在的对应楼层呢 ？可以通过当前滚动条滚动的距离与楼层顶部与浏览器的距离来判断</li>
+<li>找到数组中<strong>从前往后</strong>满足： <code>滚动条滚动距离 &gt; 楼层顶部与浏览器顶部距离的最后一个元素</code> 。这个元素所在的下标，就是当前滚动条滚动到的楼层所对应的下标。把这个下标保存在变量<code>currentIndex</code>中，供后面使用。</li>
+<li>找到对应楼层序号，就可以修改楼层的按扭样式。</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>性能优化</p>
+</blockquote>
+<ul>
+<li>如果滚动条一直在当前楼层中滚动，则不需要频繁执行更改楼层按扭样式的代码</li>
+<li>如果<code>prevIndex === currentIndex</code>说明当前滚动条一直在当前楼层滚动</li>
+</ul>
+<pre><code>var currentIndex = -1; // 当前楼梯所在按扭序号
+// 当滚动浏览器窗口时，对应导航的样式要显示到对应楼层
+window.onscroll = function () &#123;
+  // 不断获取浏览器滚动的距离
+  var scrollY = window.scrollY;
+  // 找到当前滚动所在的楼层序号
+  for (var i = 0; i &lt; floorItemsTopArr.length; i++) &#123;
+    if (scrollY &gt;= floorItemsTopArr[i]) &#123;
+      currentIndex = i; // 最后一次找到的i就是当前滚动所在的楼层
+    &#125; else &#123;
+      break;
+    &#125;
+  &#125;
+</code></pre>
+</blockquote>
+<p>  if (prevIndex &#x3D;&#x3D;&#x3D; currentIndex) return;</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 找到对应楼层后，需要处理的事情<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  currentIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[currentIndex].classList.add(“active”);<br>  prevIndex &#x3D; currentIndex;<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>第四步：第一个按扭和最后一个按扭样式的特殊情况</strong></p>
+<ul>
+<li>当滚动条滚动在最上面，不在第一个楼层区，即 <code>滚动距离 &lt; 第一个楼层与浏览器顶部距离</code>，则楼层按扭文字不变红</li>
+<li>当滚动条滚动到最后面，不在最后一个楼层区，即 <code>滚动距离 &gt; 最后一个楼层与浏览器顶部距离 + 最后一个楼层的高度</code> ，则最后一个楼层按扭文字也不变红</li>
+<li>要使楼层按扭文字不变红，只需要把<code>currentIndex = -1</code>即可</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var len = floorItemTopArr.length;
+// 最后一个元素底部与浏览器顶部距离
+var bottom = floorItemsTopArr[len - 1] + floorItems[len - 1].offsetHeight;
+if (scrollY &lt; floorItemsTopArr[0] || scrollY &gt; bottom) &#123;
+  currentIndex = -1;
+&#125;
+</code></pre>
+</blockquote>
+<ul>
+<li>完整源代码<blockquote>
+<pre><code>&lt;script&gt;
+// 获取id为 J_floor元素
+var floorNav = document.getElementById(&quot;J_floor&quot;);
+var navs = document.querySelectorAll(&quot;#J_floor li&quot;);
+var floorItems = document.querySelectorAll(&quot;#J_app .floor-item&quot;);
+var len = floorItemTopArr.length;
+var prevIndex = -1; // 前一个楼梯按扭序号
+var currentIndex = -1; // 当前楼梯所在按扭序号
+var floorItemsTopArr = []; // 用来保存每一层的顶部与浏览器顶部的高
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 把所有 floor-item与body顶部的距离添加到一个数组floorItemsTopArr<br>for (var i &#x3D; 0; i &lt; floorItems.length; i++) {<br>  floorItemsTopArr.push(floorItems[i].offsetTop);<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 事件委托，所有子元素li的点击事件委托给父元素来处理<br>floorNav.onclick &#x3D; function (e) {<br>  var target &#x3D; e.target;<br>  var tagName &#x3D; target.tagName.toLowerCase();<br>  &#x2F;&#x2F; 如果不是点击对应的li啥也不做<br>  if (tagName !&#x3D;&#x3D; “li”) return;<blockquote>
+</blockquote>
+  &#x2F;&#x2F; 点击后要处理的事情<br>  &#x2F;&#x2F; 1.前面变红的li复原<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  &#x2F;&#x2F; 2.当前项变红色<br>  target.classList.add(“active”);<br>  &#x2F;&#x2F; 3、把前一个序号更新为当前序号，供后面使用<br>  prevIndex &#x3D; Array.prototype.indexOf.call(navs, target);<br>  &#x2F;&#x2F; 4、滚动条滚动到当前楼层所在位置<br>  &#x2F;&#x2F; 方法一：<br>  window.scroll(0, floorItemsTopArr[prevIndex]);<br>  &#x2F;&#x2F; 方法二：<br>  &#x2F;&#x2F; var doc &#x3D; document.documentElement || document.body;<br>  &#x2F;&#x2F; doc.scrollTop &#x3D; floorItemsTopArr[prevIndex];<br>  &#x2F;&#x2F; 方法三<br>  &#x2F;&#x2F;   scrollByTop(floorItemsTopArr[prevIndex]);<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 当滚动浏览器窗口时，对应导航的样式要显示到对应楼层<br>window.onscroll &#x3D; function () {<br>  &#x2F;&#x2F; 不断获取浏览器滚动的距离<br>  var scrollY &#x3D; window.scrollY;<br>  &#x2F;&#x2F; 找到当前滚动所在的楼层序号<br>  &#x2F;&#x2F; 楼层数据中最后一个满足： 条件的的元素所在序号<br>  for (var i &#x3D; 0; i &lt; floorItemsTopArr.length; i++) {<br>if (scrollY &gt;&#x3D; floorItemsTopArr[i]) {<br>  currentIndex &#x3D; i; &#x2F;&#x2F; 最后一次找到的i就是当前滚动所在的楼层<br>} else {<br>  break;<br>}<br>  }<br>  &#x2F;&#x2F; 考虑第一个和最后一个的特殊情况<br>  &#x2F;&#x2F; 最后一个元素底部与浏览器顶部距离<br>  var bottom &#x3D; floorItemsTopArr[len - 1] + floorItems[len - 1].offsetHeight;<br>  if (scrollY &lt; floorItemsTopArr[0] || scrollY &gt; bottom) {<br>currentIndex &#x3D; -1;<br>  }<blockquote>
+</blockquote>
+  &#x2F;&#x2F; 优化处理，如果一直在当前楼层内滚动，不执行以下代码<br>  if (prevIndex &#x3D;&#x3D;&#x3D; currentIndex) return;<br>  &#x2F;&#x2F; 找到对应楼层后，需要处理的事情<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  currentIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[currentIndex].classList.add(“active”);<br>  prevIndex &#x3D; currentIndex;<br>};<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="JS核心知识点（十四）">
+                        
+                        <span class="card-title">JS核心知识点（十四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            defineProperty 方法，JS 公有、私有、静态，栈和队列
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JS核心知识点（十二）">
+                        
+                        <span class="card-title">JS核心知识点（十二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 鼠标事件 和 HTML5 拖拽事件的综合应用
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

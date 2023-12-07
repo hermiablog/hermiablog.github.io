@@ -1,0 +1,2637 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十四）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十四） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十四）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、Object-defineProperty"><a href="#一、Object-defineProperty" class="headerlink" title="一、Object.defineProperty"></a>一、Object.defineProperty</h3><blockquote>
+<p><code>Object.defineProperty()</code>方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，<strong>并返回此对象</strong>。</p>
+<ul>
+<li><code>// 语法 Object.defineProperty(obj, prop, descriptor);</code></li>
+<li>obj ：要定义属性的对象</li>
+<li>prop ：要定义或修改的属性的名称</li>
+<li>descriptor : 要定义或修改的<strong>属性描述符</strong>，是一个对象<blockquote>
+<p>目前存在的属性描述符有两种主要形式：数据描述符 和 存取描述符</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="数据描述符"><a href="#数据描述符" class="headerlink" title="数据描述符"></a>数据描述符</h4><blockquote>
+<ul>
+<li>数据描述符是一个具有值的属性，该值可以是可写的，也可以是不可写的。</li>
+<li>数据描述符有以下 4 个特性描述它们的行为，具体如下表</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性特性</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>writable</td>
+<td>表示属性值是否可以被修改，false 不能改，true 可以修改</td>
+<td>false</td>
+</tr>
+<tr>
+<td>value</td>
+<td>属性的实际值</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>configurable</td>
+<td>该特性表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改</td>
+<td>false</td>
+</tr>
+<tr>
+<td>enumerable</td>
+<td>表示属性是否可通过 <code>for-in</code> 循环遍历</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注</p>
+</blockquote>
+<ul>
+<li><code>Object.defineProperty</code>定义的属性，如果属性描述符为数据描述符，那这个属性被称为 “数据属性”</li>
+</ul>
+</blockquote>
+<ol>
+<li>具体演示<blockquote>
+<ul>
+<li>当<code>configurable: false</code>时，重新定义属性，<strong>会报错</strong>，所有特性都不能修改；只有在它为<code>true</code>才能修改所有属性</li>
+<li></li>
+<li></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>  // 定义对象
+  var obj = &#123;
+    name: &quot;张三&quot;,
+  &#125;;
+  //用Object.defineProperty定义新属性
+  Object.defineProperty(obj, &quot;age&quot;, &#123;
+    writable: false,
+    value: 22,
+    enumerable: false,
+    configurable: true,
+  &#125;);
+  console.log(obj); //&#123;name: &#39;张三&#39;, age: &#39;22&#39;&#125;
+  //修改age,因为writable是false所以不能直接修改,除非重新定义
+  obj.age = 33;
+  console.log(obj); //&#123;name: &#39;张三&#39;, age: &#39;22&#39;&#125;
+  //遍历该对象,因为enumerable是false,所以age不能被遍历出来
+  for (var key in obj) &#123;
+    console.log(obj[key]); //张三
+  &#125;
+  //删除属性,因为configurable是false,所以无法删除
+  delete obj.age;
+  console.log(obj); //&#123;name: &#39;张三&#39;, age: 22&#125;
+  //修改属性,因为configurable是true,所以都可修改
+  Object.defineProperty(obj, &quot;age&quot;, &#123;
+    writable: false,
+    value: 44,
+    configurable: false,
+    enumerable: false,
+  &#125;);
+  console.log(obj); //&#123;name: &#39;张三&#39;, age: 44&#125;
+  var a1 = Object.getOwnPropertyDescriptor(obj, &quot;age&quot;);
+  console.log(a1); //&#123;value: 44, writable: false, enumerable: false, configurable: false&#125;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li><p>Object.getOwnPropertyDescriptor</p>
+<blockquote>
+<ul>
+<li><code>Object.getOwnPropertyDescriptor()</code>方法可以取得指定属性的属性描述符</li>
+<li><code>Object.getOwnPropertyDescriptor(obj, prop);</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>注意事项</p>
+<blockquote>
+<ul>
+<li>直接定义在对象身上的属性，以上属性特性的默认值分别为：<code>writable:true</code>、<code>value:undefined</code>、<code>configurable：true</code>、<code>enumerable:true</code></li>
+<li>通过<code>Object.defineProperty</code>方式定义的属性，其属性特性的默认值分别为：<code>writable:false</code>、<code>value:undefined</code>、<code>configurable：false</code>、<code>enumerable:false</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="存取描述符"><a href="#存取描述符" class="headerlink" title="存取描述符"></a>存取描述符</h4><blockquote>
+<p>存取描述符有以下 4 个特性描述它们的行为，具体如下表</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性特性</th>
+<th>说明</th>
+<th>默认</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>configurable</td>
+<td>特性表示对象的属性是否可以被删除，以及除 value 和 writable 特性外的其他特性是否可以被修改</td>
+<td>false</td>
+</tr>
+<tr>
+<td>enumerable</td>
+<td>表示属性是否可以通过<code>for...in</code> 循环遍历</td>
+<td>false</td>
+</tr>
+<tr>
+<td>get获取函数</td>
+<td>获取函数，在读取属性时调用。这个函数的主要责任就是返回一个有效的值</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>set 设置函数</td>
+<td>设置函数，在写入属性时调用。这个函数决定了对数据做什么样的修改，这个函数有一个参数</td>
+<td>undefined</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注：<br><code>Object.defineProperty</code>定义的属性，如果属性描述符为存取描述符，那这个属性被称为 “<strong>访问器属性</strong>”</p>
+</blockquote>
+<ul>
+<li><code>configurable</code>与 <code>enumerable</code>特性与 数据描述符的用法是一样的</li>
+<li><code>get</code> 获取函数，在读取属性时调用，这个函数的返回值为这个属性的值</li>
+<li><code>set</code> 设置函数，在写入属性时调用，这个函数决定了对数据做什么样的修改,重新设置属性值时，这个值就是set函数的<strong>实参</strong></li>
+<li>一般用访问器属性获取&#x2F;修改的属性 与 对象被定义时设置的名称不一样，在定义时会被设置成”私有变量”，我们约定用<code>_</code>开头的方式命名(依旧可以打点访问)，因为在ES5中无法设置私有变量，只能这么做</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var obj = &#123;
+    name: &quot;张三&quot;,
+    age: 23,
+    _sex: &quot;女&quot;,
+    identity: &quot;女士&quot;,
+  &#125;;
+</code></pre>
+</blockquote>
+<p>  Object.defineProperty(obj, “sex”, {<br>    &#x2F;&#x2F;获取属性<br>    get: function () {<br>      return this._sex;<br>    },<br>    &#x2F;&#x2F;设置属性<br>    set: function (value) {<br>      this._sex &#x3D; value;<br>      if (value &#x3D;&#x3D;&#x3D; “女”) {<br>        this.identity &#x3D; “女士”;<br>      } else {<br>        this.identity &#x3D; “先生”;<br>      }<br>    },<br>  });<br>  &#x2F;&#x2F;获取属性<br>  console.log(obj.sex); &#x2F;&#x2F;女<br>  &#x2F;&#x2F;重新设置属性<br>  obj.sex &#x3D; “男”;<br>  console.log(obj.sex); &#x2F;&#x2F;男<br>  console.log(obj.identity); &#x2F;&#x2F;先生</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li><p>访问器属性的典型<strong>应用场景</strong>：</p>
+<blockquote>
+<ul>
+<li>当设置或获取一个属性的值时，我们还需要做相关的其它操作，就可以把这个属性设置成访问器属性。</li>
+<li>get 和 set 方法的这种机制，我们可以理解为<strong>数据拦截</strong>或<strong>数据劫持</strong>。<blockquote>
+<p>也就是在我操作数据时，会被 get 和 set 方法拦截，然后在里面做相应的操作,改变正常的访问和设置行为。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>注意事项</p>
+<blockquote>
+<ul>
+<li>获取函数和设置函数<strong>不一定都要定义</strong></li>
+<li><strong>只定义获取函数</strong>意味着属性是只读的，尝试修改属性会被忽略，严格模式会抛错</li>
+<li><strong>只有一个设置函数</strong>的属性是不能读取的，非严格模式下返回值为<code>undefined</code>,严格模式下（有可能）会抛错。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="Object-defineProperties"><a href="#Object-defineProperties" class="headerlink" title="Object.defineProperties"></a>Object.defineProperties</h4><blockquote>
+<p><code>Object.defineProperties()</code>方法允许我们在一个对象上同时定义多个属性。</p>
+<ul>
+<li><code>Object.defineProperties(obj, props)</code>;</li>
+<li><code>obj</code> 需要定义和修改属性的对象</li>
+<li><code>props</code> 用来修改对应属性的描述符对象</li>
+</ul>
+<pre><code> var obj = &#123;
+   _sex: &quot;女&quot;,
+ &#125;;
+ Object.defineProperties(obj, &#123;
+   name: &#123;
+     value: &quot;李四&quot;,
+     writable: true,
+   &#125;,
+   age: &#123;
+     value: 11,
+     configurable: false,
+   &#125;,
+   sex: &#123;
+     get: function () &#123;
+       return this._sex;
+     &#125;,
+     set: function (value) &#123;
+       this._sex = value;
+     &#125;,
+   &#125;,
+ &#125;);
+ console.log(obj.sex); //女
+ obj.sex = &quot;男&quot;;
+ console.log(obj.sex); //男
+</code></pre>
+</blockquote>
+<h4 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h4><blockquote>
+<p><code>JavaScript</code>中有没有可能让<code>(a === 1 &amp;&amp; a === 2 &amp;&amp; a === 3)</code>返回<code>true</code> ？</p>
+<ul>
+<li>这是阿里的一个经典面试题，刚开始一看你觉得这是不可能的，因为一个变量怎么可能同时存在三个不同的值呢？ 但你静下心来分析，你就能找到面试官在考什么 ？</li>
+<li>如果我们在<strong>读取</strong>一个变量的值时，能<strong>修改</strong>这个变量对应的值，那不就有解了吗 ?</li>
+<li>我们可以把变量 a 当成 <code>window</code> 对象的属性，同时 a 还是一个访问器属性，那我们就可以在他的 <code>get</code> 方法中来修改他的值。</li>
+</ul>
+<pre><code>  var _a = 0;
+  Object.defineProperty(window, &quot;a&quot;, &#123;
+    get: function () &#123;
+      return ++_a;
+    &#125;,
+  &#125;);
+  if (a === 1 &amp;&amp; a === 2 &amp;&amp; a == 3) &#123;
+    console.log(&quot;true&quot;);
+  &#125;
+</code></pre>
+<blockquote>
+<p>通过上面这个面试题给了我们一个启发</p>
+</blockquote>
+<ul>
+<li>如果在获取或设置一个变量的值时，<strong>还需要做相关的其它操作</strong>，我们就可以把这个变量设置成一个访问器属性，然后在他的 get 和 set 方法中做相应的操作。</li>
+</ul>
+</blockquote>
+<h4 id="案例应用1：追溯属性的赋值记录"><a href="#案例应用1：追溯属性的赋值记录" class="headerlink" title="案例应用1：追溯属性的赋值记录"></a>案例应用1：追溯属性的赋值记录</h4><blockquote>
+<p>当我们每次设置属性的值时，可以把设置的值保存在<strong>数组</strong>中，那这个数组就是用来保存属性赋值的记录</p>
+<ul>
+<li>除了可以保存赋值记录，还可以查询某次的记录、总值</li>
+</ul>
+<pre><code> var obj = &#123;
+   _num: 0,
+   _historyValue: [],
+ &#125;;
+ Object.defineProperty(obj, &quot;num&quot;, &#123;
+   get: function () &#123;
+     return this._num;
+   &#125;,
+   set: function (value) &#123;
+     this._num = value;
+     this._historyValue.push(value);
+   &#125;,
+ &#125;);
+ //查找全部历史记录
+ obj.getHistory = function () &#123;
+   return this._historyValue;
+ &#125;;
+ //查找某次记录
+ obj.go = function (index) &#123;
+   if (index &gt;= this._historyValue.length)
+     throw new Error(&quot;访问下标超出范围&quot;);
+   return this._historyValue[index - 1];
+ &#125;;
+ //查找总金额
+ obj.sum = function () &#123;
+   var _sum = 0;
+   for (var i = 0; i &lt; obj._historyValue.length; i++) &#123;
+     _sum += this._historyValue[i];
+   &#125;
+   return _sum;
+ &#125;;
+ obj.num = 45;
+ obj.num = 32;
+ obj.num = 23;
+ console.log(obj.getHistory());//45,32,23
+ console.log(obj.go(1)); //45
+ console.log(obj.sum());//100
+</code></pre>
+</blockquote>
+<h4 id="案例应用2：数据驱动页面更新（单向）"><a href="#案例应用2：数据驱动页面更新（单向）" class="headerlink" title="案例应用2：数据驱动页面更新（单向）"></a>案例应用2：数据驱动页面更新（单向）</h4><blockquote>
+<p>Vue 中有两种数据绑定方式</p>
+<ul>
+<li>单向绑定（v-bind）：数据只能从 data 流向页面</li>
+<li>双向绑定（v-modle）：数据不仅能从 data 流向页面，还能从页面流向 data<br>在 Vue2 中，其数据的绑定方式底层采用的是 <code>Object.defineProperty</code>，在 <code>Vue3</code> 中，底层采用的是 <code>Proxy</code> 代理。但本质的原理是一样的。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>以下案例简单实现了数据的单向绑定，关于双向绑定后面的案例中会讲到</li>
+<li>效果：当data中的数据发生更新数据，则页面数据就发生相应的变化</li>
+</ul>
+<pre><code>&lt;div class=&quot;goods&quot;&gt;
+ &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+ &lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;main-img&quot; /&gt;
+ &lt;p&gt;价格：&lt;span class=&quot;price&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  function update() &#123;
+    var obj = &#123;&#125;;
+    //这三个元素相当于私有变量，外面访问不到
+    var title = &quot;云原生容器化docker+K8S+CICD弹性扩容集群架构实战&quot;;
+    var mainImg =
+      &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg&quot;;
+    var price = 3680.0;
+    //获取元素
+    var oTitle = document.querySelector(&quot;.title&quot;);
+    var oImg = document.querySelector(&quot;.main-img&quot;);
+    var oPrice = document.querySelector(&quot;.price&quot;);
+    //初始渲染：
+    oTitle.innerText = title;
+    oImg.src = mainImg;
+    oPrice.innerText = price;
+</code></pre>
+</blockquote>
+<pre><code>var data = Object.defineProperties(obj, &#123;
+  title: &#123;
+    get: function () &#123;
+      return title;
+    &#125;,
+    set: function (value) &#123;
+      title = value;
+      oTitle.innerText = value;
+    &#125;,
+  &#125;,
+  mainImg: &#123;
+    get: function () &#123;
+      return mainImg;
+    &#125;,
+    set: function (value) &#123;
+      mainImg = value;
+      oImg.src = value;
+    &#125;,
+  &#125;,
+  price: &#123;
+    get: function () &#123;
+      return price;
+    &#125;,
+    set: function (value) &#123;
+      price = value;
+      oPrice.innerText = value &gt; 0 ? value : &quot;免费&quot;;
+    &#125;,
+  &#125;,
+&#125;);
+return data; //将obj对象返回
+</code></pre>
+<p>  }<br>  var date &#x3D; update(); &#x2F;&#x2F;调用函数，得到obj对象<br>  &#x2F;&#x2F;更新数据，当date中的数据发生更新数据，则页面数据就发生相应的变化<br>  date.title &#x3D; “Web前端高级工程师系统课-星辰班”;<br>  date.mainImg &#x3D;<br>    “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“;<br>  date.price &#x3D; 300;</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="二、区分公有、静态、私有属性"><a href="#二、区分公有、静态、私有属性" class="headerlink" title="二、区分公有、静态、私有属性"></a>二、区分公有、静态、私有属性</h3><h4 id="JS-公有属性和公有方法"><a href="#JS-公有属性和公有方法" class="headerlink" title="JS 公有属性和公有方法"></a>JS 公有属性和公有方法</h4><blockquote>
+<ul>
+<li>公有属性：所有构造函数的实例都可以访问的属性，在构造函数内部通过 <code>this.属性名</code> 定义的。</li>
+<li>公有方法：所有构造函数的实例都可以访问的方法，在构造函数 <code>prototype</code> 原型上定义的方法。<blockquote>
+<p>公有属性也称实例属性，公有方法也称实例方法</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>定义公有方法有两种方式:</p>
+<ul>
+<li>一种是在在构造函数内部通过<code>this.方法</code>定义；但不推荐这种方式，因为它在每个实例身上都会创建，并且相互独立，所以就会造成内存的浪费</li>
+<li>另一种方式就是在构造函数的原型上定义，所有实例都是共用原型上的同一个方法，更推荐这种方式</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>function Person(name, age) &#123;
+  // 公有属性 实例属性
+  this.name = name;
+  this.age = age;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 公有方法（一般不会这样写）<br>  this.toSleep &#x3D; function () {<br>    console.log(“我正在睡觉”);<br>  };<br>}<br>&#x2F;&#x2F; 公有方法 实例方法<br>Person.prototype.sayHello &#x3D; function () {<br>  console.log(“大家好，我是” + this.name);<br>};</p>
+<blockquote>
+</blockquote>
+<p>var p1 &#x3D; new Person(“张三”, 32);<br>console.log(p1.name);<br>console.log(p1.age);<br>p1.sayHello();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="JS-静态属性和静态方法"><a href="#JS-静态属性和静态方法" class="headerlink" title="JS 静态属性和静态方法"></a>JS 静态属性和静态方法</h4><blockquote>
+<ul>
+<li>静态属性：只有类（构造函数）本身能访问的属性，通过<code>类名.属性名</code>来定义</li>
+<li>静态方法：只有类（构造函数）本身能访问的属性，通过<code>类名.方法名 = function() &#123;...&#125;</code> 来定义</li>
+<li>访问的时候也是通过<code>类名.属性名/方法名</code>的方式</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>function Person() &#123;&#125;
+// 静态属性
+Person.length = 0;
+Person.children = function () &#123;
+  console.log(&quot;静态方法&quot;);
+&#125;;
+</code></pre>
+</blockquote>
+<p>var p &#x3D; new Person();<br>console.log(p.length); &#x2F;&#x2F; 不能访问<br>console.log(Person.length); &#x2F;&#x2F; 能访问</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="JS-私有属性、私有方法和特权方法"><a href="#JS-私有属性、私有方法和特权方法" class="headerlink" title="JS 私有属性、私有方法和特权方法"></a>JS 私有属性、私有方法和特权方法</h4><blockquote>
+<ul>
+<li>私有属性：只能在构造函数<strong>内部</strong>才能访问的属性，如果外部要访问必须<strong>通过指定的方法</strong>来访问和修改</li>
+<li>私有方法：是指对象不希望公开的方法，只能在构造函数<strong>内部</strong>才能调用的方法</li>
+<li><strong>特权方法：是指有权访问内部私有属性和私有方法的公有方法</strong></li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>在JS中并没有私有属性和私有方法的概念，所以需要利用<strong>闭包</strong>的思想<ul>
+<li>在构造函数里<strong>直接声明</strong>属性和方法<blockquote>
+<p>注意与公有的声明方式：<code>this.属性/方法</code>区分</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>行业约定规范，私有属性和方法在命名时以<code>_</code>下划线开头</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>function Price() &#123;
+  // 私有属性
+  var _price = 0;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 私有方法  用来对属性price做相关操作<br>  function _computed() {<br>    return _price &gt; 0 ? “￥” + _price : “免费”;<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 特权方法  获取属性计算后的值<br>  this.getPrice &#x3D; function () {<br>    return _computed();<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 特权方法<br>  this.setPrice &#x3D; function (value) {<br>    if (typeof value !&#x3D;&#x3D; “number”) throw new TypeError(“传入一个数字”);<br>    _price &#x3D; value;<br>  };<br>}</p>
+<blockquote>
+</blockquote>
+<p>var p &#x3D; new Price();<br>p.setPrice(200.05);<br>console.log(p.getPrice()); &#x2F;&#x2F; ￥200.05<br>p.setPrice(-90); &#x2F;&#x2F;<br>console.log(p.getPrice()); &#x2F;&#x2F; 免费</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h4><blockquote>
+<ul>
+<li>将所有实例都操作的<strong>特权方法</strong>定义在构造函数的<strong>原型链</strong>上</li>
+<li>特权方法要访问到私有属性和方法可以利用<strong>闭包</strong>来实现</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>矛盾点：</p>
+</blockquote>
+<ul>
+<li>定义在原型链上的是公有方法,它只能通过<code>this.</code>的方式访问构造函数里的<strong>公有属性&#x2F;方法</strong>，<strong>不能访问到私有的</strong></li>
+<li>因此要用<strong>立即执行函数+闭包</strong>的方式才能实现混合模式</li>
+</ul>
+<pre><code> var GetNum = (function () &#123;
+   var _num = 4;
+   function GetNum() &#123;&#125;
+   GetNum.prototype.get = function () &#123;
+     return _num;
+   &#125;;
+   GetNum.prototype.set = function (value) &#123;
+     _num = value;
+   &#125;;
+   return GetNum;
+ &#125;)();
+</code></pre>
+</blockquote>
+<p> var n1 &#x3D; new GetNum();<br> console.log(n1);<br> console.log(n1.get());&#x2F;&#x2F;4<br> n1.set(555);<br> console.log(n1.get());&#x2F;&#x2F;555</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>案例应用</strong></p>
+<ul>
+<li>利用 JS 来模拟现实生活中，父亲有挣钱、花钱、查看账户金额的能力，但是他的孩子只有花钱能力</li>
+<li>我们可以定义两个类：Father类（模拟父亲） Children类（模拟孩子们）</li>
+</ul>
+</blockquote>
+<p><strong>Father 类身上有的方法和属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性与方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私有属性</td>
+<td>_money</td>
+</tr>
+<tr>
+<td>静态方法</td>
+<td>save</td>
+</tr>
+<tr>
+<td>静态方法</td>
+<td>take</td>
+</tr>
+<tr>
+<td>静态方法</td>
+<td>view</td>
+</tr>
+<tr>
+<td>实例方法</td>
+<td>take</td>
+</tr>
+</tbody></table>
+<p><strong>Children 类身上有的方法和属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性和方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实例属性 姓名</td>
+<td>保存孩子的姓名</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code> var Father = (function () &#123;
+   //私有属性
+   var _money = 0;
+   function Father() &#123;&#125;
+   //静态方法：存钱
+   Father.save = function (value) &#123;
+     _money += value;
+     console.log(&quot;父亲存了&quot; + value + &quot;元&quot;);
+   &#125;;
+   // 静态方法 取钱
+   Father.take = function (value) &#123;
+     _money -= value;
+     console.log(&quot;父亲取走&quot; + value + &quot;元&quot;);
+   &#125;;
+   // 静态方法 查看
+   Father.view = function () &#123;
+     console.log(&quot;目前账户还有&quot; + _money + &quot;元&quot;);
+     return _money;
+   &#125;;
+   //公有方法(实例方法)
+   Father.prototype.take = function (value) &#123;
+     _money -= value;
+     console.log(this.name + &quot;取走&quot; + value + &quot;元&quot;);
+   &#125;;
+   return Father;
+  &#125;)();
+ //子类
+ function Child(name) &#123;
+  this.name = &quot;张三&quot;;
+  Father.call(this); // 经典继承（盗用构造函数）
+ &#125;
+ // 原型式继承
+ Child.prototype = Object.create(Father.prototype);
+</code></pre>
+</blockquote>
+<p> var child1 &#x3D; new Child();<br> Father.save(2000); &#x2F;&#x2F;父亲存了2000元<br> Father.take(200); &#x2F;&#x2F;父亲取走200元<br> Father.view(); &#x2F;&#x2F;目前账户还有1800元<br> child1.take(100); &#x2F;&#x2F;张三取走100元</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意： 以上情况，所有实例本质上操作的是同一个变量<code>_money</code></p>
+</blockquote>
+</blockquote>
+<h4 id="多彩运动的小球"><a href="#多彩运动的小球" class="headerlink" title="多彩运动的小球"></a>多彩运动的小球</h4><ol>
+<li>多彩运动小球的实现原理<blockquote>
+<ul>
+<li>当鼠标滑动时，会产生一系列的彩色小球，然后这些小球开始向不同的方向运动，运动过程中会发生（大小，位置，透明度）的变化</li>
+<li>所以我们需要构建一个球类，这个类身上有以下相关的属性和方法<table>
+<thead>
+<tr>
+<th>属性和方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实例属性x</td>
+<td>小球水平方向坐标 ，默认值 0</td>
+</tr>
+<tr>
+<td>实例属性y</td>
+<td>小球垂直方向从标 ，默认值 0</td>
+</tr>
+<tr>
+<td>实例属性r</td>
+<td>小球的半径，默认值 20</td>
+</tr>
+<tr>
+<td>实例属性color</td>
+<td>数组，从数组中随机取出一个颜色作为小球的颜色</td>
+</tr>
+<tr>
+<td>实例属性 opacity</td>
+<td>小球的透明度（刚开始透明度为 1）</td>
+</tr>
+<tr>
+<td>实例属性 speedX</td>
+<td>小球水平方向运动速度（步长）随机 （取值范围[-10,10]）</td>
+</tr>
+<tr>
+<td>实例属性 speedY</td>
+<td>小球垂直方向运动速度（步长）随机（取值范围[-10,10]）</td>
+</tr>
+<tr>
+<td>实例属性 dom</td>
+<td>小球的 dom 结构</td>
+</tr>
+<tr>
+<td>实例方法 init</td>
+<td>初始化一个小球（根据小球属性，在页面创建一个真实的 DOM 球）</td>
+</tr>
+<tr>
+<td>实例方法 update</td>
+<td>更新小球的属性值(x,y,r,opacity)，同时当小球透明度为 0，将其从 DOM 中删除</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>x,y属性由鼠标的位置决定，所以当<code>onmousemove</code>事件触发时，创建实例</p>
+</li>
+<li><p><code>speedx、speedy</code>：不能同时等于0，用<code>do...while</code>语句</p>
+<blockquote>
+<pre><code>/**
+* Ball 创建一个球类
+* @param x坐标  默认值 0
+* @param y坐标  默认值 0
+* @param r小球半径 默认 20
+*/
+function Ball(x = 0, y = 0, r = 20) &#123;
+this.x = x; // x坐标
+this.y = y; // y坐标
+this.r = r; // 小球半径
+// 随机生成一个小球颜色
+this.color = (function () &#123;
+  var color = [
+    &quot;red&quot;,
+    &quot;pink&quot;,
+    &quot;skyblue&quot;,
+    &quot;orange&quot;,
+    &quot;tomato&quot;,
+    &quot;khaki&quot;,
+    &quot;greenyellow&quot;,
+  ];
+  var index = (Math.random() * color.length) &gt;&gt; 0;
+  return color[index];
+&#125;)();
+this.opacity = 1; // 小球透明度
+// 小球运动速度，speedX和speedY的取值范围 [-10,10]，但不能同时为0
+do &#123;
+  this.speedX = Math.floor(Math.random() * 21) - 10;
+  this.speedY = Math.floor(Math.random() * 21) - 10;
+&#125; while (this.speedX === 0 &amp;&amp; this.speedY === 0);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 在new Ball(),内部会自动调用this.init()初始化小球，在页面显示，其 实现代码看下一步<br>this.init();<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 鼠标在页面滑动时，会创建实例化的小球<br>document.onmousemove &#x3D; function (e) {<br>var pageX &#x3D; e.pageX;<br>var pageY &#x3D; e.pageY;<br>new Ball(pageX, pageY);<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>init</code>方法</p>
+<blockquote>
+<ul>
+<li>要在定义实例属性的最后调用该方法；创建实例的时候就会自动调用,实现在页面插入一个真实的小球；</li>
+<li>创建DOM后，要将DOM设置成<strong>绝对定位</strong></li>
+<li>为了鼠标出现在小球中心，小球的宽等于<code>x-小球的半径</code>，高同理</li>
+</ul>
+<pre><code>Ball.prototype.init = function () &#123;
+this.dom = document.createElement(&quot;div&quot;); // 创建dom结构
+this.dom.style.position = &quot;absolute&quot;;
+this.dom.style.left = this.x - this.r + &quot;px&quot;;
+this.dom.style.top = this.y - this.r + &quot;px&quot;;
+this.dom.style.width = 2 * this.r + &quot;px&quot;;
+this.dom.style.height = 2 * this.r + &quot;px&quot;;
+this.dom.style.borderRadius = &quot;50%&quot;;
+this.dom.style.backgroundColor = this.color;
+// 添加到页面
+document.body.appendChild(this.dom);
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>update</code>方法</p>
+<blockquote>
+<ul>
+<li>放在定时器内，每间隔一段时间就调用</li>
+<li>更新小球的属性值(x,y,r,opacity)，并将这些值再次更新到DOM中</li>
+<li>监控小球的透明度，一旦透明度为0，就把他从DOM和数组中删除</li>
+</ul>
+<pre><code>Ball.prototype.update = function () &#123;
+this.x += this.speedX; // 更新x坐标
+this.y += this.speedY; // 更新y坐标
+this.r += 0.3; // 更新半径
+this.opacity -= 0.01;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 更新的属性更新到真实DOM上<br>this.dom.style.display &#x3D; “none”;<br>this.dom.style.width &#x3D; this.r * 2 + “px”;<br>this.dom.style.height &#x3D; this.r * 2 + “px”;<br>this.dom.style.left &#x3D; this.x - this.r + “px”;<br>this.dom.style.top &#x3D; this.y - this.r + “px”;<br>this.dom.style.opacity &#x3D; this.opacity;<br>this.dom.style.display &#x3D; “block”;<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>那如何监控鼠标在滑动过程中被创建出来的一堆小球，然后让他们不停的<strong>运动</strong>呢 ？</p>
+<blockquote>
+<ul>
+<li>我们需要在球类上创建一个<strong>私有属性</strong><code>_ballArr = []</code>，用来保存鼠标移动时创建出来的实例化小球。每实例化一个小球，就把这个实例化的小球对象添加到<code>_ballArr</code>数组中</li>
+<li>还需要创建一个静态方法<code>ballArr</code>用来获取所有实例化的小球。这样我们就能拿到所有实例化的小球，对他们进行操作。<table>
+<thead>
+<tr>
+<th>属性和方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私有属性 <code>_ballArr</code></td>
+<td>数组，用来保存创建好的实例化小球</td>
+</tr>
+<tr>
+<td>静态方法 <code>getBalls</code></td>
+<td>用来获取所有实例化的小球 （返回数组<code>ballArr</code>）</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code>var _ballArr=[]; // 类的私有属性
+// 静态方法
+Ball.getBalls = function () &#123;
+  return ballArr;
+&#125;;
+</code></pre>
+</blockquote>
+<p>function Ball(x &#x3D; 0, y &#x3D; 0, r &#x3D; 20){<br>&#x2F;&#x2F; ……<br>&#x2F;&#x2F; …..以下代码放在 this.init() 后面</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 每次创建的实例对象，添加到数组 _ballArrl中<br>_ballArr.push(this);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>拿到实例化小球后，如何让小球运动起来 ？</p>
+<ul>
+<li>要让小球运动起来，需要开启一个<strong>定时器</strong>，让球不断的调用自身的<code>update</code>方法，实现小球运动及运动中各种属性的变化</li>
+<li>同时还要判断如果小球的透明度为 <code>0</code>，则需要将小球从<code>_ballArr</code>数组和 <code>DOM</code> 中删除，确保垃圾能及时被回收，不至于小球多了造成页面卡顿,这段代码写在<code>update</code>方法的最后</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var timer = setInterval(function () &#123;
+  var balls = Ball.getBalls();
+  // 更新小球
+  for (var i = 0; i &lt; balls.length; i++) &#123;
+    balls[i].update();
+  &#125;
+&#125;, 20);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以下代码添加到update方法的最后面<br>&#x2F;&#x2F; 如果小球的透明度小于等于0,则将其从数组和DOM中删除<br>if (this.opacity &lt;&#x3D; 0) {<br>  for (var i &#x3D; 0; i &lt; _ballArr.length; i++) {<br>    if (_ballArr[i] &#x3D;&#x3D;&#x3D; this) {<br>      _ballArr.splice(i, 1); &#x2F;&#x2F; 从数组中删除<br>      document.body.removeChild(this.dom); &#x2F;&#x2F; 从DOM中删除<br>      break;<br>    }<br>  }<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>完整源码<blockquote>
+<ul>
+<li>为了防止变量造成全局污染，则利用闭包，将所有代码封装在立即执行函数中，然后将 <code>Ball</code> 类作为返回值返回</li>
+</ul>
+<pre><code> //构造函数
+ var Ball = (function () &#123;
+  var _ballArr = [];
+  function Ball(x = 0, y = 0, r = 20) &#123;
+ //公有属性
+ this.x = x;
+ this.y = y;
+ this.r = r;
+ this.opacity = 1;
+ this.color = (function () &#123;
+   var colorArr = [&quot;red&quot;, &quot;skyblue&quot;, &quot;pink&quot;, &quot;tomato&quot;, &quot;yellow&quot;];
+   var index = (Math.random() * colorArr.length) &gt;&gt; 0;
+   return colorArr[index];
+ &#125;)();
+ do &#123;
+   this.speedx = (Math.random() * 21 - 10) &gt;&gt; 0;
+   this.speedy = (Math.random() * 21 - 10) &gt;&gt; 0;
+ &#125; while (this.speedx == 0 &amp;&amp; this.speedy == 0);
+ _ballArr.push(this); //将创建的实例放入数组中
+ //初始化小球
+ this.init();
+  &#125;
+  //静态方法
+  Ball.ballArr = function () &#123;
+ return _ballArr;
+  &#125;;
+  //公有方法：初始化
+  Ball.prototype.init = function () &#123;
+ this.dom = document.createElement(&quot;div&quot;);
+ //球在鼠标中心出现
+ this.dom.style.position = &quot;absolute&quot;;
+ this.dom.style.left = this.x - this.r / 2 + &quot;px&quot;;
+ this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
+ this.dom.style.width = this.r * 2 + &quot;px&quot;;
+ this.dom.style.height = this.r * 2 + &quot;px&quot;;
+ this.dom.style.borderRadius = &quot;50%&quot;;
+ this.dom.style.opacity = this.opacity;
+ this.dom.style.backgroundColor = this.color;
+ //插入页面
+ document.body.appendChild(this.dom);
+  &#125;;
+  //公有方法：运动函数
+  Ball.prototype.update = function () &#123;
+ this.x += this.speedx;
+ this.y += this.speedy;
+ this.r += 0.3;
+ this.opacity -= 0.01;         
+  //将更新后的属性 更新到真实的DOM上
+ this.dom.style.display = &quot;none&quot;;
+ this.dom.style.left = this.x + &quot;px&quot;;
+ this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
+ this.dom.style.width = this.r * 2 + &quot;px&quot;;
+ this.dom.style.height = this.r * 2 + &quot;px&quot;;
+ this.dom.style.opacity = this.opacity;
+ this.dom.style.display = &quot;block&quot;;
+</code></pre>
+</blockquote>
+ &#x2F;&#x2F;删除dom、数组中的实例<br> if (this.opacity &lt;&#x3D; 0) {<br>   &#x2F;&#x2F; 找到小球实例在数组中的位置，然后将他从数组中删除<br>   var index &#x3D; _ballArr.indexOf(this);<br>   _ballArr.splice(index, 1);<br>   &#x2F;&#x2F; 从dom中删除<br>   document.body.removeChild(this.dom);<br> }<br>  };<br>  return Ball;<br>})();<blockquote>
+</blockquote>
+ &#x2F;&#x2F;定时器<br> var timer &#x3D; setInterval(function () {<br>var balls &#x3D; Ball.ballArr();<br>for (var i &#x3D; 0; i &lt; balls.length; i++) {<br>  balls[i].update();<br>}<br> }, 20);<br> &#x2F;&#x2F;鼠标事件<br> document.onmousemove &#x3D; function (e) {<br>var target &#x3D; e.target;<br>var _x &#x3D; e.pageX;<br>var _y &#x3D; e.pageY;<br>new Ball(_x, _y);<br> };<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、JS-实现栈与队列"><a href="#三、JS-实现栈与队列" class="headerlink" title="三、JS 实现栈与队列"></a>三、JS 实现栈与队列</h3><ol>
+<li>什么是栈<blockquote>
+<p>栈是一种先进后出的数据结构，是一种逻辑结构，一种抽像出来的理论模型</p>
+<ul>
+<li>入栈操作（push）：就将新元素放入到栈中，先放的在栈底</li>
+<li>出栈操作（pop）：就是将元素从栈中弹出，只有栈顶元素才能出<img src="栈.jpg"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>之前课程中我们简单的用数组来模拟一个栈的出栈和入栈全过程</li>
+<li>数组相当于一个栈结构，向数组中<code>push</code>添中元素为入栈，从数组尾部<code>pop</code>取出元素为出栈<blockquote>
+<p>接下来，我们利用 JS 来模拟一个完整的栈对象</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>JS 实现栈结构<blockquote>
+<ul>
+<li>构建一个 <code>Stack</code> 类，只要 <code>new Stack()</code> 就能创建一个新的栈</li>
+<li>一个基础的栈对象要求有以下方法和属性<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>push</td>
+<td>入栈，向栈中添加元素</td>
+</tr>
+<tr>
+<td>pop</td>
+<td>出栈，从栈顶部弹出元素</td>
+</tr>
+<tr>
+<td>isFull</td>
+<td>查看栈是否满</td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>查看栈是否为空</td>
+</tr>
+<tr>
+<td>getTop</td>
+<td>取出栈顶部元素</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清空栈中元素</td>
+</tr>
+<tr>
+<td>view</td>
+<td>查看当前栈中元素</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实例属性：size</td>
+<td>查看栈的长度（模拟大小）</td>
+</tr>
+<tr>
+<td>私有属性：_stack</td>
+<td>数组，模拟栈容器，栈中元素都存在<code>_stack</code>中；私有属性，不允许直接操作<code>_stack</code>，只能通过给定的接口来操作</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>以上栈（数组）的长度是在动态变化的，但最终入栈的个数不能大于栈的<code>size</code>大小</li>
+<li>如果栈满，再入栈就会抛出栈满错误提示</li>
+<li>如果栈空，再出栈就会抛出栈空错误提示</li>
+</ul>
+</blockquote>
+<ul>
+<li>基础版代码<blockquote>
+<pre><code>/**
+* Stack 栈
+* size 栈的大小（长度）
+*/
+function Stack(size = 100) &#123;
+this._stack = []; // 私有属性，栈容器
+this.size = size; // 返回栈的大小（长度）,可更改
+&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 判断栈是否满,满返回true,否则false<br>Stack.prototype.isFull &#x3D; function () {<br>return this._stack.length &gt;&#x3D; this.size ? true : false;<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 判断栈是否为空,为空返回true,否则false<br>Stack.prototype.isEmpty &#x3D; function () {<br>return this._stack.length &lt;&#x3D; 0 ? true : false;<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 入栈<br>Stack.prototype.push &#x3D; function (value) {<br>if (this.isFull()) {<br>  throw new Error(“栈满，不能再填加元素”);<br>} else {<br>  this._stack.push(value);<br>  return true; &#x2F;&#x2F; 返回true，表示入栈成功<br>}<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 出栈<br>Stack.prototype.pop &#x3D; function () {<br>if (this.isEmpty()) {<br>  throw new Error(“栈空，没有元素可以出栈”);<br>} else {<br>  return this._stack.pop(); &#x2F;&#x2F; 返回出栈元素<br>}<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 取出栈顶元素<br>Stack.prototype.getTop &#x3D; function () {<br>return this._stack[this._stack.length - 1];<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 查看栈中元素<br>Stack.prototype.view &#x3D; function () {<br>console.log(“当前栈中的元素有”);<br>this._stack.forEach(function (item) {<br>  console.log(item);<br>});<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 清空栈<br>Stack.prototype.clear &#x3D; function () {<br>this._stack &#x3D; [];<br>return true; &#x2F;&#x2F; 清空栈成功<br>};<blockquote>
+</blockquote>
+var stack &#x3D; new Stack(4);<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(1)); &#x2F;&#x2F; true<br>console.log(stack.push(2)); &#x2F;&#x2F; true<br>console.log(stack.push(3)); &#x2F;&#x2F; true<br>console.log(stack.push(4)); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F;  [1, 2, 3, 4]<br>&#x2F;&#x2F; 出栈<br>console.log(stack.pop()); &#x2F;&#x2F; 4<br>console.log(stack.pop()); &#x2F;&#x2F; 3<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; [1, 2]<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; false<br>&#x2F;&#x2F; 清空栈<br>console.log(stack.clear()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 判断栈是否为空<br>console.log(stack.isEmpty()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; []<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li><p>JS 实现栈结构 - 优化版</p>
+<blockquote>
+<p>以上版本，最终用户本质上还是可以通过 <code>stack._stack</code>的方式操作数组</p>
+<ul>
+<li>我们可以把私有属性的名字，改成<code>Symbol</code>类型，这样用户就真正没有办法访问到该属性了</li>
+</ul>
+<pre><code>var Stack = (function () &#123;
+/**
+* Stack 栈
+* size 栈的大小（长度）
+*/
+  var _stack = Symbol(&quot;_stack&quot;); // 生成唯一标识符
+  function Stack(size = 100) &#123;
+ this[_stack] = []; //  私有属性，栈容器
+ var _size = size; // 返回栈的大小（长度）,可更改
+</code></pre>
+</blockquote>
+<p> Object.defineProperty(this, “size”, {<br>   get: function () {<br> return _size;<br>   },<br>   &#x2F;&#x2F; 当对size进行操作时，需要对数组做相关操作<br>   set: function (value) {<br> if (value &lt; _size) {<br>   this[_stack] &#x3D; this[_stack].slice(0, value);<br>   _size &#x3D; value;<br> }<br>   },<br> });<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 判断栈是否满,满返回true,否则false<br>  Stack.prototype.isFull &#x3D; function () {<br> return this[_stack].length &#x3D;&#x3D;&#x3D; this._size ? true : false;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 判断栈是否为空,为空返回true,否则false<br>  Stack.prototype.isEmpty &#x3D; function () {<br> return this[_stack].length &#x3D;&#x3D;&#x3D; 0 ? true : false;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 入栈<br>  Stack.prototype.push &#x3D; function (value) {<br> if (this.isFull()) {<br>   throw new Error(“栈满，不能再填加元素”);<br> } else {<br>   this[_stack].push(value);<br>   return true; &#x2F;&#x2F; 返回true，表示入栈成功<br> }<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 出栈<br>  Stack.prototype.pop &#x3D; function () {<br> if (this.isEmpty()) {<br>   throw new Error(“栈空，没有元素可以出栈”);<br> } else {<br>   return this[_stack].pop(); &#x2F;&#x2F; 返回出栈元素<br> }<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 取出栈顶元素<br>  Stack.prototype.getTop &#x3D; function () {<br> return this[_stack][this[_stack].length - 1];<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 查看栈中元素<br>  Stack.prototype.view &#x3D; function () {<br> console.log(“当前栈中的元素有”);<br> this[_stack].forEach(function (item) {<br>   console.log(item);<br> });<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 清空栈<br>  Stack.prototype.clear &#x3D; function () {<br> this[_stack] &#x3D; [];<br> return true; &#x2F;&#x2F; 清空栈成功<br>  };<br>  return Stack;<br>})();</p>
+<blockquote>
+</blockquote>
+<p>var stack &#x3D; new Stack();<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(1)); &#x2F;&#x2F; true<br>console.log(stack.push(2)); &#x2F;&#x2F; true<br>console.log(stack.push(3)); &#x2F;&#x2F; true<br>console.log(stack.push(4)); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F;  [1, 2, 3, 4]<br>&#x2F;&#x2F; 出栈<br>console.log(stack.pop()); &#x2F;&#x2F; 4<br>console.log(stack.pop()); &#x2F;&#x2F; 3<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; [1, 2]<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; false<br>&#x2F;&#x2F; 清空栈<br>console.log(stack.clear()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 判断栈是否为空<br>console.log(stack.isEmpty()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; []</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>什么是队列</p>
+<blockquote>
+<p>现在我们来学习一种新的数据结构队列</p>
+<ul>
+<li>队列是一种线性的数据结构，它的特点是先进先出（<code>First In First Out</code>，简称<code>FIFO</code>），后进后出</li>
+<li>队列的出口端叫作队头（<code>front</code>），队列的入口端叫作队尾（<code>rear</code>）</li>
+<li>入队（<code>enqueue</code>）就是把新元素放入队列中，只允许在队列的队尾放入元素</li>
+<li>出队（<code>dequeue</code>）就是把元素移出队列，只允许在队列的队头移出元素<img src="队列.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>JS 实现队列</p>
+<blockquote>
+<p>构建一个 Queue 类，只要new Queue() 就能创建一个新的队列</p>
+<ul>
+<li>一个基础的队列对象要求有以下方法和属性</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>enQueue</td>
+<td>入队，向队尾添加元素</td>
+</tr>
+<tr>
+<td>deQueue</td>
+<td>出队，从队头删除元素</td>
+</tr>
+<tr>
+<td>isFull</td>
+<td>判断队列是否已满</td>
+</tr>
+<tr>
+<td>isEmpty</td>
+<td>判断队列是否为空</td>
+</tr>
+<tr>
+<td>getFront</td>
+<td>取出队头元素</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>清空队列</td>
+</tr>
+<tr>
+<td>view</td>
+<td>查看队列中元素</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>私有属性：<code>_queue</code></td>
+<td>数组，模拟队列容器，队中元素都存在<code>_queue</code>中；私有属性，不允许直接操作<code>_queue</code>，只能通过给定的接口来操作</td>
+</tr>
+<tr>
+<td>实例属性：size</td>
+<td>队列的大小（长度）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>&lt;script&gt;
+  var Queue = (function () &#123;
+    var _queue = Symbol(&quot;queue&quot;); // 创建唯一标识符
+    function Queue(size) &#123;
+      this[_queue] = []; // 私有属性，队列容器
+      this.size = size; // 队列的长度（大小）
+    &#125;
+    // 判断队列是否已满,true表示已满，false表示未满
+    Queue.prototype.isFull = function () &#123;
+      return this[_queue].length === this.size ? true : false;
+    &#125;;
+    // 判断队列是否为空
+    Queue.prototype.isEmpty = function () &#123;
+      return this[_queue].length === 0 ? true : false;
+    &#125;;
+</code></pre>
+</blockquote>
+<pre><code>// 入队
+Queue.prototype.enQueue = function (value) &#123;
+  if (this.isFull()) &#123;
+    throw new Error(&quot;队列已满，不能现入队&quot;);
+  &#125; else &#123;
+    this[_queue].push(value);
+    return true; //表示入队成功
+  &#125;
+&#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 出队
+Queue.prototype.deQueue = function () &#123;
+  if (this.isEmpty()) &#123;
+    throw new Error(&quot;队列已为空，没有元素可出队&quot;);
+  &#125; else &#123;
+    return this[_queue].shift(); // 返回出队元素
+  &#125;
+&#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 取出队头元素
+Queue.prototype.getFront = function () &#123;
+  return this[_queue][0]; // 返回值为undefined表示当前队列已空
+&#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 查看队列中元素
+Queue.prototype.view = function () &#123;
+  this[_queue].forEach(function (item) &#123;
+    console.log(item);
+  &#125;);
+&#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 清空队列
+Queue.prototype.clear = function () &#123;
+  this[_queue] = [];
+  return true; // true清空队列成功
+&#125;;
+return Queue;
+</code></pre>
+<p>  })();</p>
+<blockquote>
+<p></script></p>
+<pre><code>&gt;上述代码与模拟栈类似，只是出栈方式不同
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>上述版本缺点</strong></p>
+<ul>
+<li>以上版本，在入队时还好，直接尾部插入元素，但是在出队时<strong>从队头取出元素</strong>，本质上会造成整个数组往后的所有元素都向前移动，非常消耗性能</li>
+<li>同时队列的容量大小一直是在不断变化的，而实际上一个队列的大小在刚开始分配时，大小应该是固定才更合理<br><strong>优化方向</strong></li>
+<li>有没有什么办法能实现在出队时，能正常出，不需要动数组中的其它元素呢 ?</li>
+<li>同时保证整个出队和入队过程程中，栈的容量大小是固定的</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>优化版本 - JS 实现循环队列<blockquote>
+<ul>
+<li>我们可以利用<strong>双指针</strong>思想，同时采用循环队列的方式来实现</li>
+<li>以下图中的队列容量（长度）为 <code>4</code>，需要用长度为 <code>5</code> 的数组来实现。<img src="模拟队列.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>定义两个指针 <code>front</code> 和 <code>rear</code>，<code>front</code>和<code>rear</code>分别表示当前队列队头和队尾的下标<ul>
+<li><code>front</code> &#x3D; <code>rear</code> &#x3D; <code>0</code></li>
+</ul>
+</li>
+<li>队列的长度为用户设定的<code>size+1</code> ，初始化后，不可更改<ul>
+<li><code>this[_queue] = new Array(size + 1);</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>查看队列元素：使用<code>filter</code>方法，过滤空元素，声明一个变量保存由<code>filter</code>方法筛选出来的元素所组成的数组</li>
+<li>清空队列：初始化队列容器、队头、队尾</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果队未满，<ul>
+<li>入队一个元素，<code>rear + 1</code>，向右移一位，<code>front</code>不变</li>
+<li>当<code>rear + 1 === arr.length</code>时，则在下一次入队后， <code>rear = 0</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>因此入队：</strong></p>
+<ul>
+<li>入队时要判断当前队是否满，如果满，啥也不做</li>
+<li>先在队头处放置入队元素</li>
+<li>然后移动<code>rear</code>的位置，要判断 <code>rear + 1 === arr.lenght</code>,如果成立，则入队后，<code>rear = 0</code></li>
+<li>如果未满，则 <code>rear + 1</code></li>
+<li>所以可得<code>rear</code> 的计算公式：<code>rear = (rear + 1) % arr.length</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果队未空，<ul>
+<li>出队一个元素，<code>front + 1</code>，向右移一位，<code>rear</code>不变</li>
+<li>当<code>front + 1 === arr.lenght</code> 时，则在下一次出队后，<code>front = 0</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>因此出队：</strong></p>
+<ul>
+<li>出队时要判断当前队是否为空，如果为空，啥也不做。</li>
+<li>如果队不为空，保存队尾的值，并返回</li>
+<li>将当前队尾的值设为<code>null</code>,出队不是真的把这个元素从数组中删除,而是把指针移动到下一位,为了能看到效果,我们把出队的元素的位置值设置为null</li>
+<li>接着改变<code>front</code>的位置，要判断 <code>front+1 === arr.length</code> 如果成立则出队后，<code>front = 0</code>，</li>
+<li>如果不成立，则<code>front + 1</code></li>
+<li>因此可得<code>front</code>的计算公式：<code>front = (front + 1) % arr.length</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>队满的条件：当<code>(rear + 1) % arr.lenght === front</code> 时，表示队满</li>
+<li>队空的条件：当 <code>rear === front</code> 时，表示队空</li>
+<li>重点强调：<strong>队列的容量 + 1 &#x3D; 数组的长度</strong><blockquote>
+<ul>
+<li>先进先出：从最左边开始入队，队列容量满了之后，出列时，也是从最左边开始出队(从队头删除元素)；</li>
+<li><strong>但再次入队时</strong>，不是从最左边开始，而是入到<code>过渡项</code>：数组长度比队列容量多的那块；之后就是从最左边开始(此时的最左边相对于<code>front</code>来说是队尾)</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>用<code>Object.defineProperty()</code>方法，形成访问、设置<code>size</code>的接口<ul>
+<li>get：返回私有变量<code>_size</code>的值</li>
+<li>set：抛出错误，不允许更改</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;script&gt;
+  var Queue = (function () &#123;
+    var _queue = Symbol(&quot;queue&quot;);
+    var _front = Symbol(&quot;front&quot;);
+    var _rear = Symbol(&quot;rear&quot;);
+    function Queue(size = 100) &#123;
+      // 私有属性
+      this[_queue] = new Array(size + 1); // 队容器（固定长度）
+      this[_front] = 0; // 队头
+      this[_rear] = 0; // 队尾
+      // 实例属性
+      var _size = size;
+      Object.defineProperty(this, &quot;size&quot;, &#123;
+        get: function () &#123;
+          return _size;
+        &#125;,
+        set: function () &#123;
+          throw new Error(&quot;不允许设置size的值&quot;);
+        &#125;,
+      &#125;);
+    &#125;
+</code></pre>
+</blockquote>
+<pre><code>// 队是否为空
+Queue.prototype.isFull = function () &#123;
+  //   队满的条件
+  return (this[_rear] + 1) % this[_queue].length === this[_front];
+&#125;;
+// 队是否为空
+Queue.prototype.isEmpty = function () &#123;
+  return this[_front] === this[_rear];
+&#125;;
+// 入队
+Queue.prototype.enQueue = function (value) &#123;
+  //入队前要判断当前队列是否已满,如果已满,则啥也不做,抛出错误提示
+  if (this.isFull()) throw new Error(&quot;当前队列已满,不能再入队&quot;);
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>  // 先在当前位置入队元素,然后指向右移动
+  this[_queue][this[_rear]] = value;
+  // 判断当前是不是在数组的最后面,最后一位就回到0
+  this[_rear] = (this[_rear] + 1) % this[_queue].length;
+  return true;
+&#125;;
+// 出队
+Queue.prototype.deQueue = function () &#123;
+  // 出队前要判断当前队列是否为空
+  if (this.isEmpty()) throw new Error(&quot;当前队列已空,没有元素可出队&quot;);
+  // 只存要出队的元素
+  var deQueueValue = this[_queue][this[_front]];
+  // 出队不是真的把这个元素从数组中删除,而是把指针移动到下一位
+  // 为了能看到效果,我们把出队的元素的位置值设置为null
+  this[_queue][this[_front]] = null;
+  // 判断出对的指针是否指向了数组的最后面,如果是,则出队后指向0
+  this[_front] = (this[_front] + 1) % this[_queue].length;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>  return deQueueValue;
+&#125;;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 队头元素
+Queue.prototype.getTop = function () &#123;
+  // 返回出队的元素,如果为null表示当前队列为空
+  return this[_queue][this[_front]];
+&#125;;
+// 查看队列元素
+Queue.prototype.view = function () &#123;
+  var result = this[_queue].filter(function (item) &#123;
+    return item !== null;
+  &#125;);
+  return result;
+&#125;;
+// 清空队列
+Queue.prototype.clear = function () &#123;
+  // 清空队列,就是重新初始化队列
+  this[_queue] = new Array(this.size + 1);
+  this[_front] = this[_rear] = 0;
+  return true;
+&#125;;
+return Queue;
+</code></pre>
+<p>  })();</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="JS核心知识点（十四）">
+                        
+                        <span class="card-title">JS核心知识点（十四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            defineProperty 方法，JS 公有、私有、静态，栈和队列
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JS核心知识点（十三）">
+                        
+                        <span class="card-title">JS核心知识点（十三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS BOM 核心 Window 对象属性、方法、事件
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

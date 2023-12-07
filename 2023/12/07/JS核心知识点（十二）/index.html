@@ -1,0 +1,3079 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十二）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十二） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、鼠标滚轮事件"><a href="#一、鼠标滚轮事件" class="headerlink" title="一、鼠标滚轮事件"></a>一、鼠标滚轮事件</h3><blockquote>
+<p>鼠标滚轮事件存在兼容性问题，不同浏览器对应的事件名不一样。</p>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>事件对象属性（判断滚动方向）</th>
+<th>支持浏览器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mousewheel（非标准）</td>
+<td><code>e.wheelDelta</code>：正值（120） ↑;负值（-120）↓</td>
+<td>Webkit 和 Edge 等各大浏览器，但 Firefox 不支持</td>
+</tr>
+<tr>
+<td>DOMMouseScroll（非标准）</td>
+<td><code>e.detail</code>：</td>
+<td></td>
+</tr>
+<tr>
+<td>正值（3）↓;负值（-3）↑</td>
+<td>低版本 firefox，同时该事件需要通过<code>addEventListener</code>方式绑定事件监听</td>
+<td></td>
+</tr>
+<tr>
+<td>wheel（标准）</td>
+<td><code>e.deltaY</code>：正值 ↓;负值 ↑</td>
+<td>各个厂商的高版本浏览器都支持</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ol>
+<li><p>mousewheel 事件</p>
+<blockquote>
+<ul>
+<li>早期低版本的<code>webkit</code>和<code>Edge</code>支持</li>
+<li>通过<code>e.wheelDelta</code>的值来判断鼠标滚动的方向，值为 120 向上，值为-120 向下</li>
+</ul>
+<pre><code>box.addEventListener(&quot;wheel&quot;, eventFn, false);
+function eventFn(e) &#123;
+  // 负值 向下滚  正值 向上滚
+  console.log(e.wheelDelta);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>DOMMouseScroll 事件</p>
+<blockquote>
+<ul>
+<li>低版本的<code>Firefox</code>支持</li>
+<li>通过<code>e.detail</code>的值来判断鼠标滚动方向，值为 3，向下滚，值为 -3 向上滚</li>
+</ul>
+<pre><code>box.addEventListener(&quot;DOMMouseScroll&quot;, eventFn, false);
+function eventFn(e) &#123;
+  // 正值 3 向下滚  负值 -3  向上滚
+  console.log(e.detail);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>wheel 事件</p>
+<blockquote>
+<ul>
+<li>为了统一滚轮事件的标准，各大浏览器的高版本都支持这个事件</li>
+<li>通过 <code>e.deltaY</code> 的值来判断鼠标滚动方向，正值向下，负值向上。</li>
+</ul>
+<pre><code>var box = document.querySelector(&quot;.box&quot;);
+box.addEventListener(&quot;wheel&quot;, eventFn, false);
+function eventFn(e) &#123;
+  // 正值 向下滚  负值 向上滚
+  console.log(e.deltaY);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>兼容型处理</p>
+<blockquote>
+<ul>
+<li>以下代码封装成<code>wheel.js</code>文件，供后期使用</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>获取浏览器当前支持的版本的鼠标滚轮事件名<blockquote>
+<pre><code> var box = document.querySelector(&quot;.box&quot;);
+ // 获取浏览器当前支持的版本的鼠标滚轮事件名
+ console.log(&quot;onwheel&quot; in box); //true
+ var support =
+ &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
+   ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
+   : document.onmousewheel !== undefined
+   ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
+   : &quot;DOMMouseScroll&quot;; // 低版本 firefox
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>&quot;onwheel&quot; in box</code>：用<code>in</code>检查<code>HTMLElement</code>原型上是否有<code>onwheel</code>这个方法，如果有就用<code>wheel</code>事件</li>
+<li>但因为要封装，所以自己创建一个元素，并查看它的原型上是否有这个方法</li>
+<li><code>document.onmousewheel !== undefined</code>用来检查是否支持<code>mousewheel</code>事件，如果不支持，就会使用<code>DOMMouseScroll</code></li>
+</ul>
+</blockquote>
+<ul>
+<li><p>处理事件对象的属性值</p>
+<blockquote>
+<pre><code>function callback(e) &#123;
+var e = e || window.event;
+e.preventDefault(); // 阻止默认行为
+// 处理低版本火狐,如果有detail值，就给e添加deltaY属性,并统一正负
+e.detail &amp;&amp; (e.deltaY = e.detail * 40);
+// 处理低版本 ie 和  Edge等浏览器,如果有wheelDelta值，就给e添加deltaY属性,并统一正负
+e.wheelDelta &amp;&amp; (e.deltaY = -e.wheelDelta);
+//如果前两个版本都没有，就使用e.deltaY
+if (e.deltaY &gt; 0) &#123;
+    //向下滚
+    //要处理的业务逻辑写在这里
+  &#125; else &#123;
+    //向上滚
+    //要处理的业务逻辑写在这里
+  &#125;
+</code></pre>
+</blockquote>
+<p>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>优化</p>
+<blockquote>
+<ul>
+<li>将事件处理函数抽离，供用户自己设置</li>
+<li>事件处理函数中的<code>this</code>和<code>arguments</code>丢失问题</li>
+</ul>
+</blockquote>
+</li>
+<li><p>封装</p>
+<blockquote>
+<pre><code>/**
+* addWheelListener 兼容不同版板的鼠标滚轮事件
+* element 绑定滚轮事件的元素
+* eventFn 事件处理函数
+* useCapture 在捕获还是冒泡阶段执行
+*/
+window.addWheelListener = function (element, eventFn, useCapture = false) &#123;
+// 获取浏览器当前支持的版本的鼠标滚轮事件名
+var support =
+  &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
+    ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
+    : document.onmousewheel !== undefined
+    ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
+    : &quot;DOMMouseScroll&quot;; // 低版本 firefox
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 添加鼠标事件<br>  element.addEventListener(support, callback, useCapture);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 兼容写法的事件方法<br>  function callback(e) {<br>    var e &#x3D; e || window.event;<br>    e.preventDefault(); &#x2F;&#x2F; 阻止默认行为<br>    &#x2F;&#x2F; 处理低版本火狐<br>    e.detail &amp;&amp; (e.deltaY &#x3D; e.detail * 40);<br>    &#x2F;&#x2F; 处理低版本 ie 和  Edge等浏览器<br>    e.wheelDelta &amp;&amp; (e.deltaY &#x3D; -e.wheelDelta);</p>
+<blockquote>
+</blockquote>
+<pre><code>// 滚动事件要处理的事情，通过e.deltaY来判断滚动的方向，正向下，负向上
+eventFn.apply(this, arguments);//传入this和arguments
+</code></pre>
+<p>  }<br>};<br>  &#x2F;&#x2F;调用函数<br>  function fn(e) {<br>    console.log(this);<br>    console.log(e);<br>    &#x2F;&#x2F;真正的事件处理函数<br>    if (e.deltaY &gt; 0) {<br>      &#x2F;&#x2F;向下滚<br>      &#x2F;&#x2F;要处理的业务逻辑写在这里<br>      console.log(“向下”);<br>    } else {<br>      &#x2F;&#x2F;向上滚<br>      &#x2F;&#x2F;要处理的业务逻辑写在这里<br>      console.log(“向上”);<br>    }<br>  }<br>  addWheelListener(box, fn, false);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="5">
+<li><p>案例 1：滚动实现元素高度变化</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+  html,
+  body &#123;
+ margin: 0;
+ padding: 0;
+  &#125;
+  .box &#123;
+ width: 100px;
+ height: 200px;
+ background-color: khaki;
+ margin: 50px;
+  &#125;
+&lt;/style&gt;
+&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+</code></pre>
+</blockquote>
+<p>  function fn(e) {<br> var speed &#x3D; 10;<br> if (e.deltaY &gt; 0) {<br>   &#x2F;&#x2F;向下滚<br>   box.style.height &#x3D; this.offsetHeight + speed + “px”;<br> } else {<br>   &#x2F;&#x2F;向上滚<br>   box.style.height &#x3D; this.offsetHeight - speed + “px”;<br> }<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  addWheelListener(box, fn);</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>案例2：全屏垂直滚动轮播</p>
+<blockquote>
+<p>涉及知识点</p>
+<ul>
+<li>鼠标滚轮事件</li>
+<li><code>transitionend</code>事件</li>
+<li>节流操作</li>
+<li>事件委托</li>
+<li><code>window.resize</code>事件</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>CSS布局代码</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+ html,
+ body &#123;
+ margin: 0;
+ padding: 0;
+ height: 100%;
+ &#125;
+ .wrap &#123;
+ width: 100%;
+ height: 500%;
+ transform: translate3d(0, 0, 0);
+ transition: transform 1s ease;
+ &#125;
+ .wrap .slide &#123;
+ display: flex; /*使文字居中*/
+ align-items: center;
+ justify-content: center;
+ color: #fff;
+ font-size: 60px;
+ height: 20%;
+ &#125;
+ .wrap .slide:nth-child(1) &#123;
+ background-color: khaki;
+ &#125;
+ .wrap .slide:nth-child(2) &#123;
+ background-color: skyblue;
+ &#125;
+ .wrap .slide:nth-child(3) &#123;
+ background-color: tomato;
+ &#125;
+ .wrap .slide:nth-child(4) &#123;
+ background-color: rgb(154, 236, 197);
+ &#125;
+ .wrap .slide:nth-child(5) &#123;
+ background-color: rgb(174, 139, 223);
+ &#125;
+ /* 分页器 */
+ .pagination &#123;
+ position: fixed; /*固定在一个位置*/
+ right: 20px;
+ top: 50%;
+ transform: translateY(-50%);
+ width: 11px;
+ height: 100px;
+ display: flex; /*使span居中*/
+ flex-direction: column; /*改变方向*/
+ justify-content: space-between; /*使span两端对齐*/
+ &#125;
+ .pagination span &#123;
+ width: 100%;
+ height: 11px;
+ background-color: #fff;
+ border-radius: 50%;
+ cursor: pointer;
+ &#125;
+ .pagination span.active &#123;
+ background-color: orange;
+ box-shadow: 0 0 2px 3px orange;
+ &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+ &lt;div class=&quot;slide&quot;&gt;第一屏&lt;/div&gt;
+ &lt;div class=&quot;slide&quot;&gt;第二屏&lt;/div&gt;
+ &lt;div class=&quot;slide&quot;&gt;第三屏&lt;/div&gt;
+ &lt;div class=&quot;slide&quot;&gt;第四屏&lt;/div&gt;
+ &lt;div class=&quot;slide&quot;&gt;第五屏&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;pagination&quot;&gt;
+ &lt;span class=&quot;active&quot;&gt;&lt;/span&gt;
+ &lt;span&gt;&lt;/span&gt;
+ &lt;span&gt;&lt;/span&gt;
+ &lt;span&gt;&lt;/span&gt;
+ &lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>处理分页器切换效果</p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ var spans = document.querySelectorAll(&quot;.pagination span&quot;);
+ var pagination = document.querySelector(&quot;.pagination&quot;);
+ var viewHeight = document.documentElement.clientHeight;
+ var wrap = document.querySelector(&quot;.wrap&quot;);
+ var currentIndex = 0;
+ var prevSpan = 0;
+ //给span加下标
+ var len = spans.length;
+ for (var i = 0; i &lt; len; i++) &#123;
+ spans[i].index = i;
+ &#125;
+ //利用事件委托，切换slide和span
+ pagination.onclick = function (e) &#123;
+ var target = e.target;
+ var tagName = target.tagName.toLowerCase();
+ if (tagName !== &quot;span&quot;) return;
+ //给span加样式
+ spans[prevSpan].classList.remove(&quot;active&quot;);
+ currentIndex = target.index;
+ spans[currentIndex].classList.add(&quot;active&quot;);
+ prevSpan = currentIndex;
+ //改变slide
+ var translateY = -currentIndex * viewHeight;
+ wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+ &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>滚轮操作切换效果</p>
+<blockquote>
+<pre><code>&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
+// 滚轮切换
+ function fn(e) &#123;
+ if (e.deltaY &gt; 0) &#123;
+   currentIndex++;
+   if (currentIndex === len) &#123;
+     currentIndex = len - 1;
+     return;
+   &#125;
+   //给span加样式
+   spans[prevSpan].classList.remove(&quot;active&quot;);
+   spans[currentIndex].classList.add(&quot;active&quot;);
+   prevSpan = currentIndex;
+   //改变slide
+   var translateY = -currentIndex * viewHeight;
+   wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+ &#125; else &#123;
+   currentIndex--;
+   if (currentIndex &lt; 0) &#123;
+     currentIndex = 0;
+     return;
+   &#125;
+   //给span加样式
+   spans[prevSpan].classList.remove(&quot;active&quot;);
+   spans[currentIndex].classList.add(&quot;active&quot;);
+   prevSpan = currentIndex;
+   //改变slide
+   var translateY = -currentIndex * viewHeight;
+   wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+&#125;
+ &#125;
+ addWheelListener(wrap, fn);
+</code></pre>
+</blockquote>
+</li>
+<li><p>节流操作</p>
+<blockquote>
+<ul>
+<li>方法1：节流函数</li>
+<li>引入节流函数，因为是低频，所以注意要把事件处理函数放定时器外面</li>
+<li>缺点：滚动事件的节流和分页器的节流相互独立，虽然在限时时间内不能滚动，但如果同时点分页器，就会受到影响</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>方法2：<code>addtransitionend</code>事件</li>
+<li>设置一把锁，当<code>lock=true</code>时，不能触发<code>span</code>的点击事件和滚轮事件</li>
+<li>当动画完结时，开锁</li>
+<li>注意还有几个需要开锁的地方<ul>
+<li>当滚动到最后一个&#x2F;第一个后，再次滚动，不会触发动画，因此就不会开锁</li>
+<li>当连续点击同一个分页器时，也不会触发动画<blockquote>
+<p>这个方法使滚轮事件和分页器相互影响，在其中一个事件的动画完成之前，另一个事件是触发不了的</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>优化<blockquote>
+<ul>
+<li>把公用的代码抽离出来</li>
+<li>当浏览器窗口大小改变时，<code>viewHeight</code>、<code>translateY</code>也要做相应改变<ul>
+<li>使用<code>resize</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>function to(index) &#123;
+  //给span加样式
+  currentIndex = index;
+  spans[prevSpan].classList.remove(&quot;active&quot;);
+  spans[currentIndex].classList.add(&quot;active&quot;);
+  prevSpan = currentIndex;
+  //改变slide
+  var translateY = -currentIndex * viewHeight;
+  wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+&#125;
+window.addEventListener(&quot;resize&quot;, function () &#123;
+  // 同时还要重新计算，wrap 的translateY的值
+  viewHeight = document.documentElement.clientHeight;
+  var translateY = -(currentindex * viewHeight);
+  wrap.style.transform = &quot;translate3d(0, &quot; + translateY + &quot;px, 0)&quot;;
+&#125;);
+</code></pre>
+</blockquote>
+<h3 id="二、鼠标按键"><a href="#二、鼠标按键" class="headerlink" title="二、鼠标按键"></a>二、鼠标按键</h3><ol>
+<li><p>禁止右键菜单</p>
+<blockquote>
+<ul>
+<li><code>contextmenu</code>事件，会在鼠标点击右键或者按下键盘上的菜单键时被触发，用于显示上下文菜单</li>
+<li>如果我们希望在按下右键时，不要显示上下文菜单，我们可以在<code>contextmenu</code>事件中，阻止默认行为。</li>
+</ul>
+<pre><code>// 在页面任意位置按下右键，都不会显示上下文菜单
+document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
+  e.preventDefault();
+&#125;);
+</code></pre>
+</blockquote>
+<p>var box &#x3D; document.querySelector(“.box”);<br>&#x2F;&#x2F; 只在当前元素上按下时，不显示上下文菜单<br>box.addEventListener(“contextmenu”, function (e) {<br>  e.preventDefault();<br>});</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>禁止选中元素</p>
+<blockquote>
+<ul>
+<li><code>selectstart</code>事件，在用户开始一个新的选择时候触发<blockquote>
+<p>如果不想用户选择内容，可以在事件中阻止默认行为</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>我是一堆测试文字
+&lt;script&gt;
+  document.onselectstart = function (e) &#123;
+ e.preventDefault();
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>判断按下的鼠标键</p>
+<blockquote>
+<ul>
+<li><code>MouseEvent.button</code>(e.button)是只读属性，它返回一个值，代表用户按下并触发了事件的鼠标按键。</li>
+<li>常用于在<code>onmouseup</code>事件中，判断用户按下的是鼠标左键 、中键、右键中的那个键<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>主按键，通常指鼠标左键或默认值</td>
+</tr>
+<tr>
+<td>1</td>
+<td>辅助按键，通常指鼠标滚轮中键</td>
+</tr>
+<tr>
+<td>2</td>
+<td>次按键，通常指鼠标右键</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box &#123;
+ width: 200px;
+ height: 200px;
+ background-color: khaki;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.onmouseup = function (e) &#123;
+ console.log(e.button); // 0 左键  1中键  2右键
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>案例-自定义右键菜单</p>
+<blockquote>
+<ul>
+<li>禁止出现原本的右键菜单</li>
+<li>自定义新的菜单栏<ul>
+<li>鼠标点哪菜单就出现在哪：将菜单栏的left、top与鼠标事件绑定</li>
+<li>点击其他位置取消菜单栏：设置一个点击事件隐藏菜单栏</li>
+</ul>
+</li>
+<li>处理菜单栏<ul>
+<li>给每个li设置下标</li>
+<li>用事件委托+<code>switch</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;style&gt;
+  html,
+  body,
+  ul,
+  li &#123;
+ margin: 0;
+ padding: 0;
+  &#125;
+  li &#123;
+ list-style: none;
+  &#125;
+  .menu &#123;
+ position: absolute;
+ left: 100px;
+ top: 100px;
+ box-shadow: 2px 1px 2px 2px #d7d1d1;
+ display: none;
+  &#125;
+  .menu li &#123;
+ width: 120px;
+ border-bottom: 1px solid #ddd;
+ height: 30px;
+ line-height: 30px;
+ text-indent: 5px;
+ cursor: pointer;
+ background-color: #fff;
+  &#125;
+  .skin &#123;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 540px;
+ background-color: khaki;
+ display: none;
+  &#125;
+  .select-skin li img &#123;
+ width: 260px;
+ height: 163px;
+ float: left;
+ margin: 5px;
+ cursor: pointer;
+  &#125;
+  .clear::after &#123;
+ content: &quot;&quot;;
+ clear: both;
+ display: block;
+  &#125;
+  .skin .close &#123;
+ position: absolute;
+ top: -15px;
+ right: -15px;
+ width: 30px;
+ height: 30px;
+ color: #fff;
+ text-align: center;
+ line-height: 30px;
+ border-radius: 50%;
+ background-color: #000;
+ cursor: pointer;
+  &#125;
+&lt;/style&gt;
+&lt;ul class=&quot;menu&quot;&gt;
+ &lt;li&gt;更换浏览器背景&lt;/li&gt;
+ &lt;li&gt;刷新&lt;/li&gt;
+ &lt;li&gt;跳转到&lt;/li&gt;
+ &lt;li&gt;更换背景颜色&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;skin&quot;&gt;
+ &lt;ul class=&quot;select-skin clearfix&quot;&gt;
+   &lt;li&gt;
+     &lt;img
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>   src=&quot;../src/skin/min1.jpg&quot;
+   alt=&quot;&quot;
+   data-skin=&quot;../src/skin/big1.jpg&quot;
+ /&gt;
+</code></pre>
+   </li>
+   <li>
+     <img
+       src="../src/skin/min2.jpg"
+       alt=""
+       data-skin="../src/skin/big2.jpg"
+     />
+   </li>
+   <li>
+     <img
+       src="../src/skin/min3.jpg"
+       alt=""
+       data-skin="../src/skin/big3.jpg"
+     />
+   </li>
+   <li>
+     <img
+       src="../src/skin/min4.jpg"
+       alt=""
+       data-skin="../src/skin/big4.jpg"
+     />
+   </li>
+ </ul>
+ <div class="close">X</div>
+</div>
+<script>
+  var menu = document.querySelector(".menu");
+  var list = document.querySelectorAll(".menu li");
+  var skin = document.querySelector(".skin");
+  var close = document.querySelector(".skin .close");
+  var imgList = document.querySelectorAll(".skin img");
+  //禁止原本的右键菜单
+  document.oncontextmenu = function (e) {
+    e.preventDefault();
+  };
+  //鼠标右击菜单出现
+  document.addEventListener("mouseup", function (e) {
+    if (e.button === 2) {
+      menu.style.left = e.pageX + "px";
+      menu.style.top = e.pageY + "px";
+      menu.style.display = "block";
+    }
+  });
+  // 在页面任意位置点击，即关闭自定义菜单
+  document.onclick = function () {
+    menu.style.display = "none";
+  };
+  //为菜单选项，添加点击事件，点击后做相关操作,事件委托
+  //1.给li加下标
+  for (var i = 0; i < list.length; i++) {
+    list[i].index = i;
+  }
+  // 事件委托，右键菜单的点击事件委托给父元素来处理
+  menu.onclick = function (e) {
+    var target = e.target;
+    var _index = target.index;
+    switch (_index) {
+      case 0:
+        skin.style.display = "block";
+        break;
+      case 1:
+        alert("1");
+        break;
+      case 2:
+        alert("2");
+        break;
+      case 3:
+        document.body.style.backgroundColor = "skyblue";
+        break;
+    }
+  };
+  // 点击关闭按扭，关闭换肤
+  close.onclick = function () {
+    skin.style.display = "none";
+  };
+  //换肤效果
+  var prevImg = imgList[0];
+  prevImg.style.outline = "1px solid red";
+  skin.onclick = function (e) {
+    var target = e.target;
+    var tagName = target.tagName.toLowerCase();
+    if (tagName !== "img") return;
+    prevImg.style.outline = "";
+    target.style.outline = "1px solid red";
+    prevImg = target;
+    var src = target.dataset.skin;
+    document.body.style.backgroundImage = "url(" + src + ")";
+  };
+</script>
+```
+</blockquote>
+<h3 id="三、HTML5-的拖拽事件"><a href="#三、HTML5-的拖拽事件" class="headerlink" title="三、HTML5 的拖拽事件"></a>三、HTML5 的拖拽事件</h3><blockquote>
+<ul>
+<li>默认情况下，网页中<strong>只有图片和文本</strong>可以拖动。其它元素默认情况下，均不允许被拖动</li>
+<li>在图片上按下鼠标不放，然后移动鼠标就可以拖动图片。</li>
+<li>当需要拖动文本时，只需要先选中文本，然后在选中文本上按下，最后移动鼠标，就可以实现拖动。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>如果想要其它元素也能被拖动呢 ？</p>
+<ul>
+<li>在<code>HTML5</code>中为每个元素提供了一个<code>draggable</code>属性，这个属性用于标识元素是否允许使用拖放操作拖动。</li>
+<li>我们可以在元素身上添加<code>draggabel</code>属性，同时值为字符”true”，元素就可以被拖动了</li>
+</ul>
+</blockquote>
+<h4 id="draggable-属性"><a href="#draggable-属性" class="headerlink" title="draggable 属性"></a>draggable 属性</h4><blockquote>
+<p>draggable 属性有以下三个值，用来控制元素是否能被拖拽<br>|属性值|描述|<br>|true|表示元素可以被拖动|<br>|false|表示元素不可以被拖动|<br>|auto|默认值，表示使用浏览器定义的默认行为；默认情况下,只有已选中的文本、图片、链接可以拖动，其它元素是不可拖拽的。|</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<ul>
+<li>当元素被设置为可拖拽时，其元素中的文本和其子元素都不能以正常的方式被选中，而是会随着父容器一起被拖动</li>
+<li>当元素被设置为不可拖拽时，其元素中的文本仍然会被拖动</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+ .box &#123;
+   width: 200px;
+   height: 200px;
+   background-color: khaki;
+ &#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;我是一堆测试文字&lt;/div&gt;
+</code></pre>
+</blockquote>
+<h4 id="拖拽基础概念"><a href="#拖拽基础概念" class="headerlink" title="拖拽基础概念"></a>拖拽基础概念</h4><blockquote>
+<ul>
+<li>在拖放（drag and drop）操作过程中，分为<strong>拖拽元素</strong>和<strong>目标元素（可放置元素）</strong></li>
+<li>拖拽元素： 鼠标按下进行拖拽的元素为拖拽元素</li>
+<li>目标元素： 把拖拽元素放入某个元素内部，或与某个元素发生碰撞等，这些元素为目标元素（可放置元素）。<br>如下图：假设把 A 元素拖拽放到 B 元素中，那A元素为拖拽元素，B元素为目标元素(可放置元素)<img src="拖拽基本概念.png"></li>
+</ul>
+</blockquote>
+<h4 id="拖拽事件"><a href="#拖拽事件" class="headerlink" title="拖拽事件"></a>拖拽事件</h4><blockquote>
+<p>元素在拖拽期间，会触发一些事件类型，其中分为</p>
+<ul>
+<li>拖拽元素事件：<code>dragstart</code> 、<code>drag</code>、<code>dragend</code></li>
+<li>目标元素（放置元素）事件：<code>dragenter</code>、<code>dragover</code>、<code>dragleave</code>、<code>drop</code></li>
+</ul>
+</blockquote>
+<ol>
+<li>拖拽元素事件：drag、dragstart 、dragend<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dragstart</td>
+<td>当按住鼠标键<strong>不放并开始移动鼠标</strong>的那一刻，被拖动元素上会触发<code>dragstart</code>事件。只会在刚开始移动时触发一次。</td>
+</tr>
+<tr>
+<td>drag</td>
+<td>只要拖拽元素在拖拽中，就会持续的触发drag事件，有点类似于 <code>mousemove</code> 事件，只要鼠标在移动就会<strong>不断触发</strong></td>
+</tr>
+<tr>
+<td>dragend</td>
+<td>dragend 事件在拖放操作<strong>结束</strong>时触发（通过释放鼠标按钮或单击 <code>escape</code> 键），只会在结束时触发一次</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>使用这些事件之前，确认该元素可拖拽，已设置<code>draggable=&quot;true&quot;</code></p>
+</blockquote>
+<ul>
+<li>通常会在dragstart中，设置被拖拽元素为半透明，标识元素正在被拖动。</li>
+<li>在dragend中，恢复被拖拽元素为不透明。</li>
+<li>所有<strong>子元素</strong>的拖拽事件，都会<strong>冒泡</strong>到他们的父元素身上，所以在处理拖拽事件时，<strong>可以利用事件委托</strong></li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    background-color: khaki;
+  &#125;
+  .box2 &#123;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot;&gt;
+ &lt;div class=&quot;box2&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 给box2添加对应拖拽事件<br>  box2.ondragstart &#x3D; function (e) {<br>    console.log(“box2-start”);<br>  };<br>  box2.ondrag &#x3D; function (e) {<br>    console.log(“box2-drag”);<br>  };<br>  box2.ondragend &#x3D; function (e) {<br>    console.log(“box2-end”);<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 以下元素默认不能拖，但事件能被成功触发<br>  &#x2F;&#x2F; 是因为box2元素上对应事件触发后，会冒泡到父元素上<br>  box.ondragstart &#x3D; function (e) {<br>    console.log(“box-start”);<br>  };<br>  box.ondrag &#x3D; function (e) {<br>    console.log(“box-drag”);<br>  };<br>  box.ondragend &#x3D; function (e) {<br>    console.log(“box-end”);<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  document.ondragstart &#x3D; function (e) {<br>    console.log(“document-start”);<br>  };<br>  document.ondrag &#x3D; function (e) {<br>    console.log(“document-drag”);<br>  };<br>  document.ondragend &#x3D; function (e) {<br>    console.log(“document-end”);<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>dragenter、dragover、dragleave 放置元素事件<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dragenter</td>
+<td>当拖动的元素或被选择的文本<strong>进入有效的放置目标</strong>时， dragenter 事件被触发。</td>
+</tr>
+<tr>
+<td>dragover</td>
+<td>当元素或者选择的文本被拖拽到一个有效的放置目标上时，触发 dragover 事件（每几百毫秒触发一次）</td>
+</tr>
+<tr>
+<td>dragleave</td>
+<td>dragleave 事件在拖动的元素或选中的文本<strong>离开</strong>一个有效的放置目标时被触发</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>同样支持冒泡</p>
+</blockquote>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+  .target-wrap &#123;
+    position: absolute;
+    top: 10px;
+    left: 300px;
+    width: 250px;
+    height: 250px;
+    background-color: tomato;
+  &#125;
+  .target &#123;
+    width: 150px;
+    height: 150px;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+ &lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;target-wrap&quot;&gt;
+   &lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;script&gt;
+  // 拖拽元素
+  var drag = document.querySelector(&quot;.drag&quot;);
+  // 目标元素
+  var target = document.querySelector(&quot;.target&quot;);
+  //拖拽父元素
+  var targetWrap = document.querySelector(&quot;.target-wrap&quot;);
+  // 当拖拽元素进入目标元素时触发
+  target.ondragenter = function () &#123;
+    console.log(&quot;dragenter&quot;);
+  &#125;;
+  //当拖拽元素在有效的目标位置上时会触发;
+  target.ondragover = function () &#123;
+    console.log(&quot;dragover&quot;);
+  &#125;;
+  //当拖拽元素离开有效的目标位置上时会触发
+  target.ondragleave = function () &#123;
+    console.log(&quot;dragleave&quot;);
+  &#125;;
+  //此时box-wrap就是一个放置目标
+  targetWrap.ondragover = function () &#123;
+    console.log(&quot;targetWrap-dragover&quot;);
+  &#125;;
+  //当box被拖拽到target上时，会同时打印dragover和targetWrap-dragover
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li><p>drop 事件</p>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>drop</td>
+<td>drop事件在被拖拽元素或选中的文本被放置在有效的放置目标上时被触发</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>默认情况，元素不允许放置</p>
+<blockquote>
+<ul>
+<li>在网页中，默认情况下，<strong>唯一有效</strong>的放置目标元素是文本框。但默认<strong>只能放置文本、链接、图片</strong></li>
+<li>页面其它元素默认情况下，是不允许放置。如果把元素拖动到不允许放置的目标上，然后放下，不会触发 <code>drop</code> 事件。</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+ width: 100px;
+ height: 100px;
+ background-color: khaki;
+  &#125;
+  .target &#123;
+ width: 200px;
+ height: 100px;
+ border: 2px dashed #ddd;
+ position: absolute;
+ top: 10px;
+ left: 300px;
+  &#125;
+  textarea &#123;
+ width: 200px;
+ height: 100px;
+ position: absolute;
+ left: 300px;
+ top: 150px;
+  &#125;
+&lt;/style&gt;
+
+&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; width=&quot;100&quot; /&gt;
+我是一段文字
+&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
+&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;textarea name=&quot;&quot; id=&quot;text&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+&lt;!--普通元素框  --&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;);
+  var text = document.getElementById(&quot;text&quot;);
+  var target = document.querySelector(&quot;.target&quot;);
+</code></pre>
+</blockquote>
+<p>  text.ondrop &#x3D; function () {<br> console.log(“text - drop”);<br>  };<br>  target.ondrop &#x3D; function () {<br> console.log(“target - drop “);<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>如何使放置元素触发 <code>drop</code> 事件</p>
+<blockquote>
+<ul>
+<li>如果被拖拽元素在进入放置（目标）元素时，其<strong>鼠标状态</strong>显示禁止，则表示禁止该行为，在鼠标松开时，不会触发<code>drop</code>事件。</li>
+<li>因为默认情况，元素是不允许放置的，要使目标元素能够接收到<code>drop</code>事件，需要使目标元素在<code>dragenter</code>和<code>dragover</code>事件中<strong>阻止默认行为</strong>。<blockquote>
+<p>一般只需要在<code>dragover</code>事件中<strong>阻止默认行为</strong>就可以了</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>  //要使放置元素的drop事件能触发，需要在dragover中禁止其默认行为
+ target.ondragover = function (e) &#123;
+   e.preventDefault();
+ &#125;;
+ target.ondragenter = function (e) &#123;
+   e.preventDefault();
+ &#125;;
+ target.ondrop = function () &#123;
+   console.log(&quot;target - drop &quot;);
+ &#125;;
+</code></pre>
+</blockquote>
+<ol start="6">
+<li>drop 事件兼容问题<blockquote>
+<p>在 Firefox 浏览器中，drop 放置事件的默认行为如下：</p>
+<ul>
+<li>如果拖动元素是<strong>链接</strong>，则在放置（目标）元素上松开鼠标时，会导航到对应页面</li>
+<li>如果拖动元素是<strong>图片</strong>，则在放置（目标）元素上松开鼠标时，会导航到图片文件</li>
+<li>如果拖动元素是文本，会导致无效的 <code>URL</code> 错误（或默认开启百度搜索）<blockquote>
+<p>所以如果拖动元素为以上三者，我们需要在 <code>drop</code> 放置事件中，<strong>阻止其默认行为和事件冒泡</strong></p>
+</blockquote>
+</li>
+</ul>
+<pre><code>e.preventDefault(); // 阻止默认行为
+e.stopPropagation(); // 阻止事件冒泡
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+  .target &#123;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ddd;
+    position: absolute;
+    top: 10px;
+    left: 220px;
+  &#125;
+&lt;/style&gt;
+
+&lt;a href=&quot;http://www.baidu.com&quot;&gt;我是大美人&lt;/a&gt;&lt;br /&gt;
+&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; alt=&quot;&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+我只是个文字
+&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;);
+  var target = document.querySelector(&quot;.target&quot;);
+  // 要使放置元素的drop事件能触发，需要在dragover中禁止其默认行为
+  target.ondragover = function (e) &#123;
+    e.preventDefault();
+  &#125;;
+  // 放置元素绑定drop事件
+</code></pre>
+</blockquote>
+<p>  target.ondrop &#x3D; function (e) {<br>    console.log(“drop”);<br>    e.preventDefault(); &#x2F;&#x2F; 阻止默认行为<br>    e.stopPropagation(); &#x2F;&#x2F; 阻止事件冒泡<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="DataTransfer-对象"><a href="#DataTransfer-对象" class="headerlink" title="DataTransfer 对象"></a>DataTransfer 对象</h4><blockquote>
+<ul>
+<li>在事件对象<code>e</code>上有一个<code>dataTransfer</code>属性，这个属性是一个<code>DataTransfer</code>对象</li>
+<li><code>e.dataTransfer</code> 对象用于保存拖放<code>（drag and drop）</code>过程中的拖拽数据，可以保存一项或多项数据，这些数据项可以是一种或者多种数据类型。</li>
+<li><code>e.dataTransfer</code> 对象提供了相关的属性和方法实现拖放功能<blockquote>
+<p>具体如下：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dropEffect</td>
+<td>可以告诉浏览器目标元素<strong>允许哪种放置行为</strong>， 同时会影响<strong>鼠标的样式</strong></td>
+</tr>
+<tr>
+<td>effectAllowed</td>
+<td>表示对被拖动元素<strong>是否允许</strong><code>dropEffect</code> 中设置的行为，同时会影响<strong>鼠标的样式</strong></td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setDragImage</td>
+<td>可以自定义一处图片元素来设置拖放图片</td>
+</tr>
+<tr>
+<td>setData</td>
+<td>方法用来设置拖放操作的<code>drag data</code>到指定的数据和类型</td>
+</tr>
+<tr>
+<td>getData</td>
+<td>方法接受指定类型的拖放(以<code>DOMString</code>的形式)数据。如果拖放行为没有操作任何数据，会返回一个空字符串</td>
+</tr>
+<tr>
+<td>clearData()</td>
+<td>删除与给定类型关联的数据,如果类型为空或未指定，则删除与所有类型关联的数据</td>
+</tr>
+</tbody></table>
+<ol>
+<li>dropEffect 属性<blockquote>
+<ul>
+<li><code>dropEffect</code>属性：可以告诉浏览器目标元素允许哪种放置行为，比如：复制、移动、导航等，这些只是<strong>表面形态</strong>；但具体行为的动作还需要开发者自己代码实现。</li>
+<li>当拖动元素在目标元素上放置时，只有<code>dropEffect</code><strong>允许的行为</strong>，才会触发 drop 事件(none不会触发drop事件)</li>
+<li>dropEffect 属性值，还会影响拖拽过程中光标的手势，这个手势；可能会预示了将要发生什么样的操作，但仅是视觉上的反馈。<blockquote>
+<p>这个属性有以下 4 种可能值</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>被拖动元素<strong>不允许</strong>被放置在目标元素，鼠标样式是禁止状态</td>
+</tr>
+<tr>
+<td>move</td>
+<td>被拖动元素应该移动到放置的目标元素中，但必需满足 <code>dropEffect</code> 的行为是<code>effectAllowed</code>允许的行为</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>被拖动元素应该复制到放置目标元素中，但必需满足 <code>dropEffect</code>的行为是<code>effectAllowed</code>允许的行为</td>
+</tr>
+<tr>
+<td>link</td>
+<td>放置目标会导航到被拖动元素（仅限它是<code>URL</code>情况）</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>对于<code>dragenter</code>和<code>dragover</code>事件，<code>dropEffect</code> 会根据用户的请求的行为进行<strong>初始化</strong>。具体如何初始化和浏览器平台有关。（即<strong>没有</strong>设置 <code>dropEffect</code> 属性值时，浏览器会自动为其赋值）</li>
+<li>我们期望得到一个指定的行为而不是用户的请求行为时，可以通过 <code>dragenter</code> 和 <code>dragover</code> 事件处理中修改 <code>dropEffect</code>的值。</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+  .target &#123;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ddd;
+    position: absolute;
+    top: 10px;
+    left: 220px;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;); // 被拖动元素
+  var target = document.querySelector(&quot;.target&quot;); // 目标放置元素
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 拖动元素进入目标元素那一刻<br>  target.ondragenter &#x3D; function (e) {<br>    &#x2F;&#x2F; 阻止默认行为，元素才能被放置，才有可能触发drop事件<br>    e.preventDefault();<br>    &#x2F;&#x2F; move 允许被拖动元素移动到目标元素上 , 同时光标也会变化<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  target.ondragover &#x3D; function (e) {<br>    &#x2F;&#x2F; 阻止默认行为，元素才能被放置，才有可能触发drop事件<br>    e.preventDefault();<br>    &#x2F;&#x2F; move 允许被拖动元素移动到目标元素上 , 同时光标也会变化<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>    &#x2F;&#x2F; 被动元素不允许放在这里，不会触发drop事件，光标为禁止样式<br>    &#x2F;&#x2F; e.dataTransfer.dropEffect &#x3D; “none”;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  target.ondrop &#x3D; function () {<br>    console.log(“drop”);<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>effectAllowed 属性<blockquote>
+<p><code>effectAllowed</code>属性：表示<strong>被拖动元素</strong>是否允许 <code>dropEffect</code>中设置的行为</p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>不允许<code>dropEffect</code>的任何行为</td>
+</tr>
+<tr>
+<td>copy</td>
+<td>只允许”copy”这种<code>dropEffect</code>行为</td>
+</tr>
+<tr>
+<td>link</td>
+<td>只允许”link”这种<code>dropEffect</code>行为</td>
+</tr>
+<tr>
+<td>move</td>
+<td>只允许”move”这种<code>dropEffect</code>行为</td>
+</tr>
+<tr>
+<td>copyLink</td>
+<td>允许”copy” 和 “link”两种<code>dropEffect</code>行为,显示的是copy样式</td>
+</tr>
+<tr>
+<td>copyMove</td>
+<td>允许”copy” 和 “move”两种<code>dropEffect</code>行为,显示的是move样式</td>
+</tr>
+<tr>
+<td>linkMove</td>
+<td>允许”link” 和 “move”两种<code>dropEffect</code>行为,显示的是move样式</td>
+</tr>
+<tr>
+<td>all</td>
+<td>允许所有<code>dropEffect</code>行为,显示的是copy样式</td>
+</tr>
+<tr>
+<td>uninitialized</td>
+<td>效果没有设置时的默认值，则等同于all,显示的是copy样式</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>应该在<code>dragstart</code>事件处理函数中设置<code>effectAllowed</code>的属性值，以便为拖动元素设置所需的拖动效果（鼠标样式）</li>
+<li>要看到不同属性值对应的鼠标样式，还需要在<code>document.ondragover</code>事件中，取消默认行为。</li>
+<li>因为默认情况下，元素是不允许被放置的，所以在拖动元素时，事件会冒泡到<code>document</code>的<code>ondragover</code>事件中，鼠标样式为禁用。（整个拖动过程中<code>document</code>默认都是被放置元素）</li>
+<li>如果<code>effectAllowed</code>的值，不是在<code>dropEffect</code>允许的范围，则不会触发<code>drop</code>事件；同时拖动元素进入目标元素时，鼠标样式为<strong>禁止样式</strong></li>
+<li>在进入目标元素前，鼠标为<code>effectAllowed</code>设置的样式，进入后，鼠标为<code>dropEffect</code>设置的样式&#x2F;禁止样式</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+  .target &#123;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ddd;
+    position: absolute;
+    left: 200px;
+    top: 10px;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;);
+  var target = document.querySelector(&quot;.target&quot;);
+  drag.ondragstart = function (e) &#123;
+    // 设置被拖动元素允许的 dropEffect行为
+    e.dataTransfer.effectAllowed = &quot;linkMove&quot;;
+  &#125;;
+  document.ondragover = function (e) &#123;
+    // 禁止默认行为,才能看到拖动元素的光标样式与effectAllowed的值对应
+    e.preventDefault();
+  &#125;;
+  target.ondragover = function (e) &#123;
+    //阻止默认行为，target元素才能允许被放置
+    e.preventDefault();
+    // 如果EffectAllowed的值不是在 dropEffect允许内，不会触发drop事件，同时光标为禁止
+    e.dataTransfer.dropEffect = &quot;link&quot;;
+  &#125;;
+  target.ondrop = function (e) &#123;
+    console.log(&quot;drop&quot;);
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>setData 、getData 方法<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setData</td>
+<td>方法用来设置拖放操作的<code>drag data</code>到指定的数据和类型</td>
+</tr>
+<tr>
+<td>getData</td>
+<td>方法读取指定类型的拖放(以<code>DOMString</code>的形式)数据。如果拖放行为没有操作任何数据，会返回一个空字符串</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>语法</p>
+<pre><code>e.dataTransfer.setData(format, data); // 保存数据
+e.dataTransfer.getData(format); // 取出数据
+</code></pre>
+<ul>
+<li><code>data</code>表示要存入的数据</li>
+<li><code>format</code>表示存入的数据类型，常见的支持类型如下：<blockquote>
+<p>推荐的拖动数据类型参考官网链接地址：<code>https://developer.mozilla.org/zh-CN/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text&#x2F;plain 支持简写：text</td>
+<td>文本类型（string）</td>
+</tr>
+<tr>
+<td>text&#x2F;html</td>
+<td>HTML文字</td>
+</tr>
+<tr>
+<td>text&#x2F;xml</td>
+<td>XML文字</td>
+</tr>
+<tr>
+<td>text&#x2F;uri-list支持简写： url</td>
+<td>链接</td>
+</tr>
+<tr>
+<td>application&#x2F;x-moz-file</td>
+<td>文件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>一般都会在<code>dragstart</code>事件中，利用<code>e.dataTransfer.setData()</code>保存数据,可以存储一项或多项</li>
+<li>存储在<code>dataTransfer</code>对象中的数据只能在<code>drop</code>放置事件中读取。</li>
+<li>如果没有在<code>drop</code>事件处理函数中取得这些数据，随后 <code>dataTransfer</code>对象被销毁，数据也就丢失了。</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .drag &#123;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+  .target &#123;
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #ddd;
+    position: absolute;
+    left: 200px;
+    top: 10px;
+  &#125;
+&lt;/style&gt;
+&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;);
+  var target = document.querySelector(&quot;.target&quot;);
+  drag.ondragstart = function (e) &#123;
+    e.dataTransfer.setData(&quot;text&quot;, e.target.id);
+    // 下面这种情况保存id，在获取时得到的数据为空，因为他会把后面数据当链接处理
+    // e.dataTransfer.setData(&quot;url&quot;, e.target.id);
+    this.style.opacity = &quot;0.3&quot;;
+  &#125;;
+</code></pre>
+</blockquote>
+<p>  target.ondragover &#x3D; function (e) {<br>    &#x2F;&#x2F;允许放置行为<br>    e.preventDefault();<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  target.ondrop &#x3D; function (e) {<br>    var id &#x3D; e.dataTransfer.getData(“text”);<br>    &#x2F;&#x2F; var id &#x3D; e.dataTransfer.getData(“url”);<br>    &#x2F;&#x2F; console.log(id);<br>    var dragElement &#x3D; document.getElementById(id);<br>    target.appendChild(dragElement);<br>    drag.style.opacity &#x3D; “1”;<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="5">
+<li><p>clearData</p>
+<blockquote>
+<ul>
+<li><code>clearData()</code>方法删除给定类型的拖动操作的<code>drag data</code>，如果给定类型的数据不存在，则此方法不执行任何操作</li>
+<li>如果不带参数，默认清空所有setData方式添加的数据</li>
+</ul>
+<pre><code>// 清空对应类型数据  如果不带参数，默认清空所有setData方式添加的数据
+e.dataTransfer.clearData([format]);
+</code></pre>
+</blockquote>
+</li>
+<li><p>setDragImage</p>
+<blockquote>
+<ul>
+<li><code>setDragImage</code>可以自定义一个<code>img</code>类型，用来设置拖放过程中的鼠标下面的图标</li>
+<li>在<code>dragstart</code>里创建图片元素</li>
+</ul>
+<pre><code>setDragImage(element, x, y);
+</code></pre>
+<ul>
+<li><code>element</code>拖拽时鼠标下面的图片，必需是一个元素节点</li>
+<li>x表示：图标距离鼠标指针的 x 轴方向的偏移量</li>
+<li>y表示：图标距离鼠标指针 y 轴方向的偏移量</li>
+</ul>
+<pre><code>&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var drag = document.querySelector(&quot;.drag&quot;);
+  var target = document.querySelector(&quot;.target&quot;);
+</code></pre>
+</blockquote>
+<p>  drag.ondragstart &#x3D; function (e) {<br> &#x2F;&#x2F;创建图片元素<br> var img &#x3D; document.createElement(“img”);<br> img.src &#x3D; “..&#x2F;src&#x2F;skin&#x2F;min1.jpg”;<br> e.dataTransfer.setDragImage(img, 100, 100); &#x2F;&#x2F; 设置自定义图拖拽图像<br>  };</p>
+<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、HTML5-拖拽综合应用案例"><a href="#四、HTML5-拖拽综合应用案例" class="headerlink" title="四、HTML5 拖拽综合应用案例"></a>四、HTML5 拖拽综合应用案例</h3><blockquote>
+<p>结合本章节所学内容进行综合实践应用。</p>
+</blockquote>
+<ol>
+<li>双向拖拽添加内容<blockquote>
+<p>涉及知识点</p>
+<ul>
+<li>事件委托</li>
+<li>拖拽事件（dragstart、dragend、dragover、drop）</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>CSS布局<blockquote>
+<pre><code>&lt;style&gt;
+html,
+body,
+ul,
+li &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+li &#123;
+  list-style: none;
+&#125;
+.container &#123;
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+  margin: 50px;
+&#125;
+.container h3 &#123;
+  text-align: center;
+&#125;
+.drag-wrap,
+.target-wrap &#123;
+  width: 200px;
+  height: 280px;
+&#125;
+.drag-wrap &#123;
+  border: 1px solid #ddd;
+&#125;
+.target-wrap &#123;
+  border: 2px dashed #ddd;
+&#125;
+.drag-wrap li,
+.target-wrap li &#123;
+  height: 40px;
+  margin: 5px;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  cursor: pointer;
+&#125;
+.drag-wrap li:hover,
+.target-wrap li:hover &#123;
+  background-color: khaki;
+&#125;
+.drag-wrap li &#123;
+  background-color: #ddd;
+&#125;
+.target-wrap li &#123;
+  background-color: lightcoral;
+&#125;
+&lt;/style&gt;
+&lt;div class=&quot;container&quot;&gt;
+ &lt;div class=&quot;select-fruit&quot;&gt;
+   &lt;h3&gt;选择你喜欢的水果&lt;/h3&gt;
+   &lt;ul class=&quot;drag-wrap&quot;&gt;
+     &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code> &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;水蜜桃&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;荔枝&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
+</code></pre>
+   </ul>
+ </div>
+ <div class="like-fruit">
+   <h3>你最喜欢的水果是</h3>
+   <ul class="target-wrap"></ul>
+ </div>
+</div>
+```
+</blockquote>
+<ul>
+<li>JS实现<blockquote>
+<ul>
+<li>在这个案例中，拖动元素的容器本身也是放置目标元素。</li>
+<li>放置目标元素中的子元素，本身也是被拖动的元素。</li>
+<li>所有拖动元素要处理的事情，全部委托给他到们的父容器来处理。</li>
+<li>声明一个元素来记录当前被拖动的元素，放置到目标区域时，将该元素插入页面中</li>
+</ul>
+<pre><code>&lt;script&gt;
+var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
+var targetWrap = document.querySelector(&quot;.target-wrap&quot;);
+var dragElement = null; //记录当前被拖动的元素
+//从左往右：
+//拖拽元素
+dragWrap.ondragstart = dragStartHandle;
+dragWrap.ondragend = dragEndHandle;
+//放置元素
+targetWrap.ondragover = dragOver;
+targetWrap.ondrop = dropHandle;
+//从右往左：
+//拖拽元素
+targetWrap.ondragstart = dragStartHandle;
+targetWrap.ondragend = dragEndHandle;
+//放置元素
+dragWrap.ondragover = dragOver;
+dragWrap.ondrop = dropHandle;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F;处理拖拽元素<br>function dragStartHandle(e) {<br>  var target &#x3D; e.target;<br>  target.style.opacity &#x3D; “0.5”;<br>  dragElement &#x3D; target;<br>  e.dataTransfer.effctAllowed &#x3D; “move”;<br>}<br>function dragEndHandle(e) {<br>  var target &#x3D; e.target;<br>  target.style.opacity &#x3D; “1”; &#x2F;&#x2F;恢复透明度<br>}<br>&#x2F;&#x2F;处理放置元素<br>function dragOver(e) {<br>  e.preventDefault(); &#x2F;&#x2F;禁止默认行为<br>  e.dataTransfer.dropEffect &#x3D; “move”;<br>}<br>function dropHandle(e) {<br>  this.appendChild(dragElement);<br>  dragElement.style.opacity &#x3D; “1”; &#x2F;&#x2F;恢复透明度<br>}<br>document.ondragover &#x3D; function (e) {<br>  e.preventDefault();<br>};<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>页面中随意拖拽<blockquote>
+<ul>
+<li>获取拖动前，元素的<code>offsetLeft</code>、<code>offsetTop</code></li>
+<li>获取被拖动那一刻<code>dragstart</code>，鼠标的位置<code>_clientX</code>、<code>_clientY</code></li>
+<li>获取被拖动时，鼠标的位置<code>clientX</code>、<code>clientY</code></li>
+<li>元素的<code>left</code>&#x3D;<code>clientX-_clientX+offsetLeft</code></li>
+<li>元素的<code>top</code>&#x3D;<code>clientY-_clientY+offsetTop</code><blockquote>
+<p>注意：</p>
+</blockquote>
+</li>
+<li>当放置元素没有触发drop事件时，元素被拖拽后会迅速回到原位置</li>
+<li>松开元素后，鼠标的位置<code>clientX</code>、<code>clientY</code>变成0；由于公式控制了元素的<code>left</code>、<code>top</code>，所以回不到原来的位置</li>
+<li>因此，必须在放置元素的<code>dragover</code>事件中阻止默认行为。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>&lt;style&gt;
+  html,
+  body &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  .box &#123;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  document.ondragover = function (e) &#123;
+    e.preventDefault();
+  &#125;;
+  var offsetLeft;
+  var offsetTop;
+  var _clientX;
+  var _clientY;
+</code></pre>
+</blockquote>
+<p>  box.ondragstart &#x3D; function (e) {<br>    _clientX &#x3D; e.clientX;<br>    _clientY &#x3D; e.clientY;<br>    offsetLeft &#x3D; this.offsetLeft;<br>    offsetTop &#x3D; this.offsetTop;<br>  }; &#x2F;&#x2F;213 171 100 100<br>  box.ondrag &#x3D; function (e) {<br>    var clientX &#x3D; e.clientX;<br>    var clientY &#x3D; e.clientY;<br>    var left &#x3D; clientX - _clientX + offsetLeft;<br>    var top &#x3D; clientY - _clientY + offsetTop;<br>    this.style.left &#x3D; left + “px”;<br>    this.style.top &#x3D; top + “px”;<br>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>拖拽排序<blockquote>
+<p>核心知识</p>
+<ul>
+<li>拖拽相关事件</li>
+<li>占位思想</li>
+<li>找出相邻兄弟中离自己最近的元素</li>
+<li>insertAdjacentElement 方法</li>
+<li>prepend 方法</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>CSS布局</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+html,
+body,
+ul,
+li &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+li &#123;
+  list-style: none;
+&#125;
+.drag-wrap &#123;
+  position: relative;
+  width: 200px;
+  height: 280px;
+  padding: 10px;
+  margin: 50px;
+  border: 1px solid #ddd;
+&#125;
+.drag-wrap .drag-item &#123;
+  width: 200px;
+  height: 50px;
+  background-color: #ddd;
+  margin: 5px auto;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+&#125;
+.drag-wrap .draging &#123;
+  background-color: khaki;
+&#125;
+.stand &#123;
+  width: 200px;
+  height: 50px;
+  margin: 5px auto;
+&#125;
+&lt;/style&gt;
+&lt;ul class=&quot;drag-wrap&quot;&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
+ &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;火龙果&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>JS 实现原理<br><strong>第一步：实现鼠标按下开始拖动时要处理的事情</strong></p>
+<blockquote>
+<ul>
+<li>1、为了后面 drag 事件中能获取到当前拖动的元素，还需要<strong>把拖动元素保存到全局变量</strong>中</li>
+<li>2、把拖动元素的<strong>背景色</strong>设置为黄色</li>
+<li>3、同时把拖动元素设置为<strong>绝对定位</strong>元素，设置好初始 left 和 top 值，同时把 margin 值为 0</li>
+<li>4、<strong>创建一个 div 元素</strong>，作为占位元素，其宽、高、margin 和被拖动元素一样，然后把创建好的空元素插入当前元素前面。</li>
+<li>5、为了后面拖动元素，还需要在此记录鼠标按下时<strong>与浏览器左边和上边的距离</strong>。<blockquote>
+<p>以上拖动元素需要处理的事情，全委托给他们的父元素来处理。</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
+var standElement = null;
+var dragElement = null;
+var dragLeft;
+var dragTop;
+var pageX;
+var pageY;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;刚开始拖动时，需要处理的事件<br>dragWrap.ondragstart &#x3D; function (e) {<br>  var target &#x3D; e.target;<br>  &#x2F;&#x2F;1.元素背景变色<br>  target.classList.add(“draging”);<br>  &#x2F;&#x2F;2.把拖拽元素设置成为绝对定位元素，设置left、top、margin<br>  dragLeft &#x3D; target.offsetLeft;<br>  dragTop &#x3D; target.offsetTop;<br>  dragElement &#x3D; target;<br>  target.style.display &#x3D; “none”;<br>  target.style.position &#x3D; “absolute”;<br>  target.style.left &#x3D; dragLeft + “px”;<br>  target.style.top &#x3D; dragTop + “px”;<br>  target.style.margin &#x3D; “0 auto”;<br>  target.style.display &#x3D; “block”;<br>  &#x2F;&#x2F;3.创建站位元素<br>  standElement &#x3D; document.createElement(“div”);<br>  standElement.classList.add(“stand”);<br>  this.insertBefore(standElement, target);</p>
+<blockquote>
+</blockquote>
+<p>  pageX &#x3D; e.pageX;<br>  pageY &#x3D; e.pageY;<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p><strong>第二步：拖动过程中要处理的事情</strong></p>
+<blockquote>
+<ul>
+<li>元素能正常随着鼠标<strong>拖动</strong>，动态改变<code>left</code>、和<code>top</code></li>
+<li>找到与当前拖动元素同时满足以下条件的<strong>兄弟元素</strong>（兄弟元素不包含占位元素）<ul>
+<li>拖动元素底部与浏览器的距离 &gt;&#x3D; 兄弟元素垂直中心点与浏览器顶部的距离</li>
+</ul>
+</li>
+<li>封装一个函数来实现，如果有对应的兄弟元素就将元素返回，没有就返回 <code>null</code></li>
+<li>如果有满足条件的兄弟元素，就将兄弟元素的<strong>背景色变为红色</strong>，同时将占位符<strong>插入</strong>当前兄弟元素的后面。</li>
+<li>如果没有满足条件的兄弟元素，说明当前拖动元素在第一个子元素的前面，此时可以将占位元素插入到父元素的第一个子元素的前面。目的是在与最前面一个元素交换时，能将它挤到第二个<ul>
+<li>将新节点插入到参考节点后面：<code>referenceNode.insertAdjacentElement(&quot;afterend&quot;, neNode);</code></li>
+<li>将节点插入到父节点的最前面：<code>父节点.prepend(child)</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>//元素被拖动过程中，应处理的事
+dragWrap.ondrag = function (e) &#123;
+  var _pageX = e.pageX;
+  var _pageY = e.pageY;
+  //改变元素的位置，动态赋值
+  var left = _pageX - pageX + dragLeft;
+  var top = _pageY - pageY + dragTop;
+  dragElement.style.left = left + &quot;px&quot;;
+  dragElement.style.top = top + &quot;px&quot;;
+  //找到符合要求的兄弟元素，
+  //改变它的背景色，并将占位元素插入当前兄弟元素的后面。
+  var nearSibling = findSibling(dragElement);
+  //如果nearSibling=null,说明当前拖动元素在第一个子元素的最前面
+  if (!nearSibling) &#123;
+    // 将占位元素插入到父元素的第一个子元素的前面
+    dragWrap.prepend(standElement);
+  &#125;
+  //如果存在最近的兄弟元素
+  if (nearSibling) &#123;
+    //将前一个颜色恢复
+    prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor = &quot;&quot;);
+    //改变它的背景色
+    nearSibling.style.backgroundColor = &quot;red&quot;;
+    prevNearSibling = nearSibling;
+    //将占位元素插入到兄弟元素的后面
+    nearSibling.insertAdjacentElement(&quot;afterend&quot;, standElement);
+  &#125;
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;函数：找到符合要求的兄弟元素<br>function findSibling(dragEle) {<br>  &#x2F;&#x2F;条件:1.不包含占位元素<br>  &#x2F;&#x2F;2.拖动元素底部与浏览器的距离&gt;&#x3D; 兄弟元素垂直中心点与浏览器顶部的距离<br>  &#x2F;&#x2F;获取拖拽元素到浏览器顶部的距离<br>  var rect &#x3D; dragEle.getBoundingClientRect();<br>  var rectBottom &#x3D; rect.bottom;<br>  &#x2F;&#x2F; 获取拖动元素的所有兄弟元素<br>  var siBlings &#x3D; dragEle.parentNode.children;<br>  &#x2F;&#x2F;将类数组转成数组<br>  siBlings &#x3D; Array.prototype.slice.call(siBlings, 0);<br>  &#x2F;&#x2F;首先过滤掉占位元素<br>  siBlings &#x3D; siBlings.filter(function (item) {<br>    return item !&#x3D;&#x3D; standElement;<br>  });<br>  var result &#x3D; null; &#x2F;&#x2F;用来保存找到了满足条件兄弟元素<br>  for (var i &#x3D; 0; i &lt; siBlings.length; i++) {<br>    &#x2F;&#x2F;排除自身<br>    if (siBlings[i] &#x3D;&#x3D;&#x3D; dragEle) continue; &#x2F;&#x2F;跳过当次<br>    var rect1 &#x3D; siBlings[i].getBoundingClientRect();<br>    &#x2F;&#x2F; 获取每个元素中心与浏览器顶部的距离<br>    var center &#x3D; rect1.y + siBlings[i].offsetHeight &#x2F; 2;<br>    &#x2F;&#x2F; 找到离自己最近的满足 rectBottom&gt;center的兄弟元素<br>    if (rectBottom &gt; center) {<br>      result &#x3D; siBlings[i];<br>    } else {<br>      return result;<br>    }<br>  }<br>  return result;<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>整个<code>drag</code>操作过程的样式要生效，必需要设置父容器为允许放置行为，即在<code>dragover</code>中取消默认行为</li>
+</ul>
+<pre><code>dragWrap.ondragover = function (e) &#123;
+  e.preventDefault();
+&#125;;
+</code></pre>
+</blockquote>
+<p><strong>第三步：拖动结束要处理的事情</strong></p>
+<blockquote>
+<ul>
+<li>拖动元素的背景色还原</li>
+<li>拖动元素要取消定位，同时恢复 margin 值</li>
+<li>将拖动元素放入占位元素所在位置（前或后）</li>
+<li>将占位元素从页面中移除</li>
+<li>如果存在前一个背景变红的兄弟元素，将红色背景去掉，使页面最后无红色背景元素</li>
+</ul>
+<pre><code> //拖拽结束时，应该处理的事
+ dragWrap.ondragend = function (e) &#123;
+   var target = e.target;
+   //1.拖拽元素恢复颜色
+   target.classList.remove(&quot;draging&quot;);
+   //2.把拖动的元素还原，去掉绝对定位和margin
+   target.style.position = &quot;&quot;;
+   target.style.margin = &quot;5px auto&quot;;
+   //3.将拖动元素放入占位元素所在位置（前或后）
+   this.insertBefore(dragElement, standElement);
+   //4.删除站位节点
+   this.removeChild(standElement);
+   //如果存在前一个背景变红的兄弟元素，将红色背景去掉
+   prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor = &quot;&quot;);
+ &#125;;
+</code></pre>
+</blockquote>
+<p><strong>完整源码</strong></p>
+<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token keyword">var</span> dragWrap <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".drag-wrap"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> dragLeft<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动元素的初始left值</span>
+  <span class="token keyword">var</span> dragTop<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动元素的初始top值</span>
+  <span class="token keyword">var</span> pageX<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录拖动元素开始拖动时，鼠标与浏览器的水平距离</span>
+  <span class="token keyword">var</span> pageY<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录拖动元素开始拖动时，鼠标与浏览器的垂直距离</span>
+  <span class="token keyword">var</span> standElement <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 用来保存占位元素</span>
+  <span class="token keyword">var</span> dragElement <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动的元素</span>
+  <span class="token keyword">var</span> prevNearSibling <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//保存前一个最近的兄弟元素</span>
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;刚开始拖动时，需要处理的事件<br>  dragWrap.ondragstart &#x3D; function (e) {<br>    var target &#x3D; e.target;<br>    dragElement &#x3D; target; &#x2F;&#x2F;记录被拖动的元素<br>    &#x2F;&#x2F;1.元素背景变色<br>    target.classList.add(“draging”);<br>    &#x2F;&#x2F;2.把拖拽元素设置成为绝对定位元素，设置left、top、margin<br>    dragLeft &#x3D; target.offsetLeft;<br>    dragTop &#x3D; target.offsetTop;<br>    target.style.display &#x3D; “none”;<br>    target.style.position &#x3D; “absolute”;<br>    target.style.left &#x3D; dragLeft + “px”;<br>    target.style.top &#x3D; dragTop + “px”;<br>    target.style.margin &#x3D; “0 auto”;<br>    target.style.display &#x3D; “block”;<br>    &#x2F;&#x2F;3.创建站位元素,将其插入当前拖动元素的后面<br>    standElement &#x3D; document.createElement(“div”);<br>    standElement.classList.add(“stand”);<br>    dragElement.insertAdjacentElement(“afterend”, standElement);<br>    &#x2F;&#x2F;4.记录鼠标按下开始拖动时，鼠标与浏览器左边和顶部的距离<br>    pageX &#x3D; e.pageX;<br>    pageY &#x3D; e.pageY;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;元素被拖动过程中，应处理的事<br>  dragWrap.ondrag &#x3D; function (e) {<br>    &#x2F;&#x2F; 获取鼠标与浏览器左边和上边距离<br>    var _pageX &#x3D; e.pageX;<br>    var _pageY &#x3D; e.pageY;<br>    &#x2F;&#x2F;改变元素的位置，动态赋值<br>    var left &#x3D; _pageX - pageX + dragLeft;<br>    var top &#x3D; _pageY - pageY + dragTop;<br>    dragElement.style.left &#x3D; left + “px”;<br>    dragElement.style.top &#x3D; top + “px”;<br>    &#x2F;&#x2F;找到符合要求的兄弟元素，<br>    &#x2F;&#x2F;改变它的背景色，并将占位元素插入当前兄弟元素的后面。<br>    var nearSibling &#x3D; findSibling(dragElement);<br>    &#x2F;&#x2F;如果nearSibling&#x3D;null,说明当前拖动元素在第一个子元素的最前面<br>    if (!nearSibling) {<br>      &#x2F;&#x2F; 将占位元素插入到父元素的第一个子元素的前面<br>      dragWrap.prepend(standElement);<br>    }<br>    &#x2F;&#x2F;如果存在最近的兄弟元素<br>    if (nearSibling) {<br>      &#x2F;&#x2F;将前一个颜色恢复<br>      prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor &#x3D; “”);<br>      &#x2F;&#x2F;改变它的背景色<br>      nearSibling.style.backgroundColor &#x3D; “red”;<br>      prevNearSibling &#x3D; nearSibling;<br>      &#x2F;&#x2F;将占位元素插入到兄弟元素的后面<br>      nearSibling.insertAdjacentElement(“afterend”, standElement);<br>    }<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;拖拽结束时，应该处理的事<br>  dragWrap.ondragend &#x3D; function (e) {<br>    var target &#x3D; e.target;<br>    &#x2F;&#x2F;1.拖拽元素恢复颜色<br>    target.classList.remove(“draging”);<br>    &#x2F;&#x2F;2.把拖动的元素还原，去掉绝对定位和margin<br>    target.style.position &#x3D; “”;<br>    target.style.margin &#x3D; “5px auto”;<br>    &#x2F;&#x2F;3.将拖动元素放入占位元素所在位置（前或后）<br>    this.insertBefore(dragElement, standElement);<br>    &#x2F;&#x2F;4.删除站位节点<br>    this.removeChild(standElement);<br>    &#x2F;&#x2F;如果存在前一个背景变红的兄弟元素，将红色背景去掉<br>    prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor &#x3D; “”);<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  dragWrap.ondragover &#x3D; function (e) {<br>    e.preventDefault(); &#x2F;&#x2F;允许放置<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;找到符合要求的兄弟元素<br>  function findSibling(dragEle) {<br>    &#x2F;&#x2F;条件:1.不包含占位元素<br>    &#x2F;&#x2F;2.拖动元素底部与浏览器的距离&gt;&#x3D; 兄弟元素垂直中心点与浏览器顶部的距离<br>    &#x2F;&#x2F;获取拖拽元素到浏览器顶部的距离<br>    var rect &#x3D; dragEle.getBoundingClientRect();<br>    var rectBottom &#x3D; rect.bottom;<br>    &#x2F;&#x2F; 获取拖动元素的所有兄弟元素<br>    var siBlings &#x3D; dragEle.parentNode.children;<br>    &#x2F;&#x2F;将类数组转成数组<br>    siBlings &#x3D; Array.prototype.slice.call(siBlings, 0);<br>    &#x2F;&#x2F;首先过滤掉占位元素<br>    siBlings &#x3D; siBlings.filter(function (item) {<br>      return item !&#x3D;&#x3D; standElement;<br>    });<br>    var result &#x3D; null; &#x2F;&#x2F;用来保存找到了满足条件兄弟元素<br>    for (var i &#x3D; 0; i &lt; siBlings.length; i++) {<br>      &#x2F;&#x2F;排除自身<br>      if (siBlings[i] &#x3D;&#x3D;&#x3D; dragEle) continue; &#x2F;&#x2F;跳过当次<br>      var rect1 &#x3D; siBlings[i].getBoundingClientRect();<br>      &#x2F;&#x2F; 获取每个元素中心与浏览器顶部的距离<br>      var center &#x3D; rect1.y + siBlings[i].offsetHeight &#x2F; 2;<br>      &#x2F;&#x2F; 找到离自己最近的满足 rectBottom&gt;center的兄弟元素<br>      if (rectBottom &gt; center) {<br>        result &#x3D; siBlings[i];<br>      } else {<br>        return result;<br>      }<br>    }<br>    return result;<br>  }</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/">https://hermiablog.github.io/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%8C%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JS核心知识点（十三）">
+                        
+                        <span class="card-title">JS核心知识点（十三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS BOM 核心 Window 对象属性、方法、事件
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="JS核心知识点（十一）">
+                        
+                        <span class="card-title">JS核心知识点（十一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS定时器、延时器、CSS3 动画事件，防抖节流
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
