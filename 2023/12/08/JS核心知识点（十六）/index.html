@@ -1,0 +1,2924 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十六）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十六） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十六）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、Math-对象"><a href="#一、Math-对象" class="headerlink" title="一、Math 对象"></a>一、Math 对象</h3><blockquote>
+<ul>
+<li><code>Math</code> 是一个<strong>内置对象</strong>，它拥有一些数学常数属性和数学函数方法。</li>
+<li>与其他全局对象不同的是，<code>Math</code> 不是一个构造器。即<strong>不能</strong>使用 <code>new</code> 关键字</li>
+<li><code>Math</code> 的所有属性与方法都是<strong>静态</strong>的<blockquote>
+<p>以下是 Math 对象上的一些常用的方法和属性</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.PI</td>
+<td>Math.PI 表示圆周率π，即一个圆的周长与直径的比例，约为 3.14159</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Math.pow(x,y)</td>
+<td>返回x的y次幂</td>
+</tr>
+<tr>
+<td>Math.sqrt(x)</td>
+<td>返回x的平方根</td>
+</tr>
+<tr>
+<td>Math.ceil(x)</td>
+<td>向上取整，返回大于等于x的最小整数</td>
+</tr>
+<tr>
+<td>Math.floor(x)</td>
+<td>向下取整，返回小于等于x的最大整数</td>
+</tr>
+<tr>
+<td>Math.round(x)</td>
+<td>返回x经过 4 舍 5 入后得到的最接近的整数</td>
+</tr>
+<tr>
+<td>Math.max(a,b,c,[..])</td>
+<td>返回给定数值中的最大数</td>
+</tr>
+<tr>
+<td>Math.min(a,b,c,[..])</td>
+<td>返回给定数值中的最小数</td>
+</tr>
+<tr>
+<td>Math.abs()</td>
+<td>返回一个数字的绝对值</td>
+</tr>
+<tr>
+<td>Math.random()</td>
+<td>生成一个（0-1）之间的随机数</td>
+</tr>
+<tr>
+<td>Math.atan2</td>
+<td>返回从原点（0,0） 到 （x,y） 点的线段与 x 轴正方向之间的平面角度（弧度值）</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>Math.PI 属性</p>
+<blockquote>
+<ul>
+<li><code>Math.PI</code>表示圆周率<code>π</code>，即一个圆的周长与直径的比例，约为<code>3.14159</code></li>
+</ul>
+<pre><code>console.log(Math.PI); // 3.141592653589793
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.pow(x,y)</p>
+<blockquote>
+<ul>
+<li><code>Math.pow(x,y)</code> 返回 x 的 y 次幂</li>
+</ul>
+<pre><code>console.log(Math.pow(2, 3)); // 8  2的3次幂为8
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.sqrt(x)</p>
+<blockquote>
+<ul>
+<li>返回x的平方根</li>
+</ul>
+<pre><code>console.log(Math.sqrt(4)); // 2
+console.log(Math.sqrt(9)); // 3
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.ceil</p>
+<blockquote>
+<ul>
+<li>向上取整，返回大于等于 x 的最小整数</li>
+</ul>
+<pre><code>console.log(Math.ceil(2.2)); // 3
+console.log(Math.ceil(2.0001)); // 3
+console.log(Math.ceil(-2.1)); // -2
+console.log(Math.ceil(0.909)); // 1
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.floor</p>
+<blockquote>
+<ul>
+<li>向下取整，返回小于等于 x 的最大整数</li>
+</ul>
+<pre><code>console.log(Math.floor(2.2)); // 2
+console.log(Math.floor(2.0001)); // 2
+console.log(Math.floor(-2.1)); // -3
+console.log(Math.floor(0.909)); // 0
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.round</p>
+<blockquote>
+<ul>
+<li>返回<code>x</code>经过<strong>四舍五入</strong>后得到的最接近的整数，只需要看 <code>x</code> 的小数部分与 <code>0.5</code> 的关系<blockquote>
+<p>特别注意：当x是负数是，如果小数部分是 0.5，则返回值为x的整数部分</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>console.log(Math.round(10.49)); // 10
+console.log(Math.round(10.5)); // 11
+console.log(Math.round(-10.49)); // -10
+// 特殊情况，记下
+console.log(Math.round(-10.5)); // -10
+console.log(Math.round(-10.51)); // -11
+</code></pre>
+</blockquote>
+<ol start="7">
+<li>Math.max<blockquote>
+<ul>
+<li>返回给定数值中的最大数，如果任一参数不能转换为数值，则返回<code>NaN</code></li>
+<li>如果没有提供参数，返回 <code>-Infinity</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>console.log(Math.max(1, 2, 3, 7)); // 7
+console.log(Math.max()); // -Infinity
+console.log(Math.max(1, 2, &quot;a&quot;)); // NaN
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>求数组中的最大值</strong></p>
+<pre><code>var arr = [1, 20, 5, 6, 3, 9, 10];
+var maxValue = Math.max.apply(null, arr);
+console.log(maxValue);
+</code></pre>
+<blockquote>
+<p><code>Math.min</code>同样可以</p>
+</blockquote>
+</blockquote>
+<ol start="8">
+<li>Math.min<blockquote>
+<ul>
+<li>返回给定数值中的最小数，如果任一参数不能转换为数值，则返回<code>NaN</code></li>
+<li>如果没有提供参数，返回<code>Infinity</code></li>
+</ul>
+<pre><code>console.log(Math.min(1, 2, 3, 7)); // 1
+console.log(Math.min()); // -Infinity
+console.log(Math.min(1, 2, &quot;a&quot;)); // NaN
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong><code>Math.max</code>与<code>Math.min</code>常用于裁剪值</strong><blockquote>
+<p>比如:</p>
+<ul>
+<li>元素的 <code>left</code> 值只能在<code>0 ~ 500</code>之间，则我们可以利用<code>Math.max</code> 和 <code>Math.min</code>来对值做裁剪</li>
+</ul>
+<pre><code>var left = 300;
+left = left &lt; 0 ? 0 : left;
+left = left &gt; 500 ? 500 : left;
+console.log(left);
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 利用 Math.max和Math.min来实现<br>left &#x3D; Math.max(left, 0);<br>left &#x3D; Math.min(500, left);<br>console.log(left);<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="9">
+<li><p>Math.abs</p>
+<blockquote>
+<ul>
+<li>返回一个数字的<strong>绝对值</strong>，如果不能转换的，则会转换为 <code>NaN</code>，能转的都会转换成对应的数字</li>
+</ul>
+<pre><code>console.log(Math.abs(-1)); // 1
+console.log(Math.abs(-1.2)); // 1.2
+console.log(Math.abs(null)); // 0
+console.log(Math.abs(true)); // 1
+console.log(Math.abs(false)); // 0
+console.log(Math.abs(undefined)); // NaN
+console.log(Math.abs([-3])); // 3
+console.log(Math.abs([2, -3])); // NaN
+console.log(Math.abs(&#123;&#125;)); // NaN
+</code></pre>
+</blockquote>
+</li>
+<li><p>Math.random</p>
+<blockquote>
+<ul>
+<li>返回一个 <code>0 ~ 1</code> 之间的随机数，不包括 0 和 1</li>
+<li>返回指定范围<code>[a,b]</code>之间的随机整数公式，包括 a 和 b：</li>
+</ul>
+<pre><code>Math.random() * (b - a + 1) + a;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 随机生成 0-6之间的随机整数,包括0和6
+var n = Math.floor(Math.random() * 7);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 随机生成 [2,6]之间的随机整数<br>var n &#x3D; Math.floor(Math.random() * (6 - 2 + 1) + 2);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 随机生成[-5,5]之间的整数<br>var n &#x3D; Math.floor(Math.random() * (5 - -5 + 1) - 5);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="11">
+<li>Math.atan2<blockquote>
+<ul>
+<li>返回从原点<code>(0,0)</code>到<code>(x,y)</code>点的线段与 x 轴正方向之间的平面角度<strong>（弧度值）</strong></li>
+<li>假设圆的中心点为原点坐标<code>（0,0）</code>，即从原点到坐标<code>（x,y）</code>的线段与 x 轴正方向之间的角 θ 是一个负角（逆时针方向）</li>
+<li>旋转角度的正负，是由 <code>y</code> 值决定的，<code>y &lt; 0</code>得到负角，<code>y &gt; 0</code>得到正角<blockquote>
+<p>注意：这里的y轴与数学上的不一样；正值向下，负值向上；</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<img src="弧度值.png">
+
+<blockquote>
+<pre><code>Math.atan2(y, x); // 第一个参数是y坐标，第二个参数是x坐标
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>因为</strong></p>
+<ul>
+<li><code>Math.atan2(y,x)</code>得到的是对应的弧度值，所以我们还需要将弧度值转换为对应的<strong>角度值</strong></li>
+<li>弧度值转换成对应角度值的转换公式<ul>
+<li>角度 &#x3D; 弧度 * (180&#x2F;Math.PI)</li>
+<li>角度 &#x3D; 弧度 &#x2F; (Math.PI&#x2F;180)</li>
+</ul>
+</li>
+</ul>
+<pre><code> rad1 = Math.atan2(-1, 1);
+ deg1 = Math.atan2(-1, 1) * (180 / Math.PI);
+ console.log(rad1, deg1); //-0.7853981633974483 -45
+</code></pre>
+</blockquote>
+<p> rad2 &#x3D; Math.atan2(-1, -1);<br> deg2 &#x3D; Math.atan2(-1, -1) * (180 &#x2F; Math.PI);<br> console.log(rad2, deg2); &#x2F;&#x2F;-2.356194490192345 -135</p>
+<blockquote>
+</blockquote>
+<p> rad3 &#x3D; Math.atan2(1, -1);<br> deg3 &#x3D; Math.atan2(1, -1) * (180 &#x2F; Math.PI);<br> console.log(rad3, deg3); &#x2F;&#x2F;2.356194490192345 135</p>
+<blockquote>
+</blockquote>
+<p> rad4 &#x3D; Math.atan2(1, 1);<br> deg4 &#x3D; Math.atan2(1, 1) * (180 &#x2F; Math.PI);<br> console.log(rad4, deg4); &#x2F;&#x2F;0.7853981633974483 45</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>扩展知识：弧度与角度的关系<blockquote>
+<ul>
+<li>角的度量单位通常有两种：一种是角度制，另一种是弧度制</li>
+<li>弧度制：我们把<strong>长度等于半径长</strong>的弧所对的圆心角叫<strong>1 弧度的角</strong>。 弧度常用<code>rad</code>表示</li>
+<li>假设下图中圆的半径为 r ，弧 AB 的长为 L，如果L &#x3D; r， 则<code>∠AOB = L/r = 1 弧度</code><img src="弧度与角度的关系.png"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>1 弧度 &#x3D; ?角度呢</strong></p>
+<ul>
+<li><p>1弧度 &#x3D; 180deg&#x2F;π 约为 57.2958279deg<br><strong>推导过程</strong></p>
+</li>
+<li><p><code>周长 = 2πr</code> ， <code>周角 = 360deg</code></p>
+</li>
+<li><p><code>1弧度/360deg</code> &#x3D; <code>L/2πr</code> ；</p>
+</li>
+<li><p>因为L&#x3D;r–&gt;&gt; <code>1弧度/360deg</code> &#x3D; <code>r/2πr</code> </p>
+</li>
+<li><p>—&gt;&gt; <code>1弧度 = 180deg/π</code></p>
+</li>
+<li><p>通过 <code>1弧度 = 180deg/π</code> 得到</p>
+</li>
+<li><p><code>角度 = 弧度 * (180deg/π)</code></p>
+</li>
+<li><p><code>角度 = 弧度 / (π/180)</code></p>
+</li>
+<li><p><code>π = 180deg</code> ，<code>2π = 360deg</code> （弧度单位可以省略）</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>案例：元素跟随鼠标旋转<blockquote>
+<ul>
+<li>当鼠标旋转时，元素也会跟着一起旋转。<img src="元素跟随鼠标旋转.png"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p><strong>实现原理</strong></p>
+<blockquote>
+<ul>
+<li>首先，我们知道，鼠标的坐标是距离浏览器左侧和上面的距离，也就是说，原点在浏览器的左上角，鼠标只能在第四象限移动</li>
+<li>而我们要旋转元素，必须在每个象限都能移动，所以，我们需要把鼠标的坐标轴原点移动到<strong>元素的中心点</strong><ul>
+<li>我们需要获取到元素中心点与浏览器左边和上边的距离</li>
+<li>然后获取到鼠标与浏览左边和上边的距离</li>
+<li>最后用鼠标对应位置减去元素中心点与浏览器对应位置，得到的 <code>x,y</code> 这样元素的中心点就相当于是<code>(0,0)</code>原点坐标，<code>（x,y）</code>就是<code>Math.atan2(y,x)</code>方法对应的 <code>x,y</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>// box中心点与浏览器左边和上边距离
+var centerX = box.offsetLeft + box.offsetWidth / 2;
+var centerY = box.offsetTop + box.offsetHeight / 2;
+</code></pre>
+</blockquote>
+<p>document.onmousemove &#x3D; function (e) {<br>  var clientY &#x3D; e.clientY;<br>  var clientX &#x3D; e.clientX;<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值<br>x &#x3D; clientX - centerX;<br>y &#x3D; clientY - centerY;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>用(x,y)计算弧度值和角度控制元素的旋转角度：<code>transform:rotate(deg)</code></li>
+</ul>
+<pre><code>var rad = Math.atan2(y, x); // 弧度值
+var deg = rad * (180 / Math.PI); // 将弧度值转换为对应角度制
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>完整源码</strong></p>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(to right, khaki, skyblue);
+    margin: 200px;
+    /* transform-origin: top left; */ /*改变旋转中心点*/
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  // box中心点与浏览器左边和上边距离
+  var centerX = box.offsetLeft + box.offsetWidth / 2;
+  var centerY = box.offsetTop + box.offsetHeight / 2;
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; onmousemove事件<br>  document.onmousemove &#x3D; function (e) {<br>    &#x2F;&#x2F; 鼠标与浏览器左边和右边距离<br>    var clientY &#x3D; e.clientY;<br>    var clientX &#x3D; e.clientX;</p>
+<blockquote>
+</blockquote>
+<pre><code>// 得到鼠标与元素中心点的x和y坐标
+x = clientX - centerX;
+y = clientY - centerY;
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值
+var rad = Math.atan2(y, x);
+var deg = rad * (180 / Math.PI);
+</code></pre>
+<blockquote>
+</blockquote>
+<pre><code>// 控制元素的旋转角度
+box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
+</code></pre>
+<p>  };</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="二、Date-日期对象"><a href="#二、Date-日期对象" class="headerlink" title="二、Date 日期对象"></a>二、Date 日期对象</h3><blockquote>
+<ul>
+<li>Date 日期对象主要是用来处理日期</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>以下是与星期相关的英文单词，可以记下来<table>
+<thead>
+<tr>
+<th>星期</th>
+<th>英文</th>
+<th>缩写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>星期一</td>
+<td>Monday</td>
+<td>Mon</td>
+</tr>
+<tr>
+<td>星期二</td>
+<td>Tuesday</td>
+<td>Tue</td>
+</tr>
+<tr>
+<td>星期三</td>
+<td>Wednesday</td>
+<td>Wed</td>
+</tr>
+<tr>
+<td>星期四</td>
+<td>Thursday</td>
+<td>Thur</td>
+</tr>
+<tr>
+<td>星期五</td>
+<td>Friday</td>
+<td>Fri</td>
+</tr>
+<tr>
+<td>星期六</td>
+<td>Saturday</td>
+<td>Sat</td>
+</tr>
+<tr>
+<td>星期七</td>
+<td>Sunday</td>
+<td>Sun</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>以下是与月份相关的英文单词<table>
+<thead>
+<tr>
+<th>月份</th>
+<th>英文</th>
+<th>简写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一月</td>
+<td>January</td>
+<td>Jan</td>
+</tr>
+<tr>
+<td>二月</td>
+<td>February</td>
+<td>Feb</td>
+</tr>
+<tr>
+<td>三月</td>
+<td>March</td>
+<td>Mar</td>
+</tr>
+<tr>
+<td>四月</td>
+<td>April</td>
+<td>Apr</td>
+</tr>
+<tr>
+<td>五月</td>
+<td>May</td>
+<td>May</td>
+</tr>
+<tr>
+<td>六月</td>
+<td>June</td>
+<td>Jun</td>
+</tr>
+<tr>
+<td>七月</td>
+<td>July</td>
+<td>Jul</td>
+</tr>
+<tr>
+<td>八月</td>
+<td>August</td>
+<td>Aug</td>
+</tr>
+<tr>
+<td>九月</td>
+<td>September</td>
+<td>Sep</td>
+</tr>
+<tr>
+<td>十月</td>
+<td>October</td>
+<td>Oct</td>
+</tr>
+<tr>
+<td>十一月</td>
+<td>November</td>
+<td>Nov</td>
+</tr>
+<tr>
+<td>十二月</td>
+<td>December</td>
+<td>Dec</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h4 id="new-Date-创建日期对象"><a href="#new-Date-创建日期对象" class="headerlink" title="new Date() 创建日期对象"></a>new Date() 创建日期对象</h4><blockquote>
+<p>-<code>new Date()</code>可以用来创建一个日期对象</p>
+<ul>
+<li>它有四种使用方式：</li>
+</ul>
+</blockquote>
+<ol>
+<li><p><code>new Date()</code></p>
+<blockquote>
+<ul>
+<li>没有提供任何参数，则返回结果为当前的日期和时间</li>
+<li><code>console.log(new Date()); //Fri Aug 25 2023 17:11:59 GMT+0800 (中国标准时间)</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>new Date(value)</code></p>
+<blockquote>
+<ul>
+<li><code>value</code> 是一个时间戳，他是一个整数值，表示从 <code>1970 年 1 月 1 日 00:00:00</code>UTC（the Unix epoch）开始算起的一个毫秒数。</li>
+<li><code>console.log(new Date(5000));//Thu Jan 01 1970 08:00:05 GMT+0800 (中国标准时间)</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>new Date(dateString);</code></p>
+<blockquote>
+<ul>
+<li><code>dateString</code>表示一个日期字符串，其中<code>2022-07-02</code>这种格式的日期(<code>-</code>和两位数同时存在)会被处理成 <code>UTC</code>，而不是本地时间(与中国相差八小时)</li>
+<li>该方法会把<code>dateString</code>转化为：<code>星期 月 日 年 时间</code>的格式</li>
+</ul>
+<pre><code> console.log(new Date(&quot;2022-7-1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
+ console.log(new Date(&quot;2022/7/1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
+ console.log(new Date(&quot;2022-07-1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
+ console.log(new Date(&quot;2022-07-01&quot;)); //会被处理成UTC时间 Fri Jul 01 2022 08:00:00 GMT+0800
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>new Date((year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]]);)</code></p>
+<blockquote>
+<ul>
+<li>分别提供日期和时间的每个成员，不过<strong>至少要</strong>提供年份与月份</li>
+<li>如果<strong>没有提供</strong>的参数，<strong>日期</strong>默认值为<code>1</code>，<strong>时，分，秒</strong>默认值为<code>0</code><blockquote>
+<p>注意事项：</p>
+</blockquote>
+</li>
+<li><code>monthIndex</code>表示月份的整数值，从 0（1 月）到 11（12 月）</li>
+<li><code>year</code>年份的整数值，<code>0</code>到<code>99</code>会被映射至 <code>1900</code> 年至 <code>1999</code>年，其它值代表实际年份</li>
+</ul>
+<pre><code> console.log(new Date(2023, 8, 25, 17, 23)); //Mon Sep 25 2023 17:23:00
+</code></pre>
+</blockquote>
+<p> console.log(new Date(“2023-08-25”)); &#x2F;&#x2F;Fri Aug 25 2023 08:00:00<br> console.log(new Date(“2023&#x2F;8&#x2F;25”)); &#x2F;&#x2F;Fri Aug 25 2023 00:00:00</p>
+<blockquote>
+</blockquote>
+<p> console.log(new Date(2023, 15, 25)); &#x2F;&#x2F;Thu Apr 25 2024 00:00:00<br> console.log(new Date(2023, 8, 40)); &#x2F;&#x2F;Tue Oct 10 2023 00:00:00<br> console.log(new Date(2023, 8, 25, 30)); &#x2F;&#x2F;Tue Sep 26 2023 06:00:00</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注意事项：</p>
+</blockquote>
+<ul>
+<li>如果传入的是日期格式的字符串,它会自动转换格式；根据字符串的格式转换成UTC或者当地时间</li>
+<li>当传入多个参数时，如果<strong>数值大于合理范围</strong>时，相邻的数值会被调整<ul>
+<li>月超出范围<code>2023, 15, 25</code>：<code>15-12=3</code>,因为月份是<code>0-11</code>，所以是四月</li>
+<li>日超出范围<code>2023, 8, 40</code>：会根据月份的长度调整，注意：月份的位置写的是<code>8</code>，那代表是<code>9</code>月，所以<code>40-30=10</code>，即10月10号</li>
+<li>时超出范围<code>-24</code>，分秒超出范围<code>-60</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>实践应用<blockquote>
+<ul>
+<li>获取上一个月共有多少天，比如获取 2022 年 9 月的上一个月有多少天</li>
+</ul>
+<pre><code> // 获取2022年9月的上一个月有多少天
+ var date = new Date(2022, 8, 0); // 2022年9月的第0天就是8月的最后一天
+ console.log(date); // Wed Aug 31 2022 00:00:00 GMT+0800
+ var prevMonthDayCount = date.getDate(); // 获取当前日期的天
+ console.log(prevMonthDayCount); // 31
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>获取当月一共有多少天，如比获取 2022 年 9 月一共有多少天</li>
+</ul>
+<pre><code>// 获取2022年9月一共有多少天
+var date = new Date(2022, 9, 0); //2022年10月的第0天就是 2022年9月的最后一天
+console.log(date); // Fri Sep 30 2022 00:00:00 GMT+0800 (中国标准时间)
+var prevMonthDayCount = date.getDate(); // 获取当前日期的天
+console.log(prevMonthDayCount); // 30
+</code></pre>
+</blockquote>
+<ol start="5">
+<li>扩展<blockquote>
+<p><strong>UTC：</strong></p>
+<ul>
+<li>也就是我们所说的格林威治时间，指的是<code>time</code>中的<strong>世界时间标准</strong></li>
+<li>JavaScript的时间由世界标准时间（UTC）<code>1970 年 1 月 1 日</code>开始，用毫秒计时，一天由<code>86,400,000</code>毫秒组成<br><strong>本地（当地）时间</strong></li>
+<li>是指执行 JavaScript 的客户端电脑所设置的时间</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="日期格式化方法"><a href="#日期格式化方法" class="headerlink" title="日期格式化方法"></a>日期格式化方法</h4><blockquote>
+<p>以下方法只需要了解即可</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString()</td>
+<td>返回一个字符串，以<strong>本地的时间</strong>表示当前的时间</td>
+</tr>
+<tr>
+<td>toLocaleString()</td>
+<td>根据当地语言规定返回代表着<strong>时间</strong>的字符串</td>
+</tr>
+<tr>
+<td>toLocaleDateString()</td>
+<td>根据当地语言规定返回代表着<strong>日期</strong>的字符串</td>
+</tr>
+<tr>
+<td>toLocaleTimeString()</td>
+<td>根据当地语言规定返回代表着时<strong>分秒</strong>的字符串</td>
+</tr>
+</tbody></table>
+<pre><code> var date = new Date();
+ console.log(date); // Thu Aug 08 2022 22:21:58 GMT+0800 (中国标准时间)
+ console.log(date.toString()); // Thu Aug 08 2022 22:21:58 GMT+0800 (中国标准时间)
+ console.log(date.toLocaleString()); // 2022/8/8 22:21:58
+ console.log(date.toLocaleDateString()); // 2022/8/8
+ console.log(date.toLocaleTimeString()); // 22:21:58
+</code></pre>
+</blockquote>
+<h4 id="日期对象常见方法"><a href="#日期对象常见方法" class="headerlink" title="日期对象常见方法"></a>日期对象常见方法</h4><blockquote>
+<p>如果我们想获取日期的指定部分，如：年，月，日，星期，时，分，秒等中的某个部分,则可以使用下面提供的方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getFullYear()</td>
+<td>根据<strong>本地时间</strong>，返回具体时间中的** 年份**</td>
+</tr>
+<tr>
+<td>getMonth()</td>
+<td>根据本地时间，返回具体时间中的 月份 <code>0-11</code> 表示 <strong>1-12 月</strong></td>
+</tr>
+<tr>
+<td>getDate()</td>
+<td>根据本地时间，返回具体时间中的<strong>日（天）</strong></td>
+</tr>
+<tr>
+<td>getDay()	根据本地时间，返回具体时间中的<strong>星期</strong>，<code>0-6</code> 表示星期天，一，二，三，… 六</td>
+<td></td>
+</tr>
+<tr>
+<td>getHours()</td>
+<td>根据本地时间，返回具体时间中的 <strong>时</strong></td>
+</tr>
+<tr>
+<td>getMinutes()</td>
+<td>根据本地时间，返回具体时间中的 <strong>分钟数</strong></td>
+</tr>
+<tr>
+<td>getSeconds()</td>
+<td>根据本地时间，返回具体时间中的 <strong>秒数</strong></td>
+</tr>
+<tr>
+<td>getMilliseconds()</td>
+<td>根据本地时间，返回具体时间中的 <strong>毫秒数</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>以 “2023 年 09 月 08 日 12 时 04 分 05 秒 星期四” 格式输出对应的日期</li>
+</ul>
+<pre><code> var d = new Date();
+ var year = d.getFullYear();
+ var month = d.getMonth() + 1;
+ var date = d.getDate();
+ var day = d.getDay();
+ var hours = d.getHours();
+ var minutes = d.getMinutes();
+ var seconds = d.getSeconds();
+</code></pre>
+</blockquote>
+<p> &#x2F;&#x2F; 对日期不足两位的补0操作<br> month &#x3D; padZero(month);<br> date &#x3D; padZero(date);<br> hours &#x3D; padZero(hours);<br> minutes &#x3D; padZero(minutes);<br> seconds &#x3D; padZero(seconds);</p>
+<blockquote>
+</blockquote>
+<p> var week &#x3D; [<br>   “星期天”,<br>   “星期一”,<br>   “星期二”,<br>   “星期三”,<br>   “星期四”,<br>   “星期五”,<br>   “星期六”,<br> ];</p>
+<blockquote>
+</blockquote>
+<p> console.log(<br>   year +<br>     “年” +<br>     month +<br>     “月” +<br>     date +<br>     “天 “ +<br>     hours +<br>     “时” +<br>     minutes +<br>     “分” +<br>     seconds +<br>     “秒 “ +<br>     week[day]<br> );<br> &#x2F;&#x2F; 输出结果格式： 2023年09月08天 23时12分16秒 星期四</p>
+<blockquote>
+</blockquote>
+<p> &#x2F;&#x2F; 补0<br> function padZero(str) {<br>   str &#x3D; str + “”;<br>   return str.padStart(2, “0”);<br> }</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h4><blockquote>
+<ul>
+<li>时间戳：表示 1970 年 1 月 1 日零点整<strong>距离某时刻</strong>的毫秒数</li>
+<li><code>getTime</code>方法：可以把对应的日期时间转换为对应的时间戳</li>
+</ul>
+<pre><code>//得到此时距1970 年 1 月 1 日零点整的毫秒数
+ var d1 = new Date();
+ console.log(d1.getTime()); //1692958123935
+//得到2023/8/26 距1970 年 1 月 1 日零点整的毫秒数
+ var d2 = new Date(&quot;2023 / 8 / 26&quot;);
+ console.log(d2.getTime()); //1692979200000
+</code></pre>
+</blockquote>
+<ol>
+<li><p>应用：利用 getTime 方法，可以测试代码的执行时间</p>
+<blockquote>
+<pre><code>var start = new Date();
+for (var i = 0; i &lt; 1000; i++) &#123;
+  console.log(i);
+&#125;
+var end = new Date();
+// 代码执行时间，为两者时间之差（毫秒数）
+var time = end.getTime() - start.getTime();
+console.log(&quot;代码执行时间&quot; + time + &quot;毫秒&quot;); // 代码执行时间20毫秒
+</code></pre>
+</blockquote>
+</li>
+<li><p>将一个日期转换为对应的时间戳 ，还有以下 4 种方法</p>
+<table>
+<thead>
+<tr>
+<th>时间戳方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>日期对象.getTime()</td>
+<td>可以把对应的日期时间转换为对应的时间戳</td>
+</tr>
+<tr>
+<td>日期对象.valueOf方法</td>
+<td>返回 Date 对象的原始值，其功能和 getTime</td>
+</tr>
+<tr>
+<td>+日期对象</td>
+<td>这种是一种技巧，利用+号的特性，底层调用的是 valueOf 方法</td>
+</tr>
+<tr>
+<td>Date.parse(“”)方法</td>
+<td>静态方法，返回传递的日期的时间戳</td>
+</tr>
+<tr>
+<td>Date.now() 方法</td>
+<td>静态方法 返回<strong>当前的日期</strong>的时间戳</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<pre><code>var d = new Date(2022, 9, 9);
+console.log(d.valueOf()); // 1665244800000
+console.log(d.getTime()); // 1665244800000
+console.log(+d); // 1665244800000
+</code></pre>
+</blockquote>
+<p>console.log(Date.now()); &#x2F;&#x2F; 1665244823500</p>
+<blockquote>
+</blockquote>
+<p>console.log(Date.parse(“2022-9-1”)); &#x2F;&#x2F; 本地时间  1661961600000<br>console.log(Date.parse(“2022&#x2F;9&#x2F;1”)); &#x2F;&#x2F; 本地时间  1661961600000<br>console.log(Date.parse(“2022-09-01”)); &#x2F;&#x2F; UTC 1661990400000</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>Date.parse()</code>方法传入日期必须用引号包裹，并且根据不同的日期格式会返回UTC或者本地时间</li>
+<li>其他方法，如果在<code>new Date()</code>里传入字符串格式的日期，根据不同的日期格式也会返回UTC或者本地时间</li>
+</ul>
+</blockquote>
+<h4 id="案例：活动倒计时"><a href="#案例：活动倒计时" class="headerlink" title="案例：活动倒计时"></a>案例：活动倒计时</h4><blockquote>
+<p>涉及知识点</p>
+<ul>
+<li>定时器</li>
+<li>Date 对象、getTime() 方法</li>
+<li>倒计时原理： 时间戳如何转换为对应的天数，小时，分钟，秒数</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>CSS布局</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .countDown &#123;
+ position: relative;
+ width: 190px;
+ height: 260px;
+ background-image: url(../src/miaosha.png);
+ margin: 100px;
+  &#125;
+  .countDown .title &#123;
+ font-size: 30px;
+ text-align: center;
+ padding-top: 50px;
+ color: #fff;
+ font-weight: bold;
+  &#125;
+  .countDown .main &#123;
+ position: absolute;
+ bottom: 50px;
+ width: 100%;
+ height: 30px;
+ text-align: center;
+ font-size: 0;
+  &#125;
+  .countDown .main span &#123;
+ position: relative;
+ display: inline-block;
+ width: 30px;
+ height: 30px;
+ margin: 0 8px;
+ font-size: 20px;
+ color: #fff;
+ background-color: #000;
+  &#125;
+  .main span::after &#123;
+ position: absolute;
+ top: 0;
+ right: -10px;
+ content: &quot;:&quot;;
+ display: block;
+  &#125;
+  .main span.second::after &#123;
+ content: &quot;&quot;;
+  &#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;countDown&quot; id=&quot;J-countDown&quot;&gt;
+ &lt;!-- &lt;div class=&quot;title&quot;&gt;京东秒杀&lt;/div&gt;
+ &lt;div class=&quot;main&quot;&gt;
+   &lt;span class=&quot;hour&quot;&gt;00&lt;/span&gt;
+   &lt;span class=&quot;minute&quot;&gt;00&lt;/span&gt;
+   &lt;span class=&quot;second&quot;&gt;00&lt;/span&gt;
+ &lt;/div&gt; --&gt;
+&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>JS实现思路</p>
+<blockquote>
+<ul>
+<li>倒计时需要三个时间：当前时间，活动开始时间，活动结束时间</li>
+<li>活动没有开始前，活动版块不会出现在页面中；活动结束后，活动版块要在页面中删除</li>
+<li><code>当前时间 &gt;= 活动开始时间</code>，表示当前活动正在进行，开始倒计时功能</li>
+</ul>
+<p><strong>倒计时实现原理</strong></p>
+<ul>
+<li><p>利用<strong>活动结束时间戳 - 当前时间戳</strong> ，得到的剩余时间（毫秒）</p>
+</li>
+<li><p>把<code>剩余时间（毫秒）/ 1000</code>得到对应的秒数，然后将秒数转换为对应的<strong>天、时、分、秒</strong></p>
+</li>
+<li><p>然后利用定时器，每过1秒钟就更新下时间</p>
+</li>
+<li><p>秒数转换成天、时、分、秒公式</p>
+</li>
+<li><p>我们知道 1天 &#x3D; 24小时，1小时 &#x3D; 60分，1分 &#x3D; 60秒，如果当前为 n 天，则 <code>总秒数 = n * 60 * 60 * 24</code></p>
+</li>
+<li><p>天数：<code>day = parseInt(总秒数 / 24 / 60 / 60)</code></p>
+</li>
+<li><p>小时：<code>hour = parseInt(总秒数 / 60 / 60 % 24 )</code></p>
+</li>
+<li><p><strong>如果不考虑天数</strong>，也就是所有天数的时间也按小时来算，<code>hour=parseInt(总秒数 / 60 / 60 )</code></p>
+</li>
+<li><p>分钟：<code>minutes=parseInt(总秒数 / 60 % 60)</code></p>
+</li>
+<li><p>秒数：<code>secondes=parseInt(总秒数 % 60)</code></p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>实现步骤</p>
+<blockquote>
+<ul>
+<li>第一步：创建DOM元素，添加到页面</li>
+<li>第二步：创建 countDown 函数<ul>
+<li>这个函数有两个参数，分别代表<strong>开始时间</strong>和<strong>结束时间</strong>，只要调用这个函数，传入对应实参，就能实现<strong>倒计时</strong>功能</li>
+</ul>
+</li>
+<li>第三步：完善 countDown 函数功能<ul>
+<li>检测是否传了两个参数</li>
+<li>传的类型是否是时间对象</li>
+<li>是否满足 <code>endDate</code> 大于 <code>startDate</code></li>
+<li>如果不满足以上条件，则直接抛出对应的错误</li>
+<li>同时开始定时器，每隔<code>1</code>秒更新下时间，实现倒计时功能,每隔一秒就检查活动是否开始&#x2F;结束。</li>
+</ul>
+</li>
+<li>第四步：判断活动是否结束<ul>
+<li><code>如果当前时间 &gt; 活动结束时间</code>，则表明活动结束，将活动版块从页面移除</li>
+</ul>
+</li>
+<li>第五步：判断活动是否开始<ul>
+<li>如果<code>活动开始时间 &gt; 当前时间</code>，则表示活动开始，在活动版块插入页面中（显示）</li>
+<li>用<code>活动结束时间戳 - 当前时间戳</code>得到的毫秒数，转换成秒。</li>
+<li>最后将秒数，换算成对应<strong>时，分，秒</strong>，更新到页面中</li>
+</ul>
+</li>
+<li>第六步：优化细节<ul>
+<li>如果<strong>时，分</strong>没有变化，则不需要再次更新 <code>DOM</code>，只有不相同时，才需要更新 <code>DOM</code></li>
+<li>创建一个<strong>对象</strong>，用来前面的时，分，然后拿 <strong>对象中的时，分</strong>与<strong>现在的</strong>对比，如果不相同则更新 DOM，同时把自身的值也更新为最新的，否则啥也不做</li>
+<li>用户刚打开页面，活动已经开始了，则需要立马显示倒计时，而不用等到 1 秒后，才开始显示元素，然后显示对应时间</li>
+<li>所以把定时器需要执行的代码封装到函数<code>upDate</code> 中，然后在定时器之前，先调用下<code>upDate</code>函数</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>完整 js代码</p>
+<blockquote>
+<pre><code>&lt;script&gt;
+ var count = document.getElementById(&quot;J-countDown&quot;);
+ //创建DOM元素，并插入到页面中
+ var frag = document.createDocumentFragment();
+ var title = document.createElement(&quot;div&quot;);
+ title.innerText = &quot;京东秒杀&quot;;
+ var main = document.createElement(&quot;div&quot;);
+ var span1 = document.createElement(&quot;span&quot;);
+ var span2 = document.createElement(&quot;span&quot;);
+ var span3 = document.createElement(&quot;span&quot;);
+ title.classList.add(&quot;title&quot;);
+ main.classList.add(&quot;main&quot;);
+ span1.classList.add(&quot;hour&quot;);
+ span2.classList.add(&quot;minute&quot;);
+ span3.classList.add(&quot;second&quot;);
+ main.appendChild(span1);
+ main.appendChild(span2);
+ main.appendChild(span3);
+ frag.appendChild(title);
+ frag.appendChild(main);
+ count.appendChild(frag);
+/**
+* countDown 倒计时函数
+* @param startDate 开始时间，日期对象
+* @param endDate 结束时间，日期对象
+*/
+ function countDown(startDate, endDate) &#123;
+//判断是否同时传了两个参数
+if (startDate === undefined || endDate === undefined)
+  throw new Error(&quot;必须同时传入两个日期，作为活动的开始时间和结束时间&quot;);
+//判断传入的是日期对象
+if (!startDate instanceof Date || !endDate instanceof Date)
+  throw new Error(&quot;必须传入两个正确的日期对象&quot;);
+//判断是否结束日期大于起始日期
+if (startDate.getTime() &gt;= endDate.getTime())
+  throw new Error(&quot;结束日期必须大于起始日期&quot;);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 用来记录前前面时，分<br>var time &#x3D; {<br>  hour: “00”,<br>  minute: “00”,<br>};<br>var timer &#x3D; setInterval(upDate, 1000);<br>upDate(); &#x2F;&#x2F;  进来就调用更新时间的函数<br>function upDate() {<br>  &#x2F;&#x2F;判断活动是否结束<br>  var nowDate &#x3D; new Date();<br>  if (nowDate.getTime() &gt; endDate.getTime()) {<br>&#x2F;&#x2F;活动结束，将元素从页面删除<br>count.parentNode.removeChild(“count”);<br>clearInterval(timer);<br>  }<br>  &#x2F;&#x2F;判断活动是否开始<br>  if (nowDate.getTime() &gt;&#x3D; startDate.getTime()) {<br>&#x2F;&#x2F;倒计时<br>var timeDiff &#x3D; (endDate.getTime() - nowDate.getTime()) &#x2F; 1000;<br>var hour &#x3D; parseInt(timeDiff &#x2F; 60 &#x2F; 60);<br>var minute &#x3D; parseInt((timeDiff &#x2F; 60) % 60);<br>var second &#x3D; parseInt(timeDiff % 60);<br>&#x2F;&#x2F; 更新DOM元素,对于不足两位的数，前面补0,<br>if (time.hour !&#x3D; hour) {<br>  span1.innerText &#x3D; (hour + “”).padStart(2, “0”);<br>  time.hour &#x3D; hour;<br>}</p>
+</li>
+</ol>
+<blockquote>
+</blockquote>
+<pre><code>   if (time.minute != minute) &#123;
+     span2.innerText = (minute + &quot;&quot;).padStart(2, &quot;0&quot;);
+     time.minute = minute;
+   &#125;
+   span3.innerText = (second + &quot;&quot;).padStart(2, &quot;0&quot;);
+ &#125;
+</code></pre>
+<p>   }<br> }<br> var startDate &#x3D; new Date(“2023&#x2F;8&#x2F;25”);<br> var endDate &#x3D; new Date(“2023&#x2F;8&#x2F;27”);<br> countDown(startDate, endDate);</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="案例-手写日历组件"><a href="#案例-手写日历组件" class="headerlink" title="案例-手写日历组件"></a>案例-手写日历组件</h3><ol>
+<li>布局思路<blockquote>
+<ul>
+<li>其中<code>calendar-main</code>中的内容，是重点渲染的内容，后期通过 JS 动态生成</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>HTML布局<blockquote>
+<pre><code>&lt;div class=&quot;calendar&quot;&gt;
+&lt;!-- calendar-menu start --&gt;
+&lt;div class=&quot;calendar-menu&quot;&gt;
+ &lt;span class=&quot;prev-year&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+ &lt;span class=&quot;prev-month&quot;&gt;&amp;lt;&lt;/span&gt;
+ &lt;span class=&quot;current-date&quot;&gt;2022年12月&lt;/span&gt;
+ &lt;span class=&quot;next-month&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;next-year&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;!--end calendar-menu --&gt;
+&lt;!-- calendar-week start --&gt;
+&lt;div class=&quot;calendar-week table&quot;&gt;
+ &lt;div class=&quot;tr&quot;&gt;
+   &lt;div class=&quot;th&quot;&gt;一&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;二&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;三&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;四&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;五&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;六&lt;/div&gt;
+   &lt;div class=&quot;th&quot;&gt;日&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- end calendar-week  --&gt;
+&lt;!-- calendar-main start --&gt;
+&lt;div class=&quot;calendar-main&quot;&gt;
+ &lt;div class=&quot;table&quot;&gt;
+   &lt;div class=&quot;tr&quot;&gt;
+     &lt;div class=&quot;td prev-month&quot;&gt;28&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code> &lt;div class=&quot;td prev-month&quot;&gt;29&lt;/div&gt;
+ &lt;div class=&quot;td prev-month&quot;&gt;30&lt;/div&gt;
+ &lt;div class=&quot;td&quot;&gt;1&lt;/div&gt;
+ &lt;div class=&quot;td&quot;&gt;2&lt;/div&gt;
+ &lt;div class=&quot;td&quot;&gt;3&lt;/div&gt;
+ &lt;div class=&quot;td&quot;&gt;4&lt;/div&gt;
+</code></pre>
+   </div>
+   <div class="tr">
+     <div class="td active">5</div>
+     <div class="td">6</div>
+     <div class="td">7</div>
+     <div class="td">8</div>
+     <div class="td">9</div>
+     <div class="td">10</div>
+     <div class="td">11</div>
+   </div>
+   <div class="tr">
+     <div class="td">12</div>
+     <div class="td">13</div>
+     <div class="td">14</div>
+     <div class="td">15</div>
+     <div class="td">16</div>
+     <div class="td">17</div>
+     <div class="td">18</div>
+   </div>
+   <div class="tr">
+     <div class="td">19</div>
+     <div class="td">20</div>
+     <div class="td">21</div>
+     <div class="td">22</div>
+     <div class="td">23</div>
+     <div class="td">24</div>
+     <div class="td">25</div>
+   </div>
+   <div class="tr">
+     <div class="td current">26</div>
+     <div class="td">27</div>
+     <div class="td">28</div>
+     <div class="td">29</div>
+     <div class="td">30</div>
+     <div class="td">31</div>
+     <div class="td next-month">1</div>
+   </div>
+   <div class="tr">
+     <div class="td next-month">2</div>
+     <div class="td next-month">3</div>
+     <div class="td next-month">4</div>
+     <div class="td next-month">5</div>
+     <div class="td next-month">6</div>
+     <div class="td next-month">7</div>
+     <div class="td next-month">8</div>
+   </div>
+ </div>
+</div>
+<!-- end calendar-main  -->
+</div>
+```
+</blockquote>
+<ul>
+<li>CSS布局<blockquote>
+<pre><code>&lt;style&gt;
+.calendar &#123;
+  width: 300px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 0 5px #ddd;
+  border-radius: 5px;
+  margin: 100px;
+&#125;
+/* calendar-menu start */
+.calendar-menu &#123;
+  display: flex;
+&#125;
+.calendar-menu span &#123;
+  color: #898484;
+  user-select: none;
+  cursor: pointer;
+&#125;
+.calendar-menu .current-date &#123;
+  color: #000;
+  flex-grow: 1;
+  text-align: center;
+&#125;
+.calendar-menu .prev-year &#123;
+  margin-right: 20px;
+&#125;
+.calendar-menu .next-year &#123;
+  margin-left: 20px;
+&#125;
+/* end calendar-menu */
+/* calendar-week start */
+.calendar .table &#123;
+  display: table;
+  width: 100%;
+&#125;
+.calendar .tr &#123;
+  display: table-row;
+&#125;
+.table .tr .th,
+.table .tr .td &#123;
+  display: table-cell;
+  height: 35px;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+&#125;
+.table .tr .th &#123;
+  padding-top: 15px;
+  border-bottom: 1px solid #ddd;
+&#125;
+/* end calendar-week */
+/* calendar-main start */
+.table .tr .td.prev-month,
+.table .tr .td.next-month &#123;
+  color: rgb(194, 194, 194);
+&#125;
+/* 今日 */
+.table .tr .td.current &#123;
+  background-color: rgb(232, 6, 6);
+  color: #fff;
+  font-weight: bold;
+&#125;
+/* 鼠标滑动 */
+.table .tr .td:hover &#123;
+  outline: 1px solid #ddd;
+&#125;
+/* 鼠标点击 */
+.table .tr .td.active &#123;
+  outline: 2px solid rgb(244, 31, 102);
+&#125;
+/* end calendar-main */
+&lt;/style&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><p>JS 实现思路</p>
+<blockquote>
+<p>关于日历的渲染，我们需要知道以下几方面信息</p>
+<ul>
+<li>1、<strong>当月有多少天</strong>，这样就可以知道当月从 1 号渲染到几号；并且通过这个函数可以知道上月最后一天的日期；</li>
+<li>2、<strong>当月的第一天是星期几</strong>，这样就能知道当月 1 号的渲染位置</li>
+<li>3、上月需要渲染天数对应的日期，（知道了当月第一天是星期几，就可以知道上月需要渲染的天数，同时还要知道上月最后一天是几号，就要以知道对应的日期）</li>
+<li>4、下个月需要渲染的天数对应日期，保存在数组中。（<code>下月需要渲染天数 = 42 - 当月总天数 - 上月需要渲染的天数</code>，对应日期，从<code>1</code>号开始渲染到对应天数就可以）<blockquote>
+<p>要注意：获取星期时，星期日的对应的数字是<code>0</code>，要处理</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>书写相关的工具函数</p>
+</li>
+</ol>
+<ul>
+<li><p>获取对应年份的月份的总天数</p>
+<blockquote>
+<ul>
+<li>既可以知道当月有多少天</li>
+<li>也可以知道上月有多少天——&gt;得到上月最后一天的日期</li>
+</ul>
+<pre><code> function getMonthDay(year,month)&#123;
+var date=new Date(year,month,0);
+return date.getDate();
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>获取当月第一天是星期几</p>
+<blockquote>
+<pre><code> function getMonthWeek(year,month)&#123;
+var date=new Date(year,month-1,1);
+return date.getDay();   
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>将上月需要渲染天数对应的日期，保存在数组中</p>
+<blockquote>
+<pre><code> function getPrevMonth(year,month)&#123;
+//需要知道当月第一天是星期几
+var week=getMonthWeek(year,month);
+//得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+weekCount=week===0?6:week-1;
+//需要知道上月最后一天的日期
+var prevCount=getMonthDay(year,month-1);
+var prevDate=[];//保存上月需要渲染的日期
+while(weekCount&gt;0)&#123;
+    //只要需要渲染的天数大于0就将上月的日期保存到数组中
+    prevDate.push(prevCount--);
+    weekCount--;
+&#125;
+return prevDate.reverse();
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>将下个月需要渲染的天数对应的日期，保存在数组中</p>
+<blockquote>
+<pre><code> function nextMonthDate(year,month)&#123;
+//需要知道当月第一天是星期几
+var week=getMonthWeek(year,month);
+//得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+weekCount=week===0?6:week-1;
+//得到当月天数
+var monthDay=getMonthDay(year,month);
+</code></pre>
+</blockquote>
+<p>var nextDate&#x3D;[];&#x2F;&#x2F;保存下个月需要渲染的日期<br>var nextCount&#x3D;42-monthDay-weekCount;<br>for(var i&#x3D;1;i&lt;&#x3D;nextCount;i++){<br>nextDate.push(i)<br>}<br>return nextDate;<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li><p>根据日期创建 td 结构数组</p>
+<blockquote>
+<ul>
+<li>分别根据上月&#x2F;当月&#x2F;下月需要渲染的日期，生成对应 td 标签和样式，保存到不同数组里</li>
+<li><code>map()</code>方法创建一个新数组，这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成。</li>
+<li>根据前面写的功能函数可知，上月、下月的日期已经保存在数组里，而当月需要渲染的日期有当月的天数决定</li>
+</ul>
+<pre><code>//根据上月需要渲染的日期，生成td标签和样式
+function creatTd1(arr)&#123;
+ return arr.map(function(item)&#123;
+     var td=document.createElement(&quot;div&quot;);
+     td.className=&quot;td prev-month&quot;;
+     td.innerText=item;
+     return td;
+ &#125;)
+&#125;
+//根据本月需要渲染的天数，生成td标签和样式
+function creatTd2(days)&#123;
+ return arr.map(function(item)&#123;
+     var td=document.createElement(&quot;div&quot;);
+     td.className=&quot;td&quot;;
+     td.innerText=item;
+     return td;
+ &#125;)
+&#125;
+//根据下月需要渲染的日期，生成td标签和样式
+function creatTd1(arr)&#123;
+ return arr.map(function(item)&#123;
+     var td=document.createElement(&quot;div&quot;);
+     td.className=&quot;td next-month&quot;;
+     td.innerText=item;
+     return td;
+ &#125;)
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>创建 render 渲染函数，根据对应年月来渲染出日历内容</p>
+<blockquote>
+<ul>
+<li>调用功能函数得到需要渲染的日期</li>
+<li>然后调用创建td结构的函数，得到保存了td结构和样式的数组</li>
+<li>将上月、本月、下月的td结构数组拼接成一个新数组</li>
+<li>根据新数组，创建6行7列的表格，并将这个表格插入到<code>table</code>里</li>
+<li><strong>获取</strong><code>calendar-main</code>再把<code>table</code>插入到它里面<blockquote>
+<p>注意：</p>
+</blockquote>
+</li>
+<li>在渲染前，还要把原有内容清空</li>
+</ul>
+<pre><code>// 创建渲染函数，用来渲染 xxxx年xx月的日历表
+ function render(year,month)&#123;
+  //先拿到上月、当月、下月的日期
+  var prevMonth=getPrevMonth(year,month);
+  var currentMonth=getMonthDay(year,month);
+  var nextMonth=nextMonthDate(year,month);
+  //创建td结构
+  var td1=creatTd1(prevMonth);
+  var td2=creatTd2(currentMonth);
+  var td3=creatTd3(nextMonth);
+  //将td拼接成一个数组
+  var tds=td1.concat(td2,td3);
+  //获取calendar-main
+  var calendarMain=document.querySelector(&quot;.calendar-main&quot;);
+  //渲染前将原有内容清空
+  calendarMain.innerHTML=&quot;&quot;;
+  //将table插入到calendar-main中
+  calendarMain.appendChild(creatTable(tds))
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F;将tds插入到table中<br>  function creatTable(tds){<br>   var table&#x3D;document.createElement(“div”);<br>   table.className&#x3D;”table”;<br>   var n&#x3D;0;<br>   &#x2F;&#x2F;行<br>   for(var i&#x3D;0;i&lt;6;i++){<br>   var tr&#x3D;document.createElement(“div”);<br>   tr.className&#x3D;”tr”;<br>   &#x2F;&#x2F;列<br>   for(var j&#x3D;0;j&lt;7;j++){<br>       tr.appendChild(tds[n]);<br>       n++;<br>   }<br>   table.appendChild(tr);<br>   }<br>   return table;<br>  }<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>创建函数，用来获取当前的日期</p>
+<blockquote>
+<pre><code>function getNowDate()&#123;
+  var nowDate=new Date();
+  return &#123;
+      year:nowDate.getFullYear(),
+      month:nowDate.getMonth()+1,
+      date:nowDate.getDate(),
+  &#125;
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>调用 render 函数，来生成对应日历</p>
+<blockquote>
+<ul>
+<li>给render函数传入当前年月</li>
+</ul>
+<pre><code>render(getNowDate().year, getNowDate().month)
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="6">
+<li><p>今天的日期，背景要变成红色</p>
+<blockquote>
+<ul>
+<li>改写上面创建当月<code>td</code>结构的函数</li>
+<li>形参改为年月，在render函数里调用时，传入实参</li>
+<li>获取当前日期(年、月、日)</li>
+<li>通过传入的实参，获取实参月的总天数</li>
+<li>在for循环创建td结构时，如果传入的年份等于当前年，传入的月份等于当前月、当前日等于i时，给该td添加样式</li>
+</ul>
+</blockquote>
+</li>
+<li><p>完善 render 函数</p>
+<blockquote>
+<ul>
+<li>当前日历表头的xxxx年xx月日期，要更新为当前渲染的日期</li>
+</ul>
+<pre><code>function render(year, month) &#123;
+  // 日历头部日期显示为渲染日期
+  var dateDom = document.querySelector(&quot;.calendar-menu .current-date&quot;);
+  dateDom.innerText = dateDom.innerText = year + &quot;年 &quot; + month + &quot;月&quot;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p>  &#x2F;&#x2F; …..<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="8">
+<li><p>年月切换按扭事件处理</p>
+<blockquote>
+<ul>
+<li>注意切换到第0月和第13月的时候，要处理一下</li>
+</ul>
+<pre><code>  var date = getNowDate();
+  var currentYear = date.year;
+  var currentMonth = date.month;
+  var currentDate = date.date;
+  render(currentYear, currentMonth);
+</code></pre>
+</blockquote>
+<p>  var prevYearDom &#x3D; document.querySelector(“.prev-year”);<br>  var nextYearDom &#x3D; document.querySelector(“.next-year”);<br>  var prevMonthDom &#x3D; document.querySelector(“.prev-month”);<br>  var nextMonthDom &#x3D; document.querySelector(“.next-month”);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;上一年<br>  prevYearDom.onclick &#x3D; function () {<br> currentYear–;<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一年<br>  nextYearDom.onclick &#x3D; function () {<br> currentYear++;<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;上一月<br>  prevMonthDom.onclick &#x3D; function () {<br> currentMonth–;<br> if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>   currentMonth &#x3D; 12;<br>   currentYear–;<br> }<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一月<br>  nextMonthDom.onclick &#x3D; function () {<br> currentMonth++;<br> if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>   currentMonth &#x3D; 1;<br>   currentYear++;<br> }<br> render(currentYear, currentMonth);<br>  };</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>选中对应日期</p>
+<blockquote>
+<ul>
+<li>使用事件委托</li>
+<li>选中日期后，添加样式</li>
+<li>打印出当前的日期</li>
+</ul>
+<pre><code>  //选中对应日期
+  var calendarMain = document.querySelector(&quot;.calendar-main&quot;);
+  var prevEl = null; //前一个被选中的元素
+  calendarMain.onclick = function (e) &#123;
+ var target = e.target;
+ var bool = target.classList.contains(&quot;td&quot;);
+ if (!bool) return;
+ //将前一个选中元素的样式清除
+ if (prevEl) prevEl.classList.remove(&quot;active&quot;);
+ //给被选中元素添加样式
+ target.classList.add(&quot;active&quot;);
+ prevEl = target;
+ console.log(
+      currentYear + &quot;年&quot; + currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+    );
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p>  }</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li><p>方式1：点击上月&#x2F;下月日期，不切换页面</p>
+<blockquote>
+<pre><code>calendarMain.onclick = function (e) &#123;
+//如果点击上/月日期，不切换页面，则：
+var _currentYear = currentYear;
+var _currentMonth = currentMonth;
+var prevBool = target.classList.contains(&quot;prev-month&quot;);
+var nextBool = target.classList.contains(&quot;next-month&quot;);
+if (prevBool) &#123;
+  _currentMonth--;
+  if (currentMonth === 0) &#123;
+    _currentMonth = 12;
+    _currentyear--;
+  &#125;
+&#125;
+if (nextBool) &#123;
+  _currentMonth++;
+  if (currentMonth === 13) &#123;
+    _currentMonth = 1;
+    _currentyear++;
+  &#125;
+&#125;
+//打印对应日期
+console.log(
+  _currentYear + &quot;年&quot; + _currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>方式2：点击上月&#x2F;下月日期，跳转到对应月份</p>
+<blockquote>
+<ul>
+<li>再次修改创建当月td的函数，传入<code>selectDate</code>变量，里面保存当前选中的日</li>
+<li>在for循环创建<code>td</code>时，如果i等于<code>selectDate</code>，就给它添加样式<blockquote>
+<p>注意:</p>
+</blockquote>
+</li>
+<li><code>selectDate</code>是字符串，i是数字，只能用<code>==</code>不能全等</li>
+</ul>
+<pre><code> calendarMain.onclick = function (e) &#123;
+var target = e.target;
+var bool = target.classList.contains(&quot;td&quot;);
+if (!bool) return;
+//将前一个选中元素的样式清除
+if (prevEl) prevEl.classList.remove(&quot;active&quot;);
+//给被选中元素添加样式
+target.classList.add(&quot;active&quot;);
+prevEl = target;
+//如果点击上/月日期，切换页面，则：
+var prevBool = target.classList.contains(&quot;prev-month&quot;);
+var nextBool = target.classList.contains(&quot;next-month&quot;);
+</code></pre>
+</blockquote>
+<p>if (prevBool) {<br>  currentMonth–;<br>  if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>currentMonth &#x3D; 12;<br>currentYear–;<br>  }<br>  var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>  render(currentYear, currentMonth, selectDate);<br>}<br>if (nextBool) {<br>  currentMonth++;<br>  if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>currentMonth &#x3D; 1;<br>currentYear++;<br>  }<br>  var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>  render(currentYear, currentMonth, selectDate);<br>}<br>&#x2F;&#x2F;打印对应日期<br>console.log(<br>  currentYear + “年” + currentMonth + “月” + target.innerText + “日”<br>);<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>更新 render函数</strong></p>
+<pre><code>//selectDate 表示当前选中天数
+function render(year, month, selectDate) &#123;
+  if(selectDate)&#123;
+      var td2=creatTd2(year,month,selectDate);
+  &#125;else&#123;
+      var td2=creatTd2(year,month);
+  &#125;
+  //....
+&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>更新 createTd3 函数</strong></p>
+<pre><code> //根据本月需要渲染的天数，生成td标签和样式
+ function creatTd2(year,month,selectDate)&#123;
+   var result=[];
+   var currentYear=getNowDate().year;
+   var currentMonth=getNowDate().month;
+   var currentDate=getNowDate().date;
+</code></pre>
+</blockquote>
+<p>   var days&#x3D;getMonthDay(year,month);<br>   for(var i&#x3D;1;i&lt;&#x3D;days;i++){<br>       var td&#x3D;document.createElement(“div”);<br>       if(year&#x3D;&#x3D;&#x3D;currentYear&amp;&amp;month&#x3D;&#x3D;&#x3D;currentMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;i){<br>           td.className&#x3D;”td current”<br>       }else{<br>           td.className&#x3D;”td”;<br>       }<br>       if(selectDate &amp;&amp; selectDate&#x3D;&#x3D;i) {<br>           td.classList.add(“active”);<br>           prevEl&#x3D;td;<br>       }<br>       td.innerText&#x3D;i;<br>       result.push(td)<br>   }<br>   return result;<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="10">
+<li><p>优化</p>
+<blockquote>
+<ul>
+<li>如果现在翻到12月，今天的日期在12月的页面可以看到。此时，今天的日期也应该有样式</li>
+<li>把<code>creatTd1</code>、<code>creatTd3</code>也修改成<code>creatTd2</code>那样</li>
+<li>参数为年月，根据传入的参数，得到上一个月的年月</li>
+<li>参数为年月，根据传入的参数，得到下一个月的年月</li>
+<li>在函数内获取今年今月今日，和上一个月(下月)的年月做比较，如果相同就加样式</li>
+</ul>
+<pre><code> //根据上月需要渲染的日期，生成td标签和样式
+ function creatTd1(year,month)&#123;
+   //获取今天的日期
+   var currentYear=getNowDate().year;
+   var currentMonth=getNowDate().month;
+   var currentDate=getNowDate().date;
+</code></pre>
+</blockquote>
+<p>   &#x2F;&#x2F;获取上个月的年月<br>   var prevYear&#x3D;year;<br>   var prevMonth&#x3D;month-1;<br>   if(prevMonth&#x3D;&#x3D;&#x3D;0){<br>   prevMonth&#x3D;&#x3D;&#x3D;12;<br>   prevYear&#x3D;year-1;<br>   }<br>   var arr&#x3D;getPrevMonth(year,month);</p>
+<blockquote>
+</blockquote>
+<p>   return arr.map(function(item){<br>   var td&#x3D;document.createElement(“div”);<br>   td.className&#x3D;”td prev-month”;<br>&#x2F;&#x2F; 判断当前月的前一个月中的某个日期为当前日期时<br>   if(currentYear&#x3D;&#x3D;&#x3D;prevYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;prevMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>   td.classList.add(“current”)<br>   }<br>   td.innerText&#x3D;item;<br>   return td;<br>   })<br>}<br> &#x2F;&#x2F;根据下月需要渲染的日期，生成td标签和样式<br> function creatTd3(year,month){<br>   &#x2F;&#x2F;获取今天的日期<br>   var currentYear&#x3D;getNowDate().year;<br>   var currentMonth&#x3D;getNowDate().month;<br>   var currentDate&#x3D;getNowDate().date;</p>
+<blockquote>
+</blockquote>
+<p>   &#x2F;&#x2F;获取上个月的年月<br>   var nextYear&#x3D;year;<br>   var nextMonth&#x3D;month+1;<br>   if(nextMonth&#x3D;&#x3D;&#x3D;13){<br>   nextMonth&#x3D;&#x3D;&#x3D;1;<br>   nextYear&#x3D;year+1;<br>   }<br>   var arr&#x3D;nextMonthDate(year,month);<br>   return arr.map(function(item){<br>   var td&#x3D;document.createElement(“div”);<br>   td.className&#x3D;”td next-month”;<br>   if(currentYear&#x3D;&#x3D;&#x3D;nextYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;nextMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>   td.classList.add(“current”)<br>   }<br>   td.innerText&#x3D;item;<br>   return td;<br>   })<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>封装完整版工具函数 calendar.js</p>
+<blockquote>
+<ul>
+<li>保存功能性函数</li>
+</ul>
+<pre><code>//1、获取当月的天数
+function getMonthDay(year,month)&#123;
+var date=new Date(year,month,0);
+return date.getDate();
+&#125;
+// console.log(getMonthDay(2023,8))
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;2、获取当月第一天是星期几<br>function getMonthWeek(year,month){<br>var date&#x3D;new Date(year,month-1,1);<br>return date.getDay();<br>}<br>&#x2F;&#x2F; console.log(getMonthWeek(2023,8))</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;3、把上月需要渲染的日期存入数组：<br>function getPrevMonth(year,month){<br>&#x2F;&#x2F;需要知道当月第一天是星期几<br>var week&#x3D;getMonthWeek(year,month);<br>&#x2F;&#x2F;得到上月需要渲染的天数,如果week&#x3D;0表示周日，则需要上个月需要渲染6天<br>weekCount&#x3D;week&#x3D;&#x3D;&#x3D;0?6:week-1;<br>&#x2F;&#x2F;需要知道上月最后一天的日期<br>var prevCount&#x3D;getMonthDay(year,month-1);<br>var prevDate&#x3D;[];&#x2F;&#x2F;保存上月需要渲染的日期<br>while(weekCount&gt;0){<br>&#x2F;&#x2F;只要需要渲染的天数大于0就将上月的日期保存到数组中<br>prevDate.push(prevCount–);<br>weekCount–;<br>}<br>return prevDate.reverse();<br>}<br>&#x2F;&#x2F; console.log(getPrevMonth(2023,7))</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 4、下个月需要渲染的天数对应的日期，保存在数组中<br>function nextMonthDate(year,month){<br> &#x2F;&#x2F;需要知道当月第一天是星期几<br> var week&#x3D;getMonthWeek(year,month);<br> &#x2F;&#x2F;得到上月需要渲染的天数,如果week&#x3D;0表示周日，则需要上个月需要渲染6天<br> weekCount&#x3D;week&#x3D;&#x3D;&#x3D;0?6:week-1;<br> &#x2F;&#x2F;得到当月天数<br> var monthDay&#x3D;getMonthDay(year,month);</p>
+<blockquote>
+</blockquote>
+<p>var nextDate&#x3D;[];&#x2F;&#x2F;保存下个月需要渲染的日期<br>var nextCount&#x3D;42-monthDay-weekCount;<br>for(var i&#x3D;1;i&lt;&#x3D;nextCount;i++){<br>nextDate.push(i)<br>}<br>return nextDate;<br>}<br>&#x2F;&#x2F; console.log(nextMonthDate(2023,7))</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;根据上月需要渲染的日期，生成td标签和样式<br>function creatTd1(year,month){<br>&#x2F;&#x2F;获取今天的日期<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;获取上个月的年月<br>var prevYear&#x3D;year;<br>var prevMonth&#x3D;month-1;<br>if(prevMonth&#x3D;&#x3D;&#x3D;0){<br>prevMonth&#x3D;&#x3D;&#x3D;12;<br>prevYear&#x3D;year-1;<br>}<br>var arr&#x3D;getPrevMonth(year,month);</p>
+<blockquote>
+</blockquote>
+<p>return arr.map(function(item){<br>var td&#x3D;document.createElement(“div”);<br>td.className&#x3D;”td prev-month”;<br> &#x2F;&#x2F; 判断当前月的前一个月中的某个日期为当前日期时<br>if(currentYear&#x3D;&#x3D;&#x3D;prevYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;prevMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>    td.classList.add(“current”)<br>}<br>td.innerText&#x3D;item;<br>return td;<br>})<br>}<br>&#x2F;&#x2F;根据本月需要渲染的天数，生成td标签和样式<br>function creatTd2(year,month,selectDate){<br>var result&#x3D;[];<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
+<blockquote>
+</blockquote>
+<p>var days&#x3D;getMonthDay(year,month);<br>for(var i&#x3D;1;i&lt;&#x3D;days;i++){<br>var td&#x3D;document.createElement(“div”);<br>if(year&#x3D;&#x3D;&#x3D;currentYear&amp;&amp;month&#x3D;&#x3D;&#x3D;currentMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;i){<br>    td.className&#x3D;”td current”<br>}else{<br>    td.className&#x3D;”td”;<br>}<br>if(selectDate &amp;&amp; selectDate&#x3D;&#x3D;i) {<br>    td.classList.add(“active”);<br>    prevEl&#x3D;td;<br>}<br>td.innerText&#x3D;i;<br>result.push(td)<br>}<br>return result;<br>}<br>&#x2F;&#x2F;根据下月需要渲染的日期，生成td标签和样式<br>function creatTd3(year,month){<br>&#x2F;&#x2F;获取今天的日期<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;获取上个月的年月<br>var nextYear&#x3D;year;<br>var nextMonth&#x3D;month+1;<br>if(nextMonth&#x3D;&#x3D;&#x3D;13){<br>nextMonth&#x3D;&#x3D;&#x3D;1;<br>nextYear&#x3D;year+1;<br>}<br>var arr&#x3D;nextMonthDate(year,month);<br>return arr.map(function(item){<br>var td&#x3D;document.createElement(“div”);<br>td.className&#x3D;”td next-month”;<br>if(currentYear&#x3D;&#x3D;&#x3D;nextYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;nextMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>    td.classList.add(“current”)<br>}<br>td.innerText&#x3D;item;<br>return td;<br>})<br>}<br>&#x2F;&#x2F; 创建渲染函数，用来渲染 xxxx年xx月的日历表<br>function render(year,month,selectDate){<br>&#x2F;&#x2F;更新日历头部<br>var dateDom&#x3D;document.querySelector(“.calendar-menu .current-date”);<br>dateDom.innerText&#x3D;year+”年”+month+”月”;<br>&#x2F;&#x2F;先拿到上月、当月、下月的日期<br>var prevMonth&#x3D;getPrevMonth(year,month);<br>var currentMonth&#x3D;getMonthDay(year,month);<br>var nextMonth&#x3D;nextMonthDate(year,month);<br>&#x2F;&#x2F;创建td结构<br>var td1&#x3D;creatTd1(year,month);<br>if(selectDate){<br>var td2&#x3D;creatTd2(year,month,selectDate);<br>}else{<br>var td2&#x3D;creatTd2(year,month);<br>}<br>var td3&#x3D;creatTd3(year,month);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;将td拼接成一个数组<br>var tds&#x3D;td1.concat(td2,td3);<br>&#x2F;&#x2F;获取calendar-main<br>var calendarMain&#x3D;document.querySelector(“.calendar-main”);<br>&#x2F;&#x2F;渲染前将原有内容清空<br>calendarMain.innerHTML&#x3D;””;<br>&#x2F;&#x2F;将table插入到calendar-main中<br>calendarMain.appendChild(creatTable(tds))</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;将tds插入到table中<br>function creatTable(tds){<br>var table&#x3D;document.createElement(“div”);<br>table.className&#x3D;”table”;<br>var n&#x3D;0;<br>&#x2F;&#x2F;行<br>for(var i&#x3D;0;i&lt;6;i++){<br>    var tr&#x3D;document.createElement(“div”);<br>    tr.className&#x3D;”tr”;<br>    &#x2F;&#x2F;列<br>    for(var j&#x3D;0;j&lt;7;j++){<br>        tr.appendChild(tds[n]);<br>        n++;<br>    }<br>    table.appendChild(tr);<br>}<br>return table;<br>}<br>}<br>function getNowDate(){<br>var nowDate&#x3D;new Date();<br>return {<br>year:nowDate.getFullYear(),<br>month:nowDate.getMonth()+1,<br>date:nowDate.getDate(),<br>}<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>完整版日历组件开发</p>
+<blockquote>
+<pre><code>&lt;script&gt;
+  var date = getNowDate();
+  var currentYear = date.year;
+  var currentMonth = date.month;
+  var currentDate = date.date;
+  render(currentYear, currentMonth);
+</code></pre>
+</blockquote>
+<p>  var prevYearDom &#x3D; document.querySelector(“.prev-year”);<br>  var nextYearDom &#x3D; document.querySelector(“.next-year”);<br>  var prevMonthDom &#x3D; document.querySelector(“.prev-month”);<br>  var nextMonthDom &#x3D; document.querySelector(“.next-month”);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;上一年<br>  prevYearDom.onclick &#x3D; function () {<br>currentYear–;<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一年<br>  nextYearDom.onclick &#x3D; function () {<br>currentYear++;<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;上一月<br>  prevMonthDom.onclick &#x3D; function () {<br>currentMonth–;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>  currentMonth &#x3D; 12;<br>  currentYear–;<br>}<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一月<br>  nextMonthDom.onclick &#x3D; function () {<br>currentMonth++;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>  currentMonth &#x3D; 1;<br>  currentYear++;<br>}<br>render(currentYear, currentMonth);<br>  };</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F;选中对应日期<br>  var calendarMain &#x3D; document.querySelector(“.calendar-main”);<br>  var prevEl &#x3D; null; &#x2F;&#x2F;前一个被选中的元素<br>  calendarMain.onclick &#x3D; function (e) {<br>var target &#x3D; e.target;<br>var bool &#x3D; target.classList.contains(“td”);<br>if (!bool) return;<br>&#x2F;&#x2F;将前一个选中元素的样式清除<br>if (prevEl) prevEl.classList.remove(“active”);<br>&#x2F;&#x2F;给被选中元素添加样式<br>target.classList.add(“active”);<br>prevEl &#x3D; target;<br>&#x2F;&#x2F;如果点击上&#x2F;月日期，切换页面，则：<br>var prevBool &#x3D; target.classList.contains(“prev-month”);<br>var nextBool &#x3D; target.classList.contains(“next-month”);</p>
+<blockquote>
+</blockquote>
+<p>  if (prevBool) {<br>currentMonth–;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>  currentMonth &#x3D; 12;<br>  currentYear–;<br>}<br>var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>render(currentYear, currentMonth, selectDate);<br>  }<br>  if (nextBool) {<br>currentMonth++;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>  currentMonth &#x3D; 1;<br>  currentYear++;<br>}<br>var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>render(currentYear, currentMonth, selectDate);<br>  }<br>  &#x2F;&#x2F;打印对应日期<br>  console.log(<br>currentYear + “年” + currentMonth + “月” + target.innerText + “日”<br>  );<br>};</p>
+<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/">https://hermiablog.github.io/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="JS核心知识点（十七）">
+                        
+                        <span class="card-title">JS核心知识点（十七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 正则表达式从入门到实践，正则相关工具
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="JS核心知识点（十五）">
+                        
+                        <span class="card-title">JS核心知识点（十五）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS继承的 6 种方式、内置构造函数、三大包装类 Number、String、Boolean
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

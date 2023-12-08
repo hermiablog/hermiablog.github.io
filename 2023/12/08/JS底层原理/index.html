@@ -1,0 +1,2867 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS底层原理, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS底层原理 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS底层原理</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.8k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<blockquote>
+<ul>
+<li>首先，我们要知道 JavaScript 是一门解释性语言，也就是边解析（编译），边执行。</li>
+<li>你可以理解为一段 JS 代码在正式执行前需要被 JavaScript 引擎编译，编译完成之后，才会进入执行阶段。<img src="解释性语言.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>我们把 JavaScript 引擎在执行前的编译过程，程为JS 的预编译,在 JS 的编译阶段，会做以下三件事</p>
+</blockquote>
+<ol>
+<li>语法检查<blockquote>
+<ul>
+<li>JS 引擎会检查你的代码有没有什么低级的<strong>语法错误</strong>，以消除一些歧义。</li>
+<li>如果有语法错误，则<strong>不会往下执行</strong>，直接抛出“语法错误”。如以下代码：</li>
+</ul>
+<pre><code>var a = 1;
+console.log(a);
+var b = 3； // b后面的; 分号是中文状态下的
+// 代码并不会执行，打印出1，因为在预编译阶段有语法错误，所以直接抛出了误法错误
+</code></pre>
+</blockquote>
+</li>
+<li>创建执行上下文 （Execution context）<blockquote>
+<ul>
+<li><strong>执行上下文</strong>是 JavaScript 执行一段代码时所处的<strong>运行环境</strong></li>
+<li>关于执行上下文的相关细节，我们待会在下面详细讲解，这也是本章的重点。</li>
+</ul>
+</blockquote>
+</li>
+<li>生成可执行代码<blockquote>
+<ul>
+<li>JavaScript 引擎并不认识我们写的 JS 代码，所以需要将 JS 代码转换为计算机能读懂的机器码（二进制文件）</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="一、什么是执行上下文"><a href="#一、什么是执行上下文" class="headerlink" title="一、什么是执行上下文"></a>一、什么是执行上下文</h3><blockquote>
+<ul>
+<li>执行上下文是 JavaScript 执行<strong>一段代码</strong>时所处的<strong>运行环境</strong></li>
+<li>MDN 官网中提到：<strong>作用域</strong>是当前的执行上下文</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>接下来我们就来明确下，哪些情况下代码才算是 “一段” 代码，才会在执行前进行预编译过程，并创建执行上下文环境。</li>
+<li>主要有以下三种情况：<img src="执行上下文.png"></li>
+</ul>
+</blockquote>
+<ol>
+<li><p>全局执行上下文</p>
+<blockquote>
+<ul>
+<li>当 JavaScript 执行<strong>全局作用域</strong>中的代码时，会编译全局代码并创建全局执行上下文</li>
+<li>整个页面的生命周期内，全局执行上下文<strong>只有一份</strong>。</li>
+<li>只有当整个页面<strong>关闭后</strong>，全局执行上下文才会被<strong>销毁</strong>。即页面没有关闭前，这些变量对应的数据都保存在<strong>内存</strong>中。<blockquote>
+<p>引用的js文件等都在全局执行上下文里</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 代码在执行前，会预编译，并会创建全局执行上下文
+// 以下代码在页面没有关闭前，是不会被销毁的，即当前数据还保存在内存中
+var a = 1;
+var b = 2;
+function sum(a, b) &#123;
+  console.log(a + b);
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>函数执行上下文</p>
+<blockquote>
+<ul>
+<li>当<strong>调用</strong>一个函数时，函数体内的代码会被编译，并创建函数执行上下文。</li>
+<li>一般情况下，函数执行<strong>结束</strong>之后，创建的函数执行上下文就会被<strong>销毁</strong>。</li>
+</ul>
+<pre><code>var a = 1;
+var b = 2;
+function sum(a, b) &#123;
+  var c = a;
+  var d = b;
+  console.log(c + d);
+&#125;
+sum(2, 3); // 调用函数
+</code></pre>
+<blockquote>
+<p>以上代码创建了 全局执行上下文和 函数执行上下文</p>
+<ul>
+<li>代码执行前，会预编译，并创建<strong>全局执行上下文</strong>，然后从上往下执行代码</li>
+<li>执行到sum(2,3)时，他<strong>调用函数</strong>，调用函数时会对函数体内代码预编译，同时创建<strong>函数执行上下文</strong></li>
+<li>执行函数体中代码，执行完后，函数执行上下文就会被<strong>销毁</strong>,即函数体内的变量c和d不再占据内存空间</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+<li><p>eval 执行上下文</p>
+<blockquote>
+<ul>
+<li>在<strong>严格模式</strong>下，当使用 eval 函数时，eval 的代码会被编译，并创建eval执行上下文。</li>
+<li>考虑安全性能问题，现在 eval 被<strong>禁用</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>eval() 函数可以接受一个<strong>字符串</strong>为参数，并将其中的内容视为好像在书写时就存在整个程序中这个位置的代码。</li>
+<li>eval 通常被用来执行<strong>动态创建</strong>的代码，但是安全风险过高，如果传过来的是一段 JS 木马呢 ？</li>
+</ul>
+<pre><code>function foo() &#123;
+  eval(&quot;var a=1;var b=2;&quot;);
+  console.log(a + b);
+&#125;
+foo(); // 在控制台输出 3
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>在严格模式下，eval()在运行时会有自己的执行上下文</li>
+<li>此时，外部作用域是访问不到内部作用域的，所以<code>console.log(a + b);</code>找不到a,b的值</li>
+</ul>
+<pre><code>function foo() &#123;
+  &quot;use strict&quot;;
+  eval(&quot;var a=1;var b=2;&quot;);
+  console.log(a + b); // 直接抛出错误 a is not defined
+&#125;
+foo();
+</code></pre>
+</blockquote>
+<h3 id="二、执行上下文栈"><a href="#二、执行上下文栈" class="headerlink" title="二、执行上下文栈"></a>二、执行上下文栈</h3><blockquote>
+<p>什么是 栈 <code>LIFO</code> ？在算法那一章我们学习过栈这种数据结构，这里我们回顾下</p>
+</blockquote>
+<ol>
+<li>什么是栈<blockquote>
+<ul>
+<li><strong>栈</strong>是一种<strong>先进后出</strong>的数据结构，要弄明白什么是栈，我们先举一个生活中的例子来帮助大家理解</li>
+<li>假如你现在有一个长长的圆筒，圆筒的一端是封闭的，另一端是开口，现在往圆筒底部放气球，那先放的是不是在圆筒的底部，后放的是不是在靠近圆筒的位置。<img src="栈.jpg"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>详细解读：</p>
+</blockquote>
+<ul>
+<li>我们现在要从圆筒中取出气球，那我们是不是得先取离圆筒出口最近的一个，即取球时的顺序正好和放的时候的顺序是反的。</li>
+<li>我们把圆筒比喻从栈，那放气球的过程叫<strong>入栈</strong>，拿气球的过程叫<strong>出栈</strong>；圆筒的底部称为栈底，圆筒出口的第一个气球位置叫栈顶。<blockquote>
+<p>栈 LIFO ： 是一种先进后出的一种数据结构。 插入一般称为入栈（PUSH），删除则称为出栈（POP）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>什么是执行上下文栈（调用栈）<blockquote>
+<ul>
+<li>我们知道, 函数里面可以嵌套函数, 不同的函数调用又会形成不同的执行上下文环境</li>
+<li>这些不同的执行上下文环境，我们统一放进一个<strong>栈</strong>中来管理。<blockquote>
+<p>我们把这种用来<strong>管理</strong>执行上下文的栈，称为<strong>执行上下文栈</strong>，又称调用栈</p>
+</blockquote>
+</li>
+<li>栈底为<strong>全局</strong>执行上下文, 每当有一次函数调用, 形成的函数执行上下文就会被 <code>push</code> 进栈顶，即<strong>压栈</strong></li>
+<li>函数执行完, 该函数所对应的函数上下文将会被 <code>pop</code> 出上下文栈,即<strong>出栈</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们用下面这个代码来演示，整个执行上下文栈的压栈和出栈过程<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"fn1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"fn2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token function">fn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>进栈</strong></p>
+<ul>
+<li>当页面打开，就会<strong>创建</strong>全局执行上下文，并将其<strong>压入</strong>执行上下文栈底。</li>
+<li>然后<strong>执行</strong>全局上下文中代码，遇到<strong>fn1()调用</strong>，则会创建 fn1 的函数执行上下文, 压入执行上下文栈</li>
+<li>然后执行 fn1 中代码，遇到<strong>fn2()调用</strong>，创建 fn2 的函数执行上下文,压入执行上下文栈。</li>
+<li>接着执行 fn2 中的代码<img src="执行上下文压栈.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>出栈</strong></p>
+<ul>
+<li>fn2 执行完毕后, 对应的执行上下文从执行上下文栈中 pop 出</li>
+<li>此时 fn1 也被执行完，对应的执行上下文也从上下文栈中 pop 出</li>
+<li>全局上下文要在浏览器关闭后才会被销毁<img src="执行上下文出栈.png"></li>
+</ul>
+</blockquote>
+<ul>
+<li>通过调试工具，来查看整个的压栈和出栈过程<img src="调试工具.png"></li>
+</ul>
+<ol start="3">
+<li>栈溢出<blockquote>
+<ul>
+<li>执行上下文栈是用来管理执行上下文的数据结构，不过要注意的是<strong>执行上下文栈是有大小的</strong></li>
+<li>当入栈的执行上下文<strong>超过一定的数目</strong>，栈对应的内存空间被占满后，JavaScript 引擎就会报错，我们把这种错误叫做<strong>栈溢出</strong><blockquote>
+<p>递归代码，很容易出现栈溢出情况，如下代码</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var i = 0;
+function a() &#123;
+  i++;
+&#125;
+a();
+</code></pre>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>不同的浏览为栈分配的内存空间大小是不—样的。</li>
+<li>所以我们在使用递归时，要特别注意这一点，确保递归压栈时不会造成栈溢出。</li>
+</ul>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、-执行上下文组成"><a href="#三、-执行上下文组成" class="headerlink" title="三、 执行上下文组成"></a>三、 执行上下文组成</h3><blockquote>
+<p>执行上下文中包含了四个部分：</p>
+<ul>
+<li>变量环境： 其实就是我们之前提到的<strong>变量和函数提升</strong>，在代码执行前变量和函数会被提升到当前作用域的最前面。</li>
+<li>外部环境： 其实就是我们之前了解的<strong>作用域链</strong>，他记录了当前作用域及他的外层作用域之间的关系，我们查找变量在当前作用域中找（当前变量环境中找）找不到再到外部外境（沿着作用域链去查找）</li>
+<li>this： 就是我们前面讲的this，<strong>函数上下文对象</strong>，谁把函数当成方法来调用，this 就指向谁</li>
+<li>词法环境： ES6 中需要学习到的<strong>let 和 const 声明</strong>的变量，是保存在词法环境中。</li>
+</ul>
+</blockquote>
+<h4 id="变量环境"><a href="#变量环境" class="headerlink" title="变量环境"></a>变量环境</h4><blockquote>
+<ul>
+<li>在变量环境中存在一个<strong>变量环境对象</strong>（viriable Environment），叫<strong>变量对象</strong> 。英文全称 variable Object 简称 <code>VO</code></li>
+<li>在这个执行上下文中，所有由<strong>var声明的变量和函数</strong>等都存在于这个 “变量对象” 上。</li>
+<li>JavaScript 代码<strong>不能直接访问</strong>该 “变量对象” ，但是可以直接访问该对象的成员。(除全局上下文的变量对象window以外)<img src="变量对象.png"></li>
+</ul>
+</blockquote>
+<ol>
+<li><p>全局执行上下文中 - 变量对象</p>
+<blockquote>
+<ul>
+<li>全局上下文是<strong>最外层</strong>的上下文，全局执行上下文中的<strong>变量对象</strong>就是<strong>window对象</strong></li>
+<li>因此全局变量和全局函数都会成为 window 对象的属性和方法。</li>
+<li>在<code>Node</code>环境中，全局执行环境是<code>global</code>对象</li>
+<li>在全局上下文中，<code>this</code>指向 window 对象<blockquote>
+<p>注意： JavaScript 中没法直接访问到 “变量对象” ，除全局上下文的变量对象window以外</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var a = 1;
+function fn() &#123;
+  console.log(2);
+&#125;
+console.log(this === window); // true 全局上下文中，this指向window
+console.log(window.a); // 1  通过window对象的属性a可以访问到变量a
+window.fn(); // 2 通过window对象的方法fn可以访问到fn函数
+</code></pre>
+</blockquote>
+</li>
+<li><p>函数上下文中 - 变量对象</p>
+<blockquote>
+<ul>
+<li>在函数执行上下文中，变量对象常常被称为“<strong>活动对象</strong>（Activation Object）简称 <code>AO</code>” ，因为变量对象是在进入函数执行上下文时被创建的（被激活）的。</li>
+<li>刚开始，活动对象上只有 <code>arguments</code> 这一个属性，其后函数中的变量、函数、参数都被保存在这个 <strong>活动对象（AO）</strong> 上，成为了这个活动对象的 <strong>属性 和 方法</strong><blockquote>
+<p>我们直接访问函数中的变量，参数，函数，arguments，本质就是在访问 “活动对象” 上的属性。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>function sum(c) &#123;
+  var a = 2;
+  var b = 3;
+  console.log(arguments);
+  console.log(a, b, c);
+&#125;
+sum(1);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 当前会创建全局执行上下文，然后执行到sum(1)时，会创建函数执行上下文<br>&#x2F;&#x2F; 函数执行上下文中会创建一个活动对象，其内变量a,b和参数c，arguments都是活动对象的属性,包括 this</p>
+<blockquote>
+<pre><code>&gt;在函数执行上下文中，this 对象保存在活动对象上的 this 属性上。
+</code></pre>
+</blockquote>
+<ol start="3">
+<li><p>eval 执行上下文 - 变量对象</p>
+<blockquote>
+<ul>
+<li>创建 eval 函数是为了将字符串转换为可执行的 JavaScript 代码。虽然看起来很强大，但不建议使用这个功能，因为我们无法控制它的权限。</li>
+<li>eval 函数的使用可能会使您的应用程序或服务受到注入攻击。 eval 函数接收到的字符串可能是恶意字符串，可以完全破坏您的数据库或应用程序。</li>
+<li>这就是为什么不推荐使用 eval 函数的原因,也就不做介绍。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>变量对象的创建过程</p>
+<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> sum<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> 
+  <span class="token keyword">function</span> <span class="token function">num</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span> 
+  b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> 
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p><strong>全局执行上下文中变量创建过程</strong></p>
+<blockquote>
+<ul>
+<li>当页面打开，碰到script标签，就会开始解析里面的代码，开始预编译</li>
+<li>创建全局执行上下文，并创建window这个变量对象</li>
+<li>全局执行上下文中声明的变量和函数，就成为了window对象上的属性和方法<ul>
+<li>window.sum&#x3D;undefined; window.fn&#x3D;fn</li>
+</ul>
+</li>
+<li>预编译结束，开始从上往下<strong>执行代码</strong><ul>
+<li>window.sum&#x3D;1 </li>
+<li>碰到fn(1) 开始调用函数</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>函数内部的变量对象创建过程</strong></p>
+<ul>
+<li>函数被调用，会创建函数执行上下文，并创建活动对象AO<blockquote>
+<ul>
+<li><code>var AO = &#123;&#125;; </code></li>
+</ul>
+</blockquote>
+</li>
+<li>初始化活动对象的第一个属性arguments<blockquote>
+<pre><code>// 1、创建 AO 变量对象
+AO = &#123;
+// 2、创建arguments属性，其属性值为Arguments对象
+arguments: &#123;
+  0: 1, // 实参
+  length: 1, // 实参个数
+  // ..... 其它属性省略
+&#125;,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li>处理形参与实参<blockquote>
+<ul>
+<li>函数的 所有形参的名称和实参对应 组成变量对象的属性,</li>
+<li>如果没有实参，属性值设为 undefined。</li>
+</ul>
+<pre><code>// 1、创建 AO 变量对象
+AO = &#123;
+  // 2、创建arguments属性，其属性值为Arguments对象
+  arguments: &#123;
+      0: 1, // 实参
+      length: 1, // 实参个数
+      // ..... 其它属性省略
+  &#125;，
+  // 3、 寻找函数形参，作为变量对象的属性，同时赋值
+  a:1,
+  n:undefined,
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li>处理函数体内的函数声明<blockquote>
+<ul>
+<li>函数体内的<strong>函数声明</strong>的名称和对应值变成变量对象的属性和值</li>
+<li>如果变量对象已经存在相同名称的属性，则会完全替换这个属性。</li>
+<li>没加var的是全局变量，不执行<blockquote>
+<p>上面这个过程，就是我们之前提到变量与函数提升</p>
+<ul>
+<li>函数声明提升的优先级是高于变量提升，本质就是在变量对象初始化属性时，同名的方法会替换掉同名的属性。</li>
+<li>如果是同名的函数，则以后面写在后面的为主。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 1、创建 AO 变量对象
+AO = &#123;
+  // 2、创建arguments属性，其属性值为Arguments对象
+  arguments: &#123;
+      0: 1, // 实参
+      length: 1, // 实参个数
+      // ..... 其它属性省略
+  &#125;，
+  // 3、 寻找函数形参，作为变量对象的属性，同时赋值
+  a:1,
+  n:undefined,
+  // 4、寻找函数声明 function num()&#123; &#125;，将num为变量对象属性，值为函数本身
+ num: function () &#123;&#125;,
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li>处理函数体内的变量声明<blockquote>
+<ul>
+<li>变量声明的名称和对应值（undefined）组成变量对象的属性</li>
+<li>到了执行阶段才会赋值，此时变量值都是undefined</li>
+<li>如果变量名称与已经声明的形参或函数名相同，则变量声明<strong>不会覆盖</strong>已经存在的这类属性。<blockquote>
+<p>原因：变量与函数提升</p>
+<ul>
+<li>变量对象的创建过程，就是我们之前提到的变量的提升，变量提升,提升的是变量，并不会提升值，所以创建出来的属性，默认值是 undefined</li>
+<li>同时同名的变量不会覆盖同名函数，同名的变量和变量本质覆盖与不覆盖没有区别。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 1、创建 AO 变量对象
+AO = &#123;
+  // 2、创建arguments属性，其属性值为Arguments对象
+  arguments: &#123;
+      0: 1, // 实参
+      length: 1, // 实参个数
+      // ..... 其它属性省略
+  &#125;，
+  // 3、 寻找函数形参，作为变量对象的属性，同时赋值
+  a:1,
+  n:undefined,
+  // 4、寻找函数声明 function num()&#123; &#125;，将num为变量对象属性，值为函数本身
+ num: function () &#123;&#125;,
+  // 5、寻找var声明的变量，将变量b作为变量对象的属性，值为undefined
+b: undefined,
+c: undefined, 
+&#125;
+</code></pre>
+</blockquote>
+</li>
+<li>预编译结束，开始从上往下<strong>执行代码</strong><blockquote>
+<ul>
+<li>修改变量对象上属性 b 的值为 2</li>
+<li>修改变量对象属性 c 的值</li>
+<li>再次修改变量对象属性 b 的值</li>
+</ul>
+<pre><code>AO = &#123;
+arguments: &#123;
+  0: 1,
+  length: 1,
+  // ..... 其它属性省略
+&#125;,
+a: 1,//实质上是AO.a
+n:undefined,
+num: function num() &#123;&#125;,
+b: 3, // 1、修改属性b的值
+c: function () &#123;&#125;,
+&#125;; 
+</code></pre>
+</blockquote>
+</li>
+<li>通过控制台，查看整个fn()函数执行完时，整个变量对象上的属性值<img src="变量对象创建过程.png"></li>
+</ul>
+<h4 id="外部环境（outer）"><a href="#外部环境（outer）" class="headerlink" title="外部环境（outer）"></a>外部环境（outer）</h4><blockquote>
+<ul>
+<li>其实，在 JS 中，每个函数都存在一个<strong>隐式属性</strong><code>[[scopes]]</code>, 这个属性用来保存<strong>当前函数</strong>的<strong>外部</strong>执行上下文中的变量对象身上的<strong>一些属性</strong>, 由于在数据结构上是链式的, 也被称为<strong>作用域链</strong>。</li>
+<li>只有当<strong>内部</strong>执行上下文中<strong>引用</strong>了<strong>外部</strong>执行上下文中的<strong>变量</strong>（AO 对象上的属性或方法）时，其外部执行上下文中变量对象的属性值才会被<strong>记录</strong>在隐式属性<code>[[scopes]]</code>中,<strong>除</strong>全局执行上下文中的变量对象 <code>window</code> 外。</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var a = 1;
+function fn1() &#123;
+  var b = 2;
+  var c = 3;
+  var d = 4;
+  function fn2() &#123;
+    console.log(b);
+  &#125;
+  fn2();
+&#125;
+fn1();
+</code></pre>
+<img src="外部环境.png">
+</blockquote>
+<blockquote>
+<blockquote>
+<p>作用域链</p>
+</blockquote>
+<ul>
+<li>外部环境<strong>本质</strong>就是我们之前提到的作用域链，外部环境中记录了外部执行上下文中变量对象身上的一些属性和方法。</li>
+<li>当我们在变量查找时，如果当前执行上下文的变量对象上找不到，则会去当前执行上下文的外部上下文的 <strong>“变量对象”（其实是闭包对象）</strong>上去查找。</li>
+<li>如果找到就用，找不到就会一直找到全局执行上下文的变量对象 <code>window</code> 身上。还找不到，就会<strong>报错</strong>。</li>
+</ul>
+</blockquote>
+<ol>
+<li>变量查找过程<blockquote>
+<pre><code>var a = 1;
+function fn1() &#123;
+  var b = 2;
+  var c = 3;
+  var d = 4;
+  function fn2() &#123;
+ var e = 5;
+ console.log(e + b + a);
+  &#125;
+  fn2();
+&#125;
+fn1();
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>第一步：创建全局执行上下文</li>
+<li>第二步：执行全局上下文中的代码<blockquote>
+<ul>
+<li>从上往下执行代码，首先变量 a 赋值为 1</li>
+<li>同时遇到<code>fn1()</code>，调用<code>fn1()</code>函数，<strong>创建</strong>函数执行上下文，并<strong>压入</strong>执行上下文栈</li>
+</ul>
+</blockquote>
+</li>
+<li>第三步：执行 fn1 函数上下文中的代码<blockquote>
+<ul>
+<li>首先给变量赋值 <code>b=2，c=3，d=4，fn1 = function()&#123;....&#125;</code></li>
+<li>同时遇到<code>fn2()</code>，调用<code>fn2()</code>函数，创建函数执行上下文，并压入执行上下文栈</li>
+</ul>
+</blockquote>
+</li>
+<li>第四步：执行 fn2 函数执行上下文中的代码<blockquote>
+<ul>
+<li>首先给变量 e 赋值，<code>e=5</code></li>
+<li>然后执行 <code>console.log(e+b+a);</code>代码</li>
+<li>首先在<strong>当前作用域</strong>（执行上下文）中的<strong>词法环境</strong>中找变量 e，没有找到，再到<strong>变量环境的变量对象</strong>上找 e，找到e&#x3D;5，并使用</li>
+<li>然后在当前作用域中的词法环境中去找变量 b，没有找到，则到变量环境中的变量对象上找变量 b，没有找到，则沿着<strong>外部环境</strong>去其外层的作用域中去查找。</li>
+<li>在外层作用域中查找时，也是<strong>先到词法环境</strong>中找，找不到再到<strong>变量环境</strong>中找，再找不到就再到其<strong>外部环境</strong>中去找，一层一层找，找到就用，找不到一直找到全局作用域中，还没找到，就报错。</li>
+<li>变量 e，b，a 的查找流程图如下<img src="变量查找过程.png"></li>
+</ul>
+</blockquote>
+</li>
+<li>第五步：fn2 执行完，开始出栈</li>
+<li>第六步：fn1 执行完，开始出栈</li>
+<li>全局执行上下文要等整个页面关闭后才会被销毁，才会出栈。</li>
+</ul>
+<ol start="2">
+<li>控制台演示<img src="外部环境控制台.png"></li>
+</ol>
+<blockquote>
+<blockquote>
+<p>详细解读</p>
+</blockquote>
+<ul>
+<li>只有内部函数引用了外部函数中的部分变量，部分变量才会被保存在函数的<code>[[scopes]]</code>属性中</li>
+<li>内部函数在变量查找时，在自己作用域中找，找不到再到<code>[[scopes]]</code>属性中一层一层向下找</li>
+<li><code>[[scopes]]</code>属性中，本质记录的是全局作用域的变量对象 window 和每一次内部形成的闭包对象</li>
+</ul>
+</blockquote>
+<h4 id="词法环境"><a href="#词法环境" class="headerlink" title="词法环境"></a>词法环境</h4><blockquote>
+<ul>
+<li><code>ES6</code>中利用<code>let</code>和<code>const</code>声明的变量，会放在词法环境中。</li>
+<li>在变量查找时，<strong>首先</strong>会在词法环境中去查找，如果找不到，再到变量环境中查找。</li>
+</ul>
+<pre><code>var a = 1;
+let b = 2;
+const c = 3;
+console.log(a + b + c);
+</code></pre>
+<img src="词法环境.png">
+</blockquote>
+<h4 id="this-函数上下文"><a href="#this-函数上下文" class="headerlink" title="this 函数上下文"></a>this 函数上下文</h4><blockquote>
+<ul>
+<li>在函数中，其内部this指向把函数当成方法调用的上下文对象</li>
+<li>参考下面的表格自己复习下<table>
+<thead>
+<tr>
+<th>函数的调用方式</th>
+<th>this 指向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象.函数()</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>函数()</td>
+<td>window</td>
+</tr>
+<tr>
+<td>IIFE</td>
+<td>立即执行函数</td>
+</tr>
+<tr>
+<td>数组<a href="">下标</a></td>
+<td>数组</td>
+</tr>
+<tr>
+<td>call(对象,arg1,arg2)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>apply(对象，array)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>bind(对象，arg1,arg2)</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>定时器中的回调函数</td>
+<td>window</td>
+</tr>
+<tr>
+<td>DOM 事件处理函数</td>
+<td>添加事件监听的元素</td>
+</tr>
+<tr>
+<td>new 函数()</td>
+<td>对象的实例</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<h3 id="四、闭包"><a href="#四、闭包" class="headerlink" title="四、闭包"></a>四、闭包</h3><blockquote>
+<p>至于<strong>什么是闭包</strong>？我们暂且先放下，我们通过两个案例来理解，什么是闭包，什么情况下会形成闭包。</p>
+</blockquote>
+<h4 id="什么情况下会形成闭包"><a href="#什么情况下会形成闭包" class="headerlink" title="什么情况下会形成闭包"></a>什么情况下会形成闭包</h4><ol>
+<li>形成闭包的条件——情况一<blockquote>
+<ul>
+<li>内部函数访问外部函数的变量时，其内部就会形成闭包。</li>
+<li>但这种方式，并<strong>不能保持</strong>闭包，因为函数执行完就被销毁了，其闭包对象也被销毁。</li>
+</ul>
+<pre><code>function fn() &#123;
+  var a = 1;
+  var b = 2;
+  function fn2() &#123;
+ // 内部函数访问了外部函数中的变量，这时候就形成了闭包，
+ console.log(a);
+  &#125;
+  fn2();
+&#125;
+fn();
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>闭包形成过程<blockquote>
+<ul>
+<li>当调用fn()函数时，其内部的fn2函数<strong>引用</strong>了fn函数中的变量a，这时fn函数就会形成闭包。</li>
+<li>他内部创建了一个<strong>新对象</strong>，把内部函数用到的变量a和对应的值成为了这个新对象的属性和值，这个新对象就是我们说的闭包<code>Closure</code></li>
+</ul>
+</blockquote>
+</li>
+<li>闭包带来的便利-方便变量查找<blockquote>
+<ul>
+<li>当fn2()函数调用时，就会访问变量a，他首先会在自己作用域（执行上下文）中找，找不到</li>
+<li>然后就在闭包对象中去查找，找到中了变量a。最终在控制台输入 1</li>
+<li>假设没有闭包对象，那他要去外层作用域中找，外层作用域中如果有 100 个就变量，那要从 100 个变量中找到一个方便 ，还是把用到的那一个存好，直接拿来用方便呢？肯定是后者。</li>
+</ul>
+</blockquote>
+</li>
+<li>闭包销毁<blockquote>
+<ul>
+<li>最后fn2执行完就销毁，其对应的闭包也就随着销毁</li>
+<li>所以这种情况下会形成闭包，但闭包不能被保持。所以我们很多时候讨论的闭包并不是这种情况。<blockquote>
+<p>但内部函数能快速访问到外部函数作用域中的变量，本质就是因为形成了闭包。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>形成闭包的条件——情况二<blockquote>
+<ul>
+<li><strong>内部</strong>函数使用了<strong>外部</strong>函数的<strong>变量</strong>，同时<strong>被返回</strong>到了外部函数的外面(被全局变量接收)，这时就会形成闭包</li>
+<li>主要表现在于，在<strong>外部执行</strong>被返回的函数时，可以访问他在<strong>定义时</strong>所处环境中的变量</li>
+<li>这种情况才是真正意义上的形成了闭包，因为闭包被保持下来，供后期使用</li>
+</ul>
+<pre><code>function fn() &#123;
+  var a = 1;
+  var b = 2;
+  function fn2() &#123;
+ console.log(a);
+  &#125;
+  return fn2;
+&#125;
+var fn3 = fn(); // 被赋值
+fn3();
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>闭包形成过程</p>
+<blockquote>
+<ul>
+<li>当代码执行到<code>fn3=fn()</code>时，fn()被调用了，因为fn2函数引用了fn函数中的变量a，这时fn函数就会形成闭包</li>
+<li>他内部创建了一个<strong>新对象</strong>，把内部函数用到的变量a和对应的值成为了这个新对象的属性和值，这个新对象就是我们说的闭包（Closure）</li>
+</ul>
+</blockquote>
+</li>
+<li><p>闭包是如何保持的</p>
+<blockquote>
+<ul>
+<li>然后 <code>fn2</code> 函数的隐式属性<code>[[Scopes]]</code>数组中，多了一个新的<strong>对象</strong>，这个对象指向上面 fn 创建出来的闭包。</li>
+<li>然后fn2被当成返回值，返回给到了变量fn3。</li>
+<li>fn()函数执行完，就被销毁了，<strong>但是</strong>他创建的闭包并没有销毁，一直存在内存中</li>
+<li>因为fn3在何时调用，调用多少次这个说不定，只要 fn3 被调用，就会执行 fn2 中的代码，就会访问变量 a,所以 fn 函数形成的闭包并不会随着 fn 函数的销毁而被销毁，而是一直存在于内存中。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>闭包带来的便利-<strong>函数体外</strong>可以访问函数内部的变量</p>
+<blockquote>
+<ul>
+<li>只要我们执行fn3，就相当于执行fn2中的代码，就会访问变量a，他在当前fn2的作用域中找不到，就会去他的隐式属性<code>[[Scopes]]</code>即作用链中去查找，因为之间有闭包存在，所以他会先在闭包中找。找到了a，就打印出来。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>总结闭包形成的两种情况</li>
+</ol>
+<ul>
+<li>情况一：<blockquote>
+<ul>
+<li>当内部函数访问了外部函数的变量时，就会形成闭包，但这种情况下闭包不能保持，内部函数执行完，闭包就销毁了。</li>
+</ul>
+</blockquote>
+</li>
+<li>情况二：<blockquote>
+<ul>
+<li>内部函数使用了外部函数的变量，同时被返回到了外部函数的外面，这时就会形成闭包。这种情况下闭包能被保持，一直在保存在内存中。被返回到外部的函数，不管何时执行，执行多少次，都可以访问到他在定义时所在作用域中的变量。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>我们通常说说的闭包，指的是第二种情况下形成的闭包，因为第一种情况没有办法保持。</p>
+</blockquote>
+</blockquote>
+<h4 id="什么是闭包"><a href="#什么是闭包" class="headerlink" title="什么是闭包"></a>什么是闭包</h4><blockquote>
+<ul>
+<li><strong>闭包</strong>（closure）是一个函数以及其捆绑的周边环境状态（lexical environment，<strong>词法环境</strong>）的引用的组合。</li>
+<li>换而言之，闭包让开发者可以从内部函数访问外部函数的作用域。</li>
+<li>在 JavaScript 中，闭包会随着函数的创建而被同时创建。<img src="闭包.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>可以理解为是函数的一种性质，他能记住他在声明时所处的环境状态。那么不管后来函数在什么第三方被调用，他都能访问他在<strong>定义时</strong>所处作用域中的变量。</p>
+</blockquote>
+</blockquote>
+<h4 id="闭包与作用域链的关系"><a href="#闭包与作用域链的关系" class="headerlink" title="闭包与作用域链的关系"></a>闭包与作用域链的关系</h4><blockquote>
+<ul>
+<li>每个函数身上都有一个<code>[[Scopes]]</code>属性， 这个属性用来保存<strong>当前函数</strong>所有用到的闭包对象和<strong>全局</strong>执行上下文对象(window)。<img src="隐式属性的值.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>当内部函数引用了外部函数中的变量时，就会形成闭包，这个闭包对象中保存了内部函数引用外部函数中的那些变量。 当前函数身上的<code>[[Scopes]]</code>属性中，保持了对这个闭包对象的引用。</li>
+<li>作用域链查找，本质就是先在当前作用域中找，如果找不到，就会去函数的<code>[[Scopes]]</code>属性中保存的闭包对象和全局对象中去找。</li>
+</ul>
+</blockquote>
+<h4 id="闭包的用途"><a href="#闭包的用途" class="headerlink" title="闭包的用途"></a>闭包的用途</h4><blockquote>
+<p>闭包有两大特性：记忆性、模拟私有变量</p>
+<ul>
+<li>记忆性： 当闭包产生时，函数所处环境的状态会始终保持在内存中，不会在外层函数调用后被自动清除，这就是闭包的记忆性。</li>
+<li>模拟私有变量： 我们可以把一些不需要的全局变量封装成“私有变量”。</li>
+</ul>
+</blockquote>
+<ol>
+<li>闭包记忆性案例<blockquote>
+<ul>
+<li>创建体温检测函数 checkTemp(n)，可以检查体温 n 是否正常，函数会被返回布尔值，体温正常会返回true，体温不正常会返回false</li>
+<li>但，不同的小区有不同的体温检测标准：</li>
+<li>比如：A 小区体温合格线是 37.1 ℃，而 B 小区体温合格线是37.5 ℃，应该怎样编程呢 ？</li>
+</ul>
+<pre><code>function creatChack(standardTemp) &#123;
+return function checkTemp(Temp) &#123;
+  return Temp &lt; standardTemp;
+&#125;;
+ &#125;
+ //建立标准
+ var fn = creatChack(37.1);
+ console.log(fn);
+ //   f checkTemp(Temp) &#123;
+ //       return Temp &lt; standardTemp;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p> &#x2F;&#x2F;     };<br> &#x2F;&#x2F;输入体温<br> console.log(fn(38)); &#x2F;&#x2F;false</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>模拟私有变量</li>
+</ol>
+<ul>
+<li>题目：请定义一个变量 a，要求是能保证这个 a 只能被进行指定操作（如：加 1、乘 2），而不能进行其他操作，应该怎么编程呢 ？<blockquote>
+<pre><code>function self() &#123;
+ var a = 1;
+ return &#123;
+   getA: function () &#123;
+     return a;
+   &#125;,
+   add: function () &#123;
+     a++;
+   &#125;,
+   pow: function () &#123;
+     a *= 2;
+   &#125;,
+ &#125;;
+ &#125;
+ var obj = self();
+ // 如果想在fun函数外边使用变量a，唯一的方法就是调用getA()方法
+ console.log(obj.getA()); //1
+ // 如果需要变量+1只能调用add方法
+ obj.add(); //1+1
+ console.log(obj.getA()); //2
+ // 如果需要变量+1只能调用pow方法
+ obj.pow(); //2*2
+ console.log(obj.getA()); //4
+ obj.pow(); //4*2
+ console.log(obj.getA()); //8
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>函数身上的<code>[[Scopes]]</code>属性是对闭包对象的引用</li>
+<li>闭包是一个对象，是一个引用数据类型，存储在堆内存中</li>
+<li>getA(),add(), pow()中的a都是指向同一个堆内存地址</li>
+</ul>
+</blockquote>
+<h3 id="五、垃圾回收-GC"><a href="#五、垃圾回收-GC" class="headerlink" title="五、垃圾回收 GC"></a>五、垃圾回收 GC</h3><h4 id="什么是垃圾回收（Garbage-Collection）？"><a href="#什么是垃圾回收（Garbage-Collection）？" class="headerlink" title="什么是垃圾回收（Garbage Collection）？"></a>什么是垃圾回收（Garbage Collection）？</h4><blockquote>
+<ul>
+<li>在现实生活中，所谓的垃圾，就是指用过了，不会再用的东西，就可以当成垃圾被处理掉。</li>
+<li>在 JS 中，所谓的垃圾，你可以理解为那些不会再被使用的数据，就会被当成垃圾回收掉</li>
+<li>JavaScript 中 JS 引擎会<strong>自动回收</strong>不再使用的变量，释放其所占的内存，开发人员不需要手动的做垃圾回收的处理。<blockquote>
+<p>但最艰难的任务是找到那些变量将不会再使用，释放其“占用的内存”</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>我们来看下面几个例子，分析下，其中的变量否会被当成垃圾回收掉</li>
+</ol>
+<ul>
+<li><p>下面代码执行完后，其变量 a 和 obj 还会占用内存空间吗？</p>
+<blockquote>
+<pre><code>function fn() &#123;
+var a = 1;
+console.log(a);
+var obj = &#123;
+  name: &quot;张三&quot;,
+  age: 23,
+&#125;;
+console.log(obj);
+&#125;
+fn(); // 执行函数
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 上面fn()函数执完后，变量中的a 和obj就会被销毁掉，不会再占用内存的空间了。<br>&#x2F;&#x2F; 当然垃圾回收，并不会立刻马上就回收，他可以马上，也可以会等一会儿，但时间不会太久<br>&#x2F;&#x2F; 函数执行完，里面的数据都不会再被其它对象引用，也就会当成垃圾被处理掉</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>下面代码执行完后，其变量 a 和 obj 还会占用内存吗 ？</p>
+<blockquote>
+<pre><code>function fn() &#123;
+var a = 1;
+var obj = &#123;
+  name: &quot;张三&quot;,
+  age: 23,
+&#125;;
+window.a = a;
+window.obj = obj;
+&#125;
+fn(); // 执行函数
+// fn()函数执行后，变量a和obj被赋值给了window对象的属性，也就是全局对象window保持了对变量a和obj的引用。说不定什么时候我们就可以需要用到window.a和window.obj
+// 所以这种情况下 变量a被销毁，但是window.a上的a属性和obj中的引用对象并不会被销毁
+// 但这里的obj和window.a并不是垃圾，因为我们在后面还需要用到他。
+// 以上变量占用内存，是符合用户预期的
+</code></pre>
+</blockquote>
+</li>
+<li><p>下面代码执行完后，a 和 b 还会占用内存吗 ？</p>
+<blockquote>
+<pre><code>function fn() &#123;
+var a = 1;
+var b = 2;
+function sum() &#123;
+  console.log(a + b);
+&#125;
+return sum;
+&#125;
+var s = fn(); // 调用函数
+s(); // 调用函数
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 上面代码执行完后，a，b并不会被销毁会，因为形成了闭包，我们不知道什么进候，我们还会调用s();<br>&#x2F;&#x2F; 如果我们把变量a,b销毁了的话，那我们后面如果要调用s()，那不就会报错吗？<br>&#x2F;&#x2F; 这种情况下闭包就会造成变量不能被销毁，一直占用内存。那这算是内存泄露吗？<br>&#x2F;&#x2F; 这种情况，我们是有意想要形成闭包，人为的希望局部变量a和b能一直保存在内存中，所以不能算内存泄露</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>如果某些数据我们未来还有可能会用到，那么他一直占用内存是符合用户期望的，并不能算垃圾，所以也不能当成垃圾回收掉。</li>
+<li>只有那些被执行完，未来不可能再用到的数据，就是垃圾，就可以当成垃圾被回收掉。</li>
+<li>那 JS 是如何判断那些数据未来永远都不可能用到呢 ？然后把他当成垃圾回收掉呢 ？</li>
+</ul>
+</blockquote>
+<h4 id="JS-中垃圾回收的两种策略"><a href="#JS-中垃圾回收的两种策略" class="headerlink" title="JS 中垃圾回收的两种策略"></a>JS 中垃圾回收的两种策略</h4><blockquote>
+<p>垃圾回收主要有两种策略，标记清理和引用计数。</p>
+</blockquote>
+<ol>
+<li>引用计数<blockquote>
+<ul>
+<li>引用计数其实是一种比较老的垃圾回收策略</li>
+<li>引用计数就是追踪<strong>值</strong>被引用的次数。</li>
+<li>声明变量并给它赋一个<strong>引用类型</strong>值时，这个值的引用数为 1，如果同一个值又被赋给另一个变量，那引用数+1</li>
+<li>如果保存该值引用的变量被其它值<strong>覆盖</strong>了，则引用数减 1</li>
+<li>当引用计数为 <code>0</code> 时，表示这个值不再用到，垃圾收集器就会回收他所占用的内存。</li>
+</ul>
+<pre><code>var a = [1, 2, 3]; // [1,2,3]的引用计数为1
+var b = a; // 变量b也引用了这个数组，所以[1,2,3]的引用数为2
+var a = null; // [1,2,3]的引用被切断，引用数-1，所以[1,2,3]的引用数为1
+// 如果只是到这里，那[1,2,3]不所占的内存不会被回收
+var b = null; // [1,2,3] 的引用被切断，引用数-1，所 [1,2,3]的引用数为0
+// 到这里，垃圾收集器在下一次清理内存时，就会把[1,2,3]所占的内存清理掉
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>但引用计数有一个很大的坑，就是循环引用时，会造成内存永远无法释放。<blockquote>
+<pre><code>function fn() &#123;
+var obj1 = &#123;&#125;;
+var obj2 = &#123;&#125;;
+obj1.a = obj2;
+obj2.a = obj1;
+&#125;
+fn();
+// 这种情况下，fn函数执行完后，其内部的obj1和obj2已经没有用了，可以被回收了。
+// 但引用计数统计到他们引用数&gt;0,则 obj1和obj2就没有办法被清理了，因为引用数永远不可能为0
+</code></pre>
+<img src="引用计数缺陷.png"></blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>fn 执行上下文在代码执行完后，就<strong>出栈</strong>，意味着 obj1 与 obj2 被销毁，不会再有指向堆内存中的引用</li>
+<li>但是堆内存中的数据，引用数&gt;0,所以永远都不会被销毁</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>标记清理<blockquote>
+<ul>
+<li>这个算法假定设置一个叫做<strong>根（root）</strong>的对象（在 JavaScript 里，根是<strong>全局对象</strong> <code>window</code>）</li>
+<li>垃圾回收器将定期从根开始，找所有从根开始引用的对象，然后找这些对象引用的对象……</li>
+<li>从根开始，垃圾回收器将找到所有可以获得的对象和收集所有不能获得的对象。</li>
+<li>那些<strong>无法</strong>从根对象查询到的对象都将被清除<br>如果用标记清理的方式来处理垃圾回收，则就不会出现上面循环引用的问题，造成垃圾不能回收了<br>因为函数调用之后，两个对象 obj1 和 obj2 <strong>都无法</strong>从全局对象出发获取。因些，他们将会被垃圾回收器回收掉。<blockquote>
+<p>从 2012 年起，所有现代浏览器都使用了标记 - 清除垃圾回收算法</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>JS引擎的自动垃圾回收功能并不是全能的</p>
+</blockquote>
+</blockquote>
+<h4 id="手动标记垃圾"><a href="#手动标记垃圾" class="headerlink" title="手动标记垃圾"></a>手动标记垃圾</h4><blockquote>
+<ul>
+<li>通过上面两种垃圾加收的策略，我们知道，在全局作用域中的变量永远都可以从全局对象上获取到。所以永远不会自动回收。</li>
+<li>所以我们在写代码时，尽量要<strong>避免</strong>不要把一些变量设置为全局变量，如果实在要设为全局变量，那我们使用完后不再需要，那我们就需要<strong>手动将其标注为垃圾</strong>，让垃圾回收器回收掉。</li>
+<li>手动标记垃圾的方式，本质就是<strong>切断引用</strong>，常用的方式就是把变量的值重新赋值为 <code>null</code></li>
+</ul>
+<pre><code>var obj = &#123;
+  name: &quot;张三&quot;,
+  age: 23,
+&#125;;
+// 标记为垃圾，垃圾回收器就会自动回收掉内存中的 &#123; name:&#39;张三&#39;,age:23&#125; 这个对象占用的空间
+obj = null;
+</code></pre>
+</blockquote>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<ul>
+<li>所谓的垃圾可以理解为，<strong>非用户预期的内占存用</strong>，那么这些占用内存的数据就可以理解为垃圾，应该回收掉。如果是用户预期的内存占用，那都不能算是垃圾。</li>
+<li>如果有些变量我们不再需要，而<strong>垃圾回收器无法识别</strong>，那我们就可以手动将其标记为垃圾。即把变量的值起来 <code>null</code></li>
+</ul>
+</blockquote>
+<h4 id="闭包与内存管理"><a href="#闭包与内存管理" class="headerlink" title="闭包与内存管理"></a>闭包与内存管理</h4><blockquote>
+<ul>
+<li>我们经常听说闭包会造成内存泄露，所谓<strong>内存泄漏</strong>是指程序中已动态分配的内存由于某种原因<strong>未释放或无法释放</strong></li>
+<li>那闭包会造成内存泄露吗 ？ 我们来看下这段代码：</li>
+</ul>
+<pre><code>// 设置当地的一个参考分数线，然后输入你的分数，查看是否超过分数线
+function compare(score1) &#123;
+  return function (score) &#123;
+    if (score1 &gt; score) return &quot;分数线过底不达标&quot;;
+    return &quot;恭喜，分数线超过一本&quot;;
+  &#125;;
+&#125;
+// 北京1本录取分数线
+var fn = compare(530);
+// 小明的分数是540
+console.log(fn(540));
+</code></pre>
+</blockquote>
+<ul>
+<li>代码解读<blockquote>
+<ul>
+<li>上面代码中的 <code>score1</code> 变量在<strong>页面没有关闭前</strong>，永远都不会被销毁</li>
+<li>因为内部函数作为返回值被返回，同时内部函数引用了变量 <code>score1</code>，所以就形成了<strong>闭包</strong>。闭包对象中包含了属性 <code>score1</code>，</li>
+<li>但是，我们使用闭包，<strong>本质也是为了用他的这个特性，希望局部变量能被保存在内存中，不要销毁</strong>。如果从这个角度来看，闭包并不能说会造成内存泄露。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>本质上闭包是<strong>有意的</strong>将变量保存在内存中，是<strong>用户预期的内存占用</strong>，所以不能算是内存泄露。</li>
+<li>如果因为<strong>不小心误用了闭包</strong>，而造成某些数据一直占用内存而不能被回收，那就可以理解为因为误用闭包而造成的内存泄露。因为闭包中的数据，肯定是不能被垃圾加收的。</li>
+<li>不能滥用闭包，否则会造成网页的性能问题，严重时可能会导致内存泄漏</li>
+</ul>
+</blockquote>
+<h4 id="区分内存泄露和内存溢出"><a href="#区分内存泄露和内存溢出" class="headerlink" title="区分内存泄露和内存溢出"></a>区分内存泄露和内存溢出</h4><blockquote>
+<ul>
+<li>内存泄露：是指程序在申请内存后，无法释放已申请的内存空间，一次内存泄露危害可以忽略，但<strong>内存泄露堆积</strong>后果很严重，无论多少内存，迟早会被占光。</li>
+<li>内存溢出： 是指程序在申请内存时，没有足够的内存空间供其使用，内存不足。</li>
+</ul>
+</blockquote>
+<h3 id="六、IIFE-立即执行函数"><a href="#六、IIFE-立即执行函数" class="headerlink" title="六、IIFE 立即执行函数"></a>六、IIFE 立即执行函数</h3><ol>
+<li>什么是 IIFE 立即执行函数?<blockquote>
+<ul>
+<li>IIFE （Immediately Invoked Function Expression）（立即调用的<strong>函数表达式</strong>）</li>
+<li>是一种特殊的 JavaScript 函数写法，一旦被定义，就立即被调用</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>语法：</strong><blockquote>
+<p>声明一个<strong>匿名函数</strong>，也就是没有名字的函数，然后用()把匿名函数转为 <strong>“函数表达式”</strong>，然后再调用</p>
+</blockquote>
+</li>
+<li>写法：<blockquote>
+<pre><code>// 写法一
+(function () &#123;
+// 函数体语句
+&#125;)();
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<p>&#x2F;&#x2F; 写法二<br>(function () {<br>  &#x2F;&#x2F; 函数体语句<br>})();<br>&#x2F;&#x2F; 以下是错误写法<br>&#x2F;&#x2F; 函数不能直接加圆括号被调用<br>function(){<br>    &#x2F;&#x2F; 函数体语句<br>}();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>温馨提示：</p>
+</blockquote>
+<ul>
+<li>我们之前说，直接用 function 声明的函数称为函数声明，那这里为什么称为函数表达式呢 ？</li>
+<li>是因为<code>()</code>括号的功能，他<strong>将函数变为了表达式</strong>，然后()括号后面的()括号，表示执行函数</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>形成 IIFE 的其它方法<blockquote>
+<ul>
+<li>除了用<code>()</code>包裹函数声明，将函数声明转为“函数表达式”之外</li>
+<li>我们还可以在函数声明前添加<code>-</code>或<code>+</code>号，来将函数声明转为“函数表达式”，然后再调用</li>
+</ul>
+<pre><code>(function () &#123;
+  // 函数体语句
+&#125;)();
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<p>+(function () {<br>  &#x2F;&#x2F; 函数体语句<br>})();</p>
+<p>-(function () {<br>  &#x2F;&#x2F; 函数体语句<br>})();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>IIFE 的作用一 ——为变量赋值<blockquote>
+<ul>
+<li>当我们给变量赋值时，其值需要一些较为复杂的计算才能得到，这时候就可以用立即执行函数来实现</li>
+<li>使用 IIFE 显得语法更紧凑</li>
+</ul>
+<pre><code>// 获取一个随机颜色
+//写法1：
+ var arr = [&quot;red&quot;, &quot;pink&quot;, &quot;skyblue&quot;, &quot;khaki&quot;];
+ function color() &#123;
+var i = (Math.random() * arr.length) &gt;&gt; 0;
+return arr[i];
+ &#125;
+ console.log(color());
+</code></pre>
+</blockquote>
+ &#x2F;&#x2F;写法2：使用IIFE<br> var color &#x3D; (function () {<br>var arr &#x3D; [“red”, “pink”, “skyblue”, “khaki”];<br>var i &#x3D; (Math.random() * arr.length) &gt;&gt; 0;<br>return arr[i];<br> })();<br> console.log(color);<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>以上写法，函数不会被其它对象引用，也不能在其它地方被执行。</li>
+<li>如果你的某个函数只是为了一次求值，其它地方也不会再使用他，则可以用 <code>IIFE</code> 来实现。</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>IIFE 的作用二 ——将全局变量变为局部变量<blockquote>
+<p>在很多情况下，我们希望将<strong>全局变量转为局部变量</strong>保存起来。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>情况一：</p>
+<blockquote>
+<pre><code>var arr = [];
+for (var i = 0; i &lt;= 5; i++) &#123;
+arr.push(function () &#123;
+  console.log(i);
+&#125;);
+&#125;
+arr[0](); // 6
+arr[1](); // 6
+arr[2](); // 6
+arr[3](); // 6
+arr[4](); // 6
+</code></pre>
+<ul>
+<li>i是全局变量，i&#x3D;6;函数arr<a href="">i</a>内没有声明变量i,所以只能向外查找变量，得到i&#x3D;6</li>
+</ul>
+</blockquote>
+</li>
+<li><p>情况二：</p>
+<blockquote>
+<pre><code>var arr = [];
+for (var i = 0; i &lt;= 5; i++) &#123;
+// IIFE  本质是，在每一次循环，形成了一次闭包
+(function (i) &#123;//这里的i是形参，每次循环都会声明变量
+  arr.push(function () &#123;
+    console.log(i);
+  &#125;);
+&#125;)(i);//这里的i是实参
+&#125;
+</code></pre>
+</blockquote>
+<p>arr<a href="">0</a>; &#x2F;&#x2F;0</p>
+<!-- var arr = [];
+ // IIFE  本质是，在每一次循环，形成了一次闭包
+ (function (i) {
+ i=0; //形成闭包
+ arr.push(function () {
+   console.log(i);//从闭包内获取值
+ });
+ })(0); -->
+<blockquote>
+</blockquote>
+<p>arr<a href="">1</a>; &#x2F;&#x2F;1<br>arr<a href="">2</a>; &#x2F;&#x2F;2<br>arr<a href="">3</a>; &#x2F;&#x2F;3<br>arr<a href="">4</a>; &#x2F;&#x2F;4</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>arguments.callee<blockquote>
+<ul>
+<li>arguments 对象身上有一个 callee 属性，是指向 arguments 对象所在函数的指针。</li>
+<li>通过arguments.callee能获取到 arguments 对象所在的<strong>函数</strong>。arguments.callee已经被<strong>弃用</strong>，不应该再使用了，这里只当了解。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>arguments.callee 的作用<blockquote>
+<ul>
+<li>当我们需要在一个匿名函数内部，调用这个函数自身时，他就非常有用了</li>
+</ul>
+<pre><code>// 输入5的阶乘
+var n = (function (n) &#123;
+if (n == 1) return 1;
+return n * arguments.callee(n - 1);
+&#125;)(5);
+console.log(n);
+</code></pre>
+<blockquote>
+<p>通常在递归调用匿名函数时，就可以用<code>argument.callee</code>来找到匿名函数</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h3 id="七、JavaScript-错误处理"><a href="#七、JavaScript-错误处理" class="headerlink" title="七、JavaScript 错误处理"></a>七、JavaScript 错误处理</h3><h4 id="常见错误类型"><a href="#常见错误类型" class="headerlink" title="常见错误类型"></a>常见错误类型</h4><blockquote>
+<p>代码执行过程中会发生各种类型的错误，每种类型的错误都对应一个<strong>错误对象</strong>，常见的错误类型有以上 8 种</p>
+<ul>
+<li>SyntaxError 语法错误</li>
+<li>ReferenceError 引用错误</li>
+<li>TypeError 类型错误</li>
+<li>RangeError 范围错误</li>
+<li>URIError URI 错误</li>
+<li>EvalError eval 错误</li>
+<li>InternalError 内部错误（非标准）</li>
+<li>Error 错误对象，用于自定义错误</li>
+</ul>
+</blockquote>
+<p>1、SyntaxError 语法错误</p>
+<blockquote>
+<ul>
+<li>JavaScript 引擎发现了不符合语法规范的代码，会出现此错误</li>
+</ul>
+<pre><code>// 变量名不规范
+var this = 1;
+var 2a=3;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; if 少了 }<br>if (1) {<br>    console.log(2);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li><p>ReferenceError 引用错误</p>
+<blockquote>
+<ul>
+<li>会在找不到对象时发生，比如常见的访问不存在的变量时，就会报引用错误</li>
+</ul>
+<pre><code>console.log(a); // a变量不存在
+var num = c; // c变是不存在
+</code></pre>
+</blockquote>
+</li>
+<li><p>TypeError 类型错误</p>
+<blockquote>
+<ul>
+<li>当变量不是预期类型时，就会引发这种类型错误。</li>
+<li>比如常见引发这一错误的行为：把一个基本数据类型当函数调用。</li>
+</ul>
+<pre><code>var a = 1;
+a();
+</code></pre>
+</blockquote>
+<p>console.log(“name” in true); &#x2F;&#x2F; true不是一个对象</p>
+<blockquote>
+</blockquote>
+<p>var arr &#x3D; [1, 2, 3];<br>console.log(arr.call(null)); &#x2F;&#x2F; arr 不是一个函数</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>RangeError 范围错误</p>
+<blockquote>
+<ul>
+<li>当数字超出允许的值范围时，将会抛出此类型的错误</li>
+</ul>
+<pre><code>var arr = [1, 2, 3];
+arr.length = -1; // 数组长度
+</code></pre>
+</blockquote>
+<p>var num &#x3D; 1.233;<br>num.toFixed(-1); &#x2F;&#x2F; 参数在0-100之间</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>URIError URI 错误</p>
+</li>
+</ol>
+<ul>
+<li><p>在了解 URIError 错误之前，我们先来了解下什么是 URI、URL、URN</p>
+<blockquote>
+<ul>
+<li>URI（Uniform Resource Identifier）：统一资源标识符 ，用来唯一标识资源，是一种语义上的抽象概念</li>
+<li>URL（Uniform Resource Locator）：统一资源定位符，用来定位唯一的资源， 必须提供足够的定位信息</li>
+<li>URN（Uniform Resource Name）：统一资源名称，定义了资源的身份（命名）<br><strong>他们三者的关系如下图</strong><img src="URI三者关系图.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>如果用一个人来做比喻的话</p>
+<blockquote>
+<ul>
+<li>URN 相当人的身份证号，唯 一标识。</li>
+<li>URL 相当于找到这个人的方式，如住址: x 省 xx 市 xx 区 … xx 单元 xx 室的身份证号为 xxx 的人</li>
+<li>URI 相当身份证，上面有身份证号，也有地址。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如果用一个网址来表示的话</p>
+<blockquote>
+<ul>
+<li>URL: <a target="_blank" rel="noopener" href="https://www.arryblog.com/guide/html5/html-html5-course.htm">https://www.arryblog.com/guide/html5/html-html5-course.htm</a></li>
+<li>URN:guide&#x2F;html5&#x2F;html-html5-course.htm</li>
+<li>URI: 可以是上面的 ULR，也可以是 URN</li>
+</ul>
+</blockquote>
+</li>
+<li><p>URIError 错误</p>
+<blockquote>
+<ul>
+<li>URL 错误只会在<code>encodeURI()</code> 和 <code>decodeURI()</code> 传入了格式错误的 URI 时发生。但我们很难看到这种错误，因为前面两个函数非常稳键。</li>
+<li><code>encodeURI()</code> 对传入的 URI 进行编码</li>
+<li><code>decodeURI()</code> 对传入的 URI 进行解码</li>
+</ul>
+<pre><code> var url = &quot;https://www.arryblog.com/html/文档笔记.html&quot;;
+ console.log(encodeURI(url));
+ console.log(decodeURI(&quot;dd78%&quot;));
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="6">
+<li><p>EvalError eval 错误</p>
+<blockquote>
+<ul>
+<li>在使用<code>eval()</code>函数时发生异常时抛出错误。因为eval被禁用，所以了解就好。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>InternalError（非标准）内部错误</p>
+<blockquote>
+<ul>
+<li>该错误在<strong>JS 引擎</strong>内部发生发生异常时会抛出。如果真发生了这种错误，很可能代码哪里弄错了或者有危险了。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Error 自定义错误</p>
+<blockquote>
+<pre><code>throw new Error(&quot;自定义错误&quot;);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="try-…-catch-语句"><a href="#try-…-catch-语句" class="headerlink" title="try … catch 语句"></a>try … catch 语句</h4><blockquote>
+<ul>
+<li>try…catch 语句用来处理 JS 中的异常</li>
+</ul>
+</blockquote>
+<ol>
+<li>语法<blockquote>
+<pre><code>try &#123;
+  // 可能会出错的代码
+&#125; catch (e) &#123;
+  // 出错时要做什么
+&#125;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果try块中的代码发生错误，则会<strong>立即退出执行</strong>，并跳到catch块中，catch块此时会接收到一个<strong>对象</strong>，这个对象包含发生错误的相关信息。</li>
+<li>try捕获到错误后,不会再执行try错误后的代码，同时将错误交给catch来处理，然后再执行后面的代码</li>
+</ul>
+<pre><code>var a = 1;
+try &#123;
+  // 可能出错的代码
+  a();
+  console.log(22); // 不执行
+&#125; catch (e) &#123;
+  // 出错时要做的事
+  console.log(e); // 执行
+&#125;
+console.log(&quot;try后面代码&quot; + a); // 执行
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>finally 子句<blockquote>
+<ul>
+<li><code>finally</code>子句是<code>try...catch</code>语句中的一部分，为<strong>可选</strong>的</li>
+<li>不管try中代码是否发生错误，最终都会执行<code>finally</code>子句中的代码</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>语法<blockquote>
+<pre><code>try &#123;
+// 可能会出错的代码
+&#125; catch (e) &#123;
+// 出错时要做什么
+&#125; finally &#123;
+//永远都会执行的代码
+&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>var a = 1;
+function fn(a) &#123;
+  try &#123;
+    // 可能出错的代码
+    a();
+    return 1;//不执行
+  &#125; catch (e) &#123;
+    // 出错时要做的事
+    return 2;
+  &#125; finally &#123;
+    return 3;//执行
+  &#125;
+&#125;
+console.log(fn(a));
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>try和catch中的return 语句也无法阻止 finally 代码块的执行</li>
+</ul>
+</blockquote>
+<h4 id="throw-抛出自定义错误"><a href="#throw-抛出自定义错误" class="headerlink" title="throw 抛出自定义错误"></a>throw 抛出自定义错误</h4><blockquote>
+<ul>
+<li>throw 操作符，用于抛出<strong>自定义错误</strong>。throw 操作符后面必须有一个<strong>值</strong>，值可以是<strong>任意类型</strong>。</li>
+</ul>
+<pre><code>throw &quot;123&quot;;
+throw &quot;abc&quot;;
+throw true;
+</code></pre>
+</blockquote>
+<p>console.log(2); &#x2F;&#x2F; 不会被执行</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 使用 throw操作符时，代码立即停止执行，除非用try…catch捕获了抛出的错误</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>throw 与 try…catch 结合<blockquote>
+<ul>
+<li>可以自定义一个错误类型的消息，浏览器会像处理自己生成的错误一样来处理这个自定义错误</li>
+</ul>
+<pre><code>//当输入的实参不是数组时会报错
+function fn(arr) &#123;
+try &#123;
+  return arr.slice(0, 1);
+&#125; catch (e) &#123;
+  throw new TypeError(&quot;arr参数，必须是一个数组&quot;);
+&#125;
+console.log(arr); // 上面抛出错误，这里不会执行
+&#125;
+fn(1);
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="LHS-和-RHS-查询"><a href="#LHS-和-RHS-查询" class="headerlink" title="LHS 和 RHS 查询"></a>LHS 和 RHS 查询</h3><blockquote>
+<p>LHS字面理解是 <code>Left Hand Sid</code> 即左手边，RHS字面理解是 <code>Right Hand Side</code> 即右手边。</p>
+</blockquote>
+<ol>
+<li>LHS 和 RHS <strong>片面</strong>的理解<blockquote>
+<p>一般简单片面的理解为<strong>赋值操作符</strong>的左边和右边</p>
+<ul>
+<li>当<strong>变量</strong>出现在赋值操作符的左侧时进行LHS 查询，出现在右侧时进行RHS 查询</li>
+<li>LHS 查询是试图找到变量的<strong>容器本身</strong>，然后对其<strong>赋值</strong></li>
+<li>RHS 查询是试图找到变量的中<strong>对应的值</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var a;
+var b;
+</code></pre>
+</blockquote>
+<p>a &#x3D; 1;<br>b &#x3D; a;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>代码解读</li>
+</ul>
+<p><strong>① 编译阶段</strong></p>
+<blockquote>
+<ul>
+<li>会在当前作用域中声明 2 个变量 a 和 b</li>
+</ul>
+</blockquote>
+<p><strong>② 执行阶段</strong></p>
+<blockquote>
+<ul>
+<li>a &#x3D; 1，这里的 <code>a</code> 会进行 <code>LHS</code> 查询，查询<strong>是否存在</strong>变量 a，并不关心 a 的值是什么。如果变量 a 存在，就给他<strong>赋值</strong>为 1</li>
+<li>b &#x3D; a，首先会对 <code>a</code> 进行 <code>RHS</code> 查询，查询是否存在变量 a，存在，并把对应的值 1 拿到</li>
+<li><strong>然后</strong>再对 <code>b</code> 进行 <code>LHS</code> 查询，查询是否存在变量 b，存在，并把对应的值 1 赋值给到变量 b</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>LHS 和 RHS 更准确的理解<blockquote>
+<p>通过上面分析，我们知道</p>
+<ul>
+<li>LHS 查询只关心是否存在这个变量，并不关心变量对应的值是什么</li>
+<li>RHS 查询除了关心变量是否存在之外，还关心变量中对应的值，因为最终就是为了找到变量对应值。<br><strong>所以，更准确的说</strong></li>
+<li>LHS 查询可以理解为<strong>赋值操作的目标</strong>是谁 ？ 即我要把值赋值给谁</li>
+<li>RHS 查询可以理解为<strong>赋值操作的源头</strong>是谁？ 我要用什么来内容完成赋值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>function fn(c) &#123;
+  console.log(c);
+  console.log(b);
+  console.log(a);
+  a = 1;
+  var b = a;
+  b();
+&#125;
+fn(2);
+</code></pre>
+</blockquote>
+<ul>
+<li>代码解读</li>
+<li>① 全局代码运行时</li>
+</ul>
+<p><strong>编译阶段</strong></p>
+<blockquote>
+<ul>
+<li>声明函数 <code>fn</code>，fn 是 window 对象身上的属性，即<code>window.fn=function()&#123;......&#125;</code></li>
+</ul>
+</blockquote>
+<p><strong>执行阶段</strong></p>
+<blockquote>
+<ul>
+<li><code>fn(2)</code>在调用前，会对 fn 进行 RHS 查询，查询是否存在 fn，并拿到 fn 的值，然后开始执行</li>
+</ul>
+</blockquote>
+<ul>
+<li>② fn 函数调用时</li>
+</ul>
+<p><strong>编译阶段：</strong></p>
+<blockquote>
+<ul>
+<li>在当前作用域中<strong>声明</strong> 2 个变量 <code>c</code> 和 <code>b</code>，同时<code>c = 2</code></li>
+<li>这个过程 c 也会进行 LHS 查询，找到是否存在变量 c，然后存在将值 2 赋值给到他</li>
+</ul>
+</blockquote>
+<p><strong>执行阶段：</strong></p>
+<blockquote>
+<ul>
+<li>当执行到<code>console.log(c)</code>，会对 c 进行 RHS 查询，取得 c 的值为 2，还会对 console 进行 RHS 查询</li>
+<li>当执行到 <code>console.log(b)</code>，会对 b 进行 RHS 查询，取得 c 的值为 undefined，对 console 进行 RHS 查询</li>
+<li>当执行到<code>console.log(a)</code>，会对 c 进行 RHS 查询，发现找不到变量 a，然后报出 引用错误，….</li>
+<li>当执行到a &#x3D; 1，会对 a 进行 LHS 查询，发现找不到变量 a<ul>
+<li>在非严格模式下，此时会全局作用域中创建一个同名的变量，然后将 1 赋值给 a</li>
+<li>在严格模式下，会报 引用错误，找不到变量 a</li>
+</ul>
+</li>
+<li>当执行到b &#x3D; a<ul>
+<li>首先对 a 进行 RHS 查询，找到变量 a，并取得 a 的值 1</li>
+<li>然后对 b 进行 LHS 查询，找到变量 b，把对应的值 1 赋值给 b</li>
+</ul>
+</li>
+<li>当执行到b()时，会对 b 进行 RHS 查询，找到了，但 b 的值不是一个函数，你对 b 执行函数调用，会抛出类型错误<code>（TypeError）</code></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>总结：LHS 和 RHS<br><strong>LHS 查询</strong><blockquote>
+<ul>
+<li>只关心有没有要查找的变量，并不关心变量的值是多少</li>
+<li>如果找到这个变量，就将对应值赋值给他。</li>
+<li>如果找不到，在严格模式下，会报引用错误，非严格模式下，会在全局作用域中创建一个同名的变量</li>
+<li>LHS 查询可以理解为 赋值操作的目标是谁 ？ 即我要把值赋值给谁</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>RHS 查询</strong></p>
+<blockquote>
+<ul>
+<li>他不仅关心有没有要查找的变量，还关心变量的值是多少，最终是要取到变量的值。</li>
+<li>如果找不到变量，则会报引用错误，如果找到，则把对应的值拿到</li>
+<li>如果对找到的变量，做不合理的操作，会抛出类型错误（TypeError）</li>
+<li>RHS 查询可以理解为 赋值操作的源头是谁 ？ 我要用什么来内容完成赋值<blockquote>
+<p>JS 引擎在查找某个变量时，会先判断是要 LHS 查询还是 RHS 查询，然后再根据对应规则去查询变量，做相应处理</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/08/JS%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">https://hermiablog.github.io/2023/12/08/JS%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="JS底层原理">
+                        
+                        <span class="card-title">JS底层原理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 执行原理、闭包、垃圾回收、立即执行函数
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="JS核心知识点（十七）">
+                        
+                        <span class="card-title">JS核心知识点（十七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 正则表达式从入门到实践，正则相关工具
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

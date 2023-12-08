@@ -1,0 +1,2955 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十五）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十五） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十五）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="JavaScript-继承的-6-种方式、应用场景，内置构造函数"><a href="#JavaScript-继承的-6-种方式、应用场景，内置构造函数" class="headerlink" title="JavaScript 继承的 6 种方式、应用场景，内置构造函数"></a>JavaScript 继承的 6 种方式、应用场景，内置构造函数</h2><h3 id="一、什么是继承呢-？"><a href="#一、什么是继承呢-？" class="headerlink" title="一、什么是继承呢 ？"></a>一、什么是继承呢 ？</h3><blockquote>
+<ul>
+<li>首先继承是一种关系，类（Class）与类之间的关系</li>
+<li>JS 中<strong>没有类</strong>,但是可以通过构造函数<strong>模拟类</strong>，然后通过原型来实现继承。</li>
+<li>继承是为了实现数据共享，同时对于实现<strong>代码的复用</strong>非常有用</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>我们先来看下面两个类<br><img src="继承-类.png"></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>解说</strong></p>
+<ul>
+<li><code>People</code>类拥有的属性和方法<code>Student</code>类都有，同时<code>Student</code>类还扩展了一些自已独有的属性和方法</li>
+<li>我们可以按上图结构定义<code>People</code>类，然后再定义一个<code>Student</code>类，在<code>Student</code>类上只需要定义<code>People</code>类上没有的属性和方法。</li>
+<li>然后用<code>Student</code>类继承<code>People</code>类，这样<code>Student</code>类就可以直接拥有<code>People</code>类的所有属性和方法了</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><code>Student</code> 类继承 <code>People</code> 类，在这个继承关系中</p>
+</blockquote>
+<ul>
+<li><code>People</code> 类称为“父类”（或 “超类”、“基类”）</li>
+<li><code>Student</code> 类称为“子类”（或“派生类”）</li>
+<li><code>Student</code> 子类可以访问 <code>People</code> 父类的所有属性和方法</li>
+<li><code>Student</code> “是一种” <code>People</code> ，两个继承类之间是<code>“is a kind of”</code>关系</li>
+<li>继承描述了两个类之间的<code>“ is a kind of &quot;</code>关系，也就是两个类之间存在<code>&quot;is a kind of &quot;</code>关系，就可以实现继承。</li>
+</ul>
+</blockquote>
+<ul>
+<li>接下来，我们来学习下，如何实现类与类之间的继承关系。</li>
+</ul>
+<blockquote>
+<p><strong>JavaScript 实现继承有以下 6 种方式</strong></p>
+<ul>
+<li>原型链实现继承</li>
+<li>借用构造函数（经典继承）</li>
+<li>组合继承</li>
+<li>原型式继承</li>
+<li>寄生式继承</li>
+<li>寄生式组合继承<blockquote>
+<p>实现继承的关键在于：子类必须拥有父类的全部公有（属性和方法），<strong>同时</strong>子类还应该能定义自己特有的属性和方法</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="二、通过原型链实现继承"><a href="#二、通过原型链实现继承" class="headerlink" title="二、通过原型链实现继承"></a>二、通过原型链实现继承</h3><blockquote>
+<p>接下来，我们来学习下，如何<strong>利用原型链</strong>实现 <code>Student</code>类 继承 <code>People</code>类</p>
+</blockquote>
+<h4 id="原型链实现继承的本质"><a href="#原型链实现继承的本质" class="headerlink" title="原型链实现继承的本质"></a>原型链实现继承的本质</h4><blockquote>
+<p>让子类构造函数的<code>prototype</code> ，指向父类的一个<strong>实例</strong></p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 子类 Student 父类 People</span>
+Student<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 以上原型链方式实现继承，Student 的实例就可以访问 Popele类原型上的所有方法和属性</span>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>通过前面的学习我们知道，每个构造函数都有一个 <code>prototype</code> 属性，这个属性指向一个对象。</li>
+<li>构造函数构造出来的实例对象，可以访问构造函数 <code>prototype</code> 属性上所有方法和属性。</li>
+<li>如果<code>子类构造函数.prototype = 父类的实例</code> ，那<strong>子类的实例</strong>就可以通过原型链查找，访问到父类构造函数原型 <code>prototype</code> 上面的所有属性和方法。</li>
+</ul>
+</blockquote>
+<ol>
+<li>Student 类继承 People 类关系图<img src="通过原型链继承.png"></li>
+</ol>
+<blockquote>
+<p>原型链实现继承本质上是<strong>扩展</strong>了原型的搜索机制。</p>
+<ul>
+<li>实例在访问某个属性时，会在自己身上找，找不到，就会去原型上找</li>
+<li>原型上找不到，就会去继承的实例的原型上去找，一层层向上找，找到就不找</li>
+<li>找不到就会一直找到原型链的终点（Object 原型的原型，为 null）</li>
+</ul>
+</blockquote>
+<ul>
+<li>Student 类 与 People 类 通过原型链实现继承，代码如下<blockquote>
+<pre><code>// 父类  人类
+function People(name, age, sex) &#123;
+this.name = name;
+this.age = age;
+this.sex = sex;
+&#125;
+People.prototype.sayHello = function () &#123;
+console.log(
+  &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
+);
+&#125;;
+People.prototype.sleep = function () &#123;
+console.log(this.name + &quot;开始睡觉了zzzzz&quot;);
+&#125;;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, sex, scholl, sid) {<br>this.name &#x3D; name;<br>this.age &#x3D; age;<br>this.sex &#x3D; sex;<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 实现继承   一定要先实现继承，再添加新的方法和属性<br>Student.prototype &#x3D; new People();<blockquote>
+</blockquote>
+Student.prototype.study &#x3D; function () {<br>console.log(this.name + “正在学习！”);<br>};<br>Student.prototype.exam &#x3D; function () {<br>console.log(this.name + “正在考试，加油！！”);<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 创建父类 实例<br>var laoliu &#x3D; new People(“老刘”, 38, “男”);<br>laoliu.sayHello();&#x2F;&#x2F;我是老刘今年38岁，我是男生<blockquote>
+</blockquote>
+&#x2F;&#x2F; 创建子类实例<br>var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800);<br>cuihua.sayHello();&#x2F;&#x2F;我是翠花今年18岁，我是女生<br>cuihua.sleep();&#x2F;&#x2F;翠花开始睡觉了zzzzz<br>cuihua.study();&#x2F;&#x2F;翠花正在学习！<br>cuihua.exam();&#x2F;&#x2F;翠花正在考试，加油！！<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>一定要先实现继承，再添加新的方法和属性<ul>
+<li><code>Student.prototype = new People();</code>改变了子类的<code>prototype</code></li>
+<li>通过<code>Student.prototype</code>添加的方法，实际上是加在了<code>new People()</code>身上</li>
+<li>如果先添加方法，再改变，就找不到该方法了</li>
+</ul>
+</li>
+<li>父类和子类身上都有<code>name</code>、<code>sex</code>、<code>age</code>属性</li>
+<li>写<code>Student.prototype = new People();</code>的时候，不用输入参数，输了也会被新创建的子类替代</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>注意事项 1 - 重写父类方法</p>
+<blockquote>
+<ul>
+<li>子类有时候需要覆盖父类的方法，或者增加父类没有的方法。这些方法必须<strong>在原型赋值之后再添加</strong>到原型上去。</li>
+<li>子类覆盖父类上已有的方法，我们称为重写 （override）父类方法</li>
+</ul>
+<pre><code>// 以下代码必需写在 Student.prototype = new People(); 之后
+// 也可以重写（override）父类的 sayHello方法
+Student.prototype.sayHello = function () &#123;
+  console.log(&quot;大家好，我是&quot; + this.scholl + &quot;学校的学生,我叫&quot; + this.name);
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>注意事项 2 - 子类的 <code>constructor</code> 指向问题</p>
+<blockquote>
+<p>复习知识点：</p>
+<ul>
+<li>任何函数都有一个<code>prototype</code>属性，<code>prototype</code>属性值是一个<strong>对象</strong>，这个对象有一个<code>constructor</code>属性，指向这个函数本身</li>
+<li>构造函数的<code>prototype</code>属性是它的实例的原型,在构造函数的实例中有一个隐含的属性<code>__proto__</code>，指向该构造函数的原型<code>prototype</code></li>
+<li>构造函数构造的<strong>实例</strong>可以直接访问<code>prototype</code>对象身上的属性和方法；因此<code>实例.constructor === 构造函数</code> 那就说明这个实例是这个构造函数的实例<blockquote>
+<p>实例会沿着原型链<code>__proto__</code>一层层查找<code>constructor</code>，只有原型<code>prototype</code>才有<code>constructor</code>属性</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<img src="子类的constructor指向问题.png">
+
+<blockquote>
+<ul>
+<li>因为<code>Student.prototype=new People()</code>使<code>Student</code>类继承<code>People</code>类</li>
+</ul>
+<pre><code>Student.prototype=new People();
+new People().constructor===People;
+Student.prototype.consructor===People;
+cuihua.__proto__===new People();
+cuihua.__proto__.constuctor===People;
+因为构造函数构造的实例可以直接访问其构造函数的`prototype`对象身上的属性和方法
+所以：cuihua.constructor===People
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>因此<code>Student.prototype</code>中的<code>constructor</code>属性被重写为指向<code>People</code></li>
+<li>即<code>Student</code>的所有实例访问到的<code>constructor</code>都指向<code>People</code></li>
+<li>所以造成了子类原型中的<code>constructor</code>被丢失，当访问子类原型中的<code>constructor</code>时，其本质是通过原型链查找，最终查找到的是父类的构造函数</li>
+</ul>
+</blockquote>
+<ol start="4">
+<li><p>注意事项 3 - instanceof</p>
+<blockquote>
+<ul>
+<li><code>instanceof</code>操作符确认<strong>实例与构造函数的关系</strong></li>
+<li>如果实例的原型链中出现过对应的构造函数的原型，则实例为对应构造函数的实例</li>
+</ul>
+<pre><code>cuihua instanceof Student; // true
+cuihua instanceof People; // true
+cuihua instanceof Object; // true
+</code></pre>
+</blockquote>
+</li>
+<li><p>注意事项 4</p>
+<blockquote>
+<p>从继承的角度来看原型链</p>
+<ul>
+<li>任意函数的默认<code>prototype</code>原型都是一个<code>Object</code>的实例</li>
+<li>这就意味着函数的默认原型中有一个<code>__proto__</code>属性指向<code>Object.prototype</code><blockquote>
+<p>声明一个构造函数<code>People</code></p>
+</blockquote>
+</li>
+</ul>
+<pre><code>function People() &#123;&#125;
+People.prototype.__proto__ === Object.prototype; // true
+new People().__proto__.__proto__ === Object.prototype; // true
+</code></pre>
+<img src="继承的角度看原型链.png"></blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>根据上图可知，任何函数其实都继承于<code>Object</code></li>
+<li>这就是为什么自定义类型能继承（访问）<code>Object</code> 原型上的<code>toString()</code>、<code>valueOf()</code>等方法的原型</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>原型链实现继承的不足之一<blockquote>
+<ul>
+<li>实例拥有其构造函数的所有属性和方法(可访问可修改)，并且能够调用其原型里的所有方法</li>
+<li>如果<strong>原型中</strong>某个属性的值是<strong>引用类型值</strong>时,这个值会被所有实例共享。当实例修改这个属性值时，其它实例身上对应的这个属性值也被改变了</li>
+<li>这也是为什么<strong>属性通常会在构造函数中定义</strong>，而不会定义在原型上的原因</li>
+<li>原型链实现继承，子类的原型实际上变成父类的实例，则就意味<strong>父类实例身上的属性变成了子类原型属性</strong>；</li>
+<li><strong>所有子类的实例都能访问这个属性或修改属性值</strong>,一旦子类的实例修改引用类型的属性值，那么其它实例身上对应的这个属性值也被改变了<blockquote>
+<p>引用数据类型赋值时赋的是地址，基本数据类型赋的是值，不会被影响</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 超类 （父类）
+function SuperType() &#123;
+  this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;];
+  this.a = 2;
+&#125;
+// 子类
+function subType() &#123;&#125;
+</code></pre>
+</blockquote>
+<p>subType.prototype &#x3D; new SuperType();<br>var sub1 &#x3D; new subType();<br>var sub2 &#x3D; new subType();</p>
+<blockquote>
+</blockquote>
+<p>sub1.a &#x3D; 4; &#x2F;&#x2F; 修改值，相当于重写属性（遮蔽效应）<br>console.log(sub1.a); &#x2F;&#x2F; 4<br>console.log(sub2.a); &#x2F;&#x2F; 2</p>
+<blockquote>
+</blockquote>
+<p>sub1.colors.push(“green”); &#x2F;&#x2F; 修改数组中值<br>console.log(sub1.colors); &#x2F;&#x2F;  [‘red’, ‘blue’, ‘yellow’, ‘green’]<br>console.log(sub2.colors); &#x2F;&#x2F; [‘red’, ‘blue’, ‘yellow’, ‘green’]</p>
+<blockquote>
+<pre><code>&lt;img src=&quot;通过原型链继承的缺点1.png&quot;&gt;
+</code></pre>
+</blockquote>
+<ol start="7">
+<li>原型链实现继承的不足之二<blockquote>
+<p>子类在实例化时，不能给父类的构造函数传参。 也就意味着，子类不能应用父类已有的属性，而需要自己重写一份</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 父类  人类
+function People(name, age, sex) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, sex, scholl, sid) {<br>  this.name &#x3D; name;<br>  this.age &#x3D; age;<br>  this.sex &#x3D; sex;<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 实现继承   一定要先实现继承，再添加新的方法和属性<br>Student.prototype &#x3D; new People();</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 创建子类实例<br>var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800);&#x2F;&#x2F;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="借用构造函数（经典继承）"><a href="#借用构造函数（经典继承）" class="headerlink" title="借用构造函数（经典继承）"></a>借用构造函数（经典继承）</h3><blockquote>
+<ul>
+<li>为了解决<strong>子类原型中包含引用类型值</strong>所带来问题和<strong>在子类构造函数中不能给父类构造函数传参</strong>的问题</li>
+<li>开发人员通常使用一种叫做 “<strong>借用构造函数”</strong> 的技术，也被称为 “伪造对象” 或 “经典继承”</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>借用构造函数的基本思路</p>
+<blockquote>
+<ul>
+<li>在子类构造函数内部调用父类的构造函数</li>
+<li>但要注意使用<code>call</code>或<code>apply</code>方法将新创建的对象作为父类构造函数的上下文对象</li>
+<li>子类可以继承父类构造函数中的所有属性并传参</li>
+</ul>
+<pre><code> function People(name, sex, age) &#123;
+this.name = name;
+this.sex = sex;
+this.age = age;
+this.arr = [1, 2, 3];
+ &#125;
+</code></pre>
+</blockquote>
+<p> function Student(name, sex, age, school, sid) {<br>&#x2F;&#x2F; 借用构造函数<br>People.call(this, name, sex, age);<br>this.school &#x3D; school;<br>this.sid &#x3D; sid;<br> }</p>
+<blockquote>
+</blockquote>
+<p> var cuihua &#x3D; new Student(“翠花”, “女”, 18, “雅礼中学”, 20230106);<br> cuihua.arr.push(“abc”); &#x2F;&#x2F;子类的实例拥有了父类身上所有方法<br> console.log(cuihua.name); &#x2F;&#x2F;翠花<br> console.log(cuihua.arr); &#x2F;&#x2F; [1, 2, 3, ‘abc’]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>借用构造函数实现继承的不足之处</p>
+<blockquote>
+<ul>
+<li>如果采用借用构造函数的方式实现继承，是<strong>没有办法把父类原型上的方法继承过来</strong>，只能继承父类构造函数中的属性</li>
+<li>如果要把父类上的方法继承过来，那父类的方法就必需定义在构造函数内部，之显然是<strong>不合理</strong>的</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、组合继承"><a href="#四、组合继承" class="headerlink" title="四、组合继承"></a>四、组合继承</h3><blockquote>
+<ul>
+<li>将原型链实现继承和借用构造函数实现继承的技术组合到一起，这样就可以将两者的优点集中起来</li>
+<li>这种继承方式，叫做 “组合继承” ，也叫作”伪经典继承”</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>组合继承的基本思路</p>
+<blockquote>
+<ul>
+<li>使用<strong>原型链</strong>继承来实现继承父类原型上的属性和方法<ul>
+<li>弥补了借用构造函数不能继承父类原型上方法的缺陷</li>
+</ul>
+</li>
+<li><strong>借用构造函数</strong>来实现继承父类实例的所有属性(可传参)<ul>
+<li>弥补了原型链继承，父类原型上值为引用类型的属性，不能相互独立的缺陷</li>
+<li>从父类继承的属性，是通过改变this指向给父类得到的；区别于原型链继承时，所有属性和方法都是放在子类的原型里的方式；因此，子类的这些属性相互独立，即使是引用数据类型也不是同一地址；<blockquote>
+<p>这样就可以把父类的方法定义在子类的原型上，实现重用。同时又可以让每个实例都有自己的属性。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code> // 父类  人类
+ function People(name, age, sex) &#123;
+this.name = name;
+this.age = age;
+this.sex = sex;
+this.a = [1, 2, 3];
+ &#125;
+ People.prototype.sayHello = function () &#123;
+console.log(
+  &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
+);
+ &#125;;
+</code></pre>
+</blockquote>
+<p> &#x2F;&#x2F; 子类  学生类<br> function Student(name, age, sex, scholl, sid) {<br>&#x2F;&#x2F; 借用构造函数 继承父类构造函数中的属性<br>People.call(this, name, age, sex);<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br> }</p>
+<blockquote>
+</blockquote>
+<p> &#x2F;&#x2F; 借用原型链 继承来实现继承父类原型上的属性和方法<br> Student.prototype &#x3D; new People();</p>
+<blockquote>
+</blockquote>
+<p> Student.prototype.study &#x3D; function () {<br>console.log(this.name + “正在学习！”);<br> };</p>
+<blockquote>
+</blockquote>
+<p> &#x2F;&#x2F; 创建子类实例<br> var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800); &#x2F;&#x2F;传参<br> var xiaoming &#x3D; new Student(“小明”, 16, “男”, “雅礼中学”, 20990); &#x2F;&#x2F;传参<br> cuihua.sayHello();<br> cuihua.study();<br> console.log(cuihua.a &#x3D;&#x3D;&#x3D; xiaoming.a); &#x2F;&#x2F;false<br> console.log(cuihua.a); &#x2F;&#x2F;[1, 2, 3]<br> cuihua.a.push(12);<br> console.log(cuihua.a); &#x2F;&#x2F;[1, 2, 3,12]<br> console.log(xiaoming.a); &#x2F;&#x2F;[1, 2, 3]不会受到影响</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>组合继承的不足之处</p>
+<blockquote>
+<p>组合继承最大的问题就是无论什么情况下，都会调用<strong>两次父（超）类的构造函数</strong></p>
+<ul>
+<li>一次是在创建子类原型的时候，如</li>
+</ul>
+<pre><code>Student.prototype = new People(); // 调用父类构造函数
+</code></pre>
+<ul>
+<li>另一次是在子类构造函数的内部，如</li>
+</ul>
+<pre><code>People.call(this, name, age, sex); // 调用父类的构造函数
+</code></pre>
+<p>子类原型中的<code>constructor</code>被丢失，当访问子类原型中的 <code>constructor</code> 时，其本质是通过原型链查找，最终查找到的是父类的构造函数</p>
+<pre><code>Student.prototype.constructor === People; // true
+</code></pre>
+<blockquote>
+<p>关于组合继承的不足之处如何解决，我们在后面会讲到</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<h3 id="五、原型式继承"><a href="#五、原型式继承" class="headerlink" title="五、原型式继承"></a>五、原型式继承</h3><blockquote>
+<p><strong>重点强调</strong>：原型式继承是一种不涉及严格意义上构造函数的继承方法</p>
+</blockquote>
+<ol>
+<li>原型式继承适用场景<blockquote>
+<ul>
+<li>如果你有一个对象，想在它的基础上再创建一个新对象</li>
+<li>现有对象<code>obj1</code>，现在希望再创建一个<code>obj2</code>对象，<code>obj2</code>需要继承<code>obj1</code>实例身上的所有方法和属性</li>
+</ul>
+<pre><code>var obj1 = &#123;
+  a: 1,
+  b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+  sum: function () &#123;
+ console.log(this.a + this.b);
+  &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>obj2</code>要能继承<code>obj1</code>身上的所有方法和属性，则<code>obj2.__proto__</code>属性需要指向<code>obj1</code></li>
+<li>我们知道<code>obj2.__proto__</code>指向的是<code>obj2</code>的构造函数的<code>prototype</code>，则说明<code>obj2</code>肯定是要用构造函数构造出来。</li>
+<li>因此<code>obj2</code>的构造函数的<code>prototype=obj1</code></li>
+</ul>
+<pre><code>function Fn() &#123;&#125;
+Fn.prototype = obj1;
+var obj2 = new Fn();
+</code></pre>
+<img src="原型式继承方法1.png">
+</blockquote>
+<blockquote>
+<ul>
+<li>我们可以把上面的代码封装成一个函数，这个函数接受一个参数（原型指向的对象）</li>
+<li>当我们调用这个函数时，就会创建出一个新的对象，同时这个对象的原型指向函数的参数。</li>
+</ul>
+<pre><code>function createObject(o) &#123;
+  function Fn() &#123;&#125;
+  Fn.prototype = o;
+  return new Fn();
+&#125;
+</code></pre>
+</blockquote>
+<ul>
+<li>另一个版本(了解即可)<blockquote>
+<pre><code>var obj1 = &#123;
+a: 1,
+b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+sum: function () &#123;
+  console.log(this.a + this.b);
+&#125;,
+&#125;;
+</code></pre>
+</blockquote>
+var obj2&#x3D;new Object();<br>obj2.<strong>proto</strong>&#x3D;obj1;<blockquote>
+<pre><code>&lt;img src=&quot;原型式继承方法2.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>区别：</strong></p>
+<ul>
+<li>方法2：把原本的<code>obj2.__proto__=Object.prototype</code>这条线切断，这样就用不了<code>Object</code>原型里的方法；但是！又通过<code>obj1.__proto__=Object.prototype</code>接上了；因为<code>obj1</code>是一个对象，它肯定是由<code>Object</code>构造出来的</li>
+<li>然而，方法1就没这么复杂，更加节省性能，直接可以通过原型链调用<code>Object</code>的方法；所以，更推荐使用方法1</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>原型式继承：完整版代码<blockquote>
+<pre><code>var obj1 = &#123;
+  a: 1,
+  b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+  sum: function () &#123;
+ console.log(this.a);
+ console.log(this.b);
+  &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+function createObject(o) {<br>  function Fn() {}<br>  Fn.prototype &#x3D; o;<br>  return new Fn();<br>}<blockquote>
+</blockquote>
+var obj2 &#x3D; createObject(obj1); &#x2F;&#x2F; 以obj1为原型，创建一个新对象<br>var obj3 &#x3D; createObject(obj1);<br>obj2.c &#x3D; 3; &#x2F;&#x2F; 新对象添加自已的属性<br>obj2.a &#x3D; 4; &#x2F;&#x2F; 重写原型上属性 a<br>console.log(obj2); &#x2F;&#x2F; {c: 3, a: 4}<br>obj2.b.push(“obj2新加”);<br>obj2.sum(); &#x2F;&#x2F; 4  [‘A’, ‘B’, ‘C’, ‘obj2新加’]<br>obj1.sum(); &#x2F;&#x2F; 1 [‘A’, ‘B’, ‘C’, ‘obj2新加’]<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>注意事项</p>
+<ul>
+<li>以上方法创建出来的多个对象会<strong>共享原型上的引用类型属性</strong></li>
+<li>其中一个对象修改了这个引用类型中的值，相当于所有创建出来的对象上的这个属性值都改变了</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>Object.create 方法<blockquote>
+<ul>
+<li><code>ECMAScript5</code> 增加了<code>Object.create()</code>方法将原型式继承的概念规范化了</li>
+<li><code>Object.create()</code>方法用于创建一个新对象，使用现有的对象来作为新创建对象的原型（prototype）<br>语法</li>
+</ul>
+<pre><code>Object.create(proto[,propertiesObject]);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>proto</code>为新创建对象的原型对象</li>
+<li><code>propertiesObject</code>可选参数，给新对象定义额外属性的对象。 他与<code>Object.defineProperties()</code>的第二个参数一样，每个新增属性都通过各自的<strong>描述符</strong>来描述。以这种方式添加的属性会<strong>遮蔽</strong>原型对象上的同名属性<blockquote>
+<p>只传入第一个参数时，该方法的底层逻辑就是前面的方法1</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>var obj1 = &#123;
+  a: 1,
+  b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+  sum: function () &#123;
+    console.log(this.a);
+    console.log(this.b);
+  &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+<p>var obj2 &#x3D; Object.create(obj1);<br>console.log(obj2.a); &#x2F;&#x2F; 1<br>var obj3 &#x3D; Object.create(obj1, {<br>  b: {<br>    value: 4,<br>  },<br>});<br>console.log(obj3); &#x2F;&#x2F; {b:4}<br>console.log(obj3.b); &#x2F;&#x2F; 4</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>注意事项<blockquote>
+<ul>
+<li><code>Object.create(proto)</code>中的<code>proto</code>，只能是 <code>null</code>或对象类型，否则会抛出<code>TypeError</code>异常</li>
+</ul>
+<pre><code>Object.create(1); // 报错
+Object.create(new Object(1)); //不报错，但用不了继承的方法
+Object.create(undefined); // 报错
+Object.create(function () &#123;&#125;); // 不报错
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>Object.defineProperties(newObj,propertiesObject)</code>中的第二个参数，不能是<code>null</code>和<code>undefined</code>，字符串，否则会报错。实际上只要这里传的不是一个对象，就没有意义</li>
+</ul>
+<pre><code>var obj = &#123;&#125;;
+Object.defineProperties(obj, null); // 报错
+Object.defineProperties(obj, undefined); // 报错
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>手写 Object.create 方法（经典面试题）<blockquote>
+<ul>
+<li>面试中经常会要求我们手写<code>Object.create</code>方法</li>
+<li>当<code>Object.create()</code>只有一个参数时，其作用与上面我们自已封装的<code>createObject()</code>方法1效果一样</li>
+<li>所以我们只需要在方法1的基础上来<strong>完善第二个参数的相关功能</strong>，并限制第一个参数的传入类型<br><strong>完善的功能：</strong></li>
+<li>判断传入的<code>proto</code>是否为对象或<code>null</code><ul>
+<li>只能是<code>null</code>或对象类型，否则会抛出<code>TypeError</code>异常</li>
+</ul>
+</li>
+<li>利用<code>Ojbect.defineProperties(newObj,propertiesObject)</code>来实现第二个参数功能</li>
+<li>同时要判断<code>propertiesObject</code>是否是一个对象</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>Object._create = function (proto, propertiesObject) &#123;
+  // proto只能是null 或 对象
+  if (proto !== null &amp;&amp; !(proto instanceof Object))
+    throw new TypeError(&quot;proto只能是null或者对象,不能是其它类型&quot;);
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 实现原型式继承<br>  function Fn() {}<br>  Fn.prototype &#x3D; proto;<br>  var obj &#x3D; new Fn();</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 给新对象添加属性，只要当前属性不是对象，就没有意义<br>  propertiesObject instanceof Object &amp;&amp;<br>    Object.defineProperties(obj, propertiesObject);</p>
+<blockquote>
+</blockquote>
+<p>  return obj;<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="5">
+<li>原型式继承注意事项<blockquote>
+<ul>
+<li><strong>适用场景</strong>：原型式继承非常适合不需要单独创建构造函数，但仍然需要在对象间共享信息的场合</li>
+<li><strong>注意事项</strong>：如果原型对象的属性包含引用类型值时，所有以这个对象为原型创建的新对象的这个属性指向的是堆内中的同一个内容</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="六、寄生式继承"><a href="#六、寄生式继承" class="headerlink" title="六、寄生式继承"></a>六、寄生式继承</h3><blockquote>
+<p><strong>寄生式继承的实现思路</strong>： 编写一个函数，它接收一个参数 O，返回以 O 为原型的新对象 p，同时给 p 添加了一些预置的新方法</p>
+<ul>
+<li>新对象相当于是寄生在原来的对象上，然后又添加了一些自己的新方法，所以称为 “寄生式继承”</li>
+<li>在函数内，用<code>Object.create()</code>方法，创建出以 参数O 为原型的新对象p；并在函数p给内添加新方法，最后返回新对象p</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>// 创建一个对象
+var ball = &#123;
+  color: &quot;red&quot;,
+  r: 20,
+  opacity: 1,
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 创建一个函数，实现增强某个对象，实现寄生式继承<br>function enHanceObject(o) {<br>  &#x2F;&#x2F; 以o为原型，创建出一个新对象<br>  var obj &#x3D; Object.create(o);<br>  &#x2F;&#x2F; 为新创建的对象添加一些预置的方法，用来增强对象<br>  obj.changeColor &#x3D; function () {<br>    this.color &#x3D; “blue”;<br>    console.log(“我已经将颜色变成” + this.color);<br>  };<br>  &#x2F;&#x2F; ….可以为新对象添加更多的预置方法<br>  return obj;<br>}</p>
+<blockquote>
+</blockquote>
+<p>var ball2 &#x3D; enHanceObject(ball);<br>console.log(ball2);<br>console.log(ball2.r); &#x2F;&#x2F;20<br>ball2.changeColor(); &#x2F;&#x2F;我已经将颜色变成blue<br>console.log(ball.color); &#x2F;&#x2F;red</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li><strong>寄生式继承</strong>相当于一个小工厂，他接受一个参数，然后返回一个新的对象</li>
+<li>寄生式继承<strong>适用场景</strong>：主要关注的是对象，而不在乎类型和构造函数的场景</li>
+<li>注意事项： 寄生式继承给新对象添加的函数是没有办法实现重用的。每创建一个新对象身上都会独有一份预置的方法,相互独立</li>
+</ul>
+</blockquote>
+<h3 id="七、寄生式组合继承"><a href="#七、寄生式组合继承" class="headerlink" title="七、寄生式组合继承"></a>七、寄生式组合继承</h3><blockquote>
+<p>在前面学习的组合继承中也存在以下不足之处</p>
+</blockquote>
+<ol>
+<li><p>组合继承不足之处</p>
+<blockquote>
+<ul>
+<li>组合继承最大的问题就是无论什么情况下，都会<strong>调用两次父（超）类的构造函数</strong>。一次是在创建子类原型的时候 ，另一次是在子类构造函数的内部</li>
+</ul>
+<pre><code>Student.prototype = new People(); // 创建子类原型时，调用父类构造函数
+People.call(this, name, age, sex); // 在子类的构造函数内部，调用父类的构造函数
+</code></pre>
+<ul>
+<li>子类原型中的constructor被丢失，当访问子类原型中的 constructor 时，其本质是通过原型链查找，最终查找到的是父类的构造函数</li>
+</ul>
+<pre><code>Student.prototype.constructor === People; // true
+</code></pre>
+<p>在接下来学习的寄生式组合继承中，就能解决上面的两大问题</p>
+</blockquote>
+</li>
+<li><p>寄生式组合的基本思路</p>
+<blockquote>
+<ul>
+<li><strong>借用构造函数实现继承父类属性</strong>： 在子类的构造函数中调用父类的构造函数来实现继承父类属性<ul>
+<li><code>People.call(this, name, age);</code></li>
+</ul>
+</li>
+<li><strong>原型链混合原型式继承，实现继承父类原型上方法</strong>：<code>Object.create()</code>以父类的原型对象为原型，来创建出一个新的对象。并让子类的原型指向新创建出来的对象。解决了不用再次调用父类构造函数，同时父类构造函数中的属性也不会成为原型的属性<ul>
+<li><code>var prototype = Object.create(People.prototype);</code></li>
+<li><code>Student.prototype = prototype;</code></li>
+</ul>
+</li>
+<li><strong>修正子类构造函数的 constructor 属性的指向</strong>： 把新创建对象中的<code>constructor</code>指向子类的构造函数。解决了原型中<code>constructor</code>丢失问题，同是修正了子类构造函数中的<code>constructor</code>指向子类构造函数<ul>
+<li><code>prototype.constructor = Student;</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<img src="寄生式组合继承.png">
+
+<blockquote>
+<ul>
+<li>寄生式组合继承是如何实现完美继承的<img src="寄生式组合继承的完美性.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>// 父类  人类
+function People(name, age) &#123;
+  this.name = name;
+  this.age = age;
+&#125;
+</code></pre>
+</blockquote>
+<p>People.prototype.sayHello &#x3D; function () {<br>  console.log(“大家好，我是” + this.name + “今年” + this.age + “岁了”);<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, scholl, sid) {<br>  People.call(this, name, age);<br>  this.scholl &#x3D; scholl;<br>  this.sid &#x3D; sid;<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 寄生式组合继承<br>&#x2F;&#x2F; 以 People的原型为原型，创建一个新对象<br>var prototype &#x3D; Object.create(People.prototype);<br>&#x2F;&#x2F; 更改prototype中的constructor指向<br>prototype.constructor &#x3D; Student;<br>&#x2F;&#x2F; 将新创建的prototype对象，赋值给Student.prototype<br>Student.prototype &#x3D; prototype;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 子类原型上对象上添加新方法<br>Student.prototype.exam &#x3D; function () {<br>  console.log(this.name + “正在考试”);<br>};</p>
+<blockquote>
+</blockquote>
+<p>var cuihua &#x3D; new Student(“翠花”, 13, “高新中学”, “A0001”);<br>var laoliu &#x3D; new Student(“老刘”, 20, “北京大学”, “SD0001”);<br>console.log(cuihua);<br>cuihua.sayHello();<br>cuihua.exam();<br>console.log(laoliu);<br>laoliu.sayHello();<br>laoliu.exam();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>温馨提示：</p>
+</blockquote>
+<ul>
+<li>继承的代码要写在给子类原型添加新方法的前面，否则子类在原型上新添加的方法会被覆盖</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>封装函数 - 寄生式组合继承<blockquote>
+<pre><code>/**
+* 寄生式组合继承
+* subType子类
+* superType 超类（父类）
+*/
+function inheritPrototype(subType, superType) &#123;
+  // 以父类的原型为原型，创建一个新对象
+  var prototype = Object.create(superType.prototype);
+  // 新对象的constructor指向子类的构造函数
+  prototype.constructor = subType;
+  // 子类的原型指向新创建的对象
+  subType.prototype = prototype;
+&#125;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>使用<blockquote>
+<pre><code>// 父类  人类
+function People(name, age) &#123;
+this.name = name;
+this.age = age;
+&#125;
+</code></pre>
+</blockquote>
+People.prototype.sayHello &#x3D; function () {<br>console.log(“大家好，我是” + this.name + “今年” + this.age + “岁了”);<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, scholl, sid) {<br>People.call(this, name, age);<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 寄生式组合继承<br>inheritPrototype(Student, People);<blockquote>
+</blockquote>
+&#x2F;&#x2F; 子类原型上对象上添加新方法<br>Student.prototype.exam &#x3D; function () {<br>console.log(this.name + “正在考试”);<br>};<blockquote>
+</blockquote>
+var cuihua &#x3D; new Student(“翠花”, 13, “高新中学”, “A0001”);<br>var laoliu &#x3D; new Student(“老刘”, 20, “北京大学”, “SD0001”);<br>console.log(cuihua);<br>cuihua.sayHello();<br>cuihua.exam();<br>console.log(laoliu);<br>laoliu.sayHello();<br>laoliu.exam();<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="八、JavaScript-6-种继承方式的实现原理、优缺点总结"><a href="#八、JavaScript-6-种继承方式的实现原理、优缺点总结" class="headerlink" title="八、JavaScript 6 种继承方式的实现原理、优缺点总结"></a>八、JavaScript 6 种继承方式的实现原理、优缺点总结</h3><table>
+<thead>
+<tr>
+<th>继承方式</th>
+<th>代码</th>
+<th>实现原理</th>
+<th>继承的对象</th>
+<th>优缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>原型链实现继承</td>
+<td><code>子类.prototype=new 父类()</code></td>
+<td>子类的原型指向父类的实例</td>
+<td>类与类</td>
+<td>缺点：1.子类原型中的<code>constructor</code>被丢失；2.父类的属性中有引用类型，则所有子类的实例共享这个属性值；3.不能实现属性的复用，因为子类在实例化时，不能给父类的构造函数传参</td>
+</tr>
+<tr>
+<td>借用构造函数</td>
+<td><code>父类.call(this,参数)</code></td>
+<td>子类构造函数内部调用父类构造函数，将<code>this</code>指向变为新创建的对象，并传参</td>
+<td>类与类</td>
+<td>优点：解决了原型链继承中<strong>引用类型共享</strong>和<strong>属性复用</strong>的问题；缺点：不能实现方法的继承</td>
+</tr>
+<tr>
+<td>组合式继承</td>
+<td><code>子类.prototype=new 父类()</code>+<code>父类.call(this,参数)</code></td>
+<td>将原型链实现继承和借用构造函数实现继承组合一起使用</td>
+<td>类与类</td>
+<td>优点：既解决了原型链继承中<strong>引用类型共享</strong>和<strong>属性复用</strong>的问题，又能<strong>继承父类原型上的方法</strong>；缺点：1.两次调用父类的构造函数，也因此造成子类原型上多了一份无用的属性;2.子类原型中的<code>constructor</code>被丢失；</td>
+</tr>
+<tr>
+<td>原型式继承</td>
+<td><code>var newObj=Object.create(obj，propertiesObject)</code></td>
+<td>实现以<code>obj</code>对象为原型，创建出一个新的对象<code>newObj</code>,同时可以给新创建的对象添加新的属性<code>propertiesObject</code></td>
+<td>对象与对象</td>
+<td>缺点：如果原型对象上有引用数据类型，则所有新创建的对象共享同一个属性值</td>
+</tr>
+<tr>
+<td>寄生式继承</td>
+<td><code>function enHanceObject(o) &#123; var obj = Object.create(o);//为新创建的对象添加一些预置的方法，用来增强对象obj.changeColor = function () &#123;&#125;; return obj;&#125;</code></td>
+<td>以 obj 为原型，创建出一个新的对象，同时为新创建的对象添加一个预置的方法</td>
+<td>对象与对象</td>
+<td>缺点：给新对象添加的函数是没有办法实现重用的</td>
+</tr>
+<tr>
+<td>寄生式组合继承</td>
+<td><code>function inheritPrototype(subType, superType) &#123; var prototype = Object.create(superType.prototype); prototype.constructor = subType; subType.prototype = prototype;&#125;</code> 子类构造函数添加：<code>People.call(this, name, age);</code></td>
+<td>将原型链继承、借用构造函数、原型式继承组合在一起来使用；以父类的原型为原型创建出一个新对象，同时将新对象的 <code>constructor</code>指向子类，再将新对象作为子类的原型。</td>
+<td>类与类</td>
+<td>完美解决类与类之间的继承</td>
+</tr>
+</tbody></table>
+<img src="各类继承方式的优缺点.png">
+
+<h3 id="九、内置构造函数"><a href="#九、内置构造函数" class="headerlink" title="九、内置构造函数"></a>九、内置构造函数</h3><blockquote>
+<p>在学习内置构造函数前，我们先来了解下 JS 中对象的分类，JS 对象分为以下 3 大类</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内部对象</td>
+<td>JS 中的内部对象很多包括但不限于以下：<strong>常用构造函数（对象）</strong>：Object、Function、Array；<strong>包装类（对象）</strong>：String、Boolean、Number；<strong>Date 日期类、RegExp 正则表达式</strong>；<strong>错误处理类</strong>：Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError；<strong>内置对象</strong>：Global、Math</td>
+</tr>
+<tr>
+<td>宿主对象</td>
+<td>宿主对象就是执行 JS 脚本的环境提供的对象；对于嵌入到网页中的 JS 来说，其宿主对象就是浏览器提供的对象，所以又称为浏览器对象。不同的浏览器提供的宿主对象可能不同，即使提供的对象相同，其实现方式也大相径庭！这会带来浏览器兼容问题，增加开发难度；浏览器对象有很多，所有的 BOM 和 DOM 都是宿主对象，如Window、Document，Element，Form，Image等等</td>
+</tr>
+<tr>
+<td>自定义对象</td>
+<td>就是开发人员自己定义的对象</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p>我们接下来要学习的内置构造函数，指的就是<strong>内部对象中的相关对象</strong></p>
+<blockquote>
+<p>内置构造函数非常有用，所有该类型的方法都是定义在它的内置构造函数的 <code>prototype</code> 上的，我们可以给这个对象添加新的方法，从而拓展某类型的功能。</p>
+</blockquote>
+<p><strong>内置构造函数</strong></p>
+<ul>
+<li>常用构造函数：Object、Function、Array</li>
+<li>包装类：String、Boolean、Number</li>
+<li>Date 日期类、RegExp 正则表达式</li>
+<li>错误处理类：Error、EvalError、RangeError、ReferenceError、SyntaxError、TypeError、URIError</li>
+<li>……还有更多，在后面慢慢介绍<br><strong>内置对象</strong></li>
+<li>Global 对象，全局对象</li>
+<li>Math 对象<blockquote>
+<p>这两个对象在脚本程序初始化时被创建，不必实例化这两个对象。即不用 <code>new</code> 来调用</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>常用构造函数<blockquote>
+<ul>
+<li>关于 Array、Function、Object 三个构造函数，我们在之前就有接触过，特别是 Array 构造函数。</li>
+<li>这三个构造函数身上有那些：静态属性、静态方法、实例属性、实例方法大家可以参考 MDN 官方文档来复习。<blockquote>
+<p>接下来，我们来复习下这三个构造函数的继承关系和原型链</p>
+</blockquote>
+</li>
+<li>任意函数的默认<code>prototype</code>原型都是一个<code>Object</code>的实例,因此所有函数都继承于<code>Object</code> </li>
+<li>所有的类(构造函数)本身都是函数，都是由Function构造出来的<blockquote>
+<p>特别注意：<code>Function.__proto__ === Function.prototype</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<img src="三个构造函数的继承关系和原型链.png">
+
+<ol start="2">
+<li>Object 构造函数<blockquote>
+<ul>
+<li><code>Object</code>构造函数用来构造对象，所有对象都是 <code>Object</code>的实例</li>
+</ul>
+<pre><code>&#123;&#125;.__proto__===Object.prototype; // true
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>Object</code> 的原型也是一个对象，按理来说<code>Object.prototype.___proto__===Object.prototype</code>，但显然是不合理的。实际 <code>Object</code>原型的原型指向原型链的终点，即 <code>null</code></li>
+</ul>
+<pre><code>Object.prototype.__proto__ === Object.prototype; // false
+Object.prototype.__proto__ === null; // true;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>Object</code> 构造函数也是函数，所以 <code>Object</code> 也是 <code>Function</code> 构造函数的实例</li>
+</ul>
+<pre><code>Object.__proto__ === Function.prototype; // true
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>所以 Object 可以打点调用 Function 原型上的方法</li>
+</ul>
+<pre><code>&quot;call&quot; in Object; // true
+&quot;bind&quot; in Object; // true
+</code></pre>
+</blockquote>
+<p>Object.call({ a: 1, b: 2 }); &#x2F;&#x2F; {}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>Array 构造函数<blockquote>
+<ul>
+<li><code>Array</code>构造函数，用来构造数组，所有数组都是 <code>Array</code>的实例</li>
+</ul>
+<pre><code>[].__proto__ === Array.prototype; // true
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>Array.prototype</code>是一个对象，所以<code>Array.prototype</code>也是 <code>Object</code> 的实例</li>
+</ul>
+<pre><code>Array.prototype.__proto__ === Object.prototype;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>Object</code>原型的原型为原型链的终点,即<code>null</code></li>
+</ul>
+<pre><code>Array.prototype.__proto__.__proto__ === null; // true
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>Array</code> 构造函数也是函数，所以<code>Array</code> 也是 <code>Function</code> 构造函数的实例</li>
+</ul>
+<pre><code>Array.__proto__ === Function.prototype; // true
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>Function 构造函数<blockquote>
+<ul>
+<li><code>Function</code>构造函数用来构造函数，所有函数都是 <code>Function</code>的实例</li>
+</ul>
+<pre><code>var fn = function () &#123;&#125;;
+fn.__proto__ === Function.prototype; // true
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>Function</code>构造函数也是一个函数，所以下面这种特殊情况也成立</li>
+</ul>
+<pre><code>Function.__proto__ === Function.prototype; // true
+</code></pre>
+</blockquote>
+<h2 id="JS三大包装类-Number、String、Boolean"><a href="#JS三大包装类-Number、String、Boolean" class="headerlink" title="JS三大包装类 Number、String、Boolean"></a>JS三大包装类 Number、String、Boolean</h2><blockquote>
+<ul>
+<li>为了方便操作<strong>原始值</strong>，<code>ECMAScript</code> 提供了<code>Number</code>、<code>String</code>、<code>Boolean</code>这三个特殊的构造函数</li>
+<li>他们的主要作用就是把基本数据类型<strong>包装</strong>成一个 <strong>“对象”</strong>版本的基本类型值，所以这三个类又称为<strong>包装类</strong></li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>包装类</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>将数字包装成一个数字对象</td>
+</tr>
+<tr>
+<td>String</td>
+<td>将字符串包装成一个字符对象</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>将布尔值包装成一个布尔对象</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>// Number 类
+var n = new Number(3);
+console.log(n); // Number &#123;3&#125;
+console.log(typeof n); // object
+console.log(n + 4); // 7
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; String 类<br>var str &#x3D; new String(“abcd”);<br>console.log(str); &#x2F;&#x2F; String {‘abcd’}<br>console.log(typeof str); &#x2F;&#x2F; object<br>console.log(str + “123”); &#x2F;&#x2F; abcd123</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; Boolean 类<br>var b &#x3D; new Boolean(true);<br>console.log(b); &#x2F;&#x2F; Boolean {true}<br>console.log(typeof b);&#x2F;&#x2F;object<br>console.log(true + 1); &#x2F;&#x2F; 2</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="一、包装类核心基础"><a href="#一、包装类核心基础" class="headerlink" title="一、包装类核心基础"></a>一、包装类核心基础</h3><blockquote>
+<ul>
+<li>包装类的<strong>主要目的</strong>：是让基本类型值可以从它们的构造函数的 <code>prototype</code> 上获得方法。</li>
+<li>每当用到某个原始值的方法或属性时，<strong>后台都会创建一个相应的原始包装类型的对象</strong>，从而暴露出操作原始值的各种方法</li>
+</ul>
+</blockquote>
+<p><strong>我们来分析下，下面代码的执行流程</strong></p>
+<blockquote>
+<pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
+var str2 = str1.charAt(2); // 是
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>上面代码中<code>str1</code>是一个原始值，原始值不是一个对象，因此逻辑上不能调用方法。但实际上按预期输出了结果。为什么呢 ？</li>
+<li>实际上代码执行到<code>str1.charAt(2)</code>时，JS 后台进行了很多处理<br><strong>具体处理步骤如下：</strong></li>
+</ul>
+<pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
+var str2 = str1.charAt(2);//当执行到这句代码时，会先执行右边，再赋值 
+//在执行str1.charAt(2)时，JS内部会进行：
+var str = new String(str1); // 1、将str1包装成一个新String对象
+str.charAt(2)// 2、让新对象调用方法
+str2 = str.charAt(2); //3、将返回的结果赋值给到 str2
+str = null; // 4、销毁创建的实例
+</code></pre>
+</blockquote>
+<ol>
+<li>包装类的生命周期<blockquote>
+<ul>
+<li><code>new</code>关键字创建的原始值包装对象，只有<strong>在当前作用域被销毁时</strong>才销毁</li>
+<li>自动创建的原始值包装对象，只存在于访问它的<strong>那一行代码执行期间</strong>。执行完就自动销毁</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
+str1.name = &quot;张三&quot;;
+console.log(str1.name); // undefined
+console.log(typeof str1); // string
+</code></pre>
+</blockquote>
+<p>var str2 &#x3D; new String(“我就是我”);<br>str2.name &#x3D; “清心”;<br>console.log(str2.name); &#x2F;&#x2F; 清心<br>console.log(typeof str2); &#x2F;&#x2F; object</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>分析 str1 变量</strong></p>
+<ul>
+<li>当代码执行到<code>str1.name=&quot;张三&quot;</code>时，<code>str1</code> 确实被包装成了<strong>对象</strong>，然后在对象上添加了 <code>name</code> 属性，<strong>但执行完，被包装成的对象就销毁了</strong></li>
+<li>当执行到<code>console.log(str1.name)</code>时，<code>str1</code><strong>又创建了一个新的 <code>String</code> 对象</strong>，但是这个对象已经不是前面的那个对象，他身上没有 <code>name</code> 属性，访问对象身上不存在的属性不会报错，返回值为<code>undefined</code><br><strong>分析 str2 变量</strong></li>
+<li>执行<code>var str2 = new String(&quot;我就是我&quot;);</code>时，相当于创建了一个包装对象，然后把这个包装对象赋值级到 <code>str2</code></li>
+<li>当执行到<code>str2.name = &quot;清心&quot;;</code>时，相当于给对象添加 <code>name</code> 属性</li>
+<li>当执行到<code>str2.name</code>时，相当于读到对象身上的属性，返回结果为清心</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>原始值包装对象 - 转为布尔值都是 true</p>
+<blockquote>
+<p>直接调用 <code>Boolean</code> 函数，可以将其它类型转换为对应的 <code>boolean</code> 值</p>
+<ul>
+<li>基本数据类型的包装对象，转布尔值得到的都是<code>true</code></li>
+</ul>
+<pre><code>// 数字
+console.log(Boolean(0)); // false
+var n1 = new Number(0);
+console.log(Boolean(n1)); // true
+console.log(n1); // Number &#123;0&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 布尔值<br>var flag &#x3D; new Boolean(false);<br>console.log(Boolean(false)); &#x2F;&#x2F; false<br>console.log(Boolean(flag)); &#x2F;&#x2F; true<br>console.log(flag); &#x2F;&#x2F; Boolean {false}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 字符串<br>var str &#x3D; new String(“”);<br>console.log(Boolean(“”));<br>console.log(Boolean(str));<br>console.log(str);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>区分直接调用包装类与 new 调用</p>
+<blockquote>
+<ul>
+<li><strong>直接调用</strong>包装类函数，主要目的是实现数据类型的转换</li>
+<li>使用**<code>new</code>调用**包装类，是为了把基本数据类型转换为对象类型</li>
+</ul>
+<pre><code>var value = &quot;20&quot;;
+var number = Number(value);//字符串转数字类型
+console.log(number); // 20
+console.log(typeof number); // number
+</code></pre>
+</blockquote>
+<p>var obj &#x3D; new Number(value);<br>console.log(obj); &#x2F;&#x2F; Number {20}<br>console.log(typeof obj); &#x2F;&#x2F; object</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="二、Number-包装类"><a href="#二、Number-包装类" class="headerlink" title="二、Number 包装类"></a>二、Number 包装类</h3><blockquote>
+<p>Number 类有很多方法和属性，我们这里挑出最常用的给大家讲解</p>
+</blockquote>
+<ul>
+<li><p>以下是常见的<code>Number</code>的<strong>静态属性</strong>，只需要了解即可</p>
+<table>
+<thead>
+<tr>
+<th>静态属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number.MAX_SAFE_INTEGER</td>
+<td>表示在 JavaScript 中最大的安全整数<code>2^53 - 1</code></td>
+</tr>
+<tr>
+<td>Number.MIN_SAFE_INTEGER</td>
+<td>代表在 JavaScript 中最小的安全整数 <code>-(2^53 - 1)</code></td>
+</tr>
+<tr>
+<td>Number.MAX_VALUE</td>
+<td>JavaScript 里所能表示的最大数值</td>
+</tr>
+<tr>
+<td>大于 <code>MAX_VALUE</code> 的值代表 <code>&quot;Infinity&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Number.MIN_VALUE</td>
+<td>表示在 JavaScript 中所能表示的最小的正值；小于<code>MIN_VALUE (&quot;underflow values&quot;)</code>的值将会转换为 0</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>以下是常用的<code>Number</code><strong>原型上的方法</strong>，之些方法我们之前都学习过，列出来用于复习<br>|实例方法（原型方法）|描述|<br>|toFixed|返回结果后的小数部分<strong>保留指定小数位数</strong>，返回结果为一个字符串；保留小数位时，会采用四舍五入；如果小数位不足，则用 0 来补充；如果参数为空，则表示不保留小数位|<br>|toString|<code>toString()</code>用来将数值类型转换为字符串类型；<code>toString()</code>可以接受一个参数，用来将数字转换成对应进制的字符串|<br>|valueOf|<code>valueOf</code>方法返回被<code>Number</code>对象包装的原始值|</p>
+</li>
+</ul>
+<ol>
+<li>Number.MAX_SAFE_INTEGER 属性<blockquote>
+<ul>
+<li>是一个值为 <code>9007199254740991</code> （即<code>2^53-1</code>）的常量。</li>
+<li>表示在 <code>JavaScript</code> 中最大的安全整数<code>(maxinum safe integer)``（2^53 - 1）</code></li>
+<li>所谓的安全，是指<strong>能够准确的区分两个不相同的值</strong></li>
+</ul>
+<pre><code>var n = Math.pow(2, 53) - 1;
+console.log(n); // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 安全系数  以下得到结果为true，显然是不合理的<br>console.log(Number.MAX_SAFE_INTEGER + 1 &#x3D;&#x3D;&#x3D; Number.MAX_SAFE_INTEGER + 2); &#x2F;&#x2F; true<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p><code>Math.pow(base,exponent)</code>函数返回基数（base）的指数（exponent）次幂</p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>Number.MIN_SAFE_INTEGER 属性<blockquote>
+<ul>
+<li>是一个值为<code>-9007199254740991</code>的常量，即<code>-(2^53 -1)</code></li>
+<li>表示在在 <code>JavaScript</code> 中最小的安全整数<code>-(2^53 - 1)</code></li>
+<li>所谓的安全，是指能够准确的区分两个不相同的值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var n = -(Math.pow(2, 53) - 1);
+console.log(n); // -9007199254740991
+console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;安全系数  以下得到结果为true，显然是不合理的<br>console.log(Number.MIN_SAFE_INTEGER - 1 &#x3D;&#x3D;&#x3D; Number.MIN_SAFE_INTEGER - 2); &#x2F;&#x2F; true</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<p>3、<code>Number.MAX_VALUE</code>与<code>Number.MIN_VALUE</code>属性</p>
+<blockquote>
+<ul>
+<li><code>Number.MAX_VALUE</code>表示<code>JavaScript</code>里所能表示的<strong>最大数值</strong></li>
+<li><code>Number.MIN_VALUE</code>表示在<code>JavaScript</code>中所能表示的<strong>最小的数值</strong></li>
+</ul>
+<pre><code>console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
+console.log(Number.MIN_VALUE); // 5e-324
+</code></pre>
+</blockquote>
+<ol start="4">
+<li><p>toFixed 方法</p>
+<blockquote>
+<ul>
+<li>返回结果后的小数部分<strong>保留指定小数位数</strong>，返回结果为一个<strong>字符串</strong></li>
+<li>如果参数为空，则表示不保留小数位</li>
+<li>保留小数位时，会采用四舍五入</li>
+<li>如果小数位不足，则用 0 来补充</li>
+</ul>
+<pre><code>var n = 1.447;
+console.log(n.toFixed()); // 1
+console.log(n.toFixed(1)); // 1.4
+console.log(n.toFixed(2)); // 1.45
+console.log(n.toFixed(5)); // 1.44700
+console.log(typeof n.toFixed()); // string
+</code></pre>
+</blockquote>
+</li>
+<li><p>toString 方法</p>
+<blockquote>
+<ul>
+<li><code>Number</code>类<strong>重写了</strong>原型上继承于<code>Object</code>对象的<code>toString</code>方法</li>
+<li><code>toString()</code>用来将数值类型转换为字符串类型</li>
+<li><code>toString()</code>可以接受一个参数，用来将数字转换成对应进制的字符串</li>
+</ul>
+<pre><code>var n = 16;
+console.log(n.toString()); // 16
+console.log(typeof n.toString()); // string
+console.log(n.toString(2)); // 10000
+console.log(n.toString(8)); // 20
+console.log(n.toString(10)); // 16
+console.log(n.toString(16)); // 10
+</code></pre>
+</blockquote>
+</li>
+<li><p>valueOf 方法</p>
+<blockquote>
+<ul>
+<li><code>Number</code>类重写了原型上的<code>valueOf</code>方法</li>
+<li><code>valueOf</code>方法返回被<code>Number</code>对象包装的原始值</li>
+<li>该方法通常是由<code>JavaScript</code>引擎在内部隐式调用的，而不是由用户在代码中显式调用的</li>
+</ul>
+<pre><code>var n = 16;
+var obj = new Number(n);
+console.log(obj); // Number &#123;16&#125;
+console.log(obj.valueOf()); // 16
+console.log(obj + 3); // 19 内部自动调用了valueOf方法
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、Boolean-包装类"><a href="#三、Boolean-包装类" class="headerlink" title="三、Boolean 包装类"></a>三、Boolean 包装类</h3><blockquote>
+<p>以下是<code>Boolean</code>包装类原型上的方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>实例方法（原型方法）</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>toString</td>
+<td>方法返回表示指定的布尔对象的字符串</td>
+</tr>
+<tr>
+<td>valueOf</td>
+<td>返回一个原始值true或false</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>toString 方法</p>
+<blockquote>
+<ul>
+<li><code>Boolean</code>类<strong>重写了</strong>原型上继承于<code>Object</code>对象的<code>toString</code>方法</li>
+<li>方法返回表示指定的布尔对象的字符串</li>
+<li>当一个<code>Boolean</code>对象作为文本值或进行字符串连接时，<code>JavaScript</code>会自动调用其<code>toString</code>方法</li>
+</ul>
+<pre><code>console.log(true.toString()); // &#39;true&#39;
+console.log(typeof true.toString()); // string
+console.log(false.toString()); // &#39;false&#39;
+console.log(true + &quot;abc&quot;); // trueabc 内部自动调用了toString()方法
+</code></pre>
+</blockquote>
+</li>
+<li><p>valueOf</p>
+<blockquote>
+<blockquote>
+<p>返回原始值<code>true</code>或<code>false</code></p>
+</blockquote>
+<pre><code>var flag = new Boolean(&quot;12&quot;);
+console.log(flag); // Boolean &#123;true&#125;
+console.log(flag.valueOf()); // true
+</code></pre>
+</blockquote>
+<p>var flag2 &#x3D; new Boolean(0);<br>console.log(flag2); &#x2F;&#x2F; Boolean {false}<br>console.log(flag2.valueOf()); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>&gt;建议永远不要使用 `new Boolean()` 来包装一个布尔值，这里只当做了解
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、String-包装类"><a href="#四、String-包装类" class="headerlink" title="四、String 包装类"></a>四、String 包装类</h3><table>
+<thead>
+<tr>
+<th>实例（原型）方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>charAt()</td>
+<td>返回字符串中指下标的字符</td>
+</tr>
+<tr>
+<td>concat()</td>
+<td>将一个或多个字符串与原字符串连接合并，形成一个新的字符串并返回</td>
+</tr>
+<tr>
+<td>indexOf</td>
+<td>返回给定的字符串在整个字符串中第一次出现的索现</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串。</td>
+</tr>
+<tr>
+<td>substring</td>
+<td>返回字符串中指定开始索引到结束索引之间的字符串，包含起始索引，不包含结束索引</td>
+</tr>
+<tr>
+<td>trim</td>
+<td>清除字符串两端的空格，返回一个新的字符串</td>
+</tr>
+<tr>
+<td>trimEnd</td>
+<td>方法会删除字符串末尾的空白字符。trimRight() 是这个方法的别名</td>
+</tr>
+<tr>
+<td>trimStart</td>
+<td>方法会删除字符串开头的空白字符。trimLeft() 是此方法的别名</td>
+</tr>
+<tr>
+<td>toUpperCase()</td>
+<td>将字符串中字母转换为大写</td>
+</tr>
+<tr>
+<td>toLowerCase()</td>
+<td>将字符串中字母转换为小写</td>
+</tr>
+<tr>
+<td>valueOf</td>
+<td>返回 String 对象的原始值</td>
+</tr>
+</tbody></table>
+<blockquote>
+<blockquote>
+<p>这些字符串方法（split 、match、search、replace）涉及到正则表达式的应用，则放在正则表达式那一章节来学</p>
+</blockquote>
+</blockquote>
+<ol>
+<li>charAt<blockquote>
+<ul>
+<li>返回字符串中指定下标的字符</li>
+</ul>
+<pre><code>str.charAt(index);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>index</code>值介于<code>0 ~ 字符串长度-1</code>之间的整数,如果值超出这个范围，返回空字符串</li>
+<li>如果没有传入参数，则默认返回下标为 0 的字符</li>
+</ul>
+<pre><code>var str = &quot;我就是我，不一样的小花朵&quot;;
+console.log(str.charAt()); // 我
+console.log(str.charAt(str.length - 1)); // 朵
+console.log(str.charAt(str.length)); // 超出范围 返回空字符串
+console.log(str.charAt(-1)); // 超出范围 返回空字符串
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>concat<blockquote>
+<ul>
+<li>将一个或多个字符串与原字符串连接合并，形成一个新的字符串并返回。</li>
+<li>如果传入的参数为非字符串，<strong>会先转换成字符串</strong>，然后再拼接</li>
+<li>concat 方法，并不影响原字符串<blockquote>
+<p>MDN上明确强调：出于性能考虑，强烈建议使用<code>+</code>或<code>+=</code>来代替<code>concat()</code>方法拼接字符串</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>str.concat(str2, [, ...strN]); // [] 里面表示可选，即concat的中的参数 &gt;= 1个
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var str = &quot;abc&quot;;
+console.log(str.concat(&quot;c&quot;)); // abcc
+console.log(str.concat(&quot;c&quot;, 4, 5)); // abcc45
+console.log(str.concat([&quot;d&quot;, &quot;e&quot;, &quot;f&quot;])); // abcd,e,f
+console.log(str.concat(true)); // abctrue
+console.log(str.concat(null)); // abcnull
+console.log(str.concat([])); // abc
+console.log(str.concat(&#123;&#125;)); // abc[object Object]
+console.log(str.concat(&#123; a: 1, b: 2 &#125;)); // abc[object Object]
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>其他类型转字符串</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>String(&#123;&#125;)</code>&#x3D;&#x3D;&#x3D;<code>&#39;[object Object]&#39;</code></li>
+<li><code>String(&#123;a: 1, b: 2&#125;)</code>&#x3D;&#x3D;&#x3D;<code>&#39;[object Object]&#39;</code></li>
+<li><code>String([&quot;d&quot;, &quot;e&quot;, &quot;f&quot;])</code>&#x3D;&#x3D;&#x3D;<code>&#39;d,e,f&#39;</code></li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>indexOf<blockquote>
+<ul>
+<li>返回指定字符串在大于或等于<code>position</code>位置的第一次出现的索引，如果没有找到则返回<code>-1</code></li>
+<li><code>searchString</code>要搜索的子字符串</li>
+<li><code>position</code>从指定位置开始往后查询</li>
+</ul>
+<pre><code>indexOf(searchString);
+indexOf(searchString, position);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果没有传第二个参数，则默认从 0 的位置开始查找</li>
+<li>给定了第二个参数，会从当前位置开始往后查找，包括当前位置</li>
+</ul>
+<pre><code>var str = &quot;hello world&quot;;
+console.log(str.indexOf(&quot;o&quot;)); // 4
+console.log(str.indexOf(&quot;o&quot;, 7)); // 7
+console.log(str.indexOf(&quot;o&quot;, 8)); // -1
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果 <code>position</code> 大于字符串长度(空格也算)，则搜索不到对应字符串，返回结果为 <code>-1</code></li>
+<li>如果 <code>position</code> 小于 <code>0</code>，则当成 <code>0</code> 来处理，从第<code>0</code>的位置往后查询<blockquote>
+<p>唯一区别：数组中的<code>indexOf</code>方法,如果第二个数是负数，则表示从后往前找</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>var str = &quot;hello world&quot;;
+console.log(str.indexOf(&quot;o&quot;, 11)); // -1
+console.log(str.indexOf(&quot;o&quot;, -4)); // 4
+indexOf 查询内容时，是严格区分大小写的，数组中的 indexOf 方法也是一样的
+var str = &quot;hello world&quot;;
+console.log(str.indexOf(&quot;W&quot;)); // -1
+console.log(str.indexOf(&quot;w&quot;)); // 6
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>空字符串搜索时会产生以下奇怪的结果，所以在查询时如果查询内容有可能为空，则需要提前判断</p>
+</blockquote>
+<ul>
+<li><code>position</code>未传，返回<code>0</code></li>
+<li><code>position</code>传了：<ul>
+<li><code>position &lt; 字符串长度</code>，返回结果为 <code>position</code> 值</li>
+<li><code>position &gt;= 字符串长度</code>，返回结果为字符串的长度</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>案例应用</code>： 统计某个字母或单词在字符串中出现的次数<blockquote>
+<pre><code>String.prototype.count = function (searchString, position) &#123;
+var n = 0; // 统计字符串出现的次数
+if (position === undefined) position = 0; // 如果没有赋值，默认为0
+if (typeof position !== &quot;number&quot;) &#123;
+  // 如果不是数字类型，则抛出错误
+  throw new TypeError(&quot;position只能是数字类型&quot;);
+&#125;
+// 从当前位置往后查找，并将查询的位置结果返回
+position = this.indexOf(searchString, position);
+while (position !== -1) &#123;
+  n++;
+  position = this.indexOf(searchString, position + 1);
+&#125;
+return n;
+&#125;;
+</code></pre>
+</blockquote>
+var str &#x3D; “on test my love on top bottom test”;<br>console.log(str.count(“on”));<br>console.log(str.count(“o”, 2));<br>console.log(str.count(“test”, -2));<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li>slice<blockquote>
+<ul>
+<li>方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串</li>
+<li>其用法和数组的 slice 方法一样</li>
+</ul>
+<pre><code>str.slice(beginIndex[, endIndex])
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>beginIndex</code>为查询的起始索引，默认为 <code>0</code></li>
+<li><code>endIndex</code>为结束索引，可选参数，默认不写，表示从结束位置提取到整个字符串的尾部。</li>
+<li>如果<code>beginIndex</code>和<code>endIndex</code>为负数，表示从后往前数，找到对应位置，再从开始位置向右查询到结束位置。</li>
+<li>从后往前数，下标从<code>-1</code>开始，同时查询字符串包含 <code>beginIndex</code>，但不包换<code>endIndex</code></li>
+</ul>
+<pre><code>var str = &quot;abcdefc&quot;;
+console.log(str.slice(2, 5)); // cde
+console.log(str.slice(2, -2)); // cde
+console.log(str.slice(-5, -2)); // cde
+console.log(str.slice(-3)); // efc
+</code></pre>
+</blockquote>
+<ol start="5">
+<li>substring<blockquote>
+<ul>
+<li>返回字符串中指定开始索引到结束索引之间的字符串，包含起始索引，不包含结束索引</li>
+</ul>
+<pre><code>str.substring(startIndex[,endIndex])
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li><code>startIndex</code>开始索引，如果小于 0 或为 <code>NaN</code>，则当成 0 处理，大于字符串长度，则当成字符串长度处理</li>
+<li><code>endIndex</code> 结束索引，如果小于 0 或为 NaN，则当成 0 处理，大于字符串长度，则当成字符串长度处理</li>
+<li>特殊之处：如果 <code>startIndex &gt; endIndex</code> ，则执行效果像两个参数调换一样</li>
+</ul>
+<pre><code>var str = &quot;abcdefc&quot;;
+console.log(str.substring(2)); // cdefc
+console.log(str.substring(-2)); // abcdefc
+console.log(str.substring(5, 2)); //cde
+console.log(str.substring(2, -3)); // ab
+console.log(str.substring(2, 5)); //cde
+console.log(str.substring(-2, -3)); //&quot;&quot;
+</code></pre>
+</blockquote>
+<ol start="6">
+<li>trim、trimEnd、trimStart<blockquote>
+<ul>
+<li><code>trim</code>：清除字符串两端的空格，返回一个新的字符串</li>
+<li><code>trimEnd</code>： 方法会删除字符串末尾的空白字符，<code>trimRight()</code> 是这个方法的别名</li>
+<li><code>trimStart</code>：方法会删除字符串开头的空白字符,<code>trimLeft()</code> 是此方法的别名<blockquote>
+<p>这里的空格是指：所有的空白字符（空格、tab、不换行空格等）以及所有行终止符字符（如 LF、CR 等）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var str = &quot;   abc   &quot;;
+var newstr = str.trim();
+console.log(str.trim()); // &quot;abc&quot;
+console.log(str.trim().length); // 3
+</code></pre>
+</blockquote>
+<p>console.log(str.trimStart()); &#x2F;&#x2F; “abc   “<br>console.log(str.trimStart().length); &#x2F;&#x2F; 6</p>
+<blockquote>
+</blockquote>
+<p>console.log(str.trimEnd()); &#x2F;&#x2F; “   abc”<br>console.log(str.trimEnd().length); &#x2F;&#x2F; 6</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="7">
+<li><p>toUpperCase 与 toLowerCase</p>
+<blockquote>
+<ul>
+<li>toLowerCase：将字符串中字母全部转换为小写</li>
+<li>toUpperCase ： 将字符串中字母全部转换为大写</li>
+</ul>
+<pre><code>var str = &quot;I love You 是我爱你&quot;;
+console.log(str.toUpperCase());
+console.log(str.toLowerCase());
+以下方法可实现将 true、false 这些非字符串值转换全大写
+String.prototype.toUpperCase.call(true);
+String.prototype.toUpperCase.call(false);
+以下代码会抛出类型错误
+String.prototype.toUpperCase.call(null);
+String.prototype.toUpperCase.call(undefined);
+image-20221208004420970
+</code></pre>
+</blockquote>
+</li>
+<li><p>valueOf</p>
+<blockquote>
+<ul>
+<li><code>valueOf()</code>返回<code>String</code>对象的原始值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>var obj = new String(&quot;wang&quot;);
+console.log(obj); // String &#123;&#39;wang&#39;&#125;
+console.log(obj.valueOf()); // wang
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 字符串拼接时，会自动调用valueOf方法，获取原始值来拼接<br>console.log(obj + “abc”);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="三个特殊的构造函数的使用"><a href="#三个特殊的构造函数的使用" class="headerlink" title="三个特殊的构造函数的使用"></a>三个特殊的构造函数的使用</h4><blockquote>
+<p><code>ECMAScript</code>提供了<code>Number</code>、<code>String</code>、<code>Boolean</code>这三个特殊的构造函数</p>
+</blockquote>
+<ol>
+<li>当用<code>new</code>调用(作为一个构造函数使用)时<blockquote>
+<ul>
+<li>将基本数据类型包装成一个<strong>对象</strong>(又称为包装类)；</li>
+<li>这个对象可以使用构造函数身上的属性，从构造函数的<code>prototype</code>上获得方法。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>new Number()</p>
+<blockquote>
+<ul>
+<li>创建一个 Number 对象,该对象不是一个原始值</li>
+</ul>
+<pre><code> var obj = new Number(42);
+ console.log(obj); //Number &#123;42&#125;
+ console.log(typeof obj); //object
+ console.log(obj == 42); //true
+ console.log(obj === 42); //false
+</code></pre>
+</blockquote>
+</li>
+<li><p>new Boolean(参数)</p>
+<blockquote>
+<ul>
+<li>如果省略该参数或参数值为 <code>0</code>、<code>-0</code>、<code>null</code>、<code>false</code>、<code>NaN</code>、<code>undefined</code>，或空字符串<code>（&quot;&quot;）</code>，则该<strong>对象</strong>具有的初始值为 false。</li>
+<li>所有其他值，包括任何对象，空数组（[]）或字符串 “false”，都会创建一个初始值为 true 的<strong>对象</strong>。</li>
+</ul>
+<pre><code> var flag1 = new Boolean(&quot;&quot;);
+ console.log(flag1); //Boolean &#123;false&#125;
+ console.log(typeof flag1); //object
+</code></pre>
+</blockquote>
+<p> var flag2 &#x3D; new Boolean(“123”);<br> console.log(flag2); &#x2F;&#x2F;Boolean {true}<br> console.log(typeof flag2); &#x2F;&#x2F;object</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>new String()</p>
+<blockquote>
+<ul>
+<li>创建字符串对象</li>
+</ul>
+<pre><code> var str = new String(&quot;a,b&quot;);
+ console.log(str); //String &#123;&#39;a,b&#39;&#125;
+ console.log(typeof str); //object
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol>
+<li>当作为一个函数使用时<blockquote>
+<ul>
+<li>主要目的是实现<strong>数据类型的转换</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>Number()函数：</strong></p>
+<ul>
+<li>基本数据类型：’’空字符串 、字符串只有前后包含空格、纯数字类字符串、2 进制或 16 进制表示的数字、科学记数表示法能转换成数字，其它都转换成 NaN</li>
+<li>引用数据类型：<code>Number([])</code>结果是<code>0</code>，<code>Number(&#123;&#125;)</code>结果是<code>NaN</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>Boolean() 函数：</strong></p>
+<ul>
+<li>代表空，否定的值会被转换为<code>false</code>。 如：<code>&#39;&#39;</code>、<code>0</code>、<code>NaN</code>、<code>null</code>、<code>undefined</code></li>
+<li>除了上面列出的 <code>5</code> 个值，其它所有值都转换为<code>true</code><blockquote>
+<p>所有对象转布尔值都为<code>true</code>，因此<strong>原始值包装对象</strong>转为布尔值都是<code>true</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>String()函数：</strong></p>
+<ul>
+<li>其它类型转换字符串</li>
+</ul>
+</blockquote>
+<h4 id="三大包装类常用的属性和方法"><a href="#三大包装类常用的属性和方法" class="headerlink" title="三大包装类常用的属性和方法"></a>三大包装类常用的属性和方法</h4><blockquote>
+<ul>
+<li>Number类<img src="Number类的常用属性和方法.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Boolean类<img src="Boolean类的常用属性和方法.png"></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>String类<img src="String类的常用属性和方法.png"></li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/">https://hermiablog.github.io/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%BA%94%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AD%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="JS核心知识点（十六）">
+                        
+                        <span class="card-title">JS核心知识点（十六）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JS 的 Math 与 Date 对象，手写活动倒计时、日历组件
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/07/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="JS核心知识点（十四）">
+                        
+                        <span class="card-title">JS核心知识点（十四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            defineProperty 方法，JS 公有、私有、静态，栈和队列
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
