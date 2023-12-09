@@ -1,0 +1,3945 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十九）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十九） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/29.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十九）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    17.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="ES6-箭头函数-和-对象自面量增强，大厂面试真题解析"><a href="#ES6-箭头函数-和-对象自面量增强，大厂面试真题解析" class="headerlink" title="ES6 箭头函数 和 对象自面量增强，大厂面试真题解析"></a>ES6 箭头函数 和 对象自面量增强，大厂面试真题解析</h2><h3 id="一、箭头函数"><a href="#一、箭头函数" class="headerlink" title="一、箭头函数"></a>一、箭头函数</h3><blockquote>
+<p>我们先来了解什么是箭头函数，箭头函数的结构，以及如何将一般函数改写成箭头函数</p>
+<ul>
+<li>引入箭头函数有两个方面的作用：<strong>更简短</strong>的函数并且<strong>不绑定this</strong></li>
+</ul>
+</blockquote>
+<h4 id="什么是箭头函数"><a href="#什么是箭头函数" class="headerlink" title="什么是箭头函数"></a>什么是箭头函数</h4><blockquote>
+<ul>
+<li>箭头函数也是函数，与之前学过的 ES5 中的 function 关键字定义的函数写法不同</li>
+<li>ES6 规定了可以使用 “箭头” <code>=&gt;</code> 来定义一个函数，语法更加简洁。不用再书写 <code>function</code> 关键字</li>
+<li>箭头函数的结构:<code>const/let 函数名 = (参数 )=&gt; 函数体</code></li>
+</ul>
+</blockquote>
+<ol>
+<li>如何将一般函数改写成箭头函数？<blockquote>
+<ul>
+<li>在 ES5 中我们学习过两种函数形式（函数声明形式、函数表达式形式）</li>
+</ul>
+<pre><code>// 声明形式
+function sum() &#123;&#125;
+// 函数表达式形式
+var sum = function () &#123;&#125;;
+// 函数表达式形式 -&gt; 箭头函数
+const sum = () =&gt; &#123;&#125;;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 箭头函数省略了function关键字，通过箭头 &#x3D;&gt; 定义函数<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li><code>var</code>和<code>function</code>声明的变量和函数会存在变量和函数声明提升，而<code>let</code>和<code>const</code>声明的变量是<strong>不存在变量提升</strong>的。</li>
+<li>所以用<code>let</code>和<code>const</code>声明的变量保存的箭头函数，一定要在<strong>声明后才能使用</strong></li>
+</ul>
+<pre><code>//函数声明
+sum1(1, 2); //3
+ function sum1(a, b) &#123;
+   console.log(a + b);
+ &#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;函数表达式:sum2在预编译时是作为一个变量，值为undefined,如果在声明前作为函数调用，会报错<br> sum2(2, 3); &#x2F;&#x2F;报错<br> var sum2 &#x3D; function (a, b) {<br>   console.log(a + b);<br> };</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F;const、let没有变量提升<br> sum3(4, 5);&#x2F;&#x2F;抛出引用错误<br> const sum3 &#x3D; (a, b) &#x3D;&gt; {<br>   console.log(a + b);<br> };</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="箭头函数的注意事项"><a href="#箭头函数的注意事项" class="headerlink" title="箭头函数的注意事项"></a>箭头函数的注意事项</h4><blockquote>
+<p>我们知道箭头函数比普通函数写起来更简洁，当满足一定条件的时候，箭头函数还可以写的更加简洁。</p>
+</blockquote>
+<ol>
+<li><p>单个参数 ：单个参数可以省略圆括号</p>
+<blockquote>
+<pre><code>// 单个参数
+const sum = x =&gt; &#123;
+  return x + 1;
+&#125;;
+console.log(sum(1)); // 2
+</code></pre>
+<ul>
+<li>如果使用vscode，则会自动加上</li>
+</ul>
+</blockquote>
+</li>
+<li><p>无参数或多个参数：不能省略圆括号</p>
+<blockquote>
+<pre><code>// 无参数，不能省略圆括号
+const sum = () =&gt; &#123;
+  return 2 + 3;
+&#125;;
+console.log(sum()); // 5
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 多参数，不能省略圆括号<br>const sum &#x3D; (a, b) &#x3D;&gt; {<br>  return a + b;<br>};<br>console.log(sum(2, 3));</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>单行</strong>函数体：可以同时省略 <code>&#123;&#125;</code> 和 <code>return</code></p>
+<blockquote>
+<pre><code>const sum = (a, b) =&gt; &#123;
+  return a + b; // 函数体内只有一条语句
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以上单行函数体，可以同时省略 {} 和 return<br>const sum &#x3D; (a, b) &#x3D;&gt; a + b;<br>console.log(sum(2, 3)); &#x2F;&#x2F; 5</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p><strong>单行对象</strong>：（同属于单行函数体，会比较特殊）</p>
+<blockquote>
+<ul>
+<li>如果箭头函数返回单行对象，可以在<code>&#123;&#125;</code>外面加上<code>()</code> ，让浏览器不再认为那是函数体的花括号</li>
+<li>并且可以省略<code>return</code></li>
+</ul>
+<pre><code>// 单行对象
+const sum = (a, b) =&gt; &#123;
+  return &#123;
+ value: a + b,
+  &#125;;
+&#125;;
+console.log(sum(2, 3)); // &#123;value: 5&#125;
+//简化：
+const sum = (a, b) =&gt; (&#123; value: a + b &#125;);
+console.log(sum(2, 3)); //&#123;value: 5&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p>单行数组</p>
+<blockquote>
+<ul>
+<li>也属于单行函数体，一样可以省略花括号和<code>return</code></li>
+</ul>
+<pre><code>const sum = (a, b) =&gt; &#123;
+  return [a, b];
+&#125;;
+console.log(sum(2, 3)); // [2, 3]
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 简写<br>const sum &#x3D; (a, b) &#x3D;&gt; [a, b];<br>console.log(sum(2, 3)); &#x2F;&#x2F; [2, 3]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>箭头函数的嵌套简写</p>
+<blockquote>
+<pre><code>function sum(a) &#123;
+  return function fn1(b) &#123;
+ return function fn2(c) &#123;
+   return function fn3(d) &#123;
+     return a + b + c + d;
+   &#125;;
+ &#125;;
+  &#125;;
+&#125;
+console.log(sum(1)(2)(3)(4));//10
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 改写用箭头函数<br>const sum2 &#x3D; (a) &#x3D;&gt; (b) &#x3D;&gt; (c) &#x3D;&gt; (d) &#x3D;&gt; a + b + c + d;<br>console.log(sum2(1)(2)(3)(4));&#x2F;&#x2F;10</p>
+<blockquote>
+<pre><code>&gt;不管箭头函数嵌套几层，只要记住，有几个`=&gt;`就有几个箭头函数，`=&gt;`函数**左边是参数，右边是函数体**
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h4 id="普通函数（非箭头函数）中的-this-指向"><a href="#普通函数（非箭头函数）中的-this-指向" class="headerlink" title="普通函数（非箭头函数）中的 this 指向"></a>普通函数（非箭头函数）中的 this 指向</h4><blockquote>
+<p>普通函数（非箭头函数）中的 <code>this</code> 指向把函数当成方法调用的对象，<strong>谁把函数当成方法调用，this 指向谁。</strong></p>
+<ul>
+<li>具体不同场景下函数（非箭头）函数中 this 指向，如下表：</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>函数的调用方式</th>
+<th>this 指向(非严格模式)</th>
+<th>this 指向（严格模式）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全局作用域下</td>
+<td>window</td>
+<td>window</td>
+</tr>
+<tr>
+<td>函数()</td>
+<td>window</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>对象.函数()</td>
+<td>对象</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>IIFE 立即执行函数</td>
+<td>window</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>数组[下标 ]()</td>
+<td>数组</td>
+<td>数组</td>
+</tr>
+<tr>
+<td>fn.call(thisArg,arg1,arg2)</td>
+<td>thisArg</td>
+<td>thisArg</td>
+</tr>
+<tr>
+<td>fn.apply(thisArg，arry)</td>
+<td>thisArg</td>
+<td>thisArg</td>
+</tr>
+<tr>
+<td>fn.bind(thisArg，arg1,arg2)</td>
+<td>thisArg</td>
+<td>thisArg</td>
+</tr>
+<tr>
+<td>定时器中的回调函数</td>
+<td>window</td>
+<td>window</td>
+</tr>
+<tr>
+<td>DOM 事件处理函数 element.onclick&#x3D;function(){ &#x2F;&#x2F; this指向 }</td>
+<td>element</td>
+<td>element</td>
+</tr>
+<tr>
+<td>var obj&#x3D;new 函数()</td>
+<td>obj</td>
+<td>obj</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>全局作用域下</li>
+</ul>
+<pre><code>// 全局作用域下
+console.log(this); //window
+</code></pre>
+</blockquote>
+<ul>
+<li><p><code>函数()</code>自调用</p>
+<blockquote>
+<pre><code>// 函数()
+&quot;use strict&quot;;
+function sum() &#123;
+console.log(this);
+&#125;
+sum(); // 严格模式下结果为 undefined  非严格模式下 window
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>对象.函数()</code></p>
+<blockquote>
+<pre><code>// 对象.函数()
+const obj = &#123;
+name: &quot;清心&quot;,
+getName: function () &#123;
+  console.log(this);
+&#125;,
+&#125;;
+obj.getName(); // &#123;name: &#39;清心&#39;, getName: ƒ&#125;
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>IIFE</code> 立即执行函数</p>
+<blockquote>
+<pre><code>// IIFE 立即执行函数
+&quot;use strict&quot;;
+(function () &#123;
+console.log(this); // 严格模式下结果为 undefined  非严格模式下 window
+&#125;)();
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>数组[下标 ]()</code></p>
+<blockquote>
+<pre><code>// 数组[下标 ]()
+function fn() &#123;
+console.log(this);
+&#125;
+const arr = [fn, 1, 2];
+</code></pre>
+</blockquote>
+<p>arr<a href="">0</a>; &#x2F;&#x2F; [fn, 1, 2]<br>fn(); &#x2F;&#x2F; window</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>函数调用 call、apply、bind 方法</p>
+<blockquote>
+<pre><code>// 函数调用call,apply,bind方法
+const obj = &#123;
+a: 1,
+b: 2,
+&#125;;
+function sum(a, b) &#123;
+console.log(this.a + this.b);
+console.log(this);
+&#125;
+sum.call(obj, 3, 4); // 3  obj
+sum.apply(obj, [3, 4]); // 3 obj
+let fn = sum.bind(obj);
+fn(); // 3  obj
+</code></pre>
+</blockquote>
+</li>
+<li><p>回调函数</p>
+<blockquote>
+<pre><code>//  回调函数
+&quot;use strict&quot;;
+setTimeout(function () &#123;
+console.log(this);// window
+&#125;, 1000);
+</code></pre>
+</blockquote>
+<p>const arr &#x3D; [1, 0, 3, 7, 5];<br>let result &#x3D; arr.find(function (value, index, arr) {<br>console.log(this); &#x2F;&#x2F; window<br>return value &gt; 2;<br>});<br>console.log(result);&#x2F;&#x2F;3</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>事件处理函数</p>
+<blockquote>
+<pre><code>// 事件处理函数
+const box = document.querySelector(&quot;.box&quot;);
+box.onclick = function () &#123;
+console.log(this); // &lt;div class=&quot;box&quot;&gt;点击我&lt;/div&gt;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>构造函数中</p>
+<blockquote>
+<pre><code>// new 函数()
+function Point(x, y) &#123;
+this.x = x;
+this.y = y;
+console.log(this); //  &#123;x: 2, y: 3&#125;
+&#125;
+const point = new Point(2, 3);
+</code></pre>
+</blockquote>
+</li>
+<li><p>分析以下代码中的 this 指向</p>
+<blockquote>
+<pre><code>// 判断以下函数中this指向谁 ？
+function sum() &#123;
+console.log(this);
+&#125;
+// 声明一个 calc 计算器对象，add为对象的属性名，sum为上边的函数名
+const calc = &#123;
+add: sum,
+&#125;;
+calc.add(); // &#123;add: ƒ&#125;  ，this 指向 calc 对象
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 根据我们上边学过的，谁调用就指向谁，因此 this 指向 calc 对象</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 判断以下this的指向<br>const adder &#x3D; calc.add;<br>adder(); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="箭头函数中的-this-指向"><a href="#箭头函数中的-this-指向" class="headerlink" title="箭头函数中的 this 指向"></a>箭头函数中的 this 指向</h4><blockquote>
+<p>箭头函数中没有自己的<code>this</code>，在箭头函数中访问<code>this</code>，需要<strong>沿着作用域链向外查找</strong>。</p>
+<pre><code>const calc = &#123;
+  sum: () =&gt; &#123;
+    console.log(this);
+  &#125;,
+&#125;;
+calc.sum(); // window
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>分析以上代码，思考：</p>
+</blockquote>
+<p>为什么<code>calc.sum()</code>调用函数时<code>this</code>的指向为<code>window</code> ？我们知道箭头函数没有自己的<code>this</code>，那为什么当前的 <code>this</code> 会指向 <code>window</code> 呢 ？<br>这时，就需要结合我们前面学过的<strong>作用域链的机制</strong>来分析了 。</p>
+<ul>
+<li>首先，箭头函数没有自己的 <code>this</code>，我们通过 <code>calc</code> 对象来调用 <code>sum()</code> 方法时（即：<code>calc.sum();</code>），就会执行<code>console.log(this);</code></li>
+<li>这时 ，就会先在<strong>当前的</strong>箭头函数执行形成的函数作用域中来查找 <code>this</code> ，而箭头函数又没有自己的<code>this</code> 因此，在当前作用域中就找不到 <code>this</code>。根据作用域链的机制，就会往外层寻找</li>
+<li>它的外层是 <code>calc</code> 对象，我们知道<strong>对象没有作用域</strong>，再往外找，就是全局作用域了</li>
+<li>因此，当 <code>console.log(this);</code> 就找到了<strong>全局</strong>作用域中的<code>this</code> ，全局作用域中的 <code>this</code> 即指向 <code>window</code> 了</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>练习以下案例，深入分析函数中的 this 指向</li>
+</ul>
+<pre><code>// &quot;use strict&quot;;
+const calc = &#123;
+  add: function () &#123;
+    const adder = () =&gt; &#123;
+      console.log(this);
+    &#125;;
+    adder();
+  &#125;,
+&#125;;
+calc.add(); // &#123;add: ƒ&#125; this指向 calc对象
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;不直接调用，而是赋值给一个新的函数<br>const addFoo &#x3D; calc.add;<br>addFoo(); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 严格模式下，this 指向 undefined<br>&#x2F;&#x2F;相当于：<br>const addFoo &#x3D;function () {<br>    const adder &#x3D; () &#x3D;&gt; {<br>      console.log(this);<br>    };<br>    adder();<br>  },</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>calc.add();</code>：调用<code>calc</code>对象里的<code>add</code>方法，它是一个普通函数，按照谁调用<code>this</code>就指向谁的原则，现在<code>add</code>函数中的<code>this</code>指向<code>calc</code>；</li>
+<li>调用<code>add</code>方法时，它里面的箭头函数也自动调用了，需要打印<code>this</code>，而箭头函数没有<code>this</code>，所以就会向外找，于是就拿到它的外层函数<code>add</code>的<code>this</code>：<code>calc</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>调用<code>addFoo();</code>，相当于调用<code>function</code>函数，它自己调用自己，没有<code>this</code>指向，所以需要向外找，在全局作用域里找到<code>window</code>(严格模式下，this 指向 undefined)</li>
+<li>调用<code>add</code>方法时，它里面的箭头函数也自动调用了，需要打印<code>this</code>，而箭头函数没有<code>this</code>，所以就会向外找，于是就拿到它的外层函数<code>function</code>的<code>this</code>：<code>window</code>,(严格模式下，this 指向 undefined)</li>
+</ul>
+</blockquote>
+<h4 id="不适用箭头函数的场景"><a href="#不适用箭头函数的场景" class="headerlink" title="不适用箭头函数的场景"></a>不适用箭头函数的场景</h4><blockquote>
+<p>我们通过前边的学习发现，使用箭头函数用起来省时省力，非常方便 。在以后的 ES6 代码中，就可以使用箭头函数来代替一般的函数了。但并不是在所有的地方都可以使用箭头函数</p>
+<blockquote>
+<p>以下几种情况不适用箭头函数：</p>
+</blockquote>
+<ul>
+<li>作为构造函数</li>
+<li>需要 this 指向调用对象的时候</li>
+<li>需要使用 arguments 的时候</li>
+</ul>
+</blockquote>
+<ol>
+<li>作为构造函数<blockquote>
+<pre><code>const Person = () =&gt; &#123;&#125;;
+new Person(); // Uncaught TypeError: Person is not a constructor
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 直接报错 Person不是构造函数<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>因为</p>
+</blockquote>
+<ul>
+<li>箭头函数没有<code>this</code>，而构造函数最重要的就是<code>this</code>，在实例化构造函数之后它里面的 <code>this</code> 指向就应该<strong>指向它实例化之后得到的实例对象</strong>，而箭头函数本身没有<code>this</code>，我们肯定就不能使用箭头函数来作为构造函数</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>需要 this 指向调用对象的时候</li>
+</ol>
+<ul>
+<li><p><strong>事件处理函数</strong>中的 <code>this</code> 一般都是<strong>指向绑定事件的对象</strong>，所以事件处理函数不要写成箭头函数</p>
+<blockquote>
+<pre><code>// 使用最原始的方式
+document.onclick = function () &#123;
+console.log(this); // document
+&#125;;
+// 当点击浏览器任意位置是，this指向 document
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 使用绑定监听事件的方式<br>document.addEventListener(<br>“click”,<br>function () {<br>  console.log(this); &#x2F;&#x2F; document<br>},<br>false<br>);<br>&#x2F;&#x2F; 当点击浏览器任意位置是，this指向 document</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 如果使用箭头函数时，箭头函数本身没有this<br>&#x2F;&#x2F; 根据作用域链的机制，就会往外层作用域中找。找到全局作用域中就指向 window了<br>document.addEventListener(<br>“click”,<br>() &#x3D;&gt; {<br>  console.log(this); &#x2F;&#x2F; window<br>},<br>false<br>);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>对象方法中的<code>this</code>是<strong>需要指向调用方法的对象</strong>，所以对象的方法不要写成箭头函数</p>
+<blockquote>
+<pre><code>// 对象的方法使用箭头函数
+const obj = &#123;
+num: 1,
+sayHello: () =&gt; &#123;
+  console.log(this.num); // undefined
+&#125;,
+&#125;;
+obj.sayHello();
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 对象方法使用普通函数<br>const obj &#x3D; {<br>num: 1,<br>sayHello: function () {<br>  console.log(this.num); &#x2F;&#x2F; 1<br>},<br>};<br>obj.sayHello();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>需要使用 arguments 的时候<blockquote>
+<ul>
+<li>在 ES6 中箭头函数里没有 <code>arguments </code></li>
+</ul>
+<pre><code>// 使用 arguments 来接受不确定实参，然后循环遍历arguments类数组
+function sum() &#123;
+  console.log(arguments);
+&#125;
+sum(1, 2, 3); // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 如果将以上函数修改成 箭头函数<br>const sum &#x3D; () &#x3D;&gt; {<br>  console.log(arguments); &#x2F;&#x2F; Uncaught ReferenceError: arguments is not defined<br>};<br>sum();<blockquote>
+</blockquote>
+&#x2F;&#x2F; 箭头函数中没有arguments<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注：<br>将以上函数修改成箭头函数后，报错 arguments 未定义。</p>
+</blockquote>
+<ul>
+<li>因为，在 <code>ES6</code> 中箭头函数里没有 <code>arguments</code> 。那如果<strong>有不定参数的需求</strong>该怎么办呢 ？</li>
+<li>既然 ES6 的箭头函数中取消了 arguments ，就可以使用其它的方式来解决</li>
+<li>我们接下来会学到<strong>剩余参数</strong>就能解决，<strong>在一定程度上</strong>代替 <code>arguments</code>，如果一定要用，还是使用传统的方式就好。</li>
+</ul>
+</blockquote>
+<h4 id="适合箭头函数的场景"><a href="#适合箭头函数的场景" class="headerlink" title="适合箭头函数的场景"></a>适合箭头函数的场景</h4><blockquote>
+<p>箭头函数因为书写的便利，在很多场景下都可以代替原来的函数，除此之外还因为箭头函数没有自己的<code>this</code>这一特性，在实际开发中也有广泛的应用。</p>
+<blockquote>
+<p>以下情况，我们可以把普通函数改写成简单的箭头函数</p>
+</blockquote>
+<ul>
+<li>函数中不会用到 <code>this</code>，则可以将此函数改成箭头函数</li>
+<li>希望在当前函数中的<code>this</code>指向外层作用域中的<code>this</code> 时，可以将此函数改成箭头函数</li>
+</ul>
+</blockquote>
+<ol>
+<li>函数中不会用到 this</li>
+</ol>
+<ul>
+<li><p>以下的**<code>IIFE</code>立即执行函数**中，并没有用到<code>this</code>，所以 <code>this</code>指向什么都没关系</p>
+<blockquote>
+<pre><code>//随机生成颜色
+const color = (() =&gt; &#123;
+const arr = [&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;];
+const n = (Math.random() * arr.length) &gt;&gt; 0;
+return arr[n];
+&#125;)();
+console.log(color);
+</code></pre>
+</blockquote>
+</li>
+<li><p>当函数()的方式自调用时，其内部也没有用到 this，所以 this 指向什么都没关系</p>
+<blockquote>
+<pre><code>var sum = (a, b) =&gt; a + b;
+console.log(sum(1, 2)); // 3
+</code></pre>
+</blockquote>
+</li>
+<li><p>常见 API 的回调函数，可以将其改写成箭头函数</p>
+<blockquote>
+<pre><code>const arr = [1, 3, 2, 7, 4, 5, 6];
+arr.sort(function (a, b) &#123;
+console.log(this);
+return a - b;
+&#125;);
+console.log(arr); // [1, 2, 3, 4, 5, 6, 7]
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 箭头函数<br>const arr2 &#x3D; [1, 4, 3, 7, 8, 12, 76];<br>arr2.sort((a, b) &#x3D;&gt; a - b);<br>console.log(arr2); &#x2F;&#x2F; [1, 3, 4, 7, 8, 12, 76]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>希望函数中 this 指向外层作用域 this<blockquote>
+<p>我们一般希望在回调函数中<strong>拿到外层</strong>作用域中的<code>this</code>，因为箭头函数没有自己的<code>this</code>，所以箭头函数中的<code>this</code>默认就指向了外层作用域中的<code>this</code>。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>案例1：点击元素，元素在几种不同颜色之间随机切换<blockquote>
+<ul>
+<li>普通函数：</li>
+</ul>
+<pre><code>&lt;style&gt;
+.box &#123;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+&#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+const box = document.querySelector(&quot;.box&quot;);
+box.onclick = function () &#123;
+  const that = this; // 保存this
+  setInterval(function () &#123;
+    const arr = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;green&quot;];
+    const len = arr.length;
+    // that指向 box
+    that.style.backgroundColor = arr[(Math.random() * len) &gt;&gt; 0];
+  &#125;, 500);
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>使用普通函数时，要在定时器的回调函数中拿到外层（事件处理函数）中的<code>this</code>，则需要在事件处理函数中<strong>添加变量</strong><code>that</code>来保存<code>this</code>，然后在回调函数中来使用</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>如果将定时器中的回调函数，改写成箭头函数，就不需要增加中间变量（代码如下）</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  &#125;
+&lt;/style&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const box = document.querySelector(&quot;.box&quot;);
+  box.onclick = function () &#123;
+    setInterval(() =&gt; &#123;
+      const arr = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;green&quot;];
+      const len = arr.length;
+      // 箭头函数中没有自己的this，所以沿着作用域链向外找,找到了事件处理函数中的this
+      // 事件处理函数中的this指向绑定事件的对象box
+      this.style.backgroundColor = arr[(Math.random() * len) &gt;&gt; 0];
+    &#125;, 500);
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<ul>
+<li>案例2：当点击一个按钮时，从零开始计数<blockquote>
+<pre><code>&lt;style&gt;
+  body &#123;
+      padding: 200px 0 0 300px;
+  &#125;
+  button &#123;
+      width: 70px;
+      height: 70px;
+      font-size: 20px;
+      cursor: pointer;
+  &#125;
+  span &#123;
+      font-size: 30px;
+      padding: 30px;
+  &#125;
+&lt;/style&gt;
+
+&lt;button id=&quot;btn&quot;&gt;点击开始&lt;/button&gt;
+&lt;span id=&quot;result&quot;&gt;0&lt;/span&gt;
+
+&lt;script&gt;
+  // 获取按钮
+  const btn = document.getElementById(&quot;btn&quot;);
+  // 获取存放数字的容器
+  const result = document.getElementById(&quot;result&quot;);
+</code></pre>
+</blockquote>
+  const timer &#x3D; {<br>  time: 0,<br>  start: function () {<br>      btn.addEventListener(<br>          “click”,<br>          function () {<br>              setInterval(function () {<br>                  console.log(this); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）<br>                  this.time++;<br>                  result.innerHTML &#x3D; this.time;<br>              }, 1000);<br>          },<br>          false<br>      );<br>  },<br>  };<br>  timer.start();<blockquote>
+<p></script></p>
+<pre><code>- 当我们点击开始按钮时，数字变成 `NaN` 了，因为定时器`setInterval(function()&#123;&#125;)` 中 `this` 指向 `window` ，我希望这里的 `this` 指向是 `timer` 对象才对（我们需要用到 `timer` 对象中的 `time` 属性）。
+&gt;本质就是，这里的 this 指向只要是 timer 就能正常运行了
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>传统方法是声明一个<code>that</code>变量来保存我们想要的<code>this</code>，然后再需要对应 <code>this</code> 的时候，替换成我们声明的变量即可实现</li>
+<li>在<code>ES6</code>中，箭头函数没有自己的<code>this</code>，我可以通过这个特性来实现：</li>
+</ul>
+<pre><code>&lt;script&gt;
+  // 获取按钮
+  const btn = document.getElementById(&quot;btn&quot;);
+  // 获取存放数字的容器
+  const result = document.getElementById(&quot;result&quot;);
+</code></pre>
+</blockquote>
+<p>  const timer &#x3D; {<br>    time: 0,<br>    start: function () {<br>      console.log(this); &#x2F;&#x2F; this指向 timer ，找到了，timer.start(); 调用start()方法，即指向 timer对象<br>      btn.addEventListener(<br>        “click”,<br>        () &#x3D;&gt; {<br>          console.log(this); &#x2F;&#x2F; 箭头函数没有自己的this ，往上一层找<br>          setInterval(() &#x3D;&gt; {<br>            console.log(this); &#x2F;&#x2F; 箭头函数没有自己的this ，往上一层找<br>            this.time++;<br>            result.innerHTML &#x3D; this.time;<br>          }, 1000);<br>        },<br>        false<br>      );<br>    },<br>  };<br>  timer.start();</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="二、箭头函数面试题"><a href="#二、箭头函数面试题" class="headerlink" title="二、箭头函数面试题"></a>二、箭头函数面试题</h3><ol>
+<li>箭头函数可以用 call 或者 apply 改变 this 指向吗 ？（百度）<blockquote>
+<p><strong>解题思路：</strong></p>
+<ul>
+<li>说说箭头函数中的 <code>this</code> 指向，普通函数中的 <code>this</code> 指向。</li>
+<li>为什么普通函数调用 <code>call</code> 和 <code>apply</code> 能改变 <code>this</code>，说下其实现原理，能否手写实现下 <code>call</code> 方法？</li>
+<li>结合手写的 <code>call</code> 方法，来说明箭头函数不能改变 <code>this</code> 指向的本质原因。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>答：</strong></p>
+<ul>
+<li>箭头函数不能用 <code>call</code> 和 <code>apply</code> 改变 <code>this</code> 指向，因为箭头函数中没有自己的 <code>this</code>，箭头函数中的 <code>this</code> 指向箭头函数声明时所在的作用域中的 <code>this</code>。而普通函数内部的 <code>this</code>，指向把函数当成方法调用的对象。</li>
+<li>普通函数调用 <code>call</code> 和 <code>apply</code> 能改变函数内部的 <code>this</code> 指向，其<strong>本质</strong>是把函数当成 <code>call</code> 或 <code>apply</code> 后面第一个参数的方法来调用。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>obj.方法()</code>方法为<strong>普通函数</strong>，其内部的 this 指向 obj</p>
+<blockquote>
+<pre><code>const obj = &#123;
+a: 1,
+b: 2,
+&#125;;
+</code></pre>
+</blockquote>
+<p>function sum(a, b) {<br>console.log(this.a + this.b);<br>}<br>sum.call(obj, 4, 5); &#x2F;&#x2F; 相当于  obj.sum(4,5) ，sum为普通函数，this指向被调用的对象,即相当于</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;*<br>obj&#x3D;{<br>  a:1,<br>  b:2,<br>  sum:function(a,b){<br>   console.log(this.a+this.b);  &#x2F;&#x2F; this指向obj<br>  }<br>}<br>*&#x2F;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>obj.方法()</code>方法为<strong>箭头函数</strong>，其 this 指向箭头函数声明时所在作用域中的 this</p>
+<blockquote>
+<pre><code>const obj = &#123;
+a: 1,
+b: 2,
+&#125;;
+</code></pre>
+</blockquote>
+<p>const sum &#x3D; (a, b) &#x3D;&gt; {<br>console.log(this.a + this.b);<br>};<br>sum.call(obj, 4, 5); &#x2F;&#x2F; 相当于  obj.sum(4,5)  但sum是箭头函数，this指向window,即相当于</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;*<br>obj&#x3D;{<br>  a:1,<br>  b:2,<br>  sum:(a,b)&#x3D;&gt;{<br>   console.log(this.a+this.b);  &#x2F;&#x2F; this指向window<br>  }<br>}<br>*&#x2F;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>以下代码是根据此原理来实现手写 <code>call</code> 方法</p>
+<blockquote>
+<ul>
+<li><code>call</code> 内部实现原理：把调用 <code>call</code> 的函数当成 <code>call</code> 方法的第一个参数的方法来使用</li>
+</ul>
+<pre><code>// 手写call方法
+Function.prototype.call = function (context, ...args) &#123;
+// ....相关判断省略
+// 创建一个唯一的值，用来当做对象的属性名
+const key = Symbol();
+// call是一个普通函数，内部的this指向调用call方法的对象
+// 把调用call方法的对象绑定成 call方法第一个参数的方法
+context[key] = this;
+// 调用方法,并将返回值保存在变量中
+let result = context[key](...args);
+//删除被新增的属性
+delete context[key];
+// 返回结果
+return result;
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>箭头函数和普通函数的区别（招银、百度、知乎、字节）<blockquote>
+<ul>
+<li>箭头函数和普通函数主要有以下几个方面的区别<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>this 指向</td>
+<td>箭头函数中没有自己的 this，箭头函数中的 this 指向箭头函数声明时所在的作用域中的 this</td>
+</tr>
+<tr>
+<td>arguments</td>
+<td>箭头函数中没有 arguments，如果需要接受对应的实参列表，可以用 rest 剩余参数</td>
+</tr>
+<tr>
+<td>构造函数</td>
+<td>箭头函数不能用做构造函数，不能使用 new 调用</td>
+</tr>
+<tr>
+<td>prototype</td>
+<td>箭头函数没有原型对象 prototype 这个属性</td>
+</tr>
+<tr>
+<td>super</td>
+<td>因为箭头函数不能用做构造函数，也就没有自己的 super</td>
+</tr>
+<tr>
+<td>yield 命令</td>
+<td>因为箭头函数不能用作 Generator 函数，所以不可以使用 yield 命令</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、对象字面量增强"><a href="#三、对象字面量增强" class="headerlink" title="三、对象字面量增强"></a>三、对象字面量增强</h3><h4 id="对象字面量是什么-？"><a href="#对象字面量是什么-？" class="headerlink" title="对象字面量是什么 ？"></a>对象字面量是什么 ？</h4><blockquote>
+<p>对象字面量就是对象的一种写法，对象一般有两种写法</p>
+</blockquote>
+<ol>
+<li><p>通过实例化构造函数来生成对象</p>
+<blockquote>
+<pre><code>// 实例化构造函数生成对象
+const student = new Object();
+student.username = &quot;清心&quot;;
+student.age = 18;
+student.code = function () &#123;&#125;;
+</code></pre>
+</blockquote>
+</li>
+<li><p>对象字面量方式创建对象</p>
+<blockquote>
+<pre><code>// 对象字面量
+const student = &#123;
+  username: &quot;清心&quot;,
+  age: 18,
+  code: function () &#123;&#125;,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>我们日常开发中，很少使用实例化构造函数来生成对象，更多使用对象字面量的方式来生成对象，因为它更直观，我们用的也更多。</li>
+</ul>
+</blockquote>
+<h4 id="属性的简洁表示法-增强"><a href="#属性的简洁表示法-增强" class="headerlink" title="属性的简洁表示法 - 增强"></a>属性的简洁表示法 - 增强</h4><ul>
+<li><p>当对象属性的<strong>键名</strong>和<strong>变量或常量名</strong>一样的时候，可以只写一个</p>
+<blockquote>
+<pre><code>let username = &quot;清心&quot;;
+let age = 18;
+const obj = &#123;
+username: username,
+age: age,
+&#125;;
+console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以下简写形式，当属性名和变量名相同时，可以只写一个<br>const obj &#x3D; {<br>username, &#x2F;&#x2F; 相当于 username: username<br>age, &#x2F;&#x2F; 相当于  age: age<br>};<br>console.log(obj); &#x2F;&#x2F; {username: ‘清心’, age: 18}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>这种简写用于函数的返回值会非常方便</p>
+<blockquote>
+<pre><code>function getCurrentDate() &#123;
+var nowDate = new Date();
+var year = nowDate.getFullYear();
+var month = nowDate.getMonth() + 1;
+var date = nowDate.getDate();
+</code></pre>
+</blockquote>
+<p>return { year, month, date }; &#x2F;&#x2F; 属性的简写形式<br>}<br>console.log(getCurrentDate()); &#x2F;&#x2F; {year: 2023, month: 1, date: 5}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="方法的简洁表示法-增强"><a href="#方法的简洁表示法-增强" class="headerlink" title="方法的简洁表示法-增强"></a>方法的简洁表示法-增强</h4><ol>
+<li>es6 中，对象的方法可以省略<strong>冒号</strong>和<code>function</code>关键字<blockquote>
+<pre><code>const obj=&#123;
+  say: function(a,b)&#123;
+ console.log(&quot;123&quot;);
+  &#125;,
+&#125;;
+//简写
+const obj = &#123;
+  say(a, b) &#123;
+ console.log(&quot;123&quot;);
+  &#125;,
+&#125;;
+obj.say(); //123
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>const student = &#123;
+  name: &quot;清心&quot;,
+  code: function () &#123;
+    console.log(`$&#123;this.name&#125;正在写代码`);
+  &#125;,
+&#125;;
+student.code(); // 清心正在写代码
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以下是简写形式，可以省略方法名后面的:和function关键字<br>const student &#x3D; {<br>  name: “清心”,<br>  code() {<br>    console.log(<code>$&#123;this.name&#125;正在写代码</code>);<br>  },<br>};<br>student.code(); &#x2F;&#x2F; 清心正在写代码</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>方法的简法，对于 get 获取函数和 set 设置函数也适用</li>
+</ol>
+<ul>
+<li><p><code>ES5</code>中 <code>get</code>和<code>set</code>函数是写在<code>Object.defineProperty</code>方法的第三个参数中</p>
+<blockquote>
+<pre><code>const obj = &#123;
+_sex: &quot;男&quot;,
+&#125;;
+Object.defineProperty(obj, sex, &#123;
+get: function () &#123;
+  return this._sex;
+&#125;,
+set: function (value) &#123;
+  this._sex = value;
+&#125;,
+&#125;);
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>ES6</code> 支持的最完美的 <code>get</code> 和 <code>set</code> 函数的简写形式</p>
+<blockquote>
+<pre><code>const obj = &#123;
+_sex: &quot;男&quot;,
+// get函数的简写
+get sex() &#123;
+  return this._sex;
+&#125;,
+// set 函数的简写
+set sex(value) &#123;
+  this._sex = value;
+&#125;,
+&#125;;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="方括号语法-增强"><a href="#方括号语法-增强" class="headerlink" title="方括号语法 - 增强"></a>方括号语法 - 增强</h4><ol>
+<li><code>ES5</code> 中方括号语法的用法<blockquote>
+<ul>
+<li>在<code>ES5</code>中定义对象属性有两种方式：点符号法和方括号表示法</li>
+</ul>
+<pre><code>const obj = &#123;&#125;;
+// 方式一：点符号法  obj.属性名=属性值
+obj.name = &quot;清心&quot;; // 等价于 obj[&#39;name&#39;]=&#39;清心&#39;
+// 方式二：方括号表示法  obj[变量]=属性值, 这种情况变量的值为属性名
+let myage = &quot;age&quot;;
+obj[myage] = 18; // 这种情况只能使用方括号法
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>但 <code>ES5</code> 中，对象字面量写法中<strong>不能</strong>使用<code>[]</code>方括号法来定义属性名</li>
+</ul>
+<pre><code>const obj = &#123;
+  name: &quot;清心&quot;,
+  [&quot;myage&quot;]: 19, // ES5中不允许这种写法
+&#125;;
+</code></pre>
+<blockquote>
+<p>现在是因为es6才可以用的</p>
+</blockquote>
+</blockquote>
+<ol start="2">
+<li>ES6 中方括号语法 - 增强<blockquote>
+<ul>
+<li>在 ES6 中允许字面量定义对象时使用<code>[]</code>方括号的方式来定义属性名</li>
+<li>方括号中可以放的内容和模板字符串中的注入<code>$&#123;&#125;</code>中可以放的内容一样，可以放<strong>值</strong>或<strong>通过计算可以得到值的（表达式）</strong>都可以</li>
+<li>但其实方括号只能放字符串和<code>Symbol</code>，除<code>Symbol</code>类型以外的<strong>值</strong>或<strong>通过计算可以得到值的（表达式）</strong>都会被转化为字符串</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>let person = &#123;
+  [1 + 3]: 3,
+  [&#123;&#125;]: 4,
+  [[]]: 5,
+  [function () &#123;&#125;]: 6,
+  [(foo = () =&gt; &#123;&#125;)]: 7,
+  [&quot;s&quot; + &quot;sex&quot;]: 8,
+&#125;;
+console.log(person);
+for (let key in person) &#123;
+  console.log(key);
+  console.log(typeof key); //全都是 string
+&#125;
+// &quot;4&quot; &quot;[object Object]&quot; &quot;&quot; &quot;function () &#123;&#125;&quot;
+//&quot;() =&gt; &#123;&#125;&quot;  &quot;ssex&quot;
+</code></pre>
+</blockquote>
+<p>const s &#x3D; Symbol();<br>let animal &#x3D; {<br>  [s]: 19,<br>};<br>const key &#x3D; Object.getOwnPropertySymbols(animal);<br>console.log(key); &#x2F;&#x2F;[Symbol()]<br>console.log(typeof key); &#x2F;&#x2F;object</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>只能采用方括号表示法的情况<blockquote>
+<ul>
+<li>在<strong>获取</strong>属性时，当属性名不是合法标识符时，就只能采用方括号表示法。</li>
+<li>在<strong>获取</strong>属性时，如果使用变量或者常量保存属性名时，就只能采用方括号表示法</li>
+</ul>
+<pre><code>const obj = &#123;
+age: 18,
+&quot;123username&quot;: &quot;icoding&quot;,
+&#125;;
+// 123username 不是合法标识符，所以只能用方括号方式来获取
+console.log(obj[&quot;123username&quot;]);
+// 定义一个常量property，值为age
+const property = &quot;age&quot;;
+// 当属性为变量或常量时，必须通过方括号语法，即：obj[property]，使用property保存的值age，所以等价于obj.age这种写法
+console.log(obj[property]); // 18
+// 当属性为变量或常量时，如果通过点语法，会将property看做字符串，表示访问obj对象下的property属性，而不是访问obj下的age属性，而obj对象中没有property属性，所以返回结果为undefined
+console.log(obj.property); // undefined
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>使用字面量方式创建对象时，如果使用变量或者常量<strong>保存属性名</strong>时，就只能使用方括号语法</li>
+</ul>
+<pre><code>let username = &quot;username&quot;;
+const age = &quot;age&quot;;
+const obj = &#123;
+  [username]: &quot;清心&quot;,
+  [age]: 18,
+&#125;;
+console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>方括号语法和点语法的区别<blockquote>
+<ul>
+<li><strong>点语法是方括号语法的特殊形式</strong>。也就是说：如果不使用点语法，只使用方括号来给对象字面量添加属性或方法没有任何问题。</li>
+<li>属性或方法名是合法标识符时，可以使用点语法，而且点语法用起来更简单。所以，能用点语法时，我们会<strong>优先使用点语法</strong>。<blockquote>
+<p>标识符命名规范： 只能以<code>字母，数字，_下划线，$</code>组成，但<strong>不能</strong>以数字开头</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 对象字面量
+const student = &#123;&#125;;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 使用点语法给对象字面量添加属性<br>student.age &#x3D; 18; &#x2F;&#x2F; 等价于 student[“age”] &#x3D; 18;<br>console.log(student); &#x2F;&#x2F; {age: 18}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 使用方括号给对象字面量添加属性<br>student[“username”] &#x3D; “icoding”; &#x2F;&#x2F; 等价于 student.username&#x3D;’icoding’<br>console.log(student); &#x2F;&#x2F; {age: 18, username: ‘icoding’}<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h2 id="ES6-解构赋值，函数参数默认值，在项目中的应用场景"><a href="#ES6-解构赋值，函数参数默认值，在项目中的应用场景" class="headerlink" title="ES6 解构赋值，函数参数默认值，在项目中的应用场景"></a>ES6 解构赋值，函数参数默认值，在项目中的应用场景</h2><h3 id="一、认知解构赋值"><a href="#一、认知解构赋值" class="headerlink" title="一、认知解构赋值"></a>一、认知解构赋值</h3><blockquote>
+<p>解构赋值语法是一种<code>JavaScript</code>表达式。可以将数组中的值或对象的属性值取出，赋值给其他变量。</p>
+<ul>
+<li>我们把传统方式的取值赋值和解构赋值的方式来对比，看解构赋值的优点</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>传统方式取值赋值</p>
+<blockquote>
+<ul>
+<li>传统方式只能把数组中的值一个一个取出来，然后分别赋值给到对应的变量</li>
+</ul>
+<pre><code>// 传统方式，取出数组中的值
+const arr = [1, 2, 3];
+let a = arr[0];
+let b = arr[1];
+let c = arr[2];
+console.log(a, b, c); // 1,2,3
+</code></pre>
+</blockquote>
+</li>
+<li><p>ES6 中，通过解构赋值来获取数组中元素</p>
+<blockquote>
+<ul>
+<li>解构赋值本质是属于<strong>“模式匹配”</strong> ，只要等号两边的<strong>结构模式</strong>相同，<strong>左边的变量</strong>就会被赋予对应的值。</li>
+</ul>
+<pre><code>const arr = [1, 2, 3, 4];
+let [a, b, c] = arr;// 解构赋值 let [a,b,c]=[1,2,3,4]
+console.log(a, b, c); //1 2 3
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>解构的目的</strong>：是为了简化提取数据的过程，增强代码的可读性。把变量放在<code>[]</code>或者<code>&#123;&#125;</code>中来获取目标对象上的对应的值。</li>
+</ul>
+</blockquote>
+<h3 id="二、两种解构模式"><a href="#二、两种解构模式" class="headerlink" title="二、两种解构模式"></a>二、两种解构模式</h3><blockquote>
+<ul>
+<li>对于对象和数组的解构，有两种解构模式：<strong>绑定模式</strong>和<strong>赋值模式</strong>，他们的语法略有不同。</li>
+</ul>
+</blockquote>
+<h4 id="绑定模式"><a href="#绑定模式" class="headerlink" title="绑定模式"></a>绑定模式</h4><blockquote>
+<p>在绑定模式中，模式<strong>以声明关键字（var、let 或 const）开始</strong>。然后按照相应的模式匹配，只要等号两边的模式相同，左边的变量就会被赋予对应的值</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>数组解构赋值，左边声明变量，用来接受右边对应结构位置上的值</li>
+</ul>
+<pre><code>// 数组解构赋值，左边相当于声明了两个变量a和c 用来接受右边对应结构位置上的值
+const [a, , c] = [1, 2, 3];
+console.log(a, c);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>对象解构赋值的内部机制是：先找属性名，看等号右边对象中有没有对应的属性名，然后再将对象对应的属性值赋值给到对应变量。<blockquote>
+<p>和属性值对应的才是变量</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 以下代码等号左边的x,y为对象属性名， _x 和 _z 才是新声明的变量，
+const &#123; x: _x, y: _y &#125; = &#123; x: 1, y: 2 &#125;;
+console.log(_x, _y);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>在绑定模式中，所有变量<strong>共享相同的声明</strong>，如果希望两个变量分别用 let 和 const 声明，则需要解构两次</li>
+</ul>
+<pre><code>var arr = [1, 2, 3];
+let [a] = arr;
+console.log(a); // 1
+</code></pre>
+</blockquote>
+<p>const [, , c] &#x3D; arr;<br>console.log(c); &#x2F;&#x2F; 3</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="赋值模式"><a href="#赋值模式" class="headerlink" title="赋值模式"></a>赋值模式</h4><blockquote>
+<p>在赋值模式中，模式<strong>不以关键字开头</strong>，赋值语句中的<strong>变量已提前声明</strong>好了。然后按照相应的模式匹配，只要只要等号两边的<strong>模式相同</strong>，左边的变量就会被赋予对应的值。</p>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>1、赋值模式中，当对<strong>对象</strong>解构赋值时，必需用<code>(....)</code>赋值语句包裹起来。否则 <code>JS</code> 引擎会把<code>&#123; &#125;</code>理解成一个代码块，从而发生语法错误。</li>
+<li>2、如果(赋值语句)前面的代码没有以<code>;</code>分号结尾，有可能会造成它被当前<strong>前一行</strong>的函数执行</li>
+</ul>
+<pre><code>// 数组解构赋值
+let a,b;
+[a,b]=[1,2,3];
+console.log(a,b); // 1 2
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 对象解构赋值  ，记得一定要用()将赋值语句包裹起来，否则会报错<br>let _x, _y;<br>({ x: _x, y: _y } &#x3D; { x: 1, y: 2 });<br>console.log(_x, _y);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 以下这种情况，如果省略括号前; 相当于执行 x(x:_x)这个函数，所以一定要在()前加上;号<br>let x<br>;(x:_x)&#x3D;{x:1,y:2}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="三、数组的解构赋值"><a href="#三、数组的解构赋值" class="headerlink" title="三、数组的解构赋值"></a>三、数组的解构赋值</h3><blockquote>
+<p>数组的解构赋值是，通过<strong>新建一个数组</strong>，数组内的变量和目标数组是<strong>一一对应</strong>的，按照<strong>索引</strong>的方式去获取值，然后赋值给指定索引上的变量。</p>
+</blockquote>
+<h4 id="模式（结构）匹配"><a href="#模式（结构）匹配" class="headerlink" title="模式（结构）匹配"></a>模式（结构）匹配</h4><blockquote>
+<p>数组解构赋值首先要遵顺 <strong>“模式匹配”</strong>，即 等号的左边是数组，右边只要是<strong>可迭代对象</strong>都可以，但不能是其它值<br><strong>可迭代对象有：</strong></p>
+<ul>
+<li>数组</li>
+<li>类数组（arguments、NodeList）</li>
+<li>Set</li>
+<li>Map</li>
+<li>… 等</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>let [] = [1, 2, 3]; // 左右两边都必需为数组类型，不过也有特殊的情况，后面会讲到
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以下情况，模式匹配失败，则会抛出错误<br>let [] &#x3D; 1; &#x2F;&#x2F; 报错<br>let [] &#x3D; {}; &#x2F;&#x2F; 报错</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li>数组解构赋值 &#x3D; 等号右边只要是可迭代对象就行。<blockquote>
+<ul>
+<li>以下内容没讲，后面会讲，有基础的当复习</li>
+</ul>
+<pre><code>// Set为可迭代对象
+const [a, b, c] = new Set([1, 2, 3]);
+console.log(a, b, c);
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; Map为可迭代对象<br>const [x, y] &#x3D; new Map([<br>[“a”, 1],<br>[“b”, 2],<br>]);<br>console.log(x); &#x2F;&#x2F; [‘a’, 1]<br>console.log(y); &#x2F;&#x2F; [‘b’, 2]<blockquote>
+</blockquote>
+&#x2F;&#x2F; arguments类数组对象<br>function f() {<br>let [a, b, c] &#x3D; arguments;<br>console.log(a, b, c);<br>}<br>f(1, 2, 3); &#x2F;&#x2F; 1 2 3<blockquote>
+</blockquote>
+&#x2F;&#x2F; 对象为非迭代对象，但给对象添加了迭代器后，就变成了可迭代对象，就可以用数组方式解构赋值<br>const obj &#x3D; {<br>a: “one”,<br>b: “two”,<br>c: “three”,<br>};<blockquote>
+</blockquote>
+&#x2F;&#x2F; 给对象添加跌迭器<br>Object.prototype[Symbol.iterator] &#x3D; function* () {<br>for (var key in this) {<br>  yield this[key];<br>}<br>};<blockquote>
+</blockquote>
+const [x, y, z] &#x3D; obj;<br>console.log(x, y, z); &#x2F;&#x2F; one two three<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="索引值相同完成赋值"><a href="#索引值相同完成赋值" class="headerlink" title="索引值相同完成赋值"></a>索引值相同完成赋值</h4><ul>
+<li>等号右边数组中的索引值和左边数组中的常量或变量一一对应就能完成赋值<blockquote>
+<pre><code>// 数组解构赋值遵守模式匹配，即：等号两边的模式相同。
+let [a, b, c] = [1, 2, 3];
+console.log(a, b, c); // 1 2 3
+</code></pre>
+</blockquote>
+let [x, , y] &#x3D; [1, 2, 3];<br>console.log(x, y); &#x2F;&#x2F; 1 3<blockquote>
+</blockquote>
+let [m, n, [l]] &#x3D; [1, 2, [4, 5]];<br>console.log(m, n, l); &#x2F;&#x2F; 1 2 4<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>注意数组嵌套的情况，不仅外层要模式匹配，内层也要</li>
+</ul>
+<pre><code>const [a, [b, c], d] = [1, [2], 3];
+console.log(a, b, d); //123
+console.log(a, c, d); //1 undefined 3
+</code></pre>
+</blockquote>
+<p>const [a, [b, c], d] &#x3D; [1, 2, 3];<br>console.log(a, b, c, d); &#x2F;&#x2F;number 2 is not iterable</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li><p>如果不取值的，可以直接用逗号跳过</p>
+<blockquote>
+<pre><code>// 数组解构赋值遵守模式匹配，即：等号两边的模式相同。
+// 如果不取值的，可以直接用逗号跳过
+const [, , a] = [1, [2, 3, 5], 6];
+console.log(a); // 6
+</code></pre>
+</blockquote>
+<p>const [a, [, , b], c] &#x3D; [1, [2, 3, 5], 6];<br>console.log(a, b, c); &#x2F;&#x2F; 1 5 6</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>如果解构不成功，则默认值为<code>undefined</code></p>
+<blockquote>
+<pre><code>let [a, b, c] = [1, 2];
+console.log(a, b, c); // 1 2 undefined
+// 上面的变量c没有取到值，则其默认值为undefined
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h4 id="数组解构的默认值"><a href="#数组解构的默认值" class="headerlink" title="数组解构的默认值"></a>数组解构的默认值</h4><ol>
+<li><p>默认值的基本用法</p>
+<blockquote>
+<p>数组解构时，如果变量的取值为<code>undefined</code>时，我们想为变量采用其它值，则就可以为变量指定默认值。</p>
+<ul>
+<li>当解构赋值时，变量对应的值<code>严格等于=== undefind</code>时(没有值或值为undefined)，其默认值才会生效</li>
+</ul>
+<pre><code>// 对空数组 [] 解构赋值
+let [a, b] = [];
+console.log(a, b); // undefined undefined
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 变量x的默认值&#x3D;1，y的默认值&#x3D;2<br>let [x &#x3D; 1, y &#x3D; 2] &#x3D; [];<br>console.log(x, y); &#x2F;&#x2F; 1,2</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 变量x的默认值&#x3D;1，y的默认值&#x3D;3<br>let [x &#x3D; 1, y &#x3D; 3] &#x3D; [8, undefined];<br>console.log(x, y); &#x2F;&#x2F; 8 3</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>默认值为表达式</p>
+<blockquote>
+<p>如果默认值是一个表达式，那这个表达式是<strong>惰性求值</strong>的。也就是变量的取值为<code>undefined</code>时，表达式才会执行求值，否则不会执行。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>const fn = () =&gt; &#123;
+  console.log(&quot;执行&quot;);
+  return 3;
+&#125;;
+let [x = fn()] = [];
+console.log(x); //执行 3
+</code></pre>
+</blockquote>
+<p>const fn &#x3D; () &#x3D;&gt; {<br>  console.log(“执行”);<br>  return 3;<br>};<br>let [x &#x3D; fn()] &#x3D; [4];<br>console.log(x); &#x2F;&#x2F; 4</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>默认值引用解构值的其他变量<blockquote>
+<ul>
+<li>默认值可以引用解构值的其他变量，但该变量必需要<strong>已经声明</strong></li>
+</ul>
+<pre><code>let [a = 1, b = a] = [];
+console.log(a, b); // 1 1
+let [x = 1, y = x] = [2];
+console.log(x, y); // 2 2
+</code></pre>
+</blockquote>
+let [m &#x3D; 1, n &#x3D; m] &#x3D; [2, 3];<br>console.log(n, m); &#x2F;&#x2F; 2  3<blockquote>
+</blockquote>
+let [i &#x3D; j, j &#x3D; 2] &#x3D; []; &#x2F;&#x2F; 报错 ,因为当i用到j时,j还没有被声明<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="四、对象的解构赋值"><a href="#四、对象的解构赋值" class="headerlink" title="四、对象的解构赋值"></a>四、对象的解构赋值</h3><blockquote>
+<p>对象的解构赋值等号两边必需<strong>同为对象类型</strong>，同时对象中的属性<strong>没有次序</strong>，所以不能像数组那样通过位置来决定变量的取值。要取到对象属性中的值，变量名必需与属性名同名。</p>
+<ul>
+<li>数组是根据索引一一对应，但对象是根据属性名来找属性值</li>
+</ul>
+</blockquote>
+<ol>
+<li>模式（结构）匹配<blockquote>
+<p>等号两边必需同为<strong>对象类型</strong></p>
+<ul>
+<li>与数组区分，数组模式匹配时，等号右边只要是可迭代对象就行</li>
+</ul>
+<pre><code>let &#123;&#125; = &#123;&#125;;
+// 或
+let &#123;&#125; = [1, 3, 3];
+// 或
+let &#123;&#125; = new String(&quot;hello&quot;);
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>注意：字符串、数组、布尔值等其实都是对象，如果它们出现在等号右边，会自动转化为包装类对象</li>
+</ul>
+<pre><code>let &#123; a &#125; = [];
+console.log(a); //undefined
+let &#123;&#125; = &quot;111&quot;;
+let &#123;&#125; = true;
+let &#123;&#125; = new String();
+let &#123;&#125; = new Boolean();
+let &#123;&#125; = new Number();
+let &#123;&#125; = Symbol();
+let &#123;&#125; = BigInt; //BigInt是类，但BigInt()不行,BigInt()是个函数，里面要放值
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>属性名相同完成赋值<blockquote>
+<ul>
+<li>对象解构赋值的内部机制是：先找属性名，看等号右边对象中有没有对应的属性名，然后再将对象对应的属性值赋值给到对应变量。</li>
+<li>如果找不到同名的属性名，则变量名的默认值为 undefined</li>
+<li><code>let&#123;属性名:变量&#125;=&#123;属性名:变量&#125;</code></li>
+</ul>
+<pre><code>let &#123; myname: _name, age: _age, sex: _sex &#125; = &#123; myname: &quot;icoding&quot;, age: 3 &#125;;
+console.log(_name, _age); // icoding 3 undefined
+// 注意，myname、age、sex不是变量名
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果变量名与属性名同名，可以采用简写形式</li>
+</ul>
+<pre><code>let &#123;x,y&#125;相当于let&#123;x:x,y:y&#125;
+//属性名:变量
+</code></pre>
+<pre><code>// 简写形式
+let &#123; myname, age &#125; = &#123; myname: &quot;icoding&quot;, age: 3 &#125;;
+console.log(myname, age); // icoding 3
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 上面代码，等价于下面代码<br>let { myname: myname, age: age } &#x3D; { myname: “icoding”, age: 3 };<br>console.log(myname, age); &#x2F;&#x2F; icoding 3</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>区分模式与变量<blockquote>
+<p>在对象解构赋值时，我们是通过<strong>对象的属性名</strong>来完成解构赋值的，所以<strong>对象的属性名我们可以看成是匹配模式的一部分。</strong></p>
+<blockquote>
+<p>用来接收对象属性值的才是新声明的变量。</p>
+</blockquote>
+<pre><code>// a,b是模式,匹配的是对象的属性  _a,_b是变量,用来接受属性的值
+var &#123; a: _a, b: _b &#125; = &#123; a: 1, b: 2 &#125;;
+console.log(_a); // 1
+console.log(_b); // 2
+console.log(a); // a is not defined
+console.log(b); // b is not defined
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>属性名相同时，是可以多次匹配的</p>
+<blockquote>
+<pre><code>//  第一个foo是变量 第二个foo是匹配模式  第一个start是变量
+let &#123;
+foo,
+foo: &#123; start &#125;,
+&#125; = &#123; foo: &#123; start: 33 &#125; &#125;;
+console.log(foo, start); // &#123;start: 33&#125; 33
+//相当于：
+let &#123;
+foo:foo,
+foo: &#123; start &#125;，
+&#125; = &#123; foo: &#123; start: 33 &#125; &#125;;
+</code></pre>
+<ul>
+<li>第一个变量foo往等号右边找，找到<code>foo=&#123; start: 33 &#125;</code></li>
+<li>第二个<code>foo</code>，先往等号右边找同名属性名，还是找到了<code>foo=&#123;start: 33&#125;</code>，所以<code>&#123;start&#125;=&#123;start: 33&#125;</code>；<code>start</code>是个与属性名相同的变量，与等号右边的<code>start</code>匹配后，解构赋值得到<code>start=33</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>我们来看下面代码中，那些是匹配模式，那些是变量</p>
+<blockquote>
+<pre><code>const obj = &#123;
+arr: [&quot;1&quot;, [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;], &#123; name: &quot;icoding&quot;, age: 23 &#125;],
+&#125;;
+</code></pre>
+</blockquote>
+<p>let {<br>arr: [a, , { name, age: _age, sex }],<br>} &#x3D; obj;</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; a  name  _age  sex是变量<br>&#x2F;&#x2F; arr age 是匹配模式</p>
+<blockquote>
+</blockquote>
+<p>console.log(a, name, _age, sex); &#x2F;&#x2F; 1 icoding 23 undefined</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>const obj = &#123;
+  foo: &#123;
+    bar: &#123;
+      start: &#123;
+        number: 1,
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+<p>var {<br>  foo,<br>  foo: { bar },<br>  foo: {<br>    bar: {<br>      start: { number },<br>    },<br>  },<br>} &#x3D; obj;<br>&#x2F;&#x2F; 第一个foo，第一个bar ,number是变量，其它的都是匹配</p>
+<blockquote>
+</blockquote>
+<p>console.log(foo);&#x2F;&#x2F;{bar: {…}}<br>console.log(bar);&#x2F;&#x2F;{start: {…}}<br>console.log(number);&#x2F;&#x2F;1</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="4">
+<li><p>复杂结构的嵌套取值</p>
+<blockquote>
+<p>取出如下结构中<code>z</code>属性值和<code>z</code>中的<code>b</code>属性值及<code>y</code>属性中的第 <code>3</code>个值</p>
+<pre><code>const obj = &#123;
+  x: 1,
+  y: [2, 3, 4],
+  z: &#123; a: 5, b: 6 &#125;,
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 对象解构赋值<br>const {<br>  z,<br>  z: { b },<br>  y: [, , c],<br>} &#x3D; obj;</p>
+<blockquote>
+</blockquote>
+<p>console.log(z); &#x2F;&#x2F; {a: 5, b: 6}<br>console.log(b); &#x2F;&#x2F; 6<br>console.log(c); &#x2F;&#x2F; 4</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>对象解构的默认值</p>
+<blockquote>
+<p>对象解构时，如果变量的取值为<code>undefined</code>时，我们想为变量采用其它值，则就可以为变量<strong>指定默认值</strong>。</p>
+<ul>
+<li>当解构赋值时，变量对应的值<code>严格等于=== undefind</code>时，其默认值才会生效</li>
+</ul>
+<pre><code>let &#123; a: _a = 0, b: _b = 0 &#125; = &#123; a: 1, b: 2 &#125;;
+console.log(_a, _b); // 1 2
+</code></pre>
+</blockquote>
+<p>let { x: _x &#x3D; 0, y: _y &#x3D; 0 } &#x3D; { x: 3 };<br>&#x2F;&#x2F; _x 和 _y 解构取值为undefined，则会采用默认值<br>console.log(_x, _y); &#x2F;&#x2F; 3 0</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>解构赋值的简写形式（为变量指定默认值）</li>
+</ul>
+<pre><code>let &#123; a = &quot;A&quot;, b = &quot;B&quot;, c = &quot;C&quot; &#125; = &#123; a: 2, b: 3 &#125;;
+console.log(a, b, c);//2,3,&quot;C&quot; 
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F;   上面代码等价于;<br>let { a: a &#x3D; “A”, b: b &#x3D; “B”, c: c &#x3D; “C” } &#x3D; { a: 2, b: 3 };<br>console.log(a, b, c);&#x2F;&#x2F;2,3,”C” </p>
+<blockquote>
+</blockquote>
+<p>let {x &#x3D; 3 , y &#x3D; 4 } &#x3D; {};<br>console.log(x,y);&#x2F;&#x2F;3 4<br>&#x2F;&#x2F;相当于<br>let {x : x &#x3D; 3 , y : y &#x3D; 4 } &#x3D; {};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="6">
+<li><p>默认值为表达式</p>
+<blockquote>
+<ul>
+<li>如果默认值为表达式，那这个表达式<strong>惰性求值</strong></li>
+</ul>
+<pre><code>const fn = () =&gt; 3;
+let &#123; a = fn() &#125; = &#123; a: 1 &#125;;
+console.log(a); // 1   a能成功赋值,所以fn()函数不会被执行
+</code></pre>
+</blockquote>
+<p>let { b &#x3D; fn() } &#x3D; {};<br>console.log(b); &#x2F;&#x2F; 执行  3<br>&#x2F;&#x2F; b求值不成功,则采用默认值,即fn()函数执行</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>解构原型链上属性</p>
+<blockquote>
+<pre><code>// 对&#123;&#125;空对象进行解构赋值
+const &#123; x &#125; = &#123;&#125;;
+console.log(x); // undefined 是取不到值的
+</code></pre>
+</blockquote>
+<p>const { valueOf, toString } &#x3D; {};<br>console.log(valueOf); &#x2F;&#x2F; ƒ valueOf() { [native code] }<br>console.log(toString); &#x2F;&#x2F; ƒ toString() { [native code] }</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>在之前的对象解构赋值的模式匹配时，我们说等号的左右两边只要都是对象类型就可以。</p>
+<blockquote>
+<p>接下来我们看下面这几种情况，他们是如何完成解构赋值。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<pre><code>// 数组本质也是一个对象，他身上有length属性，原型上有push属性（方法）等
+let &#123; length, push &#125; = [1, 3, 3];
+console.log(length, push);//3 ƒ push() &#123; [native code] &#125;
+</code></pre>
+<ul>
+<li>变量<code>length</code>去等号右边找<code>length</code>属性，虽然没在数组里找到，但是它可以拿到数组身上的length属性</li>
+<li>同理，也可以拿到数组身上的<code>push</code>属性(方法)</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code>let &#123; 0: x, 1: y, at &#125; = new String(&quot;hello&quot;);
+console.log(x, y, at); // h e ƒ at() &#123; [native code] &#125;
+</code></pre>
+<ul>
+<li><code>new String(&quot;hello&quot;)</code>是一个包装对象：</li>
+<li>会被转化为：<code>String&#123;0 : &quot;h&quot; , 1 : &quot;t&quot;,...&#125;</code></li>
+<li>而<code>at</code>是<code>String</code>身上的一个方法</li>
+</ul>
+</blockquote>
+<h3 id="五、其它数据类型解构赋值"><a href="#五、其它数据类型解构赋值" class="headerlink" title="五、其它数据类型解构赋值"></a>五、其它数据类型解构赋值</h3><ol>
+<li>字符串的解构赋值<blockquote>
+<p>字符串的解构赋值有两种形式：既可以按照<strong>对象形式</strong>解构赋值，也可以按照<strong>数组的形式</strong>解构赋值</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>数组的形式解构赋值</p>
+<blockquote>
+<pre><code>// 把字符串icoding当做一个数组，[i,c,o,d,i,n,g]
+const [x, y, , , , , z] = &quot;icoding&quot;;
+console.log(x, y, z); // i c g
+</code></pre>
+</blockquote>
+</li>
+<li><p>对象形式的解构赋值</p>
+<blockquote>
+<ul>
+<li>解构赋值时，对象的属性名为数组的索引值（下标）</li>
+</ul>
+<pre><code>// 0 -&gt; i , 1 -&gt; c ...  length 表示数组的长度
+const &#123; 0: x, 1: y, length &#125; = &quot;icoding&quot;;
+console.log(x, y, length); // i c 7
+</code></pre>
+<ul>
+<li>上面的”icoding”包装成对象后，再用对象形式解构赋值。”icoding”包装成对象如下</li>
+</ul>
+<pre><code>//相当于
+var str = new String(&quot;icoding&quot;);
+console.log(str);
+</code></pre>
+<img src="字符串的解构赋值.png"></blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>数值和布尔值的解构赋值<blockquote>
+<p>用对象模式解构赋值时，如果等号右边是数值或布尔值，是会<strong>先转为对象</strong>，再用参于对象的解构赋值</p>
+<ul>
+<li>数值和布尔值，与字符串不同，它们拿不到数值&#x2F;布尔值，只能得到<code>undefined</code></li>
+</ul>
+<pre><code>let &#123; 0 : x, toFixed &#125; = 124;
+console.log(x); // undefined
+console.log(toFixed); // ƒ toFixed() &#123; [native code] &#125;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>let &#123; 0 : x, toString &#125; = true;
+console.log(x); // undefined
+console.log(toString); //ƒ toString() &#123; [native code] &#125;
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>undefined 和 null 的解构赋值<blockquote>
+<p>由于 <code>undefined</code> 和 <code>null</code> 没有对应的包装对象，所以无法通过它们转换成相应的对象。</p>
+<ul>
+<li>因此，对它们进行解构赋值，都会报错。</li>
+</ul>
+<pre><code>const &#123; toString &#125; = undefined; // 报错，undefined的原型上没有toString方法
+const &#123; toString &#125; = undefined; // 报错
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3 id="六、解构赋值在实际开发中的应用场景"><a href="#六、解构赋值在实际开发中的应用场景" class="headerlink" title="六、解构赋值在实际开发中的应用场景"></a>六、解构赋值在实际开发中的应用场景</h3><ol>
+<li>交换变量的值<blockquote>
+<pre><code>let a = 2;
+let b = 3;
+let c = 4;
+[a, b, c] = [b, c, a]; // a、b、c 已经声明了，这里就不用再添加 let 等关键字声明了
+console.log(a, b, c); // 3 4 2
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>解构赋值实现变量交换的本质是：<blockquote>
+<ul>
+<li><code>[a, b, c] = [b, c, a]</code> <strong>先</strong>把<code>=</code>号右边的<strong>变量值取到</strong>，即<code>[a, b, c] = [3,4,2]</code>，<strong>然后再解构赋值</strong>给到左边对应的变量。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>从函数返回多个值<blockquote>
+<p>函数只能返回一个值，如果要返回多个值，只能将它们放在<strong>数组或对象</strong>里返回，可以使用解构赋值，非常方便的取出这些值。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>返回一个数组</p>
+<blockquote>
+<pre><code>const foo = () =&gt; [5, 6, 7];
+let [x, y, z] = foo(); // 函数返回结果一个数组，对该数组进行解构，获取里面的每个值
+//相当于let [x, y, z] =[5, 6, 7];
+console.log(x, y, z); // 5 6 7
+</code></pre>
+</blockquote>
+</li>
+<li><p>返回一个对象</p>
+<blockquote>
+<pre><code>const fun = () =&gt; (&#123;
+foo: 2,
+bar: 3,
+&#125;);
+</code></pre>
+</blockquote>
+<p>let { foo, bar } &#x3D; fun(); &#x2F;&#x2F; 函数返回结果一个对象，对该对象进行解构，获取里面的每个值<br>&#x2F;&#x2F;相当于let { foo, bar } &#x3D; {foo: 2, bar: 3};<br>console.log(foo, bar); &#x2F;&#x2F; 2 3</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>函数参数的解构<blockquote>
+<p>可以方便地将一组参数与变量名对应起来</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>如果传入函数的参数是数组时，可以对参数进行解构，获取数组中每一项的值</p>
+<blockquote>
+<pre><code>function f([a, b, c]) &#123;
+// 相当于  let  [a, b, c]=[5, 6, 7]
+console.log(a, b, c);
+&#125;
+f([5, 6, 7]); // 5 6 7
+</code></pre>
+</blockquote>
+</li>
+<li><p>传入函数的参数是对象时，可以对参数进行解构，获取对象中对应的属性值</p>
+<blockquote>
+<pre><code>function f(&#123; a, b, c &#125;) &#123;
+// 相当于 &#123; a, b, c &#125;=&#123; c: 5, a: 6, b: 7 &#125;
+console.log(a, b, c); // 6 7 5
+&#125;
+f(&#123; c: 5, a: 6, b: 7 &#125;);
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="七、函数参数的默认值"><a href="#七、函数参数的默认值" class="headerlink" title="七、函数参数的默认值"></a>七、函数参数的默认值</h3><blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li>在 <code>ES6</code> 之前，<strong>不能</strong>直接为函数参数指定默认值，因为我们在实际开发中经常需要用到，所以在之前的课程中，我们把默认值相关内容已经讲了。<blockquote>
+<p>但并没有讲完整，所以这里我们再来完善下相关内容</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>函数参数的默认值写法<blockquote>
+<ul>
+<li>如果调用函数时传入了对应的参数，就用传递的参数，如果没有传，就用默认值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>在 <code>ES6</code> 之前，<strong>不能</strong>直接为函数参数指定默认值，我们通常采用以下变通方法</p>
+<blockquote>
+<pre><code>function sum(a, b) &#123;
+if (a === undefined) a = 0;
+if (b === undefined) b = 0;
+console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+&#125;
+sum(); // 0+0=0
+sum(1, 3); // 1+3=4
+</code></pre>
+</blockquote>
+</li>
+<li><p><code>ES6</code>中，函数指定默认值，非常简单，直接在形参后面赋值</p>
+<blockquote>
+<pre><code>function sum(a = 0, b = 0) &#123;
+console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+&#125;
+sum(); // 0+0=0
+sum(1, 3); // 1+3=4
+</code></pre>
+<ul>
+<li>这种写法不仅简单，也可以一眼就能意识到那些参数是可以省略不传值的。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>默认值生效的<strong>条件</strong>：参数没有赋值，或赋值为 <code>undefined</code></p>
+<blockquote>
+<pre><code>function sum(a = 0, b = 0) &#123;
+console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+&#125;
+sum(); // 0+0=0
+sum(undefined, &quot;B&quot;); //0+B=0B
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><p>函数参数默认值是惰性求值的</p>
+<blockquote>
+<ul>
+<li>如果默认值是表达式，默认值表达式是惰性求值的</li>
+</ul>
+<pre><code>let x = 1;
+function fn(a = x++) &#123;
+  console.log(x);
+&#125;
+fn(2); // 1   x++不会执行
+fn(); // 2   x++被执行
+fn(undefined); // 3   x++被执行
+</code></pre>
+</blockquote>
+</li>
+<li><p>参数默认值的<strong>位置</strong></p>
+<blockquote>
+<p>通常情况下，定义了默认值的参数应该是函数的<strong>尾参数</strong>。因为这样容易看出，哪些参数是可以省略不传值的。</p>
+<ul>
+<li>如果非尾部的参数设置了默认值，实际上我们是<strong>无法跳过</strong>此参数，设置其后参数的值的。除非显示传入<code>undefined</code>值</li>
+</ul>
+<pre><code>function fn(a = 1, b, c) &#123;
+  console.log(a, b, c);
+&#125;
+fn(); // 1 undefined undefined
+fn(2); // 2 undefined undefined
+fn(undefined, 4, 5); // 1 4 5
+// fn(,3,3); // 报错
+</code></pre>
+<ul>
+<li>参数如果设置了默认值，能往后放，一定放在后面为好，按实际需要调整</li>
+<li>之前设置默认值的参数如果放前面，可能会出现语法错误，现在这个<code>bug</code>已经修复</li>
+</ul>
+</blockquote>
+</li>
+<li><p>函数的 length 属性</p>
+<blockquote>
+<p>函数的 <code>lenght</code> 属性用来返回<strong>没有指定默认值</strong>的参数个数。</p>
+<ul>
+<li>同时，<code>rest</code> 参数也不会计入 <code>length</code> 属性<img src="函数的length属性1.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>注意：如果设置了默认值的参数是不是尾参数，那其后的参数也不会被计入到<code>length</code>属性中<img src="函数的length属性2.png"></li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>默认参数形成作用域<blockquote>
+<p>一旦参数<strong>设置了默认值</strong>，函数进行声明初始化时，参数会形成一个<strong>单独的作用域</strong>。等到<strong>初始化结束时</strong>，这个作用域就会消失。</p>
+<ul>
+<li>不过这种语法行为在不设置参数默认值时是不会出现的。</li>
+</ul>
+<pre><code>let a = 1;
+const f = (a, b = a) =&gt; &#123;
+  console.log(b);
+&#125;;
+f(3); // 3
+</code></pre>
+<ul>
+<li>函数被调用时，在进入函数作用域之前，参数会形成单独的作用域</li>
+<li>在这个作用域内：<code>&#123;let a; let b=a;&#125;</code>，在这个作用域里，执行<code>b=a</code>时，会<strong>先在本作用域内</strong>找a，没找到就去<strong>全局</strong>作用域找，还没找到就报错。<strong>不会</strong>去函数作用域内找；</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>let a = 1;
+const f = (b = a) =&gt; &#123;
+  let a = 33;
+  console.log(b);
+&#125;;
+// 因为没有传入对应实参，则会启用默认值b=a,此时参数会形成一个单独的作用域，在此作用域中没有变量a,所以最终沿着作用域向外查找到全局作用域中的a=1,即b=1
+f(); // 1
+f(2); // 2  b没有启用默认值，而是传过来的实参2
+</code></pre>
+</blockquote>
+<ul>
+<li>注意区分以下几种错误写法：<blockquote>
+<p><strong>第一种</strong></p>
+<pre><code>const f = (b = a) =&gt; &#123;
+let a = 33;
+console.log(b);
+&#125;;
+f(); // 报错
+</code></pre>
+<ul>
+<li>因为没有传入对应实参，则会启动默认值<code>b=a</code></li>
+<li>在参数单独形成的作用域内，没有找到<code>a</code>，沿着作用域链往外找，在全局作用域里也没有找到，所以会报错</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>第二种</strong></p>
+<pre><code>let a = 5;
+const f = (a = a) =&gt; &#123;
+  console.log(a);
+&#125;;
+f(4); // 4
+f(); // 报错
+</code></pre>
+<ul>
+<li>因为没有传入对应实参，则会启动默认值<code>a=a</code></li>
+<li>在参数单独形成的作用域内，<code>let a=a</code>；在a没有完成声明前调用a，就会形成暂时性死区</li>
+<li>在变量a的声明语句还没有执行完成前，就去取a的值，导致报错</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果参数的默认值是一个函数，该函数的作用域也遵守这个规则。<blockquote>
+<pre><code>let c = 4;
+function f(a = 2, fn = () =&gt; c + a) &#123;
+let c = 5;
+console.log(fn());
+&#125;
+f(); // 6
+</code></pre>
+<ul>
+<li><code>f()</code>没有传入对应的实参，则会启用默认值，因为参数设置了默认值，所以参数会形成一个作用域</li>
+<li>此时作用域中相当于<code>let a=2,fn=()=&gt;c+a;</code>函数返回值中的<code>a</code>为当前作用域中的<code>2</code>，<code>c</code>为全局作用域中的<code>4</code>，最后<code>fn()</code>调用，输出结果为<code>6</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<pre><code>let a = 1;
+function fn() &#123;
+  a = 5;
+&#125;
+function f(a, b = fn) &#123;
+  // let a=55; 会报错
+  var a = 55;
+  b();
+  console.log(a);
+&#125;
+f(); // 55
+console.log(a);//5
+</code></pre>
+<ul>
+<li>在调用<code>f()</code>时，没有传入参数，所以启动默认值</li>
+<li>在参数作用域内，<code>let a=1; let b=fn</code>；(此时b&#x3D;fn是赋值，不是声明)</li>
+<li>进入到函数作用域内<ul>
+<li>如果是<code>var a=55;</code>，用的是<code>var</code>，所以替代了参数作用域里声明的<code>a</code>；执行<code>b()</code>时，因为<code>fn</code>是在全局作用域中声明的，所以调用<code>b()</code>时，修改的是全局作用域中的的<code>a</code>,而函数体中的<code>console.log(a)</code>访问的是当前函数作用域中的 <code>a</code>,所以打印结果为<code>55</code></li>
+<li>如果是<code>let a=55</code>，在参数作用域内声明的<code>let a=1</code>，会和函数体内的<code>let a=55</code>冲突；所以报错<code>Identifier &#39;a&#39; has already been declared</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><code>JS</code>是<strong>静态</strong>作用域，函数在哪里声明，它的作用域就在哪里；函数里面的参数也是沿着函数作用域向外查找</p>
+</blockquote>
+<ul>
+<li><code>fn</code>是在全局作用域下声明的，所以函数体内的<code>a</code>会向外找到全局作用域下声明的<code>a</code>；</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果fn是在参数作用域声明的，那情况就另当别论了：</li>
+</ul>
+<pre><code>let a = 1;
+function fn() &#123;
+  a = 5;
+&#125;
+function f(a, b = function fn1()&#123;a=3&#125;) &#123;
+  //let a,let b=function fn1()&#123;a=3&#125; 在b没有被调用前,a就不会被赋值
+  var a = 55;
+  b();
+  //b调用后 参数作用域内声明的a被赋值3，但改变不了函数体内声明的a
+  console.log(a);
+&#125;
+f(); // 55
+console.log(a);//1
+</code></pre>
+<ul>
+<li>在调用<code>f()</code>时，没有传入参数，所以启动默认值</li>
+<li>在参数作用域内，<code>&#123;let a; let b=function fn1()&#123;a=3&#125;&#125;</code>，<code>fn1</code>在参数作用域内声明，一旦被调用，那它改变的是参数作用域内声明的a的值</li>
+<li>由于函数体内又用<code>var</code>改变了a的值，所以即使<code>b()</code>，也改变不了函数体内a的值</li>
+<li>而外面的a由于函数<code>fn</code>没有被调用，所以值不变</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>函数参数的默认值与解构赋值结合使用<blockquote>
+<p>指定参数的默认值，就避免了在函数体内部再去判断传入的参数是否有值了。</p>
+<ul>
+<li>不过要区分以下 3 种不同方式</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>第一种</strong></p>
+<ul>
+<li>如果不传实参就会报错</li>
+</ul>
+<pre><code>function foo(&#123; a = 1, b = 3 &#125;) &#123;
+  console.log(a, b);
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; foo(); &#x2F;&#x2F; 报错<br>&#x2F;&#x2F; 相当于  let {a &#x3D; 1, b &#x3D; 3}&#x3D;undefined</p>
+<blockquote>
+</blockquote>
+<p>foo({}); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{} 没有对应值，则用默认值</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A” }); &#x2F;&#x2F; A 3<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{ a: “A” } a有值，用传的值，b无值，用默认值</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{ a: “A”, b: “B” } a与b都有值，用传的值</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>第二种</strong></p>
+<pre><code>function foo(&#123; a = 1, b = 3 &#125; = &#123;&#125;) &#123;
+  console.log(a, b);
+&#125;
+foo(); // 1 3
+// 相当于 let &#123; a = 1, b = 3 &#125; = &#123;&#125;
+</code></pre>
+</blockquote>
+<p>foo({}); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{}</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A” }); &#x2F;&#x2F; A 3<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{ a: “A” }</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{ a: “A”, b: “B” }</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>第三种</strong></p>
+<ul>
+<li>传空值或者只传一个就会得到<code>undefinded</code></li>
+</ul>
+<pre><code>function foo(&#123; a, b &#125; = &#123; a: 1, b: 3 &#125;) &#123;
+  console.log(a, b);
+&#125;
+</code></pre>
+</blockquote>
+<p>foo(); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D; { a: 1, b: 3 }</p>
+<blockquote>
+</blockquote>
+<p>foo({}); &#x2F;&#x2F; undefined undefined<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D; {}</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A” }); &#x2F;&#x2F; A  undefined<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D;{ a: “A” }</p>
+<blockquote>
+</blockquote>
+<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let { a, b }&#x3D;{ a: “A”, b: “B” }</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h2 id="ES6-剩余参数-和-展开运算符在实际开发中的应用"><a href="#ES6-剩余参数-和-展开运算符在实际开发中的应用" class="headerlink" title="ES6 剩余参数 和 展开运算符在实际开发中的应用"></a>ES6 剩余参数 和 展开运算符在实际开发中的应用</h2><h3 id="一、剩余参数"><a href="#一、剩余参数" class="headerlink" title="一、剩余参数"></a>一、剩余参数</h3><ol>
+<li><p>什么是剩余参数</p>
+<blockquote>
+<p><code>ES6</code>中引入了 <code>rest</code>（剩余）参数，允许将<strong>不确定部分的参数</strong>合成一个数组。其写法为 <code>...变量名</code>，变量是一个<strong>数组</strong>，用来保存不确定部分的参数，变量名自己取。</p>
+<ul>
+<li>简单理解：rest 参数，就是把用逗号隔开的值合成一个数组，保存在变量中。</li>
+</ul>
+<pre><code>// ...args 为剩余参数，其中变量args表示一个数组,用来接受传过来的所有实参
+const sum = (...args) =&gt; &#123;
+  console.log(args);
+&#125;;
+sum(1, 2, 3, 4); //  [1, 2, 3, 4]
+sum(); // []
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; …args 为剩余参数，其中变量args表示一个数组，用于接受第3个（包含）之后的所有实参<br>const f &#x3D; (a, b, …args) &#x3D;&gt; {<br>  console.log(a); &#x2F;&#x2F; 1<br>  console.log(b); &#x2F;&#x2F; 2<br>  console.log(args); &#x2F;&#x2F; [3, 4, 5]<br>};<br>f(1, 2, 3, 4, 5);</p>
+<blockquote>
+<pre><code>&gt;注：
+- 我们要确定剩余参数对应的参数，**先要把确定的参数排除**，剩下的不确定参数就全部归剩余参数。
+</code></pre>
+</blockquote>
+</li>
+<li><p>剩余参数的本质</p>
+<blockquote>
+<p>剩余参数中的变量本质是一个数组，即使没有值，也是一个空数组，所以<strong>数组所有的方法这个变量都可以用</strong></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>const f = (a, ...args) =&gt; &#123;
+  console.log(args); // [2, 3, 4, 5]
+  args.push(a);
+  console.log(args); //[2, 3, 4, 5, 1]
+&#125;;
+f(1, 2, 3, 4, 5);
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>剩余参数的注意事项<blockquote>
+<ul>
+<li>剩余参数之后不能再有其它参数，即剩余参数<strong>必须是最后一个参数</strong>，否则会报错</li>
+</ul>
+<pre><code>const f = (a,...args,b)=&gt;&#123;&#125; // 报错
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>当箭头函数中只有一个剩余参数时，其圆括号也不能省略</li>
+</ul>
+<pre><code>// const f = ...args =&gt; args;  错误写法
+const f = (...args) =&gt; args;
+console.log(f(1, 2, 3)); // [1, 2, 3]
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>在箭头头函数中没有<code>arguments</code>，所以<code>rest</code>剩余参数可以在箭头或普通函数中<strong>替代</strong> <code>arguments</code> 来接受对应的实参列表。</li>
+<li><code>arguments</code>是类数组对象，很多时候要把他转换为数组再用，而剩余参数本身就是数组，用起来就很方便</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>之前用<code>arguments</code></p>
+<blockquote>
+<ul>
+<li>要先将类数组转化为数组</li>
+</ul>
+<pre><code>function sum() &#123;
+let result = 0; // 累加器
+//将arguments转化为数组
+Array.prototype.forEach.call(arguments, (item) =&gt; &#123;
+  result += item;
+&#125;);
+return result;
+&#125;
+console.log(sum(1, 2, 3, 4));
+</code></pre>
+</blockquote>
+</li>
+<li><p>现在用剩余参数+箭头函数更加方便、简洁</p>
+<blockquote>
+<pre><code>const sum = (...args) =&gt; &#123;
+let result = 0;
+args.forEach((item) =&gt; (result += item));
+return result;
+&#125;;
+console.log(sum(1, 2, 3, 4)); //10
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>函数的<code>length</code>属性用来保存未设置默认值参数的个数，<code>rest</code>剩余参数<strong>不计入其中</strong><blockquote>
+<p>注意：上节有讲到<code>length</code>只会保存从左往右，遇到的第一个有默认值参数之前的参数的个数</p>
+</blockquote>
+</li>
+</ul>
+<pre><code> const f = (a, b, c = 2, ...args) =&gt; &#123;&#125;;
+ console.log(f.length); // 2
+ const fn = (a, b = 1, c, ...args) =&gt; &#123;&#125;;
+ console.log(fn.length); //1
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>注意事项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>剩余参数的位置</td>
+<td>剩余参数必须是最后一个参数</td>
+</tr>
+<tr>
+<td>箭头函数中只有一个剩余参数</td>
+<td>箭头函数中只有一个剩余参数，也不能省略圆括号</td>
+</tr>
+<tr>
+<td>剩余参数与<code>arguments</code></td>
+<td>箭头函数中没有<code>arguments</code>，在往后的开发中，我们会利用剩余参数来替代<code>arguments</code>，因为剩余参数本身就是一个数组，用起来更方便</td>
+</tr>
+<tr>
+<td>函数<code>length</code>属性不计算<code>rest</code>参数</td>
+<td>函数的<code>length</code>属性用来保存未设置默认值参数的个数，<code>rest</code>剩余参数不计入其中</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ol start="4">
+<li>剩余参数在实际开发中的应用</li>
+</ol>
+<ul>
+<li><p>根据实参传递的个数来求和</p>
+<blockquote>
+<pre><code>const sum = (...args) =&gt; &#123;
+let result = 0;
+args.forEach((item) =&gt; (result += item));
+return result;
+&#125;;
+console.log(sum(1, 2, 3, 4)); //10
+</code></pre>
+</blockquote>
+</li>
+<li><p>剩余参数与<strong>数组</strong>的解构赋值的结合应用</p>
+<blockquote>
+<pre><code>// 绑定模式
+let [a, b, ...c] = [1, 2, 3, 4, 5, 6];
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); //  [3, 4, 5, 6]
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 赋值模式<br>let a, b, c;<br>[a, b, …c] &#x3D; [1, 2, 3, 4, 5, 6];<br>console.log(a); &#x2F;&#x2F; 1<br>console.log(b); &#x2F;&#x2F; 2<br>console.log(c); &#x2F;&#x2F;  [3, 4, 5, 6]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>剩余参数与与对象的解构赋值结合应用</p>
+<blockquote>
+<ul>
+<li>剩余元素与对象解构赋值结合时，它不是数组，而是<strong>对象</strong></li>
+<li>同时解构赋值时，剩余元素<strong>不会复制原型对象上的属性</strong></li>
+</ul>
+<pre><code>// 绑定模式
+const &#123; a, b, ...c &#125; = &#123; a: 1, b: 2, c: 3, d: 5 &#125;;
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // &#123;c: 3, d: 5&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 赋值模式<br>const a, b, c;<br>({ a, b, …c } &#x3D; { a: 1, b: 2, c: 3, d: 5 });<br>console.log(a); &#x2F;&#x2F; 1<br>console.log(b); &#x2F;&#x2F; 2<br>console.log(c); &#x2F;&#x2F; {c: 3, d: 5}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>剩余参数不一定非要作为函数参数使用，解构赋值也可以使用</li>
+<li>当剩余参数与<strong>解构赋值</strong>结合使用时，我们称他为<strong>剩余元素</strong>。</li>
+<li>同时在与解构赋值结合时，也只能是最后一个元素，之后不能再有其他参数，否则会报错</li>
+</ul>
+</blockquote>
+<ul>
+<li>我们来看下面这种情况，以下<code>args</code>是剩余参数还是剩余元素<blockquote>
+<pre><code>function fn([a, ...args1], ...args2) &#123;
+console.log(args1); // [2, 3, 4] 剩余元素
+console.log(args2); // [&#39;A&#39;, &#39;B&#39;] 剩余参数
+&#125;
+fn([1, 2, 3, 4], &quot;A&quot;, &quot;B&quot;);
+</code></pre>
+<ul>
+<li><code>[a, ...args1]</code>由数组包裹，所以是解构赋值；因此里面<code>...args</code>只能是剩余元素</li>
+<li><code>...args2</code>作为函数参数使用，所以是剩余参数</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<ul>
+<li>剩余参数和剩余元素的书写格式都是使用<code>…变量名</code>的方式</li>
+<li>不同的是：剩余参数是直接作为函数参数使用的。剩余元素是在解构赋值时，用来接收剩下的元素。</li>
+</ul>
+</blockquote>
+<h3 id="二、数组的扩展（展开）运算符"><a href="#二、数组的扩展（展开）运算符" class="headerlink" title="二、数组的扩展（展开）运算符"></a>二、数组的扩展（展开）运算符</h3><ol>
+<li>什么是数组扩展运算符<blockquote>
+<p>数组扩展运算符（spread）是三个点<code>...</code>,他可以将数组<strong>展开</strong>为用逗分隔的参数序列。</p>
+<pre><code>const arr = [1, 2, 3];
+console.log(...arr); // 1 2 3
+// ...arr 相当于把数组展开以逗号分隔的序列 console.log(1,2,3)
+</code></pre>
+</blockquote>
+console.log(1, …[“A”, “B”, “C”], 2); &#x2F;&#x2F; 1 ‘A’ ‘B’ ‘C’ 2<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>如果扩展运算符后面是一个空数组，则不会产生任何效果</p>
+<blockquote>
+<pre><code>const arr = [1, 2, ...[], 3];
+console.log(arr); // [1, 2, 3]
+//不要以为它是[1, 2, , 3]
+</code></pre>
+<ul>
+<li>注意！！！不要以为<code>...[]</code>会占一个值，它没有效果<strong>不占空间</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><p>数组扩展运算符后面可以放置<strong>表达式</strong></p>
+<blockquote>
+<pre><code>let a = 1;
+let b = 3;
+const arr = [...(a &gt; b ? [a] : [b])];
+console.log(arr); // [3]
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>区分扩展运算符和剩余参数<blockquote>
+<p>我们上边学习的展开运算符，发现它和剩余参数在语法上是一样的，都是前边加上<code>...</code>这样就会导致我们经常分不清楚。</p>
+<ul>
+<li>接下来我们来看剩余参数和展开运算符的<strong>根本区别</strong>。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>展开运算符：展开运算符是将数组展开成一个个以逗号分隔的序列。</p>
+<blockquote>
+<pre><code>[6,2,3] -&gt; 6,2,3
+</code></pre>
+</blockquote>
+</li>
+<li><p>剩余参数：将参数列表的形式转换成数组形式</p>
+<blockquote>
+<pre><code>6,2,3 -&gt; [6,2,3]
+</code></pre>
+</blockquote>
+</li>
+<li><p>区分以下代码中，哪些是扩展运算符，哪些是剩余参数</p>
+<blockquote>
+<pre><code>const sum = (...args) =&gt; &#123;
+// ...args：剩余参数 args是由所有实参组成的数组
+console.log(args); // [6, 2, 3]
+// 展开运算符，...args 相当于 ...[6, 2, 3] 将数组展开成 6,2,3
+console.log(...args); // 6 2 3
+&#125;;
+sum(6, 2, 3);
+</code></pre>
+</blockquote>
+</li>
+<li><p>以下代码中的第一个<code>...arg1</code>、<code>...arg2</code>、第二个<code>...arg1</code>，分别是表示什么 ？</p>
+<blockquote>
+<pre><code>const f = ([...arg1], ...arg2) =&gt; &#123;
+console.log(arg2);
+console.log(...arg1);
+&#125;;
+f([1, 2, 3], &quot;A&quot;, &quot;B&quot;, [&quot;x&quot;, &quot;y&quot;]);
+</code></pre>
+<ul>
+<li><code>[...arg1], ...arg2</code>共同作为函数的参数</li>
+<li><code>[...arg1]</code>由数组包裹，与解构赋值结合，所以<code>...arg1</code>肯定是剩余元素，<code>arg1</code>是由剩余元素组成的数组</li>
+<li><code>...arg2</code>是剩余参数，用来接受除第一个参数之外的其它参数；<code>arg2</code>是由剩余参数组成的数组</li>
+<li>因为<code>arg1</code>是由剩余元素组成的数组,所以函数体内的<code>...arg1</code>是为了将第一个<code>arg1</code>对应的数组展开</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li>数组展开运算符在实际开发中的应用</li>
+</ol>
+<ul>
+<li><p>复制数组</p>
+<blockquote>
+<pre><code>const arr = [1, 2, 3, 4, 5];
+// 展开运算符复制数组
+const arr1 = [...arr];
+console.log(arr1); // [1, 2, 3, 4, 5]
+</code></pre>
+<ul>
+<li>复制数组本质：在原来的数组中展开数组即可，展开也是浅复制(浅拷贝)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>合并数组</p>
+<blockquote>
+<pre><code>// 合并数组
+const x = [1];
+const y = [2, 3];
+const z = [5, 6, 8];
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 展开运算符合并数组<br>console.log([…x, …y, …z]); &#x2F;&#x2F; [1, 2, 3, 5, 6, 8]<br>&#x2F;&#x2F; 随意调换顺序<br>console.log([…y, …x, …z]); &#x2F;&#x2F; [2, 3, 1, 5, 6, 8]<br>console.log([…z, …x, …y]); &#x2F;&#x2F; [5, 6, 8, 1, 2, 3]<br>&#x2F;&#x2F; 还可以根据自己的需求增加数组的值<br>console.log([…z, 10, …x, 20, …y, 30]); &#x2F;&#x2F; [5, 6, 8, 10, 1, 20, 2, 3, 30]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>字符串转为数组</p>
+<blockquote>
+<ul>
+<li>字符串可以按照数组的形式展开</li>
+</ul>
+<pre><code>// 字符串可以看做是一个类数组，因此字符串是可以按照数组的形式展开
+const str = &quot;icoding&quot;;
+// 使用展开运算符将字符串展开
+console.log(...str); // i c o d i n g
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 将字符串转为数组，只需要将展开字符串放到数组[]中即可<br>const arr &#x3D; […str];<br>console.log(arr); &#x2F;&#x2F; [‘i’, ‘c’, ‘o’, ‘d’, ‘i’, ‘n’, ‘g’]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>为什么要将字符串转数组呢 ？</p>
+</blockquote>
+<ul>
+<li>因为，数组中有很多好用的方法，我们就可以把字符串转为数组，即<strong>可使用数组的方法</strong>。用完之后再把数组转为字符串，这样就非常方便了。</li>
+</ul>
+</blockquote>
+<ul>
+<li>常见的类数组转化为数组<blockquote>
+<ul>
+<li><code>arguments</code>类数组</li>
+</ul>
+<pre><code>function foo() &#123;
+// 在数组中展开 arguments 即可 将类数组转为数组
+console.log([...arguments]);
+&#125;
+foo(1, 2, 3); // [1, 2, 3]
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li><code>NodeList</code> 类数组</li>
+</ul>
+<pre><code>// NodeList 是类数组没有数组相关方法
+const p = document.querySelectorAll(&quot;p&quot;);
+// 使用展开运算符转为数组
+const arr = [...p];
+console.log(arr); // [p, p, p]
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>注意：任何<code>Iterator</code>接口的对象都可以用扩展运算符转为真正的数组</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>将数组转换为函数的参数<blockquote>
+<ul>
+<li>由于扩展运算符可以展开数组，所以不再需要使用 <code>apply</code> 方法将一个数组转为函数的参数了。可以直接用扩展运算符来实现。<br><strong>案例：求数组中的最大值和最小值</strong></li>
+<li>先来复习两个Math对象上的方法</li>
+</ul>
+<pre><code>let max = Math.max(1, 2, 5); // 返回参数列表中的最大值
+let min = Math.min(1, 2, 5); // 返回参数列表中的最小值
+console.log(max, min); // 5 1
+</code></pre>
+<ul>
+<li>没有扩展运算符之前，实现代码如下:</li>
+</ul>
+<pre><code>const arr = [17, 5, 1, 8, 3, 20];
+let max = Math.max.apply(null, arr);
+let min = Math.min.apply(null, arr);
+console.log(max, min); // 20 1
+</code></pre>
+<ul>
+<li>利用扩展运算符实现，代码如下</li>
+</ul>
+<pre><code>const arr = [17, 5, 1, 8, 3, 20];
+let max = Math.max(...arr);
+let min = Math.min(...arr);
+console.log(max, min); // 20 1
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<h3 id="三、对象的扩展（展开）运算符"><a href="#三、对象的扩展（展开）运算符" class="headerlink" title="三、对象的扩展（展开）运算符"></a>三、对象的扩展（展开）运算符</h3><ol>
+<li>什么是对象的扩展运算符<blockquote>
+<p>扩展运算符<code>...</code>用于取出对象的<strong>所有可遍历属性</strong>，并将其复制到当前对象之中。</p>
+<ul>
+<li>也就是说 <strong>对象不能直接展开或在数组中展开</strong>，必须在<code>&#123;&#125;</code>对象中展开。</li>
+</ul>
+<pre><code>const student = &#123;
+  username: &quot;icoding&quot;,
+  age: 18,
+  sex: &quot;male&quot;,
+  addr: &quot;北京&quot;,
+&#125;;
+</code></pre>
+</blockquote>
+console.log({ …student }); &#x2F;&#x2F; {username: ‘icoding’, age: 18, sex: ‘male’, addr: ‘北京’}<br>&#x2F;&#x2F; 对象不能使用以下方式展开<br>console.log(…student); &#x2F;&#x2F; 报错<br>console.log([…student]); &#x2F;&#x2F; 报错<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>或</strong></p>
+<pre><code>const obj = &#123;
+  a: 1,
+  ...&#123; b: 2, c: 3 &#125;,
+  d: 4,
+&#125;;
+console.log(obj); // &#123;a: 1, b: 2, c: 3, d: 4&#125;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>对象扩展运算符的注意事项</li>
+</ol>
+<ul>
+<li><p>空对象的展开</p>
+<blockquote>
+<blockquote>
+<p>如果展开一个空对象，没有任何效果</p>
+</blockquote>
+<pre><code>console.log(&#123; ...&#123;&#125; &#125;); // &#123;&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 空对象 和 属性的合并<br>console.log({ …{}, x: 123 }); &#x2F;&#x2F; {x: 123}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>非对象的展开，自动转换为对象</p>
+<blockquote>
+<blockquote>
+<p>如果展开的不是对象，则会<strong>自动将其转为对象</strong>，再将其属性罗列出来</p>
+</blockquote>
+<ul>
+<li>数值、<code>undefined</code>、<code>null</code>、<code>boolean</code></li>
+</ul>
+<pre><code>// 数值类型
+console.log(&#123; ...2 &#125;); // &#123;&#125;
+// undefined
+console.log(&#123; ...undefined &#125;); // &#123;&#125;
+// null
+console.log(&#123; ...null &#125;); // &#123;&#125;
+// boolean
+console.log(&#123; ...true &#125;); // &#123;&#125;
+</code></pre>
+<ul>
+<li>对象扩展运算符的参数是<code>null</code>或<code>undefined</code>时，这两个值会被忽略，但不会报错</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>字符串类型</li>
+</ul>
+<pre><code>// 对象中展开运算符后边是字符串
+console.log(&#123; ...&quot;arry&quot; &#125;); // &#123;0: &#39;a&#39;, 1: &#39;r&#39;, 2: &#39;r&#39;, 3: &#39;y&#39;&#125;
+// 数组中展开运算符后边是字符串
+console.log([...&quot;arry&quot;]); // [&#39;a&#39;, &#39;r&#39;, &#39;r&#39;, &#39;y&#39;]
+// 直接展开字符串
+console.log(...&quot;arry&quot;); // a r r y
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 对象中展开运算符后边是数组<br>console.log({ …[1, 2, 3] }); &#x2F;&#x2F; {0: 1, 1: 2, 2: 3}<br>&#x2F;&#x2F;在数组中展开对象：报错</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li><p>对象展开属于浅复制（浅拷贝）</p>
+<blockquote>
+<ul>
+<li>对象展开的本质：就是把对象的属性复制罗列出来，用逗号分隔，放到一个<code>&#123;&#125;</code>中，不过在复制属性时，属于浅复制（浅拷贝）</li>
+</ul>
+<pre><code>const obj = &#123;
+a: 1,
+b: 2,
+arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+&#125;;
+// 将obj在一个对象中展开
+const obj2 = &#123; ...obj &#125;;
+console.log(obj2); // &#123;a: 1, b: 2, arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]&#125;
+console.log(obj === obj2); // false
+obj.arr.push(&quot;D&quot;);
+console.log(obj2); // &#123;a: 1, b: 2, arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;,&quot;D&quot;]&#125;
+console.log(obj.arr === obj2.arr); // true
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 当我们给obj中的arr数组后面添加一个新的元素”D”时，obj2中的arr数组中的元素也更改了，本质上obj.arr与obj2.arr 是完全相等的</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>合并对象，同名属性会<strong>覆盖</strong></p>
+<blockquote>
+<ul>
+<li>如果展开的对象中有与现有对象中同名的属性，则会发生覆盖。覆盖原则以<strong>写在后面的覆盖前面</strong>。</li>
+</ul>
+<pre><code>const obj = &#123;
+a: 1,
+b: 2,
+c: 3,
+&#125;;
+const obj2 = &#123;
+a: &quot;清心&quot;,
+...obj,
+c: &quot;icoding&quot;,
+&#125;;
+console.log(obj2);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; obj中的属性a覆盖了obj2中同名的a，obj2中的属性c，覆盖了obj中同名的属性c</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>扩展运算符的参数对象之中如果有取值函数<code>get</code>，这个函数将会被执行</p>
+<blockquote>
+<pre><code>let obj = &#123;
+_x: 1,
+get x() &#123;
+  return this._x;
+&#125;,
+set x(value) &#123;
+  if (value === 3) &#123;
+    this._x = &quot;不通过&quot;;
+  &#125; else &#123;
+    this._x = value;
+  &#125;
+&#125;,
+&#125;;
+const obj2 = &#123; ...obj &#125;;
+console.log(obj2); // &#123;_x: 1, x: 1&#125;
+obj2.x = 3; // 丢失了set函数的功能,原本应该=&quot;不通过&quot;
+console.log(obj2); // &#123;_x: 1, x: 3&#125;
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>对象展开运算符在实际开发中的应用</li>
+</ol>
+<ul>
+<li><p>复制对象（浅复制）</p>
+<blockquote>
+<pre><code>const x = &#123; a: 1, b: 2 &#125;;
+// 使用展开运算符复制对象
+const y = &#123; ...x &#125;;
+console.log(y); // &#123;a: 1, b: 2&#125;
+console.log(y === x); // false 只是复制对象
+</code></pre>
+</blockquote>
+</li>
+<li><p>用户参数与默认参数合并</p>
+<blockquote>
+<p>如果我们想写一个提供给用户使用的函数或方法时，就会涉及用户参数和默认参数。即：</p>
+<ul>
+<li><strong>用户参数</strong>： 是用户调用方法时实际传递的参数都叫做用户参数，也就是我们之前提到的实参。</li>
+<li><strong>默认参数</strong>： 如果函数参数有三个，用户只传递了两个，剩余的默认参数就会生效，这样可以让用户少传递不必要的参数，可以让用户使用函数变得更方便</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>方法1</strong></p>
+<pre><code>// 之前讲过的做法，给对象设置默认值 &#123;&#125;
+const person = (&#123; username = &quot;icoding&quot;, age = 0, sex = &quot;male&quot; &#125; = &#123;&#125;) =&gt; &#123;
+  console.log(username, age, sex);
+&#125;;
+</code></pre>
+</blockquote>
+<p>person(); &#x2F;&#x2F; icoding 0 male &#x2F;&#x2F; 默认值生效<br>person({ username: “arry” }); &#x2F;&#x2F; arry 0 male</p>
+<blockquote>
+<pre><code>- 这种方法需要在函数的参数括号里写
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>方法2</strong></p>
+<ul>
+<li>统一用一个<strong>对象的形式</strong>来设置<strong>默认参数</strong></li>
+<li>利用<code>写在后面的会覆盖前面的</code>原理，解构赋值</li>
+</ul>
+<pre><code>const person = (userParam) =&gt; &#123;
+// 统一用一个对象的形式来设置默认参数
+  const defaultParam = &#123;
+    username: &quot;icoding&quot;,
+    age: 18,
+    sex: &quot;女&quot;,
+  &#125;;
+// 最终的参数,将用户参数和默认参数合并,将userParam写到后边
+  const &#123; username, age, sex &#125; = &#123; ...defaultParam, ...userParam &#125;;
+  console.log(username, age, sex);
+&#125;;
+person(); //icoding 18 女  默认值生效
+</code></pre>
+</blockquote>
+<p>const myDate &#x3D; {<br>  username: “小明”,<br>  age: 20,<br>  sex: “男”,<br>};<br>person(myDate); &#x2F;&#x2F;小明 20 男</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">https://hermiablog.github.io/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="JS核心知识点（十九）">
+                        
+                        <span class="card-title">JS核心知识点（十九）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ES6箭头函数、对象自面量增强、解构赋值、函数参数默认值、剩余参数 和 展开运算符
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="JS核心知识点（十八）">
+                        
+                        <span class="card-title">JS核心知识点（十八）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ECMAScript、let、const、var 区别和应用、Symbol、BigInt、模板字符串
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,3651 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS核心知识点（十八）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JS核心知识点（十八） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JS核心知识点（十八）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JS/">
+                                <span class="chip bg-color">JS</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-12-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    19.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="ECMAScript、ES6-简史，let、const、var-区别和应用"><a href="#ECMAScript、ES6-简史，let、const、var-区别和应用" class="headerlink" title="ECMAScript、ES6 简史，let、const、var 区别和应用"></a>ECMAScript、ES6 简史，let、const、var 区别和应用</h2><h3 id="一、什么是-ES"><a href="#一、什么是-ES" class="headerlink" title="一、什么是 ES"></a>一、什么是 ES</h3><blockquote>
+<p><strong>我们首先来看 ECMA 是什么</strong></p>
+<ul>
+<li>ECMA，读音类似“埃科妈”，是欧洲计算机制造商协会（European Computer Manufacturers Association）的简称，是一家国际性会员制度的信息和电信标准组织。1994 年之后，由于组织的标准牵涉到很多其他国家，为了体现其国际性，更名为 <strong>Ecma 国际</strong>（Ecma International），因此 Ecma 就不再是首字母缩略字了。</li>
+<li>了解了这段历史，为了技术书写的专业性，如果文章中提到 <code>Ecma</code>的时候，可以写成<code>Ecma</code>或者<code>ecma</code>，不要写成全大写的<code>ECMA</code>，除非是<code>ECMAScript</code>或<code>ECMA-XXX</code>这类专有名词。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>什么是 Javascript?</strong></p>
+<ul>
+<li>1995 年，著名的网景公司（Netscape）的<code>Brendan Eich</code> 开发了一种脚本语言，最初命名为<code>Mocha</code>，后来改名为 <code>LiveScript</code>，最后为了蹭当时火热的<code>Java</code>热度重命名为了 <code>JavaScript</code>。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>什么是 ECMAScript?</strong></p>
+<ul>
+<li>了解了 <code>Ecma</code> 国际和 <code>JavaScript</code>，就方便了解 <code>ECMAScript</code> 了，<code>ECMAScript</code> 是一种由 <code>Ecma 国际</code>在标准 <code>ECMA-262</code> 中定义的 脚本语言 规范。这种语言往往被称为 J<code>avaScript</code> 或 <code>JScript</code> ，但实际上 <code>JavaScript</code> 和 <code>JScript</code> 是 <code>ECMA-262</code> 标准的实现和扩展。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>一句话总结ES</strong><br><code>ES</code>是指<code>ECMAScript</code>，<code>Ecma</code> 是一个专门为技术制定标准的组织。<code>ECMAScript</code> 是由 <code>Ecma 国际</code>通过 <code>ECMA-262</code> 标准化的脚本程序设计语言。</p>
+<ul>
+<li><code>ECMAScript</code> 是一种标准或者说叫做一种<strong>规范</strong></li>
+<li><code>JavaScript</code> 是 <code>ECMAScript</code> 的一种<strong>实现</strong>，也就是说 <code>JavaScript</code>是一门遵循了<code>ECMAScript</code>语言规范而设计的编程语言</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>什么是神秘的 ECMA-262</p>
+<blockquote>
+<ul>
+<li>Ecma 国际的标准都会以 <code>Ecma-Number</code> 命名，<code>ECMA-262</code> 就是 <code>ECMA 262 号标准</code>，具体就是指 <code>ECMAScript</code> 遵照的标准。1996 年 11 月，网景公司将 JavaScript 提交给 Ecma 国际进行标准化。ECMA-262 的第一个版本于 1997 年 6 月被 Ecma 国际采纳。</li>
+<li>Ecma 国际制定了许多标准，而 ECMA-262 只是其中的一个，所有标准列表查看</li>
+<li>官网：<code>https://www.ecma-international.org/</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>语法提案的批准流程</p>
+<blockquote>
+<p>任何人都可以向标准委员会（又称 TC39 委员会）提案，要求修改语言标准。<br>一种新的语法从提案到变成正式标准，需要经历五个阶段。每个阶段的变动都需要由 TC39 委员会批准。</p>
+<ul>
+<li>Stage 0 - Strawman（展示阶段）</li>
+<li>Stage 1 - Proposal（征求意见阶段）</li>
+<li>Stage 2 - Draft（草案阶段）</li>
+<li>Stage 3 - Candidate（候选人阶段）</li>
+<li>Stage 4 - Finished（定案阶段）<br>一个提案只要能进入 Stage 2，就差不多肯定会包括在以后的正式标准里面。ECMAScript 当前的所有提案，可以在 TC39 的官方网站</li>
+</ul>
+</blockquote>
+</li>
+<li><p>探秘 TC39 神秘组织</p>
+<blockquote>
+<p>TC39 是<code>Technical Committee 39</code>的简称，它是制定 <code>ECMAScript</code> 标准的委员会。<br>TC39（Technical Committee 39）是推进 ECMAScript 发展的委员会。其会员都是公司。TC39 定期召开会议，会议由会员公司的代表与特邀专家出席。<br>由各个主流浏览器厂商的代表构成，主席团三人分别来自 <code>Bloomberg</code>、<code>Igalia</code> 和 <code>Microsoft</code>，下设三个工作组（task group） <code>TC39-TG1</code>（通用语言）、 <code>TC39-TG2</code>（国际化 API 规范） 、<code>TC39-TG3</code>（安全）。</p>
+<ul>
+<li><code>TC39-TG1</code> 工作组主要工作是通用、跨平台、供应商中立的编程语言 ECMAScript® （JavaScriptTM&gt;） 的标准化。这包括语言语法、语义以及支持该语言的库和补充技术。</li>
+<li><code>TC39-TG2</code> 工作组 ECMAScript® 国际化 API 标准。支持需要适应不同人类语言和国家&#x2F;地区使用的语言和文化约定的程序。</li>
+<li><code>TC39-TG3</code> 工作组 ECMAScript® （TM） 安全模型对当前和未来不断变化的威胁形势有效。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>ECMAScript 版本</p>
+<blockquote>
+<p>ECMAScript &#x3D; 由 ECMA 这个标准化组织制定的一个语言标准<br>语言标准就是：语法 和 API</p>
+<ul>
+<li>语法：如，规定了如何声明变量、如何声明常量、如何声明函数还规定了我们有哪些数据类型（基本数据类型，应用数据类型等 … 还有其他很多东西）</li>
+<li>API：如，方法和函数（如数组的方法，对象，全局的 …）<br>从<code>2015</code>年开始<code>ECMA</code>组织决定每一年都会发布一个新的版本，这个新的版本就会包括：<code>ES</code>新特性，用于语法的升级或弥补之前一些语法的缺陷。<br>从命名上看，<code>ES6</code> 被命名为 <code>ECMAScript2015</code>，通过命名可以体现出当前这个版本所对应的年份。所以我们经常说的 <code>ES6</code> 和 <code>ES2015</code> 就指的是同一个版本，以后每一年发布的版本我们都会使用年份去命名。</li>
+<li>按 ES 的命名方式：ES6 -&gt; ES7 -&gt; ES8 -&gt; ES9 -&gt; … &#x3D; 这些都可以统称为 ES6+</li>
+<li>按年份的命名方式：ES2015 -&gt; ES2016 -&gt; ES2017 -&gt; ES2018 -&gt; …<img src="ECMAScript版本.png"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>不论使用哪一种命名方式都是可以的，都不重要，只要我们清楚他们对应的方式就 OK 的</p>
+<ul>
+<li>比如 6 对应的 2015 ，7 对应的 2016 即可</li>
+<li>当我们看到对应的文章或描述的时候能对应上，知道别人在讲什么就好</li>
+<li>同时也需要知道 ES6 才是 ES6+的基础，如：ES7、ES8、ES9 本质都是在 ES6 的基础上扩展的语法或 API（升级或弥补之前一些语法的缺陷）</li>
+<li>我们学习的重心还是要放在 ES6 上，不要本末倒置就好<br>每年的ES新版本都会引入很多新特性，如下<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>发布时间</th>
+<th>主要更新内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ES6（ES2015）</td>
+<td>2015年</td>
+<td>改动最多，具有里程碑意义；新增变量 let 和 const，箭头函数、新增数组方法，如：map、filter 等、解构赋值，快速复制数组和对象，模板字符串、模块化，面向对象，Promise 等</td>
+</tr>
+<tr>
+<td>ES7（ES2016）</td>
+<td>2016 年</td>
+<td>数组扩展：<code>Array.prototype.includes()</code> ，幂运算符</td>
+</tr>
+<tr>
+<td>ES8（ES2017）</td>
+<td>2017 年</td>
+<td>异步编程解决方案、新增 async、await、对象扩展：<code>Object.values()</code> ，<code>Object.entries()</code>、对象属性描述：<code>Object.getOwnPropertyDescriptors()</code>、字符串扩展：<code>String.prototype.padStart()</code>，<code>String.prototype.padEnd()</code>、尾逗号<code>Trailing commas</code></td>
+</tr>
+<tr>
+<td>ES9（ES2018）</td>
+<td>2018 年</td>
+<td>异步迭代：<code>for await of</code>，<code>Symbol.asyncIterator</code>、正则表达式扩展：dotAll，具名组匹配，后行断言、对象扩展：Rest &amp; Spread、Promise 扩展：<code>Promise.prototype.finally()</code>、字符串扩展：放松模板字符串文字限制</td>
+</tr>
+<tr>
+<td>ES10（ES2019）</td>
+<td>2019 年</td>
+<td>对象扩展：<code>Object.fromEntries()</code>、字符串扩展：<code>String.prototype.trimStart()</code> ，<code>String.prototype.trimEnd()</code>、数组扩展：<code>Array.prototype.flat()</code>，<code>Array.prototype.flatMap()</code>、修订 <code>Function.prototype.toString()</code>、可选的 Catch Binding：省略 catch 绑定的参数和括号、JSON 扩展：JSON superset，<code>JSON.stringify()</code>增强能力、Symbol 扩展：<code>Symbol.prototype.description</code></td>
+</tr>
+<tr>
+<td>ES11（ES2020）</td>
+<td>2020 年</td>
+<td>全局模式捕获：<code>String.prototype.matchAll()</code>、动态&#x2F;按需导入：<code>Dynamic import()</code>、新的原始数据类型：BigInt、Promise 扩展：<code>Promise.allSettled()</code> ，<code>allSettled() vS all()</code>、全局对象：globalThis、可选链：Optional chaining、空值合并运算符：Nullish coalescing Operator</td>
+</tr>
+<tr>
+<td>ES12（ES2021）</td>
+<td>2021 年</td>
+<td><code>String.prototype.replaceAll</code>：替换字符不用写正则了、<code>Promise.any()</code>、WeakRefs：使用弱引用对象、逻辑运算符和赋值表达式：&#96;</td>
+</tr>
+<tr>
+<td>ES13（ES2022）</td>
+<td>2022 年</td>
+<td>Top-level Await（顶级 await）、Object.hasOwn()、at()、error.cause、正则表达式匹配索引、类 class：公共实例字段，私有实例字段，私有方法、静态公共字段、静态私有字段、静态私有方法，类静态块</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li><p>ES6 之前的历史版本</p>
+<blockquote>
+<p>之前的版本中有 <code>ES1 ~ ES3</code>， <code>ES5 ~ ES6</code> 唯独跳过了 ES4，因为</p>
+<ul>
+<li>ES4 被废弃了 ，因为 ES4 是一次非常大胆的改革。但是因为太激进了，导致了 ES4 和 ES3 像两门截然不同的语言，跨度太大以至于被废弃了。</li>
+<li>它的一些不太激进的部分被吸收进了 ES5</li>
+<li>激进一些的被吸收进了 ES6</li>
+<li>更激进一些就在后边的版本，接着吸收<br>ES1 和 ES2 都是比较原始的版本，都还不太成熟，真正成熟的是 ES3，我们现在用的最多其实就是 ES3，可能你以为我们用的 ES5 比较多，但在 ES6 之前你用的最多的还是 ES3 里边的内容<br>比如：我们现在用的最多的 ES3 中的内容</li>
+<li>do while</li>
+<li>switch</li>
+<li>正则表达式</li>
+<li>等等 … 一系列我们用得到的语法和 API<br>而我们感觉用的比较多的 ES5 如下方法反而用的不多，可能都没有用到过，当然这个跟我们关系不大，因为这是跟兼容性有关的，因为之前的 ES3 兼容性是非常好的，因此用的更多。</li>
+<li>forEach</li>
+<li>map</li>
+<li>filter</li>
+<li>Object.create</li>
+<li>Object.defineProperty</li>
+<li>等 …<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>发布时间</th>
+<th>主要内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ES1</td>
+<td>1997年</td>
+<td>制定了语言的基本语法</td>
+</tr>
+<tr>
+<td>ES2</td>
+<td>1998年</td>
+<td>较小的改动，只改变编辑方式</td>
+</tr>
+<tr>
+<td>ES3</td>
+<td>1999年</td>
+<td>引入正则表达式、异常处理try&#x2F;catch、格式化输出等，IE 开始支持</td>
+</tr>
+<tr>
+<td>ES4</td>
+<td>2007年</td>
+<td>过于激进，未发布</td>
+</tr>
+<tr>
+<td>ES5</td>
+<td>2009年</td>
+<td>引入严格模式、JSON，扩展对象、数组、原型、字符串、日期方法等</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>ES、ES6 与 JavaScript 的关系</p>
+<blockquote>
+<ul>
+<li>JavaScript（浏览器端）&#x3D; ECMAScript（语法+API）+ DOM（文档对象模型） + BOM（浏览器对象模型）</li>
+<li>ES 等同于 ECMAScript ，是语言的标准，6 是版本号，即 ES6 &#x3D; ECMAScript 这门语言的第 6 代标准</li>
+</ul>
+</blockquote>
+</li>
+<li><p>ES6 的兼容性</p>
+<blockquote>
+<ul>
+<li>主流浏览器的最新版几乎全部支持 ES6</li>
+<li>IE 老版本等不支持的浏览器，可以用<code>Babel</code>转码</li>
+<li>因此，放心大胆的使用 ES6 即可</li>
+<li>兼容性检测查询地址：<code>http://kangax.github.io/compat-table/es6/</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>ES6 环境搭建</p>
+<blockquote>
+<p>目前各大浏览器基本上都支持 ES6 的新特性，其中 Chrome 和 Firefox 浏览器对 ES6 新特性最友好，IE7~11 不支持 ES6</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>如果浏览器不支持 ES 新的语法时，怎么办</strong><br>从 ES6、ES7、ES8、ES9、ES10、ES11、ES12、ES13 … 到未来更多新的语法<br>ES 每一年都会不断的更新，我们的目的是希望这些语法都能被浏览器所识别，但问题是这些新的语法并不能被所有的浏览器非常好的识别。<br>因为，我们的浏览器也是用代码写的，ES 这些新的语法之所以能被浏览器识别是因为浏览器的代码能够识别 ES 新的方法、函数、API 等。但并不是每一个浏览器厂商都会随着 ES 的更新而同步升级的。</p>
+<ul>
+<li>其中做的最好的是 Google 浏览器，因此强烈建议大家在进行前端开发的时候，首选 Google 浏览器，并进行调试。同时 Google 浏览器的调试功能也非常强大，我们可以很方便的定位问题或分析网页的性能等问题。</li>
+<li>当 ES 新的语法不能被浏览器识别时，我们就会配置相应的工具来将 ES 新的语法转换成浏览器能够识别的代码。</li>
+<li>我们都知道 ES5 是可以很好的被浏览器识别的，我们通过 <code>Babel</code>将ES6及最新版本的语法转换成ES5就能够被浏览器识别了。</li>
+<li>一般<code>Babel</code>都会配合<code>Webpack</code>来一起使用。因此，我们先专注学完 <code>ES6+</code>相关语法后，再来学习<code>Webpack</code>和<code>Babel</code></li>
+</ul>
+</blockquote>
+<h3 id="二、let-和-const"><a href="#二、let-和-const" class="headerlink" title="二、let 和 const"></a>二、let 和 const</h3><blockquote>
+<p>ES6（ES2015）新增加了两个重要的 JavaScript 关键字: let 和 const。</p>
+</blockquote>
+<ol>
+<li><p>什么是 let 和 const ？</p>
+<blockquote>
+<p>let 和 const 是用来声明变量或声明常量的，在 ES6 之前我们声明变量都是使用 var，在 ES6 中</p>
+<ul>
+<li><code>let</code>替代<code>var</code>，声明<strong>变量</strong></li>
+<li><code>const</code> 声明<strong>常量</strong>，<code>constant</code>的缩写</li>
+</ul>
+</blockquote>
+</li>
+<li><p>let 和 const 的用法</p>
+<blockquote>
+<p>let 和 const 的用法与 var 一样</p>
+<pre><code>var username = &quot;清心老师&quot;;
+let age = 18;
+const sex = &quot;female&quot;;
+console.log(username, age, sex); // 清心老师 18 female
+</code></pre>
+</blockquote>
+</li>
+<li><p>什么是变量，什么是常量 ？</p>
+<blockquote>
+<ul>
+<li><code>var</code>、<code>let</code> 声明的就是变量，变量一旦初始化之后，<strong>还可以重新赋值</strong></li>
+<li><code>const</code> 声明的就是常量，常量一旦初始化，就<strong>不能重新赋值</strong>了，否则就会报错</li>
+</ul>
+<pre><code>var username = &quot;小明&quot;;
+username = &quot;小花&quot;;
+console.log(username); //小花
+</code></pre>
+</blockquote>
+<p>let age &#x3D; “22”;<br>age &#x3D; “30”;<br>let arr1 &#x3D; [1];<br>arr1.push(2);<br>console.log(age, arr1); &#x2F;&#x2F;30  [1, 2]</p>
+<blockquote>
+</blockquote>
+<p>const arr2 &#x3D; [“A”];<br>arr2.push(“B”);<br>console.log(arr2); &#x2F;&#x2F;[‘A’, ‘B’]<br>const sex &#x3D; “男”;<br>sex &#x3D; “女”; &#x2F;&#x2F; 控制台报错 Uncaught TypeError: Assignment to constant variable. 错误意思：给常量赋值了<br>console.log(sex);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>const 的注意事项</p>
+<blockquote>
+<ul>
+<li>使用 const 声明常量，一旦声明，就必须立即初始化，不能留到以后赋值</li>
+</ul>
+<pre><code>// 以下错误演示
+const sex; // Uncaught SyntaxError: Missing initializer in const declaration 未捕获语法错误：const声明中缺少初始值设定项
+sex = &#39;male&#39;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 正确的做法是：声明+初始化应该一气呵成<br>const sex &#x3D; ‘male’;</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>const 声明的常量，允许在不重新赋值的情况下修改它的值</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>情况一：const 声明的是基本数据类型</p>
+<blockquote>
+<ul>
+<li>对于基本数据类型来说，我们是没有办法在不重新赋值的情况下修改它的值</li>
+</ul>
+<pre><code>// 基本数据类型
+const sex = &quot;male&quot;;
+sex = &quot;female&quot;; // Uncaught TypeError: Assignment to constant variable.
+</code></pre>
+</blockquote>
+</li>
+<li><p>情况二：const 声明的是引用数据类型</p>
+<blockquote>
+<ul>
+<li><code>const</code>声明常量为引用类型，不可以重新赋值，但可以<strong>修改</strong>里面的值。</li>
+</ul>
+<pre><code>// 引用数据类型
+const person = &#123;username: &quot;清心&quot;&#125;;
+// 对person重新赋值，通过前边的学习，我们知道对于const声明的常量来说是不被允许的
+// person = &#123;&#125;; // 报错了 Uncaught TypeError: Assignment to constant variable.
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 但，引用数据类型不一定要通过重新赋值的方式来修改值<br>&#x2F;&#x2F; 可以直接找到对应的属性，对它完成修改<br>person.username &#x3D; “arry”;<br>console.log(person); &#x2F;&#x2F; 正确输出修改后的对象 {username: ‘arry’}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>为什么需要 const ？<blockquote>
+<p><strong>思考：</strong></p>
+<ul>
+<li>我们为什么需要常量，难道不够用吗 ？</li>
+<li>如果够用的话谁还用 const 呢 ？</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>// 假如只有let的情况，我们期望声明的 sex 值一旦声明后就是不变的。
+// 当然性别一般情况下就是不变的，也符合常识
+let sex = &quot;male&quot;;
+// ... 经历很多程序之后，如果不小心修改了 sex 的值，浏览器也不会报错
+sex = &quot;semale&quot;;
+console.log(sex); // semale
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 我们可以看到 sex 的值被修改了，其实它按我们的期望来讲就是隐形一个错误<br>&#x2F;&#x2F; 也就是说这样的错误很可能发生，并没有任何提示，但它确实是一个错误，会造成我们的程序出现问题，类似这样的问题在过去么有什么很好的办法解决，只能通过开发者自己小心来定义</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>但，const 的出现就不会有以上的问题了</li>
+</ul>
+<pre><code>// 我们现在使用 const 将 sex 声明为常量
+const sex = &quot;male&quot;;
+// ... 如果不小心完成了以下赋值操作，就报错了
+sex = &quot;semale&quot;; // Uncaught TypeError: Assignment to constant variable.
+console.log(sex);
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>使用 const 就直接从语法层面杜绝了类似错误的发生，我们在实际开发中也不需要为这些问题而小心翼翼了，这就是我们为什么需要 const 的原因。</p>
+</blockquote>
+<ul>
+<li>const 的设计初衷：const 就是为了那些一旦初始化就不希望重新赋值的情况而设计的</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>什么时候用 const ，什么时候用 let<blockquote>
+<p>什么时候用 const 声明常量，什么时候用 let 声明变量，这个在实际开发中经常会困扰大家。之前我们只有一个 var 没得选，好处就是用就完了。</p>
+<blockquote>
+<p>那么，现在有得选了，到底使用 const 好呢 ？还是用 let 好呢 ？</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>对于一些比较简单情况我们一眼能够看出进来的，就直接使用就好，没必要考虑什么 。如下下代码， 就直接用 let 就好</li>
+</ul>
+<pre><code>for (let i = 0; i &lt; 5; i++) &#123;&#125;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>对于一些在刚开始写代码的时候，我们也不清楚到底是用 let 还是 const<blockquote>
+<p><strong>实际开发中的经验总结</strong></p>
+</blockquote>
+</li>
+<li>当你不知道用什么的时候，我们可以先用 <code>const</code> 来声明，即使不修改也不会报错，<strong>如果后边发生了修改。这时，也不用担心 ！因为程序会报错，再修改成 let 也是来得及的。</strong></li>
+<li>只要错误不被淹没都可以随时修改。这样的好处就是，即使发生了错误也不会漏掉。</li>
+<li>如果一开始就用 <code>let</code> ，不小心值就发生了改变，但这并不是我们希望发生的。</li>
+<li>因此，推荐大家在实际开发中不知如何抉择时，可以使用这个的方式。</li>
+</ul>
+</blockquote>
+<h3 id="三、let、const-和-var-的区别"><a href="#三、let、const-和-var-的区别" class="headerlink" title="三、let、const 和 var 的区别"></a>三、let、const 和 var 的区别</h3><blockquote>
+<p>let、const 和 var 的区别总共有 6 点：</p>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用处不同</td>
+<td>let用来替代var来声明变量,const用来声明常量；const声明的变量，必须在声明时完成赋值；</td>
+</tr>
+<tr>
+<td>重复声明</td>
+<td>在同一作用域下，var允许重复声明变量,let和const不允许重复声明变量和常量</td>
+</tr>
+<tr>
+<td>变量提升</td>
+<td>var存在变量提升,let和const不存在变量提升,所以let和const声明的变量必须要在声明后才能使用，否则就会报错</td>
+</tr>
+<tr>
+<td>暂时性死区</td>
+<td>只要作用域内存在let、const，他们所声明的变量或常量就自动<strong>绑定</strong>这个区域，不再受到外部作用域的影响；在当前作用域的let或const声明前操作对应变量或常量就会报错。var不存在暂时性死区</td>
+</tr>
+<tr>
+<td>window对象关联</td>
+<td>在全局作用域中var声明的变量会自动成为window对象的属性。而let和const声明的变量和常量与window不会有任何关联，但仍是全局变量，在任何位置都可以访问它</td>
+</tr>
+<tr>
+<td>块级作用域</td>
+<td>var不存在块级作用域。let和const声明的变量或常量会形成块级作用域，但形成块级作用域的前提是let或const必须在<code>&#123;&#125;</code>中。有两种情况不会形成作用域，一个是函数，一个是对象</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<ul>
+<li>不允许重复声明</li>
+<li>不存在变量提升</li>
+<li>暂时性死区</li>
+<li>window 对象的属性和方法（全局作用域中）</li>
+<li>块级作用域<br>其中<strong>块级作用域</strong>是 let、const 和 var 之间<strong>最重要</strong>的一个区别了。</li>
+</ul>
+<p>这也是我们面试真题中高频面试题了，能否真正给出有竞争力的回答，就看我们是否有真正的理解到位了。</p>
+</blockquote>
+<h4 id="不允许重复声明"><a href="#不允许重复声明" class="headerlink" title="不允许重复声明"></a>不允许重复声明</h4><blockquote>
+<ul>
+<li>重复声明：是指在同一作用域下已经存在的变量或常量，又声明了—遍</li>
+<li>同一作用域下，var 允许重复声明，let、const 不允许</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>场景一</p>
+<blockquote>
+<pre><code>// 如：使用var重复声明变量
+var i = 1;
+// ... 在写了很多行代码之后，突然忘记了之前有声明过a变量，又声明了一次
+var i = 2;
+console.log(i); // 2 ，这里最可气的是 控制台居然没有报错，还给我们修改了值
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 如：使用 let 或 const 重复声明变量<br>let n &#x3D; 1;<br>&#x2F;&#x2F; …<br>let n &#x3D; 2; &#x2F;&#x2F; Uncaught SyntaxError: Identifier ‘n’ has already been declared 已声明标识符 “n”<br>console.log(n);</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 使用 const 声明与 let 类似</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>场景二</p>
+<blockquote>
+<pre><code>// 声明一个函数（以函数参数的形式声明的变量）
+function foo(i) &#123;
+  let i = 2; // Uncaught SyntaxError: Identifier &#39;i&#39; has already been declared 已声明标识符 &quot;i&quot;
+&#125;
+foo();
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注：<br>以上 let 或 const 重复声明变量时，直接报错，会明确的告诉我们该变量已被声明了，不能再重复声明一遍。这样，就从语法层面直接杜绝了错误的发生。<br>我们可以看到，使用 let 和 const 声明都是类似的。因此在学习后边的区别学习中，就不单独把 const 拿出来讲了，let 已经可以代表了，let 和 const 的表现是一致的。</p>
+</blockquote>
+</blockquote>
+<h4 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h4><blockquote>
+<ul>
+<li><code>var</code>命令会发生<strong>“变量提升”</strong>现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇怪的，按照一般的逻辑，变量应该在声明语句之后才可以使用。</li>
+<li>为了纠正这种现象，<code>let</code>命令改变了语法行为，它所声明的变量<strong>一定要在声明后使用</strong>，否则报错。</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>var 会提升变量的声明到当前作用域的顶部</p>
+<blockquote>
+<ul>
+<li>不声明，直接使用：会报错</li>
+</ul>
+<pre><code>// 不声明变量，直接使用
+console.log(a); // Uncaught ReferenceError: a is not defined
+</code></pre>
+<ul>
+<li>先输出，后声明：不会报错</li>
+</ul>
+<pre><code>console.log(a); // undefined
+var a = 1;
+// 没有报错，输出了 undefined ，这就涉及到了变量提升
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以上代码通过变量提升后，实际的相当于如下步骤<br>var a;<br>console.log(a); &#x2F;&#x2F; undefined<br>a &#x3D; 1;<br>console.log(a); &#x2F;&#x2F; 1</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 其实变量提升带给我们更多的是困惑，因为它会和我们的想法和逻辑是不相符的，这也是我们学习JS需要记住的点</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>let、const 不存在变量提升</p>
+<blockquote>
+<pre><code>console.log(a); // Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization 初始化之前无法访问 “a”
+let a = 1;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<ul>
+<li><code>let</code> 和 <code>const</code> 之所以不存在变量提升，还是为了让我们养成良好的编程习惯。</li>
+<li>对于所有的变量或常量，我们一定要做到<strong>先声明，后使用</strong></li>
+</ul>
+</blockquote>
+<h4 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h4><blockquote>
+<ul>
+<li>只要作用域内存在<code>let</code>、<code>const</code> ，它们所声明的变量或常量就自动 “绑定” 这个区域，不再受到外部作用域的影响</li>
+<li><code>let</code>、<code>const</code>存在暂时性死区，<code>var</code>不存在</li>
+</ul>
+<pre><code>let a = 1;
+function foo() &#123;
+  console.log(a); // Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization 初始化之前无法访问“a”
+  let a = 2;
+&#125;
+foo();
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 以上代码存在全局变量 a ，但函数作用域内 let 又声明了一个局部变量 a ，导致后者绑定这个函数作用域<br>&#x2F;&#x2F; 所以在 let 声明变量前，输出 a 会报错</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>ES6 明确规定</strong></p>
+<ul>
+<li>如果区块中存在 <code>let</code> 和 <code>const</code> 命令，则这个区块对这些命令声明的变量<strong>从一开始就形成封闭作用域</strong>。只要在声明之前就使用这些变量，就会报错。</li>
+<li>总之，在代码块内，使用 <code>let</code> 命令声明变量之前，该变量都是不可用的。这在语法上称为 “暂时性死区” （temporal dead zone ，简称 <code>TDZ</code>）</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>场景一</p>
+<blockquote>
+<pre><code>if (true) &#123;
+  // TDZ开始
+  tmp = &quot;abc&quot;; // ReferenceError
+  console.log(tmp); // ReferenceError
+</code></pre>
+</blockquote>
+<p>  let tmp; &#x2F;&#x2F; TDZ结束<br>  console.log(tmp); &#x2F;&#x2F; undefined</p>
+<blockquote>
+</blockquote>
+<p>  tmp &#x3D; 123;<br>  console.log(tmp); &#x2F;&#x2F; 123<br>}</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 上面代码中，在let命令声明变量tmp之前，都属于变量tmp的 “死区”</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>场景二</p>
+<blockquote>
+<ul>
+<li>有些“死区”比较隐蔽，不太容易发现</li>
+</ul>
+<pre><code>function bar(x = y, y = 2) &#123;
+  return [x, y];
+&#125;
+</code></pre>
+</blockquote>
+<p>bar(); &#x2F;&#x2F; 报错<br>bar(2, 3); &#x2F;&#x2F; 不报错</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 上面代码中，调用bar函数之所以报错，是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于“死区”。<br>&#x2F;&#x2F; 如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>
+<blockquote>
+</blockquote>
+<p>function bar(x &#x3D; 2, y &#x3D; x) {<br>  return [x, y];<br>}<br>bar(); &#x2F;&#x2F; [2, 2]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>场景三</p>
+<blockquote>
+<ul>
+<li>使用let&#x2F;const声明变量时，只要变量在<strong>还没有声明完成前</strong>使用，就会报错。</li>
+</ul>
+<pre><code>// 不报错
+var x = x;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 报错<br>let x &#x3D; x;<br>&#x2F;&#x2F; ReferenceError: x is not defined</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 上面代码报错，也是因为暂时性死区。使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。<br>&#x2F;&#x2F; 上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义”。</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>ES6 规定<strong>暂时性死区</strong>和let、const语句<strong>不出现变量提升</strong>，主要是<strong>为了减少运行时错误</strong>，防止在变量声明前就使用这个变量，从而导致意料之外的行为。这样的错误在 ES5 是很常见的，现在有了这种规定，避免此类错误就很容易了。</li>
+<li>总之，let、const 存在暂时性死区，暂时性死区的本质是：在当前作用域，所要使用的变量已经存在，<strong>不会再访问该作用域以外的同名变量</strong>，并且<strong>只有在声明变量之后，才可以获取和使用该变量</strong>，否则就会报错。</li>
+<li>同样，只要养成良好的编程习惯，对于所有的变量或常量，做到先声明，后使用就没有问题。</li>
+</ul>
+</blockquote>
+<h4 id="window-对象的属性和方法"><a href="#window-对象的属性和方法" class="headerlink" title="window 对象的属性和方法"></a>window 对象的属性和方法</h4><blockquote>
+<p>全局作用域中，<code>var</code> 声明的变量，通过 <code>function</code> 声明的函数，会自动变成<code>window</code> 对象的属性或方法</p>
+<pre><code>// 全局作用域中，var声明的变量，通过function声明的函数，会自动变成window对象的属性或方法
+var age = 20;
+function add() &#123;&#125;
+console.log(window.age);//20
+console.log(window.add === add);//true
+</code></pre>
+</blockquote>
+<blockquote>
+<p>全局作用域中，<code>let</code>、<code>const</code> 声明的变量 或 <code>function</code> 声明的函数，<strong>不会</strong>自动变成window 对象的属性或方法</p>
+<pre><code>// 全局作用域中，let、const 声明的变量 或 function声明的函数，不会自动变成window对象的属性或方法
+let age = 20;
+const add = function () &#123;&#125;;
+console.log(window.age); // undefined
+console.log(window.add === add); // false
+</code></pre>
+</blockquote>
+<h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h4><blockquote>
+<p><code>let</code>、<code>const</code> 和 <code>var</code> <strong>最重要的区别</strong>即：是否拥有块级作用域。<br>在深入了解它们的区别前，我们需要了解一下，在 JavaScript 中有哪些作用域：</p>
+<ul>
+<li>全局作用域</li>
+<li>函数作用域&#x2F;局部作用域</li>
+<li>块级作用域（ES6 新增）</li>
+</ul>
+<p>上面是 <code>JavaScript</code> 中的三种作用域，那什<strong>么是作用域呢</strong> ？</p>
+<ul>
+<li>首先要明白的是：几乎所有的编程语言都存在在变量中储值的能力，存储完就需要使用这些值。所以，<strong>作用域就是一套规则，按照这套规则可以方便地去存储和访问变量。</strong><blockquote>
+<p>在 ES5 中的作用域有全局作用域和函数作用域，而块级作用域是 ES6 的概念。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>全局作用域</p>
+<blockquote>
+<p>全局作用域顾名思义，就是在任何地方都能访问到它，在浏览器中能通过 <code>window</code> 对象拿到的变量就是全局作用域下声明的变量</p>
+<pre><code>var username = &quot;icoding&quot;;
+console.log(window.username); // icoding
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 使用 var 定义的变量，可以在 window 对象上拿到此变量<br>&#x2F;&#x2F; 这里的 name 就是全局作用域下的变量</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>函数作用域</p>
+<blockquote>
+<ul>
+<li>函数作用域，也称为局部作用域，所有写在函数内部的代码，就是在函数作用域中</li>
+<li>声明在函数作用域中的变量为<strong>局部变量</strong>，从外层是无法直接访问函数内部的变量</li>
+</ul>
+<pre><code>function foo() &#123;
+  var username = &quot;icoding&quot;;
+&#125;
+console.log(username); // Uncaught ReferenceError: username is not defined
+</code></pre>
+<blockquote>
+<p>在函数内部定义的 username 变量，在函数外部是访问不了的。要想在函数外部访问函数内部的变量可以通过 <code>return</code> 的方式返回出来。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>块级作用域（ES6 新增）</p>
+<blockquote>
+<p>块级作用域是 ES6 的概念，它的产生是要<strong>有一定的条件的</strong></p>
+<ul>
+<li>在花括号<code>&#123;&#125;</code>中，使用 <code>let</code> 或 <code>const</code> 声明的变量，才会产生块级作用域。<br><strong>这里需要注意的是</strong></li>
+<li>块级作用域的<strong>产生</strong>是 <code>let</code> 或 <code>const</code> 带来的，而不是花括号，花括号的作用是限制 <code>let</code> 或 <code>const</code> 的<strong>作用域范围</strong>。</li>
+<li>当不在大括号中声明时， <code>let </code>或 <code>const</code> 的作用域范围是<strong>全局，但是不在 window 对象身上</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>在使用 var 声明的情况下，可以看出，外层的 age 会被 {} 中的 age 覆盖，所以没有块级作用域的概念</li>
+</ul>
+<pre><code>// var声明的变量，不会产生块级作用域
+var age = 18;
+&#123;
+  var age = 20;
+  console.log(age); // 20
+&#125;
+console.log(age); // 20
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用 <code>let</code> 方式声明时，<code>&#123;&#125;</code>内外是互不干涉和影响的，如果在声明<code>age</code>的前面进行打印的话，还会报错，这个时候，<code>age</code> 处于暂存死区，是不能被使用的，</li>
+</ul>
+<pre><code>let age = 18;
+&#123;
+  console.log(age); // Uncaught ReferenceError: Cannot access &#39;age&#39; before initialization
+  let age = 20;
+  console.log(age); // 20
+&#125;
+console.log(age); // 18
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>在低版本浏览器中不支持 ES6 语法，通常需要把 ES6 语法转换成 ES5，使用 babel 把上面的代码转换后得到如下结果：</li>
+</ul>
+<pre><code>var age = 18;
+&#123;
+  console.log(_age); // undefined
+  var _age = 20;
+  console.log(_age); // 20
+&#125;
+console.log(age); // 18
+</code></pre>
+<blockquote>
+<p>从上面的代码中可以看出：<br>虽然在 ES6 语法使用的是相同的变量名字，但是底层JS进行编译时会认为他们是不同的变量。也就是说即使花括号中声明的变量和外面的变量是相同的名字，但是在编译过程它们是<strong>没有关系</strong>的。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>ES6 允许块级作用域的任意嵌套<blockquote>
+<pre><code>&#123;
+&#123;
+  &#123;
+    &#123;
+      let username = &quot;icoding&quot;;
+      &#123;
+        let username = &quot;icoding&quot;;
+      &#125;
+    &#125;
+  &#125;
+&#125;
+&#125;
+</code></pre>
+<ul>
+<li>上面代码使用了一个五层的块级作用域，每一层都是一个单独的作用域。第四层作用域无法读取第五层作用域的内部变量。</li>
+<li>所以，内层作用域可以定义外层作用域的同名变量。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>块级作用域的出现，实际上使得获得广泛应用的<strong>匿名立即执行函数表达式（匿名 IIFE）不再必要了</strong>。以前我们想要将某个全局变量变成私有的，我们会用 IIFE 来实现，现在有了块级作用域，我们只需要用块级作用域来解决就好。</li>
+</ul>
+<pre><code>// IIFE 写法
+(function () &#123;
+  var age = ...;
+  ...
+&#125;());
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 块级作用域写法<br>{<br>  let age &#x3D; …;<br>  …<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="4">
+<li>为什么需要块级作用域 ？<blockquote>
+<p>我们通过之前的学习知道，ES5 只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景。所以在 ES6 中新增了块级作用域。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>第一种不合理场景： 内层变量可能会覆盖外层变量<blockquote>
+<pre><code>var atmp = 2;
+</code></pre>
+</blockquote>
+function foo() {<br>console.log(atmp);<br>if (false) {<br>  var atmp &#x3D; “hello world”;<br>}<br>}<blockquote>
+</blockquote>
+foo(); &#x2F;&#x2F; undefined<blockquote>
+</blockquote>
+&#x2F;&#x2F; 上面代码的原意是，if代码块的外部使用外层的atmp变量，内部使用内层的atmp变量。<br>&#x2F;&#x2F; 但是，函数foo执行后，输出结果为undefined，原因在于变量提升，导致内层的atmp变量覆盖了外层的atmp变量。<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>let 和 const 有块级作用域，就可以避免这种问题产生<blockquote>
+<p>if里面是一个块级作用域</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>let atmp = 2;
+function foo() &#123;
+  console.log(atmp);
+  if (false) &#123;
+    let atmp = &quot;hello world&quot;;
+  &#125;
+&#125;
+foo(); // 2
+</code></pre>
+</blockquote>
+<ul>
+<li>第二种不合理场景： 用来计数的循环变量泄露为全局变量<blockquote>
+<pre><code>for (var i = 0; i &lt; 2; i++) &#123;
+console.log(&quot;循环内：&quot; + i);
+&#125;
+console.log(&quot;循环外：&quot; + i); // 2
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 上面代码中，变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>let 和 const 有块级作用域，就可以必免这种问题产生</li>
+</ul>
+<pre><code>for (let i = 0; i &lt; 2; i++) &#123;
+  console.log(&quot;循环内：&quot; + i);
+&#125;
+console.log(&quot;循环外：&quot; + i); // Uncaught ReferenceError: i is not defined
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 之所以会报错，是因为使用 let 或 const 声明的变量是有块级作用域的</p>
+<blockquote>
+<pre><code>- `let`声明的 `i` 和 `for()&#123;&#125;` 共同构成了块级作用域，因此在块级作用域内定义的变量 `i` 只能在for的`&#123;&#125;`内可访问
+- 执行完`for`循环后，该作用域就销毁了，我们在全局作用域中就找不到`i`，就报错了
+</code></pre>
+</blockquote>
+<ol start="5">
+<li>深入理解块级作用域<blockquote>
+<p>很多人对于<code>for(let i=0; i&lt;5; i++)&#123; &#125;</code>这里不理解，不理解为什么外面就访问不到 i 了。我们说这是 es6 的语法规定的，let 可以形成块级作用域。</p>
+<ul>
+<li>那如果没有 es6，那我们要实现相同的功能，用 es5 如何模拟呢 ？</li>
+</ul>
+<pre><code>// es6版本
+for (let i = 0; i &lt; 5; i++) &#123;
+  console.log(i);
+&#125;
+console.log(i);
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; babel转换成对应的es5版本<br>(“use strict”);<blockquote>
+</blockquote>
+for (var _i &#x3D; 0; _i &lt; 5; _i++) {<br>  console.log(_i);<br>}<br>console.log(i);<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>很多人对于<code>for(let i=0; i&lt;5; i++)&#123; &#125;</code><strong>每次迭代都会创建一个新的块级作用域</strong>不太理解，这里我们将 es6 的语法代码用 babel 转换成 es5 的语法来看下</li>
+</ul>
+<pre><code>// es6版本 for 循环一共创建了5个块级作用域
+for (let i = 0; i &lt; 5; i++) &#123;
+  setTimeout(function () &#123;
+    console.log(i);
+  &#125;, 1000);
+&#125;
+console.log(i);
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; babel转换成对应的es5版本<br>(“use strict”);</p>
+<blockquote>
+</blockquote>
+<p>var _loop &#x3D; function _loop(i) {<br>  setTimeout(function () {<br>    console.log(i);<br>  }, 1000);<br>};<br>for (var _i &#x3D; 0; _i &lt; 5; _i++) {<br>  _loop(_i);<br>}<br>console.log(i);</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="6">
+<li>作用域链的复习<blockquote>
+<p>关于变量的查找会涉及到作用域链，我们再次来复习一下</p>
+<pre><code>function foo() &#123;
+  // 函数作用域
+  for (let i = 0; i &lt; 2; i++) &#123;
+ console.log(i); // 0 1
+ // 块级作用域
+  &#125;
+  console.log(i); // Uncaught ReferenceError: i is not defined
+&#125;
+</code></pre>
+</blockquote>
+&#x2F;&#x2F; 全局作用域<blockquote>
+</blockquote>
+foo();<br>console.log(i); &#x2F;&#x2F; Uncaught ReferenceError: i is not defined<blockquote>
+<pre><code>&lt;img src=&quot;复习作用域链.png&quot;&gt;
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>代码解读</strong></p>
+<ul>
+<li>首先最外层会有一个<strong>全局作用域</strong></li>
+<li>当函数 <code>foo()</code> 被调用时，会形成一个<strong>函数作用域</strong>，注：<strong>只有当函数被调用时</strong>，才会形成函数作用域，函数调用结束函数作用域就销毁</li>
+<li>继续执行<code>for</code>循环，<code>for()&#123;&#125;</code>和<code>let</code>共同构成了一个<strong>块级作用域</strong></li>
+<li>这时，我们就有了一个嵌套的三层的作用域，最内层是块级作用域，外层是函数作用域，最外层是全局作用域</li>
+<li>当在<code>for</code>循环中打印输出<code>i</code> ，首先会在当前的块级作用域中去查找是否存在<code>i</code>如果找到了就输出，如果查找到<code>i</code>不存在，那就往上一层作用域中查找或向外层作用域中查找（即<code>foo</code>函数构成的函数作用域中查找），如果还没有，就继续往外层查找（到全局作用域中查找 <code>i</code>）如果还是找不到就报错了，这时就终止了</li>
+<li>这样的过程就构成了一个链条的形式，由<strong>内层 -&gt; 到外层 -&gt; 一直到最外层</strong>，这些作用域的节点和节点之间就构成了一个链条，这就是变量或常量的查找的一个链条。</li>
+<li>首先在当前作用域中找，找到了就不会再找了，就跟外层作用域没关系了，如果找不到就会往外找，一直找到最外层，找到全局作用域中才截止。</li>
+<li>因此，<code>for</code> 循环中找到了块级作用域中 <code>i</code> 就输出 <code>0 1</code> 就不会往外层查找了</li>
+<li>在函数作用域中打印输出 <code>i</code> 依次往外层查找，发现没有找到 <code>i</code> 就报错了，这时程序就终止了</li>
+<li>如果，前边都没有报错，当 <code>foo()</code> 函数执行完毕后，最后在全局作用域中打印输出 <code>i </code>同样也会报错</li>
+<li>要注意：变量的查找<strong>只能由内往外</strong>，不能由外往内查找</li>
+</ul>
+<p><strong>总结</strong></p>
+<ul>
+<li>作用域链的流程：内层（块级）作用域 -&gt; 外层（函数）作用域 -&gt; … -&gt; 全局作用域<blockquote>
+<p>我们是以这样的顺序去查找变量或常量的，当然也不会一直查下去，一但找到就终止了</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="7">
+<li>ES6 中有哪些块级作用域<blockquote>
+<ul>
+<li><strong>大部分</strong>具有花括号<code>&#123;&#125;</code>的结构，都可以构成块级作用域</li>
+</ul>
+<pre><code>&#123;
+  let age = 20;
+  console.log(age); // 20
+&#125;
+console.log(age); // Uncaught ReferenceError: age is not defined
+</code></pre>
+<ul>
+<li>报错原因：<code>&#123;&#125;</code>花括号就是一个块级作用域， 它执行完毕之后就会被销毁</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>还具有<code>&#123;&#125;</code>块级作用域的结构，如：<code>&#123;&#125;</code>、<code>for()&#123;&#125;</code>、<code>while()&#123;&#125;</code>、<code>do&#123;&#125;while()</code>、<code>if()&#123;&#125;</code>、<code>switch()&#123;&#125;</code></li>
+<li>其中 <code>function()&#123;&#125;</code> 也有<code>&#123;&#125;</code> 但属于函数作用域，<strong>不属于块级作用域</strong></li>
+<li>另外，还有对象也有 <code>&#123;&#125;</code> 如：<code>const person = &#123;&#125;</code>。注：<strong>对象是不构成任何作用域的</strong>，我们知道 <code>JavaScript</code> 的作用域就 3 个，块级作用域、函数作用域、全局作用域<blockquote>
+<p>注：以上这些结构<strong>只有和 let、const 配合使用</strong>才会有块级作用域，<code>var</code> 是没有块级作用域的。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>块级作用域是<code>ES6</code>中新增的一个作用域，指在花括号<code>&#123;&#125;</code>里面使用 <code>let</code> 或 <code>const</code> 关键字声明变量或常量，就会形成一个块级作用域。</li>
+<li>但有两个需要特殊记忆，<strong>函数</strong>和<strong>对象</strong>的花括号<code>&#123;&#125;</code>不属于块级作用域。</li>
+</ul>
+</blockquote>
+<h3 id="四、let、const-在实际开发中的应用"><a href="#四、let、const-在实际开发中的应用" class="headerlink" title="四、let、const 在实际开发中的应用"></a>四、let、const 在实际开发中的应用</h3><blockquote>
+<p>应用实现需求：</p>
+<ul>
+<li>有 3 个按钮，点击 0 号按钮打印索引值为 0，点击 1 号按钮打印索引值为 1，点击 2 号按钮打印索引值为 2</li>
+</ul>
+</blockquote>
+<h4 id="在-ES6-之前使用-var-如何实现"><a href="#在-ES6-之前使用-var-如何实现" class="headerlink" title="在 ES6 之前使用 var 如何实现"></a>在 ES6 之前使用 var 如何实现</h4><ol>
+<li><p>实现方式一</p>
+<blockquote>
+<pre><code>&lt;style&gt;
+  .btn &#123;
+ width: 50px;
+ height: 50px;
+ font-size: 30px;
+  &#125;
+&lt;/style&gt;
+
+&lt;button class=&quot;btn&quot;&gt;0&lt;/button&gt;
+&lt;button class=&quot;btn&quot;&gt;1&lt;/button&gt;
+&lt;button class=&quot;btn&quot;&gt;2&lt;/button&gt;
+&lt;script&gt;
+  var btns = document.querySelectorAll(&quot;.btn&quot;);
+  for (var i = 0; i &lt; btns.length; i++) &#123;
+ btns[i].onclick = function () &#123;
+   console.log(i);
+ &#125;;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>运行以上程序，分别点击 0，1，2 三个按钮都会输出 <code>3</code> ，而不是按我们想象的 0，1，2 来输出</li>
+<li>因为点击事件发生时，函数作用域内找不到i，就会往外找；i是在全局作用域下声明的变量，在for循环结束后，在全局作用域下i&#x3D;3；</li>
+</ul>
+</blockquote>
+</li>
+<li><p>在 ES6 之前，我们该如何解决这个问题 ？</p>
+<blockquote>
+<ul>
+<li>利用立即执行函数，形成闭包</li>
+</ul>
+<pre><code>&lt;script&gt;
+  var btns = document.querySelectorAll(&quot;.btn&quot;);
+  for (var i = 0; i &lt; btns.length; i++) &#123;
+ (function (index) &#123;
+   btns[index].onclick = function () &#123;
+     console.log(index);
+   &#125;;
+ &#125;)(i);
+  &#125;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>运行以上代码，分别点击 0，1，2 三个按钮会正确输出 0，1，2</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>代码分析</strong></p>
+<ul>
+<li>首先我们可以看到声明的<strong>立即执行函数</strong>会在 for 循环中循环执行 3 次</li>
+<li>for 循环中的 var 声明的变量 i 是全局变量，当循环 3 次后 i 在全局作用域中 依然还是 i &#x3D; 3</li>
+<li>当 for 循环 3 次，其中的立即执行的匿名函数<code>(function(index)&#123; ... &#125;)(i)</code>; 就调用了 3 遍，调用函数就会创建函数作用域，这样就会创建 3 个函数作用域。并且<strong>每一个</strong>函数作用域中就会有一个 <code>index</code></li>
+<li>当点击 0，1，2 三个按钮时，就会调用事件处理函数对应的内部 <code>function()&#123;console.log(index);&#125;</code> 函数，这时就会形成自己的函数作用域</li>
+<li>开始打印输出 <code>console.log(index);</code> 这是就会一层层的往外找，找到立即执行匿名函数作用域中的<code>index</code> 找到了，就打印输出 0，1，2 ，这时候就<strong>不会</strong>再到外层全局作用域中去找 i &#x3D; 3了</li>
+<li>这时候，你会发现这里的实现方式和第一种方式都是通过<strong>作用域链</strong>的查找机制来查找变量，但<strong>唯一的区别在于</strong>，这里通过 <code>IIFE</code>立即执行函数形成了闭包，将全局变量转换为了局部变量来实现。</li>
+</ul>
+</blockquote>
+<h4 id="ES6出现后"><a href="#ES6出现后" class="headerlink" title="ES6出现后"></a>ES6出现后</h4><blockquote>
+<ul>
+<li>使用 ES6 中的 let、const 完成此需求</li>
+</ul>
+<pre><code>&lt;script&gt;
+  var btns = document.querySelectorAll(&quot;.btn&quot;);
+  //es6
+  for (let i = 0; i &lt; btns.length; i++) &#123;
+    btns[i].onclick = function () &#123;
+      console.log(i);
+    &#125;;
+  &#125;
+&lt;/script&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>代码分析</strong></p>
+<ul>
+<li>let与<code>&#123;&#125;</code>结合形成块级作用域，for循环三次，就形成了三个块级作用域；</li>
+<li>此时，i是块级作用域下的一个变量，每个块级作用域保存了不同的i；</li>
+<li>当点击事件触发时，就会调用事件处理函数，<code>console.log(i);</code>先在当前函数作用域找，没有找到，就往外找，直到找到块级作用域中的局部变量i；</li>
+</ul>
+</blockquote>
+<h3 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h3><ol>
+<li><p>关于以下描述正确的选项是 ？<br>A、let 是替代 var 用来声明变量的关键字<br>B、const 是替代 var 用来声明常量的关键字<br>C、变量声明之后，可以重新赋值<br>D、常量声明之后，不可以被重新赋值</p>
+<blockquote>
+<ul>
+<li>B选项错误：var没有声明常量的功能，所以不能称为替代</li>
+</ul>
+</blockquote>
+</li>
+<li><p>const的值一定是不能改变的吗</p>
+<blockquote>
+<ul>
+<li>const声明的常量不能被重新赋值，但如果其保存的是一个引用数据类型，在不重新赋值(不修改保存在堆内存中的地址)的前提下，是可以修改它的值的</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h2 id="Symbol、BigInt、模板字符串的应用场景和底层原理"><a href="#Symbol、BigInt、模板字符串的应用场景和底层原理" class="headerlink" title="Symbol、BigInt、模板字符串的应用场景和底层原理"></a>Symbol、BigInt、模板字符串的应用场景和底层原理</h2><h3 id="一、原始数据类型-Symbol"><a href="#一、原始数据类型-Symbol" class="headerlink" title="一、原始数据类型 Symbol"></a>一、原始数据类型 Symbol</h3><blockquote>
+<p>ES5 的对象属性名都是字符串，这容易造成<strong>属性名的冲突</strong>。比如，你使用了一个他人提供的对象，但又想为这个对象添加新的方法（mixin 模式），新方法的名字就有可能与现有方法产生冲突。<br>如果有一种机制，能保证每个属性的名字都是独一无二的就好了，这样就从根本上防止属性名的冲突。</p>
+<blockquote>
+<p>这就是 ES6 引入Symbol的原因。</p>
+</blockquote>
+</blockquote>
+<h4 id="什么是-Symbol-？"><a href="#什么是-Symbol-？" class="headerlink" title="什么是 Symbol ？"></a>什么是 Symbol ？</h4><blockquote>
+<p><code>Symbol</code>（符号、象征） 是 <code>ES6</code> 中引入的一种新的基本（原始）数据类型，用于表示一个独一无二的值。它是 <code>JavaScript</code> 中的第七种数据类型，与 <code>undefined</code>、<code>null</code>、<code>Number</code>（数值）、<code>String</code>（字符串）、<code>Boolean</code>（布尔值）、<code>Object</code>（对象）并列。</p>
+<ul>
+<li>创建一个 Symbol 值的方式如下：</li>
+</ul>
+<pre><code>const s=Symbol();
+console.log(s);//Symbol();
+console.log(typeof s);//Symbol
+</code></pre>
+<ul>
+<li><code>Symbol</code>值通过<code>Symbol()</code>函数生成，上面代码中，变量s就是一个<strong>独一无二</strong>的值。</li>
+<li><code>typeof</code>运算符的结果，表明变量s是<code>Symbol</code>数据类型，而不是字符串之类的其他类型。</li>
+</ul>
+</blockquote>
+<h4 id="Symbol-的语法规范"><a href="#Symbol-的语法规范" class="headerlink" title="Symbol 的语法规范"></a>Symbol 的语法规范</h4><ol>
+<li>方式一：<blockquote>
+<ul>
+<li>通过上边的学习，使用以下语法可创建一个 Symbol 变量</li>
+</ul>
+<pre><code>let s = Symbol();
+console.log(s); // Symbol()
+</code></pre>
+<ul>
+<li>我们说 <code>Symbol()</code> 生成的是一个独一无二的值，所以如果用 <code>Symbol()</code> 创建多个 <code>Symbol</code> 值时，即使他们长的完全一样，但是值是不相同的。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>let s = Symbol();
+let m = Symbol();
+</code></pre>
+</blockquote>
+<p>console.log(s); &#x2F;&#x2F; Symbol()<br>console.log(m); &#x2F;&#x2F; Symbol()</p>
+<blockquote>
+</blockquote>
+<p>console.log(s &#x3D;&#x3D;&#x3D; m); &#x2F;&#x2F; false</p>
+<blockquote>
+<pre><code>- 通过以上代码可知，虽然它们在控制台的输出是一样的，但变量 s 和变量 m 并不是同一个值
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>方式二：<blockquote>
+<p>以上的方式不利于我们区分两个变量，同时我们也不知道 Symbol 象征或代表的是什么 ？</p>
+<ul>
+<li>为此，我们可以在调用<code>Symbol</code>的时候传入一个<strong>字符串</strong>作为对当前<code>Symbol</code>变量的<strong>描述</strong></li>
+</ul>
+<pre><code>let s = Symbol(&quot;color&quot;);
+let m = Symbol(&quot;message&quot;);
+</code></pre>
+</blockquote>
+console.log(s); &#x2F;&#x2F; Symbol(color)<br>console.log(m); &#x2F;&#x2F; Symbol(message)<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>不过还是要特别注意，即使Symbol 的变量的描述是一样的，也是两个不同的值</li>
+</ul>
+<pre><code>const s = Symbol(&quot;a&quot;);
+const m = Symbol(&quot;a&quot;);
+console.log(s);
+console.log(m);
+console.log(s === m);
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Symbol 的描述符，如果传入的不是字符串类型，则会转换为对应的字符串</li>
+</ul>
+<pre><code>let s1 = Symbol(&quot;abc&quot;);
+let s2 = Symbol(111);
+let s3 = Symbol([1, 2, 3]);
+let s4 = Symbol(&#123;&#125;);
+console.log(s1, s2, s3, s4);
+//Symbol(abc) Symbol(111) Symbol(1,2,3) Symbol([object Object])
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>注意：<code>Symbol</code>是基本数据类型，调用<code>Symbol</code>时不可以使用 <code>new</code>关键字</li>
+</ul>
+<pre><code>const b = new Symbol(); // 报错 Symbol is not a constructor ，Symbol 不是构造函数
+</code></pre>
+</blockquote>
+<h4 id="Symbol-for"><a href="#Symbol-for" class="headerlink" title="Symbol.for()"></a><code>Symbol.for()</code></h4><blockquote>
+<ul>
+<li>有时，我们希望重新使用<strong>同一个</strong><code>Symbol</code>值，<code>Symbol.for()</code>方法可以做到这一点。</li>
+<li><code>Symbol</code>提供的一种可以创建相同 <code>Symbol</code> 的机制，就是使用 <code>Symbol.for()</code>方法进行注册。</li>
+<li>当我们使用<code>Symbol.for()</code>来创建 <code>Symbol</code> 值时，首先会在<strong>全局环境中</strong>搜索，检测给定的 <code>key</code>（描述符）是否已存在<ul>
+<li>如果<strong>不存在</strong>才会创建一个新的<code>Symbol</code>值，并且会在全局环境中登记。</li>
+<li>如果<strong>已存在</strong>，则会使用已存在的 <code>Symbol </code>值。</li>
+</ul>
+</li>
+<li><strong>不管<code>Symbol.for()</code>在哪里调用，最后都会登记注册在全局环境中</strong></li>
+</ul>
+<pre><code>function fn() &#123;
+  const s1 = Symbol.for(&quot;color&quot;);
+  return s1;
+&#125;
+const s1 = fn();
+const s2 = Symbol.for(&quot;color&quot;);
+console.log(s1 === s2); //true
+</code></pre>
+</blockquote>
+<h4 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor()"></a><code>Symbol.keyFor()</code></h4><blockquote>
+<ul>
+<li><code>Symbol.keyFor()</code>返回一个<strong>全局注册</strong>的<code>Symbol</code>的描述符</li>
+</ul>
+<pre><code>let s = Symbol.for(&quot;icoding&quot;);
+let m = Symbol.keyFor(s);
+console.log(m); // icoding
+</code></pre>
+</blockquote>
+<p>const m &#x3D; Symbol(color);<br>const k &#x3D; Symbol.keyFor(m); &#x2F;&#x2F;报错 color is not defined<br>console.log(k);</p>
+<blockquote>
+<pre><code>- 只有在全局作用域下注册过的`Symbol`描述符才能被找到，否则就会报错
+</code></pre>
+</blockquote>
+<h4 id="Symbol-与基本数据类型转换"><a href="#Symbol-与基本数据类型转换" class="headerlink" title="Symbol 与基本数据类型转换"></a>Symbol 与基本数据类型转换</h4><blockquote>
+<ul>
+<li>Symbol 不能转成数字</li>
+<li>使用 Number 对 Symbol 值转换会报错</li>
+</ul>
+<pre><code>const s = Symbol(&quot;123&quot;);
+console.log(Number(s)); // Cannot convert a Symbol value to a number
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>Symbol 可以转成 布尔值 和 字符串</li>
+</ul>
+<pre><code>let s = Symbol(&quot;123&quot;);
+console.log(typeof s); // symbol
+</code></pre>
+</blockquote>
+<p>let str &#x3D; String(s);<br>console.log(str); &#x2F;&#x2F; Symbol(123)<br>console.log(typeof str); &#x2F;&#x2F; string</p>
+<blockquote>
+</blockquote>
+<p>let bool &#x3D; Boolean(s);<br>console.log(bool); &#x2F;&#x2F; true<br>console.log(typeof bool); &#x2F;&#x2F; boolean</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="Symbol-属性的遍历"><a href="#Symbol-属性的遍历" class="headerlink" title="Symbol 属性的遍历"></a>Symbol 属性的遍历</h4><blockquote>
+<ul>
+<li>以<code>Symbol</code>类型的变量作为<strong>对象属性</strong>时，该属性不会出现在 <code>for … in</code>、<code>for … of</code>循环中（后面会讲解<code>for…of</code>循环的）。也不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>返回。</li>
+<li>我们可以通过<code>Object.getOwnPropertySymbols()</code>方法返回一个数组，成员是当前对象的<strong>所有</strong>用作<strong>属性名</strong>的 <code>Symbol</code> 值。</li>
+<li>如果想要一次性获取到<strong>对象自身的所有属性</strong>，可以利用<code>Reflect.ownKeys(obj)</code>，但原型上的获取不到</li>
+</ul>
+<pre><code> let s = Symbol(&quot;ss&quot;);
+ let m = Symbol(&quot;mm&quot;);
+ // 由于 s 和 m 是变量，而不是字符串，因此需要使用中括号括起来（否则它会被当做字符串使用）
+ let obj = &#123;
+   username: &quot;icoding&quot;,
+   [s]: 18,
+   [m]: function () &#123;&#125;,
+ &#125;;
+</code></pre>
+</blockquote>
+<p> &#x2F;&#x2F; for … in 循环遍历 obj<br> for (key in obj) {<br>   console.log(key); &#x2F;&#x2F;username<br> }</p>
+<blockquote>
+</blockquote>
+<p> &#x2F;&#x2F; getOwnPropertySymbols()方法<br> const arr1 &#x3D; Object.getOwnPropertySymbols(obj);<br> console.log(arr1); &#x2F;&#x2F;[Symbol(ss), Symbol(mm)]</p>
+<blockquote>
+</blockquote>
+<p> &#x2F;&#x2F; Reflect.ownKeys()方法<br> const arr2 &#x3D; Reflect.ownKeys(obj);<br> console.log(arr2); &#x2F;&#x2F; [‘username’, Symbol(ss), Symbol(mm)]</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="Symbol-的应用"><a href="#Symbol-的应用" class="headerlink" title="Symbol 的应用"></a>Symbol 的应用</h4><blockquote>
+<p>因为 Symbol 产生的是独一无二的值，所以我们可以利用这个特性解决以下<strong>三大问题</strong></p>
+<ul>
+<li>消除对象同名属性之间覆盖问题</li>
+<li>使对象的属性不能单独访问</li>
+<li>消除魔术字符串</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>消除对象同名属性之间覆盖问题</p>
+<blockquote>
+<ul>
+<li>由于每一个<code>Symbol</code>值都是不相等的，这意味着<code>Symbol</code>值可以作为标识符，用于对象的属性名，就能<strong>保证不会出现同名的属性</strong>。</li>
+<li>如果我们对一个对象身上有哪些属性不清楚，但我们想再给对象添加一个新属性时，有可能新属性名与对象原有的属性名相同，而造成同名属性的覆盖，如果用 <code>Symbol</code> 就可以解决这个问题。</li>
+</ul>
+<pre><code>// addMethod方法为obj对象添加某个属性，属性值为fn
+function addMethod(obj, fn) &#123;
+  // ....
+  // 为对象obj添加了唯一的属性s
+  const s = Symbol(&quot;color&quot;);
+  obj[s] = fn;
+&#125;
+</code></pre>
+<blockquote>
+<p>注意：使用 Symbol 作为对象属性时，需要使用<strong>方括号</strong>语法去访问对应的属性，而不是字符串。</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>使对象的属性不能单独对外访问</p>
+<blockquote>
+<p>以<code>Symbol</code>值作为对象的属性名不会被常规的方法遍历得到，所以我们可以利用这个特性为对象定义一组非私有属性，但这些属性又希望<strong>只用于内部方法</strong>的效果。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>用ES5的方式模拟私有变量</p>
+<blockquote>
+<ul>
+<li>利用闭包</li>
+</ul>
+<pre><code>const Person = (function () &#123;
+var m = Symbol(&quot;m&quot;);
+function Person() &#123;
+  this[m] = 100; //
+&#125;
+Person.prototype.getM = function () &#123;
+  return this[m];
+&#125;;
+return Person;
+&#125;)();
+</code></pre>
+</blockquote>
+<p>const p &#x3D; new Person();<br>console.log(p.getM());</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>在ES6里配合模块化实现</p>
+<blockquote>
+<pre><code>// person.js
+const m = Symbol(&quot;m&quot;);
+export default class Person &#123;
+constructor(name) &#123;
+  this.name = name;
+  this[m] = 100;
+&#125;
+getM() &#123;
+  return this[m];
+&#125;
+&#125;
+// export &#123; Person &#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; index.html  页面导入模块<br>import Person from “.&#x2F;person.js”;<br>const p &#x3D; new Person(“icoding”);<br>console.log(p.getM());<br>for (let key in p) {<br>console.log(key);<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>消除魔术字符串<blockquote>
+<ul>
+<li>魔术字符串是指：在代码之中<strong>出现多次</strong>、与代码形成<strong>强耦合</strong>的某一个具体的字符串或数值。</li>
+<li>风格良好的代码，应该尽量消除魔术字符串，而由含义清晰的变量代替</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果我们要计算不同形状的面积，我们可以写下面这个方法来实现</li>
+</ul>
+<pre><code>function getArea(shape, options) &#123;
+  let area = 0; // 保存最终计算得到的面积
+  switch (shape) &#123;
+    case &quot;rectangle&quot;: // 魔术字符串
+      area = options.width * options.height;
+      break;
+    case &quot;triangle&quot;: // 魔术字符串
+      area = (options.width * options.height) / 2;
+      break;
+    case &quot;circle&quot;: // 魔术字符串
+      area = Math.PI * options.radius * options.radius;
+      break;
+  &#125;
+  return area;
+&#125;
+</code></pre>
+</blockquote>
+<p>getArea(“rectangle”, { width: 100, height: 100 });</p>
+<blockquote>
+<pre><code>- 以上代码中的字符串 `&quot;rectangle&quot;`、`“triangle”`、`&quot;circle&quot;`就是魔术字符串，它多次出现，与代码形成强耦合，不利于将来的修改和维护。
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>常用来消除魔术字符串的方法，就是把它<strong>写成一个变量</strong>。我们定义一个<strong>对象</strong></li>
+</ul>
+<pre><code>let shapeType = &#123;
+  rectangle: &quot;rectangle&quot;,
+  triangle: &quot;triangle&quot;,
+  circle: &quot;circle&quot;,
+&#125;;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>然后我再把代码中的魔术字符串改成 shapeType 的属性值</li>
+</ul>
+<pre><code>// 计算图形的面积
+function getArea(shape, options) &#123;
+  let area = 0; // 保存最终计算得到的面积
+  switch (shape) &#123;
+    case shapeType.rectangle: // 魔术字符串
+      area = options.width * options.height;
+      break;
+    case shapeType.triangle: // 魔术字符串
+      area = (options.width * options.height) / 2;
+      break;
+    case shapeType.circle: // 魔术字符串
+      area = 2 * Math.PI * options.radius;
+      break;
+  &#125;
+  return area;
+&#125;
+</code></pre>
+</blockquote>
+<p>getArea(shapeType.rectangle, { width: 100, height: 100 });</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>我们知道，其实 <code>shapeType</code> 中每个属性对应的值是多少，根本不重要，只要保存这些属性的值都是<strong>唯一的就行</strong>（与其它属性值不相同），所以我们可以把他们的值改成 <code>Symbol()</code></li>
+</ul>
+<pre><code>// 完整版代码
+</code></pre>
+</blockquote>
+<p>let shapeType &#x3D; {<br>  rectangle: Symbol(),<br>  triangle: Symbol(),<br>  circle: Symbol(),<br>};</p>
+<blockquote>
+</blockquote>
+<p>&#x2F;&#x2F; 计算图形的面积<br>function getArea(shape, options) {<br>  let area &#x3D; 0; &#x2F;&#x2F; 保存最终计算得到的面积<br>  switch (shape) {<br>    case shapeType.rectangle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; options.width * options.height;<br>      break;<br>    case shapeType.triangle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; (options.width * options.height) &#x2F; 2;<br>      break;<br>    case shapeType.circle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; 2 * Math.PI * options.radius;<br>      break;<br>  }<br>  return area;<br>}</p>
+<blockquote>
+</blockquote>
+<p>console.log(getArea(shapeType.rectangle, { width: 100, height: 100 }));</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3 id="二、原始数据类型-BigInt"><a href="#二、原始数据类型-BigInt" class="headerlink" title="二、原始数据类型 BigInt"></a>二、原始数据类型 <code>BigInt</code></h3><blockquote>
+<p><code>bigint</code> 是 ES6 中新增的一种原始数据类型，它是 JavaScript 中的第八种数据类型，与 undefined、null、Number（数值）、String（字符串）、Boolean（布尔值）、Object（对象）、Symbol 并列。</p>
+</blockquote>
+<ol>
+<li>为什么要有 <code>BigInt</code> 类型<blockquote>
+<ul>
+<li>在之前的课程中我们了解到，JS 能表示的最大的<strong>安全正整数</strong>保存在<code>Number.MAX_SAFE_INTEGER</code>中，他的值 等于<code>2^53-1=9007199254740991</code></li>
+<li>如果 JS 中整数的范围一旦超过这个范围，就无法精确表示。</li>
+</ul>
+<pre><code>let n = Number.MAX_SAFE_INTEGER;
+console.log(n); // 9007199254740991
+let n1 = 9007199254740991 + 1;
+let n2 = 9007199254740991 + 2;
+console.log(n1 === n2); // true
+</code></pre>
+<ul>
+<li>以上的 n1 显然和 n2 不相等，但是最后的结果显示的为 true，说明 JS 已经无法安全的识别这是两个不同的数了。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>为了解决这个问题，JS 中引用了 <code>BigInt</code> 这种原始数据类型。他可以表示大于<code>2^53 - 1</code> 的整数。它<strong>只用来表示整数</strong>，同时<strong>没有位数的限制</strong>，任何位数的整数都可以精确表示。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>如何定义<code>BigInt</code>类型数据<blockquote>
+<ul>
+<li>可以在一个整数的字面量后面加<code>n</code>的方式定义一个<code>BigInt</code></li>
+<li>也可以调用函数<code>BigInt()</code>并传递一个整数值或字符串值</li>
+</ul>
+<pre><code>let n1 = 3n;
+let n2 = BigInt(&quot;3&quot;);
+let n3 = BigInt(3);
+let n4 = BigInt(3n);
+</code></pre>
+</blockquote>
+console.log(typeof n1); &#x2F;&#x2F; bigint<br>console.log(typeof n2); &#x2F;&#x2F; bigint<br>console.log(typeof n2); &#x2F;&#x2F; bigint<blockquote>
+</blockquote>
+console.log(n1); &#x2F;&#x2F;3n<br>console.log(n2); &#x2F;&#x2F;3n<br>console.log(n3); &#x2F;&#x2F;3n<br>console.log(n4); &#x2F;&#x2F;3n<blockquote>
+</blockquote>
+console.log(n1 &#x3D;&#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(n3 &#x3D;&#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(n4 &#x3D;&#x3D;&#x3D; n3); &#x2F;&#x2F;true<blockquote>
+</blockquote>
+console.log(3 &#x3D;&#x3D; n1); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n3); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n4); &#x2F;&#x2F;true<br>&#x2F;&#x2F;由于类型不同，不能全等<br>console.log(3 &#x3D;&#x3D;&#x3D; n1); &#x2F;&#x2F;false<blockquote>
+<pre><code>- 以上的`3n`表示的就是3，只是在后面加了`n`后，表示的类型不再是`number`而是`bigint`
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>不过我们最好不要用<code>==</code>来比较<code>bigint</code>和<code>number</code>类型，因为当<code>number</code>类型超出安全范围就会出错</li>
+</ul>
+<pre><code>let n1 = 9007199254740993;
+let n2 = 9007199254740992n;
+console.log(n1 == n2); // true
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>注意事项<blockquote>
+<ul>
+<li><code>BigInt</code>只能用来表示整数，如果是小数，则会自动忽略小数部分或者报错</li>
+</ul>
+<pre><code>let n = 2.3; // 抛出语法类型错误
+let n = BigInt(&quot;2.33&quot;); // 抛出语法类型错误
+</code></pre>
+</blockquote>
+const num &#x3D; 3n &#x2F; 2n;<br>console.log(num); &#x2F;&#x2F;1n<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>超出 <code>2^53-1</code> 的整数，能精确表示</li>
+</ul>
+<pre><code>let n1 = 9007199254740992n;
+let n2 = 9007199254740994n;
+console.log(n1 === n2);//false
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>BigInt</code>类型不能与<code>Number</code>类型进行混合运算</li>
+</ul>
+<pre><code>let n1 = 1 + 2n; // 抛出语法错误
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>二进制、八进制、十六进制的表示法后面都要加上后缀 n<blockquote>
+<p>八进制以<code>0o</code>开头</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>let num1 = 0b000100n;
+console.log(num1); //4n
+let num2 = 0o10n;
+console.log(num2); //8n
+let num3 = 0xan;
+console.log(num3); //10n
+</code></pre>
+</blockquote>
+<blockquote>
+<p>几乎所有 <code>Number</code> 运算符都可以有 <code>bigint</code> 中使用</p>
+<ul>
+<li>但 <code>&gt;&gt;&gt;</code> 无符号右位移运算和一元求正运算符 <code>+</code>不可以</li>
+<li>如果是参于<code>/</code>除法运算，最后会丢掉小数部分，<strong>只取整数部分</strong></li>
+</ul>
+<pre><code>console.log(2n + 3n); // 5n
+console.log(2n * 3n); // 6n
+console.log(5n / 2n); // 2n
+console.log(5n % 2n); // 1n
+console.log(5n || 0n); // 5n
+console.log(5n &amp;&amp; 0n); // 0n
+</code></pre>
+</blockquote>
+<p>console.log(+3n); &#x2F;&#x2F; 抛出类型错误<br>console.log(2n &gt;&gt;&gt; 0); &#x2F;&#x2F; 抛出类型错误</p>
+<blockquote>
+<pre><code>- `&gt;&gt;&gt;`运算抛出错误，是因为`&gt;&gt;&gt;`要求最高位补`0`，但`bigin`类型**没有最高位**
+</code></pre>
+</blockquote>
+<h3 id="三、模板字符串"><a href="#三、模板字符串" class="headerlink" title="三、模板字符串"></a>三、模板字符串</h3><blockquote>
+<p>我们在 ES5 之前使用的普通字符串如下</p>
+<pre><code>// 我们常用的普通字符串，使用单引号 &#39;&#39; 或 双引号 &quot;&quot; 的形式
+&quot;icoding&quot;;
+&quot;icoding&quot;;
+</code></pre>
+<ul>
+<li>模板字符串相当于加强版的字符串，把原来的<code>&#39;&#39;</code>或<code>&quot;&quot;</code><strong>替换</strong>成反引号&#96;将内容引用起来即可，这样就变成 模板字符串了。</li>
+</ul>
+</blockquote>
+<h4 id="普通字符串和模板字符串的简单用法"><a href="#普通字符串和模板字符串的简单用法" class="headerlink" title="普通字符串和模板字符串的简单用法"></a>普通字符串和模板字符串的简单用法</h4><blockquote>
+<ul>
+<li>如果只是简单的用法，普通字符串和模板字符串之间没有什么区别</li>
+</ul>
+<pre><code>// 定义模板字符串，使用 `` 反引号
+`icoding`;
+// 我们可能有疑惑，模板字符串和普通字符串有什么区别呢 ？ 其实，简单写法没啥区别
+// 如下常量声明：
+const brand1 = &quot;icoding&quot;; // 普通字符串声明
+const brand2 = `icoding`; // 使用模板字符串声明
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 观察 brand1 和 brand2 之间是否有区别<br>console.log(brand1, brand2, brand1 &#x3D;&#x3D;&#x3D; brand2); &#x2F;&#x2F; icoding icoding true<br>console.log(typeof brand2); &#x2F;&#x2F; string</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="模板字符串与普通字符串的区别"><a href="#模板字符串与普通字符串的区别" class="headerlink" title="模板字符串与普通字符串的区别"></a>模板字符串与普通字符串的区别</h4><blockquote>
+<ul>
+<li>ES5 之前，我们基本都是使用拼接字符串的方式，如果一旦内容多了，拼起来就费时费力</li>
+</ul>
+<pre><code>// 声明一个person对象
+const person = &#123;
+  username: &quot;icoding&quot;,
+  age: 20,
+  sex: &quot;male&quot;,
+&#125;;
+// 通过普通字符串拼接
+const msg =
+  &quot;我叫：&quot; +
+  person.username +
+  &quot; ，性别是：&quot; +
+  person.sex +
+  &quot;，今年：&quot; +
+  person.age +
+  &quot; 岁了&quot;;
+console.log(msg); // 我叫：icoding ，性别是：male，今年：20 岁了
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>在 ES6 中，我们使用模板字符串来完成，如下</li>
+</ul>
+<pre><code>// 声明一个person对象
+const person = &#123;
+  username: &quot;icoding&quot;,
+  age: 20,
+  sex: &quot;male&quot;,
+&#125;;
+// 通过模板字符串拼接
+const msg = `我叫：$&#123;person.username&#125; ，性别是：$&#123;person.sex&#125;，今年：$&#123;person.age&#125; 岁了`;
+console.log(msg); // 我叫：icoding ，性别是：male，今年：20 岁了
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>有了模板字符串后，就直接通过反引号中直接定义<strong>多行字符串</strong>和<strong>变量</strong>的拼接，凡是使用<code>+</code>拼接的都可以替换成模板字符串。</li>
+<li>如果是变量就包裹在<code>$&#123;&#125;</code>的大括号中即可</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>和其他东西一起使用时，使用模板字符串，方便注入</li>
+<li>其他情况下使用模板字符串或普通字符串都行</li>
+</ul>
+</blockquote>
+<h4 id="模板字符串的注意事项"><a href="#模板字符串的注意事项" class="headerlink" title="模板字符串的注意事项"></a>模板字符串的注意事项</h4><blockquote>
+<p>模板字符串在实际开发过程中应该注意哪些 ？</p>
+</blockquote>
+<ol>
+<li>输出多行字符串<blockquote>
+<ul>
+<li>普通字符串</li>
+</ul>
+<pre><code>// 普通字符串
+const msg = &quot;第1行\n第2行&quot;;
+console.log(msg);
+// 输出结果如下
+</code></pre>
+<img src="输出多行字符串.png"></blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>模板字符串</li>
+</ul>
+<pre><code>// 模板字符串
+const msg = `第1行\n第2行`;
+console.log(msg);
+// 输出结果如下
+</code></pre>
+<img src="输出多行字符串.png">
+</blockquote>
+<blockquote>
+<ul>
+<li>模板字符串，添加空格、换行或缩进</li>
+</ul>
+<pre><code>const msg = `第1行
+第2行`;
+console.log(msg);
+</code></pre>
+<img src="模板字符串换行.png">
+</blockquote>
+<blockquote>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>在模板字符串中，所有的空格、换行或缩进都会被保留并输出，简单说：<strong>格式会原样输出</strong></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><p>输出 &#96; 和 \ 等特殊字符</p>
+<blockquote>
+<ul>
+<li>在模板字符串中要输出特殊字符，同样需要用到转义符<code>\</code>反斜杠来进行转义，才能正常输出</li>
+</ul>
+<pre><code>// 输出 反引号 `
+const msg = `\``;
+console.log(msg); // `
+// 输出 反斜杠
+const msg1 = `\\`;
+console.log(msg1); // \
+// 输出 &#39; 单引号
+const msg2 = `&#39;`; // 类似 &#39;&#39; &quot;&quot; 不属于特殊字符
+console.log(msg2); // &#39;
+</code></pre>
+<ul>
+<li><code>&quot;</code>、<code>&quot;&quot;</code>、<code>&#39;</code>、<code>&#39;&#39;</code>不属于特殊字符，不需要使用转义符</li>
+</ul>
+</blockquote>
+</li>
+<li><p>模板字符串的注入</p>
+<blockquote>
+<p>在注入过程中，我们会使用 <code>$&#123;&#125;</code></p>
+<blockquote>
+<p>模板字符串中到底可以放什么内容，有没有规律呢 ？</p>
+</blockquote>
+<ul>
+<li>其实只<strong>要最终可以得出一个值</strong>的就可以通过<code>$&#123;&#125;</code>注入到模板字符串中</li>
+</ul>
+<pre><code>// 模板字符串的注入，使用 $&#123;&#125;
+const username = &quot;icoding&quot;;
+const person = &#123; age: 20, sex: &quot;male&quot; &#125;;
+const getSex = function (sex) &#123;
+  return sex === &quot;male&quot; ? &quot;男&quot; : &quot;女&quot;;
+&#125;;
+</code></pre>
+</blockquote>
+<p>const msg &#x3D; <code>我叫 $&#123;username&#125; ，今年 $&#123;person.age + 6&#125; 岁了，我是 $&#123;getSex(   person.sex )&#125; 生</code>;<br>console.log(msg); &#x2F;&#x2F; 我叫 icoding ，今年 26 岁了，我是 男 生</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>模板字符串在实际开发中的应用</p>
+<blockquote>
+<ul>
+<li>通过模板字符串动态注入数据，遍历动态数据</li>
+<li>用模板字符串拼接的方式，搭建HTML结构；代替之前先创建标签，再插入内容的方式；提升性能</li>
+</ul>
+<pre><code>&lt;title&gt;学生信息表 - 模板字符串的应用&lt;/title&gt;
+&lt;style&gt;
+table &#123;
+  border-collapse: collapse;
+  width: 860px;
+  margin: 50px auto;
+&#125;
+table tr th,
+td &#123;
+  border: 1px solid #dfe2e5;
+  text-align: center;
+  padding: 0.6em 1em;
+&#125;
+caption &#123;
+  font-size: 22px;
+&#125;
+&lt;/style&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+   &lt;caption&gt;
+     大一班学生信息表
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+   </caption>
+   <tr>
+     <th>姓名</th>
+     <th>性别</th>
+     <th>年龄</th>
+     <th>户籍所在地</th>
+   </tr>
+ </thead>
+ <tbody id="stu-list">
+   <!-- <tr>
+     <td>arry</td>
+     <td>男</td>
+     <td>18</td>
+     <td>北京</td>
+   </tr> -->
+   <tr>
+     <td colspan="4">信息正在加载中 ...</td>
+   </tr>
+ </tbody>
+ <tfoot>
+   <tr>
+     <th>备注</th>
+     <td colspan="3">新学期开学，学生信息表</td>
+   </tr>
+ </tfoot>
+</table>
+
+<script>
+  // 数据，目前作为演示，在实际开发中这些数据都会用过 Ajax 动态的加载
+  const students = [
+    {
+      username: "arry",
+      age: 18,
+      sex: "male",
+      city: "北京",
+    },
+    {
+      username: "清心",
+      age: 20,
+      sex: "female",
+      city: "湖南",
+    },
+    {
+      username: "allen",
+      age: 21,
+      sex: "male",
+      city: "深圳",
+    },
+    {
+      username: "jack",
+      age: 22,
+      sex: "female",
+      city: "上海",
+    },
+  ];
+
+</blockquote>
+<p>  &#x2F;&#x2F; 获取将要填充数据的容器<br>  const dataList &#x3D; document.getElementById(“stu-list”);<br>  &#x2F;&#x2F; 声明变量来保存拼接的字符串<br>  let html &#x3D; “”;<br>  &#x2F;&#x2F; 循环遍历拼接数据<br>  for (let i &#x3D; 0; i &lt; students.length; i++) {<br>    &#x2F;&#x2F; 使用模板字符串拼接<br>    html +&#x3D; <code>&lt;tr&gt;             &lt;td&gt;$&#123;students[i].username&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].age&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].sex === &quot;male&quot; ? &quot;男&quot; : &quot;女&quot;&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].city&#125;&lt;/td&gt;             &lt;/tr&gt;</code>;<br>  }</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 查看模板字符串注入后的数据<br>  &#x2F;&#x2F;   console.log(html);</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 将拼接注入的数据填充到容器中<br>  dataList.innerHTML &#x3D; html;</p>
+<blockquote>
+<p></script></p>
+<pre><code>
+</code></pre>
+</blockquote>
+<h4 id="四、标签模板"><a href="#四、标签模板" class="headerlink" title="四、标签模板"></a>四、标签模板</h4><blockquote>
+<ul>
+<li>模板字符串还可以紧跟在一个函数后面，该函数将被调用，用来处理这个模板字符串，这被称为<strong>“标签模板”</strong>功能。</li>
+<li>标签模板其实是<strong>函数的一种特殊形式</strong>。“标签”指的就是函数，紧跟在后面的模板字符串就是它的参数。</li>
+<li>但是，如果模板字符串中有变量<code>$&#123;&#125;</code>，就不再是简单的调用了，而是将模板字符串先处理成多个参数，再调用函数。</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>模板字符串中没有变量</p>
+<blockquote>
+<p>函数后面紧跟的模板字符串中没有变量，则模板字符串为<strong>函数的参数</strong></p>
+<pre><code>function tagFn(string) &#123;
+  console.log(arguments);
+  console.log(arguments[0][0]);
+  console.log(string);
+&#125;
+tagFn`模板字符串内容`;
+</code></pre>
+<img src="标签模板-无变量.png">
+</blockquote>
+</li>
+<li><p>模板字符串中有变量</p>
+<blockquote>
+<p>函数后面紧跟的模板字符串中包含变量，则模板字符串将会被处理成<strong>多个参数</strong>，再调用函数</p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一个参数</td>
+<td>第一个参数是一个<strong>类数组对象</strong>，其内部包含一个数组，数组成员为模板字符串中那些<strong>没有变量替换的部分</strong>，你可以理解为被<code>$&#123;...&#125;</code>这种表达式分隔的字符串组成的数组</td>
+</tr>
+<tr>
+<td>其余参数</td>
+<td>其它参数都是模板字符串中${…}被替换后对应的值</td>
+</tr>
+</tbody></table>
+<blockquote>
+<pre><code>function sayHello(string, value1, value2, value3) &#123;
+  // 类数组对象，其内包含一个数组，数组成员是由$&#123;...&#125;分隔后的字符串组成的
+  console.log(string);
+  // string.raw为一个数组，数组成员是由$&#123;...&#125;分隔后的字符串组成的
+  console.log(string.raw);
+  console.log(value1); // 对应模板字符串中$&#123;username&#125;解析后的值
+  console.log(value2); // 对应模板字符串中$&#123;city&#125;解析后的值
+  console.log(value3); // 没有对应的变量被解析，则值为undefined
+&#125;
+</code></pre>
+</blockquote>
+<p>let username &#x3D; “清心”;<br>let city &#x3D; “北京”;<br>sayHello<code>Hello$&#123;username&#125;,欢迎你来到$&#123;city&#125;</code>;</p>
+<blockquote>
+<pre><code>&lt;img src=&quot;标签模板有变量.png&quot;&gt;
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>arguments</code>的第一个参数是一个类数组对象，对象中包含一个数组，数组中对应的是模板字符串中那些<strong>没有变量替换的部分</strong></li>
+<li><code>arguments</code>第一个参数之后是变量值</li>
+<li>所以<strong>类数组中的每一项内容</strong>在模板字符串中后面紧跟随的变量值为第二个，第三个等参数。</li>
+<li>注意如果模板字符串以变量结尾，那类数组对象的最后一个值就<code>&#39;&#39;</code><blockquote>
+<p>根据上面的对应关系，我们来写一个函数，通过函数的参数来还原原模板字符串。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><p>函数内还原原模板字符串</p>
+<blockquote>
+<pre><code>const obj = &#123;
+username: &quot;清心&quot;,
+age: 18,
+sex: &quot;女&quot;,
+&#125;;
+
+function getString(strArr) &#123;
+//arguments:[strArr 变量值1 变量值2]
+let result = &quot;&quot;;
+let i = 0;
+while (i &lt; strArr.length) &#123;
+result += strArr[i++]; // i是先赋值，再自增 
+if (i &lt; arguments.length) &#123;
+result += arguments[i];
+&#125;
+&#125;
+return result;
+&#125;
+
+let result = getString`大家好，我是$&#123;obj.username&#125;,性别$&#123;obj.sex&#125;,今年$&#123;obj.age&#125;岁了`;
+console.log(result); // 大家好，我是清心,性别女,今年18岁了
+</code></pre>
+</blockquote>
+</li>
+<li><p>标签模板应用场景</p>
+<blockquote>
+<ul>
+<li>当我们需要对模板字符串<code>$&#123;...&#125;</code>中的内容需要进<strong>一步的验证和加工</strong>时，就可以利用到标签模板功能来处理。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>案例：根据数据渲染荣誉展示模块</p>
+<blockquote>
+<p><strong>后台返回的数据如下：</strong></p>
+<pre><code>const data = [
+  &#123;
+ username: &quot;刘梦宇&quot;, // 用户名
+ projectName: &quot;槐里集团&quot;, // 项目名
+ role: 3, // 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师
+ time: 1669824000000, // 时间戳
+ honour: 1,
+  &#125;,
+  &#123;
+ username: &quot;王妍&quot;,
+ projectName: &quot;槐里集团&quot;,
+ role: 4,
+ time: 1669824000000,
+ honour: 2,
+  &#125;,
+  &#123;
+ username: &quot;许尹阳&quot;,
+ projectName: &quot;槐里集团&quot;,
+ role: 4,
+ time: 1669824000000,
+ honour: 2,
+  &#125;,
+  &#123;
+ username: &quot;侯天帅&quot;,
+ projectName: &quot;槐里集团&quot;,
+ role: 4,
+ time: 1669824000000,
+ honour: 3,
+  &#125;,
+  &#123;
+ username: &quot;王薇&quot;,
+ projectName: &quot;槐里集团&quot;,
+ role: 4,
+ time: 1669824000000,
+ honour: 4,
+  &#125;,
+];
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>其中角色和荣誉后对应的内容如下:</strong></p>
+<pre><code>// 角色处理
+const role = &#123;
+  1: &quot;技术总监&quot;,
+  2: &quot;项目经理&quot;,
+  3: &quot;项目组长&quot;,
+  4: &quot;工程师&quot;,
+&#125;;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 荣誉<br>const honour &#x3D; {<br>  1: “年度卓越贡献奖”,<br>  2: “最佳效率奖”,<br>  3: “最佳创意奖”,<br>  4: “最佳贡献奖”,<br>};</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ul>
+<li><strong>实现思路</strong><blockquote>
+<ul>
+<li><strong>第一步</strong>：确认每一条信息的相同点和不同点，得出对应的模板字符串结构如下：</li>
+</ul>
+<pre><code>恭喜xxx同学，在xxxx年xxx月参于的xxxx项目中担任xxx一职，表现优异，认真负责，荣获xxxx奖
+</code></pre>
+<ul>
+<li>其中，动态内容有：人名，时间，项目名、角色，奖项。 需要我们用<code>$&#123;...&#125;</code>向模板字符串中注入对应内容</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>根据后台数据可知，动态内容还需要进行进一步处理</li>
+<li><strong>第二步</strong>，声明一个函数对动态内容进行处理；使用标签模板，将后台数据传入该函数</li>
+<li><strong>第三步</strong>，渲染页面，使用模板字符串，构建HTML结构，并将其渲染到容器中</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>HTML布局和CSS样式</p>
+<blockquote>
+<ul>
+<li>需要变红色的元素加<code>text</code>类名</li>
+</ul>
+<pre><code>&lt;style&gt;
+body &#123;
+  margin: 0;
+&#125;
+.honour &#123;
+  margin: 50px;
+&#125;
+/* 字体颜色变红 */
+span.text &#123;
+  color: red;
+&#125;
+&lt;/style&gt;
+&lt;div class=&quot;honour&quot;&gt;
+&lt;h3&gt;荣誉展示&lt;/h3&gt;
+&lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+</blockquote>
+</li>
+<li><p>处理动态内容</p>
+<blockquote>
+<ul>
+<li>需要加样式的变量，用模板字符串构建<code>span</code>标签，并加上类样式</li>
+<li>将处理好的内容，与不需要处理的内容<strong>重新拼接</strong>，并返回</li>
+</ul>
+<pre><code>function honour(
+  strArr,
+  usernameExp,
+  timeExp,
+  projectExp,
+  roleExp,
+  honourExp
+) &#123;
+  // 名字处理
+  let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
+  // 角色处理
+  const role = &#123;
+    1: &quot;技术总监&quot;,
+    2: &quot;项目经理&quot;,
+    3: &quot;项目组长&quot;,
+    4: &quot;工程师&quot;,
+  &#125;;
+  let strRole = role[roleExp];
+</code></pre>
+</blockquote>
+<p>  &#x2F;&#x2F; 时间处理<br>  const time &#x3D; new Date(timeExp);<br>  let strTime &#x3D; <code>$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月</code>;</p>
+<blockquote>
+</blockquote>
+<p>  &#x2F;&#x2F; 荣誉<br>  const honour &#x3D; {<br>1: “年度卓越贡献奖”,<br>2: “最佳效率奖”,<br>3: “最佳创意奖”,<br>4: “最佳贡献奖”,<br>  };<br>  const strHonour &#x3D; <code>&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;</code>;<br>  &#x2F;&#x2F; 输出内容……<br>  let output &#x3D; strArr[0]; &#x2F;&#x2F; 添加被${…}分隔出来的第一个内容<br>  [username, strTime, projectExp, strRole, strHonour].forEach(function (<br>item,<br>index<br>  ) {<br>output +&#x3D; item; &#x2F;&#x2F; 添加${…}解析出来的内容<br>output +&#x3D; strArr[++index]; &#x2F;&#x2F; 添加以${…}分隔出来的内容<br>  });<br>  return output; &#x2F;&#x2F; 返回拼接后的字符串<br>}</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>渲染页面</p>
+<blockquote>
+<ul>
+<li>在这里调用处理动态内容的函数，并传入data数据</li>
+</ul>
+<pre><code>// DOM渲染
+function render(obj, data) &#123;
+let html = &quot;&quot;; // 拼接li结构字符串
+// 遍历数据，对数据做处理
+data.forEach(function (item) &#123;
+  let result = honour`恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。`;
+  html += `&lt;li&gt;$&#123;result&#125;&lt;/li&gt;`; // 拼接每一个li
+&#125;);
+obj.innerHTML = html; //添加到页面中
+&#125;
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 获取DOM元素<br>const ul &#x3D; document.getElementById(“J_honour”);<br>render(ul, data); &#x2F;&#x2F; 开始渲染</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p><code>Array.forEach(callbackFn)</code>方法对数组的每个元素执行一次给定的函数。<code>callbackFn(el,index)</code>，el:数组中正在处理的当前元素。index:数组中正在处理的当前元素的索引。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>完整代码<blockquote>
+<pre><code>&lt;style&gt;
+body &#123;
+  margin: 0;
+&#125;
+.honour &#123;
+  margin: 50px;
+&#125;
+/* 字体颜色变红 */
+span.text &#123;
+  color: red;
+&#125;
+&lt;/style&gt;
+
+&lt;div class=&quot;honour&quot;&gt;
+ &lt;h3&gt;荣誉展示&lt;/h3&gt;
+ &lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+function honour(
+  strArr,
+  usernameExp,
+  timeExp,
+  projectExp,
+  roleExp,
+  honourExp
+) &#123;
+  // 名字处理
+  let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
+  // 角色处理
+  const role = &#123;
+    1: &quot;技术总监&quot;,
+    2: &quot;项目经理&quot;,
+    3: &quot;项目组长&quot;,
+    4: &quot;工程师&quot;,
+  &#125;;
+  let strRole = role[roleExp];
+</code></pre>
+</blockquote>
+  &#x2F;&#x2F; 时间处理<br>  const time &#x3D; new Date(timeExp);<br>  let strTime &#x3D; <code>$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月</code>;<blockquote>
+</blockquote>
+  &#x2F;&#x2F; 荣誉<br>  const honour &#x3D; {<br>1: “年度卓越贡献奖”,<br>2: “最佳效率奖”,<br>3: “最佳创意奖”,<br>4: “最佳贡献奖”,<br>  };<br>  const strHonour &#x3D; <code>&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;</code>;<br>  &#x2F;&#x2F; 输出内容……<br>  let output &#x3D; strArr[0]; &#x2F;&#x2F; 添加被${…}分隔出来的第一个内容<br>  [username, strTime, projectExp, strRole, strHonour].forEach(function (<br>item,<br>index<br>  ) {<br>output +&#x3D; item; &#x2F;&#x2F; 添加${…}解析出来的内容<br>output +&#x3D; strArr[++index]; &#x2F;&#x2F; 添加以${…}分隔出来的内容<br>  });<br>  return output; &#x2F;&#x2F; 返回拼接后的字符串<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; DOM渲染<br>function render(obj, data) {<br>  let html &#x3D; “”; &#x2F;&#x2F; 拼接li结构字符串<br>  &#x2F;&#x2F; 遍历数据，对数据做处理<br>  data.forEach(function (item) {<br>let result &#x3D; honour<code>恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。</code>;<br>html +&#x3D; <code>&lt;li&gt;$&#123;result&#125;&lt;/li&gt;</code>; &#x2F;&#x2F; 拼接每一个li<br>  });<br>  obj.innerHTML &#x3D; html; &#x2F;&#x2F;添加到页面中<br>}<blockquote>
+</blockquote>
+&#x2F;&#x2F; 获取DOM元素<br>const ul &#x3D; document.getElementById(“J_honour”);<br>const data &#x3D; [<br>  {<br>username: “刘梦宇”, &#x2F;&#x2F; 用户名<br>projectName: “槐里集团”, &#x2F;&#x2F; 项目名<br>role: 3, &#x2F;&#x2F; 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师<br>time: 1669824000000, &#x2F;&#x2F; 时间戳<br>honour: 1,<br>  },<br>  {<br>username: “王妍”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 2,<br>  },<br>  {<br>username: “许尹阳”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 2,<br>  },<br>  {<br>username: “侯天帅”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 3,<br>  },<br>  {<br>username: “王薇”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 4,<br>  },<br>];<br>render(ul, data); &#x2F;&#x2F; 开始渲染<blockquote>
+<p></script><br>&#96;&#96;&#96;</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="五、模板字符串面试真题解析-和-扩展知识"><a href="#五、模板字符串面试真题解析-和-扩展知识" class="headerlink" title="五、模板字符串面试真题解析 和 扩展知识"></a>五、模板字符串面试真题解析 和 扩展知识</h3><blockquote>
+<p>深入浅出互联网大厂 ES6 高频面试真题解析 和 相关扩展知识<br>面试真题是检验自己学习成果和查缺补漏的最好方式之一，同时也是了解企业对求职者技能要求的风向标 </p>
+</blockquote>
+<h4 id="手写-ES6-的模板字符串（百度）"><a href="#手写-ES6-的模板字符串（百度）" class="headerlink" title="手写 ES6 的模板字符串（百度）"></a>手写 ES6 的模板字符串（百度）</h4><blockquote>
+<ul>
+<li>手写一个方法，能成功解析字符串中的${}方式注入的内容</li>
+</ul>
+<pre><code>let obj = &#123;
+  name: &quot;清心&quot;,
+  age: 23,
+&#125;;
+// 以下字符串中的$&#123;obj.name&#125;和$&#123;obj.age&#125; 能成功被解析成 清心和 23
+let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
+</code></pre>
+</blockquote>
+<blockquote>
+<p><strong>实现思路：</strong></p>
+<ul>
+<li>首先我们要用正则表达式，提取字符串中${}包裹的内容，正则如下</li>
+</ul>
+<pre><code>const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
+</code></pre>
+<ul>
+<li>把<strong>正则表达式</strong>中子表达式<code>(.+?)</code>的内容提取出来，然后解析成对应的内容，如<code>obj.name</code>解析成<code>清心</code>,<code>obj.age</code> 解析成<code>23</code></li>
+<li>最后用子表达式解析成功的内容替换正则匹配到的<code>$&#123;&#125;</code>内容</li>
+</ul>
+</blockquote>
+<ol>
+<li>实现方法一：正则与 eval() 函数结合<blockquote>
+<p>如果对<code>eval()</code>函数不了解，可以参考后面的扩展知识，给大家提供了相关的文档</p>
+<pre><code>// 自定义字符串解析方法，可以解析string中$&#123;&#125;方式，读取变量中值
+function strParse(string) &#123;
+  const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
+  let newStr = string.replace(reg, function (v, p1) &#123;
+ // eval(obj.name) 返回解析后的字符串内容 如： obj.name解析成清心
+ return eval(p1);
+  &#125;);
+  return newStr; // 返回替换成功的字符串
+&#125;
+</code></pre>
+</blockquote>
+let obj &#x3D; {<br>  name: “清心”,<br>  age: 23,<br>};<br>let str &#x3D; “大家好，我是${obj.name},今年${obj.age}岁了”;<br>console.log(strParse(str)); &#x2F;&#x2F; 大家好，我是清心,今年23岁了<blockquote>
+</blockquote>
+let a &#x3D; 2;<br>let b &#x3D; 3;<br>let str2 &#x3D; <code>a+b=$&#123;a + b&#125;</code>;<br>console.log(strParse(str2)); &#x2F;&#x2F; a+b&#x3D;5<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果想成功解析字符串中的<code>&#123;&#123;&#125;&#125;</code>结构，只需将正则替换为如下</li>
+</ul>
+<pre><code>const reg = /\&#123;&#123;(.+?)&#125;&#125;/g; // 正则表达式,解析字符串中的&#123;&#123; &#125;&#125;模式
+// let str = &quot;大家好，我是&#123;&#123;obj.name&#125;&#125;,今年&#123;&#123;obj.age&#125;&#125;岁了&quot;;
+</code></pre>
+</blockquote>
+<ol start="2">
+<li>实现方法二：正则与Function构造函数<blockquote>
+<ul>
+<li>Function构造函数知识点在后面</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>基础版</li>
+</ul>
+<pre><code>let obj = &#123;
+  name: &quot;清心&quot;,
+  age: 23,
+&#125;;
+let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
+console.log(strParse(str)); //
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; strParse函数能成功解析字符串中的${}<br>function strParse(string) {<br>  const reg &#x3D; &#x2F;${(.+?)}&#x2F;g; &#x2F;&#x2F; 正则表达式<br>  let newStr &#x3D; string.replace(reg, function (v, p1) {<br>    &#x2F;&#x2F; 生成函数 function anonymous(){return obj.name} 然后自调用<br>    return Function(“return “ + p1)();<br>  });<br>  return newStr;<br>}</p>
+<blockquote>
+<pre><code>- 注意：`return`后面记得空一格
+- 上面的 `obj` 为全局作用域中的变量，如果 `obj` 不在全局作用域中，那最后就得不到想要的结果，因为 `Function` 创建的函数**只能访问当前作用域中局部变量和全局作用域中变量**。
+</code></pre>
+</blockquote>
+<blockquote>
+<ul>
+<li>所以我们需要将对应的数据当成函数的参数，传入到函数的内部，具体代码如下<blockquote>
+<p>不过这种方式，<strong>所有变量需要成为对象的属性</strong>，否则也是读取不到的</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// dataname 数据对象名   data数据对象   string需要处理的字符串
+function strParse(dataname, data, string) &#123;
+  const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
+  let newStr = string.replace(reg, function (v, p1) &#123;
+    // 创建函数 function anonymous(obj)&#123; return obj.name&#125; 然后自调用，传入数据
+    return Function(dataname, &quot;return &quot; + p1)(data);
+  &#125;);
+  return newStr;
+&#125;
+</code></pre>
+</blockquote>
+<p>function fn() {<br>  let obj &#x3D; {<br>    name: “清心”,<br>    age: 23,<br>  };<br>  let str &#x3D; “大家好，我是${obj.name},今年${obj.age}岁了”;<br>  let newStr &#x3D; strParse(“obj”, obj, str);<br>  console.log(newStr);<br>}<br>fn();</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>实现方法三：正则与 Function 构造函数<blockquote>
+<p>这一步我们想要解决的是，能成功解析字符串<code>$&#123;...&#125;</code>的内容，但<code>$&#123;...&#125;</code>中的内容是<strong>直接引用对象的属性</strong>，而不是<code>对象.属性</code>的方式。</p>
+<pre><code>let obj = &#123;
+  name: &quot;清心&quot;,
+  age: 23,
+  arr: [1, 2, 3],
+&#125;;
+// let str1 = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了$&#123;obj.arr[0]&#125;&quot;;
+let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁了$&#123;arr[0]&#125;&quot;;
+// str2字符串中的$&#123;name&#125; $&#123;age&#125; $&#123;arr[0]&#125; 要能被成功解析为 清心 23  1
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>如果按照上一个方法，当前作用域中没有<code>name</code>,<code>age</code>,<code>arr</code>变量，所以肯定访问不到，最终报错。</li>
+<li>所以我们需要将这些变量<strong>作为函数的参数传进来</strong>，而这些变量名正好对应<code>obj</code>对象的属性名，所以我们可以把对象的<strong>属性名</strong>当做函数的<strong>形参</strong>，对象属性名对应的<strong>属性</strong>值，当成<strong>实参</strong>传入。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>先看new Function要创建什么函数</li>
+</ul>
+<pre><code>  (function anonymous(name,age,arr)&#123;
+    return name;//age/arr[0];
+  &#125;)(&quot;清心&quot;,23,[1,2,3]);
+</code></pre>
+<ul>
+<li><code>let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁了$&#123;arr[0]&#125;&quot;;</code></li>
+<li>因为字符串是这样的，p1拿到的就是<code>name、age、arr[0]</code></li>
+<li>Function函数里面没有这些变量，也不能放全局里，所以只能传进去；作为形参，名字肯定要对应才能找得到：<code>name,age,arr</code>，也就是对象的属性名；</li>
+<li>作为实参的话，要把对象的属性值传进去</li>
+<li>所以我们要先根据传进来的obj，拿到对象的属性名和属性值；然后再将Function函数返回，执行函数体内的代码，替换<code>$&#123;...&#125;</code>的内容</li>
+</ul>
+</blockquote>
+<blockquote>
+<pre><code> function strParse(str, obj) &#123;
+   const reg = /\$&#123;(.+?)&#125;/g;
+   let newStr = str.replace(reg, function (v, p1) &#123;
+     const keys = Object.keys(obj);
+     const values = Object.values(obj);
+     return Function(...keys, &quot;return &quot; + p1)(...values);
+   &#125;);
+   return newStr;
+ &#125;
+</code></pre>
+</blockquote>
+<p> function fn() {<br>   let obj &#x3D; {<br>     name: “清心”,<br>     age: 23,<br>     arr: [1, 2, 3],<br>   };<br>   let str &#x3D; “大家好，我是${name},今年${age}岁了${arr[0]}”;<br>   return strParse(str, obj);<br> }<br> console.log(fn()); &#x2F;&#x2F; 大家好，我是清心,今年23岁了1</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>总结：通过这个面试题，我们重点掌握以下三个思想</p>
+</blockquote>
+<ul>
+<li>如何利用<strong>正则</strong>匹配符合模式的内容</li>
+<li>如何把一个字符串，像正常的 JS 代码一样去<strong>执行</strong></li>
+<li><code>Function</code>函数创建的函数相当于是在全局作用域中被创建的，所以他只能访问当前函数内的局部变量和全局变量，所以我们要把创建出来的函数体中用到<strong>变量</strong>，全都都当成<strong>参数</strong>给他传进去，同时还要把对应参数的实参也要传进去。</li>
+</ul>
+</blockquote>
+<h4 id="扩展知识：eval、Function-构造函数"><a href="#扩展知识：eval、Function-构造函数" class="headerlink" title="扩展知识：eval、Function 构造函数"></a>扩展知识：eval、Function 构造函数</h4><ol>
+<li><p>eval() 函数</p>
+<blockquote>
+<ul>
+<li><code>eval()</code>函数 将传入的字符串当成<code>JS</code>脚本代码来执行</li>
+<li>如果参数是一个表达式，<code>eval()</code>函数将执行表达式。如果参数是 <code>JavaScript</code>语句，<code>eval()</code>将执行 <code>JavaScript</code>语句（代码）。</li>
+<li>语法：<code>eval(string); </code></li>
+</ul>
+<pre><code>// eval中的字符串会被当成正常的JS脚本来执行
+eval(&quot;let a=1;let b=2; console.log(a+b);&quot;); // 3
+</code></pre>
+</blockquote>
+<p>const a &#x3D; 3;<br>const b &#x3D; 4;<br>console.log(eval(“a+b”)); &#x2F;&#x2F; 7 对表达式求值，并将结果返回</p>
+<blockquote>
+</blockquote>
+<p>const obj &#x3D; { a: 1 };<br>console.log(eval(obj.a)); &#x2F;&#x2F; 1 对表达式求值，并将结果返回</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+</li>
+<li><p>Function 构造函数</p>
+<blockquote>
+<p><code>Function</code>构造函数用来创建一个新的函数对象，可以直接调用<code>Function</code>构造函数，也可以用<code>new </code>关键字来调用</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<pre><code>let fn1=new Function(arg1,arg2,arg3...,functionBody);
+let fn2=Function(arg1,arg2,arg3...,functionBody);
+</code></pre>
+<ul>
+<li><code>fn1</code> 和 <code>fn2</code> 为新创建出来的函数</li>
+<li><code>arg1，arg2，arg3...</code> 都是一个个<strong>字符串</strong>(需要双引号包裹)，为新创建出来的函数的形参</li>
+<li><code>functionBody</code> 是 <code>Function()</code> 构造函数的最后一个参数，表示新创建出来的函数的函数体代码</li>
+<li>如果<code>Function()</code>或 <code>new Function()</code>中只一个参数，那这个参数就是函数体代码，这个新创建出来的函数没有参数。</li>
+</ul>
+<pre><code>// 以下代码相当于创建了匿名函数  sum= function anonymous(a,b)&#123;return a+b&#125;
+var sum = new Function(&quot;a&quot;, &quot;b&quot;, &quot;return a+b&quot;);
+console.log(sum(1, 2)); // 3
+</code></pre>
+</blockquote>
+<p>&#x2F;&#x2F; 相当于创建了匿名函数<br>&#x2F;&#x2F; sayHell&#x3D;function anonymous(){console.log(“大家好，我是…”)}<br>var sayHello &#x3D; new Function(‘console.log(“大家好，我是…”)’);<br>sayHello(); &#x2F;&#x2F; 大家好，我是…</p>
+<blockquote>
+<pre><code>
+</code></pre>
+</blockquote>
+<ol start="3">
+<li>Function 构造函数注意事项<blockquote>
+<p><code>Function</code>构造函数创建的函数，总是被<strong>创建于全局环境</strong>（全局作用域），因此<strong>运行此函数时</strong>只能访问到当前函数作用域中的局部变量和全局变量。</p>
+<pre><code> const a = 0;
+ function createFn() &#123;
+const a = 3;
+const b = 4;
+// return Function(&quot;return a&quot;); //0
+// return Function(&quot;return &quot; + a); //3
+return Function(&quot;b&quot;, &quot;return b&quot;); //2
+ &#125;
+ console.log(createFn()(2));
+</code></pre>
+<ul>
+<li>Function函数创建后需要调用，要么在调用外层函数时写两个<code>()</code>，要么在创建时调用：<code>return Function()()</code></li>
+<li>第一个<code>return Function(&quot;return a&quot;)</code>是在Function函数体<strong>内</strong>调用a，此时只能访问到Function函数体内或者全局作用域下的变量，所以它返回了0</li>
+<li>第二个<code>return Function(&quot;return &quot; + a);</code>，此时的a是在运行Function函数<strong>前</strong>就读取到了，所以这种情况下可以得到外层函数的变量</li>
+<li>第三个<code>return Function(&quot;b&quot;, &quot;return b&quot;);</code>，此时的b是作为参数从外面传进去的，它是Function函数体内的变量</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>推荐阅读：</p>
+</blockquote>
+<ul>
+<li>里面会讲到 <code>eval()</code> 和 <code>Function()</code> 之间的对比，还有更多替代 <code>eval</code> 实现复杂效果的方法</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/eval</a></li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.github.io/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/">https://hermiablog.github.io/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E5%85%AB%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/JS/">
+                                    <span class="chip bg-color">JS</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/12/09/JS%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%88%E5%8D%81%E4%B9%9D%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="JS核心知识点（十九）">
+                        
+                        <span class="card-title">JS核心知识点（十九）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ES6箭头函数、对象自面量增强、解构赋值、函数参数默认值、剩余参数 和 展开运算符
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/08/JS%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="JS底层原理">
+                        
+                        <span class="card-title">JS底层原理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JavaScript 执行原理、闭包、垃圾回收、立即执行函数
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year">2023</span>
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
