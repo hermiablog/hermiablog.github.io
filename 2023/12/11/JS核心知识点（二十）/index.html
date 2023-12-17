@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-11
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    610
+                    619
                 </div>
                 
 
@@ -444,41 +444,42 @@
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>//  传入参数为数组，数组为可迭代对象
 const s1 = new Set([1, 2, 3]);
 console.log(s1); // Set(3) &#123;1, 2, 3&#125;
+&gt;
+// 传入参数为NodeList,NodeList为可迭代对象
+const list = document.querySelectorAll(&quot;ul li&quot;);
+const s2 = new Set(list);
+console.log(s2); // Set(4) &#123;li, li, li, li&#125;
+&gt;
+// 传入参数为arguments，arguments为可迭代对象
+function fn() &#123;
+  const s = new Set(arguments);
+  console.log(s); // Set(3) &#123;1, 2, &#39;ab&#39;&#125;
+&#125;
+fn(1, 2, &quot;ab&quot;);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 传入参数为NodeList,NodeList为可迭代对象<br>const list &#x3D; document.querySelectorAll(“ul li”);<br>const s2 &#x3D; new Set(list);<br>console.log(s2); &#x2F;&#x2F; Set(4) {li, li, li, li}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 传入参数为arguments，arguments为可迭代对象<br>function fn() {<br>  const s &#x3D; new Set(arguments);<br>  console.log(s); &#x2F;&#x2F; Set(3) {1, 2, ‘ab’}<br>}<br>fn(1, 2, “ab”);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
-<li>对象为非迭代对象，但为对象添加迭代器，那对象也可以作为Set的参数<blockquote>
+<li>对象为非迭代对象，但为对象添加迭代器，那对象也可以作为Set的参数</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
-arr: [3, 4, 5],
+  a: 1,
+  b: 2,
+  arr: [3, 4, 5],
 &#125;;
 // 但为对象添加迭代器，那对象也可以作为Set的参数
 obj[Symbol.iterator] = function* () &#123;
-for (let key in this) &#123;
-  yield this[key];
-&#125;
+  for (let key in this) &#123;
+    yield this[key];
+  &#125;
 &#125;;
 const s3 = new Set(obj);
 console.log(s3); // Set(3) &#123;1, 2, Array(3)&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
-<li>创建<code>Set</code>，利用<code>add</code>方法添加成员<blockquote>
+<li>创建<code>Set</code>，利用<code>add</code>方法添加成员</li>
+</ol>
 <pre><code>const s = new Set();
 // add方法向Set中添加成员
 s.add(1);
@@ -486,9 +487,6 @@ s.add(2);
 s.add(3);
 console.log(s);// Set(3) &#123;1, 2, 3&#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>注意区分<code>Set</code>函数的参数和<code>Set</code> 成员</p>
@@ -500,12 +498,14 @@ console.log(s);// Set(3) &#123;1, 2, 3&#125;
 </blockquote>
 <h4 id="Set-成员的唯一性"><a href="#Set-成员的唯一性" class="headerlink" title="Set 成员的唯一性"></a><code>Set</code> 成员的唯一性</h4><blockquote>
 <p><code>Set</code> 中的成员必需是唯一的，其内部判断两个值是否相同<strong>类似</strong>于精确相等运算符 <code>===</code>，主要的<strong>区别</strong> <code>Set</code> 中认为 <code>NaN</code> 和 <code>NaN</code> 是相等的</p>
+</blockquote>
 <pre><code>const s = new Set([1, 2, 3, 3, NaN, 4, NaN]);
 // 因为Set成员必需是唯一的，所以3和NaN只保留了一个
 console.log(s); // Set(5) &#123;1, 2, 3, NaN, 4&#125;
+&gt;
+const s = new Set([&#123; a: 1 &#125;, 1, &#123; a: 1 &#125;, [&quot;A&quot;], +0, 0, -0]);
+console.log(s);//Set(5) 
 </code></pre>
-</blockquote>
-<p>const s &#x3D; new Set([{ a: 1 }, 1, { a: 1 }, [“A”], +0, 0, -0]);<br>console.log(s);&#x2F;&#x2F;Set(5) </p>
 
                 
             </div>

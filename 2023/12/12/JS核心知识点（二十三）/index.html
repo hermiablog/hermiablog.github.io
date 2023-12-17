@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-12
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    22.3k
+                    22.5k
                 </div>
                 
 
@@ -437,78 +437,107 @@
 <li>function 命令与函数名之间有一个 <code>*</code>星号</li>
 <li>函数体内部可以使用<code>yield</code>语句定义不同的状态。（yield的英文意思是“产出”）</li>
 </ul>
-<pre><code>// 定义一个Generator函数
-function* gen() &#123;
- yield 1;
- yield 2;
- yield 3;
-&#125;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 普通函数内部，不能使用 yield语句，使用会报错<br>function gen() {<br> yield 1; &#x2F;&#x2F; 报错<br>}<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 定义一个Generator函数
+function* gen() &#123;
+    yield 1;
+    yield 2;
+    yield 3;
+&#125;
+&gt;
+// 普通函数内部，不能使用 yield语句，使用会报错
+function gen() &#123;
+    yield 1; // 报错
+&#125;
+</code></pre>
 <blockquote>
 <p>ES6 中并没有规定function关键字与函数名之间的<code>*</code>星号应该写在哪个位置，因此以下写法都是可行的</p>
+</blockquote>
 <pre><code>function* gen() &#123;&#125; // 一般会选择这种写法
 function * gen() &#123;&#125;
 function *gen() &#123;&#125;
 // 由于Generator函数仍是普通的函数，所以一般会用第1种写法，星号紧跟在function关键字后面
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>Generator 函数的基本用法<blockquote>
 <p><code>Generator</code>函数可以理解为是一个遍历器（迭代器）对象的生成函数。</p>
 <ul>
 <li>即：调用<code>Generator</code>可以生成一个遍历器对象。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 定义Generator函数
 function* gen() &#123;
   yield 1;
   yield 2;
   yield 3;
 &#125;
+&gt;
+// 调用gen()函数，会返回一个遍历器对象
+const iterator = gen();
+// 调用遍历器的next方法，手动迭代下一个元素
+console.log(iterator.next()); // &#123;value: 1, done: false&#125;
+console.log(iterator.next()); // &#123;value: 2, done: false&#125;
+console.log(iterator.next()); // &#123;value: 3, done: false&#125;
+console.log(iterator.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
+<blockquote>
+<blockquote>
+<p>注：</p>
 </blockquote>
-&#x2F;&#x2F; 调用gen()函数，会返回一个遍历器对象<br>const iterator &#x3D; gen();<br>&#x2F;&#x2F; 调用遍历器的next方法，手动迭代下一个元素<br>console.log(iterator.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(iterator.next()); &#x2F;&#x2F; {value: 2, done: false}<br>console.log(iterator.next()); &#x2F;&#x2F; {value: 3, done: false}<br>console.log(iterator.next()); &#x2F;&#x2F; {value: undefined, done: true}<blockquote>
-<pre><code>&gt;注：
-- 上面定义的`gen`函数就是一个`Generator`函数，其内部用到了`yield`语句来维持 3 个状态。`yield`语句**后面的值**就是gen函数生成的遍历器对象的`next()`方法返回的对象的`value`属性值。
-- 因为`Generator`函数的返回值是一个遍历器对象，所以我们可以用`for...of`来遍历这个对象
+<ul>
+<li>上面定义的<code>gen</code>函数就是一个<code>Generator</code>函数，其内部用到了<code>yield</code>语句来维持 3 个状态。<code>yield</code>语句<strong>后面的值</strong>就是gen函数生成的遍历器对象的<code>next()</code>方法返回的对象的<code>value</code>属性值。</li>
+<li>因为<code>Generator</code>函数的返回值是一个遍历器对象，所以我们可以用<code>for...of</code>来遍历这个对象</li>
+</ul>
+</blockquote>
+<pre><code>// 定义Generator函数
+function* gen() &#123;
+  yield 1;
+  yield 2;
+  yield 3;
+&#125;
+&gt;
+// 调用gen()函数，会返回一个遍历器对象
+const iterator = gen();
+// for...of循环遍历遍历器对象
+for (let v of iterator) &#123;
+  console.log(v);
+&#125;
+// for..of循遍历结果： 1 2 3
 </code></pre>
-<p>&#x2F;&#x2F; 定义Generator函数<br>function* gen() {<br>  yield 1;<br>  yield 2;<br>  yield 3;<br>}</p>
+<blockquote>
+<ul>
+<li>直到<code>next</code>方法返回值对象的<code>done</code>属性值为<code>true</code>时，才停止遍历</li>
+</ul>
 </blockquote>
-&#x2F;&#x2F; 调用gen()函数，会返回一个遍历器对象<br>const iterator &#x3D; gen();<br>&#x2F;&#x2F; for…of循环遍历遍历器对象<br>for (let v of iterator) {<br>  console.log(v);<br>}<br>&#x2F;&#x2F; for..of循遍历结果： 1 2 3<blockquote>
-<pre><code>- 直到`next`方法返回值对象的`done`属性值为`true`时，才停止遍历
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li>调用<code>Generator</code>函数，并不会执行函数体中的任何代码，只是返回一个遍历器对象。<blockquote>
 <ul>
 <li>只有调用遍历器对象的<code>next()</code>方法后，才会开始执行函数体内的代码。</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function* gen() &#123;
-console.log(&quot;第一次调用next&quot;);
-yield 1;
-console.log(&quot;第2次调用next&quot;);
-yield 2;
-yield 3;
+  console.log(&quot;第一次调用next&quot;);
+  yield 1;
+  console.log(&quot;第2次调用next&quot;);
+  yield 2;
+  yield 3;
 &#125;
 const it = gen(); // gen()函数体中的代码并不会执行
 it.next(); // 第一次调用next
 it.next(); // 第2次调用next
 </code></pre>
+<blockquote>
 <ul>
 <li>上面代码执行到<code>it=gen()</code>时，并不会执行 <code>gen</code> 函数体中的代码，只是生成了一个遍历器对象，所以并不会在控制台输出 “第一次调用 next” 语句。</li>
 <li>当执行<code>it.next()</code>，开始执行执行<code>gen</code>函数体中的代码,并在控制台输出 “第一次调用 next”。但并不会输出 “第 2 次调用 next”，只有当执行到<code>it.next()</code>时才会在控制台输出 “第 2 次调用 next”。</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <ol start="3">
 <li>yield 表达式<blockquote>
 <ul>
@@ -528,6 +557,7 @@ it.next(); // 第2次调用next
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>function* gen() &#123;
   console.log(&quot;第一次调用next&quot;);
   yield 1;
@@ -542,8 +572,6 @@ console.log(it.next()); // 第2次调用next &#123;value: 2, done: false&#125;
 console.log(it.next()); // 第3次调用next &#123;value: 3, done: true&#125;
 console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-<blockquote>
 <pre><code>function* gen() &#123;
   console.log(&quot;第一次调用next&quot;);
   yield 1;
@@ -556,7 +584,6 @@ console.log(it.next()); // 第1次调用next &#123;value: 1, done: false&#125;
 console.log(it.next()); // 第2次调用next &#123;value: 2, done: false&#125;
 console.log(it.next()); // 第3次调用next &#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：<code>yield</code>语句后面的表达式，只有当代码执行到当前这个<code>yield</code>语句时，后面的表达式才会求值。</p>
@@ -574,79 +601,83 @@ console.log(it.next()); // 第3次调用next &#123;value: undefined, done: true&
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>function* gen() &#123;
   yield 1;
   yield 2;
   return 3; // for...of 循环不会遍历到该值
 &#125;
+&gt;
+const it = gen();
+console.log(it.next()); //&#123;value: 1, done: false&#125;
+console.log(it.next()); //&#123;value: 2, done: false&#125;
+console.log(it.next()); //&#123;value: 3, done: true&#125;
+console.log(it.next()); //&#123;value: undefined, done: false&#125;
+&gt;
+for (let v of gen()) &#123;
+  console.log(v); // 1 2
+&#125;
 </code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F;{value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F;{value: 2, done: false}<br>console.log(it.next()); &#x2F;&#x2F;{value: 3, done: true}<br>console.log(it.next()); &#x2F;&#x2F;{value: undefined, done: false}</p>
-<blockquote>
-</blockquote>
-<p>for (let v of gen()) {<br>  console.log(v); &#x2F;&#x2F; 1 2<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
 <li>yield 注意事项</li>
 </ol>
 <ul>
-<li><p><code>yield</code>只能直接在<code>Generator</code>函数里面用，在<code>Generator</code>函数体中的普通函数中用也会报错</p>
-<blockquote>
+<li><code>yield</code>只能直接在<code>Generator</code>函数里面用，在<code>Generator</code>函数体中的普通函数中用也会报错</li>
+</ul>
 <pre><code>// 普通函数中使用抛出错误
 function fn()&#123;
-  yield 1 ; // 抛错
+    yield 1 ; // 抛错
+&#125;
+&gt;
+// Generator函数内的普通函数中用，抛出错误
+function* gen()&#123;
+    function fn()&#123;
+        yield 3;
+    &#125;
+&#125;
+&gt;
+// Generator函数内的普通函数中用，抛出错误
+function* gen()&#123;
+    [1,2,3].forEach((v)=&gt;&#123;
+        yield v
+    &#125;)
 &#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; Generator函数内的普通函数中用，抛出错误<br>function* gen(){<br>  function fn(){<br>  yield 3;<br>  }<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; Generator函数内的普通函数中用，抛出错误<br>function* gen(){<br>  [1,2,3].forEach((v)&#x3D;&gt;{<br>  yield v<br>  })<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>yield 可以只作为暂停标志，后面啥也不写</p>
-<blockquote>
+<ul>
+<li>yield 可以只作为暂停标志，后面啥也不写</li>
+</ul>
 <pre><code>function* gen() &#123;
-yield;
-yield 2;
+  yield;
+  yield 2;
 &#125;
 const it = gen();
 console.log(it.next());//&#123;value: undefined, done: false&#125;
 console.log(it.next());//&#123;value: 2, done: false&#125;
 console.log(it.next());&#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>yield 表达式如果在另一个表达式之中，必须放在圆括号里面</p>
-<blockquote>
+<ul>
+<li>yield 表达式如果在另一个表达式之中，必须放在圆括号里面</li>
+</ul>
 <pre><code>// 错误写法
 function* gen() &#123;
-  let str = &quot;hello&quot; + yield 3; // 抛错
-  console.log(&quot;hello&quot; + yield 5); // 抛错
+    let str = &quot;hello&quot; + yield 3; // 抛错
+    console.log(&quot;hello&quot; + yield 5); // 抛错
+&#125;
+&gt;
+// 正确写法
+function* gen() &#123;
+    let str = &quot;hello&quot; + (yield 3);
+    console.log(&quot;hello&quot; + (yield 5));
 &#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 正确写法<br>function* gen() {<br>  let str &#x3D; “hello” + (yield 3);<br>  console.log(“hello” + (yield 5));<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>yield</code>表达式用作<strong>函数参数</strong>或放在<strong>赋值表达式的右边</strong>，可以不用加括号</p>
-<blockquote>
+<ul>
+<li><code>yield</code>表达式用作<strong>函数参数</strong>或放在<strong>赋值表达式的右边</strong>，可以不用加括号</li>
+</ul>
 <pre><code>function* gen() &#123;
-function Foo(foo) &#123;
-  console.log(&quot;执行完参数中两个yield语句，才执行我&quot;);
-&#125;
-Foo(yield &quot;a&quot;, yield &quot;b&quot;);
-let num = yield 4 + (yield 5);
+  function Foo(foo) &#123;
+    console.log(&quot;执行完参数中两个yield语句，才执行我&quot;);
+  &#125;
+  Foo(yield &quot;a&quot;, yield &quot;b&quot;);
+  let num = yield 4 + (yield 5);
 &#125;
 const it = gen(); // 遍历器对象
 console.log(it.next()); // &#123;value: &#39;a&#39;, done: false&#125;
@@ -655,6 +686,7 @@ console.log(it.next()); // 执行完参数中两个yield语句，才执行我  &
 console.log(it.next()); // &#123;value: NaN, done: false&#125;
 console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>第一步，计算<code>Foo</code>函数中的<code>yield &quot;a&quot;</code>，返回对象的<code>value</code>值为<code>a</code></li>
 <li>第二步，计算<code>Foo</code>函数中的<code>yield &quot;b&quot;</code>，返回对象的<code>value</code>值为<code>b</code></li>
@@ -668,14 +700,15 @@ console.log(it.next()); // &#123;value: undefined, done: true&#125;
 <li><code>yield</code><strong>后面表达式的值</strong>为返回对象的<code>value</code>属性值，当括号里的值计算完了，会成为它前面<code>yield</code>的表达式的一部分</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <ol start="6">
 <li>next 方法的参数<blockquote>
 <p><code>yield</code>语句本身没有返回值，或者说总是返回<code>undefined</code></p>
 <ul>
 <li><code>next</code>方法可以带一个参数，该参数会被当作<strong>上一条</strong><code>yield</code>语句的返回值。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function* gen() &#123;
   let a = yield 1; // yield语句默认没有返回值，或理解为返回值为undefined
   console.log(a);
@@ -686,10 +719,6 @@ const it = gen();
 it.next();
 it.next(); // undefined NaN
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
 <pre><code>function* gen() &#123;
   let a = yield 1;
   console.log(a);
@@ -702,6 +731,7 @@ it.next(10); // 10 12
 // 相当于给函数体中的 a=10，则b=a+2=12
 </code></pre>
 <blockquote>
+<blockquote>
 <p>注：</p>
 </blockquote>
 <ul>
@@ -710,37 +740,35 @@ it.next(10); // 10 12
 </ul>
 </blockquote>
 <ol start="7">
-<li><p>带参的 next 方法应用</p>
-<blockquote>
+<li>带参的 next 方法应用<blockquote>
 <p><code>next</code>方法可以带一个参数，并且这个参数用来表示上一条<code>yield</code>语句的返回值，所以我们可以利用这个特点向 <code>Generator</code>函数体的变量注入值。</p>
 <ul>
 <li>其中最典型的应用，就是用来处理异步交互</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function* main() &#123;
   let result = yield request(&quot;http://www.xxx.com&quot;);
   result = JSON.parse(result); // 将返回的字符串解析成对象
   for (let key in result) &#123;
- console.log(result[key]);
+    console.log(result[key]);
   &#125;
 &#125;
 // 模拟ajax发送数据
 function request(url) &#123;
   // 发送ajax请求,5秒后拿到返回的数据
   setTimeout(function () &#123;
- let result = &#39;&#123; &quot;name&quot;: &quot;清心&quot;, &quot;age&quot;: 33 &#125;&#39;;
- it.next(result); // 执行下一次迭代
+    let result = &#39;&#123; &quot;name&quot;: &quot;清心&quot;, &quot;age&quot;: 33 &#125;&#39;;
+    it.next(result); // 执行下一次迭代
   &#125;, 5000);
 &#125;
+&gt;
+const it = main();
+it.next(); // 清心  33
 </code></pre>
-</blockquote>
-<p>const it &#x3D; main();<br>it.next(); &#x2F;&#x2F; 清心  33</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>yield*</code> 表达式</p>
-<blockquote>
+<ol start="8">
+<li><code>yield*</code> 表达式<blockquote>
 <p><code>yield*</code> 表达式用于在一个<code>Generator</code>函数中执行另一个 <code>Generator</code>函数。</p>
 <ul>
 <li>因为直接在一个 <code>Generator</code> 函数中调用另一个 <code>Generator</code> 函数默认情况下是没有效果的。</li>
@@ -749,63 +777,65 @@ function request(url) &#123;
 </li>
 </ol>
 <ul>
-<li><p>直接调用</p>
-<blockquote>
+<li>直接调用</li>
+</ul>
 <pre><code>function* foo() &#123;
-yield 1;
-// 直接调用Generator函数 无任何效果
-bar();
-yield 5;
+  yield 1;
+  // 直接调用Generator函数 无任何效果
+  bar();
+  yield 5;
 &#125;
 function* bar() &#123;
-yield 2;
-yield 3;
+  yield 2;
+  yield 3;
 &#125;
 const it = foo();
 for (let v of it) &#123;
-console.log(v); // 1 5
+  console.log(v); // 1 5
 &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>在 foo 函数中调用了另一个 Generator 函数 bar，相当于没有调用一样，直接被忽略。 所以最后结果为 1 5</li>
 </ul>
 </blockquote>
-</li>
-<li><p>用<code>yield</code>调用</p>
-<blockquote>
+<ul>
+<li>用<code>yield</code>调用</li>
+</ul>
 <pre><code>function* foo() &#123;
-yield 1;
-// 在yield后面调用Generator函数，相当于next的返回对象的value值是一个迭代器对象
-yield bar();
-yield 5;
+  yield 1;
+  // 在yield后面调用Generator函数，相当于next的返回对象的value值是一个迭代器对象
+  yield bar();
+  yield 5;
 &#125;
 function* bar() &#123;
-yield 2;
-yield 3;
+  yield 2;
+  yield 3;
 &#125;
 const it = foo();
 console.log(it.next()); // &#123;value: 1, done: false&#125;
 console.log(it.next()); // &#123;value: bar, done: false&#125;
 console.log(it.next()); // &#123;value: 5, done: false&#125;
 console.log(it.next()); // &#123;value: undefined, done: true&#125;
+&gt;
+for (let v of foo()) &#123;
+  console.log(v); // 1 bar&#123;&#125;  5
+&#125;
 </code></pre>
-</blockquote>
-<p>for (let v of foo()) {<br>console.log(v); &#x2F;&#x2F; 1 bar{}  5<br>}</p>
 <blockquote>
-<pre><code>在`yield`后面调用`Generator`函数，相当于`next`方法返回的对象中的`value`的属性值是一个**迭代器对象**
-</code></pre>
+<p>在<code>yield</code>后面调用<code>Generator</code>函数，相当于<code>next</code>方法返回的对象中的<code>value</code>的属性值是一个<strong>迭代器对象</strong></p>
 </blockquote>
-</li>
-<li><p>用<code>yield*</code>调用</p>
-<blockquote>
+<ul>
+<li>用<code>yield*</code>调用</li>
+</ul>
 <pre><code>function* foo() &#123;
-yield 1;
-yield* bar();
-yield 5;
+  yield 1;
+  yield* bar();
+  yield 5;
 &#125;
 function* bar() &#123;
-yield 2;
-yield 3;
+  yield 2;
+  yield 3;
 &#125;
 const it = foo();
 // 其内部迭代过程
@@ -814,46 +844,61 @@ console.log(it.next()); // &#123;value: 2, done: false&#125;
 console.log(it.next()); // &#123;value: 3, done: false&#125;
 console.log(it.next()); // &#123;value: 5, done: false&#125;
 console.log(it.next()); // &#123;value: undefined, done: true&#125;
+&gt;
+for (let v of foo()) &#123;
+  console.log(v); // 1 2 3  5
+&#125;
 </code></pre>
-</blockquote>
-<p>for (let v of foo()) {<br>console.log(v); &#x2F;&#x2F; 1 2 3  5<br>}</p>
 <blockquote>
-<pre><code>- 利用`yield*`表达式在一个`Generator`函数中调用另一个`Genrator`函数。相当于使用一个遍历器遍历**多个** `Generator`函数，有**递归**的效果。
-&gt;上面代码中的 foo 函数，相当于下面两种写法
-</code></pre>
-<p>&#x2F;&#x2F; 写法1<br>function* foo() {<br>yield 1;<br>yield 2;<br>yield 3;<br>yield 5;<br>}<br>&#x2F;&#x2F; 写法2<br>function* foo() {<br>yield 1;<br>for (let v of bar()) {<br>  yield v;<br>}<br>yield 5;<br>}</p>
-<pre><code>
-</code></pre>
+<ul>
+<li>利用<code>yield*</code>表达式在一个<code>Generator</code>函数中调用另一个<code>Genrator</code>函数。相当于使用一个遍历器遍历<strong>多个</strong> <code>Generator</code>函数，有<strong>递归</strong>的效果。<blockquote>
+<p>上面代码中的 foo 函数，相当于下面两种写法</p>
 </blockquote>
 </li>
-<li><p><code>yield*</code>表达式后面通常跟一个迭代器对象或可迭代对象。</p>
-<blockquote>
+</ul>
+</blockquote>
+<pre><code>// 写法1
+function* foo() &#123;
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 5;
+&#125;
+// 写法2
+function* foo() &#123;
+  yield 1;
+  for (let v of bar()) &#123;
+    yield v;
+  &#125;
+  yield 5;
+&#125;
+</code></pre>
+<ul>
+<li><code>yield*</code>表达式后面通常跟一个迭代器对象或可迭代对象。</li>
+</ul>
 <pre><code>function* gen() &#123;
-yield &quot;hello&quot;;
-yield* &quot;hello&quot;;
-yield [1, 2, 3];
-yield* [1, 2, 3];
+  yield &quot;hello&quot;;
+  yield* &quot;hello&quot;;
+  yield [1, 2, 3];
+  yield* [1, 2, 3];
 &#125;
 for (let v of gen()) &#123;
-console.log(v);//hello h e l l ...
+  console.log(v);//hello h e l l ...
 &#125;
 //
 function* gen() &#123;
-yield &quot;hello&quot;;
-// yield* &quot;hello&quot;;相当于：
-yield &quot;h&quot;;
-yield &quot;e&quot;;
-yield &quot;l&quot;;
-yield &quot;l&quot;;
-yield &quot;o&quot;;
+  yield &quot;hello&quot;;
+  // yield* &quot;hello&quot;;相当于：
+  yield &quot;h&quot;;
+  yield &quot;e&quot;;
+  yield &quot;l&quot;;
+  yield &quot;l&quot;;
+  yield &quot;o&quot;;
 &#125;
 const it = gen();
 console.log(it.next()); //&#123;value: &#39;hello&#39;, done: false&#125;
 console.log(it.next()); //&#123;value: &#39;h&#39;, done: false&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="9">
 <li>遍历器的 throw 方法<blockquote>
 <p><code>Generator</code>函数返回的遍历器对象有一个<code>throw</code>方法，可以在函数体外抛出错误，并在函数体内被<code>try...catch</code>捕获。</p>
@@ -888,77 +933,59 @@ console.log(it.next()); //&#123;value: &#39;h&#39;, done: false&#125;
 </tr>
 </tbody></table>
 <ul>
-<li><p>第一种情况</p>
-<blockquote>
+<li>第一种情况<blockquote>
 <ul>
 <li><code>Generator</code> 函数<strong>体内和体外</strong>都没有用 <code>try...catch</code> 捕获该错误</li>
 </ul>
-<pre><code>function* gen() &#123;
-yield 1;
-yield 2;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next());&#x2F;&#x2F;{value:1,done:false}<br>it.throw(“a”); &#x2F;&#x2F; 往后代码都不执行了<br>console.log(it.next());</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>第二种情况</p>
-<blockquote>
+</ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next());//&#123;value:1,done:false&#125;
+it.throw(&quot;a&quot;); // 往后代码都不执行了
+console.log(it.next());
+</code></pre>
+<ul>
+<li>第二种情况<blockquote>
 <ul>
 <li><code>Generator</code> 函数<strong>体内</strong>没有捕获该错误，在函数<strong>体外</strong>用<code>try...catch</code>捕获了该错误，则<code>throw</code>语句后，遍历器终止</li>
 </ul>
-<pre><code>function* gen() &#123;
-yield 1;
-yield 2;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next());&#x2F;&#x2F;{value:1,done:false}<br>try {<br>it.throw(“a”);<br>} catch (e) {<br>console.log(“错误”, e);&#x2F;&#x2F;错误 a<br>}<br>console.log(it.next());&#x2F;&#x2F;{value:undefined,done:true}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>第三种情况</p>
-<blockquote>
+</ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next());//&#123;value:1,done:false&#125;
+try &#123;
+  it.throw(&quot;a&quot;);
+&#125; catch (e) &#123;
+  console.log(&quot;错误&quot;, e);//错误 a
+&#125;
+console.log(it.next());//&#123;value:undefined,done:true&#125;
+</code></pre>
+<ul>
+<li>第三种情况<blockquote>
 <ul>
 <li><code>Generator</code> 函数<strong>体内</strong>有捕获该错误，则<strong>外部</strong>的<code>try...catch</code>就没有办法捕获该错误。</li>
 <li>同时不会影响遍历器的下一次遍历。内部捕获了该错误后<strong>会自动执行下一次</strong> <code>next</code> 方法，所以<code>it.throw()</code>返回值为下一次<code>it.next()</code>的返回值</li>
 </ul>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 2, done: false}<br>try {<br>&#x2F;&#x2F; 注意，throw的结果为 内部 a  {value: 3, done: false}<br>console.log(it.throw(“a”));<br>} catch (e) {<br>console.log(“错误”, e);<br>}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 5, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}</p>
-<blockquote>
-<pre><code>- 上面的`it.thorw(&#39;a&#39;)`错误被`Generator`函数内部捕获，捕获后会**自动执行一次**`next`方法，所以打印`it.throw()`的返回值为`&#123;value: 3, done: false&#125;`。
-- 因为错误被`Generator`函数内部捕获，所以外部的`try...catch`句不会再捕获到错误，同时也**不会影响**遍历器的下一次遍历
-- 注意：错误是在`yield 2`之后抛出的，`try...`里面要写`yield 2`
-</code></pre>
 </blockquote>
 </li>
-</ul>
-<blockquote>
-<ul>
-<li>我们再来分析下面这段代码</li>
 </ul>
 <pre><code>function* gen() &#123;
   yield 1;
@@ -971,12 +998,62 @@ yield 5;
   yield 4;
   yield 5;
 &#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // &#123;value: 2, done: false&#125;
+try &#123;
+  // 注意，throw的结果为 内部 a  &#123;value: 3, done: false&#125;
+  console.log(it.throw(&quot;a&quot;));
+&#125; catch (e) &#123;
+  console.log(&quot;错误&quot;, e);
+&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
+console.log(it.next()); // &#123;value: 5, done: false&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 2, done: false}<br>try {<br>  &#x2F;&#x2F; 注意，throw的结果为  内部 a   {value: 3, done: false}<br>  console.log(it.throw(“a”));<br>  console.log(it.throw(“b”)); &#x2F;&#x2F; 错误 b<br>} catch (e) {<br>  console.log(“错误”, e);<br>}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}</p>
 <blockquote>
-<pre><code>- 上面的第一个错误`it.throw(&#39;a&#39;)`被`Generator`函数内部捕获，由于`Generator`函数内部的`try...catch`语句已经执行了，所以**第二个错误**`it.throw(&#39;b&#39;)`被外部的`try...catch`语句捕获。错误被外部捕获，则遍历器终止。
+<ul>
+<li>上面的<code>it.thorw(&#39;a&#39;)</code>错误被<code>Generator</code>函数内部捕获，捕获后会<strong>自动执行一次</strong><code>next</code>方法，所以打印<code>it.throw()</code>的返回值为<code>&#123;value: 3, done: false&#125;</code>。</li>
+<li>因为错误被<code>Generator</code>函数内部捕获，所以外部的<code>try...catch</code>句不会再捕获到错误，同时也<strong>不会影响</strong>遍历器的下一次遍历</li>
+<li>注意：错误是在<code>yield 2</code>之后抛出的，<code>try...</code>里面要写<code>yield 2</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>我们再来分析下面这段代码</li>
+</ul>
+</blockquote>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // &#123;value: 2, done: false&#125;
+try &#123;
+  // 注意，throw的结果为  内部 a   &#123;value: 3, done: false&#125;
+  console.log(it.throw(&quot;a&quot;));
+  console.log(it.throw(&quot;b&quot;)); // 错误 b
+&#125; catch (e) &#123;
+  console.log(&quot;错误&quot;, e);
+&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
+<blockquote>
+<ul>
+<li>上面的第一个错误<code>it.throw(&#39;a&#39;)</code>被<code>Generator</code>函数内部捕获，由于<code>Generator</code>函数内部的<code>try...catch</code>语句已经执行了，所以<strong>第二个错误</strong><code>it.throw(&#39;b&#39;)</code>被外部的<code>try...catch</code>语句捕获。错误被外部捕获，则遍历器终止。</li>
+</ul>
 </blockquote>
 <blockquote>
 <blockquote>
@@ -997,95 +1074,121 @@ yield 5;
 </li>
 </ol>
 <ul>
-<li><p><strong>全局</strong><code>throw</code>命令在<code>Generator</code><strong>体外</strong>抛出错误，内部捕获不到该错误，如果在外部捕获，则不影响遍历器的运行</p>
-<blockquote>
+<li><strong>全局</strong><code>throw</code>命令在<code>Generator</code><strong>体外</strong>抛出错误，内部捕获不到该错误，如果在外部捕获，则不影响遍历器的运行</li>
+</ul>
 <pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
+  yield 1;
+  try &#123;
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125;
+&gt;
+  yield 3;
+  yield 4;
+  yield 5;
 &#125;
-</code></pre>
-</blockquote>
-<p>yield 3;<br>yield 4;<br>yield 5;<br>}</p>
-<blockquote>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 2, done: false}<br>try {<br>throw new Error(“全局throw抛错”);<br>} catch (e) {<br>console.log(e); &#x2F;&#x2F; Error: 全局throw抛错<br>}</p>
-<blockquote>
-</blockquote>
-<p>console.log(it.next()); &#x2F;&#x2F; {value: 3, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><strong>全局</strong><code>throw</code>命令在 <code>Generator</code><strong>体内</strong>抛出错误，内部<strong>没有捕获</strong>该错误，在外部捕获，则遍历器终止</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-throw new Error(&quot;全局throw抛错&quot;);
-yield 2;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>try {<br>console.log(it.next());<br>} catch (e) {<br>console.log(e); &#x2F;&#x2F; Error: 全局throw抛错<br>}</p>
-<blockquote>
-</blockquote>
-<p>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}</p>
-<blockquote>
-<pre><code>- 抛错后，遍历器终止，`yield 2`及以后的代码都不会执行
-</code></pre>
-</blockquote>
-</li>
-<li><p><strong>全局</strong><code>throw</code>命令在<code>Generator</code><strong>体内</strong>抛出错误，内部<strong>有捕获</strong>该错误，则不影响遍历器的下一次遍历</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // &#123;value: 2, done: false&#125;
 try &#123;
   throw new Error(&quot;全局throw抛错&quot;);
-  yield 2;
 &#125; catch (e) &#123;
-  console.log(e);
+  console.log(e); // Error: 全局throw抛错
 &#125;
-yield 3;
-yield 4;
-yield 5;
-&#125;
+&gt;
+console.log(it.next()); // &#123;value: 3, done: false&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
 </code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; Error: 全局 throw 抛错 {value: 3, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 5, done: false}</p>
-<blockquote>
-<pre><code>- `try..catch`语句抛出错误后，就不会执行`yield 2`，直接处理错误。
-- 但是遍历器调用throw方法抛出的错误如果在 `Generator` 函数**内部**捕获处理，其处理后，还会**自动执行** `next` 方法
-- 所以执行第二个`console.log(it.next());`时，既会打印出错误，也会自动执行执行`yield 3`
-</code></pre>
-</blockquote>
-</li>
-<li><p>全局 throw 命令在 Generator 体内抛出错误，<strong>内部没有</strong>捕获该错误，则遍历器终止</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-let result = yield 1;
-yield result();
-yield 3;
-yield 4;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>try {<br>console.log(<br>  it.next(function () {<br>throw new Error(“a”);<br>  })<br>);<br>} catch (e) {<br>console.log(“错误”, e); &#x2F;&#x2F; 错误 Error: a<br>}</p>
-<blockquote>
-</blockquote>
-<p>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}</p>
-<blockquote>
-<pre><code>- 第一个`console.log(it.next());`，执行`yield 1`,`result=undefined`
-- 第二个`console.log(it.next(function () &#123;throw new Error(&quot;a&quot;);&#125;));`，先计算表达式：`result()：`函数作为上一次`yield`的返回值被调用，相当于在`Generator`函数体内抛出错误，但函数体内没有捕获错误，所以，遍历器终止
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li><strong>全局</strong><code>throw</code>命令在 <code>Generator</code><strong>体内</strong>抛出错误，内部<strong>没有捕获</strong>该错误，在外部捕获，则遍历器终止</li>
 </ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  throw new Error(&quot;全局throw抛错&quot;);
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+try &#123;
+  console.log(it.next());
+&#125; catch (e) &#123;
+  console.log(e); // Error: 全局throw抛错
+&#125;
+&gt;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>抛错后，遍历器终止，<code>yield 2</code>及以后的代码都不会执行</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>全局</strong><code>throw</code>命令在<code>Generator</code><strong>体内</strong>抛出错误，内部<strong>有捕获</strong>该错误，则不影响遍历器的下一次遍历</li>
+</ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    throw new Error(&quot;全局throw抛错&quot;);
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(e);
+  &#125;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // Error: 全局 throw 抛错 &#123;value: 3, done: false&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
+console.log(it.next()); // &#123;value: 5, done: false&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li><code>try..catch</code>语句抛出错误后，就不会执行<code>yield 2</code>，直接处理错误。</li>
+<li>但是遍历器调用throw方法抛出的错误如果在 <code>Generator</code> 函数<strong>内部</strong>捕获处理，其处理后，还会<strong>自动执行</strong> <code>next</code> 方法</li>
+<li>所以执行第二个<code>console.log(it.next());</code>时，既会打印出错误，也会自动执行执行<code>yield 3</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>全局 throw 命令在 Generator 体内抛出错误，<strong>内部没有</strong>捕获该错误，则遍历器终止</li>
+</ul>
+<pre><code>function* gen() &#123;
+  let result = yield 1;
+  yield result();
+  yield 3;
+  yield 4;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+try &#123;
+  console.log(
+    it.next(function () &#123;
+      throw new Error(&quot;a&quot;);
+    &#125;)
+  );
+&#125; catch (e) &#123;
+  console.log(&quot;错误&quot;, e); // 错误 Error: a
+&#125;
+&gt;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>第一个<code>console.log(it.next());</code>，执行<code>yield 1</code>,<code>result=undefined</code></li>
+<li>第二个<code>console.log(it.next(function () &#123;throw new Error(&quot;a&quot;);&#125;));</code>，先计算表达式：<code>result()：</code>函数作为上一次<code>yield</code>的返回值被调用，相当于在<code>Generator</code>函数体内抛出错误，但函数体内没有捕获错误，所以，遍历器终止</li>
+</ul>
+</blockquote>
 <ol start="11">
 <li>throw 方法总结<blockquote>
 <p>注意：</p>
@@ -1133,168 +1236,220 @@ yield 4;
 </blockquote>
 </blockquote>
 <ul>
-<li>情况一：遍历器调用<code>throw</code>方法抛出错误，在函数体内被捕捉处理后，会自动执行一次<code>next</code><blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 2, done: false}<br>try {<br>&#x2F;&#x2F; 注意，throw的结果为  内部 a   {value: 3, done: false}<br>console.log(it.throw(“a”));<br>} catch (e) {<br>console.log(“错误”, e);<br>}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 5, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li>情况二：在函数体内抛出全局错误，并在函数体内捕捉处理后会自动执行一次<code>next</code><blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  throw new Error(&quot;全局throw抛错&quot;);
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(e);
-&#125;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; Error: 全局 throw 抛错 {value: 3, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 5, done: false}<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li>情况一：遍历器调用<code>throw</code>方法抛出错误，在函数体内被捕捉处理后，会自动执行一次<code>next</code></li>
 </ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // &#123;value: 2, done: false&#125;
+try &#123;
+  // 注意，throw的结果为  内部 a   &#123;value: 3, done: false&#125;
+  console.log(it.throw(&quot;a&quot;));
+&#125; catch (e) &#123;
+  console.log(&quot;错误&quot;, e);
+&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
+console.log(it.next()); // &#123;value: 5, done: false&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+</code></pre>
+<ul>
+<li>情况二：在函数体内抛出全局错误，并在函数体内捕捉处理后会自动执行一次<code>next</code></li>
+</ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    throw new Error(&quot;全局throw抛错&quot;);
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(e);
+  &#125;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // Error: 全局 throw 抛错 &#123;value: 3, done: false&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
+console.log(it.next()); // &#123;value: 5, done: false&#125;
+</code></pre>
 <blockquote>
 <p><strong>测试题</strong></p>
 </blockquote>
 <ul>
-<li><p>以下代码运行结果是：</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  throw new Error(&quot;a&quot;);
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125;
-yield 3;
-yield 4;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next());&#x2F;&#x2F;{value: 1, done: false}<br>try {<br>it.next();&#x2F;&#x2F;内部 Error: a<br>&#x2F;&#x2F;console.log(it.next());&#x2F;&#x2F;{value: 3, done: false}<br>it.throw(“b”);&#x2F;&#x2F;外部 b<br>} catch (e) {<br>console.log(“外部”, e);<br>}<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-<pre><code>- 第一个`it.next()`执行`yield 1`：`&#123;value: 1, done: false&#125;`
-- 第二个`it.next()`：函数体内抛出错误，捕获错误，并自动执行一次`next`方法，`yield 2`不会执行；如果打印它，就会得到`&#123;value: 3, done: false&#125;`
-- 下一步：`it.throw(&quot;b&quot;);`在函数体外抛出遍历器错误，但函数没有捕获，由外部捕获，所以遍历器终止
-</code></pre>
-</blockquote>
-</li>
-<li><p>以下代码运行结果是：</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  throw new Error(&quot;a&quot;);
-  yield 2;
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125;
-yield 3;
-yield 4;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next());<br>try {<br>console.log(it.next());<br>throw new Error(“b”);<br>} catch (e) {<br>console.log(“外部”, e);<br>}<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-<pre><code>- 第一个`it.next()`，执行`yield 1`：`&#123;value: 1, done: false&#125;`
-- 第二个`console.log(it.next());`：函数体内抛出全局错误，并被捕获，所以自动执行一次`next，`yield 2;`不会被执行，打印出:`内部 a`、`&#123;value: 3, done: false&#125;`
-- 下一步：函数体外抛出全局错误，并在外部捕获，打印出：`外部 b`；遍历器继续运行
-</code></pre>
-</blockquote>
-</li>
-<li><p>以下代码运行结果：</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-let result = yield 1;
-try &#123;
-  yield result() + 2;
-&#125; catch (e) &#123;
-  console.log(e, &quot;内部捕获&quot;);
-&#125;
-yield 3;
-yield 4;
-yield 5;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>try {<br>console.log(<br>  it.next(function () {<br>throw new Error(“错误被”);<br>  })<br>);<br>} catch (e) {<br>console.log(e, “外部捕获”);<br>}<br>console.log(it.next()); &#x2F;&#x2F; {value: 4, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 5, done: false}</p>
-<blockquote>
-<pre><code>- 第一个`it.next()`，执行`yield 1`，打印出`&#123;value: 1, done: false&#125;`；result=`undefined`
-- 第二个`it.next()`，函数作为上一次`yield`的返回值被传入，使`result`等于该函数；
-  - 先计算表达式：调用`result`，在函数体内抛出错误，注意：`try...`里面的代码`yield result() + 2;`不会被执行，只会处理错误，打印出`错误被内部捕获`
-  - 由于错误在函数体内抛出并捕获，所以`it.next()`照常执行，打印出`&#123;value: 3, done: false&#125;`
-- 遍历器继续执行
-</code></pre>
-</blockquote>
-</li>
+<li>以下代码运行结果是：</li>
 </ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    throw new Error(&quot;a&quot;);
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125;
+  yield 3;
+  yield 4;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next());//&#123;value: 1, done: false&#125;
+try &#123;
+  it.next();//内部 Error: a
+  //console.log(it.next());//&#123;value: 3, done: false&#125;
+  it.throw(&quot;b&quot;);//外部 b
+&#125; catch (e) &#123;
+  console.log(&quot;外部&quot;, e);
+&#125;
+console.log(it.next());
+console.log(it.next());
+</code></pre>
+<blockquote>
+<ul>
+<li>第一个<code>it.next()</code>执行<code>yield 1</code>：<code>&#123;value: 1, done: false&#125;</code></li>
+<li>第二个<code>it.next()</code>：函数体内抛出错误，捕获错误，并自动执行一次<code>next</code>方法，<code>yield 2</code>不会执行；如果打印它，就会得到<code>&#123;value: 3, done: false&#125;</code></li>
+<li>下一步：<code>it.throw(&quot;b&quot;);</code>在函数体外抛出遍历器错误，但函数没有捕获，由外部捕获，所以遍历器终止</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下代码运行结果是：</li>
+</ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    throw new Error(&quot;a&quot;);
+    yield 2;
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125;
+  yield 3;
+  yield 4;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next());
+try &#123;
+  console.log(it.next());
+  throw new Error(&quot;b&quot;);
+&#125; catch (e) &#123;
+  console.log(&quot;外部&quot;, e);
+&#125;
+console.log(it.next());
+console.log(it.next());
+</code></pre>
+<blockquote>
+<ul>
+<li>第一个<code>it.next()</code>，执行<code>yield 1</code>：<code>&#123;value: 1, done: false&#125;</code></li>
+<li>第二个<code>console.log(it.next());</code>：函数体内抛出全局错误，并被捕获，所以自动执行一次<code>next，</code>yield 2;<code>不会被执行，打印出:</code>内部 a<code>、</code>{value: 3, done: false}&#96;</li>
+<li>下一步：函数体外抛出全局错误，并在外部捕获，打印出：<code>外部 b</code>；遍历器继续运行</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下代码运行结果：</li>
+</ul>
+<pre><code>function* gen() &#123;
+  let result = yield 1;
+  try &#123;
+    yield result() + 2;
+  &#125; catch (e) &#123;
+    console.log(e, &quot;内部捕获&quot;);
+  &#125;
+  yield 3;
+  yield 4;
+  yield 5;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+try &#123;
+  console.log(
+    it.next(function () &#123;
+      throw new Error(&quot;错误被&quot;);
+    &#125;)
+  );
+&#125; catch (e) &#123;
+  console.log(e, &quot;外部捕获&quot;);
+&#125;
+console.log(it.next()); // &#123;value: 4, done: false&#125;
+console.log(it.next()); // &#123;value: 5, done: false&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>第一个<code>it.next()</code>，执行<code>yield 1</code>，打印出<code>&#123;value: 1, done: false&#125;</code>；result&#x3D;<code>undefined</code></li>
+<li>第二个<code>it.next()</code>，函数作为上一次<code>yield</code>的返回值被传入，使<code>result</code>等于该函数；<ul>
+<li>先计算表达式：调用<code>result</code>，在函数体内抛出错误，注意：<code>try...</code>里面的代码<code>yield result() + 2;</code>不会被执行，只会处理错误，打印出<code>错误被内部捕获</code></li>
+<li>由于错误在函数体内抛出并捕获，所以<code>it.next()</code>照常执行，打印出<code>&#123;value: 3, done: false&#125;</code></li>
+</ul>
+</li>
+<li>遍历器继续执行</li>
+</ul>
+</blockquote>
 <ol start="12">
 <li>Generator 函数的 return 方法<blockquote>
 <p><code>Generator</code>函数返回的遍历器对象有一个<code>return</code>方法，可以返回给定的值，并终结<code>Generator</code>的遍历。</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>function* gen() &#123;
   yield 1;
   yield 2;
   yield 3;
 &#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.return(&quot;停止&quot;)); // &#123;value: &#39;停止&#39;, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
+<blockquote>
+<blockquote>
+<p>上面代码中</p>
 </blockquote>
-const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.return(“停止”)); &#x2F;&#x2F; {value: ‘停止’, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}<blockquote>
-<pre><code>&gt;上面代码中
-- 遍历器对象`it`调用`return`方法后，其返回对象的`value`属性值为`return`方法的参数 &quot;停止&quot;，`done`属性值为`true`，表示遍历器对象终止遍历。之后再调用`next`方法，返回对象始终为`&#123;value: undefined, done: true&#125;`
-- 如果`Generator`函数内部有`try...finally`代码块，那么`return`方法会推迟到`finally`代码块执行完后再执行。
-</code></pre>
+<ul>
+<li>遍历器对象<code>it</code>调用<code>return</code>方法后，其返回对象的<code>value</code>属性值为<code>return</code>方法的参数 “停止”，<code>done</code>属性值为<code>true</code>，表示遍历器对象终止遍历。之后再调用<code>next</code>方法，返回对象始终为<code>&#123;value: undefined, done: true&#125;</code></li>
+<li>如果<code>Generator</code>函数内部有<code>try...finally</code>代码块，那么<code>return</code>方法会推迟到<code>finally</code>代码块执行完后再执行。</li>
+</ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>注意区分以下情况</strong></p>
 </blockquote>
 <ul>
-<li><p>如果代码还没有执行到<code>try</code>语句，就调用了<code>return</code>方法，则后面所有代码都不会执行，遍历器终止</p>
-<blockquote>
+<li>如果代码还没有执行到<code>try</code>语句，就调用了<code>return</code>方法，则后面所有代码都不会执行，遍历器终止</li>
+</ul>
 <pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  yield 2;
-  throw new Error(&quot;a&quot;);
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125; finally &#123;
-  yield 4;
-  yield 5;
+  yield 1;
+  try &#123;
+    yield 2;
+    throw new Error(&quot;a&quot;);
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125; finally &#123;
+    yield 4;
+    yield 5;
+  &#125;
 &#125;
-&#125;
+&gt;
+const it = gen();
+console.log(it.next());//&#123;value:1, done: false&#125;
+console.log(it.return(&quot;bc&quot;)); // 还没有执行到try...相关代码，就终止 &#123;value: &#39;bc&#39;, done: true&#125;
+console.log(it.next());//&#123;value: undefined, done: true&#125;
+console.log(it.next());//&#123;value: undefined, done: true&#125;
+console.log(it.next());//&#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next());&#x2F;&#x2F;{value:1, done: false}<br>console.log(it.return(“bc”)); &#x2F;&#x2F; 还没有执行到try…相关代码，就终止 {value: ‘bc’, done: true}<br>console.log(it.next());&#x2F;&#x2F;{value: undefined, done: true}<br>console.log(it.next());&#x2F;&#x2F;{value: undefined, done: true}<br>console.log(it.next());&#x2F;&#x2F;{value: undefined, done: true}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>执行到<code>try</code>语句中，然后再<code>return</code>，则会先把<code>finally</code>中的代码执行完，再执行<code>return</code>方法，终止遍历器</p>
-<blockquote>
+<ul>
+<li>执行到<code>try</code>语句中，然后再<code>return</code>，则会先把<code>finally</code>中的代码执行完，再执行<code>return</code>方法，终止遍历器</li>
+</ul>
 <pre><code>const it = gen();
 console.log(it.next()); // &#123;value: 1, done: false&#125;
 console.log(it.next()); // &#123;value: 2, done: false&#125;
@@ -1303,155 +1458,171 @@ console.log(it.next()); // &#123;value: 5, done: false&#125;
 console.log(it.next()); // &#123;value: &#39;bc&#39;, done: true&#125;
 console.log(it.next()); // &#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>代码执行到<code>try&#123;&#125;</code>后，再调用<code>return</code>方法，则终止遍历器</p>
-<blockquote>
-<pre><code>function* gen() &#123;
-yield 1;
-try &#123;
-  yield 2;
-  throw new Error(&quot;a&quot;);
-&#125; catch (e) &#123;
-  console.log(&quot;内部&quot;, e);
-&#125; finally &#123;
-  yield 4;
-  yield 5;
-&#125;
-yield 6;
-&#125;
-</code></pre>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it.next()); &#x2F;&#x2F; {value: 1, done: false}<br>console.log(it.next()); &#x2F;&#x2F; {value: 2, done: false}<br>console.log(it.next()); &#x2F;&#x2F; 内部 Error: a {value: 4, done: false}<br>console.log(it.return(“bc”)); &#x2F;&#x2F; {value: ‘bc’, done: true}<br>console.log(it.next()); &#x2F;&#x2F; {value: undefined, done: true}</p>
-<blockquote>
-<pre><code>- 注意：由于是执行了`finally`里面的一部分，再`return`的，所以，`finally`没执行完的代码就不会被执行了
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>代码执行到<code>try&#123;&#125;</code>后，再调用<code>return</code>方法，则终止遍历器</li>
 </ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+  try &#123;
+    yield 2;
+    throw new Error(&quot;a&quot;);
+  &#125; catch (e) &#123;
+    console.log(&quot;内部&quot;, e);
+  &#125; finally &#123;
+    yield 4;
+    yield 5;
+  &#125;
+  yield 6;
+&#125;
+&gt;
+const it = gen();
+console.log(it.next()); // &#123;value: 1, done: false&#125;
+console.log(it.next()); // &#123;value: 2, done: false&#125;
+console.log(it.next()); // 内部 Error: a &#123;value: 4, done: false&#125;
+console.log(it.return(&quot;bc&quot;)); // &#123;value: &#39;bc&#39;, done: true&#125;
+console.log(it.next()); // &#123;value: undefined, done: true&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>注意：由于是执行了<code>finally</code>里面的一部分，再<code>return</code>的，所以，<code>finally</code>没执行完的代码就不会被执行了</li>
+</ul>
+</blockquote>
 <ol start="12">
 <li>作为对象属性的 Generator 函数<blockquote>
 <p>如果一个对象的属性是 <code>Generator</code> 函数</p>
 <ul>
 <li>那么可以简写成以下形式</li>
 </ul>
-<pre><code>const obj = &#123;
-  gen: function* () &#123;&#125;,
-&#125;;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 简写形式<br>const obj &#x3D; {<br>  *gen() {},<br>};<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const obj = &#123;
+  gen: function* () &#123;&#125;,
+&#125;;
+&gt;
+// 简写形式
+const obj = &#123;
+  *gen() &#123;&#125;,
+&#125;;
+</code></pre>
 <ul>
 <li>调用方式<blockquote>
 <ul>
 <li>调用<code>Generator</code>函数，并不会执行函数体中的任何代码，只是返回一个遍历器对象。只有调用遍历器对象的<code>next()</code>方法后，才会开始执行函数体内的代码。</li>
 <li>或者使用<code>for..of</code>遍历</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const obj = &#123;
-// 对象属性为Generator函数
-*gen() &#123;
-  yield 1;
-  yield 2;
-  yield 3;
-&#125;,
-num() &#123;
-  console.log(&quot;我是普通函数&quot;);
-&#125;,
+  // 对象属性为Generator函数
+  *gen() &#123;
+    yield 1;
+    yield 2;
+    yield 3;
+  &#125;,
+  num() &#123;
+    console.log(&quot;我是普通函数&quot;);
+  &#125;,
 &#125;;
 obj.num(); //我是普通函数
 obj.gen(); //不会执行函数里面的代码
 // for...of遍历
 for (let v of obj.gen()) &#123;
-console.log(v); // 1 2 3
+  console.log(v); // 1 2 3
 &#125;
 const it = obj.gen();//返回迭代器对象
 console.log(it.next()); //&#123;value: 1, done: false&#125;
 console.log(it.next()); //&#123;value: 2, done: false&#125;
 console.log(it.next()); //&#123;value: 3, done: false&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="13">
 <li>Generator 函数的实例</li>
 </ol>
 <ul>
-<li><p><code>Generator</code> 函数不能用作构造函数，所以不能用 <code>new</code> 关键字来调用</p>
-<blockquote>
+<li><code>Generator</code> 函数不能用作构造函数，所以不能用 <code>new</code> 关键字来调用</li>
+</ul>
 <pre><code>function* Gen(a, b) &#123;
-this.a = a;
-this.b = b;
+  this.a = a;
+  this.b = b;
 &#125;
 const gen = new Gen(1, 2); //报错 Gen is not a constructor
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>Generator</code>函数和普通函数一样</p>
-<blockquote>
+<ul>
+<li><code>Generator</code>函数和普通函数一样<blockquote>
 <ul>
 <li>直接调用<code>Generator</code>函数，其内部的<code>this</code>指向<code>window</code></li>
 <li>作为对象的方法被调用，<code>this</code>为调用该方法的对象</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function* gen() &#123;
-console.log(this);
+  console.log(this);
 &#125;
 const it = gen();
 it.next(); // window
+&gt;
+const obj = &#123;
+  // 对象属性为Generator函数
+  *gen() &#123;
+    console.log(this);
+  &#125;,
+&#125;;
+const it = obj.gen();
+console.log(it.next());
+//&#123;gen: ƒ&#125;
+//&#123;value: undefined, done: true&#125;
 </code></pre>
-</blockquote>
-<p>const obj &#x3D; {<br>&#x2F;&#x2F; 对象属性为Generator函数<br>*gen() {<br>  console.log(this);<br>},<br>};<br>const it &#x3D; obj.gen();<br>console.log(it.next());<br>&#x2F;&#x2F;{gen: ƒ}<br>&#x2F;&#x2F;{value: undefined, done: true}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>使<code>Generator</code>函数，返回的迭代器对象，既可以作为迭代器对象使用，又可以当成函数内部的<code>this</code>指向</p>
-<blockquote>
+<ul>
+<li>使<code>Generator</code>函数，返回的迭代器对象，既可以作为迭代器对象使用，又可以当成函数内部的<code>this</code>指向</li>
+</ul>
 <pre><code>function* gen() &#123;
-this.a = 1;
-this.b = 2;
-yield 1;
+  this.a = 1;
+  this.b = 2;
+  yield 1;
 &#125;
 //一般情况下
 const it = gen();
 console.log(it.next()); //&#123;value: 1, done: false&#125;
 console.log(it.a); //undefined
+&gt;
+//用call方法
+const it = gen.call(gen.prototype);
+console.log(it.next()); //&#123;value: 1, done: false&#125;
+console.log(it.a); //1
+console.log(it.b); //2
+&gt;
+const it = gen.call(gen.prototype);
+console.log(it.a); //undefined
+console.log(it.b); //undefined
+console.log(it.next()); //&#123;value: 1, done: false&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;用call方法<br>const it &#x3D; gen.call(gen.prototype);<br>console.log(it.next()); &#x2F;&#x2F;{value: 1, done: false}<br>console.log(it.a); &#x2F;&#x2F;1<br>console.log(it.b); &#x2F;&#x2F;2</p>
 <blockquote>
+<ul>
+<li>注意：必须先调用<code>it.next()</code>，才会执行函数体内的代码</li>
+</ul>
 </blockquote>
-<p>const it &#x3D; gen.call(gen.prototype);<br>console.log(it.a); &#x2F;&#x2F;undefined<br>console.log(it.b); &#x2F;&#x2F;undefined<br>console.log(it.next()); &#x2F;&#x2F;{value: 1, done: false}</p>
-<blockquote>
-<pre><code>- 注意：必须先调用`it.next()`，才会执行函数体内的代码
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>Generator</code> 函数的返回值是一个遍历器。</p>
-<blockquote>
+<ul>
+<li><code>Generator</code> 函数的返回值是一个遍历器。<blockquote>
 <ul>
 <li><code>ES6</code>规定这个遍历器是<code>Generator</code>函数的实例，它也继承了<code>Generator</code>函数的<code>prototype</code>对象上的方法。</li>
 </ul>
-<pre><code>function* gen() &#123;
-yield 1;
-&#125;
-</code></pre>
-</blockquote>
-<p>gen.prototype.sayHello &#x3D; function () {<br>console.log(“大家好，我是Generator函数原型上的方法”);<br>};</p>
-<blockquote>
-</blockquote>
-<p>const it &#x3D; gen();<br>console.log(it instanceof gen); &#x2F;&#x2F; true<br>it.sayHello(); &#x2F;&#x2F; 大家好，我是Generator函数原型上的方法</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>function* gen() &#123;
+  yield 1;
+&#125;
+&gt;
+gen.prototype.sayHello = function () &#123;
+  console.log(&quot;大家好，我是Generator函数原型上的方法&quot;);
+&#125;;
+&gt;
+const it = gen();
+console.log(it instanceof gen); // true
+it.sayHello(); // 大家好，我是Generator函数原型上的方法
+</code></pre>
 <h3 id="二、Generator-函数应用"><a href="#二、Generator-函数应用" class="headerlink" title="二、Generator 函数应用"></a>二、Generator 函数应用</h3><blockquote>
 <p>深入浅出 Generator 函数的实践和应用</p>
 </blockquote>
@@ -1472,161 +1643,147 @@ yield 1;
 </ul>
 </blockquote>
 <ul>
-<li><p>用<code>yield</code></p>
-<blockquote>
-<pre><code>const obj = &#123;
-data: [1, 2, 3, 4, 5],
-// [Symbol.iterator]:function* ()&#123;&#125;
-*[Symbol.iterator]() &#123;
-  for (let i = 0; i &lt; this.data.length; i++) &#123;
-    yield this.data[i];
-  &#125;
-&#125;,
-&#125;;
-</code></pre>
-</blockquote>
-<p>for (let v of obj) {<br>console.log(v); &#x2F;&#x2F; 1 2 3 4 5<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>简化版：用<code>yield*</code></p>
-<blockquote>
-<pre><code>const obj = &#123;
-data: [1, 2, 3, 4, 5],
-// 生成器函数，生成一个迭代器（遍历器）对象
-*[Symbol.iterator]() &#123;
-  yield* this.data;
-&#125;,
-&#125;;
-</code></pre>
-</blockquote>
-<p>for (let v of obj) {<br>console.log(v); &#x2F;&#x2F; 1 2 3 4 5<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li>用<code>yield</code></li>
 </ul>
+<pre><code>const obj = &#123;
+  data: [1, 2, 3, 4, 5],
+  // [Symbol.iterator]:function* ()&#123;&#125;
+  *[Symbol.iterator]() &#123;
+    for (let i = 0; i &lt; this.data.length; i++) &#123;
+      yield this.data[i];
+    &#125;
+  &#125;,
+&#125;;
+&gt;
+for (let v of obj) &#123;
+  console.log(v); // 1 2 3 4 5
+&#125;
+</code></pre>
+<ul>
+<li>简化版：用<code>yield*</code></li>
+</ul>
+<pre><code>const obj = &#123;
+  data: [1, 2, 3, 4, 5],
+  // 生成器函数，生成一个迭代器（遍历器）对象
+  *[Symbol.iterator]() &#123;
+    yield* this.data;
+  &#125;,
+&#125;;
+&gt;
+for (let v of obj) &#123;
+  console.log(v); // 1 2 3 4 5
+&#125;
+</code></pre>
 <ol start="2">
 <li>将数组按深度扁平化</li>
 </ol>
 <ul>
-<li><p>不指定深度</p>
-<blockquote>
+<li>不指定深度</li>
+</ul>
 <pre><code>function* gen(arr) &#123;
-if (Array.isArray(arr)) &#123;
-  //是个数组
-  for (let i = 0; i &lt; arr.length; i++) &#123;
-    yield* gen(arr[i]);
-  &#125;
-&#125; else &#123;
-  //不是数组
-  yield arr;
-&#125;
-&#125;
-let arr = [1, [2, 3], 4, [5, [6], 7], [8], [9], 10];
-for (let v of gen(arr)) &#123;
-console.log(v);//1 2 3 4 5 6 7 8 9 10
-&#125;
-</code></pre>
-</blockquote>
-</li>
-<li><p>指定深度</p>
-<blockquote>
-<pre><code>// 将数组展平
-function flat(arr, depth) &#123;
-// Generator函数，将数组中所有嵌套元素展平列出
-function* gen(arr, n = 0) &#123;
   if (Array.isArray(arr)) &#123;
-    n--;
-    if (n &lt; -1) &#123;
-      yield arr;
-    &#125; else &#123;
-      for (let i = 0; i &lt; arr.length; i++) &#123;
-        yield* flat(arr[i], n);
-      &#125;
+    //是个数组
+    for (let i = 0; i &lt; arr.length; i++) &#123;
+      yield* gen(arr[i]);
     &#125;
   &#125; else &#123;
+    //不是数组
     yield arr;
   &#125;
 &#125;
+let arr = [1, [2, 3], 4, [5, [6], 7], [8], [9], 10];
+for (let v of gen(arr)) &#123;
+  console.log(v);//1 2 3 4 5 6 7 8 9 10
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 结果数组<br>const arr2 &#x3D; [];<br>for (let v of gen(arr, depth)) {<br>  arr2.push(v);<br>}<br>return arr2;<br>}</p>
-<blockquote>
-</blockquote>
-<p>let arr &#x3D; [1, [2, 3], 4, [5, [6], 7], [8], [9], 10];<br>console.log(flat(arr, 1));&#x2F;&#x2F;[1, 2, 3, 4, 5, Array(1), 7, 8, 9, 10]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>指定深度</li>
 </ul>
+<pre><code>// 将数组展平
+function flat(arr, depth) &#123;
+  // Generator函数，将数组中所有嵌套元素展平列出
+  function* gen(arr, n = 0) &#123;
+    if (Array.isArray(arr)) &#123;
+      n--;
+      if (n &lt; -1) &#123;
+        yield arr;
+      &#125; else &#123;
+        for (let i = 0; i &lt; arr.length; i++) &#123;
+          yield* flat(arr[i], n);
+        &#125;
+      &#125;
+    &#125; else &#123;
+      yield arr;
+    &#125;
+  &#125;
+&gt;
+  // 结果数组
+  const arr2 = [];
+  for (let v of gen(arr, depth)) &#123;
+    arr2.push(v);
+  &#125;
+  return arr2;
+&#125;
+&gt;
+let arr = [1, [2, 3], 4, [5, [6], 7], [8], [9], 10];
+console.log(flat(arr, 1));//[1, 2, 3, 4, 5, Array(1), 7, 8, 9, 10]
+</code></pre>
 <ol start="3">
 <li>深度优先遍历 DOM 树<blockquote>
 <ul>
 <li>深度优先：先深度，再广度</li>
 </ul>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
- &lt;ul&gt;
-   &lt;li&gt;
-     &lt;h3&gt;标题&lt;/h3&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code> &lt;div class=&quot;box2&quot;&gt;
-   &lt;img src=&quot;&quot; alt=&quot;图片&quot; /&gt;
-   &lt;p&gt;描述&lt;/p&gt;
-   &lt;p&gt;&lt;span&gt;价格:&lt;/span&gt;&lt;i&gt;50&lt;/i&gt;&lt;/p&gt;
- &lt;/div&gt;
-</code></pre>
-   </li>
- </ul>
-</div>
-
-<script>
-  function* getDomTree(node) {
+<pre><code>&gt;&lt;div id=&quot;container&quot;&gt;
+&gt;  &lt;ul&gt;
+&gt;    &lt;li&gt;
+&gt;      &lt;h3&gt;标题&lt;/h3&gt;
+&gt;      &lt;div class=&quot;box2&quot;&gt;
+&gt;        &lt;img src=&quot;&quot; alt=&quot;图片&quot; /&gt;
+&gt;        &lt;p&gt;描述&lt;/p&gt;
+&gt;        &lt;p&gt;&lt;span&gt;价格:&lt;/span&gt;&lt;i&gt;50&lt;/i&gt;&lt;/p&gt;
+&gt;      &lt;/div&gt;
+&gt;    &lt;/li&gt;
+&gt;  &lt;/ul&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  function* getDomTree(node) &#123;
     yield node.tagName;//DIV
-    if (node.children.length > 0) {
-      for (let i = 0; i < node.children.length; i++) {
+    if (node.children.length &gt; 0) &#123;
+      for (let i = 0; i &lt; node.children.length; i++) &#123;
         yield* getDomTree(node.children[i]);
-      }
-    }
-  }
-  const node = document.getElementById("container");
-  for (let el of getDomTree(node)) {
-    console.log(el);
-  }
-</script>
-<pre><code>
-</code></pre>
-</blockquote>
-<ul>
-<li>带 <code>--</code> 前缀的<blockquote>
-<pre><code>&lt;script&gt;
-// node表示DOM节点  n用来控制标签前面--填充的个数
-function* getDomTree(node, n = 0) &#123;
-  yield &quot;-&quot;.repeat(n) + node.tagName;
-  if (node.children.length &gt; 0) &#123;
-    n += 2; // 下一级--加2
-    for (let i = 0; i &lt; node.children.length; i++) &#123;
-      yield* getDomTree(node.children[i], n);
+      &#125;
     &#125;
   &#125;
-&#125;
-const node = document.getElementById(&quot;container&quot;);
-for (let el of getDomTree(node)) &#123;
-  console.log(el);
-&#125;
-&lt;/script&gt;
+  const node = document.getElementById(&quot;container&quot;);
+  for (let el of getDomTree(node)) &#123;
+    console.log(el);
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
+<ul>
+<li>带 <code>--</code> 前缀的</li>
 </ul>
+<pre><code>&gt;&lt;script&gt;
+  // node表示DOM节点  n用来控制标签前面--填充的个数
+  function* getDomTree(node, n = 0) &#123;
+    yield &quot;-&quot;.repeat(n) + node.tagName;
+    if (node.children.length &gt; 0) &#123;
+      n += 2; // 下一级--加2
+      for (let i = 0; i &lt; node.children.length; i++) &#123;
+        yield* getDomTree(node.children[i], n);
+      &#125;
+    &#125;
+  &#125;
+  const node = document.getElementById(&quot;container&quot;);
+  for (let el of getDomTree(node)) &#123;
+    console.log(el);
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
 <h2 id="Promise-用法、实例方法、原理与异步编程的实践应用"><a href="#Promise-用法、实例方法、原理与异步编程的实践应用" class="headerlink" title="Promise 用法、实例方法、原理与异步编程的实践应用"></a>Promise 用法、实例方法、原理与异步编程的实践应用</h2><blockquote>
 <p>本节内容我们开始学习 <code>ES6</code> 中的 <code>Promise</code> 异步编程的解决方案。比传统的解决方案：回调函数和事件，更合理和更强大。<br>它由社区最早提出和实现，<code>ES6</code> 将其写进了语言标准，统一了用法，原生提供了<code>Promise</code>对象。</p>
 </blockquote>
@@ -1641,51 +1798,69 @@ for (let el of getDomTree(node)) &#123;
 </li>
 </ol>
 <ul>
-<li><p>预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理</p>
-<blockquote>
+<li>预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理</li>
+</ul>
 <pre><code>function preloadImage(url, resolve, reject) &#123;
-let img = new Image();
-img.onload = function () &#123;
-  resolve(img); // 加载成功，调用回调函数执行下一步操作
-&#125;;
-img.onerror = function () &#123;
-  reject(new Error(&quot;图片加载失败&quot;));
-&#125;;
-img.src = url;
+  let img = new Image();
+  img.onload = function () &#123;
+    resolve(img); // 加载成功，调用回调函数执行下一步操作
+  &#125;;
+  img.onerror = function () &#123;
+    reject(new Error(&quot;图片加载失败&quot;));
+  &#125;;
+  img.src = url;
 &#125;
+&gt;
+const url =
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png&quot;;
+// 预加载一张图片
+preloadImage(url, (data) =&gt; &#123;
+  document.body.appendChild(data);
+&#125;);
 </code></pre>
-</blockquote>
-<p>const url &#x3D;<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png</a>“;<br>&#x2F;&#x2F; 预加载一张图片<br>preloadImage(url, (data) &#x3D;&gt; {<br>document.body.appendChild(data);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>逐步加载 5 张图片，并插入到页面中</p>
-<blockquote>
+<ul>
+<li>逐步加载 5 张图片，并插入到页面中<blockquote>
 <ul>
 <li>在一张图片加载成功后，插入到页面，然后再加载下一张，共加载 5 张</li>
 </ul>
-<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
-function preloadImage(url, resolve, reject) &#123;
-let img = new Image();
-img.onload = function () &#123;
-  resolve(img); // 加载成功，调用回调函数执行下一步操作
-&#125;;
-img.onerror = function () &#123;
-  reject(new Error(&quot;图片加载失败&quot;));
-&#125;;
-img.src = url;
-&#125;
-</code></pre>
-</blockquote>
-<p>const urls &#x3D; [<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg</a>“,<br>];<br>preloadImage(urls[0], (data) &#x3D;&gt; {<br>document.body.appendChild(data);<br>preloadImage(urls[1], (data) &#x3D;&gt; {<br>  document.body.appendChild(data);<br>  preloadImage(urls[2], (data) &#x3D;&gt; {<br>document.body.appendChild(data);<br>preloadImage(urls[3], (data) &#x3D;&gt; {<br>  document.body.appendChild(data);<br>  preloadImage(urls[4], (data) &#x3D;&gt; {<br>    document.body.appendChild(data);<br>  });<br>});<br>  });<br>});<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
+function preloadImage(url, resolve, reject) &#123;
+  let img = new Image();
+  img.onload = function () &#123;
+    resolve(img); // 加载成功，调用回调函数执行下一步操作
+  &#125;;
+  img.onerror = function () &#123;
+    reject(new Error(&quot;图片加载失败&quot;));
+  &#125;;
+  img.src = url;
+&#125;
+&gt;
+const urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg&quot;,
+];
+preloadImage(urls[0], (data) =&gt; &#123;
+  document.body.appendChild(data);
+  preloadImage(urls[1], (data) =&gt; &#123;
+    document.body.appendChild(data);
+    preloadImage(urls[2], (data) =&gt; &#123;
+      document.body.appendChild(data);
+      preloadImage(urls[3], (data) =&gt; &#123;
+        document.body.appendChild(data);
+        preloadImage(urls[4], (data) =&gt; &#123;
+          document.body.appendChild(data);
+        &#125;);
+      &#125;);
+    &#125;);
+  &#125;);
+&#125;);
+</code></pre>
 <blockquote>
 <blockquote>
 <p>总结</p>
@@ -1701,30 +1876,58 @@ img.src = url;
 <ul>
 <li>我们用 Promise 来改造下上面的回调函数的写法，代码如下</li>
 </ul>
-<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
-function preloadImage(url) &#123;
-  return new Promise((resolve, reject) =&gt; &#123;
- let img = new Image();
- img.onload = function () &#123;
-   resolve(img); // 加载成功，调用回调函数执行下一步操作
- &#125;;
- img.onerror = function () &#123;
-   reject(new Error(&quot;图片加载失败&quot;));
- &#125;;
- img.src = url;
-  &#125;);
-&#125;
-</code></pre>
-</blockquote>
-const urls &#x3D; [<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg</a>“,<br>];<blockquote>
-</blockquote>
-preloadImage(urls[0])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br> return preloadImage(urls[1]);<br>  })<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br> return preloadImage(urls[2]);<br>  })<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br> return preloadImage(urls[3]);<br>  })<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br> return preloadImage(urls[4]);<br>  })<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  });<blockquote>
-<pre><code>注：
-- Promise 改造后的代码是按正常的代码书写逻辑，从上往下来书写，解决了“回调地狱 callback hell”问题。他使得异步操作能**以同步操作的流程**表达出来。
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
+function preloadImage(url) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    let img = new Image();
+    img.onload = function () &#123;
+      resolve(img); // 加载成功，调用回调函数执行下一步操作
+    &#125;;
+    img.onerror = function () &#123;
+      reject(new Error(&quot;图片加载失败&quot;));
+    &#125;;
+    img.src = url;
+  &#125;);
+&#125;
+&gt;
+const urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg&quot;,
+];
+&gt;
+preloadImage(urls[0])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+    return preloadImage(urls[1]);
+  &#125;)
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+    return preloadImage(urls[2]);
+  &#125;)
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+    return preloadImage(urls[3]);
+  &#125;)
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+    return preloadImage(urls[4]);
+  &#125;)
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;);
+</code></pre>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>Promise 改造后的代码是按正常的代码书写逻辑，从上往下来书写，解决了“回调地狱 callback hell”问题。他使得异步操作能<strong>以同步操作的流程</strong>表达出来。</li>
+</ul>
+</blockquote>
 <h3 id="二、Promise-的基本用法"><a href="#二、Promise-的基本用法" class="headerlink" title="二、Promise 的基本用法"></a>二、Promise 的基本用法</h3><ol>
 <li>创建 Promise 实例<blockquote>
 <p><code>ES6</code> 规定，<code>Promise</code>对象是一个<strong>构造函数</strong>，用来生成 <code>Promise</code>实例。</p>
@@ -1732,39 +1935,37 @@ preloadImage(urls[0])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChi
 </li>
 </ol>
 <ul>
-<li>构造函数接受一个函数作为参数，该函数有两个参数，分别是<code>resolve</code>和<code>reject</code><blockquote>
+<li>构造函数接受一个函数作为参数，该函数有两个参数，分别是<code>resolve</code>和<code>reject</code></li>
+</ul>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;&#125;);
 // 参数resolve和reject是两个形参，名字可自定义，为了更符合语义，建议使用resolve和reject来命名
 </code></pre>
-</blockquote>
-</li>
-<li><code>Promise</code>对象一旦创建，就会<strong>立即执行</strong>构造函数参数中的函数（我们称此函数为执行器 <code>executor</code> 函数）<blockquote>
+<ul>
+<li><code>Promise</code>对象一旦创建，就会<strong>立即执行</strong>构造函数参数中的函数（我们称此函数为执行器 <code>executor</code> 函数）</li>
+</ul>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;
-console.log(&quot;立马执行&quot;);
+  console.log(&quot;立马执行&quot;);
 &#125;);
 // 输入结果： 立马执行
 </code></pre>
-</blockquote>
-</li>
-<li><code>resolve</code>和<code>reject</code>参数分别为两个函数，异步操作成功时调用<code>resolve</code>，失败时调用<code>reject</code><blockquote>
+<ul>
+<li><code>resolve</code>和<code>reject</code>参数分别为两个函数，异步操作成功时调用<code>resolve</code>，失败时调用<code>reject</code></li>
+</ul>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-// 创建图片对象
-let img = new Image();
-// 图片加载成功触发onload事件
-img.onload = function () &#123;
-  resolve(img); // 图片加载成功，就把图片作为参数传出去,对外如何接收数据并操作，后面讲
-&#125;;
-// 图片加载失败，触发onerror事件
-img.onerror = function () &#123;
-  reject(new Error(&quot;图片加载失败&quot;)); // 图片加载失败，把错误对象传出去
-&#125;;
-// 给图片添加地址，就会发送http请求下载图片
-img.src = &quot;http://www.xxx.com&quot;;
+  // 创建图片对象
+  let img = new Image();
+  // 图片加载成功触发onload事件
+  img.onload = function () &#123;
+    resolve(img); // 图片加载成功，就把图片作为参数传出去,对外如何接收数据并操作，后面讲
+  &#125;;
+  // 图片加载失败，触发onerror事件
+  img.onerror = function () &#123;
+    reject(new Error(&quot;图片加载失败&quot;)); // 图片加载失败，把错误对象传出去
+  &#125;;
+  // 给图片添加地址，就会发送http请求下载图片
+  img.src = &quot;http://www.xxx.com&quot;;
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>注：</p>
@@ -1790,29 +1991,36 @@ img.src = &quot;http://www.xxx.com&quot;;
 </li>
 </ol>
 <ul>
-<li>刚创建一个 <code>Promise</code> 对象，他的的状态为 <code>pending</code> 待定或正在进行中。<blockquote>
+<li>刚创建一个 <code>Promise</code> 对象，他的的状态为 <code>pending</code> 待定或正在进行中。</li>
+</ul>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;&#125;);
 console.log(promise);
 </code></pre>
-<img src="pending.png"></blockquote>
-</li>
-<li>调用<code>resolve</code>函数，<code>Promise</code>的状态由<code>pending</code> （待定）变为<code>fulfilled</code>（成功）<blockquote>
-<pre><code>const promise = new Promise(function (resolve, reject) &#123;
-resolve(); // 调用resolve，promise状态由pending变为fulfilled
-&#125;);
-console.log(promise);
-</code></pre>
-<img src="fulfilled.png"></blockquote>
-</li>
-<li>调用<code>reject</code>函数，<code>Promise</code> 的状态由<code>pending</code>（待定）变为 <code>rejected</code>（失败）<blockquote>
-<pre><code>const promise = new Promise(function (resolve, reject) &#123;
-reject(); // 调用resolve，promise状态由pending变为rejected
-&#125;);
-console.log(promise);
-</code></pre>
-<img src="rejected.png"></blockquote>
-</li>
+<blockquote>
+<img src="pending.png">
+</blockquote>
+<ul>
+<li>调用<code>resolve</code>函数，<code>Promise</code>的状态由<code>pending</code> （待定）变为<code>fulfilled</code>（成功）</li>
 </ul>
+<pre><code>const promise = new Promise(function (resolve, reject) &#123;
+  resolve(); // 调用resolve，promise状态由pending变为fulfilled
+&#125;);
+console.log(promise);
+</code></pre>
+<blockquote>
+<img src="fulfilled.png">
+</blockquote>
+<ul>
+<li>调用<code>reject</code>函数，<code>Promise</code> 的状态由<code>pending</code>（待定）变为 <code>rejected</code>（失败）</li>
+</ul>
+<pre><code>const promise = new Promise(function (resolve, reject) &#123;
+  reject(); // 调用resolve，promise状态由pending变为rejected
+&#125;);
+console.log(promise);
+</code></pre>
+<blockquote>
+<img src="rejected.png">
+</blockquote>
 <ol start="3">
 <li>注意事项</li>
 </ol>
@@ -1829,28 +2037,39 @@ console.log(promise);
 <li>第一个回调函数在<code>Promise</code>的状态变为<code>fulfilled</code>的时调用，表示成功的回调。</li>
 <li>第二个回调函数在<code>Promise</code>的状态变为<code>rejected</code>的时候调用，表示失败的回调。</li>
 </ul>
-<pre><code>const promise = new Promise(function (resolve, reject) &#123;
-  resolve(); // Promise状态由pending--&gt;fulfilled ,调用then方法的第一个回调函数
-&#125;);
-</code></pre>
-</blockquote>
-promise.then(<br>  &#x2F;&#x2F; promise状态变为fulfilled时，调第一个回调<br>  (data) &#x3D;&gt; {<br> console.log(“成功的回调”);<br>  },<br>  &#x2F;&#x2F; promise状态变为rejected时，调第二个回调<br>  (data) &#x3D;&gt; {<br> console.log(“失败的回调”);<br>  }<br>);<br>&#x2F;&#x2F; 打印结果： 成功的回调<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
+<pre><code>const promise = new Promise(function (resolve, reject) &#123;
+  resolve(); // Promise状态由pending--&gt;fulfilled ,调用then方法的第一个回调函数
+&#125;);
+&gt;
+promise.then(
+  // promise状态变为fulfilled时，调第一个回调
+  (data) =&gt; &#123;
+    console.log(&quot;成功的回调&quot;);
+  &#125;,
+  // promise状态变为rejected时，调第二个回调
+  (data) =&gt; &#123;
+    console.log(&quot;失败的回调&quot;);
+  &#125;
+);
+// 打印结果： 成功的回调
+</code></pre>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;
   reject(); // Promise状态由pending--&gt;rejected 调用then方法的第二个回调函数
 &#125;);
+&gt;
+promise.then(
+  (data) =&gt; &#123;
+    console.log(&quot;成功的回调&quot;);
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败的回调&quot;);
+  &#125;
+);
+// 打印结果： 失败的回调
 </code></pre>
-</blockquote>
-<p>promise.then(<br>  (data) &#x3D;&gt; {<br>    console.log(“成功的回调”);<br>  },<br>  (data) &#x3D;&gt; {<br>    console.log(“失败的回调”);<br>  }<br>);<br>&#x2F;&#x2F; 打印结果： 失败的回调</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
 <li>resolve 和 reject 参数<blockquote>
 <p><code>resolve</code>和<code>reject</code>参数分别为两个函数，这两个函数的作用分别用来在异步操作成功和失败时调用。</p>
@@ -1874,43 +2093,39 @@ promise.then(<br>  &#x2F;&#x2F; promise状态变为fulfilled时，调第一个�
 </tr>
 </tbody></table>
 <ul>
-<li><p><code>resolve</code>函数</p>
-<blockquote>
+<li><code>resolve</code>函数</li>
+</ul>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;
-resolve(1); // 1被传递给then方法的第一个回调函数的参数data.
+  resolve(1); // 1被传递给then方法的第一个回调函数的参数data.
 &#125;);
 promise.then(
-(data) =&gt; &#123;
-  console.log(&quot;成功&quot;, data); // 成功 1
-&#125;,
-(data) =&gt; &#123;
-  console.log(&quot;失败&quot;, data);
-&#125;
+  (data) =&gt; &#123;
+    console.log(&quot;成功&quot;, data); // 成功 1
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败&quot;, data);
+  &#125;
 );
 // 打印结果：成功 1
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>reject</code>函数</p>
-<blockquote>
+<ul>
+<li><code>reject</code>函数</li>
+</ul>
 <pre><code>const promise = new Promise(function (resolve, reject) &#123;
-reject(0); // 0被传递给then方法的第二个回调函数的参数data.
-// reject(new Error(&#39;操作失败&#39;))
+  reject(0); // 0被传递给then方法的第二个回调函数的参数data.
+  // reject(new Error(&#39;操作失败&#39;))
 &#125;);
 promise.then(
-(data) =&gt; &#123;
-  console.log(&quot;成功&quot;, data); // 成功 1
-&#125;,
-(data) =&gt; &#123;
-  console.log(&quot;失败&quot;, data);
-&#125;
+  (data) =&gt; &#123;
+    console.log(&quot;成功&quot;, data); // 成功 1
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败&quot;, data);
+  &#125;
 );
 // 打印结果： 失败 0
 // 打印结果： 失败 Error: 操作失败
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>温馨提示：</p>
@@ -1919,11 +2134,13 @@ promise.then(
 <li><code>reject</code>主要是用来在异步操作失败时调用，所以他的参数通常是一个<strong>错误对象</strong></li>
 <li><code>reject</code> 和 <code>resolve</code> 函数的参数，保存在<code>promise</code>对象的<code>[[PromiseResult]]</code>属性中，我们称为<code>promise</code>实例对象的<strong>返回值</strong></li>
 </ul>
+</blockquote>
 <pre><code>const promise = new Promise((resolve, reject) =&gt; &#123;
   resolve(&quot;hello&quot;);
 &#125;);
 console.log(promise);
 </code></pre>
+<blockquote>
 <img src="promiseResult.png">
 </blockquote>
 <ol start="6">
@@ -1965,68 +2182,75 @@ console.log(promise);
 </li>
 </ol>
 <ul>
-<li><p>不带任何参数</p>
-<blockquote>
+<li>不带任何参数</li>
+</ul>
 <pre><code>const p = new Promise((resolve, reject) =&gt; &#123;
-resolve();
+  resolve();
 &#125;);
 p.then((data) =&gt; &#123;
-console.log(data); // undefined
+  console.log(data); // undefined
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>参数为一般类型</p>
-<blockquote>
+<ul>
+<li>参数为一般类型</li>
+</ul>
 <pre><code>const p = new Promise((resolve, reject) =&gt; &#123;
-resolve(&quot;hello&quot;);
+  resolve(&quot;hello&quot;);
 &#125;);
 p.then((data) =&gt; &#123;
-console.log(data); // hello
+  console.log(data); // hello
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>参数是一个 Promise 对象</p>
-<blockquote>
+<ul>
+<li>参数是一个 Promise 对象</li>
+</ul>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-setTimeout(function () &#123;
-  reject(2);
-&#125;, 3000);
+  setTimeout(function () &#123;
+    reject(2);
+  &#125;, 3000);
 &#125;);
 const p2 = new Promise(function (resolve, reject) &#123;
-resolve(p1);
+  resolve(p1);
 &#125;);
+&gt;
+p2.then(
+  (data) =&gt; &#123;
+    console.log(&quot;成功&quot;, data);
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败&quot;, data);
+  &#125;
+);
+// 打印结果： 失败 2
 </code></pre>
-</blockquote>
-<p>p2.then(<br>(data) &#x3D;&gt; {<br>  console.log(“成功”, data);<br>},<br>(data) &#x3D;&gt; {<br>  console.log(“失败”, data);<br>}<br>);<br>&#x2F;&#x2F; 打印结果： 失败 2</p>
 <blockquote>
-<pre><code>**代码解析：**
-- 上面代码中，p1 和 p2 都是`promise`对象，但 p2 的 `resolve`方法将 p1 作为参数，此时 p2 的状态和返回结果都由 p1 来决定。
-- 在 3s 后 p1 的状态改变，此时才会执行下面 then 方法中的回调，由于 p1 中调用的是`reject(2)`，其状态为失败，所以最后调 then 的第二个回调，其参数`data=2`。最后在控制台输出 ：“失败 2”
-</code></pre>
+<p><strong>代码解析：</strong></p>
+<ul>
+<li>上面代码中，p1 和 p2 都是<code>promise</code>对象，但 p2 的 <code>resolve</code>方法将 p1 作为参数，此时 p2 的状态和返回结果都由 p1 来决定。</li>
+<li>在 3s 后 p1 的状态改变，此时才会执行下面 then 方法中的回调，由于 p1 中调用的是<code>reject(2)</code>，其状态为失败，所以最后调 then 的第二个回调，其参数<code>data=2</code>。最后在控制台输出 ：“失败 2”</li>
+</ul>
 </blockquote>
-</li>
-<li><p>thenable 对象</p>
-<blockquote>
+<ul>
+<li>thenable 对象<blockquote>
 <ul>
 <li>所谓的 <code>thenable</code> 对象是指：具有 <code>then</code> 方法的对象，如下面这个对象</li>
 </ul>
-<pre><code>let thenable = &#123;
-name: &quot;icoding&quot;,
-b: 2,
-then(resolve, reject) &#123;
-  resolve(this.name);
-&#125;,
-&#125;;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>let thenable = &#123;
+  name: &quot;icoding&quot;,
+  b: 2,
+  then(resolve, reject) &#123;
+    resolve(this.name);
+  &#125;,
+&#125;;
+</code></pre>
 <blockquote>
 <ul>
 <li>如果<code>then</code>回调函数中的返回的值为<code>thenable</code>对象，会先将<code>thenable</code>对象转换为<code>Promise</code>对象，然后<strong>立即执行</strong><code>thenable</code>对象的<code>then</code>方法，改变<code>Promise</code>的状态。该 <code>Promise</code>的状态决定了后面<code>then</code>方法的回调和参数值</li>
 </ul>
+</blockquote>
 <pre><code>let thenable = &#123;
   name: &quot;icoding&quot;,
   b: 2,
@@ -2042,18 +2266,22 @@ const p = new Promise((resolve, reject) =&gt; &#123;
   //  &#125;
   //&#125;)
 &#125;);
+&gt;
+p.then((data) =&gt; &#123;
+  console.log(data); // icoding
+&#125;);
 </code></pre>
-</blockquote>
-<p>p.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; icoding<br>});</p>
 <blockquote>
-<pre><code>- `Promise`函数里的`resolve`给第一个`then`方法传递出的是`thenable`
-- 但`thenable`是一个对象，所以，这个对象会自动调用自己的`then`方法，将`resolve`的参数`icoding`传给第一个`then`方法
-</code></pre>
+<ul>
+<li><code>Promise</code>函数里的<code>resolve</code>给第一个<code>then</code>方法传递出的是<code>thenable</code></li>
+<li>但<code>thenable</code>是一个对象，所以，这个对象会自动调用自己的<code>then</code>方法，将<code>resolve</code>的参数<code>icoding</code>传给第一个<code>then</code>方法</li>
+</ul>
 </blockquote>
 <blockquote>
 <ul>
 <li>resolve 方法的参数为 thenable 对象时，其内部实现大致如下</li>
 </ul>
+</blockquote>
 <pre><code>// 模拟Promise的resolve方法，其参数为thenable对象时
 function resolve(obj) &#123;
   return new Promise((resolve, reject) =&gt; &#123;
@@ -2061,7 +2289,6 @@ function resolve(obj) &#123;
   &#125;);
 &#125;
 </code></pre>
-</blockquote>
 <h3 id="三、Promise-的实例方法"><a href="#三、Promise-的实例方法" class="headerlink" title="三、Promise 的实例方法"></a>三、Promise 的实例方法</h3><blockquote>
 <p>深入浅出<code>Promise</code>实例的方法：<code>then()</code> ，<code>catch()</code>，<code>finally()</code>方法</p>
 </blockquote>
@@ -2111,73 +2338,99 @@ function resolve(obj) &#123;
 </li>
 </ol>
 <ul>
-<li><p>例1</p>
-<blockquote>
-<pre><code>setTimeout(function () &#123;
-console.log(1);
-&#125;, 0);
-</code></pre>
-</blockquote>
-<p>const promise &#x3D; new Promise(function (resolve, reject) {<br>console.log(3);<br>resolve(); &#x2F;&#x2F; 调用then方法的第一个回调函数<br>});</p>
-<blockquote>
-</blockquote>
-<p>promise.then(<br>(data) &#x3D;&gt; {<br>  console.log(“成功的回调”);<br>},<br>(data) &#x3D;&gt; {<br>  console.log(“失败的回调”);<br>}<br>);</p>
-<blockquote>
-</blockquote>
-<p>console.log(2);<br>&#x2F;&#x2F;代码执行顺序：<br>&#x2F;&#x2F;3 2 成功的回调 1</p>
-<blockquote>
-<pre><code>- 第一步，执行同步代码：打印出 3 2；
-&gt;注意：`Promise`对象一旦创建，就会立即执行构造函数参数中的函数， 创建`Promise`实例是同步任务，`then`方法是异步任务
-- 第二步，执行微任务，调用`resolve()`，打印出&quot;成功的回调&quot;
-- 第三步，执行宏任务——定时器，打印出 1
-</code></pre>
-</blockquote>
-</li>
-<li><p>例2</p>
-<blockquote>
-<pre><code>setTimeout(function () &#123;
-console.log(1);
-&#125;, 0);
-</code></pre>
-</blockquote>
-<p>const promise &#x3D; new Promise(function (resolve, reject) {<br>console.log(3);<br>setTimeout(function () {<br>  resolve(); &#x2F;&#x2F; 3秒后调用then方法的第一个回调函数<br>}, 3000);<br>});</p>
-<blockquote>
-</blockquote>
-<p>promise.then(<br>(data) &#x3D;&gt; {<br>  console.log(“成功的回调”);<br>},<br>(data) &#x3D;&gt; {<br>  console.log(“失败的回调”);<br>}<br>);</p>
-<blockquote>
-</blockquote>
-<p>console.log(2);<br>&#x2F;&#x2F;代码执行顺序：<br>&#x2F;&#x2F;3 2 1 成功的回调 </p>
-<blockquote>
-<pre><code>- 第一步，将定时器加入异步队列
-- 第二步，创建`Promise`对象，立即打印出 3，将定时器加入异步队列
-- 执行`console.log(2);`，打印出 2
-- 同步代码都执行完成，异步队列中有两个定时器，第一个定时器延迟时间为0，所以先执行它，打印出 1
-- 三秒后，调用`resolve()`函数，`Promise`状态改变，`then`的第一个回调函数被添加到异步队列中，等同步代码执行完之后才会执行，所以此时打印出&quot;成功的回调&quot;
-</code></pre>
-</blockquote>
-</li>
+<li>例1</li>
 </ul>
+<pre><code>setTimeout(function () &#123;
+  console.log(1);
+&#125;, 0);
+&gt;
+const promise = new Promise(function (resolve, reject) &#123;
+  console.log(3);
+  resolve(); // 调用then方法的第一个回调函数
+&#125;);
+&gt;
+promise.then(
+  (data) =&gt; &#123;
+    console.log(&quot;成功的回调&quot;);
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败的回调&quot;);
+  &#125;
+);
+&gt;
+console.log(2);
+//代码执行顺序：
+//3 2 成功的回调 1
+</code></pre>
+<blockquote>
+<ul>
+<li>第一步，执行同步代码：打印出 3 2；<blockquote>
+<p>注意：<code>Promise</code>对象一旦创建，就会立即执行构造函数参数中的函数， 创建<code>Promise</code>实例是同步任务，<code>then</code>方法是异步任务</p>
+</blockquote>
+</li>
+<li>第二步，执行微任务，调用<code>resolve()</code>，打印出”成功的回调”</li>
+<li>第三步，执行宏任务——定时器，打印出 1</li>
+</ul>
+</blockquote>
+<ul>
+<li>例2</li>
+</ul>
+<pre><code>setTimeout(function () &#123;
+  console.log(1);
+&#125;, 0);
+&gt;
+const promise = new Promise(function (resolve, reject) &#123;
+  console.log(3);
+  setTimeout(function () &#123;
+    resolve(); // 3秒后调用then方法的第一个回调函数
+  &#125;, 3000);
+&#125;);
+&gt;
+promise.then(
+  (data) =&gt; &#123;
+    console.log(&quot;成功的回调&quot;);
+  &#125;,
+  (data) =&gt; &#123;
+    console.log(&quot;失败的回调&quot;);
+  &#125;
+);
+&gt;
+console.log(2);
+//代码执行顺序：
+//3 2 1 成功的回调 
+</code></pre>
+<blockquote>
+<ul>
+<li>第一步，将定时器加入异步队列</li>
+<li>第二步，创建<code>Promise</code>对象，立即打印出 3，将定时器加入异步队列</li>
+<li>执行<code>console.log(2);</code>，打印出 2</li>
+<li>同步代码都执行完成，异步队列中有两个定时器，第一个定时器延迟时间为0，所以先执行它，打印出 1</li>
+<li>三秒后，调用<code>resolve()</code>函数，<code>Promise</code>状态改变，<code>then</code>的第一个回调函数被添加到异步队列中，等同步代码执行完之后才会执行，所以此时打印出”成功的回调”</li>
+</ul>
+</blockquote>
 <ol start="2">
 <li>then 方法的简写<blockquote>
 <p><code>then</code> 方法的两个回调函数并不一定都要写</p>
 <ul>
 <li>如果只需要处理<strong>成功</strong>的回调，那只写一个回调就好</li>
 </ul>
-<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-  resolve(1);
-&#125;);
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 只需要处理成功的回调<br>p1.then((data) &#x3D;&gt; {<br>  console.log(“成功”, data);<br>});<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
+  resolve(1);
+&#125;);
+&gt;
+// 只需要处理成功的回调
+p1.then((data) =&gt; &#123;
+  console.log(&quot;成功&quot;, data);
+&#125;);
+</code></pre>
 <blockquote>
 <ul>
 <li>如果只需要处理<strong>失败</strong>的回调，第一个回调函数可以用 <code>null</code>代替</li>
 </ul>
+</blockquote>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   reject(1);
 &#125;);
@@ -2186,38 +2439,40 @@ p1.then(null, (data) =&gt; &#123;
   console.log(&quot;失败&quot;, data);
 &#125;);
 </code></pre>
-</blockquote>
 <ol start="3">
 <li><code>then</code> 方法返回值</li>
 </ol>
 <ul>
-<li><p><code>then</code>方法的返回值为一个新的<code>Promise</code>对象，所以<code>then</code>方法支持<strong>链式调用</strong></p>
-<blockquote>
-<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-resolve(1);
-&#125;);
-</code></pre>
-</blockquote>
-<p>p1.then().then().then();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>then方法的返回值默认为一个<strong>新的成功的</strong><code>Promise</code>对象。</p>
-<blockquote>
-<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-reject(1); // 状态为失败
-&#125;);
-</code></pre>
-</blockquote>
-<p>p1.then(null, () &#x3D;&gt; {<br>console.log(“a”); &#x2F;&#x2F; 返回一个新的成功状态的Promise<br>})<br>.then(() &#x3D;&gt; {<br>  console.log(2); &#x2F;&#x2F; 返回一个新的成功状态的Promise<br>})<br>.then(() &#x3D;&gt; {<br>  console.log(3); &#x2F;&#x2F; 返回一个新的成功状态的Promise<br>});</p>
-<blockquote>
-<pre><code>&gt;如何才能返回一个失败状态的 Promise 对象呢 ？后边会给出答案
-</code></pre>
-</blockquote>
-</li>
+<li><code>then</code>方法的返回值为一个新的<code>Promise</code>对象，所以<code>then</code>方法支持<strong>链式调用</strong></li>
 </ul>
+<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
+  resolve(1);
+&#125;);
+&gt;
+p1.then().then().then();
+</code></pre>
+<ul>
+<li>then方法的返回值默认为一个<strong>新的成功的</strong><code>Promise</code>对象。</li>
+</ul>
+<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
+  reject(1); // 状态为失败
+&#125;);
+&gt;
+p1.then(null, () =&gt; &#123;
+  console.log(&quot;a&quot;); // 返回一个新的成功状态的Promise
+&#125;)
+  .then(() =&gt; &#123;
+    console.log(2); // 返回一个新的成功状态的Promise
+  &#125;)
+  .then(() =&gt; &#123;
+    console.log(3); // 返回一个新的成功状态的Promise
+  &#125;);
+</code></pre>
+<blockquote>
+<blockquote>
+<p>如何才能返回一个失败状态的 Promise 对象呢 ？后边会给出答案</p>
+</blockquote>
+</blockquote>
 <ol start="4">
 <li>then 方法向后传值<blockquote>
 <p><code>then</code>方法回调函数的<strong>返回值</strong>，会用<code>return</code>来传递给下一个<code>then</code>方法的回调函数的<strong>参数</strong>。不过参数的类型不同，其结果会有所不同。</p>
@@ -2252,88 +2507,124 @@ reject(1); // 状态为失败
 </li>
 </ol>
 <ul>
-<li><p>不带任何参数</p>
-<blockquote>
+<li>不带任何参数</li>
+</ul>
 <pre><code>const p = new Promise(function (resolve, reject) &#123;
-resolve(3);
+  resolve(3);
 &#125;);
 p.then((data) =&gt; &#123;
-console.log(data); // 3
+  console.log(data); // 3
 &#125;).then((data) =&gt; &#123;
-console.log(data); // undefined
+  console.log(data); // undefined
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>一般类型</p>
-<blockquote>
+<ul>
+<li>一般类型<blockquote>
 <ul>
 <li>then 方法回调函数的返回值，值会传递给下一个 then 方法的回调函数的参数</li>
 </ul>
-<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-reject(1);
-&#125;);
-</code></pre>
-</blockquote>
-<p>p1.then(null, (data) &#x3D;&gt; {<br>console.log(data); &#x2F;&#x2F; 1<br>&#x2F;&#x2F; 相当于返回 new Promise((resolve,reject)&#x3D;&gt;resolve(new Error(“错误”)))<br>return new Error(“错误”);<br>})<br>.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; Error: 错误<br>  &#x2F;&#x2F; 相当于返回 new Promise((resolve,reject)&#x3D;&gt;resolve(3))<br>  return 3;<br>})<br>.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; 3<br>  &#x2F;&#x2F; 相当于返回 new Promise((resolve,reject)&#x3D;&gt;resolve({ a: 1 }))<br>  return { a: 1 };<br>})<br>.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; { a: 1 }<br>  &#x2F;&#x2F; 相当于返回 new Promise((resolve,reject)&#x3D;&gt;resolve(undefined))<br>})<br>.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; undefined<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>Promise 对象</p>
-<blockquote>
+</ul>
+<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
+  reject(1);
+&#125;);
+&gt;
+p1.then(null, (data) =&gt; &#123;
+  console.log(data); // 1
+  // 相当于返回 new Promise((resolve,reject)=&gt;resolve(new Error(&quot;错误&quot;)))
+  return new Error(&quot;错误&quot;);
+&#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // Error: 错误
+    // 相当于返回 new Promise((resolve,reject)=&gt;resolve(3))
+    return 3;
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // 3
+    // 相当于返回 new Promise((resolve,reject)=&gt;resolve(&#123; a: 1 &#125;))
+    return &#123; a: 1 &#125;;
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // &#123; a: 1 &#125;
+    // 相当于返回 new Promise((resolve,reject)=&gt;resolve(undefined))
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // undefined
+  &#125;);
+</code></pre>
+<ul>
+<li>Promise 对象<blockquote>
 <ul>
 <li>如果 then 的回调函数的返回值为 Promise 对象，则后面的 then 的回调和参数的值是由这个 Promise 对象的<strong>状态和返回值</strong>决定。</li>
 <li>如果这个 Promise 对象的状态为<strong>成功</strong>的，则执行后面 then 的<strong>第一个</strong>回调，回调中的参数为这个 Promise 的返回值</li>
 <li>如果这个 Promise 对象的状态为<strong>失败</strong>的，则执行后面 then 的第<strong>二个</strong>回调，回调中的参数为这个 Promise 的返回值</li>
 </ul>
-<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
-resolve(1);
-&#125;);
-</code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise(function (resolve, reject) {<br>reject(2);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p3 &#x3D; new Promise(function (resolve, reject) {<br>resolve(3);<br>});</p>
-<blockquote>
-</blockquote>
-<p>p1.then((data) &#x3D;&gt; {<br>console.log(“第一个then”, data); &#x2F;&#x2F; 第一个then 1<br>return p2;<br>})<br>.then(<br>  (data) &#x3D;&gt; {<br>console.log(“第二个then”, data);<br>  },<br>  (err) &#x3D;&gt; {<br>console.log(“第二个then错误”, err); &#x2F;&#x2F; 第二个then错误 2<br>return p3;<br>  }<br>)<br>.then((data) &#x3D;&gt; {<br>  console.log(“第三个then”, data); &#x2F;&#x2F; 第三个then 3<br>});</p>
-<blockquote>
-<pre><code>**代码解析**
-- 上面 p1 的状态为成功状态，则执行 then 的第一个回调，输出：“第一个 then 1”，其返回值为 p2。
-- p2 的状态决定了下一个 then 的回调，p2 的状态为失败，则执行 then 的第二个回调，输出：“第二个 then 2”，其返回值为 p3
-- p3 的状态决定了他的下一个 then、p3 的状态为成功，则执行 then 的第一个回调，输出：“第三个 then 3”
-</code></pre>
 </blockquote>
 </li>
-<li><p><code>thenable</code> 对象</p>
+</ul>
+<pre><code>const p1 = new Promise(function (resolve, reject) &#123;
+  resolve(1);
+&#125;);
+&gt;
+const p2 = new Promise(function (resolve, reject) &#123;
+  reject(2);
+&#125;);
+&gt;
+const p3 = new Promise(function (resolve, reject) &#123;
+  resolve(3);
+&#125;);
+&gt;
+p1.then((data) =&gt; &#123;
+  console.log(&quot;第一个then&quot;, data); // 第一个then 1
+  return p2;
+&#125;)
+  .then(
+    (data) =&gt; &#123;
+      console.log(&quot;第二个then&quot;, data);
+    &#125;,
+    (err) =&gt; &#123;
+      console.log(&quot;第二个then错误&quot;, err); // 第二个then错误 2
+      return p3;
+    &#125;
+  )
+  .then((data) =&gt; &#123;
+    console.log(&quot;第三个then&quot;, data); // 第三个then 3
+  &#125;);
+</code></pre>
 <blockquote>
+<p><strong>代码解析</strong></p>
+<ul>
+<li>上面 p1 的状态为成功状态，则执行 then 的第一个回调，输出：“第一个 then 1”，其返回值为 p2。</li>
+<li>p2 的状态决定了下一个 then 的回调，p2 的状态为失败，则执行 then 的第二个回调，输出：“第二个 then 2”，其返回值为 p3</li>
+<li>p3 的状态决定了他的下一个 then、p3 的状态为成功，则执行 then 的第一个回调，输出：“第三个 then 3”</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>thenable</code> 对象<blockquote>
 <ul>
 <li>先将<code>thenable</code>对象转换为<code>Promise</code>对象，然后立即执行 <code>thenable</code>对象的<code>then</code>方法，改变<code>Promise</code>的状态。该 <code>Promise</code>的状态决定了后面<code>then</code>方法的回调和参数值</li>
 </ul>
-<pre><code>const p = new Promise(function (resolve, reject) &#123;
-resolve(3);
-&#125;);
-p.then((data) =&gt; &#123;
-console.log(data); // 3
-// 返回值为thenable对象
-return &#123;
-  then(resolve, reject) &#123;
-    resolve(&quot;清心&quot;);
-  &#125;,
-&#125;;
-&#125;).then((data) =&gt; &#123;
-console.log(data); // 清心
-&#125;);
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const p = new Promise(function (resolve, reject) &#123;
+  resolve(3);
+&#125;);
+p.then((data) =&gt; &#123;
+  console.log(data); // 3
+  // 返回值为thenable对象
+  return &#123;
+    then(resolve, reject) &#123;
+      resolve(&quot;清心&quot;);
+    &#125;,
+  &#125;;
+&#125;).then((data) =&gt; &#123;
+  console.log(data); // 清心
+&#125;);
+</code></pre>
 <ol start="5">
-<li><p><code>then</code>返回失败的<code>Promise</code></p>
-<blockquote>
+<li><code>then</code>返回失败的<code>Promise</code><blockquote>
 <p>如果<code>then</code>需要返回一个<strong>失败的</strong><code>Promise</code>对象，有以下三种实现方式：</p>
 <ul>
 <li><code>then</code>方法回调函数的返回值为一个<strong>失败的</strong><code>Promise</code>对象</li>
@@ -2343,6 +2634,9 @@ console.log(data); // 清心
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   resolve(1);
 &#125;);
@@ -2352,52 +2646,72 @@ p1.then(() =&gt; &#123;
   // return &#123;then(resolve,reject)&#123;reject(1)&#125;&#125;  // 返回一个thenable对象，对象的then方法中调用的是reject方法
 &#125;).then(
   (data) =&gt; &#123;
- console.log(&quot;成功&quot;, data);
+    console.log(&quot;成功&quot;, data);
   &#125;,
   (err) =&gt; &#123;
- console.log(&quot;失败&quot;, err);
+    console.log(&quot;失败&quot;, err);
   &#125;
 );
 // 打印结果：失败 Error: 1
 </code></pre>
-</blockquote>
-</li>
-<li><p>测试题</p>
-<blockquote>
+<ol start="6">
+<li>测试题</li>
+</ol>
 <pre><code>const p = new Promise((resolve, reject) =&gt; &#123;
   resolve(1); 
   // Promise状态由 pending---&gt;fulfilled
 &#125;);
+&gt;
+p.then((data) =&gt; &#123;
+  console.log(data); // 1
+  // 没有返回值 相当于then返回了一个成功的Promise,Promise的返回值为 undefined
+  // new Promise((resolve,reject)=&gt;&#123;resolve()&#125;)
+&#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // undefined
+    return 3;
+    // 相当于then返回了一个成功的Promise，Promise的返回值是3
+    // new Promise((resolve,reject)=&gt;resolve(3))
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // 3
+    return new Promise((resolve, reject) =&gt; reject(4));
+    // then返回了一个失败的Promise，Promise的返回值是4
+  &#125;)
+  .then(null, (err) =&gt; &#123;
+    console.log(err); // 4
+    return &#123;
+      then(resolve, reject) &#123;
+        resolve(&quot;清心&quot;);
+      &#125;,
+    &#125;;
+    // new Promise((resolve,reject)=&gt; resolve(&quot;清心&quot;);)
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // 清心
+  &#125;);
 </code></pre>
-</blockquote>
-<p>p.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; 1<br>  &#x2F;&#x2F; 没有返回值 相当于then返回了一个成功的Promise,Promise的返回值为 undefined<br>  &#x2F;&#x2F; new Promise((resolve,reject)&#x3D;&gt;{resolve()})<br>})<br>  .then((data) &#x3D;&gt; {<br> console.log(data); &#x2F;&#x2F; undefined<br> return 3;<br> &#x2F;&#x2F; 相当于then返回了一个成功的Promise，Promise的返回值是3<br> &#x2F;&#x2F; new Promise((resolve,reject)&#x3D;&gt;resolve(3))<br>  })<br>  .then((data) &#x3D;&gt; {<br> console.log(data); &#x2F;&#x2F; 3<br> return new Promise((resolve, reject) &#x3D;&gt; reject(4));<br> &#x2F;&#x2F; then返回了一个失败的Promise，Promise的返回值是4<br>  })<br>  .then(null, (err) &#x3D;&gt; {<br> console.log(err); &#x2F;&#x2F; 4<br> return {<br>   then(resolve, reject) {<br> resolve(“清心”);<br>   },<br> };<br> &#x2F;&#x2F; new Promise((resolve,reject)&#x3D;&gt; resolve(“清心”);)<br>  })<br>  .then((data) &#x3D;&gt; {<br> console.log(data); &#x2F;&#x2F; 清心<br>  });</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h4 id="catch-方法"><a href="#catch-方法" class="headerlink" title="catch 方法"></a>catch 方法</h4><blockquote>
 <p>重点了解：<code>catch()</code> 方法的好处和基本用法。</p>
 <ul>
 <li><code>Promise.prototype.catch()</code>方法是<code>.then(null, rejection)</code>或<code>.then(undefined, rejection)</code>的别名，用于指定<strong>发生错误（失败）时的回调函数</strong>。</li>
 </ul>
+</blockquote>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   reject(1);
 &#125;);
 p1.then(null, (err) =&gt; &#123;
   console.log(err);
 &#125;);
+&gt;
+// 上面写法，改成catch方法如下
+p1.catch((err) =&gt; &#123;
+  console.log(err);
+&#125;);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 上面写法，改成catch方法如下<br>p1.catch((err) &#x3D;&gt; {<br>  console.log(err);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol>
-<li><p>如果 catch 方法前没有错误，就不会执行 catch 方法，其会自动被忽略</p>
-<blockquote>
+<li>如果 catch 方法前没有错误，就不会执行 catch 方法，其会自动被忽略</li>
+</ol>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   resolve(1); // 成功回调
 &#125;);
@@ -2407,21 +2721,22 @@ p1.then((data) =&gt; &#123;
 &#125;) 
   .catch((err) =&gt; &#123;
 // 前面代码没有抛出错误，则此处的catch会被忽略，并不会执行
- console.log(&quot;错误&quot;);
- return 4;
+    console.log(&quot;错误&quot;);
+    return 4;
   &#125;)
   .then((data) =&gt; &#123;
- // 此处的data为第一个then方法中的返回值
- console.log(data); // 3
+    // 此处的data为第一个then方法中的返回值
+    console.log(data); // 3
   &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>catch 方法的返回值和向后传值原理与 then 方法<strong>完全一样</strong>。</p>
-<blockquote>
+<ol start="2">
+<li>catch 方法的返回值和向后传值原理与 then 方法<strong>完全一样</strong>。<blockquote>
 <ul>
 <li>catch 方法<strong>默认</strong>返回一个<strong>成功的</strong> Promise 对象，其回调函的返回值会向下传递给下一个 then 或 catch 方法的回调函数的参数</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   resolve(1);
 &#125;);
@@ -2430,24 +2745,25 @@ p1.then((data) =&gt; &#123;
   return new Promise((resolve, reject) =&gt; reject(4)); // 返回一个失败状态的Promise
 &#125;)
   .catch((err) =&gt; &#123;
- console.log(err); // 4
- return 3;
+    console.log(err); // 4
+    return 3;
   &#125;)
   .then((data) =&gt; &#123;
- console.log(data); //3
- throw new Error(&quot;2&quot;); // 主动抛出错误
+    console.log(data); //3
+    throw new Error(&quot;2&quot;); // 主动抛出错误
   &#125;)
   .catch((err) =&gt; &#123;
- console.log(err); // Error:2
+    console.log(err); // Error:2
   &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>如果 Promise 的失败状态在 then 方法中没有调用回调函数处理，则<strong>错误会向下传递</strong>，直到遇到 then 的第二个回调或 catch 方法才会被处理，如果一直没有处理，则最后会将错误抛出来</p>
-<blockquote>
+<ol start="3">
+<li>如果 Promise 的失败状态在 then 方法中没有调用回调函数处理，则<strong>错误会向下传递</strong>，直到遇到 then 的第二个回调或 catch 方法才会被处理，如果一直没有处理，则最后会将错误抛出来<blockquote>
 <ul>
 <li><code>reject()</code>函数，相当于抛出错误</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   reject(1);
 &#125;);
@@ -2456,16 +2772,17 @@ p1.then((data) =&gt; &#123;
   console.log(&quot;成功的回调&quot;, data);
 &#125;) // then中没有处理,向下传递
   .then((data) =&gt; &#123;
- console.log(&quot;不会执行2&quot;, data);
+    console.log(&quot;不会执行2&quot;, data);
   &#125;) // then中没有处理,向下传递
   .then((data) =&gt; &#123;
- console.log(&quot;不会执行2&quot;, data);
+    console.log(&quot;不会执行2&quot;, data);
   &#125;) // 遇到catch被处理
   .catch((err) =&gt; &#123;
- console.log(&quot;失败的回调&quot;, err);
+    console.log(&quot;失败的回调&quot;, err);
   &#125;);
 // 打印结果：失败的回调 1
 </code></pre>
+<blockquote>
 <blockquote>
 <p>代码解析：</p>
 </blockquote>
@@ -2474,8 +2791,6 @@ p1.then((data) =&gt; &#123;
 <li>所以错误继续向下传递，遇到 catch 后，被处理，然后打印输出结果：”失败的回调 1”</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>注意</p>
@@ -2485,26 +2800,28 @@ p1.then((data) =&gt; &#123;
 </ul>
 </blockquote>
 <ol start="4">
-<li><p>catch 方法有什么好处</p>
-<blockquote>
+<li>catch 方法有什么好处<blockquote>
 <ul>
 <li>如果<strong>只需要处理失败（错误）的回调</strong>，则可以用只调用 catch 方法就好，不用调用 then 方法。</li>
 <li>如果成功与失败的回调都要处理，则可以采用<strong>链式调用</strong>写法，相当更直观，简洁。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   // resolve(1);
   reject(2);
 &#125;);
+&gt;
+p1.then((data) =&gt; &#123;
+  console.log(&quot;成功的回调&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;失败的回调&quot;, err);
+&#125;);
+// 打印结果： 失败的回调 2
 </code></pre>
-</blockquote>
-<p>p1.then((data) &#x3D;&gt; {<br>  console.log(“成功的回调”, data);<br>}).catch((err) &#x3D;&gt; {<br>  console.log(“失败的回调”, err);<br>});<br>&#x2F;&#x2F; 打印结果： 失败的回调 2</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>总结</p>
-<blockquote>
+<ol start="5">
+<li>总结<blockquote>
 <ul>
 <li><code>catch()</code> 方法主要用来捕获它前面的错误<br>在实际开发中，一般总是建议，Promise 对象后面要跟 <code>catch()</code>方法（一个或多个 catch 方法），这样可以处理 Promise 内部发生的错误。</li>
 </ul>
@@ -2524,18 +2841,25 @@ p1.then((data) =&gt; &#123;
 <ul>
 <li>finally()方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。在实际开发中用得不多，仅做了解。</li>
 </ul>
+</blockquote>
 <pre><code>const p1 = new Promise(function (resolve, reject) &#123;
   // resolve(&quot;成功&quot;);
   reject(&quot;失败&quot;);
 &#125;);
+&gt;
+p1.finally((data) =&gt; &#123;
+  console.log(&quot;执行了&quot;);
+  console.log(data);
+&#125;);
 </code></pre>
-</blockquote>
-<p>p1.finally((data) &#x3D;&gt; {<br>  console.log(“执行了”);<br>  console.log(data);<br>});</p>
 <blockquote>
-<pre><code>&gt;注：
-- finally 方法并不会接受任何参数，也不处理错误，只是用来执行 finally 方法回调函数中的代码。他常用来处理不关异步操作成功还是失败，最后都要做的操作。
-- 比如：常见的数据库操作，不关最后操作成功还是失败，都需要关闭数据库。
-</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>finally 方法并不会接受任何参数，也不处理错误，只是用来执行 finally 方法回调函数中的代码。他常用来处理不关异步操作成功还是失败，最后都要做的操作。</li>
+<li>比如：常见的数据库操作，不关最后操作成功还是失败，都需要关闭数据库。</li>
+</ul>
 </blockquote>
 <h3 id="四、Promise-的实践和应用"><a href="#四、Promise-的实践和应用" class="headerlink" title="四、Promise 的实践和应用"></a>四、Promise 的实践和应用</h3><blockquote>
 <p>异步任务的执行分为并发和继发<br><strong>继发</strong></p>
@@ -2547,57 +2871,120 @@ p1.then((data) =&gt; &#123;
 </ul>
 </blockquote>
 <ol>
-<li><p>Promise 实现<strong>继发</strong>加载 5 张图片</p>
-<blockquote>
+<li>Promise 实现<strong>继发</strong>加载 5 张图片</li>
+</ol>
 <pre><code>function preloadImage(url) &#123;
   return new Promise((resolve, reject) =&gt; &#123;
- let img = new Image();
- img.style.cssText = &quot;width:200px&quot;;
- img.onload = function () &#123;
-   resolve(img);
- &#125;;
- img.onerror = function () &#123;
-   // reject(new Error(&quot;图片地址错误&quot;));
-   reject(null);
- &#125;;
- img.src = url;
+    let img = new Image();
+    img.style.cssText = &quot;width:200px&quot;;
+    img.onload = function () &#123;
+      resolve(img);
+    &#125;;
+    img.onerror = function () &#123;
+      // reject(new Error(&quot;图片地址错误&quot;));
+      reject(null);
+    &#125;;
+    img.src = url;
   &#125;);
 &#125;
+&gt;
+let urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+];
+preloadImage(urls[0])
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+    // 加载第二张
+    return preloadImage(urls[1]);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;)
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+    // 加载第三张
+    return preloadImage(urls[2]);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;)
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+    // 加载第四张
+    return preloadImage(urls[3]);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;)
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+    // 加载第五张
+    return preloadImage(urls[4]);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;)
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+  &#125;);
 </code></pre>
-</blockquote>
-<p>let urls &#x3D; [<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>];<br>preloadImage(urls[0])<br>  .then((data) &#x3D;&gt; {<br> if (data) document.body.appendChild(data);<br> &#x2F;&#x2F; 加载第二张<br> return preloadImage(urls[1]);<br>  })<br>  .catch(() &#x3D;&gt; {})<br>  .then((data) &#x3D;&gt; {<br> if (data) document.body.appendChild(data);<br> &#x2F;&#x2F; 加载第三张<br> return preloadImage(urls[2]);<br>  })<br>  .catch(() &#x3D;&gt; {})<br>  .then((data) &#x3D;&gt; {<br> if (data) document.body.appendChild(data);<br> &#x2F;&#x2F; 加载第四张<br> return preloadImage(urls[3]);<br>  })<br>  .catch(() &#x3D;&gt; {})<br>  .then((data) &#x3D;&gt; {<br> if (data) document.body.appendChild(data);<br> &#x2F;&#x2F; 加载第五张<br> return preloadImage(urls[4]);<br>  })<br>  .catch(() &#x3D;&gt; {})<br>  .then((data) &#x3D;&gt; {<br> if (data) document.body.appendChild(data);<br>  });</p>
 <blockquote>
-<pre><code>&gt;注：
-- 上面代码中每个`then`方法后面都跟了一个`catch`，主要是为了防止图片加载失败后，其错误没有处理而造成后面的`then` 方法直接被忽略，从而造成后面的图片都没有办法加载。
-</code></pre>
-</blockquote>
-</li>
-<li><p>Promise 实现<strong>并发</strong>加载 5 张图片</p>
 <blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>上面代码中每个<code>then</code>方法后面都跟了一个<code>catch</code>，主要是为了防止图片加载失败后，其错误没有处理而造成后面的<code>then</code> 方法直接被忽略，从而造成后面的图片都没有办法加载。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>Promise 实现<strong>并发</strong>加载 5 张图片</li>
+</ol>
 <pre><code>function preloadImage(url) &#123;
   return new Promise((resolve, reject) =&gt; &#123;
- let img = new Image();
- img.style.cssText = &quot;width:200px&quot;;
- img.onload = function () &#123;
-   resolve(img);
- &#125;;
- img.onerror = function () &#123;
-   // reject(new Error(&quot;图片地址错误&quot;));
-   reject(null);
- &#125;;
- img.src = url;
+    let img = new Image();
+    img.style.cssText = &quot;width:200px&quot;;
+    img.onload = function () &#123;
+      resolve(img);
+    &#125;;
+    img.onerror = function () &#123;
+      // reject(new Error(&quot;图片地址错误&quot;));
+      reject(null);
+    &#125;;
+    img.src = url;
   &#125;);
 &#125;
+&gt;
+let urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+];
+preloadImage(urls[0])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;);
+preloadImage(urls[1])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;);
+preloadImage(urls[2])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;);
+preloadImage(urls[3])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;);
+preloadImage(urls[4])
+  .then((data) =&gt; &#123;
+    document.body.appendChild(data);
+  &#125;)
+  .catch(() =&gt; &#123;&#125;);
 </code></pre>
-</blockquote>
-<p>let urls &#x3D; [<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/04-23/1339186404a1276893.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/10-29/011138ab5ee2314108.png</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>];<br>preloadImage(urls[0])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  })<br>  .catch(() &#x3D;&gt; {});<br>preloadImage(urls[1])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  })<br>  .catch(() &#x3D;&gt; {});<br>preloadImage(urls[2])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  })<br>  .catch(() &#x3D;&gt; {});<br>preloadImage(urls[3])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  })<br>  .catch(() &#x3D;&gt; {});<br>preloadImage(urls[4])<br>  .then((data) &#x3D;&gt; {<br> document.body.appendChild(data);<br>  })<br>  .catch(() &#x3D;&gt; {});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>Generator 函数实现继发加载 5 张图片</p>
-<blockquote>
+<ol start="3">
+<li>Generator 函数实现继发加载 5 张图片<blockquote>
 <p>实现的基本思想</p>
 <ul>
 <li>通过<code>Generator</code>函数生成的遍历器对象的<code>next</code>方法的参数，把外部的值传到<code>Generator</code>函数内部来，然后做相关操作，最后再接着执行下一步的异步操作。</li>
@@ -2606,96 +2993,163 @@ p1.then((data) =&gt; &#123;
 </li>
 </ol>
 <ul>
-<li><p>基础版</p>
-<blockquote>
-<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
-function preloadImage(url) &#123;
-let img = new Image();
-img.style.cssText = &quot;width:200px;margin:10px&quot;;
-img.onload = function () &#123;
-  it.next(img);
-&#125;;
-img.onerror = function () &#123;
-  it.next(null);
-&#125;;
-</code></pre>
-</blockquote>
-<p>img.src &#x3D; url;<br>}</p>
-<blockquote>
-</blockquote>
-<p>const urls &#x3D; [<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg</a>“,<br>];<br>&#x2F;*<br>function* gen() {<br>  let img &#x3D; yield preloadImage(urls[0]);<br>  if (img) document.body.appendChild(img);<br>  img &#x3D; yield preloadImage(urls[1]);<br>  if (img) document.body.appendChild(img);<br>  img &#x3D; yield preloadImage(urls[2]);<br>  if (img) document.body.appendChild(img);<br>  img &#x3D; yield preloadImage(urls[3]);<br>  if (img) document.body.appendChild(img);<br>  img &#x3D; yield preloadImage(urls[4]);<br>  if (img) document.body.appendChild(img);<br>}<br><em>&#x2F;<br>&#x2F;</em> 上面Generator函数可以简写成下面形式 <em>&#x2F;<br>function</em> gen() {<br>let img;<br>for (let v of urls) {<br>  img &#x3D; yield preloadImage(v);<br>  if (img) document.body.appendChild(img);<br>}<br>}<br>&#x2F;&#x2F; 生成遍历器<br>const it &#x3D; gen();<br>it.next(); &#x2F;&#x2F; 开始执行代码</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>优化版</p>
-<blockquote>
-<ul>
-<li>以下形式的写法，前提是，每一次加载图片成功后，操作的内容是一样的</li>
+<li>基础版</li>
 </ul>
 <pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
 function preloadImage(url) &#123;
-let img = new Image();
-img.style.cssText = &quot;width:200px;margin:10px&quot;;
-img.onload = function () &#123;
-  document.body.appendChild(img);
-&#125;;
-img.onerror = function () &#123;&#125;;
-img.src = url;
-&#125;
-</code></pre>
-</blockquote>
-<p>const urls &#x3D; [<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg</a>“,<br>];</p>
-<blockquote>
-</blockquote>
-<p>function* gen() {<br>yield preloadImage(urls[0]);<br>yield preloadImage(urls[1]);<br>yield preloadImage(urls[2]);<br>yield preloadImage(urls[3]);<br>yield preloadImage(urls[4]);<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 生成遍历器<br>const it &#x3D; gen();<br>it.next(); &#x2F;&#x2F; 加载第1张图片<br>it.next(); &#x2F;&#x2F; 加载第2张图片<br>it.next(); &#x2F;&#x2F; 加载第3张图片<br>it.next(); &#x2F;&#x2F; 加载第4张图片<br>it.next(); &#x2F;&#x2F; 加载第5张图片</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>Generator 函数与自动化管理</p>
-<blockquote>
-<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
-function preloadImage(url) &#123;
-return function thunk(resolve, reject) &#123;
   let img = new Image();
   img.style.cssText = &quot;width:200px;margin:10px&quot;;
   img.onload = function () &#123;
-    resolve(img);
+    it.next(img);
   &#125;;
   img.onerror = function () &#123;
-    reject(null);
+    it.next(null);
   &#125;;
+&gt;
   img.src = url;
-&#125;;
 &#125;
+&gt;
+const urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg&quot;,
+];
+/*
+function* gen() &#123;
+    let img = yield preloadImage(urls[0]);
+    if (img) document.body.appendChild(img);
+    img = yield preloadImage(urls[1]);
+    if (img) document.body.appendChild(img);
+    img = yield preloadImage(urls[2]);
+    if (img) document.body.appendChild(img);
+    img = yield preloadImage(urls[3]);
+    if (img) document.body.appendChild(img);
+    img = yield preloadImage(urls[4]);
+    if (img) document.body.appendChild(img);
+&#125;
+*/
+/* 上面Generator函数可以简写成下面形式 */
+function* gen() &#123;
+  let img;
+  for (let v of urls) &#123;
+    img = yield preloadImage(v);
+    if (img) document.body.appendChild(img);
+  &#125;
+&#125;
+// 生成遍历器
+const it = gen();
+it.next(); // 开始执行代码
 </code></pre>
+<ul>
+<li>优化版<blockquote>
+<ul>
+<li>以下形式的写法，前提是，每一次加载图片成功后，操作的内容是一样的</li>
+</ul>
 </blockquote>
-<p>const urls &#x3D; [<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg</a>“,<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg</a>“,<br>];</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;   const it &#x3D; gen();<br>&#x2F;&#x2F;   it.next().value(function (data) {<br>&#x2F;&#x2F;     document.body.appendChild(data);</p>
 </li>
 </ul>
-<p>&#x2F;&#x2F;     it.next().value(function (data) {<br>&#x2F;&#x2F;       document.body.appendChild(data);<br>&#x2F;&#x2F;       it.next().value(function (data) {<br>&#x2F;&#x2F;         document.body.appendChild(data);<br>&#x2F;&#x2F;         it.next().value(function (data) {<br>&#x2F;&#x2F;           document.body.appendChild(data);<br>&#x2F;&#x2F;         });<br>&#x2F;&#x2F;       });<br>&#x2F;&#x2F;     });<br>&#x2F;&#x2F;   });</p>
-<blockquote>
-</blockquote>
-<p>function* gen() {<br>  yield preloadImage(urls[0]);<br>  yield preloadImage(urls[1]);<br>  yield preloadImage(urls[2]);<br>  yield preloadImage(urls[3]);<br>  yield preloadImage(urls[4]);<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 采取自动化管理<br>function run(gen) {<br>  let it &#x3D; gen();<br>  function next() {<br>    let result &#x3D; it.next();<br>    if (result.done) return;<br>    result.value(function (data) {<br>      document.body.appendChild(data);<br>      &#x2F;&#x2F; next(); &#x2F;&#x2F; 写在这里是继发<br>    });<br>    next(); &#x2F;&#x2F; 写在这里是并发<br>  }<br>  next();<br>}</p>
-<blockquote>
-</blockquote>
-<p>run(gen);</p>
-<blockquote>
-<pre><code>
+<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
+function preloadImage(url) &#123;
+  let img = new Image();
+  img.style.cssText = &quot;width:200px;margin:10px&quot;;
+  img.onload = function () &#123;
+    document.body.appendChild(img);
+  &#125;;
+  img.onerror = function () &#123;&#125;;
+  img.src = url;
+&#125;
+&gt;
+const urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg&quot;,
+];
+&gt;
+function* gen() &#123;
+  yield preloadImage(urls[0]);
+  yield preloadImage(urls[1]);
+  yield preloadImage(urls[2]);
+  yield preloadImage(urls[3]);
+  yield preloadImage(urls[4]);
+&#125;
+&gt;
+// 生成遍历器
+const it = gen();
+it.next(); // 加载第1张图片
+it.next(); // 加载第2张图片
+it.next(); // 加载第3张图片
+it.next(); // 加载第4张图片
+it.next(); // 加载第5张图片
 </code></pre>
-</blockquote>
+<ul>
+<li>Generator 函数与自动化管理</li>
+</ul>
+<pre><code>// 预加载一张图片，图片加载成功后，需要处理的事情在回调函数中处理
+function preloadImage(url) &#123;
+  return function thunk(resolve, reject) &#123;
+    let img = new Image();
+    img.style.cssText = &quot;width:200px;margin:10px&quot;;
+    img.onload = function () &#123;
+      resolve(img);
+    &#125;;
+    img.onerror = function () &#123;
+      reject(null);
+    &#125;;
+    img.src = url;
+  &#125;;
+&#125;
+&gt;
+const urls = [
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2019/11-06/134028c28eb5212376.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/02-08/145955bc3b00504448.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/02-19/16465934b475255075.jpg&quot;,
+];
+&gt;
+//   const it = gen();
+//   it.next().value(function (data) &#123;
+//     document.body.appendChild(data);
+//     it.next().value(function (data) &#123;
+//       document.body.appendChild(data);
+//       it.next().value(function (data) &#123;
+//         document.body.appendChild(data);
+//         it.next().value(function (data) &#123;
+//           document.body.appendChild(data);
+//         &#125;);
+//       &#125;);
+//     &#125;);
+//   &#125;);
+&gt;
+function* gen() &#123;
+  yield preloadImage(urls[0]);
+  yield preloadImage(urls[1]);
+  yield preloadImage(urls[2]);
+  yield preloadImage(urls[3]);
+  yield preloadImage(urls[4]);
+&#125;
+&gt;
+// 采取自动化管理
+function run(gen) &#123;
+  let it = gen();
+  function next() &#123;
+    let result = it.next();
+    if (result.done) return;
+    result.value(function (data) &#123;
+      document.body.appendChild(data);
+      // next(); // 写在这里是继发
+    &#125;);
+    next(); // 写在这里是并发
+  &#125;
+  next();
+&#125;
+&gt;
+run(gen);
+</code></pre>
 <h3 id="五、Promise-的构造函数方法"><a href="#五、Promise-的构造函数方法" class="headerlink" title="五、Promise 的构造函数方法"></a>五、Promise 的构造函数方法</h3><blockquote>
 <p>深入浅出<code>Promise</code>的构造函数方法，<code>Promise.resolve()</code>和<code>Promise.reject()</code>、<code>Promise.all()</code>、<code>Promise.race()</code>和<code>Promise.allSettled()</code>、<code>Promise.any()</code></p>
 <ul>
@@ -2708,38 +3162,36 @@ return function thunk(resolve, reject) &#123;
 <ul>
 <li><code>Promise.resolve()</code>方法是<strong>成功状态</strong><code>Promise</code>的一种简写形式</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Promise.resolve(&quot;hello&quot;);
 // 等价于
 new Promise((resolve, reject) =&gt; &#123;
   resolve(&quot;hello&quot;);
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>基本用法</strong></p>
 <ul>
-<li>创建一个成功的 Promise 对象<blockquote>
+<li>创建一个成功的 Promise 对象</li>
+</ul>
 <pre><code>// 创建一个成功的Promise对象
 Promise.resolve(&quot;hello&quot;).then((data) =&gt; &#123;
-console.log(data); // hello
+  console.log(data); // hello
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li>then 的回调函数中返回一个成功的 Promise 对象<blockquote>
+<ul>
+<li>then 的回调函数中返回一个成功的 Promise 对象</li>
+</ul>
 <pre><code>const p = new Promise((resolve, reject) =&gt; &#123;
-resolve(22);
+  resolve(22);
 &#125;);
 p.then((data) =&gt; &#123;
-return Promise.resolve(&quot;icoding&quot;); // 返回一个成功的Promise
+  return Promise.resolve(&quot;icoding&quot;); // 返回一个成功的Promise
 &#125;).then((data) =&gt; &#123;
-console.log(data); // icoding
+  console.log(data); // icoding
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <p><strong>resolve方法的参数</strong></p>
 <blockquote>
 <ul>
@@ -2771,77 +3223,81 @@ console.log(data); // icoding
 </tr>
 </tbody></table>
 <ul>
-<li><p>不带任何参数</p>
-<blockquote>
+<li>不带任何参数</li>
+</ul>
 <pre><code>Promise.resolve();
 // 等价于
 new Promise((resolve, reject) =&gt; resolve());
 </code></pre>
-</blockquote>
-</li>
-<li><p>参数为一般类型</p>
-<blockquote>
+<ul>
+<li>参数为一般类型</li>
+</ul>
 <pre><code>Promise.resolve(&quot;hello&quot;);
 // 等价于
 new Promise((resolve, reject) =&gt; &#123;
-resolve(&quot;hello&quot;);
+  resolve(&quot;hello&quot;);
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>参数为 Promise 实例</p>
-<blockquote>
+<ul>
+<li>参数为 Promise 实例</li>
+</ul>
 <pre><code>const p1 = new Promise((resolve, rejcet) =&gt; resolve(&quot;hello&quot;));
 const p3 = Promise.resolve(p1);
 console.log(p3 === p1); // true
+&gt;
+// 与下面代码做区分
+const p1 = new Promise((resolve, rejcet) =&gt; resolve(&quot;hello&quot;));
+const p2 = new Promise((resolve, rejcet) =&gt; resolve(p1));
+console.log(p1 === p2); // false
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 与下面代码做区分<br>const p1 &#x3D; new Promise((resolve, rejcet) &#x3D;&gt; resolve(“hello”));<br>const p2 &#x3D; new Promise((resolve, rejcet) &#x3D;&gt; resolve(p1));<br>console.log(p1 &#x3D;&#x3D;&#x3D; p2); &#x2F;&#x2F; false</p>
 <blockquote>
-<pre><code>&gt;注意区分：
-- `Promise.resolve()`方法是直接返回`Promise实例`，所以参数实例和接收到的实例是同一个
-</code></pre>
-</blockquote>
-</li>
-<li><p>参数为 thenable 对象</p>
 <blockquote>
+<p>注意区分：</p>
+</blockquote>
+<ul>
+<li><code>Promise.resolve()</code>方法是直接返回<code>Promise实例</code>，所以参数实例和接收到的实例是同一个</li>
+</ul>
+</blockquote>
+<ul>
+<li>参数为 thenable 对象<blockquote>
 <ul>
 <li>将 thenable 对象作为 <code>Promise.resolve</code> 的参数，则会先将 thenable 对象转换为 Promise 对象，然后立即执行 thenable 对象的 then 方法，从而改变 Promise 的状态。</li>
 </ul>
-<pre><code>let thenable = &#123;
-name: &quot;icoding&quot;,
-b: 2,
-then(resolve, reject) &#123;
-  resolve(this.name);
-&#125;,
-&#125;;
-</code></pre>
-</blockquote>
-<p>Promise.resolve(thenable).then((data) &#x3D;&gt; {<br>console.log(data);<br>});<br>&#x2F;&#x2F; 打印结果： icoding</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>let thenable = &#123;
+  name: &quot;icoding&quot;,
+  b: 2,
+  then(resolve, reject) &#123;
+    resolve(this.name);
+  &#125;,
+&#125;;
+&gt;
+Promise.resolve(thenable).then((data) =&gt; &#123;
+  console.log(data);
+&#125;);
+// 打印结果： icoding
+</code></pre>
 <ol start="2">
 <li>Promise.reject() 方法<blockquote>
 <p>有时需要将一个对象转为<strong>失败的</strong> Promise 对象，Promise.reject方法就可以起到这个作用。</p>
 <ul>
 <li>Promise.reject() 是失败状态 Promise 的一种简写形式</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Promise.reject(new Error(&quot;错误&quot;));
 // 等价于
 new Promise((resolve, reject) =&gt; reject(&quot;错误&quot;));
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>基本用法</strong></p>
 <blockquote>
 <ul>
 <li>当我们需要在 then 方法中返回一个失败的 Promise 时，就可以用 Promise.reject 方法</li>
 </ul>
+</blockquote>
 <pre><code>Promise.reject(new Error(&quot;地址错误&quot;))
   .catch((err) =&gt; &#123;
     console.log(err); // Error: 地址错误
@@ -2857,48 +3313,64 @@ new Promise((resolve, reject) =&gt; reject(&quot;错误&quot;));
   &#125;);
 </code></pre>
 <p><strong>参数问题</strong></p>
+<blockquote>
 <ul>
 <li>Promise.reject()的参数不管是什么类型都会<strong>原封不动</strong>传递给新创建的 Promise 回调函数的 reject 参数的参数。这一点与<code>Promise.resolve()</code>方法<strong>不一样</strong>喽</li>
 <li>参数为thenable对象</li>
 </ul>
+</blockquote>
 <pre><code>obj = &#123;
   then(resolve, reject) &#123;
     resolve(22);
   &#125;,
 &#125;;
+&gt;
+Promise.reject(obj).catch((data) =&gt; console.log(data));
+// 打印结果：&#123;then:f&#125;
 </code></pre>
-</blockquote>
-<p>Promise.reject(obj).catch((data) &#x3D;&gt; console.log(data));<br>&#x2F;&#x2F; 打印结果：{then:f}</p>
 <blockquote>
-<pre><code>- 如果是`Promise.resolve()`方法，则会打印出22
-</code></pre>
+<ul>
+<li>如果是<code>Promise.resolve()</code>方法，则会打印出22</li>
+</ul>
 </blockquote>
 <blockquote>
 <ul>
 <li>参数为 Promise 实例</li>
 </ul>
+</blockquote>
 <pre><code>const p1 = new Promise((resolve, reject) =&gt; resolve(&quot;hello&quot;));
+&gt;
+const p2 = Promise.reject(p1);
+console.log(p1 === p2); // false
+p2.catch((data) =&gt; &#123;
+  console.log(data); // p1
+&#125;);
 </code></pre>
-</blockquote>
-<p>const p2 &#x3D; Promise.reject(p1);<br>console.log(p1 &#x3D;&#x3D;&#x3D; p2); &#x2F;&#x2F; false<br>p2.catch((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; p1<br>});</p>
 <blockquote>
-<pre><code>&gt;与`resolve()`方法对比
-</code></pre>
-<p>const p1 &#x3D; new Promise((resolve, reject) &#x3D;&gt; resolve(“hello”));</p>
-</blockquote>
-<p>const p2 &#x3D; Promise.resolve(p1);<br>console.log(p1 &#x3D;&#x3D;&#x3D; p2); &#x2F;&#x2F; false<br>p2.then((data) &#x3D;&gt; {<br>  console.log(data); &#x2F;&#x2F; hello<br>});</p>
 <blockquote>
-<pre><code>
-</code></pre>
+<p>与<code>resolve()</code>方法对比</p>
 </blockquote>
+</blockquote>
+<pre><code>const p1 = new Promise((resolve, reject) =&gt; resolve(&quot;hello&quot;));
+&gt;
+const p2 = Promise.resolve(p1);
+console.log(p1 === p2); // false
+p2.then((data) =&gt; &#123;
+  console.log(data); // hello
+&#125;);
+</code></pre>
 <ol start="3">
 <li>Promise.all() 方法<blockquote>
 <p><code>Promise.all()</code>方法用于关注多个<code>Promise</code>对象的状态变化。其参数只要是一个迭代器对象或可遍历对象就可以。迭代的每个成员如果不是 Promise 对象，则会先将其转换为 Promise 对象，再做处理。<br><strong>语法</strong></p>
+</blockquote>
+</li>
+</ol>
 <pre><code>const p = Promise.all(iterable);
 </code></pre>
 <p><strong>基本用法</strong></p>
 <pre><code>const p = Promise.all([p1,p2,p3,...]) ; // p1 p2 p3都是promise对象
 </code></pre>
+<blockquote>
 <blockquote>
 <p>注：<br>上面代码中，<code>Promise.all</code>接受一个数组作为参数，数组的成员都是<code>Promise</code>对象，如果其成员不是<code>Promise</code>对象，会将其转换为成功的<code>Promise</code>对象，再进一步处理。<br>返回值 p 为一个新的 Promise 对象，其状态由 p1,p2,p3 决定，<strong>分两种情况</strong></p>
 </blockquote>
@@ -2907,79 +3379,117 @@ new Promise((resolve, reject) =&gt; reject(&quot;错误&quot;));
 <li>只要 p1,p2,p3 中<strong>有一个</strong>的状态是 <code>rejected</code>，p 的状态就会变成 <code>rejected</code>，此时**第一个状态变为 <code>rejected</code>**的promise实例的返回值（<code>[[PromiseResult]]</code>属性值）传递给 <code>p.then</code> 的回调函数</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>代码演示一：</p>
-<blockquote>
+<li>代码演示一：<blockquote>
 <ul>
 <li><code>Promise.all()</code>方法参数中的所有<code>Promise</code>对象状态都变为<code>fulfilled</code>的情况</li>
 </ul>
-<pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
-setTimeout(() =&gt; &#123;
-  resolve(1);
-&#125;, 1000);
-&#125;);
-p1.then(() =&gt; &#123;
-console.log(&quot;p1成功&quot;);
-&#125;);
-</code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(2);<br>}, 2000);<br>});<br>p2.then((data) &#x3D;&gt; {<br>console.log(“p2成功”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(3);<br>}, 3000);<br>});<br>p3.then((data) &#x3D;&gt; {<br>console.log(“p3成功”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.all([p1, p2, p3]);<br>p.then((data) &#x3D;&gt; {<br>console.log(“成功”, data);<br>}).catch((err) &#x3D;&gt; {<br>console.log(“失败”, err);<br>});</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; p1,p2,p3状态都为fulfilled时,p的状态改变fulfilled,然后执行他的then方法</p>
-<blockquote>
-<pre><code>&gt;代码解释：
-- 1s 后 p1 的状态变为 fulfiled，打印出：&quot;p1 成功&quot;
-- 2s 后 p2 的状态变为 fulfilled，打印出：&quot;p2 成功&quot;
-- 3s 后 p3 的状态变为 fulfilled,打印出：&quot;p3 成功&quot;
-- 当 p1,p2,p3 的状态都变为 fulfilled 时， p 的状态变为 fulfilled，然后调用 then 方法的第一个回调，打印出：&quot;成功 [1,2 ,3]&quot;
-</code></pre>
 </blockquote>
 </li>
-<li><p>代码演示二：</p>
+</ul>
+<pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(1);
+  &#125;, 1000);
+&#125;);
+p1.then(() =&gt; &#123;
+  console.log(&quot;p1成功&quot;);
+&#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(2);
+  &#125;, 2000);
+&#125;);
+p2.then((data) =&gt; &#123;
+  console.log(&quot;p2成功&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(3);
+  &#125;, 3000);
+&#125;);
+p3.then((data) =&gt; &#123;
+  console.log(&quot;p3成功&quot;);
+&#125;);
+&gt;
+const p = Promise.all([p1, p2, p3]);
+p.then((data) =&gt; &#123;
+  console.log(&quot;成功&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;失败&quot;, err);
+&#125;);
+&gt;
+// p1,p2,p3状态都为fulfilled时,p的状态改变fulfilled,然后执行他的then方法
+</code></pre>
 <blockquote>
+<blockquote>
+<p>代码解释：</p>
+</blockquote>
+<ul>
+<li>1s 后 p1 的状态变为 fulfiled，打印出：”p1 成功”</li>
+<li>2s 后 p2 的状态变为 fulfilled，打印出：”p2 成功”</li>
+<li>3s 后 p3 的状态变为 fulfilled,打印出：”p3 成功”</li>
+<li>当 p1,p2,p3 的状态都变为 fulfilled 时， p 的状态变为 fulfilled，然后调用 then 方法的第一个回调，打印出：”成功 [1,2 ,3]”</li>
+</ul>
+</blockquote>
+<ul>
+<li>代码演示二：<blockquote>
 <p>-<code> Promise.all()</code>方法参数中的 Promise 对象状态有一个变为 rejected 的情况</p>
-<pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
-setTimeout(() =&gt; &#123;
-  resolve(1);
-&#125;, 1000);
-&#125;);
-p1.then(() =&gt; &#123;
-console.log(&quot;p1成功&quot;);
-&#125;);
-</code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  reject(2);<br>}, 2000);<br>});<br>p2.catch((err) &#x3D;&gt; {<br>console.log(“p2失败”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(3);<br>}, 3000);<br>});<br>p3.then((data) &#x3D;&gt; {<br>console.log(“p3成功”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.all([p1, p2, p3]);<br>p.then((data) &#x3D;&gt; {<br>console.log(“成功”, data);<br>}).catch((err) &#x3D;&gt; {<br>console.log(“失败”, err);<br>});</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 当p2状态为reject时，p的状态也变为rejected,同时执行catch方法</p>
-<blockquote>
-<pre><code>&gt;代码解释：
-- 1s 后 p1 的状态变为 fulfiled，打印出：&quot;p1 成功&quot;
-- 2s 后 p2 的状态变为 rejected，打印出：&quot;p2 失败&quot;。
-- 此时 p 的状态变为 rejected，然后调用 catch 方法，打印出：“失败 2”
-- 3s 后 p3 的状态变为 fulfilled，打印出&quot;p3 成功&quot;。
-**总结：**
-- 只要 p1,p2,p3 中有一个的状态率先变为 rejected 的，则 p 的状态就会变为 rejected 的。但并不会因为 p 的状态变为 rejected 的，其后没有执行完的 Promise 就不执行了，后面的 Promise**该如何执行还得如何执行完**。
-</code></pre>
 </blockquote>
 </li>
-<li><p>Promise.all() 最常用的场景</p>
+</ul>
+<pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(1);
+  &#125;, 1000);
+&#125;);
+p1.then(() =&gt; &#123;
+  console.log(&quot;p1成功&quot;);
+&#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(2);
+  &#125;, 2000);
+&#125;);
+p2.catch((err) =&gt; &#123;
+  console.log(&quot;p2失败&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(3);
+  &#125;, 3000);
+&#125;);
+p3.then((data) =&gt; &#123;
+  console.log(&quot;p3成功&quot;);
+&#125;);
+&gt;
+const p = Promise.all([p1, p2, p3]);
+p.then((data) =&gt; &#123;
+  console.log(&quot;成功&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;失败&quot;, err);
+&#125;);
+&gt;
+// 当p2状态为reject时，p的状态也变为rejected,同时执行catch方法
+</code></pre>
 <blockquote>
+<blockquote>
+<p>代码解释：</p>
+</blockquote>
+<ul>
+<li>1s 后 p1 的状态变为 fulfiled，打印出：”p1 成功”</li>
+<li>2s 后 p2 的状态变为 rejected，打印出：”p2 失败”。</li>
+<li>此时 p 的状态变为 rejected，然后调用 catch 方法，打印出：“失败 2”</li>
+<li>3s 后 p3 的状态变为 fulfilled，打印出”p3 成功”。<br><strong>总结：</strong></li>
+<li>只要 p1,p2,p3 中有一个的状态率先变为 rejected 的，则 p 的状态就会变为 rejected 的。但并不会因为 p 的状态变为 rejected 的，其后没有执行完的 Promise 就不执行了，后面的 Promise<strong>该如何执行还得如何执行完</strong>。</li>
+</ul>
+</blockquote>
+<ul>
+<li>Promise.all() 最常用的场景<blockquote>
 <ul>
 <li>通过 Ajax 或其他方式从前端向后端获取数据的时候会用到<br>如：同时获取多个数据，所有数据都获取到了，都显示出来。如果没获取到再次处理 ，类似应用用的到比较多的地方。</li>
 <li>目前只需要知道即可</li>
@@ -2994,18 +3504,18 @@ console.log(&quot;p1成功&quot;);
 </li>
 </ol>
 <p><strong>语法</strong></p>
-<blockquote>
 <pre><code>const p = Promise.race(iterable);
 </code></pre>
+<blockquote>
 <p><strong>参数：</strong><code>iterable</code></p>
 <ul>
 <li>表示一个迭代器对象或可遍历对象就可以。不过迭代的每个成员如果不是 Promise 对象，则会先将其转换为 Promise 对象，再做处理。</li>
 </ul>
 </blockquote>
 <p><strong>基本用法</strong></p>
-<blockquote>
 <pre><code>const p = Promise.race([p1, p2, p3,...]);
 </code></pre>
+<blockquote>
 <p><strong>上面代码中</strong></p>
 <ul>
 <li>p,p1,p2,p3 为 Promise 对象，p 的状态由 p1,p2,p3 的状态决定。</li>
@@ -3013,72 +3523,108 @@ console.log(&quot;p1成功&quot;);
 </ul>
 </blockquote>
 <ul>
-<li><p>代码演示</p>
-<blockquote>
+<li>代码演示</li>
+</ul>
 <pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
-setTimeout(() =&gt; &#123;
-  resolve(1);
-&#125;, 1000);
+  setTimeout(() =&gt; &#123;
+    resolve(1);
+  &#125;, 1000);
 &#125;);
 p1.then(() =&gt; &#123;
-console.log(&quot;p1成功&quot;);
+  console.log(&quot;p1成功&quot;);
+&#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(new Error(&quot;地址出错了&quot;));
+  &#125;, 2000);
+&#125;);
+p2.catch(() =&gt; &#123;
+  console.log(&quot;p2失败&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(3);
+  &#125;, 3000);
+&#125;);
+p3.then(() =&gt; &#123;
+  console.log(&quot;p3成功&quot;);
+&#125;);
+&gt;
+const p = Promise.race([p1, p2, p3]);
+p.then((data) =&gt; &#123;
+  console.log(&quot;p成功&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;p失败&quot;, err);
 &#125;);
 </code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  reject(new Error(“地址出错了”));<br>}, 2000);<br>});<br>p2.catch(() &#x3D;&gt; {<br>console.log(“p2失败”);<br>});</p>
 <blockquote>
+<p><strong>代码解析：</strong></p>
+<ul>
+<li>1s 后 p1 的状态改变，变为fulfilled，然后调用 then 方法，打印： “p1 成功”</li>
+<li>因为 p1 状态改变fulfilled，则 p 的状态也变为fulfilled，然后调用 then 方法，打印： “p 成功 1”</li>
+<li>2s 后 p2 的状态改变，变为“rejected”，然后调用 catch 方法，打印：”p2 失败“</li>
+<li>2s 后 p3 的状态改变，变为 “fulfilled”，然后调用 then 方法，打印：”p3 成功“<br><strong>提示：</strong></li>
+<li>不管第一个改变状态的 Promise，其状态是成功或还是失败，p 的状态都会在第一个状态改变的 Promise 之后马上改变。</li>
+<li>但对其它没有操作完成的 Promise 没有影响。</li>
+</ul>
 </blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(3);<br>}, 3000);<br>});<br>p3.then(() &#x3D;&gt; {<br>console.log(“p3成功”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.race([p1, p2, p3]);<br>p.then((data) &#x3D;&gt; {<br>console.log(“p成功”, data);<br>}).catch((err) &#x3D;&gt; {<br>console.log(“p失败”, err);<br>});</p>
-<blockquote>
-<pre><code>**代码解析：**
-- 1s 后 p1 的状态改变，变为fulfilled，然后调用 then 方法，打印： “p1 成功”
-- 因为 p1 状态改变fulfilled，则 p 的状态也变为fulfilled，然后调用 then 方法，打印： “p 成功 1”
-- 2s 后 p2 的状态改变，变为“rejected&quot;，然后调用 catch 方法，打印：”p2 失败“
-- 2s 后 p3 的状态改变，变为 &quot;fulfilled&quot;，然后调用 then 方法，打印：”p3 成功“
-**提示：**
-- 不管第一个改变状态的 Promise，其状态是成功或还是失败，p 的状态都会在第一个状态改变的 Promise 之后马上改变。
-- 但对其它没有操作完成的 Promise 没有影响。
-</code></pre>
-</blockquote>
-</li>
-<li><p>Promise.race() 应用</p>
-<blockquote>
+<ul>
+<li>Promise.race() 应用<blockquote>
 <p>我们经常会有这样的需求，如果某个异步请求在 3s 内还没有响应结果，则把 Promise 的状态改变为 rejected 的，再次发送请求。</p>
 <ul>
 <li>如果 3s 内的响应为失败，也重新发送一次请求。</li>
 </ul>
-<pre><code>// 预加载图片
-function preloadImage(url) &#123;
-return new Promise((resolve, reject) =&gt; &#123;
-  const img = new Image();
-  img.onload = function () &#123;
-    resolve(img);
-  &#125;;
-  img.onerror = function () &#123;
-    reject(new Error(&quot;图片加载失改&quot;));
-  &#125;;
-  img.src = url;
-&#125;);
-&#125;
-</code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  reject(“超时,重新发送”);<br>}, 3000);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const url &#x3D;<br>“<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/system/2019/09-25/22132557f330499313.png?version=22.3.7">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/system/2019/09-25/22132557f330499313.png?version=22.3.7</a>“;<br>const p &#x3D; Promise.race([preloadImage(url), p2]);<br>p.then((data) &#x3D;&gt; {<br>console.log(“一次成功”);<br>document.body.appendChild(data);<br>})<br>.catch((err) &#x3D;&gt; {<br>  console.log(err);<br>  return preloadImage(url);&#x2F;&#x2F;再次请求<br>})<br>.then((data) &#x3D;&gt; {<br>  if (data) document.body.appendChild(data);<br>});</p>
-<blockquote>
-<pre><code>&gt;代码解析：
-- 如果 preloadImage 方法中返回的 Promise 对象在 3 秒内状态改变
-- 如果状态为成功，则 p 的状态为成功，执行 p 的 then 方法，把图片插入到页面中。下一个 then 方法的参数值为 undefined，则不会执行插入 dom 操作。
-- 如果状态为失败，则 p 的状态为失败，执行 p 的 catch 方法，重新发送一次请求，请求成功将图片，插入页面，请求失败，抛出错误。
-- 如果 preloadImage 方法返回的 Promise 对象在 3s 秒后状态才改变，则先改变状态的是 p2，p2 为失败的 Promise 对象，p 的状态为失败，执行 catch 方法，重新发送一次请求，请求成功将图片，插入页面，请求失败，抛出错误。
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 预加载图片
+function preloadImage(url) &#123;
+  return new Promise((resolve, reject) =&gt; &#123;
+    const img = new Image();
+    img.onload = function () &#123;
+      resolve(img);
+    &#125;;
+    img.onerror = function () &#123;
+      reject(new Error(&quot;图片加载失改&quot;));
+    &#125;;
+    img.src = url;
+  &#125;);
+&#125;
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(&quot;超时,重新发送&quot;);
+  &#125;, 3000);
+&#125;);
+&gt;
+const url =
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/system/2019/09-25/22132557f330499313.png?version=22.3.7&quot;;
+const p = Promise.race([preloadImage(url), p2]);
+p.then((data) =&gt; &#123;
+  console.log(&quot;一次成功&quot;);
+  document.body.appendChild(data);
+&#125;)
+  .catch((err) =&gt; &#123;
+    console.log(err);
+    return preloadImage(url);//再次请求
+  &#125;)
+  .then((data) =&gt; &#123;
+    if (data) document.body.appendChild(data);
+  &#125;);
+</code></pre>
+<blockquote>
+<blockquote>
+<p>代码解析：</p>
+</blockquote>
+<ul>
+<li>如果 preloadImage 方法中返回的 Promise 对象在 3 秒内状态改变</li>
+<li>如果状态为成功，则 p 的状态为成功，执行 p 的 then 方法，把图片插入到页面中。下一个 then 方法的参数值为 undefined，则不会执行插入 dom 操作。</li>
+<li>如果状态为失败，则 p 的状态为失败，执行 p 的 catch 方法，重新发送一次请求，请求成功将图片，插入页面，请求失败，抛出错误。</li>
+<li>如果 preloadImage 方法返回的 Promise 对象在 3s 秒后状态才改变，则先改变状态的是 p2，p2 为失败的 Promise 对象，p 的状态为失败，执行 catch 方法，重新发送一次请求，请求成功将图片，插入页面，请求失败，抛出错误。</li>
+</ul>
+</blockquote>
 <ol start="5">
 <li>Promise.allSettled() 方法<blockquote>
 <p>Promise.allSettled 方法用来记录多个 Promise 的状态，他只忠于记录各个 Promise 的状态，<strong>其自身状态永远不受其他 Promise 状态的影响</strong>，返回的新的 Promise 实例<strong>永远为成功</strong>状态。</p>
@@ -3086,12 +3632,12 @@ return new Promise((resolve, reject) =&gt; &#123;
 </li>
 </ol>
 <p><strong>语法</strong></p>
-<blockquote>
 <pre><code>const p = Promise.allSettled(iterable);
 </code></pre>
 <p><strong>基本用法</strong></p>
 <pre><code>const p = Promise.allSettled([p1, p2, p3]);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>以上代码中</p>
 </blockquote>
@@ -3109,6 +3655,7 @@ return new Promise((resolve, reject) =&gt; &#123;
 <li>value 仅当 status 为 “fulfilled”，才存在，表示 promise 成功时才有的值</li>
 <li>reason 仅当 status 为 “rejected”，才存在，在 promsie 失败时才有 reason</li>
 </ul>
+</blockquote>
 <pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
   setTimeout(() =&gt; &#123;
     resolve(1);
@@ -3117,27 +3664,35 @@ return new Promise((resolve, reject) =&gt; &#123;
 p1.then(() =&gt; &#123;
   console.log(&quot;p1状态改变&quot;);
 &#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(2);
+  &#125;, 2000);
+&#125;);
+&gt;
+p2.catch((err) =&gt; &#123;
+  console.log(&quot;p2状态改变&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(3);
+  &#125;, 3000);
+&#125;);
+&gt;
+p3.then((err) =&gt; &#123;
+  console.log(&quot;p3状态改变&quot;);
+&#125;);
+&gt;
+const p = Promise.allSettled([p1, p2, p3]);
+&gt;
+p.then((data) =&gt; &#123;
+  console.log(data);
+&#125;);
 </code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>  setTimeout(() &#x3D;&gt; {<br>    reject(2);<br>  }, 2000);<br>});</p>
 <blockquote>
-</blockquote>
-<p>p2.catch((err) &#x3D;&gt; {<br>  console.log(“p2状态改变”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>  setTimeout(() &#x3D;&gt; {<br>    resolve(3);<br>  }, 3000);<br>});</p>
-<blockquote>
-</blockquote>
-<p>p3.then((err) &#x3D;&gt; {<br>  console.log(“p3状态改变”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.allSettled([p1, p2, p3]);</p>
-<blockquote>
-</blockquote>
-<p>p.then((data) &#x3D;&gt; {<br>  console.log(data);<br>});</p>
-<blockquote>
-<pre><code>&lt;img src=&quot;Promise.allSettled方法.png&quot;&gt;
-</code></pre>
+<img src="Promise.allSettled方法.png">
 </blockquote>
 <ol start="6">
 <li>Promise.any() 方法<blockquote>
@@ -3153,74 +3708,101 @@ p1.then(() =&gt; &#123;
 </li>
 </ol>
 <ul>
-<li><p>代码演示一</p>
-<blockquote>
+<li>代码演示一</li>
+</ul>
 <pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
-setTimeout(() =&gt; &#123;
-  reject(1);
-&#125;, 1000);
+  setTimeout(() =&gt; &#123;
+    reject(1);
+  &#125;, 1000);
 &#125;);
 p1.catch(() =&gt; &#123;
-console.log(&quot;p1失败&quot;);
+  console.log(&quot;p1失败&quot;);
+&#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(2);
+  &#125;, 2000);
+&#125;);
+&gt;
+p2.then((data) =&gt; &#123;
+  console.log(&quot;p2成功&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    resolve(3);
+  &#125;, 3000);
+&#125;);
+&gt;
+p3.then((data) =&gt; &#123;
+  console.log(&quot;p3成功&quot;);
+&#125;);
+&gt;
+const p = Promise.any([p1, p2, p3]);
+p.then((data) =&gt; &#123;
+  console.log(&quot;p成功&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;p失败&quot;, err);
 &#125;);
 </code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(2);<br>}, 2000);<br>});</p>
 <blockquote>
-</blockquote>
-<p>p2.then((data) &#x3D;&gt; {<br>console.log(“p2成功”);<br>});</p>
 <blockquote>
+<p>代码解析：</p>
 </blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  resolve(3);<br>}, 3000);<br>});</p>
-<blockquote>
+<ul>
+<li>1s 后 p1 的状态变为失败，调用 catch 方法，打印：”p1 失败“</li>
+<li>2s 后 p2 的状态变为成功，调用 then 方法，打印：”p2 成功“</li>
+<li>因为 p2 状态为成功，所以 p 的状态马上变为成功，并调用 then 方法，打印：”p 成功 2“</li>
+<li>3s 后 p3 的状态变为成功，调用 then 方法，打印：”p3 成功“<br><strong>注意：</strong></li>
+<li>只要 p1,p2,p3 中有一个成功，则 p 的状态就变为成功，同时他的状态并不影其它 Promis 的正常执行。</li>
+</ul>
 </blockquote>
-<p>p3.then((data) &#x3D;&gt; {<br>console.log(“p3成功”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.any([p1, p2, p3]);<br>p.then((data) &#x3D;&gt; {<br>console.log(“p成功”, data);<br>}).catch((err) &#x3D;&gt; {<br>console.log(“p失败”, err);<br>});</p>
-<blockquote>
-<pre><code>&gt;代码解析：
-- 1s 后 p1 的状态变为失败，调用 catch 方法，打印：”p1 失败“
-- 2s 后 p2 的状态变为成功，调用 then 方法，打印：”p2 成功“
-- 因为 p2 状态为成功，所以 p 的状态马上变为成功，并调用 then 方法，打印：”p 成功 2“
-- 3s 后 p3 的状态变为成功，调用 then 方法，打印：”p3 成功“
-**注意：**
-- 只要 p1,p2,p3 中有一个成功，则 p 的状态就变为成功，同时他的状态并不影其它 Promis 的正常执行。
-</code></pre>
-</blockquote>
-</li>
-<li><p>代码演示二：</p>
-<blockquote>
+<ul>
+<li>代码演示二：</li>
+</ul>
 <pre><code>const p1 = new Promise((resolve, reject) =&gt; &#123;
-setTimeout(() =&gt; &#123;
-  reject(1);
-&#125;, 1000);
+  setTimeout(() =&gt; &#123;
+    reject(1);
+  &#125;, 1000);
 &#125;);
 p1.catch((err) =&gt; &#123;
-console.log(&quot;p1失败&quot;);
+  console.log(&quot;p1失败&quot;);
+&#125;);
+&gt;
+const p2 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(2);
+  &#125;, 2000);
+&#125;);
+&gt;
+p2.catch((err) =&gt; &#123;
+  console.log(&quot;p2失败&quot;);
+&#125;);
+&gt;
+const p3 = new Promise((resolve, reject) =&gt; &#123;
+  setTimeout(() =&gt; &#123;
+    reject(3);
+  &#125;, 3000);
+&#125;);
+&gt;
+p3.catch((err) =&gt; &#123;
+  console.log(&quot;p3失败&quot;);
+&#125;);
+&gt;
+const p = Promise.any([p1, p2, p3]);
+console.log(p);
+p.then((data) =&gt; &#123;
+  console.log(&quot;p成功&quot;, data);
+&#125;).catch((err) =&gt; &#123;
+  console.log(&quot;p失败&quot;, err);
 &#125;);
 </code></pre>
-</blockquote>
-<p>const p2 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  reject(2);<br>}, 2000);<br>});</p>
 <blockquote>
-</blockquote>
-<p>p2.catch((err) &#x3D;&gt; {<br>console.log(“p2失败”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p3 &#x3D; new Promise((resolve, reject) &#x3D;&gt; {<br>setTimeout(() &#x3D;&gt; {<br>  reject(3);<br>}, 3000);<br>});</p>
-<blockquote>
-</blockquote>
-<p>p3.catch((err) &#x3D;&gt; {<br>console.log(“p3失败”);<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; Promise.any([p1, p2, p3]);<br>console.log(p);<br>p.then((data) &#x3D;&gt; {<br>console.log(“p成功”, data);<br>}).catch((err) &#x3D;&gt; {<br>console.log(“p失败”, err);<br>});</p>
-<blockquote>
-<pre><code>- 因为 p1,p2,p3 都为失败，所以 p 为失败
-&lt;img src=&quot;Promise.any方法.png&quot;&gt;
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>因为 p1,p2,p3 都为失败，所以 p 为失败<img src="Promise.any方法.png"></li>
 </ul>
+</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：当传入的对象为空时</p>
@@ -3230,6 +3812,7 @@ console.log(&quot;p1失败&quot;);
 <li>any的状态是<code>rejected</code>，会返回AggregateError实例，它的子类里面是<code>[]</code></li>
 <li>race的状态是<code>pendding</code>，不会返回任何值</li>
 </ul>
+</blockquote>
 <pre><code>const p = Promise.race([]);
 p.then((data) =&gt; &#123;
   console.log(&quot;p成功&quot;, data);
@@ -3241,7 +3824,6 @@ p.then((data) =&gt; &#123;
 //allSettled：p成功 []
 //race方法：空
 </code></pre>
-</blockquote>
 <ol start="7">
 <li>经典面试题<blockquote>
 <p>定义一个方法，方法传入一个参数，参数的类型只要是 <code>iterable</code>就行，这个方法用来</p>
@@ -3301,7 +3883,6 @@ p.then((data) =&gt; &#123;
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>Promise._any = function (iterable) &#123;
   let rejectTimes = 0; // 用来记录失败的个数
   let length = 0; // 有来记录迭代器成员个数
@@ -3317,45 +3898,57 @@ p.then((data) =&gt; &#123;
     ) &#123;
       return reject(new TypeError(`$&#123;iterable&#125; is not iterable`));
     &#125;
-</code></pre>
-</blockquote>
-<pre><code>// 对iterable进行for遍历
-for (let v of iterable) &#123;
-  length++; // 同步代码
-  // 判断其类型是否为Promise
-  if (v instanceof Promise) &#123;
-    v.then((data) =&gt; &#123;
-      resolve(data);
-    &#125;).catch((err) =&gt; &#123;
-      rejectTimes++; // 异步中代码
-      // 如果 length===rejectTimes，说明所有Promise都失败了
-      if (length === rejectTimes) &#123;
-        reject(err);
+&gt;
+    // 对iterable进行for遍历
+    for (let v of iterable) &#123;
+      length++; // 同步代码
+      // 判断其类型是否为Promise
+      if (v instanceof Promise) &#123;
+        v.then((data) =&gt; &#123;
+          resolve(data);
+        &#125;).catch((err) =&gt; &#123;
+          rejectTimes++; // 异步中代码
+          // 如果 length===rejectTimes，说明所有Promise都失败了
+          if (length === rejectTimes) &#123;
+            reject(err);
+          &#125;
+        &#125;);
+      &#125; else &#123;
+        resolve(v);//一般类型都是成功态
       &#125;
-    &#125;);
-  &#125; else &#123;
-    resolve(v);//一般类型都是成功态
-  &#125;
-&#125;
-// 判断传过的迭代对象中成员是否为空，如果为空，直接reject
-if (length === 0) &#123;
-  reject(new Error(&quot;AggregateError: All promises were rejected&quot;));
-&#125;
+    &#125;
+    // 判断传过的迭代对象中成员是否为空，如果为空，直接reject
+    if (length === 0) &#123;
+      reject(new Error(&quot;AggregateError: All promises were rejected&quot;));
+    &#125;
+  &#125;);
+&#125;;
+&gt;
+// 应用
+Promise._any([1, 2])
+  .then((data) =&gt; &#123;
+    console.log(data); // 1
+  &#125;)
+  .catch((err) =&gt; &#123;
+    console.log(err);
+  &#125;);
+&gt;
+Promise._any([Promise.reject(33), 2])
+  .then((data) =&gt; &#123;
+    console.log(data); // 2
+  &#125;)
+  .catch((err) =&gt; &#123;
+    console.log(err);
+  &#125;);
+&gt;
+Promise._any([Promise.reject(33), Promise.reject(44)])
+  .then((data) =&gt; &#123;
+    console.log(data);
+  &#125;)
+  .catch((err) =&gt; &#123;
+    console.log(err); // 44
+  &#125;);
 </code></pre>
-<p>  });<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 应用<br>Promise._any([1, 2])<br>  .then((data) &#x3D;&gt; {<br>    console.log(data); &#x2F;&#x2F; 1<br>  })<br>  .catch((err) &#x3D;&gt; {<br>    console.log(err);<br>  });</p>
-<blockquote>
-</blockquote>
-<p>Promise._any([Promise.reject(33), 2])<br>  .then((data) &#x3D;&gt; {<br>    console.log(data); &#x2F;&#x2F; 2<br>  })<br>  .catch((err) &#x3D;&gt; {<br>    console.log(err);<br>  });</p>
-<blockquote>
-</blockquote>
-<p>Promise._any([Promise.reject(33), Promise.reject(44)])<br>  .then((data) &#x3D;&gt; {<br>    console.log(data);<br>  })<br>  .catch((err) &#x3D;&gt; {<br>    console.log(err); &#x2F;&#x2F; 44<br>  });</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h3><ol>
 <li><p>认识 Promise</p>
 <blockquote>
@@ -3382,7 +3975,8 @@ if (length === 0) &#123;
 </blockquote>
 </li>
 <li><p>Promise 的基本用法</p>
-<blockquote>
+</li>
+</ol>
 <pre><code>const p = new Promise((resolve, reject) =&gt; &#123;
   return resolve(&quot;成功 ！&quot;);
   return reject(new Error(&quot;失败&quot;));
@@ -3391,6 +3985,7 @@ if (length === 0) &#123;
   (err) =&gt; &#123;&#125;
 );
 </code></pre>
+<blockquote>
 <p><strong>以上代码解读</strong>：</p>
 <ul>
 <li>使用 Promise 时，用的不是它的构造函数，而是实例化的构造函数生成的 Promise 对象</li>
@@ -3399,8 +3994,6 @@ if (length === 0) &#123;
 <li>reject 调用后，状态由 pending （未完成）转为 rejected（已失败）。状态改变后：失败态，执行 then 的第二个回调函数</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p><strong>注：</strong></p>
@@ -3449,10 +4042,14 @@ if (length === 0) &#123;
 <li>本质是成功状态 Promise 的一种简写形式</li>
 <li>它会改变<code>Promise</code>的状态</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>new Promise((resolve) =&gt; resolve(&quot;成功&quot;));
 // 等价于
 Promise.resolve(&quot;成功&quot;);
 </code></pre>
+<blockquote>
 <p><code>Promise.resolve()</code> 的参数</p>
 <ul>
 <li>参数是 Promise 实例对象时，<strong>直接返回这个 Promise 对象</strong></li>
@@ -3460,18 +4057,18 @@ Promise.resolve(&quot;成功&quot;);
 <li>参数是其他值时，相当于通过 resolve 函数传参</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <p><code>Promise.reject()</code>方法</p>
 <ul>
 <li>本质是失败状态 Promise 的一种简写形式</li>
 <li>它会改变<code>Promise</code>的状态，<strong>并抛错</strong></li>
 </ul>
+</blockquote>
 <pre><code>new Promise((resolve, reject) =&gt; reject(&quot;失败 ！&quot;));
 // 等价于
 Promise.reject(&quot;失败 ！&quot;);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>不管什么参数，都会原封不动的向后传递，作为后续方法的参数</p>
 </blockquote>

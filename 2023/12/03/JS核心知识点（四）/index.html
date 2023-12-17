@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-04
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.5k
+                    6.7k
                 </div>
                 
 
@@ -459,31 +459,39 @@
 </ul>
 </blockquote>
 <ol>
-<li><p>数组字面量方式创建数组</p>
-<blockquote>
+<li>数组字面量方式创建数组<blockquote>
 <ul>
 <li>一个封闭在方括号对<code>[]</code>中的包含有<strong>零个或多个</strong>数据</li>
 <li>数组中的每个数据被称作<strong>元素</strong>，元素可以是<strong>任意的</strong>数据类型。</li>
 </ul>
-<pre><code>// 使用数组字面量方式创建了一个空数组,arr是数组名
-var arr = [];
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 使用数组字面量方式创一个带初始值的数组<br>&#x2F;&#x2F; A，B，C，D 称为数组元素（项），数组的长度为4<br>var arr &#x3D; [“A”, “B”, “C”, “D”];</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 使用数组字面量方式创一个带初始值的数组，数组长度为6<br>&#x2F;&#x2F; 数组元素(项)可以是任意数据类型<br>var arr &#x3D; [1, “name”, null, undefined, {}, function () {}]; &#x2F;&#x2F; 一般不会这样用，仅当前了解</p>
-<blockquote>
-<pre><code>&gt;数据创建同时赋值，称为数组初始化
-**注意：**
-- `var arr=[1,2,3,,4];`长度是5
-- `var arr=[1,2,3,4,];`长度是4
-&gt;有空元素的数组，称为**稀疏数组**
-</code></pre>
 </blockquote>
 </li>
-<li><p><code>new Array()</code> 方式创建数组</p>
+</ol>
+<pre><code>// 使用数组字面量方式创建了一个空数组,arr是数组名
+var arr = [];
+&gt;
+// 使用数组字面量方式创一个带初始值的数组
+// A，B，C，D 称为数组元素（项），数组的长度为4
+var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
+&gt;
+// 使用数组字面量方式创一个带初始值的数组，数组长度为6
+// 数组元素(项)可以是任意数据类型
+var arr = [1, &quot;name&quot;, null, undefined, &#123;&#125;, function () &#123;&#125;]; // 一般不会这样用，仅当前了解
+</code></pre>
 <blockquote>
+<blockquote>
+<p>数据创建同时赋值，称为数组初始化<br><strong>注意：</strong></p>
+</blockquote>
+<ul>
+<li><code>var arr=[1,2,3,,4];</code>长度是5</li>
+<li><code>var arr=[1,2,3,4,];</code>长度是4<blockquote>
+<p>有空元素的数组，称为<strong>稀疏数组</strong></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li><code>new Array()</code> 方式创建数组<blockquote>
 <ul>
 <li>在实际开发中，这种方式用的少，大家只要了解即可</li>
 <li>建议大家掌握了数组字面量创建方式，再来了解这种方式<blockquote>
@@ -500,346 +508,185 @@ var arr = [];
 <blockquote>
 <p>括号内只有一个数字时，创建的是数组长度</p>
 </blockquote>
+</blockquote>
 <pre><code>var arr = new Array(5);
 console.log(arr.length); // 5
 console.log(arr[0]); // undefined;
 //创建一个数组，数组长度为5 ，每一项为空，打印出来为undefined
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>括号内是一个字符串时，是创建一个数组</p>
+</blockquote>
 </blockquote>
 <pre><code>var arr = new Array(&quot;5&quot;);
 console.log(arr.length); // 1
 console.log(arr[0]); // 5
 // 创建一个数组，数组长度为1，同时赋初始值为‘5’
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>括号内为多个值时，创建的是数组</p>
 </blockquote>
+</blockquote>
 <pre><code>var arr = new Array(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;);
 console.log(arr.length); // 3
 console.log(arr[0]); // A
-// 创建一个数组，数组长度为3，同时赋初始值为 &#39;A&#39;、&#39;B&#39;、&#39;C&#39;&gt;```
+// 创建一个数组，数组长度为3，同时赋初始值为 &#39;A&#39;、&#39;B&#39;、&#39;C&#39;```
+
+
+#### 访问数组元素（项）
+&gt;- 数组的每一项都有索引（下标），索引是从 0 开始的正整数，从左至右，从0开始
+&gt;- 我们通过 数组名`[索引]`的方式来访问数组中元素，如下
 </code></pre>
-</blockquote>
-<h4 id="访问数组元素（项）"><a href="#访问数组元素（项）" class="headerlink" title="访问数组元素（项）"></a>访问数组元素（项）</h4><blockquote>
-<ul>
-<li>数组的每一项都有索引（下标），索引是从 0 开始的正整数，从左至右，从0开始</li>
-<li>我们通过 数组名<code>[索引]</code>的方式来访问数组中元素，如下</li>
-</ul>
-<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
-// 通过索引来访问数组中元素
-console.log(arr[0]); // A
-console.log(arr[1]); // B
-console.log(arr[2]); // C
-console.log(arr[3]); // D
+<p>var arr &#x3D; [“A”, “B”, “C”, “D”];<br>&#x2F;&#x2F; 通过索引来访问数组中元素<br>console.log(arr[0]); &#x2F;&#x2F; A<br>console.log(arr[1]); &#x2F;&#x2F; B<br>console.log(arr[2]); &#x2F;&#x2F; C<br>console.log(arr[3]); &#x2F;&#x2F; D</p>
+<pre><code>
+#### 数组的长度
+&gt;- 数组的 `length` 属性，表示它的长度
+&gt;- 用`.length`的方式访问数组长度
 </code></pre>
-</blockquote>
-<h4 id="数组的长度"><a href="#数组的长度" class="headerlink" title="数组的长度"></a>数组的长度</h4><blockquote>
-<ul>
-<li>数组的 <code>length</code> 属性，表示它的长度</li>
-<li>用<code>.length</code>的方式访问数组长度</li>
-</ul>
-<pre><code>// 创建数组
-var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
-// arr.lenght 访问数组长度
-console.log(arr.length); // 4
+<p>&#x2F;&#x2F; 创建数组<br>var arr &#x3D; [“A”, “B”, “C”, “D”];<br>&#x2F;&#x2F; arr.lenght 访问数组长度<br>console.log(arr.length); &#x2F;&#x2F; 4</p>
+<pre><code>
+&gt;- 数组最后一项的下标= 数组长度- 1
+
+#### 修改数组项的值
+&gt;**方式一：**
+&gt;- 如果修改项的索引在0 到数组长度 -1 内，**正常修改值**
 </code></pre>
-</blockquote>
+<p>var arr &#x3D; [1, 2, 3, 4, 5];<br>&#x2F;&#x2F; 更改第二项值，也就是下标为1的项的值<br>arr[1] &#x3D; “A”;<br>console.log(arr); &#x2F;&#x2F; [1, ‘A’, 3, 4, 5]</p>
+<pre><code>
+&gt;**方式二：**
+&gt;- 如果修改项的索引不在0 到数组长度 -1 内，相当于**创建**这一项
+&gt;- 而且会**修改**数组的**长度**，同时在这个长度内**没有值的项都是空**，通过下标访问这些没有值的项时，结果是`undefined`;
+</code></pre>
+<p>var arr &#x3D; [1, 2, 3, 4, 5];<br>var arr[9]&#x3D;’B’;<br>console.log(arr);<br>&#x2F;&#x2F; [1, ‘A’, 3, 4, 5, empty × 4, ‘B’]<br>console.log(arr.length); &#x2F;&#x2F; 10 数据长度变为10<br>console.log(arr[5]); &#x2F;&#x2F; undefined 下标为5的这一项，访问值为undefined</p>
+<pre><code>
+&gt;**方式三：**
+&gt;- 先创建一个空数组，然后再赋值
+&gt;- 而且会根据索引修改数组长度，没有赋值的项都是空的，通过下标访问这些没有值的项时，结果是`undefined`;
+</code></pre>
+<p>var arr &#x3D; [];<br>arr[0] &#x3D; 1;<br>arr[2] &#x3D; 2;<br>arr[5] &#x3D; 5;<br>console.log(arr.length); &#x2F;&#x2F; 6<br>console.log(arr); &#x2F;&#x2F; [1, empty, 2, empty × 2, 5]</p>
+<pre><code>
+#### 访问数组注意事项
+1. 访问数组中不存在的项，不会报错，回返回undefined
+</code></pre>
+<p>var arr &#x3D; [“A”, “B”, “C”, “D”];<br>console.log(arr[5]); &#x2F;&#x2F; undefined</p>
+<pre><code>
+2. 数组项对应的值为空时，在访问时，返回undefined
+</code></pre>
+<p>var arr &#x3D; [“A”, , “B”, “C”];<br>console.log(arr[1]); &#x2F;&#x2F; undefined</p>
 <blockquote>
-<ul>
-<li>数组最后一项的下标&#x3D; 数组长度- 1</li>
-</ul>
-</blockquote>
-<h4 id="修改数组项的值"><a href="#修改数组项的值" class="headerlink" title="修改数组项的值"></a>修改数组项的值</h4><blockquote>
-<p><strong>方式一：</strong></p>
-<ul>
-<li>如果修改项的索引在0 到数组长度 -1 内，<strong>正常修改值</strong></li>
-</ul>
-<pre><code>var arr = [1, 2, 3, 4, 5];
-// 更改第二项值，也就是下标为1的项的值
-arr[1] = &quot;A&quot;;
-console.log(arr); // [1, &#39;A&#39;, 3, 4, 5]
-</code></pre>
-</blockquote>
-<blockquote>
-<p><strong>方式二：</strong></p>
-<ul>
-<li>如果修改项的索引不在0 到数组长度 -1 内，相当于<strong>创建</strong>这一项</li>
-<li>而且会<strong>修改</strong>数组的<strong>长度</strong>，同时在这个长度内<strong>没有值的项都是空</strong>，通过下标访问这些没有值的项时，结果是<code>undefined</code>;</li>
-</ul>
-<pre><code>var arr = [1, 2, 3, 4, 5];
-var arr[9]=&#39;B&#39;;
-console.log(arr); 
-// [1, &#39;A&#39;, 3, 4, 5, empty × 4, &#39;B&#39;]
-console.log(arr.length); // 10 数据长度变为10
-console.log(arr[5]); // undefined 下标为5的这一项，访问值为undefined
-</code></pre>
-</blockquote>
-<blockquote>
-<p><strong>方式三：</strong></p>
-<ul>
-<li>先创建一个空数组，然后再赋值</li>
-<li>而且会根据索引修改数组长度，没有赋值的项都是空的，通过下标访问这些没有值的项时，结果是<code>undefined</code>;</li>
-</ul>
-<pre><code>var arr = [];
-arr[0] = 1;
-arr[2] = 2;
-arr[5] = 5;
-console.log(arr.length); // 6
-console.log(arr); // [1, empty, 2, empty × 2, 5]
-</code></pre>
-</blockquote>
-<h4 id="访问数组注意事项"><a href="#访问数组注意事项" class="headerlink" title="访问数组注意事项"></a>访问数组注意事项</h4><ol>
-<li><p>访问数组中不存在的项，不会报错，回返回undefined</p>
-<blockquote>
-<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;];
-console.log(arr[5]); // undefined
-</code></pre>
-</blockquote>
-</li>
-<li><p>数组项对应的值为空时，在访问时，返回undefined</p>
-<blockquote>
-<pre><code>var arr = [&quot;A&quot;, , &quot;B&quot;, &quot;C&quot;];
-console.log(arr[1]); // undefined
-</code></pre>
 </blockquote>
 <p>&#x2F;&#x2F; 这两种情况，要注意区分<br>var arr &#x3D; [“A”, undefined, “B”, “C”];<br>console.log(arr[1]); &#x2F;&#x2F; undefined</p>
-<blockquote>
 <pre><code>
+3. 经典面试题：
+&gt;将数组的length设置为 0，取第一个元素会返回什么 ？
 </code></pre>
-</blockquote>
-</li>
-<li><p>经典面试题：</p>
+<p>var arr &#x3D; [1, 2, 3, 4, 5];<br>arr.length &#x3D; 0;<br>console.log(arr);<br>&#x2F;&#x2F;arr&#x3D;[],数组值清空<br>console.log(arr[0]);<br>&#x2F;&#x2F;undefined</p>
+<pre><code>
+#### 数组的遍历
+&gt;- 所谓数组遍历，就是把数组中的每一项都访问一遍。就好比篮子里有 10 个苹果，一个一个拿 出来。
+&gt;- 至于拿出来做什么，这就要看实际的需求了。比如可以拿出来放在桌子上，什么都不做，也可以拿出来一个一个洗一下。
+&gt;- 这里我们利用 `for` 循环，把数组中的**每一项**拿出来，在控制台打印输出。
+&gt;   - for循环中的i是从 0 开始的，是计数器，当**索引**使用
+&gt;   - `arr[i]`就是访问数组中下标为i的那一项
+</code></pre>
+<p>var arr &#x3D; [“A”, “B”, “C”, , , , “G”, “H”, “I”, ,];<br>for (var i &#x3D; 0; i &lt; arr.length; i++) {<br>  console.log(arr[i]);<br>}<br>&#x2F;&#x2F; 输出：A B C undefined undefined undefined G H I undefined</p>
+<pre><code>
+#### 二维数组
+&gt;- 以**数组**作为**数组元素**的数组，即：&quot;数组的数组&quot;
+&gt;- 二维数组，可以认为是数组中的元素也是一个数组
+
+1. 创建二维数组
+</code></pre>
+<p>var arr &#x3D; [<br>  [2, 5, 8],<br>  [11, 22, 33],<br>  [55, 88, 66],<br>  [23, 56, 89],<br>];<br>console.log(“数组的长度：” + arr.length); &#x2F;&#x2F; 4</p>
+<pre><code>
+2. 访问数组的长度与值：
+&gt;- 外侧数组长度：`arr.length`
+&gt;- 内数组长度：`arr[i].length`,i是所访问数组的下标
+&gt;- 访问内侧数组的值：`arr[i][j]`
+</code></pre>
+<p>var arr &#x3D; [<br>        [2, 5, 8],<br>        [11, 22, 33],<br>        [55, 88, 66],<br>        [23, 56, 89],<br>      ];<br>  console.log(arr.length); &#x2F;&#x2F;4<br>  console.log(arr[1].length); &#x2F;&#x2F;3<br>  console.log(arr[2][1]); &#x2F;&#x2F;88</p>
+<pre><code>
+3. 循环遍历二维数组中的每一项
+</code></pre>
+<p>var arr &#x3D; [<br>  [2, 5, 8],<br>  [11, 22, 33],<br>  [55, 88, 66],<br>  [23, 56, 89],<br>];<br>&#x2F;&#x2F; 循环输出二维数组中的每一个项<br>for (var i &#x3D; 0; i &lt; arr.length; i++) {<br>  for (var j &#x3D; 0; j &lt; arr[i].length; j++) {<br>    console.log(arr[i][j]);<br>  }<br>}<br>&#x2F;&#x2F; 最终输出结果 2 5 8 11 22 33 55 88 66 23 56 89</p>
+<pre><code>
+#### 数组类型的检测
+1. 用`typeof`检测数组和对象，得到的是`object`
+</code></pre>
+<p>typeof [1, 2, 3]; &#x2F;&#x2F; object<br>typeof { name: “清心老师”, age: 18 }; &#x2F;&#x2F; object</p>
+<pre><code>
+2. 如果要区分数组和对象，我们可以用`Array.isArray()`来检测是否是**数组类型**
+&gt;- 如果Array.isArray()的返回值是true，就是数组类型，否则就不是
+</code></pre>
+<p>Array.isArray([1, 2, 3]); &#x2F;&#x2F; true<br>Array.isArray({ name: “清心老师”, age: 18 }); &#x2F;&#x2F; false<br>Array.isArray([]); &#x2F;&#x2F; true</p>
+<pre><code>
+### 二、数组相关实践应用
+1. 数组相关实践应用
+&gt;将数组[1, 43, 23, 8, 4, 6, 8, 22, 9]翻转过来
+</code></pre>
+<p>var arr &#x3D; [1, 43, 23, 8, 4, 6, 8, 22, 9];<br>  var arr1 &#x3D; [];<br>  for (var i &#x3D; arr.length - 1; i &gt;&#x3D; 0; i–) {<br>    arr1[arr1.length] &#x3D; arr[i];<br>  }<br>  console.log(arr1);</p>
+<pre><code>
+&gt;&gt;思考：
+&gt;- 我们如何在不增加新数组的情况下，在原数组上对数组进行翻转 ？
+
+2. 找出数组 [1, 43, 23, 8, 4, 6, 8, 22, 9] 中的最大值
+&gt;- 声明一个变量 `max`，用来保存数组中的最大值
+&gt;- 刚开始默认数组中的第一项为最大值，存入变量 max
+&gt;- 然后拿 max 与数组中**每一项**（除第一项）去做比较
+&gt;- 如果数组中值大于 max，就把这个数存到 max 变量中去，否则就继续往下比
+</code></pre>
+<p>var arr &#x3D; [1, 43, 23, 8, 4, 6, 8, 22, 9];<br>var max &#x3D; arr[0]; &#x2F;&#x2F; max用来保存最大值，刚开始默认取数组中第一项为最大值<br>for (var i &#x3D; 0; i &lt; arr.length; i++) {<br>  if (max &lt; arr[i]) {<br>    max &#x3D; arr[i];<br>  }<br>}<br>console.log(“数组中的最大值为:” + max);</p>
+<pre><code>
+3. 删除数组中指定元素
+&gt;要求删除数组[1, 4, 12, 6, 33, 15, 30, 5, 8];中的所有大于 10 的数
+&lt;img src=&quot;删除指定元素.png&quot;&gt;
+
+&gt;**开启两层循环**
+&gt;- **外层**循环把数组中所有数遍历出来与 10 做比较，当判断当前项值`&gt; 10` 时
+&gt;- 开启**内层**循环，用来**删除当前项**（从当前项开始，把后面的每一项，赋值给前一项，达到删除当前项效果）
+&gt;- 每次有删除项时，其数组的长度就会减 1，数组长度减 1，可以**把最后一项干掉**。
+&gt;- 删除当前项后，下次外层循环开始位置，又要从**当前删除项**的下标开始查找(删除后，该项后面的数就会往前移一位)
+</code></pre>
 <blockquote>
-<p>将数组的length设置为 0，取第一个元素会返回什么 ？</p>
-<pre><code>var arr = [1, 2, 3, 4, 5];
-arr.length = 0;
-console.log(arr);
-//arr=[],数组值清空
-console.log(arr[0]);
-//undefined
+<p>var arr &#x3D; [1, 4, 12, 6, 33, 15, 30, 5, 8];<br>&#x2F;&#x2F; 外层循环，把数组中每个数拿出来与10做比较<br>for (var i &#x3D; 0; i &lt; arr.length; i++) {<br>  if (arr[i] &gt; 10) {<br>    &#x2F;&#x2F; 把当前项后面的每一项，都赋值给前一项，达到删除当前项效果<br>    for (var j &#x3D; i; j &lt; arr.length; j++) {<br>      arr[j] &#x3D; arr[j + 1];<br>    }<br>    &#x2F;&#x2F; 删除一项后，数组的总长度就要减1，这样就把数组中最后一项给干掉了<br>    arr.length &#x3D; arr.length - 1;<br>    &#x2F;&#x2F; 保证删除项后，下次遍历从当前删除项的序号开始遍历<br>    i–;<br>  }<br>}<br>console.log(arr);</p>
+</blockquote>
+<pre><code>
+&gt;&gt;重点学习：
+&gt;&gt;   - 如何删除数组中元素
+&gt;&gt;   - 删除数组中元素后，对后续元素和数组带的影响
+&gt;&gt;   - 后面数组有提供相关删除数组中元素的方法，这里就是让大家学习这种思维方式。
+
+4. 随机生成指定范围内的颜色
+基础：
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><blockquote>
-<ul>
-<li>所谓数组遍历，就是把数组中的每一项都访问一遍。就好比篮子里有 10 个苹果，一个一个拿 出来。</li>
-<li>至于拿出来做什么，这就要看实际的需求了。比如可以拿出来放在桌子上，什么都不做，也可以拿出来一个一个洗一下。</li>
-<li>这里我们利用 <code>for</code> 循环，把数组中的<strong>每一项</strong>拿出来，在控制台打印输出。<ul>
-<li>for循环中的i是从 0 开始的，是计数器，当<strong>索引</strong>使用</li>
-<li><code>arr[i]</code>就是访问数组中下标为i的那一项</li>
-</ul>
-</li>
-</ul>
-<pre><code>var arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, , , , &quot;G&quot;, &quot;H&quot;, &quot;I&quot;, ,];
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  console.log(arr[i]);
-&#125;
-// 输出：A B C undefined undefined undefined G H I undefined
-</code></pre>
-</blockquote>
-<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><blockquote>
-<ul>
-<li>以<strong>数组</strong>作为<strong>数组元素</strong>的数组，即：”数组的数组”</li>
-<li>二维数组，可以认为是数组中的元素也是一个数组</li>
-</ul>
-</blockquote>
-<ol>
-<li><p>创建二维数组</p>
-<blockquote>
-<pre><code>var arr = [
-  [2, 5, 8],
-  [11, 22, 33],
-  [55, 88, 66],
-  [23, 56, 89],
-];
-console.log(&quot;数组的长度：&quot; + arr.length); // 4
-</code></pre>
-</blockquote>
-</li>
-<li><p>访问数组的长度与值：</p>
-<blockquote>
-<ul>
-<li>外侧数组长度：<code>arr.length</code></li>
-<li>内数组长度：<code>arr[i].length</code>,i是所访问数组的下标</li>
-<li>访问内侧数组的值：<code>arr[i][j]</code></li>
-</ul>
-<pre><code>var arr = [
-     [2, 5, 8],
-     [11, 22, 33],
-     [55, 88, 66],
-     [23, 56, 89],
-   ];
-  console.log(arr.length); //4
-  console.log(arr[1].length); //3
-  console.log(arr[2][1]); //88
-</code></pre>
-</blockquote>
-</li>
-<li><p>循环遍历二维数组中的每一项</p>
-<blockquote>
-<pre><code>var arr = [
-  [2, 5, 8],
-  [11, 22, 33],
-  [55, 88, 66],
-  [23, 56, 89],
-];
-// 循环输出二维数组中的每一个项
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  for (var j = 0; j &lt; arr[i].length; j++) &#123;
- console.log(arr[i][j]);
+<p>var arr &#x3D; [“pink”, “khaki”, “skyblue”, “tomato”, “orange”, “orchid”];<br>    var len &#x3D; arr.length;<br>    color &#x3D; arr[(Math.random() * len) &gt;&gt; 0];<br>    console.log(color);</p>
+<pre><code>
+&gt;当我们在做烟花效果时，我们需要随机为 100 个小圆或正方形产生（指定范围内的）不同颜色。
+```js
+&gt;&lt;style&gt;
+  .ball &#123;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
   &#125;
-&#125;
-// 最终输出结果 2 5 8 11 22 33 55 88 66 23 56 89
+&gt;&lt;/style&gt;
+&gt;&lt;body&gt;
+&gt;&lt;div class=&quot;ball&quot; id=&quot;J_ball&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  // 获取id为ball的元素
+  var ball = document.getElementById(&quot;J_ball&quot;);
+  // 定义一组颜色，存入到数组中
+  var bgColor = [&quot;pink&quot;, &quot;khaki&quot;, &quot;skyblue&quot;, &quot;tomato&quot;, &quot;orange&quot;, &quot;orchid&quot;];
+  // 数组长度
+  var len = bgColor.length;
+  // Math.random() * (len) 产生 0- len-1之间的随机数
+  // Math.random() * (len) &gt;&gt; 0  去掉小数，只留下整数部分
+  ball.style.backgroundColor = bgColor[(Math.random() * len) &gt;&gt; 0];
+&gt;  &lt;/script&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<h4 id="数组类型的检测"><a href="#数组类型的检测" class="headerlink" title="数组类型的检测"></a>数组类型的检测</h4><ol>
-<li><p>用<code>typeof</code>检测数组和对象，得到的是<code>object</code></p>
-<blockquote>
-<pre><code>typeof [1, 2, 3]; // object
-typeof &#123; name: &quot;清心老师&quot;, age: 18 &#125;; // object
-</code></pre>
-</blockquote>
-</li>
-<li><p>如果要区分数组和对象，我们可以用<code>Array.isArray()</code>来检测是否是<strong>数组类型</strong></p>
-<blockquote>
-<ul>
-<li>如果Array.isArray()的返回值是true，就是数组类型，否则就不是</li>
-</ul>
-<pre><code>Array.isArray([1, 2, 3]); // true
-Array.isArray(&#123; name: &quot;清心老师&quot;, age: 18 &#125;); // false
-Array.isArray([]); // true
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<h3 id="二、数组相关实践应用"><a href="#二、数组相关实践应用" class="headerlink" title="二、数组相关实践应用"></a>二、数组相关实践应用</h3><ol>
-<li>数组相关实践应用<blockquote>
-<p>将数组[1, 43, 23, 8, 4, 6, 8, 22, 9]翻转过来</p>
-<pre><code>var arr = [1, 43, 23, 8, 4, 6, 8, 22, 9];
-  var arr1 = [];
-  for (var i = arr.length - 1; i &gt;= 0; i--) &#123;
- arr1[arr1.length] = arr[i];
-  &#125;
-  console.log(arr1);
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<blockquote>
-<p>思考：</p>
-</blockquote>
-<ul>
-<li>我们如何在不增加新数组的情况下，在原数组上对数组进行翻转 ？</li>
-</ul>
-</blockquote>
-<ol start="2">
-<li>找出数组 [1, 43, 23, 8, 4, 6, 8, 22, 9] 中的最大值<blockquote>
-<ul>
-<li>声明一个变量 <code>max</code>，用来保存数组中的最大值</li>
-<li>刚开始默认数组中的第一项为最大值，存入变量 max</li>
-<li>然后拿 max 与数组中<strong>每一项</strong>（除第一项）去做比较</li>
-<li>如果数组中值大于 max，就把这个数存到 max 变量中去，否则就继续往下比</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<pre><code>var arr = [1, 43, 23, 8, 4, 6, 8, 22, 9];
-var max = arr[0]; // max用来保存最大值，刚开始默认取数组中第一项为最大值
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  if (max &lt; arr[i]) &#123;
-    max = arr[i];
-  &#125;
-&#125;
-console.log(&quot;数组中的最大值为:&quot; + max);
-</code></pre>
-</blockquote>
-<ol start="3">
-<li>删除数组中指定元素<blockquote>
-<p>要求删除数组[1, 4, 12, 6, 33, 15, 30, 5, 8];中的所有大于 10 的数<br><img src="删除指定元素.png"></p>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p><strong>开启两层循环</strong></p>
-<ul>
-<li><strong>外层</strong>循环把数组中所有数遍历出来与 10 做比较，当判断当前项值<code>&gt; 10</code> 时</li>
-<li>开启<strong>内层</strong>循环，用来<strong>删除当前项</strong>（从当前项开始，把后面的每一项，赋值给前一项，达到删除当前项效果）</li>
-<li>每次有删除项时，其数组的长度就会减 1，数组长度减 1，可以<strong>把最后一项干掉</strong>。</li>
-<li>删除当前项后，下次外层循环开始位置，又要从<strong>当前删除项</strong>的下标开始查找(删除后，该项后面的数就会往前移一位)</li>
-</ul>
-<pre><code>var arr = [1, 4, 12, 6, 33, 15, 30, 5, 8];
-// 外层循环，把数组中每个数拿出来与10做比较
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  if (arr[i] &gt; 10) &#123;
-    // 把当前项后面的每一项，都赋值给前一项，达到删除当前项效果
-    for (var j = i; j &lt; arr.length; j++) &#123;
-      arr[j] = arr[j + 1];
-    &#125;
-    // 删除一项后，数组的总长度就要减1，这样就把数组中最后一项给干掉了
-    arr.length = arr.length - 1;
-    // 保证删除项后，下次遍历从当前删除项的序号开始遍历
-    i--;
-  &#125;
-&#125;
-console.log(arr);
-</code></pre>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>重点学习：</p>
-<ul>
-<li>如何删除数组中元素</li>
-<li>删除数组中元素后，对后续元素和数组带的影响</li>
-<li>后面数组有提供相关删除数组中元素的方法，这里就是让大家学习这种思维方式。</li>
-</ul>
-</blockquote>
-</blockquote>
-<ol start="4">
-<li>随机生成指定范围内的颜色<br>基础：<blockquote>
-<pre><code>var arr = [&quot;pink&quot;, &quot;khaki&quot;, &quot;skyblue&quot;, &quot;tomato&quot;, &quot;orange&quot;, &quot;orchid&quot;];
- var len = arr.length;
- color = arr[(Math.random() * len) &gt;&gt; 0];
- console.log(color);
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<p>当我们在做烟花效果时，我们需要随机为 100 个小圆或正方形产生（指定范围内的）不同颜色。</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>style<span class="token operator">></span>
-  <span class="token punctuation">.</span>ball <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    width<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-    height<span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
-    border<span class="token operator">-</span>radius<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
-<span class="token operator">&lt;</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"ball"</span> id<span class="token operator">=</span><span class="token string">"J_ball"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token comment" spellcheck="true">// 获取id为ball的元素</span>
-  <span class="token keyword">var</span> ball <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"J_ball"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 定义一组颜色，存入到数组中</span>
-  <span class="token keyword">var</span> bgColor <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"pink"</span><span class="token punctuation">,</span> <span class="token string">"khaki"</span><span class="token punctuation">,</span> <span class="token string">"skyblue"</span><span class="token punctuation">,</span> <span class="token string">"tomato"</span><span class="token punctuation">,</span> <span class="token string">"orange"</span><span class="token punctuation">,</span> <span class="token string">"orchid"</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 数组长度</span>
-  <span class="token keyword">var</span> len <span class="token operator">=</span> bgColor<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// Math.random() * (len) 产生 0- len-1之间的随机数</span>
-  <span class="token comment" spellcheck="true">// Math.random() * (len) >> 0  去掉小数，只留下整数部分</span>
-  ball<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> bgColor<span class="token punctuation">[</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> len<span class="token punctuation">)</span> <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-</code></pre>
-</blockquote>
 <h3 id="三、引用数据类型和基本数据类型的区别"><a href="#三、引用数据类型和基本数据类型的区别" class="headerlink" title="三、引用数据类型和基本数据类型的区别"></a>三、引用数据类型和基本数据类型的区别</h3><blockquote>
 <p>我们知道在 JS 中数据分为：<strong>基本数据类型</strong> 和 <strong>引用数据类型</strong>两大类</p>
 <ul>
@@ -851,7 +698,6 @@ console.log(arr);
 </ul>
 </blockquote>
 <p><strong>先来看下面两段代码：</strong></p>
-<blockquote>
 <pre><code>// 代码片段一
 var a = 10;
 var b = a;
@@ -859,8 +705,6 @@ a = 20;
 console.log(a); // 20
 console.log(b); // 10
 </code></pre>
-</blockquote>
-<blockquote>
 <pre><code>// 代码片段二
 var arr1 = [1, 2, 3, 4];
 var arr2 = arr1;
@@ -869,6 +713,7 @@ console.log(arr1[0]); // A
 console.log(arr2[0]); // A
 </code></pre>
 <p><strong>以上代码解读</strong></p>
+<blockquote>
 <ul>
 <li>通过代码片段一，我们发现，当 b&#x3D;a，赋值完成后，后续对 a 的操作并不会对 b 产生影响。</li>
 <li>而代码代码片段二中的数组就不一样，当 arr2&#x3D;arr1 且，我们对 arr1 的操作，直接影响了 arr2，为什么会出现这个情况呢？</li>
@@ -1005,7 +850,6 @@ console.log(arr2[0]); // A
 <li><strong>深</strong>克隆：克隆数组的<strong>所有层</strong>，要使用递归技术，在讲到递归的时候再介绍。</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var arr = [1, 2, 3, [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]];
   var arr2 = [];
   for (var i = 0; i &lt; arr.length; i++) &#123;
@@ -1017,6 +861,7 @@ console.log(arr2[0]); // A
   arr[3][0] = 1;
   console.log(arr, arr2);
 </code></pre>
+<blockquote>
 <ul>
 <li>更改arr的第一层值，不会影响arr2</li>
 <li>但若是更改arr[3]这个引用数据类型里面的值(第二层)，就会同时影响arr2的值</li>
@@ -1103,6 +948,7 @@ console.log(arr2[0]); // A
 <li><strong>内部循环</strong>用来实现<strong>每一轮的交换处理</strong>。先进行元素比较，如果元素大于右侧相邻相元素，则两元素位置交换，如果不大于，则啥也不做</li>
 <li>声明变量tmp用作<strong>交换变量</strong></li>
 </ul>
+</blockquote>
 <pre><code>// 排序数组
 var arr = [1, 5, 3, 2, 6];
 // 数组长度
@@ -1122,7 +968,6 @@ for (var i = 0; i &lt; len - 1; i++) &#123;
 &#125;
 console.log(arr); // [1, 2, 3, 5, 6]
 </code></pre>
-</blockquote>
 <h4 id="冒泡排序优化-1"><a href="#冒泡排序优化-1" class="headerlink" title="冒泡排序优化 1"></a>冒泡排序优化 1</h4><blockquote>
 <blockquote>
 <p>在每一轮开始时，默认打上 isSorted&#x3D;’有序’ 标记，数据一旦发生交换，就打上 isSorted&#x3D;’无序’，退出<strong>整个</strong> <code>for</code> 循环的执行。</p>
@@ -1155,6 +1000,7 @@ console.log(arr); // [1, 2, 3, 5, 6]
 <li>整个过程都没有发生数据交换，也就是说，如果在这一轮中，数据如果<strong>没有经过任何的交换</strong>，那就说明，在这一轮当中，数据<strong>已经是有序</strong>的了。</li>
 <li>所以我们在<strong>每一轮开始时</strong>，默认<strong>打上 <code>isSorted=&#39;有序&#39;</code> 标记</strong>，如果在这一轮交换中，数据一旦发生交换，就打上 <code>isSorted=&#39;无序&#39;</code>，如果整轮交换中，都没有发生交换，那就表示数组是有序的了。我们就可以退出<strong>整个</strong> for 循环的执行。</li>
 </ul>
+</blockquote>
 <pre><code>// 排序数组
 var arr = [1, 2, 3, 5, 6];
 // 数组长度
@@ -1181,7 +1027,6 @@ for (var i = 0; i &lt; len - 1; i++) &#123;
 &#125;
 console.log(arr); // [1, 2, 3, 5, 6]
 </code></pre>
-</blockquote>
 <h4 id="进一步优化：冒泡排序优化-2"><a href="#进一步优化：冒泡排序优化-2" class="headerlink" title="进一步优化：冒泡排序优化 2"></a>进一步优化：冒泡排序优化 2</h4><blockquote>
 <blockquote>
 <p>记录每一轮最后一次交换元素的位置，该位置为无序列表的边界</p>
@@ -1227,7 +1072,6 @@ console.log(arr); // [1, 2, 3, 5, 6]
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// 排序数组
 var arr = [98, 2, 3, 45, 4, 1, 5, 78, 6, 7, 8, 20];
 // 数组长度
@@ -1238,18 +1082,40 @@ var isSorted;
 var sortBorder = len - 1;
 // 记录每一轮最后一次交换的值，确定下一次循有序边界
 var index;
+&gt;
+// 外层for控制交换轮数
+for (var i = 0; i &lt; len - 1; i++) &#123;
+    // 内层for控制每一轮，元素交换次数处理
+    isSorted = true; // 有序标记，每轮开始默认为有序，如果一旦发生交换，就会变成flag=false,无序
+    for (var j = 0; j &lt; sortBorder; j++) &#123;
+        if (arr[j] &gt; arr[j + 1]) &#123;
+            // 交换两元素位置
+            var tmp; // 用来交换两个变量的中间变量
+            tmp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = tmp;
+            isSorted = false;
+            // 把无序列表的边界，更新为最后一次交换元素的位置
+            index = j;
+        &#125;
+    &#125;
+    // 如果无序，记录上一次最后一次交换的元素下标
+    if (!isSorted) &#123;
+        sortBorder = index;
+    &#125;
+    // 这一轮多次交换下来，flag没有变为false,说明没有发生元素交换，此时数组已是有序的
+    if (isSorted) &#123;
+        break; // 退出最外层for循环
+    &#125;
+&#125;
+console.log(arr);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 外层for控制交换轮数<br>for (var i &#x3D; 0; i &lt; len - 1; i++) {<br>    &#x2F;&#x2F; 内层for控制每一轮，元素交换次数处理<br>    isSorted &#x3D; true; &#x2F;&#x2F; 有序标记，每轮开始默认为有序，如果一旦发生交换，就会变成flag&#x3D;false,无序<br>    for (var j &#x3D; 0; j &lt; sortBorder; j++) {<br>        if (arr[j] &gt; arr[j + 1]) {<br>            &#x2F;&#x2F; 交换两元素位置<br>            var tmp; &#x2F;&#x2F; 用来交换两个变量的中间变量<br>            tmp &#x3D; arr[j];<br>            arr[j] &#x3D; arr[j + 1];<br>            arr[j + 1] &#x3D; tmp;<br>            isSorted &#x3D; false;<br>            &#x2F;&#x2F; 把无序列表的边界，更新为最后一次交换元素的位置<br>            index &#x3D; j;<br>        }<br>    }<br>    &#x2F;&#x2F; 如果无序，记录上一次最后一次交换的元素下标<br>    if (!isSorted) {<br>        sortBorder &#x3D; index;<br>    }<br>    &#x2F;&#x2F; 这一轮多次交换下来，flag没有变为false,说明没有发生元素交换，此时数组已是有序的<br>    if (isSorted) {<br>        break; &#x2F;&#x2F; 退出最外层for循环<br>    }<br>}<br>console.log(arr);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="五、编码题"><a href="#五、编码题" class="headerlink" title="五、编码题"></a>五、编码题</h3><blockquote>
 <p>题目如下：</p>
 <ul>
 <li>当用户进入页面时，<strong>不停的</strong>弹出输入框让用户输入班级学员的成绩，直到<strong>输出退出</strong>后，就不再弹出输入框，而是把全班同学的<strong>平均成绩</strong>以弹窗形式显示出来。</li>
 </ul>
+</blockquote>
 <pre><code>var item; // 接收每次输入的值
       var arr = []; // 把接收过的成绩，保存到数组中
       var sum = 0; //累加器
@@ -1266,6 +1132,7 @@ var index;
       //   计算平均数
       alert(sum / arr.length);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>注意：</p>
 <ul>

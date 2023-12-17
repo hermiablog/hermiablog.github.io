@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-08
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.4k
+                    10.8k
                 </div>
                 
 
@@ -495,60 +495,64 @@
 </tr>
 </tbody></table>
 <ol>
-<li><p>Math.PI 属性</p>
-<blockquote>
+<li>Math.PI 属性<blockquote>
 <ul>
 <li><code>Math.PI</code>表示圆周率<code>π</code>，即一个圆的周长与直径的比例，约为<code>3.14159</code></li>
 </ul>
-<pre><code>console.log(Math.PI); // 3.141592653589793
-</code></pre>
 </blockquote>
 </li>
-<li><p>Math.pow(x,y)</p>
-<blockquote>
+</ol>
+<pre><code>console.log(Math.PI); // 3.141592653589793
+</code></pre>
+<ol start="2">
+<li>Math.pow(x,y)<blockquote>
 <ul>
 <li><code>Math.pow(x,y)</code> 返回 x 的 y 次幂</li>
 </ul>
-<pre><code>console.log(Math.pow(2, 3)); // 8  2的3次幂为8
-</code></pre>
 </blockquote>
 </li>
-<li><p>Math.sqrt(x)</p>
-<blockquote>
+</ol>
+<pre><code>console.log(Math.pow(2, 3)); // 8  2的3次幂为8
+</code></pre>
+<ol start="3">
+<li>Math.sqrt(x)<blockquote>
 <ul>
 <li>返回x的平方根</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Math.sqrt(4)); // 2
 console.log(Math.sqrt(9)); // 3
 </code></pre>
-</blockquote>
-</li>
-<li><p>Math.ceil</p>
-<blockquote>
+<ol start="4">
+<li>Math.ceil<blockquote>
 <ul>
 <li>向上取整，返回大于等于 x 的最小整数</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Math.ceil(2.2)); // 3
 console.log(Math.ceil(2.0001)); // 3
 console.log(Math.ceil(-2.1)); // -2
 console.log(Math.ceil(0.909)); // 1
 </code></pre>
-</blockquote>
-</li>
-<li><p>Math.floor</p>
-<blockquote>
+<ol start="5">
+<li>Math.floor<blockquote>
 <ul>
 <li>向下取整，返回小于等于 x 的最大整数</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Math.floor(2.2)); // 2
 console.log(Math.floor(2.0001)); // 2
 console.log(Math.floor(-2.1)); // -3
 console.log(Math.floor(0.909)); // 0
 </code></pre>
-</blockquote>
-</li>
-<li><p>Math.round</p>
-<blockquote>
+<ol start="6">
+<li>Math.round<blockquote>
 <ul>
 <li>返回<code>x</code>经过<strong>四舍五入</strong>后得到的最接近的整数，只需要看 <code>x</code> 的小数部分与 <code>0.5</code> 的关系<blockquote>
 <p>特别注意：当x是负数是，如果小数部分是 0.5，则返回值为x的整数部分</p>
@@ -558,7 +562,6 @@ console.log(Math.floor(0.909)); // 0
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>console.log(Math.round(10.49)); // 10
 console.log(Math.round(10.5)); // 11
 console.log(Math.round(-10.49)); // -10
@@ -566,7 +569,6 @@ console.log(Math.round(-10.49)); // -10
 console.log(Math.round(-10.5)); // -10
 console.log(Math.round(-10.51)); // -11
 </code></pre>
-</blockquote>
 <ol start="7">
 <li>Math.max<blockquote>
 <ul>
@@ -576,18 +578,18 @@ console.log(Math.round(-10.51)); // -11
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>console.log(Math.max(1, 2, 3, 7)); // 7
 console.log(Math.max()); // -Infinity
 console.log(Math.max(1, 2, &quot;a&quot;)); // NaN
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>求数组中的最大值</strong></p>
+</blockquote>
 <pre><code>var arr = [1, 20, 5, 6, 3, 9, 10];
 var maxValue = Math.max.apply(null, arr);
 console.log(maxValue);
 </code></pre>
+<blockquote>
 <blockquote>
 <p><code>Math.min</code>同样可以</p>
 </blockquote>
@@ -598,37 +600,40 @@ console.log(maxValue);
 <li>返回给定数值中的最小数，如果任一参数不能转换为数值，则返回<code>NaN</code></li>
 <li>如果没有提供参数，返回<code>Infinity</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Math.min(1, 2, 3, 7)); // 1
 console.log(Math.min()); // -Infinity
 console.log(Math.min(1, 2, &quot;a&quot;)); // NaN
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li><strong><code>Math.max</code>与<code>Math.min</code>常用于裁剪值</strong><blockquote>
 <p>比如:</p>
 <ul>
 <li>元素的 <code>left</code> 值只能在<code>0 ~ 500</code>之间，则我们可以利用<code>Math.max</code> 和 <code>Math.min</code>来对值做裁剪</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var left = 300;
 left = left &lt; 0 ? 0 : left;
 left = left &gt; 500 ? 500 : left;
 console.log(left);
+&gt;
+// 利用 Math.max和Math.min来实现
+left = Math.max(left, 0);
+left = Math.min(500, left);
+console.log(left);
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 利用 Math.max和Math.min来实现<br>left &#x3D; Math.max(left, 0);<br>left &#x3D; Math.min(500, left);<br>console.log(left);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="9">
-<li><p>Math.abs</p>
-<blockquote>
+<li>Math.abs<blockquote>
 <ul>
 <li>返回一个数字的<strong>绝对值</strong>，如果不能转换的，则会转换为 <code>NaN</code>，能转的都会转换成对应的数字</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Math.abs(-1)); // 1
 console.log(Math.abs(-1.2)); // 1.2
 console.log(Math.abs(null)); // 0
@@ -639,32 +644,26 @@ console.log(Math.abs([-3])); // 3
 console.log(Math.abs([2, -3])); // NaN
 console.log(Math.abs(&#123;&#125;)); // NaN
 </code></pre>
-</blockquote>
-</li>
-<li><p>Math.random</p>
-<blockquote>
+<ol start="10">
+<li>Math.random<blockquote>
 <ul>
 <li>返回一个 <code>0 ~ 1</code> 之间的随机数，不包括 0 和 1</li>
 <li>返回指定范围<code>[a,b]</code>之间的随机整数公式，包括 a 和 b：</li>
 </ul>
-<pre><code>Math.random() * (b - a + 1) + a;
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
+<pre><code>Math.random() * (b - a + 1) + a;
+</code></pre>
 <pre><code>// 随机生成 0-6之间的随机整数,包括0和6
 var n = Math.floor(Math.random() * 7);
+&gt;
+// 随机生成 [2,6]之间的随机整数
+var n = Math.floor(Math.random() * (6 - 2 + 1) + 2);
+&gt;
+// 随机生成[-5,5]之间的整数
+var n = Math.floor(Math.random() * (5 - -5 + 1) - 5);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 随机生成 [2,6]之间的随机整数<br>var n &#x3D; Math.floor(Math.random() * (6 - 2 + 1) + 2);</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 随机生成[-5,5]之间的整数<br>var n &#x3D; Math.floor(Math.random() * (5 - -5 + 1) - 5);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="11">
 <li>Math.atan2<blockquote>
 <ul>
@@ -680,10 +679,8 @@ var n = Math.floor(Math.random() * 7);
 </ol>
 <img src="弧度值.png">
 
-<blockquote>
 <pre><code>Math.atan2(y, x); // 第一个参数是y坐标，第二个参数是x坐标
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>因为</strong></p>
 <ul>
@@ -694,22 +691,23 @@ var n = Math.floor(Math.random() * 7);
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code> rad1 = Math.atan2(-1, 1);
  deg1 = Math.atan2(-1, 1) * (180 / Math.PI);
  console.log(rad1, deg1); //-0.7853981633974483 -45
+&gt;
+ rad2 = Math.atan2(-1, -1);
+ deg2 = Math.atan2(-1, -1) * (180 / Math.PI);
+ console.log(rad2, deg2); //-2.356194490192345 -135
+ &gt;
+ rad3 = Math.atan2(1, -1);
+ deg3 = Math.atan2(1, -1) * (180 / Math.PI);
+ console.log(rad3, deg3); //2.356194490192345 135
+ &gt;
+ rad4 = Math.atan2(1, 1);
+ deg4 = Math.atan2(1, 1) * (180 / Math.PI);
+ console.log(rad4, deg4); //0.7853981633974483 45
 </code></pre>
-</blockquote>
-<p> rad2 &#x3D; Math.atan2(-1, -1);<br> deg2 &#x3D; Math.atan2(-1, -1) * (180 &#x2F; Math.PI);<br> console.log(rad2, deg2); &#x2F;&#x2F;-2.356194490192345 -135</p>
-<blockquote>
-</blockquote>
-<p> rad3 &#x3D; Math.atan2(1, -1);<br> deg3 &#x3D; Math.atan2(1, -1) * (180 &#x2F; Math.PI);<br> console.log(rad3, deg3); &#x2F;&#x2F;2.356194490192345 135</p>
-<blockquote>
-</blockquote>
-<p> rad4 &#x3D; Math.atan2(1, 1);<br> deg4 &#x3D; Math.atan2(1, 1) * (180 &#x2F; Math.PI);<br> console.log(rad4, deg4); &#x2F;&#x2F;0.7853981633974483 45</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li>扩展知识：弧度与角度的关系<blockquote>
 <ul>
@@ -762,30 +760,33 @@ var n = Math.floor(Math.random() * 7);
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>// box中心点与浏览器左边和上边距离
 var centerX = box.offsetLeft + box.offsetWidth / 2;
 var centerY = box.offsetTop + box.offsetHeight / 2;
+&gt;
+document.onmousemove = function (e) &#123;
+  var clientY = e.clientY;
+  var clientX = e.clientX;
+&#125;;
+&gt;
+// 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值
+x = clientX - centerX;
+y = clientY - centerY;
+&gt;
 </code></pre>
-</blockquote>
-<p>document.onmousemove &#x3D; function (e) {<br>  var clientY &#x3D; e.clientY;<br>  var clientX &#x3D; e.clientX;<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值<br>x &#x3D; clientX - centerX;<br>y &#x3D; clientY - centerY;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>用(x,y)计算弧度值和角度控制元素的旋转角度：<code>transform:rotate(deg)</code></li>
 </ul>
+</blockquote>
 <pre><code>var rad = Math.atan2(y, x); // 弧度值
 var deg = rad * (180 / Math.PI); // 将弧度值转换为对应角度制
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>完整源码</strong></p>
-<pre><code>&lt;style&gt;
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 200px;
@@ -793,40 +794,34 @@ var deg = rad * (180 / Math.PI); // 将弧度值转换为对应角度制
     margin: 200px;
     /* transform-origin: top left; */ /*改变旋转中心点*/
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   // box中心点与浏览器左边和上边距离
   var centerX = box.offsetLeft + box.offsetWidth / 2;
   var centerY = box.offsetTop + box.offsetHeight / 2;
+&gt;
+  // onmousemove事件
+  document.onmousemove = function (e) &#123;
+    // 鼠标与浏览器左边和右边距离
+    var clientY = e.clientY;
+    var clientX = e.clientX;
+&gt;
+    // 得到鼠标与元素中心点的x和y坐标
+    x = clientX - centerX;
+    y = clientY - centerY;
+&gt;
+    // 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值
+    var rad = Math.atan2(y, x);
+    var deg = rad * (180 / Math.PI);
+&gt;
+    // 控制元素的旋转角度
+    box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; onmousemove事件<br>  document.onmousemove &#x3D; function (e) {<br>    &#x2F;&#x2F; 鼠标与浏览器左边和右边距离<br>    var clientY &#x3D; e.clientY;<br>    var clientX &#x3D; e.clientX;</p>
-<blockquote>
-</blockquote>
-<pre><code>// 得到鼠标与元素中心点的x和y坐标
-x = clientX - centerX;
-y = clientY - centerY;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 以元素的中心点为（0，0）坐标，来计算弧度值，最后转换为对应角度值
-var rad = Math.atan2(y, x);
-var deg = rad * (180 / Math.PI);
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 控制元素的旋转角度
-box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
-</code></pre>
-<p>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="二、Date-日期对象"><a href="#二、Date-日期对象" class="headerlink" title="二、Date 日期对象"></a>二、Date 日期对象</h3><blockquote>
 <ul>
 <li>Date 日期对象主要是用来处理日期</li>
@@ -984,15 +979,16 @@ box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
 <li><code>dateString</code>表示一个日期字符串，其中<code>2022-07-02</code>这种格式的日期(<code>-</code>和两位数同时存在)会被处理成 <code>UTC</code>，而不是本地时间(与中国相差八小时)</li>
 <li>该方法会把<code>dateString</code>转化为：<code>星期 月 日 年 时间</code>的格式</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code> console.log(new Date(&quot;2022-7-1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
  console.log(new Date(&quot;2022/7/1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
  console.log(new Date(&quot;2022-07-1&quot;)); //Fri Jul 01 2022 00:00:00 GMT+0800
  console.log(new Date(&quot;2022-07-01&quot;)); //会被处理成UTC时间 Fri Jul 01 2022 08:00:00 GMT+0800
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>new Date((year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]]);)</code></p>
-<blockquote>
+<ol start="4">
+<li><code>new Date((year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]]);)</code><blockquote>
 <ul>
 <li>分别提供日期和时间的每个成员，不过<strong>至少要</strong>提供年份与月份</li>
 <li>如果<strong>没有提供</strong>的参数，<strong>日期</strong>默认值为<code>1</code>，<strong>时，分，秒</strong>默认值为<code>0</code><blockquote>
@@ -1002,19 +998,18 @@ box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
 <li><code>monthIndex</code>表示月份的整数值，从 0（1 月）到 11（12 月）</li>
 <li><code>year</code>年份的整数值，<code>0</code>到<code>99</code>会被映射至 <code>1900</code> 年至 <code>1999</code>年，其它值代表实际年份</li>
 </ul>
-<pre><code> console.log(new Date(2023, 8, 25, 17, 23)); //Mon Sep 25 2023 17:23:00
-</code></pre>
-</blockquote>
-<p> console.log(new Date(“2023-08-25”)); &#x2F;&#x2F;Fri Aug 25 2023 08:00:00<br> console.log(new Date(“2023&#x2F;8&#x2F;25”)); &#x2F;&#x2F;Fri Aug 25 2023 00:00:00</p>
-<blockquote>
-</blockquote>
-<p> console.log(new Date(2023, 15, 25)); &#x2F;&#x2F;Thu Apr 25 2024 00:00:00<br> console.log(new Date(2023, 8, 40)); &#x2F;&#x2F;Tue Oct 10 2023 00:00:00<br> console.log(new Date(2023, 8, 25, 30)); &#x2F;&#x2F;Tue Sep 26 2023 06:00:00</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code> console.log(new Date(2023, 8, 25, 17, 23)); //Mon Sep 25 2023 17:23:00
+&gt;
+ console.log(new Date(&quot;2023-08-25&quot;)); //Fri Aug 25 2023 08:00:00
+ console.log(new Date(&quot;2023/8/25&quot;)); //Fri Aug 25 2023 00:00:00
+&gt;
+ console.log(new Date(2023, 15, 25)); //Thu Apr 25 2024 00:00:00
+ console.log(new Date(2023, 8, 40)); //Tue Oct 10 2023 00:00:00
+ console.log(new Date(2023, 8, 25, 30)); //Tue Sep 26 2023 06:00:00
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意事项：</p>
@@ -1034,26 +1029,26 @@ box.style.transform = &quot;rotate(&quot; + deg + &quot;deg)&quot;;
 <ul>
 <li>获取上一个月共有多少天，比如获取 2022 年 9 月的上一个月有多少天</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code> // 获取2022年9月的上一个月有多少天
  var date = new Date(2022, 8, 0); // 2022年9月的第0天就是8月的最后一天
  console.log(date); // Wed Aug 31 2022 00:00:00 GMT+0800
  var prevMonthDayCount = date.getDate(); // 获取当前日期的天
  console.log(prevMonthDayCount); // 31
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>获取当月一共有多少天，如比获取 2022 年 9 月一共有多少天</li>
 </ul>
+</blockquote>
 <pre><code>// 获取2022年9月一共有多少天
 var date = new Date(2022, 9, 0); //2022年10月的第0天就是 2022年9月的最后一天
 console.log(date); // Fri Sep 30 2022 00:00:00 GMT+0800 (中国标准时间)
 var prevMonthDayCount = date.getDate(); // 获取当前日期的天
 console.log(prevMonthDayCount); // 30
 </code></pre>
-</blockquote>
 <ol start="5">
 <li>扩展<blockquote>
 <p><strong>UTC：</strong></p>
@@ -1091,6 +1086,7 @@ console.log(prevMonthDayCount); // 30
 <td>根据当地语言规定返回代表着时<strong>分秒</strong>的字符串</td>
 </tr>
 </tbody></table>
+</blockquote>
 <pre><code> var date = new Date();
  console.log(date); // Thu Aug 08 2022 22:21:58 GMT+0800 (中国标准时间)
  console.log(date.toString()); // Thu Aug 08 2022 22:21:58 GMT+0800 (中国标准时间)
@@ -1098,7 +1094,6 @@ console.log(prevMonthDayCount); // 30
  console.log(date.toLocaleDateString()); // 2022/8/8
  console.log(date.toLocaleTimeString()); // 22:21:58
 </code></pre>
-</blockquote>
 <h4 id="日期对象常见方法"><a href="#日期对象常见方法" class="headerlink" title="日期对象常见方法"></a>日期对象常见方法</h4><blockquote>
 <p>如果我们想获取日期的指定部分，如：年，月，日，星期，时，分，秒等中的某个部分,则可以使用下面提供的方法</p>
 </blockquote>
@@ -1146,6 +1141,7 @@ console.log(prevMonthDayCount); // 30
 <ul>
 <li>以 “2023 年 09 月 08 日 12 时 04 分 05 秒 星期四” 格式输出对应的日期</li>
 </ul>
+</blockquote>
 <pre><code> var d = new Date();
  var year = d.getFullYear();
  var month = d.getMonth() + 1;
@@ -1154,27 +1150,53 @@ console.log(prevMonthDayCount); // 30
  var hours = d.getHours();
  var minutes = d.getMinutes();
  var seconds = d.getSeconds();
+&gt;
+ // 对日期不足两位的补0操作
+ month = padZero(month);
+ date = padZero(date);
+ hours = padZero(hours);
+ minutes = padZero(minutes);
+ seconds = padZero(seconds);
+&gt;
+ var week = [
+   &quot;星期天&quot;,
+   &quot;星期一&quot;,
+   &quot;星期二&quot;,
+   &quot;星期三&quot;,
+   &quot;星期四&quot;,
+   &quot;星期五&quot;,
+   &quot;星期六&quot;,
+ ];
+&gt;
+ console.log(
+   year +
+     &quot;年&quot; +
+     month +
+     &quot;月&quot; +
+     date +
+     &quot;天 &quot; +
+     hours +
+     &quot;时&quot; +
+     minutes +
+     &quot;分&quot; +
+     seconds +
+     &quot;秒 &quot; +
+     week[day]
+ );
+ // 输出结果格式： 2023年09月08天 23时12分16秒 星期四
+ &gt;
+ // 补0
+ function padZero(str) &#123;
+   str = str + &quot;&quot;;
+   return str.padStart(2, &quot;0&quot;);
+ &#125;
 </code></pre>
-</blockquote>
-<p> &#x2F;&#x2F; 对日期不足两位的补0操作<br> month &#x3D; padZero(month);<br> date &#x3D; padZero(date);<br> hours &#x3D; padZero(hours);<br> minutes &#x3D; padZero(minutes);<br> seconds &#x3D; padZero(seconds);</p>
-<blockquote>
-</blockquote>
-<p> var week &#x3D; [<br>   “星期天”,<br>   “星期一”,<br>   “星期二”,<br>   “星期三”,<br>   “星期四”,<br>   “星期五”,<br>   “星期六”,<br> ];</p>
-<blockquote>
-</blockquote>
-<p> console.log(<br>   year +<br>     “年” +<br>     month +<br>     “月” +<br>     date +<br>     “天 “ +<br>     hours +<br>     “时” +<br>     minutes +<br>     “分” +<br>     seconds +<br>     “秒 “ +<br>     week[day]<br> );<br> &#x2F;&#x2F; 输出结果格式： 2023年09月08天 23时12分16秒 星期四</p>
-<blockquote>
-</blockquote>
-<p> &#x2F;&#x2F; 补0<br> function padZero(str) {<br>   str &#x3D; str + “”;<br>   return str.padStart(2, “0”);<br> }</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h4><blockquote>
 <ul>
 <li>时间戳：表示 1970 年 1 月 1 日零点整<strong>距离某时刻</strong>的毫秒数</li>
 <li><code>getTime</code>方法：可以把对应的日期时间转换为对应的时间戳</li>
 </ul>
+</blockquote>
 <pre><code>//得到此时距1970 年 1 月 1 日零点整的毫秒数
  var d1 = new Date();
  console.log(d1.getTime()); //1692958123935
@@ -1182,10 +1204,9 @@ console.log(prevMonthDayCount); // 30
  var d2 = new Date(&quot;2023 / 8 / 26&quot;);
  console.log(d2.getTime()); //1692979200000
 </code></pre>
-</blockquote>
 <ol>
-<li><p>应用：利用 getTime 方法，可以测试代码的执行时间</p>
-<blockquote>
+<li>应用：利用 getTime 方法，可以测试代码的执行时间</li>
+</ol>
 <pre><code>var start = new Date();
 for (var i = 0; i &lt; 1000; i++) &#123;
   console.log(i);
@@ -1195,10 +1216,8 @@ var end = new Date();
 var time = end.getTime() - start.getTime();
 console.log(&quot;代码执行时间&quot; + time + &quot;毫秒&quot;); // 代码执行时间20毫秒
 </code></pre>
-</blockquote>
-</li>
-<li><p>将一个日期转换为对应的时间戳 ，还有以下 4 种方法</p>
-<table>
+<ol start="2">
+<li>将一个日期转换为对应的时间戳 ，还有以下 4 种方法<table>
 <thead>
 <tr>
 <th>时间戳方法</th>
@@ -1228,21 +1247,17 @@ console.log(&quot;代码执行时间&quot; + time + &quot;毫秒&quot;); // 代�
 </tbody></table>
 </li>
 </ol>
-<blockquote>
 <pre><code>var d = new Date(2022, 9, 9);
 console.log(d.valueOf()); // 1665244800000
 console.log(d.getTime()); // 1665244800000
 console.log(+d); // 1665244800000
+&gt;
+console.log(Date.now()); // 1665244823500
+&gt;
+console.log(Date.parse(&quot;2022-9-1&quot;)); // 本地时间  1661961600000
+console.log(Date.parse(&quot;2022/9/1&quot;)); // 本地时间  1661961600000
+console.log(Date.parse(&quot;2022-09-01&quot;)); // UTC 1661990400000
 </code></pre>
-</blockquote>
-<p>console.log(Date.now()); &#x2F;&#x2F; 1665244823500</p>
-<blockquote>
-</blockquote>
-<p>console.log(Date.parse(“2022-9-1”)); &#x2F;&#x2F; 本地时间  1661961600000<br>console.log(Date.parse(“2022&#x2F;9&#x2F;1”)); &#x2F;&#x2F; 本地时间  1661961600000<br>console.log(Date.parse(“2022-09-01”)); &#x2F;&#x2F; UTC 1661990400000</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>Date.parse()</code>方法传入日期必须用引号包裹，并且根据不同的日期格式会返回UTC或者本地时间</li>
@@ -1258,64 +1273,63 @@ console.log(+d); // 1665244800000
 </ul>
 </blockquote>
 <ol>
-<li><p>CSS布局</p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<li>CSS布局</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   .countDown &#123;
- position: relative;
- width: 190px;
- height: 260px;
- background-image: url(../src/miaosha.png);
- margin: 100px;
+    position: relative;
+    width: 190px;
+    height: 260px;
+    background-image: url(../src/miaosha.png);
+    margin: 100px;
   &#125;
   .countDown .title &#123;
- font-size: 30px;
- text-align: center;
- padding-top: 50px;
- color: #fff;
- font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 50px;
+    color: #fff;
+    font-weight: bold;
   &#125;
   .countDown .main &#123;
- position: absolute;
- bottom: 50px;
- width: 100%;
- height: 30px;
- text-align: center;
- font-size: 0;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 0;
   &#125;
   .countDown .main span &#123;
- position: relative;
- display: inline-block;
- width: 30px;
- height: 30px;
- margin: 0 8px;
- font-size: 20px;
- color: #fff;
- background-color: #000;
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 0 8px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
   &#125;
   .main span::after &#123;
- position: absolute;
- top: 0;
- right: -10px;
- content: &quot;:&quot;;
- display: block;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    content: &quot;:&quot;;
+    display: block;
   &#125;
   .main span.second::after &#123;
- content: &quot;&quot;;
+    content: &quot;&quot;;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;countDown&quot; id=&quot;J-countDown&quot;&gt;
- &lt;!-- &lt;div class=&quot;title&quot;&gt;京东秒杀&lt;/div&gt;
- &lt;div class=&quot;main&quot;&gt;
-   &lt;span class=&quot;hour&quot;&gt;00&lt;/span&gt;
-   &lt;span class=&quot;minute&quot;&gt;00&lt;/span&gt;
-   &lt;span class=&quot;second&quot;&gt;00&lt;/span&gt;
- &lt;/div&gt; --&gt;
-&lt;/div&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;countDown&quot; id=&quot;J-countDown&quot;&gt;
+&gt;  &lt;!-- &lt;div class=&quot;title&quot;&gt;京东秒杀&lt;/div&gt;
+&gt;  &lt;div class=&quot;main&quot;&gt;
+&gt;    &lt;span class=&quot;hour&quot;&gt;00&lt;/span&gt;
+&gt;    &lt;span class=&quot;minute&quot;&gt;00&lt;/span&gt;
+&gt;    &lt;span class=&quot;second&quot;&gt;00&lt;/span&gt;
+&gt;  &lt;/div&gt; --&gt;
+&gt;&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
+<ol start="2">
 <li><p>JS实现思路</p>
 <blockquote>
 <ul>
@@ -1385,8 +1399,9 @@ console.log(+d); // 1665244800000
 </blockquote>
 </li>
 <li><p>完整 js代码</p>
-<blockquote>
-<pre><code>&lt;script&gt;
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
  var count = document.getElementById(&quot;J-countDown&quot;);
  //创建DOM元素，并插入到页面中
  var frag = document.createDocumentFragment();
@@ -1407,41 +1422,63 @@ console.log(+d); // 1665244800000
  frag.appendChild(title);
  frag.appendChild(main);
  count.appendChild(frag);
-/**
-* countDown 倒计时函数
-* @param startDate 开始时间，日期对象
-* @param endDate 结束时间，日期对象
-*/
+&gt;/**
+&gt; * countDown 倒计时函数
+&gt; * @param startDate 开始时间，日期对象
+&gt; * @param endDate 结束时间，日期对象
+&gt; */
  function countDown(startDate, endDate) &#123;
-//判断是否同时传了两个参数
-if (startDate === undefined || endDate === undefined)
-  throw new Error(&quot;必须同时传入两个日期，作为活动的开始时间和结束时间&quot;);
-//判断传入的是日期对象
-if (!startDate instanceof Date || !endDate instanceof Date)
-  throw new Error(&quot;必须传入两个正确的日期对象&quot;);
-//判断是否结束日期大于起始日期
-if (startDate.getTime() &gt;= endDate.getTime())
-  throw new Error(&quot;结束日期必须大于起始日期&quot;);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 用来记录前前面时，分<br>var time &#x3D; {<br>  hour: “00”,<br>  minute: “00”,<br>};<br>var timer &#x3D; setInterval(upDate, 1000);<br>upDate(); &#x2F;&#x2F;  进来就调用更新时间的函数<br>function upDate() {<br>  &#x2F;&#x2F;判断活动是否结束<br>  var nowDate &#x3D; new Date();<br>  if (nowDate.getTime() &gt; endDate.getTime()) {<br>&#x2F;&#x2F;活动结束，将元素从页面删除<br>count.parentNode.removeChild(“count”);<br>clearInterval(timer);<br>  }<br>  &#x2F;&#x2F;判断活动是否开始<br>  if (nowDate.getTime() &gt;&#x3D; startDate.getTime()) {<br>&#x2F;&#x2F;倒计时<br>var timeDiff &#x3D; (endDate.getTime() - nowDate.getTime()) &#x2F; 1000;<br>var hour &#x3D; parseInt(timeDiff &#x2F; 60 &#x2F; 60);<br>var minute &#x3D; parseInt((timeDiff &#x2F; 60) % 60);<br>var second &#x3D; parseInt(timeDiff % 60);<br>&#x2F;&#x2F; 更新DOM元素,对于不足两位的数，前面补0,<br>if (time.hour !&#x3D; hour) {<br>  span1.innerText &#x3D; (hour + “”).padStart(2, “0”);<br>  time.hour &#x3D; hour;<br>}</p>
-</li>
-</ol>
-<blockquote>
-</blockquote>
-<pre><code>   if (time.minute != minute) &#123;
-     span2.innerText = (minute + &quot;&quot;).padStart(2, &quot;0&quot;);
-     time.minute = minute;
+   //判断是否同时传了两个参数
+   if (startDate === undefined || endDate === undefined)
+     throw new Error(&quot;必须同时传入两个日期，作为活动的开始时间和结束时间&quot;);
+   //判断传入的是日期对象
+   if (!startDate instanceof Date || !endDate instanceof Date)
+     throw new Error(&quot;必须传入两个正确的日期对象&quot;);
+   //判断是否结束日期大于起始日期
+   if (startDate.getTime() &gt;= endDate.getTime())
+     throw new Error(&quot;结束日期必须大于起始日期&quot;);
+&gt;
+   // 用来记录前前面时，分
+   var time = &#123;
+     hour: &quot;00&quot;,
+     minute: &quot;00&quot;,
+   &#125;;
+   var timer = setInterval(upDate, 1000);
+   upDate(); //  进来就调用更新时间的函数
+   function upDate() &#123;
+     //判断活动是否结束
+     var nowDate = new Date();
+     if (nowDate.getTime() &gt; endDate.getTime()) &#123;
+       //活动结束，将元素从页面删除
+       count.parentNode.removeChild(&quot;count&quot;);
+       clearInterval(timer);
+     &#125;
+     //判断活动是否开始
+     if (nowDate.getTime() &gt;= startDate.getTime()) &#123;
+       //倒计时
+       var timeDiff = (endDate.getTime() - nowDate.getTime()) / 1000;
+       var hour = parseInt(timeDiff / 60 / 60);
+       var minute = parseInt((timeDiff / 60) % 60);
+       var second = parseInt(timeDiff % 60);
+       // 更新DOM元素,对于不足两位的数，前面补0,
+       if (time.hour != hour) &#123;
+         span1.innerText = (hour + &quot;&quot;).padStart(2, &quot;0&quot;);
+         time.hour = hour;
+       &#125;
+&gt;
+       if (time.minute != minute) &#123;
+         span2.innerText = (minute + &quot;&quot;).padStart(2, &quot;0&quot;);
+         time.minute = minute;
+       &#125;
+       span3.innerText = (second + &quot;&quot;).padStart(2, &quot;0&quot;);
+     &#125;
    &#125;
-   span3.innerText = (second + &quot;&quot;).padStart(2, &quot;0&quot;);
  &#125;
+ var startDate = new Date(&quot;2023/8/25&quot;);
+ var endDate = new Date(&quot;2023/8/27&quot;);
+ countDown(startDate, endDate);
+&gt;&lt;/script&gt;
 </code></pre>
-<p>   }<br> }<br> var startDate &#x3D; new Date(“2023&#x2F;8&#x2F;25”);<br> var endDate &#x3D; new Date(“2023&#x2F;8&#x2F;27”);<br> countDown(startDate, endDate);</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="案例-手写日历组件"><a href="#案例-手写日历组件" class="headerlink" title="案例-手写日历组件"></a>案例-手写日历组件</h3><ol>
 <li>布局思路<blockquote>
 <ul>
@@ -1451,178 +1488,170 @@ if (startDate.getTime() &gt;= endDate.getTime())
 </li>
 </ol>
 <ul>
-<li>HTML布局<blockquote>
-<pre><code>&lt;div class=&quot;calendar&quot;&gt;
-&lt;!-- calendar-menu start --&gt;
-&lt;div class=&quot;calendar-menu&quot;&gt;
- &lt;span class=&quot;prev-year&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;
- &lt;span class=&quot;prev-month&quot;&gt;&amp;lt;&lt;/span&gt;
- &lt;span class=&quot;current-date&quot;&gt;2022年12月&lt;/span&gt;
- &lt;span class=&quot;next-month&quot;&gt;&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;next-year&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
-&lt;/div&gt;
-&lt;!--end calendar-menu --&gt;
-&lt;!-- calendar-week start --&gt;
-&lt;div class=&quot;calendar-week table&quot;&gt;
- &lt;div class=&quot;tr&quot;&gt;
-   &lt;div class=&quot;th&quot;&gt;一&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;二&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;三&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;四&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;五&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;六&lt;/div&gt;
-   &lt;div class=&quot;th&quot;&gt;日&lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- end calendar-week  --&gt;
-&lt;!-- calendar-main start --&gt;
-&lt;div class=&quot;calendar-main&quot;&gt;
- &lt;div class=&quot;table&quot;&gt;
-   &lt;div class=&quot;tr&quot;&gt;
-     &lt;div class=&quot;td prev-month&quot;&gt;28&lt;/div&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>HTML布局</li>
 </ul>
-<blockquote>
-<pre><code> &lt;div class=&quot;td prev-month&quot;&gt;29&lt;/div&gt;
- &lt;div class=&quot;td prev-month&quot;&gt;30&lt;/div&gt;
- &lt;div class=&quot;td&quot;&gt;1&lt;/div&gt;
- &lt;div class=&quot;td&quot;&gt;2&lt;/div&gt;
- &lt;div class=&quot;td&quot;&gt;3&lt;/div&gt;
- &lt;div class=&quot;td&quot;&gt;4&lt;/div&gt;
+<pre><code>&gt;&lt;div class=&quot;calendar&quot;&gt;
+&gt;&lt;!-- calendar-menu start --&gt;
+&gt;&lt;div class=&quot;calendar-menu&quot;&gt;
+&gt;  &lt;span class=&quot;prev-year&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;
+&gt;  &lt;span class=&quot;prev-month&quot;&gt;&amp;lt;&lt;/span&gt;
+&gt;  &lt;span class=&quot;current-date&quot;&gt;2022年12月&lt;/span&gt;
+&gt;  &lt;span class=&quot;next-month&quot;&gt;&amp;gt;&lt;/span&gt;
+&gt;  &lt;span class=&quot;next-year&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;!--end calendar-menu --&gt;
+&gt;&lt;!-- calendar-week start --&gt;
+&gt;&lt;div class=&quot;calendar-week table&quot;&gt;
+&gt;  &lt;div class=&quot;tr&quot;&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;一&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;二&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;三&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;四&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;五&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;六&lt;/div&gt;
+&gt;    &lt;div class=&quot;th&quot;&gt;日&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;!-- end calendar-week  --&gt;
+&gt;&lt;!-- calendar-main start --&gt;
+&gt;&lt;div class=&quot;calendar-main&quot;&gt;
+&gt;  &lt;div class=&quot;table&quot;&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td prev-month&quot;&gt;28&lt;/div&gt;
+&gt;      &lt;div class=&quot;td prev-month&quot;&gt;29&lt;/div&gt;
+&gt;      &lt;div class=&quot;td prev-month&quot;&gt;30&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;1&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;2&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;3&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;4&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td active&quot;&gt;5&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;6&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;7&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;8&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;9&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;10&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;11&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;12&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;13&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;14&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;15&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;16&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;17&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;18&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;19&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;20&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;21&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;22&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;23&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;24&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;25&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td current&quot;&gt;26&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;27&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;28&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;29&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;30&lt;/div&gt;
+&gt;      &lt;div class=&quot;td&quot;&gt;31&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;1&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;div class=&quot;tr&quot;&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;2&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;3&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;4&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;5&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;6&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;7&lt;/div&gt;
+&gt;      &lt;div class=&quot;td next-month&quot;&gt;8&lt;/div&gt;
+&gt;    &lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;!-- end calendar-main  --&gt;
+&gt;&lt;/div&gt;
 </code></pre>
-   </div>
-   <div class="tr">
-     <div class="td active">5</div>
-     <div class="td">6</div>
-     <div class="td">7</div>
-     <div class="td">8</div>
-     <div class="td">9</div>
-     <div class="td">10</div>
-     <div class="td">11</div>
-   </div>
-   <div class="tr">
-     <div class="td">12</div>
-     <div class="td">13</div>
-     <div class="td">14</div>
-     <div class="td">15</div>
-     <div class="td">16</div>
-     <div class="td">17</div>
-     <div class="td">18</div>
-   </div>
-   <div class="tr">
-     <div class="td">19</div>
-     <div class="td">20</div>
-     <div class="td">21</div>
-     <div class="td">22</div>
-     <div class="td">23</div>
-     <div class="td">24</div>
-     <div class="td">25</div>
-   </div>
-   <div class="tr">
-     <div class="td current">26</div>
-     <div class="td">27</div>
-     <div class="td">28</div>
-     <div class="td">29</div>
-     <div class="td">30</div>
-     <div class="td">31</div>
-     <div class="td next-month">1</div>
-   </div>
-   <div class="tr">
-     <div class="td next-month">2</div>
-     <div class="td next-month">3</div>
-     <div class="td next-month">4</div>
-     <div class="td next-month">5</div>
-     <div class="td next-month">6</div>
-     <div class="td next-month">7</div>
-     <div class="td next-month">8</div>
-   </div>
- </div>
-</div>
-<!-- end calendar-main  -->
-</div>
-```
-</blockquote>
 <ul>
-<li>CSS布局<blockquote>
-<pre><code>&lt;style&gt;
-.calendar &#123;
-  width: 300px;
-  border: 1px solid #ddd;
-  padding: 20px;
-  box-shadow: 0 0 5px #ddd;
-  border-radius: 5px;
-  margin: 100px;
-&#125;
-/* calendar-menu start */
-.calendar-menu &#123;
-  display: flex;
-&#125;
-.calendar-menu span &#123;
-  color: #898484;
-  user-select: none;
-  cursor: pointer;
-&#125;
-.calendar-menu .current-date &#123;
-  color: #000;
-  flex-grow: 1;
-  text-align: center;
-&#125;
-.calendar-menu .prev-year &#123;
-  margin-right: 20px;
-&#125;
-.calendar-menu .next-year &#123;
-  margin-left: 20px;
-&#125;
-/* end calendar-menu */
-/* calendar-week start */
-.calendar .table &#123;
-  display: table;
-  width: 100%;
-&#125;
-.calendar .tr &#123;
-  display: table-row;
-&#125;
-.table .tr .th,
-.table .tr .td &#123;
-  display: table-cell;
-  height: 35px;
-  font-size: 12px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-&#125;
-.table .tr .th &#123;
-  padding-top: 15px;
-  border-bottom: 1px solid #ddd;
-&#125;
-/* end calendar-week */
-/* calendar-main start */
-.table .tr .td.prev-month,
-.table .tr .td.next-month &#123;
-  color: rgb(194, 194, 194);
-&#125;
-/* 今日 */
-.table .tr .td.current &#123;
-  background-color: rgb(232, 6, 6);
-  color: #fff;
-  font-weight: bold;
-&#125;
-/* 鼠标滑动 */
-.table .tr .td:hover &#123;
-  outline: 1px solid #ddd;
-&#125;
-/* 鼠标点击 */
-.table .tr .td.active &#123;
-  outline: 2px solid rgb(244, 31, 102);
-&#125;
-/* end calendar-main */
-&lt;/style&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>CSS布局</li>
 </ul>
+<pre><code>&gt;&lt;style&gt;
+  .calendar &#123;
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 5px #ddd;
+    border-radius: 5px;
+    margin: 100px;
+  &#125;
+  /* calendar-menu start */
+  .calendar-menu &#123;
+    display: flex;
+  &#125;
+  .calendar-menu span &#123;
+    color: #898484;
+    user-select: none;
+    cursor: pointer;
+  &#125;
+  .calendar-menu .current-date &#123;
+    color: #000;
+    flex-grow: 1;
+    text-align: center;
+  &#125;
+  .calendar-menu .prev-year &#123;
+    margin-right: 20px;
+  &#125;
+  .calendar-menu .next-year &#123;
+    margin-left: 20px;
+  &#125;
+  /* end calendar-menu */
+  /* calendar-week start */
+  .calendar .table &#123;
+    display: table;
+    width: 100%;
+  &#125;
+  .calendar .tr &#123;
+    display: table-row;
+  &#125;
+  .table .tr .th,
+  .table .tr .td &#123;
+    display: table-cell;
+    height: 35px;
+    font-size: 12px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+  &#125;
+  .table .tr .th &#123;
+    padding-top: 15px;
+    border-bottom: 1px solid #ddd;
+  &#125;
+  /* end calendar-week */
+  /* calendar-main start */
+  .table .tr .td.prev-month,
+  .table .tr .td.next-month &#123;
+    color: rgb(194, 194, 194);
+  &#125;
+  /* 今日 */
+  .table .tr .td.current &#123;
+    background-color: rgb(232, 6, 6);
+    color: #fff;
+    font-weight: bold;
+  &#125;
+  /* 鼠标滑动 */
+  .table .tr .td:hover &#123;
+    outline: 1px solid #ddd;
+  &#125;
+  /* 鼠标点击 */
+  .table .tr .td.active &#123;
+    outline: 2px solid rgb(244, 31, 102);
+  &#125;
+  /* end calendar-main */
+&gt;&lt;/style&gt;
+</code></pre>
 <ol start="2">
 <li><p>JS 实现思路</p>
 <blockquote>
@@ -1642,106 +1671,105 @@ if (startDate.getTime() &gt;= endDate.getTime())
 </li>
 </ol>
 <ul>
-<li><p>获取对应年份的月份的总天数</p>
-<blockquote>
+<li>获取对应年份的月份的总天数<blockquote>
 <ul>
 <li>既可以知道当月有多少天</li>
 <li>也可以知道上月有多少天——&gt;得到上月最后一天的日期</li>
 </ul>
-<pre><code> function getMonthDay(year,month)&#123;
-var date=new Date(year,month,0);
-return date.getDate();
-&#125;
-</code></pre>
-</blockquote>
-</li>
-<li><p>获取当月第一天是星期几</p>
-<blockquote>
-<pre><code> function getMonthWeek(year,month)&#123;
-var date=new Date(year,month-1,1);
-return date.getDay();   
-&#125;
-</code></pre>
-</blockquote>
-</li>
-<li><p>将上月需要渲染天数对应的日期，保存在数组中</p>
-<blockquote>
-<pre><code> function getPrevMonth(year,month)&#123;
-//需要知道当月第一天是星期几
-var week=getMonthWeek(year,month);
-//得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
-weekCount=week===0?6:week-1;
-//需要知道上月最后一天的日期
-var prevCount=getMonthDay(year,month-1);
-var prevDate=[];//保存上月需要渲染的日期
-while(weekCount&gt;0)&#123;
-    //只要需要渲染的天数大于0就将上月的日期保存到数组中
-    prevDate.push(prevCount--);
-    weekCount--;
-&#125;
-return prevDate.reverse();
-&#125;
-</code></pre>
-</blockquote>
-</li>
-<li><p>将下个月需要渲染的天数对应的日期，保存在数组中</p>
-<blockquote>
-<pre><code> function nextMonthDate(year,month)&#123;
-//需要知道当月第一天是星期几
-var week=getMonthWeek(year,month);
-//得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
-weekCount=week===0?6:week-1;
-//得到当月天数
-var monthDay=getMonthDay(year,month);
-</code></pre>
-</blockquote>
-<p>var nextDate&#x3D;[];&#x2F;&#x2F;保存下个月需要渲染的日期<br>var nextCount&#x3D;42-monthDay-weekCount;<br>for(var i&#x3D;1;i&lt;&#x3D;nextCount;i++){<br>nextDate.push(i)<br>}<br>return nextDate;<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code> function getMonthDay(year,month)&#123;
+  var date=new Date(year,month,0);
+  return date.getDate();
+&#125;
+</code></pre>
+<ul>
+<li>获取当月第一天是星期几</li>
+</ul>
+<pre><code> function getMonthWeek(year,month)&#123;
+  var date=new Date(year,month-1,1);
+  return date.getDay();   
+&#125;
+</code></pre>
+<ul>
+<li>将上月需要渲染天数对应的日期，保存在数组中</li>
+</ul>
+<pre><code> function getPrevMonth(year,month)&#123;
+  //需要知道当月第一天是星期几
+  var week=getMonthWeek(year,month);
+  //得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+  weekCount=week===0?6:week-1;
+  //需要知道上月最后一天的日期
+  var prevCount=getMonthDay(year,month-1);
+  var prevDate=[];//保存上月需要渲染的日期
+  while(weekCount&gt;0)&#123;
+      //只要需要渲染的天数大于0就将上月的日期保存到数组中
+      prevDate.push(prevCount--);
+      weekCount--;
+  &#125;
+  return prevDate.reverse();
+&#125;
+</code></pre>
+<ul>
+<li>将下个月需要渲染的天数对应的日期，保存在数组中</li>
+</ul>
+<pre><code> function nextMonthDate(year,month)&#123;
+  //需要知道当月第一天是星期几
+  var week=getMonthWeek(year,month);
+  //得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+  weekCount=week===0?6:week-1;
+  //得到当月天数
+  var monthDay=getMonthDay(year,month);
+&gt;
+  var nextDate=[];//保存下个月需要渲染的日期
+  var nextCount=42-monthDay-weekCount;
+  for(var i=1;i&lt;=nextCount;i++)&#123;
+      nextDate.push(i)
+  &#125;
+  return nextDate;
+&#125;
+</code></pre>
 <ol start="4">
-<li><p>根据日期创建 td 结构数组</p>
-<blockquote>
+<li>根据日期创建 td 结构数组<blockquote>
 <ul>
 <li>分别根据上月&#x2F;当月&#x2F;下月需要渲染的日期，生成对应 td 标签和样式，保存到不同数组里</li>
 <li><code>map()</code>方法创建一个新数组，这个新数组由原数组中的每个元素都调用一次提供的函数后的返回值组成。</li>
 <li>根据前面写的功能函数可知，上月、下月的日期已经保存在数组里，而当月需要渲染的日期有当月的天数决定</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>//根据上月需要渲染的日期，生成td标签和样式
 function creatTd1(arr)&#123;
- return arr.map(function(item)&#123;
-     var td=document.createElement(&quot;div&quot;);
-     td.className=&quot;td prev-month&quot;;
-     td.innerText=item;
-     return td;
- &#125;)
+    return arr.map(function(item)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        td.className=&quot;td prev-month&quot;;
+        td.innerText=item;
+        return td;
+    &#125;)
 &#125;
 //根据本月需要渲染的天数，生成td标签和样式
 function creatTd2(days)&#123;
- return arr.map(function(item)&#123;
-     var td=document.createElement(&quot;div&quot;);
-     td.className=&quot;td&quot;;
-     td.innerText=item;
-     return td;
- &#125;)
+    return arr.map(function(item)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        td.className=&quot;td&quot;;
+        td.innerText=item;
+        return td;
+    &#125;)
 &#125;
 //根据下月需要渲染的日期，生成td标签和样式
 function creatTd1(arr)&#123;
- return arr.map(function(item)&#123;
-     var td=document.createElement(&quot;div&quot;);
-     td.className=&quot;td next-month&quot;;
-     td.innerText=item;
-     return td;
- &#125;)
+    return arr.map(function(item)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        td.className=&quot;td next-month&quot;;
+        td.innerText=item;
+        return td;
+    &#125;)
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>创建 render 渲染函数，根据对应年月来渲染出日历内容</p>
-<blockquote>
+<ol start="5">
+<li>创建 render 渲染函数，根据对应年月来渲染出日历内容<blockquote>
 <ul>
 <li>调用功能函数得到需要渲染的日期</li>
 <li>然后调用创建td结构的函数，得到保存了td结构和样式的数组</li>
@@ -1753,6 +1781,9 @@ function creatTd1(arr)&#123;
 </li>
 <li>在渲染前，还要把原有内容清空</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 创建渲染函数，用来渲染 xxxx年xx月的日历表
  function render(year,month)&#123;
   //先拿到上月、当月、下月的日期
@@ -1771,39 +1802,49 @@ function creatTd1(arr)&#123;
   calendarMain.innerHTML=&quot;&quot;;
   //将table插入到calendar-main中
   calendarMain.appendChild(creatTable(tds))
-</code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F;将tds插入到table中<br>  function creatTable(tds){<br>   var table&#x3D;document.createElement(“div”);<br>   table.className&#x3D;”table”;<br>   var n&#x3D;0;<br>   &#x2F;&#x2F;行<br>   for(var i&#x3D;0;i&lt;6;i++){<br>   var tr&#x3D;document.createElement(“div”);<br>   tr.className&#x3D;”tr”;<br>   &#x2F;&#x2F;列<br>   for(var j&#x3D;0;j&lt;7;j++){<br>       tr.appendChild(tds[n]);<br>       n++;<br>   }<br>   table.appendChild(tr);<br>   }<br>   return table;<br>  }<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><p>创建函数，用来获取当前的日期</p>
-<blockquote>
-<pre><code>function getNowDate()&#123;
-  var nowDate=new Date();
-  return &#123;
-      year:nowDate.getFullYear(),
-      month:nowDate.getMonth()+1,
-      date:nowDate.getDate(),
+&gt;
+  //将tds插入到table中
+  function creatTable(tds)&#123;
+      var table=document.createElement(&quot;div&quot;);
+      table.className=&quot;table&quot;;
+      var n=0;
+      //行
+      for(var i=0;i&lt;6;i++)&#123;
+          var tr=document.createElement(&quot;div&quot;);
+          tr.className=&quot;tr&quot;;
+          //列
+          for(var j=0;j&lt;7;j++)&#123;
+              tr.appendChild(tds[n]);
+              n++;
+          &#125;
+          table.appendChild(tr);
+      &#125;
+      return table;
   &#125;
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>调用 render 函数，来生成对应日历</p>
-<blockquote>
+<ul>
+<li>创建函数，用来获取当前的日期</li>
+</ul>
+<pre><code>function getNowDate()&#123;
+    var nowDate=new Date();
+    return &#123;
+        year:nowDate.getFullYear(),
+        month:nowDate.getMonth()+1,
+        date:nowDate.getDate(),
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>调用 render 函数，来生成对应日历<blockquote>
 <ul>
 <li>给render函数传入当前年月</li>
 </ul>
-<pre><code>render(getNowDate().year, getNowDate().month)
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>render(getNowDate().year, getNowDate().month)
+</code></pre>
 <ol start="6">
 <li><p>今天的日期，背景要变成红色</p>
 <blockquote>
@@ -1821,105 +1862,123 @@ function creatTd1(arr)&#123;
 <ul>
 <li>当前日历表头的xxxx年xx月日期，要更新为当前渲染的日期</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function render(year, month) &#123;
   // 日历头部日期显示为渲染日期
   var dateDom = document.querySelector(&quot;.calendar-menu .current-date&quot;);
   dateDom.innerText = dateDom.innerText = year + &quot;年 &quot; + month + &quot;月&quot;;
+
+  // .....
+&#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<p>  &#x2F;&#x2F; …..<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="8">
-<li><p>年月切换按扭事件处理</p>
-<blockquote>
+<li>年月切换按扭事件处理<blockquote>
 <ul>
 <li>注意切换到第0月和第13月的时候，要处理一下</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>  var date = getNowDate();
   var currentYear = date.year;
   var currentMonth = date.month;
   var currentDate = date.date;
   render(currentYear, currentMonth);
+&gt;
+  var prevYearDom = document.querySelector(&quot;.prev-year&quot;);
+  var nextYearDom = document.querySelector(&quot;.next-year&quot;);
+  var prevMonthDom = document.querySelector(&quot;.prev-month&quot;);
+  var nextMonthDom = document.querySelector(&quot;.next-month&quot;);
+&gt;
+  //上一年
+  prevYearDom.onclick = function () &#123;
+    currentYear--;
+    render(currentYear, currentMonth);
+  &#125;;
+  //下一年
+  nextYearDom.onclick = function () &#123;
+    currentYear++;
+    render(currentYear, currentMonth);
+  &#125;;
+  //上一月
+  prevMonthDom.onclick = function () &#123;
+    currentMonth--;
+    if (currentMonth === 0) &#123;
+      currentMonth = 12;
+      currentYear--;
+    &#125;
+    render(currentYear, currentMonth);
+  &#125;;
+  //下一月
+  nextMonthDom.onclick = function () &#123;
+    currentMonth++;
+    if (currentMonth === 13) &#123;
+      currentMonth = 1;
+      currentYear++;
+    &#125;
+    render(currentYear, currentMonth);
+  &#125;;
 </code></pre>
-</blockquote>
-<p>  var prevYearDom &#x3D; document.querySelector(“.prev-year”);<br>  var nextYearDom &#x3D; document.querySelector(“.next-year”);<br>  var prevMonthDom &#x3D; document.querySelector(“.prev-month”);<br>  var nextMonthDom &#x3D; document.querySelector(“.next-month”);</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;上一年<br>  prevYearDom.onclick &#x3D; function () {<br> currentYear–;<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一年<br>  nextYearDom.onclick &#x3D; function () {<br> currentYear++;<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;上一月<br>  prevMonthDom.onclick &#x3D; function () {<br> currentMonth–;<br> if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>   currentMonth &#x3D; 12;<br>   currentYear–;<br> }<br> render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一月<br>  nextMonthDom.onclick &#x3D; function () {<br> currentMonth++;<br> if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>   currentMonth &#x3D; 1;<br>   currentYear++;<br> }<br> render(currentYear, currentMonth);<br>  };</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>选中对应日期</p>
-<blockquote>
+<ol start="9">
+<li>选中对应日期<blockquote>
 <ul>
 <li>使用事件委托</li>
 <li>选中日期后，添加样式</li>
 <li>打印出当前的日期</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>  //选中对应日期
   var calendarMain = document.querySelector(&quot;.calendar-main&quot;);
   var prevEl = null; //前一个被选中的元素
   calendarMain.onclick = function (e) &#123;
- var target = e.target;
- var bool = target.classList.contains(&quot;td&quot;);
- if (!bool) return;
- //将前一个选中元素的样式清除
- if (prevEl) prevEl.classList.remove(&quot;active&quot;);
- //给被选中元素添加样式
- target.classList.add(&quot;active&quot;);
- prevEl = target;
- console.log(
-      currentYear + &quot;年&quot; + currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
-    );
+    var target = e.target;
+    var bool = target.classList.contains(&quot;td&quot;);
+    if (!bool) return;
+    //将前一个选中元素的样式清除
+    if (prevEl) prevEl.classList.remove(&quot;active&quot;);
+    //给被选中元素添加样式
+    target.classList.add(&quot;active&quot;);
+    prevEl = target;
+    console.log(
+         currentYear + &quot;年&quot; + currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+       );
+  &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<p>  }</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
-<li><p>方式1：点击上月&#x2F;下月日期，不切换页面</p>
-<blockquote>
+<li>方式1：点击上月&#x2F;下月日期，不切换页面</li>
+</ul>
 <pre><code>calendarMain.onclick = function (e) &#123;
-//如果点击上/月日期，不切换页面，则：
-var _currentYear = currentYear;
-var _currentMonth = currentMonth;
-var prevBool = target.classList.contains(&quot;prev-month&quot;);
-var nextBool = target.classList.contains(&quot;next-month&quot;);
-if (prevBool) &#123;
-  _currentMonth--;
-  if (currentMonth === 0) &#123;
-    _currentMonth = 12;
-    _currentyear--;
+  //如果点击上/月日期，不切换页面，则：
+  var _currentYear = currentYear;
+  var _currentMonth = currentMonth;
+  var prevBool = target.classList.contains(&quot;prev-month&quot;);
+  var nextBool = target.classList.contains(&quot;next-month&quot;);
+  if (prevBool) &#123;
+    _currentMonth--;
+    if (currentMonth === 0) &#123;
+      _currentMonth = 12;
+      _currentyear--;
+    &#125;
   &#125;
-&#125;
-if (nextBool) &#123;
-  _currentMonth++;
-  if (currentMonth === 13) &#123;
-    _currentMonth = 1;
-    _currentyear++;
+  if (nextBool) &#123;
+    _currentMonth++;
+    if (currentMonth === 13) &#123;
+      _currentMonth = 1;
+      _currentyear++;
+    &#125;
   &#125;
-&#125;
-//打印对应日期
-console.log(
-  _currentYear + &quot;年&quot; + _currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
-);
+  //打印对应日期
+  console.log(
+    _currentYear + &quot;年&quot; + _currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+  );
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>方式2：点击上月&#x2F;下月日期，跳转到对应月份</p>
-<blockquote>
+<ul>
+<li>方式2：点击上月&#x2F;下月日期，跳转到对应月份<blockquote>
 <ul>
 <li>再次修改创建当月td的函数，传入<code>selectDate</code>变量，里面保存当前选中的日</li>
 <li>在for循环创建<code>td</code>时，如果i等于<code>selectDate</code>，就给它添加样式<blockquote>
@@ -1928,29 +1987,49 @@ console.log(
 </li>
 <li><code>selectDate</code>是字符串，i是数字，只能用<code>==</code>不能全等</li>
 </ul>
-<pre><code> calendarMain.onclick = function (e) &#123;
-var target = e.target;
-var bool = target.classList.contains(&quot;td&quot;);
-if (!bool) return;
-//将前一个选中元素的样式清除
-if (prevEl) prevEl.classList.remove(&quot;active&quot;);
-//给被选中元素添加样式
-target.classList.add(&quot;active&quot;);
-prevEl = target;
-//如果点击上/月日期，切换页面，则：
-var prevBool = target.classList.contains(&quot;prev-month&quot;);
-var nextBool = target.classList.contains(&quot;next-month&quot;);
-</code></pre>
-</blockquote>
-<p>if (prevBool) {<br>  currentMonth–;<br>  if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>currentMonth &#x3D; 12;<br>currentYear–;<br>  }<br>  var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>  render(currentYear, currentMonth, selectDate);<br>}<br>if (nextBool) {<br>  currentMonth++;<br>  if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>currentMonth &#x3D; 1;<br>currentYear++;<br>  }<br>  var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>  render(currentYear, currentMonth, selectDate);<br>}<br>&#x2F;&#x2F;打印对应日期<br>console.log(<br>  currentYear + “年” + currentMonth + “月” + target.innerText + “日”<br>);<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code> calendarMain.onclick = function (e) &#123;
+  var target = e.target;
+  var bool = target.classList.contains(&quot;td&quot;);
+  if (!bool) return;
+  //将前一个选中元素的样式清除
+  if (prevEl) prevEl.classList.remove(&quot;active&quot;);
+  //给被选中元素添加样式
+  target.classList.add(&quot;active&quot;);
+  prevEl = target;
+  //如果点击上/月日期，切换页面，则：
+  var prevBool = target.classList.contains(&quot;prev-month&quot;);
+  var nextBool = target.classList.contains(&quot;next-month&quot;);
+&gt;
+  if (prevBool) &#123;
+    currentMonth--;
+    if (currentMonth === 0) &#123;
+      currentMonth = 12;
+      currentYear--;
+    &#125;
+    var selectDate = target.innerText; //保存被点击的日期
+    render(currentYear, currentMonth, selectDate);
+  &#125;
+  if (nextBool) &#123;
+    currentMonth++;
+    if (currentMonth === 13) &#123;
+      currentMonth = 1;
+      currentYear++;
+    &#125;
+    var selectDate = target.innerText; //保存被点击的日期
+    render(currentYear, currentMonth, selectDate);
+  &#125;
+  //打印对应日期
+  console.log(
+    currentYear + &quot;年&quot; + currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+  );
+&#125;;
+</code></pre>
 <blockquote>
 <p><strong>更新 render函数</strong></p>
+</blockquote>
 <pre><code>//selectDate 表示当前选中天数
 function render(year, month, selectDate) &#123;
   if(selectDate)&#123;
@@ -1961,25 +2040,36 @@ function render(year, month, selectDate) &#123;
   //....
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>更新 createTd3 函数</strong></p>
+</blockquote>
 <pre><code> //根据本月需要渲染的天数，生成td标签和样式
  function creatTd2(year,month,selectDate)&#123;
    var result=[];
    var currentYear=getNowDate().year;
    var currentMonth=getNowDate().month;
    var currentDate=getNowDate().date;
+&gt;
+   var days=getMonthDay(year,month);
+   for(var i=1;i&lt;=days;i++)&#123;
+       var td=document.createElement(&quot;div&quot;);
+       if(year===currentYear&amp;&amp;month===currentMonth&amp;&amp;currentDate===i)&#123;
+           td.className=&quot;td current&quot;
+       &#125;else&#123;
+           td.className=&quot;td&quot;;
+       &#125;
+       if(selectDate &amp;&amp; selectDate==i) &#123;
+           td.classList.add(&quot;active&quot;);
+           prevEl=td;
+       &#125;
+       td.innerText=i;
+       result.push(td)
+   &#125;
+   return result;
+&#125;
 </code></pre>
-</blockquote>
-<p>   var days&#x3D;getMonthDay(year,month);<br>   for(var i&#x3D;1;i&lt;&#x3D;days;i++){<br>       var td&#x3D;document.createElement(“div”);<br>       if(year&#x3D;&#x3D;&#x3D;currentYear&amp;&amp;month&#x3D;&#x3D;&#x3D;currentMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;i){<br>           td.className&#x3D;”td current”<br>       }else{<br>           td.className&#x3D;”td”;<br>       }<br>       if(selectDate &amp;&amp; selectDate&#x3D;&#x3D;i) {<br>           td.classList.add(“active”);<br>           prevEl&#x3D;td;<br>       }<br>       td.innerText&#x3D;i;<br>       result.push(td)<br>   }<br>   return result;<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="10">
-<li><p>优化</p>
-<blockquote>
+<li>优化<blockquote>
 <ul>
 <li>如果现在翻到12月，今天的日期在12月的页面可以看到。此时，今天的日期也应该有样式</li>
 <li>把<code>creatTd1</code>、<code>creatTd3</code>也修改成<code>creatTd2</code>那样</li>
@@ -1987,100 +2077,336 @@ function render(year, month, selectDate) &#123;
 <li>参数为年月，根据传入的参数，得到下一个月的年月</li>
 <li>在函数内获取今年今月今日，和上一个月(下月)的年月做比较，如果相同就加样式</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code> //根据上月需要渲染的日期，生成td标签和样式
  function creatTd1(year,month)&#123;
    //获取今天的日期
    var currentYear=getNowDate().year;
    var currentMonth=getNowDate().month;
    var currentDate=getNowDate().date;
+&gt;
+   //获取上个月的年月
+   var prevYear=year;
+   var prevMonth=month-1;
+   if(prevMonth===0)&#123;
+       prevMonth===12;
+       prevYear=year-1;
+   &#125;
+   var arr=getPrevMonth(year,month);
+&gt;
+   return arr.map(function(item)&#123;
+       var td=document.createElement(&quot;div&quot;);
+       td.className=&quot;td prev-month&quot;;
+        // 判断当前月的前一个月中的某个日期为当前日期时
+       if(currentYear===prevYear&amp;&amp;currentMonth===prevMonth&amp;&amp;currentDate===item)&#123;
+           td.classList.add(&quot;current&quot;)
+       &#125;
+       td.innerText=item;
+       return td;
+   &#125;)
+&#125;
+ //根据下月需要渲染的日期，生成td标签和样式
+ function creatTd3(year,month)&#123;
+   //获取今天的日期
+   var currentYear=getNowDate().year;
+   var currentMonth=getNowDate().month;
+   var currentDate=getNowDate().date;
+&gt;
+   //获取上个月的年月
+   var nextYear=year;
+   var nextMonth=month+1;
+   if(nextMonth===13)&#123;
+       nextMonth===1;
+       nextYear=year+1;
+   &#125;
+   var arr=nextMonthDate(year,month);
+   return arr.map(function(item)&#123;
+       var td=document.createElement(&quot;div&quot;);
+       td.className=&quot;td next-month&quot;;
+       if(currentYear===nextYear&amp;&amp;currentMonth===nextMonth&amp;&amp;currentDate===item)&#123;
+           td.classList.add(&quot;current&quot;)
+       &#125;
+       td.innerText=item;
+       return td;
+   &#125;)
+&#125;
 </code></pre>
-</blockquote>
-<p>   &#x2F;&#x2F;获取上个月的年月<br>   var prevYear&#x3D;year;<br>   var prevMonth&#x3D;month-1;<br>   if(prevMonth&#x3D;&#x3D;&#x3D;0){<br>   prevMonth&#x3D;&#x3D;&#x3D;12;<br>   prevYear&#x3D;year-1;<br>   }<br>   var arr&#x3D;getPrevMonth(year,month);</p>
-<blockquote>
-</blockquote>
-<p>   return arr.map(function(item){<br>   var td&#x3D;document.createElement(“div”);<br>   td.className&#x3D;”td prev-month”;<br>&#x2F;&#x2F; 判断当前月的前一个月中的某个日期为当前日期时<br>   if(currentYear&#x3D;&#x3D;&#x3D;prevYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;prevMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>   td.classList.add(“current”)<br>   }<br>   td.innerText&#x3D;item;<br>   return td;<br>   })<br>}<br> &#x2F;&#x2F;根据下月需要渲染的日期，生成td标签和样式<br> function creatTd3(year,month){<br>   &#x2F;&#x2F;获取今天的日期<br>   var currentYear&#x3D;getNowDate().year;<br>   var currentMonth&#x3D;getNowDate().month;<br>   var currentDate&#x3D;getNowDate().date;</p>
-<blockquote>
-</blockquote>
-<p>   &#x2F;&#x2F;获取上个月的年月<br>   var nextYear&#x3D;year;<br>   var nextMonth&#x3D;month+1;<br>   if(nextMonth&#x3D;&#x3D;&#x3D;13){<br>   nextMonth&#x3D;&#x3D;&#x3D;1;<br>   nextYear&#x3D;year+1;<br>   }<br>   var arr&#x3D;nextMonthDate(year,month);<br>   return arr.map(function(item){<br>   var td&#x3D;document.createElement(“div”);<br>   td.className&#x3D;”td next-month”;<br>   if(currentYear&#x3D;&#x3D;&#x3D;nextYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;nextMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>   td.classList.add(“current”)<br>   }<br>   td.innerText&#x3D;item;<br>   return td;<br>   })<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>封装完整版工具函数 calendar.js</p>
-<blockquote>
+<ol start="11">
+<li>封装完整版工具函数 calendar.js<blockquote>
 <ul>
 <li>保存功能性函数</li>
 </ul>
-<pre><code>//1、获取当月的天数
-function getMonthDay(year,month)&#123;
-var date=new Date(year,month,0);
-return date.getDate();
-&#125;
-// console.log(getMonthDay(2023,8))
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;2、获取当月第一天是星期几<br>function getMonthWeek(year,month){<br>var date&#x3D;new Date(year,month-1,1);<br>return date.getDay();<br>}<br>&#x2F;&#x2F; console.log(getMonthWeek(2023,8))</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;3、把上月需要渲染的日期存入数组：<br>function getPrevMonth(year,month){<br>&#x2F;&#x2F;需要知道当月第一天是星期几<br>var week&#x3D;getMonthWeek(year,month);<br>&#x2F;&#x2F;得到上月需要渲染的天数,如果week&#x3D;0表示周日，则需要上个月需要渲染6天<br>weekCount&#x3D;week&#x3D;&#x3D;&#x3D;0?6:week-1;<br>&#x2F;&#x2F;需要知道上月最后一天的日期<br>var prevCount&#x3D;getMonthDay(year,month-1);<br>var prevDate&#x3D;[];&#x2F;&#x2F;保存上月需要渲染的日期<br>while(weekCount&gt;0){<br>&#x2F;&#x2F;只要需要渲染的天数大于0就将上月的日期保存到数组中<br>prevDate.push(prevCount–);<br>weekCount–;<br>}<br>return prevDate.reverse();<br>}<br>&#x2F;&#x2F; console.log(getPrevMonth(2023,7))</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 4、下个月需要渲染的天数对应的日期，保存在数组中<br>function nextMonthDate(year,month){<br> &#x2F;&#x2F;需要知道当月第一天是星期几<br> var week&#x3D;getMonthWeek(year,month);<br> &#x2F;&#x2F;得到上月需要渲染的天数,如果week&#x3D;0表示周日，则需要上个月需要渲染6天<br> weekCount&#x3D;week&#x3D;&#x3D;&#x3D;0?6:week-1;<br> &#x2F;&#x2F;得到当月天数<br> var monthDay&#x3D;getMonthDay(year,month);</p>
-<blockquote>
-</blockquote>
-<p>var nextDate&#x3D;[];&#x2F;&#x2F;保存下个月需要渲染的日期<br>var nextCount&#x3D;42-monthDay-weekCount;<br>for(var i&#x3D;1;i&lt;&#x3D;nextCount;i++){<br>nextDate.push(i)<br>}<br>return nextDate;<br>}<br>&#x2F;&#x2F; console.log(nextMonthDate(2023,7))</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;根据上月需要渲染的日期，生成td标签和样式<br>function creatTd1(year,month){<br>&#x2F;&#x2F;获取今天的日期<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;获取上个月的年月<br>var prevYear&#x3D;year;<br>var prevMonth&#x3D;month-1;<br>if(prevMonth&#x3D;&#x3D;&#x3D;0){<br>prevMonth&#x3D;&#x3D;&#x3D;12;<br>prevYear&#x3D;year-1;<br>}<br>var arr&#x3D;getPrevMonth(year,month);</p>
-<blockquote>
-</blockquote>
-<p>return arr.map(function(item){<br>var td&#x3D;document.createElement(“div”);<br>td.className&#x3D;”td prev-month”;<br> &#x2F;&#x2F; 判断当前月的前一个月中的某个日期为当前日期时<br>if(currentYear&#x3D;&#x3D;&#x3D;prevYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;prevMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>    td.classList.add(“current”)<br>}<br>td.innerText&#x3D;item;<br>return td;<br>})<br>}<br>&#x2F;&#x2F;根据本月需要渲染的天数，生成td标签和样式<br>function creatTd2(year,month,selectDate){<br>var result&#x3D;[];<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
-<blockquote>
-</blockquote>
-<p>var days&#x3D;getMonthDay(year,month);<br>for(var i&#x3D;1;i&lt;&#x3D;days;i++){<br>var td&#x3D;document.createElement(“div”);<br>if(year&#x3D;&#x3D;&#x3D;currentYear&amp;&amp;month&#x3D;&#x3D;&#x3D;currentMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;i){<br>    td.className&#x3D;”td current”<br>}else{<br>    td.className&#x3D;”td”;<br>}<br>if(selectDate &amp;&amp; selectDate&#x3D;&#x3D;i) {<br>    td.classList.add(“active”);<br>    prevEl&#x3D;td;<br>}<br>td.innerText&#x3D;i;<br>result.push(td)<br>}<br>return result;<br>}<br>&#x2F;&#x2F;根据下月需要渲染的日期，生成td标签和样式<br>function creatTd3(year,month){<br>&#x2F;&#x2F;获取今天的日期<br>var currentYear&#x3D;getNowDate().year;<br>var currentMonth&#x3D;getNowDate().month;<br>var currentDate&#x3D;getNowDate().date;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;获取上个月的年月<br>var nextYear&#x3D;year;<br>var nextMonth&#x3D;month+1;<br>if(nextMonth&#x3D;&#x3D;&#x3D;13){<br>nextMonth&#x3D;&#x3D;&#x3D;1;<br>nextYear&#x3D;year+1;<br>}<br>var arr&#x3D;nextMonthDate(year,month);<br>return arr.map(function(item){<br>var td&#x3D;document.createElement(“div”);<br>td.className&#x3D;”td next-month”;<br>if(currentYear&#x3D;&#x3D;&#x3D;nextYear&amp;&amp;currentMonth&#x3D;&#x3D;&#x3D;nextMonth&amp;&amp;currentDate&#x3D;&#x3D;&#x3D;item){<br>    td.classList.add(“current”)<br>}<br>td.innerText&#x3D;item;<br>return td;<br>})<br>}<br>&#x2F;&#x2F; 创建渲染函数，用来渲染 xxxx年xx月的日历表<br>function render(year,month,selectDate){<br>&#x2F;&#x2F;更新日历头部<br>var dateDom&#x3D;document.querySelector(“.calendar-menu .current-date”);<br>dateDom.innerText&#x3D;year+”年”+month+”月”;<br>&#x2F;&#x2F;先拿到上月、当月、下月的日期<br>var prevMonth&#x3D;getPrevMonth(year,month);<br>var currentMonth&#x3D;getMonthDay(year,month);<br>var nextMonth&#x3D;nextMonthDate(year,month);<br>&#x2F;&#x2F;创建td结构<br>var td1&#x3D;creatTd1(year,month);<br>if(selectDate){<br>var td2&#x3D;creatTd2(year,month,selectDate);<br>}else{<br>var td2&#x3D;creatTd2(year,month);<br>}<br>var td3&#x3D;creatTd3(year,month);</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;将td拼接成一个数组<br>var tds&#x3D;td1.concat(td2,td3);<br>&#x2F;&#x2F;获取calendar-main<br>var calendarMain&#x3D;document.querySelector(“.calendar-main”);<br>&#x2F;&#x2F;渲染前将原有内容清空<br>calendarMain.innerHTML&#x3D;””;<br>&#x2F;&#x2F;将table插入到calendar-main中<br>calendarMain.appendChild(creatTable(tds))</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;将tds插入到table中<br>function creatTable(tds){<br>var table&#x3D;document.createElement(“div”);<br>table.className&#x3D;”table”;<br>var n&#x3D;0;<br>&#x2F;&#x2F;行<br>for(var i&#x3D;0;i&lt;6;i++){<br>    var tr&#x3D;document.createElement(“div”);<br>    tr.className&#x3D;”tr”;<br>    &#x2F;&#x2F;列<br>    for(var j&#x3D;0;j&lt;7;j++){<br>        tr.appendChild(tds[n]);<br>        n++;<br>    }<br>    table.appendChild(tr);<br>}<br>return table;<br>}<br>}<br>function getNowDate(){<br>var nowDate&#x3D;new Date();<br>return {<br>year:nowDate.getFullYear(),<br>month:nowDate.getMonth()+1,<br>date:nowDate.getDate(),<br>}<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>完整版日历组件开发</p>
-<blockquote>
-<pre><code>&lt;script&gt;
+</ol>
+<pre><code>//1、获取当月的天数
+function getMonthDay(year,month)&#123;
+    var date=new Date(year,month,0);
+    return date.getDate();
+&#125;
+// console.log(getMonthDay(2023,8))
+&gt;
+//2、获取当月第一天是星期几
+function getMonthWeek(year,month)&#123;
+    var date=new Date(year,month-1,1);
+    return date.getDay();   
+&#125;
+// console.log(getMonthWeek(2023,8))
+&gt;
+//3、把上月需要渲染的日期存入数组：
+function getPrevMonth(year,month)&#123;
+    //需要知道当月第一天是星期几
+    var week=getMonthWeek(year,month);
+    //得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+    weekCount=week===0?6:week-1;
+    //需要知道上月最后一天的日期
+    var prevCount=getMonthDay(year,month-1);
+    var prevDate=[];//保存上月需要渲染的日期
+    while(weekCount&gt;0)&#123;
+        //只要需要渲染的天数大于0就将上月的日期保存到数组中
+        prevDate.push(prevCount--);
+        weekCount--;
+    &#125;
+    return prevDate.reverse();
+&#125;
+// console.log(getPrevMonth(2023,7))
+&gt;
+// 4、下个月需要渲染的天数对应的日期，保存在数组中
+function nextMonthDate(year,month)&#123;
+     //需要知道当月第一天是星期几
+     var week=getMonthWeek(year,month);
+     //得到上月需要渲染的天数,如果week=0表示周日，则需要上个月需要渲染6天
+     weekCount=week===0?6:week-1;
+     //得到当月天数
+     var monthDay=getMonthDay(year,month);
+&gt;
+    var nextDate=[];//保存下个月需要渲染的日期
+    var nextCount=42-monthDay-weekCount;
+    for(var i=1;i&lt;=nextCount;i++)&#123;
+        nextDate.push(i)
+    &#125;
+    return nextDate;
+&#125;
+// console.log(nextMonthDate(2023,7))
+&gt;
+//根据上月需要渲染的日期，生成td标签和样式
+function creatTd1(year,month)&#123;
+    //获取今天的日期
+    var currentYear=getNowDate().year;
+    var currentMonth=getNowDate().month;
+    var currentDate=getNowDate().date;
+&gt;
+    //获取上个月的年月
+    var prevYear=year;
+    var prevMonth=month-1;
+    if(prevMonth===0)&#123;
+        prevMonth===12;
+        prevYear=year-1;
+    &#125;
+    var arr=getPrevMonth(year,month);
+&gt;
+    return arr.map(function(item)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        td.className=&quot;td prev-month&quot;;
+         // 判断当前月的前一个月中的某个日期为当前日期时
+        if(currentYear===prevYear&amp;&amp;currentMonth===prevMonth&amp;&amp;currentDate===item)&#123;
+            td.classList.add(&quot;current&quot;)
+        &#125;
+        td.innerText=item;
+        return td;
+    &#125;)
+&#125;
+//根据本月需要渲染的天数，生成td标签和样式
+function creatTd2(year,month,selectDate)&#123;
+    var result=[];
+    var currentYear=getNowDate().year;
+    var currentMonth=getNowDate().month;
+    var currentDate=getNowDate().date;
+&gt;
+    var days=getMonthDay(year,month);
+    for(var i=1;i&lt;=days;i++)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        if(year===currentYear&amp;&amp;month===currentMonth&amp;&amp;currentDate===i)&#123;
+            td.className=&quot;td current&quot;
+        &#125;else&#123;
+            td.className=&quot;td&quot;;
+        &#125;
+        if(selectDate &amp;&amp; selectDate==i) &#123;
+            td.classList.add(&quot;active&quot;);
+            prevEl=td;
+        &#125;
+        td.innerText=i;
+        result.push(td)
+    &#125;
+    return result;
+&#125;
+//根据下月需要渲染的日期，生成td标签和样式
+function creatTd3(year,month)&#123;
+    //获取今天的日期
+    var currentYear=getNowDate().year;
+    var currentMonth=getNowDate().month;
+    var currentDate=getNowDate().date;
+&gt;
+    //获取上个月的年月
+    var nextYear=year;
+    var nextMonth=month+1;
+    if(nextMonth===13)&#123;
+        nextMonth===1;
+        nextYear=year+1;
+    &#125;
+    var arr=nextMonthDate(year,month);
+    return arr.map(function(item)&#123;
+        var td=document.createElement(&quot;div&quot;);
+        td.className=&quot;td next-month&quot;;
+        if(currentYear===nextYear&amp;&amp;currentMonth===nextMonth&amp;&amp;currentDate===item)&#123;
+            td.classList.add(&quot;current&quot;)
+        &#125;
+        td.innerText=item;
+        return td;
+    &#125;)
+&#125;
+// 创建渲染函数，用来渲染 xxxx年xx月的日历表
+function render(year,month,selectDate)&#123;
+    //更新日历头部
+    var dateDom=document.querySelector(&quot;.calendar-menu .current-date&quot;);
+    dateDom.innerText=year+&quot;年&quot;+month+&quot;月&quot;;
+    //先拿到上月、当月、下月的日期
+    var prevMonth=getPrevMonth(year,month);
+    var currentMonth=getMonthDay(year,month);
+    var nextMonth=nextMonthDate(year,month);
+    //创建td结构
+    var td1=creatTd1(year,month);
+    if(selectDate)&#123;
+        var td2=creatTd2(year,month,selectDate);
+    &#125;else&#123;
+        var td2=creatTd2(year,month);
+    &#125;
+    var td3=creatTd3(year,month);
+&gt;
+    //将td拼接成一个数组
+    var tds=td1.concat(td2,td3);
+    //获取calendar-main
+    var calendarMain=document.querySelector(&quot;.calendar-main&quot;);
+    //渲染前将原有内容清空
+    calendarMain.innerHTML=&quot;&quot;;
+    //将table插入到calendar-main中
+    calendarMain.appendChild(creatTable(tds))
+&gt;
+    //将tds插入到table中
+    function creatTable(tds)&#123;
+        var table=document.createElement(&quot;div&quot;);
+        table.className=&quot;table&quot;;
+        var n=0;
+        //行
+        for(var i=0;i&lt;6;i++)&#123;
+            var tr=document.createElement(&quot;div&quot;);
+            tr.className=&quot;tr&quot;;
+            //列
+            for(var j=0;j&lt;7;j++)&#123;
+                tr.appendChild(tds[n]);
+                n++;
+            &#125;
+            table.appendChild(tr);
+        &#125;
+        return table;
+    &#125;
+&#125;
+function getNowDate()&#123;
+    var nowDate=new Date();
+    return &#123;
+        year:nowDate.getFullYear(),
+        month:nowDate.getMonth()+1,
+        date:nowDate.getDate(),
+    &#125;
+&#125;
+</code></pre>
+<ol start="12">
+<li>完整版日历组件开发</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
   var date = getNowDate();
   var currentYear = date.year;
   var currentMonth = date.month;
   var currentDate = date.date;
   render(currentYear, currentMonth);
+&gt;
+  var prevYearDom = document.querySelector(&quot;.prev-year&quot;);
+  var nextYearDom = document.querySelector(&quot;.next-year&quot;);
+  var prevMonthDom = document.querySelector(&quot;.prev-month&quot;);
+  var nextMonthDom = document.querySelector(&quot;.next-month&quot;);
+&gt;
+  //上一年
+  prevYearDom.onclick = function () &#123;
+    currentYear--;
+    render(currentYear, currentMonth);
+  &#125;;
+  //下一年
+  nextYearDom.onclick = function () &#123;
+    currentYear++;
+    render(currentYear, currentMonth);
+  &#125;;
+  //上一月
+  prevMonthDom.onclick = function () &#123;
+    currentMonth--;
+    if (currentMonth === 0) &#123;
+      currentMonth = 12;
+      currentYear--;
+    &#125;
+    render(currentYear, currentMonth);
+  &#125;;
+  //下一月
+  nextMonthDom.onclick = function () &#123;
+    currentMonth++;
+    if (currentMonth === 13) &#123;
+      currentMonth = 1;
+      currentYear++;
+    &#125;
+    render(currentYear, currentMonth);
+  &#125;;
+&gt;
+  //选中对应日期
+  var calendarMain = document.querySelector(&quot;.calendar-main&quot;);
+  var prevEl = null; //前一个被选中的元素
+  calendarMain.onclick = function (e) &#123;
+    var target = e.target;
+    var bool = target.classList.contains(&quot;td&quot;);
+    if (!bool) return;
+    //将前一个选中元素的样式清除
+    if (prevEl) prevEl.classList.remove(&quot;active&quot;);
+    //给被选中元素添加样式
+    target.classList.add(&quot;active&quot;);
+    prevEl = target;
+    //如果点击上/月日期，切换页面，则：
+    var prevBool = target.classList.contains(&quot;prev-month&quot;);
+    var nextBool = target.classList.contains(&quot;next-month&quot;);
+&gt;
+  if (prevBool) &#123;
+    currentMonth--;
+    if (currentMonth === 0) &#123;
+      currentMonth = 12;
+      currentYear--;
+    &#125;
+    var selectDate = target.innerText; //保存被点击的日期
+    render(currentYear, currentMonth, selectDate);
+  &#125;
+  if (nextBool) &#123;
+    currentMonth++;
+    if (currentMonth === 13) &#123;
+      currentMonth = 1;
+      currentYear++;
+    &#125;
+    var selectDate = target.innerText; //保存被点击的日期
+    render(currentYear, currentMonth, selectDate);
+  &#125;
+  //打印对应日期
+  console.log(
+    currentYear + &quot;年&quot; + currentMonth + &quot;月&quot; + target.innerText + &quot;日&quot;
+  );
+&#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  var prevYearDom &#x3D; document.querySelector(“.prev-year”);<br>  var nextYearDom &#x3D; document.querySelector(“.next-year”);<br>  var prevMonthDom &#x3D; document.querySelector(“.prev-month”);<br>  var nextMonthDom &#x3D; document.querySelector(“.next-month”);</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;上一年<br>  prevYearDom.onclick &#x3D; function () {<br>currentYear–;<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一年<br>  nextYearDom.onclick &#x3D; function () {<br>currentYear++;<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;上一月<br>  prevMonthDom.onclick &#x3D; function () {<br>currentMonth–;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>  currentMonth &#x3D; 12;<br>  currentYear–;<br>}<br>render(currentYear, currentMonth);<br>  };<br>  &#x2F;&#x2F;下一月<br>  nextMonthDom.onclick &#x3D; function () {<br>currentMonth++;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>  currentMonth &#x3D; 1;<br>  currentYear++;<br>}<br>render(currentYear, currentMonth);<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;选中对应日期<br>  var calendarMain &#x3D; document.querySelector(“.calendar-main”);<br>  var prevEl &#x3D; null; &#x2F;&#x2F;前一个被选中的元素<br>  calendarMain.onclick &#x3D; function (e) {<br>var target &#x3D; e.target;<br>var bool &#x3D; target.classList.contains(“td”);<br>if (!bool) return;<br>&#x2F;&#x2F;将前一个选中元素的样式清除<br>if (prevEl) prevEl.classList.remove(“active”);<br>&#x2F;&#x2F;给被选中元素添加样式<br>target.classList.add(“active”);<br>prevEl &#x3D; target;<br>&#x2F;&#x2F;如果点击上&#x2F;月日期，切换页面，则：<br>var prevBool &#x3D; target.classList.contains(“prev-month”);<br>var nextBool &#x3D; target.classList.contains(“next-month”);</p>
-<blockquote>
-</blockquote>
-<p>  if (prevBool) {<br>currentMonth–;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 0) {<br>  currentMonth &#x3D; 12;<br>  currentYear–;<br>}<br>var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>render(currentYear, currentMonth, selectDate);<br>  }<br>  if (nextBool) {<br>currentMonth++;<br>if (currentMonth &#x3D;&#x3D;&#x3D; 13) {<br>  currentMonth &#x3D; 1;<br>  currentYear++;<br>}<br>var selectDate &#x3D; target.innerText; &#x2F;&#x2F;保存被点击的日期<br>render(currentYear, currentMonth, selectDate);<br>  }<br>  &#x2F;&#x2F;打印对应日期<br>  console.log(<br>currentYear + “年” + currentMonth + “月” + target.innerText + “日”<br>  );<br>};</p>
-<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ol>
 
                 
             </div>

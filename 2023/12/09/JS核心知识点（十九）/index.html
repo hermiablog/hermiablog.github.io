@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-09
+                    2023-12-18
                 </div>
                 
 
@@ -442,20 +442,18 @@
 <ul>
 <li>在 ES5 中我们学习过两种函数形式（函数声明形式、函数表达式形式）</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 声明形式
 function sum() &#123;&#125;
 // 函数表达式形式
 var sum = function () &#123;&#125;;
 // 函数表达式形式 -&gt; 箭头函数
 const sum = () =&gt; &#123;&#125;;
+&gt;
+// 箭头函数省略了function关键字，通过箭头 =&gt; 定义函数
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 箭头函数省略了function关键字，通过箭头 &#x3D;&gt; 定义函数<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -464,76 +462,81 @@ const sum = () =&gt; &#123;&#125;;
 <li><code>var</code>和<code>function</code>声明的变量和函数会存在变量和函数声明提升，而<code>let</code>和<code>const</code>声明的变量是<strong>不存在变量提升</strong>的。</li>
 <li>所以用<code>let</code>和<code>const</code>声明的变量保存的箭头函数，一定要在<strong>声明后才能使用</strong></li>
 </ul>
+</blockquote>
 <pre><code>//函数声明
 sum1(1, 2); //3
  function sum1(a, b) &#123;
    console.log(a + b);
  &#125;
+&gt;
+//函数表达式:sum2在预编译时是作为一个变量，值为undefined,如果在声明前作为函数调用，会报错
+ sum2(2, 3); //报错
+ var sum2 = function (a, b) &#123;
+   console.log(a + b);
+ &#125;;
+&gt;
+//const、let没有变量提升
+ sum3(4, 5);//抛出引用错误
+ const sum3 = (a, b) =&gt; &#123;
+   console.log(a + b);
+ &#125;;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;函数表达式:sum2在预编译时是作为一个变量，值为undefined,如果在声明前作为函数调用，会报错<br> sum2(2, 3); &#x2F;&#x2F;报错<br> var sum2 &#x3D; function (a, b) {<br>   console.log(a + b);<br> };</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;const、let没有变量提升<br> sum3(4, 5);&#x2F;&#x2F;抛出引用错误<br> const sum3 &#x3D; (a, b) &#x3D;&gt; {<br>   console.log(a + b);<br> };</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="箭头函数的注意事项"><a href="#箭头函数的注意事项" class="headerlink" title="箭头函数的注意事项"></a>箭头函数的注意事项</h4><blockquote>
 <p>我们知道箭头函数比普通函数写起来更简洁，当满足一定条件的时候，箭头函数还可以写的更加简洁。</p>
 </blockquote>
 <ol>
-<li><p>单个参数 ：单个参数可以省略圆括号</p>
-<blockquote>
+<li>单个参数 ：单个参数可以省略圆括号</li>
+</ol>
 <pre><code>// 单个参数
 const sum = x =&gt; &#123;
   return x + 1;
 &#125;;
 console.log(sum(1)); // 2
 </code></pre>
+<blockquote>
 <ul>
 <li>如果使用vscode，则会自动加上</li>
 </ul>
 </blockquote>
-</li>
-<li><p>无参数或多个参数：不能省略圆括号</p>
-<blockquote>
+<ol start="2">
+<li>无参数或多个参数：不能省略圆括号</li>
+</ol>
 <pre><code>// 无参数，不能省略圆括号
 const sum = () =&gt; &#123;
   return 2 + 3;
 &#125;;
 console.log(sum()); // 5
+&gt;
+// 多参数，不能省略圆括号
+const sum = (a, b) =&gt; &#123;
+  return a + b;
+&#125;;
+console.log(sum(2, 3));
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 多参数，不能省略圆括号<br>const sum &#x3D; (a, b) &#x3D;&gt; {<br>  return a + b;<br>};<br>console.log(sum(2, 3));</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><strong>单行</strong>函数体：可以同时省略 <code>&#123;&#125;</code> 和 <code>return</code></p>
-<blockquote>
+<ol start="3">
+<li><strong>单行</strong>函数体：可以同时省略 <code>&#123;&#125;</code> 和 <code>return</code></li>
+</ol>
 <pre><code>const sum = (a, b) =&gt; &#123;
   return a + b; // 函数体内只有一条语句
 &#125;;
+&gt;
+// 以上单行函数体，可以同时省略 &#123;&#125; 和 return
+const sum = (a, b) =&gt; a + b;
+console.log(sum(2, 3)); // 5
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以上单行函数体，可以同时省略 {} 和 return<br>const sum &#x3D; (a, b) &#x3D;&gt; a + b;<br>console.log(sum(2, 3)); &#x2F;&#x2F; 5</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><strong>单行对象</strong>：（同属于单行函数体，会比较特殊）</p>
-<blockquote>
+<ol start="4">
+<li><strong>单行对象</strong>：（同属于单行函数体，会比较特殊）<blockquote>
 <ul>
 <li>如果箭头函数返回单行对象，可以在<code>&#123;&#125;</code>外面加上<code>()</code> ，让浏览器不再认为那是函数体的花括号</li>
 <li>并且可以省略<code>return</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 单行对象
 const sum = (a, b) =&gt; &#123;
   return &#123;
- value: a + b,
+    value: a + b,
   &#125;;
 &#125;;
 console.log(sum(2, 3)); // &#123;value: 5&#125;
@@ -541,46 +544,46 @@ console.log(sum(2, 3)); // &#123;value: 5&#125;
 const sum = (a, b) =&gt; (&#123; value: a + b &#125;);
 console.log(sum(2, 3)); //&#123;value: 5&#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>单行数组</p>
-<blockquote>
+<ol start="5">
+<li>单行数组<blockquote>
 <ul>
 <li>也属于单行函数体，一样可以省略花括号和<code>return</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const sum = (a, b) =&gt; &#123;
   return [a, b];
 &#125;;
 console.log(sum(2, 3)); // [2, 3]
+&gt;
+// 简写
+const sum = (a, b) =&gt; [a, b];
+console.log(sum(2, 3)); // [2, 3]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 简写<br>const sum &#x3D; (a, b) &#x3D;&gt; [a, b];<br>console.log(sum(2, 3)); &#x2F;&#x2F; [2, 3]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>箭头函数的嵌套简写</p>
-<blockquote>
+<ol start="6">
+<li>箭头函数的嵌套简写</li>
+</ol>
 <pre><code>function sum(a) &#123;
   return function fn1(b) &#123;
- return function fn2(c) &#123;
-   return function fn3(d) &#123;
-     return a + b + c + d;
-   &#125;;
- &#125;;
+    return function fn2(c) &#123;
+      return function fn3(d) &#123;
+        return a + b + c + d;
+      &#125;;
+    &#125;;
   &#125;;
 &#125;
 console.log(sum(1)(2)(3)(4));//10
+&gt;
+// 改写用箭头函数
+const sum2 = (a) =&gt; (b) =&gt; (c) =&gt; (d) =&gt; a + b + c + d;
+console.log(sum2(1)(2)(3)(4));//10
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 改写用箭头函数<br>const sum2 &#x3D; (a) &#x3D;&gt; (b) &#x3D;&gt; (c) &#x3D;&gt; (d) &#x3D;&gt; a + b + c + d;<br>console.log(sum2(1)(2)(3)(4));&#x2F;&#x2F;10</p>
 <blockquote>
-<pre><code>&gt;不管箭头函数嵌套几层，只要记住，有几个`=&gt;`就有几个箭头函数，`=&gt;`函数**左边是参数，右边是函数体**
-</code></pre>
+<blockquote>
+<p>不管箭头函数嵌套几层，只要记住，有几个<code>=&gt;</code>就有几个箭头函数，<code>=&gt;</code>函数<strong>左边是参数，右边是函数体</strong></p>
 </blockquote>
-</li>
-</ol>
+</blockquote>
 <h4 id="普通函数（非箭头函数）中的-this-指向"><a href="#普通函数（非箭头函数）中的-this-指向" class="headerlink" title="普通函数（非箭头函数）中的 this 指向"></a>普通函数（非箭头函数）中的 this 指向</h4><blockquote>
 <p>普通函数（非箭头函数）中的 <code>this</code> 指向把函数当成方法调用的对象，<strong>谁把函数当成方法调用，this 指向谁。</strong></p>
 <ul>
@@ -655,140 +658,128 @@ console.log(sum(1)(2)(3)(4));//10
 <ul>
 <li>全局作用域下</li>
 </ul>
+</blockquote>
 <pre><code>// 全局作用域下
 console.log(this); //window
 </code></pre>
-</blockquote>
 <ul>
-<li><p><code>函数()</code>自调用</p>
-<blockquote>
+<li><code>函数()</code>自调用</li>
+</ul>
 <pre><code>// 函数()
 &quot;use strict&quot;;
 function sum() &#123;
-console.log(this);
+  console.log(this);
 &#125;
 sum(); // 严格模式下结果为 undefined  非严格模式下 window
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>对象.函数()</code></p>
-<blockquote>
+<ul>
+<li><code>对象.函数()</code></li>
+</ul>
 <pre><code>// 对象.函数()
 const obj = &#123;
-name: &quot;清心&quot;,
-getName: function () &#123;
-  console.log(this);
-&#125;,
+  name: &quot;清心&quot;,
+  getName: function () &#123;
+    console.log(this);
+  &#125;,
 &#125;;
 obj.getName(); // &#123;name: &#39;清心&#39;, getName: ƒ&#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>IIFE</code> 立即执行函数</p>
-<blockquote>
+<ul>
+<li><code>IIFE</code> 立即执行函数</li>
+</ul>
 <pre><code>// IIFE 立即执行函数
 &quot;use strict&quot;;
 (function () &#123;
-console.log(this); // 严格模式下结果为 undefined  非严格模式下 window
+  console.log(this); // 严格模式下结果为 undefined  非严格模式下 window
 &#125;)();
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>数组[下标 ]()</code></p>
-<blockquote>
+<ul>
+<li><code>数组[下标 ]()</code></li>
+</ul>
 <pre><code>// 数组[下标 ]()
 function fn() &#123;
-console.log(this);
+  console.log(this);
 &#125;
 const arr = [fn, 1, 2];
+&gt;
+arr[0](); // [fn, 1, 2]
+fn(); // window
 </code></pre>
-</blockquote>
-<p>arr<a href="">0</a>; &#x2F;&#x2F; [fn, 1, 2]<br>fn(); &#x2F;&#x2F; window</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>函数调用 call、apply、bind 方法</p>
-<blockquote>
+<ul>
+<li>函数调用 call、apply、bind 方法</li>
+</ul>
 <pre><code>// 函数调用call,apply,bind方法
 const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
 function sum(a, b) &#123;
-console.log(this.a + this.b);
-console.log(this);
+  console.log(this.a + this.b);
+  console.log(this);
 &#125;
 sum.call(obj, 3, 4); // 3  obj
 sum.apply(obj, [3, 4]); // 3 obj
 let fn = sum.bind(obj);
 fn(); // 3  obj
 </code></pre>
-</blockquote>
-</li>
-<li><p>回调函数</p>
-<blockquote>
+<ul>
+<li>回调函数</li>
+</ul>
 <pre><code>//  回调函数
 &quot;use strict&quot;;
 setTimeout(function () &#123;
-console.log(this);// window
+  console.log(this);// window
 &#125;, 1000);
+&gt;
+const arr = [1, 0, 3, 7, 5];
+let result = arr.find(function (value, index, arr) &#123;
+  console.log(this); // window
+  return value &gt; 2;
+&#125;);
+console.log(result);//3
 </code></pre>
-</blockquote>
-<p>const arr &#x3D; [1, 0, 3, 7, 5];<br>let result &#x3D; arr.find(function (value, index, arr) {<br>console.log(this); &#x2F;&#x2F; window<br>return value &gt; 2;<br>});<br>console.log(result);&#x2F;&#x2F;3</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>事件处理函数</p>
-<blockquote>
+<ul>
+<li>事件处理函数</li>
+</ul>
 <pre><code>// 事件处理函数
 const box = document.querySelector(&quot;.box&quot;);
 box.onclick = function () &#123;
-console.log(this); // &lt;div class=&quot;box&quot;&gt;点击我&lt;/div&gt;
+  console.log(this); // &lt;div class=&quot;box&quot;&gt;点击我&lt;/div&gt;
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>构造函数中</p>
-<blockquote>
+<ul>
+<li>构造函数中</li>
+</ul>
 <pre><code>// new 函数()
 function Point(x, y) &#123;
-this.x = x;
-this.y = y;
-console.log(this); //  &#123;x: 2, y: 3&#125;
+  this.x = x;
+  this.y = y;
+  console.log(this); //  &#123;x: 2, y: 3&#125;
 &#125;
 const point = new Point(2, 3);
 </code></pre>
-</blockquote>
-</li>
-<li><p>分析以下代码中的 this 指向</p>
-<blockquote>
+<ul>
+<li>分析以下代码中的 this 指向</li>
+</ul>
 <pre><code>// 判断以下函数中this指向谁 ？
 function sum() &#123;
-console.log(this);
+  console.log(this);
 &#125;
 // 声明一个 calc 计算器对象，add为对象的属性名，sum为上边的函数名
 const calc = &#123;
-add: sum,
+  add: sum,
 &#125;;
 calc.add(); // &#123;add: ƒ&#125;  ，this 指向 calc 对象
+&gt;
+// 根据我们上边学过的，谁调用就指向谁，因此 this 指向 calc 对象
+&gt;
+// 判断以下this的指向
+const adder = calc.add;
+adder(); // undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 根据我们上边学过的，谁调用就指向谁，因此 this 指向 calc 对象</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 判断以下this的指向<br>const adder &#x3D; calc.add;<br>adder(); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="箭头函数中的-this-指向"><a href="#箭头函数中的-this-指向" class="headerlink" title="箭头函数中的 this 指向"></a>箭头函数中的 this 指向</h4><blockquote>
 <p>箭头函数中没有自己的<code>this</code>，在箭头函数中访问<code>this</code>，需要<strong>沿着作用域链向外查找</strong>。</p>
+</blockquote>
 <pre><code>const calc = &#123;
   sum: () =&gt; &#123;
     console.log(this);
@@ -796,7 +787,6 @@ calc.add(); // &#123;add: ƒ&#125;  ，this 指向 calc 对象
 &#125;;
 calc.sum(); // window
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>分析以上代码，思考：</p>
@@ -813,6 +803,7 @@ calc.sum(); // window
 <ul>
 <li>练习以下案例，深入分析函数中的 this 指向</li>
 </ul>
+</blockquote>
 <pre><code>// &quot;use strict&quot;;
 const calc = &#123;
   add: function () &#123;
@@ -823,16 +814,20 @@ const calc = &#123;
   &#125;,
 &#125;;
 calc.add(); // &#123;add: ƒ&#125; this指向 calc对象
+&gt;
+//不直接调用，而是赋值给一个新的函数
+const addFoo = calc.add;
+addFoo(); // undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）
+&gt;
+// 严格模式下，this 指向 undefined
+//相当于：
+const addFoo =function () &#123;
+    const adder = () =&gt; &#123;
+      console.log(this);
+    &#125;;
+    adder();
+  &#125;,
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;不直接调用，而是赋值给一个新的函数<br>const addFoo &#x3D; calc.add;<br>addFoo(); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 严格模式下，this 指向 undefined<br>&#x2F;&#x2F;相当于：<br>const addFoo &#x3D;function () {<br>    const adder &#x3D; () &#x3D;&gt; {<br>      console.log(this);<br>    };<br>    adder();<br>  },</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>calc.add();</code>：调用<code>calc</code>对象里的<code>add</code>方法，它是一个普通函数，按照谁调用<code>this</code>就指向谁的原则，现在<code>add</code>函数中的<code>this</code>指向<code>calc</code>；</li>
@@ -857,17 +852,13 @@ calc.add(); // &#123;add: ƒ&#125; this指向 calc对象
 </ul>
 </blockquote>
 <ol>
-<li>作为构造函数<blockquote>
+<li>作为构造函数</li>
+</ol>
 <pre><code>const Person = () =&gt; &#123;&#125;;
 new Person(); // Uncaught TypeError: Person is not a constructor
+&gt;
+// 直接报错 Person不是构造函数
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 直接报错 Person不是构造函数<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>因为</p>
@@ -880,63 +871,77 @@ new Person(); // Uncaught TypeError: Person is not a constructor
 <li>需要 this 指向调用对象的时候</li>
 </ol>
 <ul>
-<li><p><strong>事件处理函数</strong>中的 <code>this</code> 一般都是<strong>指向绑定事件的对象</strong>，所以事件处理函数不要写成箭头函数</p>
-<blockquote>
+<li><strong>事件处理函数</strong>中的 <code>this</code> 一般都是<strong>指向绑定事件的对象</strong>，所以事件处理函数不要写成箭头函数</li>
+</ul>
 <pre><code>// 使用最原始的方式
 document.onclick = function () &#123;
-console.log(this); // document
+  console.log(this); // document
 &#125;;
 // 当点击浏览器任意位置是，this指向 document
+&gt;
+// 使用绑定监听事件的方式
+document.addEventListener(
+  &quot;click&quot;,
+  function () &#123;
+    console.log(this); // document
+  &#125;,
+  false
+);
+// 当点击浏览器任意位置是，this指向 document
+&gt;
+// 如果使用箭头函数时，箭头函数本身没有this
+// 根据作用域链的机制，就会往外层作用域中找。找到全局作用域中就指向 window了
+document.addEventListener(
+  &quot;click&quot;,
+  () =&gt; &#123;
+    console.log(this); // window
+  &#125;,
+  false
+);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 使用绑定监听事件的方式<br>document.addEventListener(<br>“click”,<br>function () {<br>  console.log(this); &#x2F;&#x2F; document<br>},<br>false<br>);<br>&#x2F;&#x2F; 当点击浏览器任意位置是，this指向 document</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 如果使用箭头函数时，箭头函数本身没有this<br>&#x2F;&#x2F; 根据作用域链的机制，就会往外层作用域中找。找到全局作用域中就指向 window了<br>document.addEventListener(<br>“click”,<br>() &#x3D;&gt; {<br>  console.log(this); &#x2F;&#x2F; window<br>},<br>false<br>);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>对象方法中的<code>this</code>是<strong>需要指向调用方法的对象</strong>，所以对象的方法不要写成箭头函数</p>
-<blockquote>
+<ul>
+<li>对象方法中的<code>this</code>是<strong>需要指向调用方法的对象</strong>，所以对象的方法不要写成箭头函数</li>
+</ul>
 <pre><code>// 对象的方法使用箭头函数
 const obj = &#123;
-num: 1,
-sayHello: () =&gt; &#123;
-  console.log(this.num); // undefined
-&#125;,
+  num: 1,
+  sayHello: () =&gt; &#123;
+    console.log(this.num); // undefined
+  &#125;,
+&#125;;
+obj.sayHello();
+&gt;
+// 对象方法使用普通函数
+const obj = &#123;
+  num: 1,
+  sayHello: function () &#123;
+    console.log(this.num); // 1
+  &#125;,
 &#125;;
 obj.sayHello();
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 对象方法使用普通函数<br>const obj &#x3D; {<br>num: 1,<br>sayHello: function () {<br>  console.log(this.num); &#x2F;&#x2F; 1<br>},<br>};<br>obj.sayHello();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="3">
 <li>需要使用 arguments 的时候<blockquote>
 <ul>
 <li>在 ES6 中箭头函数里没有 <code>arguments </code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 使用 arguments 来接受不确定实参，然后循环遍历arguments类数组
 function sum() &#123;
   console.log(arguments);
 &#125;
 sum(1, 2, 3); // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+&gt;
+// 如果将以上函数修改成 箭头函数
+const sum = () =&gt; &#123;
+  console.log(arguments); // Uncaught ReferenceError: arguments is not defined
+&#125;;
+sum();
+&gt;
+// 箭头函数中没有arguments
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 如果将以上函数修改成 箭头函数<br>const sum &#x3D; () &#x3D;&gt; {<br>  console.log(arguments); &#x2F;&#x2F; Uncaught ReferenceError: arguments is not defined<br>};<br>sum();<blockquote>
-</blockquote>
-&#x2F;&#x2F; 箭头函数中没有arguments<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>注：<br>将以上函数修改成箭头函数后，报错 arguments 未定义。</p>
@@ -961,42 +966,37 @@ sum(1, 2, 3); // Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]
 <li>函数中不会用到 this</li>
 </ol>
 <ul>
-<li><p>以下的**<code>IIFE</code>立即执行函数**中，并没有用到<code>this</code>，所以 <code>this</code>指向什么都没关系</p>
-<blockquote>
+<li>以下的**<code>IIFE</code>立即执行函数**中，并没有用到<code>this</code>，所以 <code>this</code>指向什么都没关系</li>
+</ul>
 <pre><code>//随机生成颜色
 const color = (() =&gt; &#123;
-const arr = [&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;];
-const n = (Math.random() * arr.length) &gt;&gt; 0;
-return arr[n];
+  const arr = [&quot;red&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;];
+  const n = (Math.random() * arr.length) &gt;&gt; 0;
+  return arr[n];
 &#125;)();
 console.log(color);
 </code></pre>
-</blockquote>
-</li>
-<li><p>当函数()的方式自调用时，其内部也没有用到 this，所以 this 指向什么都没关系</p>
-<blockquote>
+<ul>
+<li>当函数()的方式自调用时，其内部也没有用到 this，所以 this 指向什么都没关系</li>
+</ul>
 <pre><code>var sum = (a, b) =&gt; a + b;
 console.log(sum(1, 2)); // 3
 </code></pre>
-</blockquote>
-</li>
-<li><p>常见 API 的回调函数，可以将其改写成箭头函数</p>
-<blockquote>
+<ul>
+<li>常见 API 的回调函数，可以将其改写成箭头函数</li>
+</ul>
 <pre><code>const arr = [1, 3, 2, 7, 4, 5, 6];
 arr.sort(function (a, b) &#123;
-console.log(this);
-return a - b;
+  console.log(this);
+  return a - b;
 &#125;);
 console.log(arr); // [1, 2, 3, 4, 5, 6, 7]
+&gt;
+// 箭头函数
+const arr2 = [1, 4, 3, 7, 8, 12, 76];
+arr2.sort((a, b) =&gt; a - b);
+console.log(arr2); // [1, 3, 4, 7, 8, 12, 76]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 箭头函数<br>const arr2 &#x3D; [1, 4, 3, 7, 8, 12, 76];<br>arr2.sort((a, b) &#x3D;&gt; a - b);<br>console.log(arr2); &#x2F;&#x2F; [1, 3, 4, 7, 8, 12, 76]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
 <li>希望函数中 this 指向外层作用域 this<blockquote>
 <p>我们一般希望在回调函数中<strong>拿到外层</strong>作用域中的<code>this</code>，因为箭头函数没有自己的<code>this</code>，所以箭头函数中的<code>this</code>默认就指向了外层作用域中的<code>this</code>。</p>
@@ -1008,46 +1008,49 @@ console.log(arr); // [1, 2, 3, 4, 5, 6, 7]
 <ul>
 <li>普通函数：</li>
 </ul>
-<pre><code>&lt;style&gt;
-.box &#123;
-  width: 100px;
-  height: 100px;
-  background-color: red;
-&#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-const box = document.querySelector(&quot;.box&quot;);
-box.onclick = function () &#123;
-  const that = this; // 保存this
-  setInterval(function () &#123;
-    const arr = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;green&quot;];
-    const len = arr.length;
-    // that指向 box
-    that.style.backgroundColor = arr[(Math.random() * len) &gt;&gt; 0];
-  &#125;, 500);
-&#125;;
-&lt;/script&gt;
-</code></pre>
-<ul>
-<li>使用普通函数时，要在定时器的回调函数中拿到外层（事件处理函数）中的<code>this</code>，则需要在事件处理函数中<strong>添加变量</strong><code>that</code>来保存<code>this</code>，然后在回调函数中来使用</li>
-</ul>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<ul>
-<li>如果将定时器中的回调函数，改写成箭头函数，就不需要增加中间变量（代码如下）</li>
-</ul>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 100px;
     height: 100px;
     background-color: red;
   &#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  const box = document.querySelector(&quot;.box&quot;);
+  box.onclick = function () &#123;
+    const that = this; // 保存this
+    setInterval(function () &#123;
+      const arr = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;green&quot;];
+      const len = arr.length;
+      // that指向 box
+      that.style.backgroundColor = arr[(Math.random() * len) &gt;&gt; 0];
+    &#125;, 500);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>使用普通函数时，要在定时器的回调函数中拿到外层（事件处理函数）中的<code>this</code>，则需要在事件处理函数中<strong>添加变量</strong><code>that</code>来保存<code>this</code>，然后在回调函数中来使用</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果将定时器中的回调函数，改写成箭头函数，就不需要增加中间变量（代码如下）</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   const box = document.querySelector(&quot;.box&quot;);
   box.onclick = function () &#123;
     setInterval(() =&gt; &#123;
@@ -1058,63 +1061,96 @@ box.onclick = function () &#123;
       this.style.backgroundColor = arr[(Math.random() * len) &gt;&gt; 0];
     &#125;, 500);
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ul>
-<li>案例2：当点击一个按钮时，从零开始计数<blockquote>
-<pre><code>&lt;style&gt;
-  body &#123;
-      padding: 200px 0 0 300px;
-  &#125;
-  button &#123;
-      width: 70px;
-      height: 70px;
-      font-size: 20px;
-      cursor: pointer;
-  &#125;
-  span &#123;
-      font-size: 30px;
-      padding: 30px;
-  &#125;
-&lt;/style&gt;
-
-&lt;button id=&quot;btn&quot;&gt;点击开始&lt;/button&gt;
-&lt;span id=&quot;result&quot;&gt;0&lt;/span&gt;
-
-&lt;script&gt;
-  // 获取按钮
-  const btn = document.getElementById(&quot;btn&quot;);
-  // 获取存放数字的容器
-  const result = document.getElementById(&quot;result&quot;);
+<li>案例2：当点击一个按钮时，从零开始计数</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+    body &#123;
+        padding: 200px 0 0 300px;
+    &#125;
+    button &#123;
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+        cursor: pointer;
+    &#125;
+    span &#123;
+        font-size: 30px;
+        padding: 30px;
+    &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;button id=&quot;btn&quot;&gt;点击开始&lt;/button&gt;
+&gt;&lt;span id=&quot;result&quot;&gt;0&lt;/span&gt;
+&gt;
+&gt;&lt;script&gt;
+    // 获取按钮
+    const btn = document.getElementById(&quot;btn&quot;);
+    // 获取存放数字的容器
+    const result = document.getElementById(&quot;result&quot;);
+&gt;
+    const timer = &#123;
+        time: 0,
+        start: function () &#123;
+            btn.addEventListener(
+                &quot;click&quot;,
+                function () &#123;
+                    setInterval(function () &#123;
+                        console.log(this); // undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）
+                        this.time++;
+                        result.innerHTML = this.time;
+                    &#125;, 1000);
+                &#125;,
+                false
+            );
+        &#125;,
+    &#125;;
+    timer.start();
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-  const timer &#x3D; {<br>  time: 0,<br>  start: function () {<br>      btn.addEventListener(<br>          “click”,<br>          function () {<br>              setInterval(function () {<br>                  console.log(this); &#x2F;&#x2F; undefined -&gt; window（在非严格模式下，浏览器帮我们将this指向从 undefined 转化成了 window）<br>                  this.time++;<br>                  result.innerHTML &#x3D; this.time;<br>              }, 1000);<br>          },<br>          false<br>      );<br>  },<br>  };<br>  timer.start();<blockquote>
-<p></script></p>
-<pre><code>- 当我们点击开始按钮时，数字变成 `NaN` 了，因为定时器`setInterval(function()&#123;&#125;)` 中 `this` 指向 `window` ，我希望这里的 `this` 指向是 `timer` 对象才对（我们需要用到 `timer` 对象中的 `time` 属性）。
-&gt;本质就是，这里的 this 指向只要是 timer 就能正常运行了
-</code></pre>
+<blockquote>
+<ul>
+<li>当我们点击开始按钮时，数字变成 <code>NaN</code> 了，因为定时器<code>setInterval(function()&#123;&#125;)</code> 中 <code>this</code> 指向 <code>window</code> ，我希望这里的 <code>this</code> 指向是 <code>timer</code> 对象才对（我们需要用到 <code>timer</code> 对象中的 <code>time</code> 属性）。<blockquote>
+<p>本质就是，这里的 this 指向只要是 timer 就能正常运行了</p>
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <blockquote>
 <ul>
 <li>传统方法是声明一个<code>that</code>变量来保存我们想要的<code>this</code>，然后再需要对应 <code>this</code> 的时候，替换成我们声明的变量即可实现</li>
 <li>在<code>ES6</code>中，箭头函数没有自己的<code>this</code>，我可以通过这个特性来实现：</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
   // 获取按钮
   const btn = document.getElementById(&quot;btn&quot;);
   // 获取存放数字的容器
   const result = document.getElementById(&quot;result&quot;);
+&gt;
+  const timer = &#123;
+    time: 0,
+    start: function () &#123;
+      console.log(this); // this指向 timer ，找到了，timer.start(); 调用start()方法，即指向 timer对象
+      btn.addEventListener(
+        &quot;click&quot;,
+        () =&gt; &#123;
+          console.log(this); // 箭头函数没有自己的this ，往上一层找
+          setInterval(() =&gt; &#123;
+            console.log(this); // 箭头函数没有自己的this ，往上一层找
+            this.time++;
+            result.innerHTML = this.time;
+          &#125;, 1000);
+        &#125;,
+        false
+      );
+    &#125;,
+  &#125;;
+  timer.start();
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  const timer &#x3D; {<br>    time: 0,<br>    start: function () {<br>      console.log(this); &#x2F;&#x2F; this指向 timer ，找到了，timer.start(); 调用start()方法，即指向 timer对象<br>      btn.addEventListener(<br>        “click”,<br>        () &#x3D;&gt; {<br>          console.log(this); &#x2F;&#x2F; 箭头函数没有自己的this ，往上一层找<br>          setInterval(() &#x3D;&gt; {<br>            console.log(this); &#x2F;&#x2F; 箭头函数没有自己的this ，往上一层找<br>            this.time++;<br>            result.innerHTML &#x3D; this.time;<br>          }, 1000);<br>        },<br>        false<br>      );<br>    },<br>  };<br>  timer.start();</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="二、箭头函数面试题"><a href="#二、箭头函数面试题" class="headerlink" title="二、箭头函数面试题"></a>二、箭头函数面试题</h3><ol>
 <li>箭头函数可以用 call 或者 apply 改变 this 指向吗 ？（百度）<blockquote>
 <p><strong>解题思路：</strong></p>
@@ -1134,64 +1170,75 @@ box.onclick = function () &#123;
 </ul>
 </blockquote>
 <ul>
-<li><p><code>obj.方法()</code>方法为<strong>普通函数</strong>，其内部的 this 指向 obj</p>
-<blockquote>
+<li><code>obj.方法()</code>方法为<strong>普通函数</strong>，其内部的 this 指向 obj</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
+&gt;
+function sum(a, b) &#123;
+  console.log(this.a + this.b);
+&#125;
+sum.call(obj, 4, 5); // 相当于  obj.sum(4,5) ，sum为普通函数，this指向被调用的对象,即相当于
+&gt;
+/*
+obj=&#123;
+    a:1,
+    b:2,
+    sum:function(a,b)&#123;
+         console.log(this.a+this.b);  // this指向obj
+    &#125;
+&#125;
+*/
 </code></pre>
-</blockquote>
-<p>function sum(a, b) {<br>console.log(this.a + this.b);<br>}<br>sum.call(obj, 4, 5); &#x2F;&#x2F; 相当于  obj.sum(4,5) ，sum为普通函数，this指向被调用的对象,即相当于</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;*<br>obj&#x3D;{<br>  a:1,<br>  b:2,<br>  sum:function(a,b){<br>   console.log(this.a+this.b);  &#x2F;&#x2F; this指向obj<br>  }<br>}<br>*&#x2F;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>obj.方法()</code>方法为<strong>箭头函数</strong>，其 this 指向箭头函数声明时所在作用域中的 this</p>
-<blockquote>
+<ul>
+<li><code>obj.方法()</code>方法为<strong>箭头函数</strong>，其 this 指向箭头函数声明时所在作用域中的 this</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
+&gt;
+const sum = (a, b) =&gt; &#123;
+  console.log(this.a + this.b);
+&#125;;
+sum.call(obj, 4, 5); // 相当于  obj.sum(4,5)  但sum是箭头函数，this指向window,即相当于
+&gt;
+/*
+obj=&#123;
+    a:1,
+    b:2,
+    sum:(a,b)=&gt;&#123;
+         console.log(this.a+this.b);  // this指向window
+    &#125;
+&#125;
+*/
 </code></pre>
-</blockquote>
-<p>const sum &#x3D; (a, b) &#x3D;&gt; {<br>console.log(this.a + this.b);<br>};<br>sum.call(obj, 4, 5); &#x2F;&#x2F; 相当于  obj.sum(4,5)  但sum是箭头函数，this指向window,即相当于</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;*<br>obj&#x3D;{<br>  a:1,<br>  b:2,<br>  sum:(a,b)&#x3D;&gt;{<br>   console.log(this.a+this.b);  &#x2F;&#x2F; this指向window<br>  }<br>}<br>*&#x2F;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>以下代码是根据此原理来实现手写 <code>call</code> 方法</p>
-<blockquote>
+<ul>
+<li>以下代码是根据此原理来实现手写 <code>call</code> 方法<blockquote>
 <ul>
 <li><code>call</code> 内部实现原理：把调用 <code>call</code> 的函数当成 <code>call</code> 方法的第一个参数的方法来使用</li>
 </ul>
-<pre><code>// 手写call方法
-Function.prototype.call = function (context, ...args) &#123;
-// ....相关判断省略
-// 创建一个唯一的值，用来当做对象的属性名
-const key = Symbol();
-// call是一个普通函数，内部的this指向调用call方法的对象
-// 把调用call方法的对象绑定成 call方法第一个参数的方法
-context[key] = this;
-// 调用方法,并将返回值保存在变量中
-let result = context[key](...args);
-//删除被新增的属性
-delete context[key];
-// 返回结果
-return result;
-&#125;;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 手写call方法
+Function.prototype.call = function (context, ...args) &#123;
+  // ....相关判断省略
+  // 创建一个唯一的值，用来当做对象的属性名
+  const key = Symbol();
+  // call是一个普通函数，内部的this指向调用call方法的对象
+  // 把调用call方法的对象绑定成 call方法第一个参数的方法
+  context[key] = this;
+  // 调用方法,并将返回值保存在变量中
+  let result = context[key](...args);
+  //删除被新增的属性
+  delete context[key];
+  // 返回结果
+  return result;
+&#125;;
+</code></pre>
 <ol start="2">
 <li>箭头函数和普通函数的区别（招银、百度、知乎、字节）<blockquote>
 <ul>
@@ -1236,18 +1283,17 @@ return result;
 <p>对象字面量就是对象的一种写法，对象一般有两种写法</p>
 </blockquote>
 <ol>
-<li><p>通过实例化构造函数来生成对象</p>
-<blockquote>
+<li>通过实例化构造函数来生成对象</li>
+</ol>
 <pre><code>// 实例化构造函数生成对象
 const student = new Object();
 student.username = &quot;清心&quot;;
 student.age = 18;
 student.code = function () &#123;&#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>对象字面量方式创建对象</p>
-<blockquote>
+<ol start="2">
+<li>对象字面量方式创建对象</li>
+</ol>
 <pre><code>// 对象字面量
 const student = &#123;
   username: &quot;清心&quot;,
@@ -1255,67 +1301,58 @@ const student = &#123;
   code: function () &#123;&#125;,
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>我们日常开发中，很少使用实例化构造函数来生成对象，更多使用对象字面量的方式来生成对象，因为它更直观，我们用的也更多。</li>
 </ul>
 </blockquote>
 <h4 id="属性的简洁表示法-增强"><a href="#属性的简洁表示法-增强" class="headerlink" title="属性的简洁表示法 - 增强"></a>属性的简洁表示法 - 增强</h4><ul>
-<li><p>当对象属性的<strong>键名</strong>和<strong>变量或常量名</strong>一样的时候，可以只写一个</p>
-<blockquote>
+<li>当对象属性的<strong>键名</strong>和<strong>变量或常量名</strong>一样的时候，可以只写一个</li>
+</ul>
 <pre><code>let username = &quot;清心&quot;;
 let age = 18;
 const obj = &#123;
-username: username,
-age: age,
+  username: username,
+  age: age,
+&#125;;
+console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
+&gt;
+// 以下简写形式，当属性名和变量名相同时，可以只写一个
+const obj = &#123;
+  username, // 相当于 username: username
+  age, // 相当于  age: age
 &#125;;
 console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以下简写形式，当属性名和变量名相同时，可以只写一个<br>const obj &#x3D; {<br>username, &#x2F;&#x2F; 相当于 username: username<br>age, &#x2F;&#x2F; 相当于  age: age<br>};<br>console.log(obj); &#x2F;&#x2F; {username: ‘清心’, age: 18}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>这种简写用于函数的返回值会非常方便</p>
-<blockquote>
-<pre><code>function getCurrentDate() &#123;
-var nowDate = new Date();
-var year = nowDate.getFullYear();
-var month = nowDate.getMonth() + 1;
-var date = nowDate.getDate();
-</code></pre>
-</blockquote>
-<p>return { year, month, date }; &#x2F;&#x2F; 属性的简写形式<br>}<br>console.log(getCurrentDate()); &#x2F;&#x2F; {year: 2023, month: 1, date: 5}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>这种简写用于函数的返回值会非常方便</li>
 </ul>
+<pre><code>function getCurrentDate() &#123;
+  var nowDate = new Date();
+  var year = nowDate.getFullYear();
+  var month = nowDate.getMonth() + 1;
+  var date = nowDate.getDate();
+&gt;
+  return &#123; year, month, date &#125;; // 属性的简写形式
+&#125;
+console.log(getCurrentDate()); // &#123;year: 2023, month: 1, date: 5&#125;
+</code></pre>
 <h4 id="方法的简洁表示法-增强"><a href="#方法的简洁表示法-增强" class="headerlink" title="方法的简洁表示法-增强"></a>方法的简洁表示法-增强</h4><ol>
-<li>es6 中，对象的方法可以省略<strong>冒号</strong>和<code>function</code>关键字<blockquote>
+<li>es6 中，对象的方法可以省略<strong>冒号</strong>和<code>function</code>关键字</li>
+</ol>
 <pre><code>const obj=&#123;
   say: function(a,b)&#123;
- console.log(&quot;123&quot;);
+    console.log(&quot;123&quot;);
   &#125;,
 &#125;;
 //简写
 const obj = &#123;
   say(a, b) &#123;
- console.log(&quot;123&quot;);
+    console.log(&quot;123&quot;);
   &#125;,
 &#125;;
 obj.say(); //123
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
 <pre><code>const student = &#123;
   name: &quot;清心&quot;,
   code: function () &#123;
@@ -1323,55 +1360,57 @@ obj.say(); //123
   &#125;,
 &#125;;
 student.code(); // 清心正在写代码
+&gt;
+// 以下是简写形式，可以省略方法名后面的:和function关键字
+const student = &#123;
+  name: &quot;清心&quot;,
+  code() &#123;
+    console.log(`$&#123;this.name&#125;正在写代码`);
+  &#125;,
+&#125;;
+student.code(); // 清心正在写代码
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以下是简写形式，可以省略方法名后面的:和function关键字<br>const student &#x3D; {<br>  name: “清心”,<br>  code() {<br>    console.log(<code>$&#123;this.name&#125;正在写代码</code>);<br>  },<br>};<br>student.code(); &#x2F;&#x2F; 清心正在写代码</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>方法的简法，对于 get 获取函数和 set 设置函数也适用</li>
 </ol>
 <ul>
-<li><p><code>ES5</code>中 <code>get</code>和<code>set</code>函数是写在<code>Object.defineProperty</code>方法的第三个参数中</p>
-<blockquote>
+<li><code>ES5</code>中 <code>get</code>和<code>set</code>函数是写在<code>Object.defineProperty</code>方法的第三个参数中</li>
+</ul>
 <pre><code>const obj = &#123;
-_sex: &quot;男&quot;,
+  _sex: &quot;男&quot;,
 &#125;;
 Object.defineProperty(obj, sex, &#123;
-get: function () &#123;
-  return this._sex;
-&#125;,
-set: function (value) &#123;
-  this._sex = value;
-&#125;,
+  get: function () &#123;
+    return this._sex;
+  &#125;,
+  set: function (value) &#123;
+    this._sex = value;
+  &#125;,
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>ES6</code> 支持的最完美的 <code>get</code> 和 <code>set</code> 函数的简写形式</p>
-<blockquote>
+<ul>
+<li><code>ES6</code> 支持的最完美的 <code>get</code> 和 <code>set</code> 函数的简写形式</li>
+</ul>
 <pre><code>const obj = &#123;
-_sex: &quot;男&quot;,
-// get函数的简写
-get sex() &#123;
-  return this._sex;
-&#125;,
-// set 函数的简写
-set sex(value) &#123;
-  this._sex = value;
-&#125;,
+  _sex: &quot;男&quot;,
+  // get函数的简写
+  get sex() &#123;
+    return this._sex;
+  &#125;,
+  // set 函数的简写
+  set sex(value) &#123;
+    this._sex = value;
+  &#125;,
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="方括号语法-增强"><a href="#方括号语法-增强" class="headerlink" title="方括号语法 - 增强"></a>方括号语法 - 增强</h4><ol>
 <li><code>ES5</code> 中方括号语法的用法<blockquote>
 <ul>
 <li>在<code>ES5</code>中定义对象属性有两种方式：点符号法和方括号表示法</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const obj = &#123;&#125;;
 // 方式一：点符号法  obj.属性名=属性值
 obj.name = &quot;清心&quot;; // 等价于 obj[&#39;name&#39;]=&#39;清心&#39;
@@ -1379,18 +1418,17 @@ obj.name = &quot;清心&quot;; // 等价于 obj[&#39;name&#39;]=&#39;清心&#39;
 let myage = &quot;age&quot;;
 obj[myage] = 18; // 这种情况只能使用方括号法
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>但 <code>ES5</code> 中，对象字面量写法中<strong>不能</strong>使用<code>[]</code>方括号法来定义属性名</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
   name: &quot;清心&quot;,
   [&quot;myage&quot;]: 19, // ES5中不允许这种写法
 &#125;;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>现在是因为es6才可以用的</p>
 </blockquote>
@@ -1405,7 +1443,6 @@ obj[myage] = 18; // 这种情况只能使用方括号法
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>let person = &#123;
   [1 + 3]: 3,
   [&#123;&#125;]: 4,
@@ -1421,22 +1458,27 @@ for (let key in person) &#123;
 &#125;
 // &quot;4&quot; &quot;[object Object]&quot; &quot;&quot; &quot;function () &#123;&#125;&quot;
 //&quot;() =&gt; &#123;&#125;&quot;  &quot;ssex&quot;
+&gt;
+const s = Symbol();
+let animal = &#123;
+  [s]: 19,
+&#125;;
+const key = Object.getOwnPropertySymbols(animal);
+console.log(key); //[Symbol()]
+console.log(typeof key); //object
 </code></pre>
-</blockquote>
-<p>const s &#x3D; Symbol();<br>let animal &#x3D; {<br>  [s]: 19,<br>};<br>const key &#x3D; Object.getOwnPropertySymbols(animal);<br>console.log(key); &#x2F;&#x2F;[Symbol()]<br>console.log(typeof key); &#x2F;&#x2F;object</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li>只能采用方括号表示法的情况<blockquote>
 <ul>
 <li>在<strong>获取</strong>属性时，当属性名不是合法标识符时，就只能采用方括号表示法。</li>
 <li>在<strong>获取</strong>属性时，如果使用变量或者常量保存属性名时，就只能采用方括号表示法</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const obj = &#123;
-age: 18,
-&quot;123username&quot;: &quot;icoding&quot;,
+  age: 18,
+  &quot;123username&quot;: &quot;icoding&quot;,
 &#125;;
 // 123username 不是合法标识符，所以只能用方括号方式来获取
 console.log(obj[&quot;123username&quot;]);
@@ -1447,13 +1489,11 @@ console.log(obj[property]); // 18
 // 当属性为变量或常量时，如果通过点语法，会将property看做字符串，表示访问obj对象下的property属性，而不是访问obj下的age属性，而obj对象中没有property属性，所以返回结果为undefined
 console.log(obj.property); // undefined
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>使用字面量方式创建对象时，如果使用变量或者常量<strong>保存属性名</strong>时，就只能使用方括号语法</li>
 </ul>
+</blockquote>
 <pre><code>let username = &quot;username&quot;;
 const age = &quot;age&quot;;
 const obj = &#123;
@@ -1462,7 +1502,6 @@ const obj = &#123;
 &#125;;
 console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>方括号语法和点语法的区别<blockquote>
 <ul>
@@ -1472,18 +1511,20 @@ console.log(obj); // &#123;username: &#39;清心&#39;, age: 18&#125;
 </blockquote>
 </li>
 </ul>
-<pre><code>// 对象字面量
-const student = &#123;&#125;;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 使用点语法给对象字面量添加属性<br>student.age &#x3D; 18; &#x2F;&#x2F; 等价于 student[“age”] &#x3D; 18;<br>console.log(student); &#x2F;&#x2F; {age: 18}<blockquote>
-</blockquote>
-&#x2F;&#x2F; 使用方括号给对象字面量添加属性<br>student[“username”] &#x3D; “icoding”; &#x2F;&#x2F; 等价于 student.username&#x3D;’icoding’<br>console.log(student); &#x2F;&#x2F; {age: 18, username: ‘icoding’}<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 对象字面量
+const student = &#123;&#125;;
+&gt;
+// 使用点语法给对象字面量添加属性
+student.age = 18; // 等价于 student[&quot;age&quot;] = 18;
+console.log(student); // &#123;age: 18&#125;
+&gt;
+// 使用方括号给对象字面量添加属性
+student[&quot;username&quot;] = &quot;icoding&quot;; // 等价于 student.username=&#39;icoding&#39;
+console.log(student); // &#123;age: 18, username: &#39;icoding&#39;&#125;
+</code></pre>
 <h2 id="ES6-解构赋值，函数参数默认值，在项目中的应用场景"><a href="#ES6-解构赋值，函数参数默认值，在项目中的应用场景" class="headerlink" title="ES6 解构赋值，函数参数默认值，在项目中的应用场景"></a>ES6 解构赋值，函数参数默认值，在项目中的应用场景</h2><h3 id="一、认知解构赋值"><a href="#一、认知解构赋值" class="headerlink" title="一、认知解构赋值"></a>一、认知解构赋值</h3><blockquote>
 <p>解构赋值语法是一种<code>JavaScript</code>表达式。可以将数组中的值或对象的属性值取出，赋值给其他变量。</p>
 <ul>
@@ -1491,10 +1532,12 @@ const student = &#123;&#125;;
 </ul>
 </blockquote>
 <ul>
-<li><p>传统方式取值赋值</p>
-<blockquote>
+<li>传统方式取值赋值<blockquote>
 <ul>
 <li>传统方式只能把数组中的值一个一个取出来，然后分别赋值给到对应的变量</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 传统方式，取出数组中的值
 const arr = [1, 2, 3];
@@ -1503,20 +1546,18 @@ let b = arr[1];
 let c = arr[2];
 console.log(a, b, c); // 1,2,3
 </code></pre>
-</blockquote>
-</li>
-<li><p>ES6 中，通过解构赋值来获取数组中元素</p>
-<blockquote>
+<ul>
+<li>ES6 中，通过解构赋值来获取数组中元素<blockquote>
 <ul>
 <li>解构赋值本质是属于<strong>“模式匹配”</strong> ，只要等号两边的<strong>结构模式</strong>相同，<strong>左边的变量</strong>就会被赋予对应的值。</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>const arr = [1, 2, 3, 4];
 let [a, b, c] = arr;// 解构赋值 let [a,b,c]=[1,2,3,4]
 console.log(a, b, c); //1 2 3
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li><strong>解构的目的</strong>：是为了简化提取数据的过程，增强代码的可读性。把变量放在<code>[]</code>或者<code>&#123;&#125;</code>中来获取目标对象上的对应的值。</li>
@@ -1534,11 +1575,11 @@ console.log(a, b, c); //1 2 3
 <ul>
 <li>数组解构赋值，左边声明变量，用来接受右边对应结构位置上的值</li>
 </ul>
+</blockquote>
 <pre><code>// 数组解构赋值，左边相当于声明了两个变量a和c 用来接受右边对应结构位置上的值
 const [a, , c] = [1, 2, 3];
 console.log(a, c);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>对象解构赋值的内部机制是：先找属性名，看等号右边对象中有没有对应的属性名，然后再将对象对应的属性值赋值给到对应变量。<blockquote>
@@ -1546,25 +1587,23 @@ console.log(a, c);
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>// 以下代码等号左边的x,y为对象属性名， _x 和 _z 才是新声明的变量，
 const &#123; x: _x, y: _y &#125; = &#123; x: 1, y: 2 &#125;;
 console.log(_x, _y);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>在绑定模式中，所有变量<strong>共享相同的声明</strong>，如果希望两个变量分别用 let 和 const 声明，则需要解构两次</li>
 </ul>
+</blockquote>
 <pre><code>var arr = [1, 2, 3];
 let [a] = arr;
 console.log(a); // 1
+&gt;
+const [, , c] = arr;
+console.log(c); // 3
 </code></pre>
-</blockquote>
-<p>const [, , c] &#x3D; arr;<br>console.log(c); &#x2F;&#x2F; 3</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="赋值模式"><a href="#赋值模式" class="headerlink" title="赋值模式"></a>赋值模式</h4><blockquote>
 <p>在赋值模式中，模式<strong>不以关键字开头</strong>，赋值语句中的<strong>变量已提前声明</strong>好了。然后按照相应的模式匹配，只要只要等号两边的<strong>模式相同</strong>，左边的变量就会被赋予对应的值。</p>
 <blockquote>
@@ -1574,20 +1613,21 @@ console.log(a); // 1
 <li>1、赋值模式中，当对<strong>对象</strong>解构赋值时，必需用<code>(....)</code>赋值语句包裹起来。否则 <code>JS</code> 引擎会把<code>&#123; &#125;</code>理解成一个代码块，从而发生语法错误。</li>
 <li>2、如果(赋值语句)前面的代码没有以<code>;</code>分号结尾，有可能会造成它被当前<strong>前一行</strong>的函数执行</li>
 </ul>
+</blockquote>
 <pre><code>// 数组解构赋值
 let a,b;
 [a,b]=[1,2,3];
 console.log(a,b); // 1 2
+&gt;
+// 对象解构赋值  ，记得一定要用()将赋值语句包裹起来，否则会报错
+let _x, _y;
+(&#123; x: _x, y: _y &#125; = &#123; x: 1, y: 2 &#125;);
+console.log(_x, _y);
+&gt;
+// 以下这种情况，如果省略括号前; 相当于执行 x(x:_x)这个函数，所以一定要在()前加上;号
+let x
+;(x:_x)=&#123;x:1,y:2&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 对象解构赋值  ，记得一定要用()将赋值语句包裹起来，否则会报错<br>let _x, _y;<br>({ x: _x, y: _y } &#x3D; { x: 1, y: 2 });<br>console.log(_x, _y);</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 以下这种情况，如果省略括号前; 相当于执行 x(x:_x)这个函数，所以一定要在()前加上;号<br>let x<br>;(x:_x)&#x3D;{x:1,y:2}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="三、数组的解构赋值"><a href="#三、数组的解构赋值" class="headerlink" title="三、数组的解构赋值"></a>三、数组的解构赋值</h3><blockquote>
 <p>数组的解构赋值是，通过<strong>新建一个数组</strong>，数组内的变量和目标数组是<strong>一一对应</strong>的，按照<strong>索引</strong>的方式去获取值，然后赋值给指定索引上的变量。</p>
 </blockquote>
@@ -1601,152 +1641,158 @@ console.log(a,b); // 1 2
 <li>… 等</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>let [] = [1, 2, 3]; // 左右两边都必需为数组类型，不过也有特殊的情况，后面会讲到
+&gt;
+// 以下情况，模式匹配失败，则会抛出错误
+let [] = 1; // 报错
+let [] = &#123;&#125;; // 报错
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以下情况，模式匹配失败，则会抛出错误<br>let [] &#x3D; 1; &#x2F;&#x2F; 报错<br>let [] &#x3D; {}; &#x2F;&#x2F; 报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li>数组解构赋值 &#x3D; 等号右边只要是可迭代对象就行。<blockquote>
 <ul>
 <li>以下内容没讲，后面会讲，有基础的当复习</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// Set为可迭代对象
 const [a, b, c] = new Set([1, 2, 3]);
 console.log(a, b, c);
+&gt;
+// Map为可迭代对象
+const [x, y] = new Map([
+  [&quot;a&quot;, 1],
+  [&quot;b&quot;, 2],
+]);
+console.log(x); // [&#39;a&#39;, 1]
+console.log(y); // [&#39;b&#39;, 2]
+&gt;
+// arguments类数组对象
+function f() &#123;
+  let [a, b, c] = arguments;
+  console.log(a, b, c);
+&#125;
+f(1, 2, 3); // 1 2 3
+&gt;
+// 对象为非迭代对象，但给对象添加了迭代器后，就变成了可迭代对象，就可以用数组方式解构赋值
+const obj = &#123;
+  a: &quot;one&quot;,
+  b: &quot;two&quot;,
+  c: &quot;three&quot;,
+&#125;;
+&gt;
+// 给对象添加跌迭器
+Object.prototype[Symbol.iterator] = function* () &#123;
+  for (var key in this) &#123;
+    yield this[key];
+  &#125;
+&#125;;
+&gt;
+const [x, y, z] = obj;
+console.log(x, y, z); // one two three
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; Map为可迭代对象<br>const [x, y] &#x3D; new Map([<br>[“a”, 1],<br>[“b”, 2],<br>]);<br>console.log(x); &#x2F;&#x2F; [‘a’, 1]<br>console.log(y); &#x2F;&#x2F; [‘b’, 2]<blockquote>
-</blockquote>
-&#x2F;&#x2F; arguments类数组对象<br>function f() {<br>let [a, b, c] &#x3D; arguments;<br>console.log(a, b, c);<br>}<br>f(1, 2, 3); &#x2F;&#x2F; 1 2 3<blockquote>
-</blockquote>
-&#x2F;&#x2F; 对象为非迭代对象，但给对象添加了迭代器后，就变成了可迭代对象，就可以用数组方式解构赋值<br>const obj &#x3D; {<br>a: “one”,<br>b: “two”,<br>c: “three”,<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 给对象添加跌迭器<br>Object.prototype[Symbol.iterator] &#x3D; function* () {<br>for (var key in this) {<br>  yield this[key];<br>}<br>};<blockquote>
-</blockquote>
-const [x, y, z] &#x3D; obj;<br>console.log(x, y, z); &#x2F;&#x2F; one two three<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="索引值相同完成赋值"><a href="#索引值相同完成赋值" class="headerlink" title="索引值相同完成赋值"></a>索引值相同完成赋值</h4><ul>
-<li>等号右边数组中的索引值和左边数组中的常量或变量一一对应就能完成赋值<blockquote>
+<li>等号右边数组中的索引值和左边数组中的常量或变量一一对应就能完成赋值</li>
+</ul>
 <pre><code>// 数组解构赋值遵守模式匹配，即：等号两边的模式相同。
 let [a, b, c] = [1, 2, 3];
 console.log(a, b, c); // 1 2 3
+&gt;
+let [x, , y] = [1, 2, 3];
+console.log(x, y); // 1 3
+&gt;
+let [m, n, [l]] = [1, 2, [4, 5]];
+console.log(m, n, l); // 1 2 4
 </code></pre>
-</blockquote>
-let [x, , y] &#x3D; [1, 2, 3];<br>console.log(x, y); &#x2F;&#x2F; 1 3<blockquote>
-</blockquote>
-let [m, n, [l]] &#x3D; [1, 2, [4, 5]];<br>console.log(m, n, l); &#x2F;&#x2F; 1 2 4<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>注意数组嵌套的情况，不仅外层要模式匹配，内层也要</li>
 </ul>
+</blockquote>
 <pre><code>const [a, [b, c], d] = [1, [2], 3];
 console.log(a, b, d); //123
 console.log(a, c, d); //1 undefined 3
+&gt;
+const [a, [b, c], d] = [1, 2, 3];
+console.log(a, b, c, d); //number 2 is not iterable
 </code></pre>
-</blockquote>
-<p>const [a, [b, c], d] &#x3D; [1, 2, 3];<br>console.log(a, b, c, d); &#x2F;&#x2F;number 2 is not iterable</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
-<li><p>如果不取值的，可以直接用逗号跳过</p>
-<blockquote>
+<li>如果不取值的，可以直接用逗号跳过</li>
+</ul>
 <pre><code>// 数组解构赋值遵守模式匹配，即：等号两边的模式相同。
 // 如果不取值的，可以直接用逗号跳过
 const [, , a] = [1, [2, 3, 5], 6];
 console.log(a); // 6
+&gt;
+const [a, [, , b], c] = [1, [2, 3, 5], 6];
+console.log(a, b, c); // 1 5 6
 </code></pre>
-</blockquote>
-<p>const [a, [, , b], c] &#x3D; [1, [2, 3, 5], 6];<br>console.log(a, b, c); &#x2F;&#x2F; 1 5 6</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>如果解构不成功，则默认值为<code>undefined</code></p>
-<blockquote>
+<ul>
+<li>如果解构不成功，则默认值为<code>undefined</code></li>
+</ul>
 <pre><code>let [a, b, c] = [1, 2];
 console.log(a, b, c); // 1 2 undefined
 // 上面的变量c没有取到值，则其默认值为undefined
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="数组解构的默认值"><a href="#数组解构的默认值" class="headerlink" title="数组解构的默认值"></a>数组解构的默认值</h4><ol>
-<li><p>默认值的基本用法</p>
-<blockquote>
+<li>默认值的基本用法<blockquote>
 <p>数组解构时，如果变量的取值为<code>undefined</code>时，我们想为变量采用其它值，则就可以为变量指定默认值。</p>
 <ul>
 <li>当解构赋值时，变量对应的值<code>严格等于=== undefind</code>时(没有值或值为undefined)，其默认值才会生效</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 对空数组 [] 解构赋值
 let [a, b] = [];
 console.log(a, b); // undefined undefined
+&gt;
+// 变量x的默认值=1，y的默认值=2
+let [x = 1, y = 2] = [];
+console.log(x, y); // 1,2
+&gt;
+// 变量x的默认值=1，y的默认值=3
+let [x = 1, y = 3] = [8, undefined];
+console.log(x, y); // 8 3
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 变量x的默认值&#x3D;1，y的默认值&#x3D;2<br>let [x &#x3D; 1, y &#x3D; 2] &#x3D; [];<br>console.log(x, y); &#x2F;&#x2F; 1,2</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 变量x的默认值&#x3D;1，y的默认值&#x3D;3<br>let [x &#x3D; 1, y &#x3D; 3] &#x3D; [8, undefined];<br>console.log(x, y); &#x2F;&#x2F; 8 3</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>默认值为表达式</p>
-<blockquote>
+<ol start="2">
+<li>默认值为表达式<blockquote>
 <p>如果默认值是一个表达式，那这个表达式是<strong>惰性求值</strong>的。也就是变量的取值为<code>undefined</code>时，表达式才会执行求值，否则不会执行。</p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>const fn = () =&gt; &#123;
   console.log(&quot;执行&quot;);
   return 3;
 &#125;;
 let [x = fn()] = [];
 console.log(x); //执行 3
+&gt;
+const fn = () =&gt; &#123;
+  console.log(&quot;执行&quot;);
+  return 3;
+&#125;;
+let [x = fn()] = [4];
+console.log(x); // 4
 </code></pre>
-</blockquote>
-<p>const fn &#x3D; () &#x3D;&gt; {<br>  console.log(“执行”);<br>  return 3;<br>};<br>let [x &#x3D; fn()] &#x3D; [4];<br>console.log(x); &#x2F;&#x2F; 4</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>默认值引用解构值的其他变量<blockquote>
 <ul>
 <li>默认值可以引用解构值的其他变量，但该变量必需要<strong>已经声明</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let [a = 1, b = a] = [];
 console.log(a, b); // 1 1
 let [x = 1, y = x] = [2];
 console.log(x, y); // 2 2
+&gt;
+let [m = 1, n = m] = [2, 3];
+console.log(n, m); // 2  3
+&gt;
+let [i = j, j = 2] = []; // 报错 ,因为当i用到j时,j还没有被声明
 </code></pre>
-</blockquote>
-let [m &#x3D; 1, n &#x3D; m] &#x3D; [2, 3];<br>console.log(n, m); &#x2F;&#x2F; 2  3<blockquote>
-</blockquote>
-let [i &#x3D; j, j &#x3D; 2] &#x3D; []; &#x2F;&#x2F; 报错 ,因为当i用到j时,j还没有被声明<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="四、对象的解构赋值"><a href="#四、对象的解构赋值" class="headerlink" title="四、对象的解构赋值"></a>四、对象的解构赋值</h3><blockquote>
 <p>对象的解构赋值等号两边必需<strong>同为对象类型</strong>，同时对象中的属性<strong>没有次序</strong>，所以不能像数组那样通过位置来决定变量的取值。要取到对象属性中的值，变量名必需与属性名同名。</p>
 <ul>
@@ -1759,19 +1805,20 @@ let [i &#x3D; j, j &#x3D; 2] &#x3D; []; &#x2F;&#x2F; 报错 ,因为当i用到j�
 <ul>
 <li>与数组区分，数组模式匹配时，等号右边只要是可迭代对象就行</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let &#123;&#125; = &#123;&#125;;
 // 或
 let &#123;&#125; = [1, 3, 3];
 // 或
 let &#123;&#125; = new String(&quot;hello&quot;);
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>注意：字符串、数组、布尔值等其实都是对象，如果它们出现在等号右边，会自动转化为包装类对象</li>
 </ul>
+</blockquote>
 <pre><code>let &#123; a &#125; = [];
 console.log(a); //undefined
 let &#123;&#125; = &quot;111&quot;;
@@ -1782,7 +1829,6 @@ let &#123;&#125; = new Number();
 let &#123;&#125; = Symbol();
 let &#123;&#125; = BigInt; //BigInt是类，但BigInt()不行,BigInt()是个函数，里面要放值
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>属性名相同完成赋值<blockquote>
 <ul>
@@ -1790,36 +1836,38 @@ let &#123;&#125; = BigInt; //BigInt是类，但BigInt()不行,BigInt()是个函�
 <li>如果找不到同名的属性名，则变量名的默认值为 undefined</li>
 <li><code>let&#123;属性名:变量&#125;=&#123;属性名:变量&#125;</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let &#123; myname: _name, age: _age, sex: _sex &#125; = &#123; myname: &quot;icoding&quot;, age: 3 &#125;;
 console.log(_name, _age); // icoding 3 undefined
 // 注意，myname、age、sex不是变量名
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>如果变量名与属性名同名，可以采用简写形式</li>
 </ul>
+</blockquote>
 <pre><code>let &#123;x,y&#125;相当于let&#123;x:x,y:y&#125;
 //属性名:变量
 </code></pre>
 <pre><code>// 简写形式
 let &#123; myname, age &#125; = &#123; myname: &quot;icoding&quot;, age: 3 &#125;;
 console.log(myname, age); // icoding 3
+&gt;
+// 上面代码，等价于下面代码
+let &#123; myname: myname, age: age &#125; = &#123; myname: &quot;icoding&quot;, age: 3 &#125;;
+console.log(myname, age); // icoding 3
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码，等价于下面代码<br>let { myname: myname, age: age } &#x3D; { myname: “icoding”, age: 3 };<br>console.log(myname, age); &#x2F;&#x2F; icoding 3</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>区分模式与变量<blockquote>
 <p>在对象解构赋值时，我们是通过<strong>对象的属性名</strong>来完成解构赋值的，所以<strong>对象的属性名我们可以看成是匹配模式的一部分。</strong></p>
 <blockquote>
 <p>用来接收对象属性值的才是新声明的变量。</p>
 </blockquote>
+</blockquote>
+</li>
+</ol>
 <pre><code>// a,b是模式,匹配的是对象的属性  _a,_b是变量,用来接受属性的值
 var &#123; a: _a, b: _b &#125; = &#123; a: 1, b: 2 &#125;;
 console.log(_a); // 1
@@ -1827,51 +1875,43 @@ console.log(_b); // 2
 console.log(a); // a is not defined
 console.log(b); // b is not defined
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
-<li><p>属性名相同时，是可以多次匹配的</p>
-<blockquote>
+<li>属性名相同时，是可以多次匹配的</li>
+</ul>
 <pre><code>//  第一个foo是变量 第二个foo是匹配模式  第一个start是变量
 let &#123;
-foo,
-foo: &#123; start &#125;,
+  foo,
+  foo: &#123; start &#125;,
 &#125; = &#123; foo: &#123; start: 33 &#125; &#125;;
 console.log(foo, start); // &#123;start: 33&#125; 33
 //相当于：
 let &#123;
-foo:foo,
-foo: &#123; start &#125;，
+  foo:foo,
+  foo: &#123; start &#125;，
 &#125; = &#123; foo: &#123; start: 33 &#125; &#125;;
 </code></pre>
+<blockquote>
 <ul>
 <li>第一个变量foo往等号右边找，找到<code>foo=&#123; start: 33 &#125;</code></li>
 <li>第二个<code>foo</code>，先往等号右边找同名属性名，还是找到了<code>foo=&#123;start: 33&#125;</code>，所以<code>&#123;start&#125;=&#123;start: 33&#125;</code>；<code>start</code>是个与属性名相同的变量，与等号右边的<code>start</code>匹配后，解构赋值得到<code>start=33</code></li>
 </ul>
 </blockquote>
-</li>
-<li><p>我们来看下面代码中，那些是匹配模式，那些是变量</p>
-<blockquote>
-<pre><code>const obj = &#123;
-arr: [&quot;1&quot;, [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;], &#123; name: &quot;icoding&quot;, age: 23 &#125;],
-&#125;;
-</code></pre>
-</blockquote>
-<p>let {<br>arr: [a, , { name, age: _age, sex }],<br>} &#x3D; obj;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; a  name  _age  sex是变量<br>&#x2F;&#x2F; arr age 是匹配模式</p>
-<blockquote>
-</blockquote>
-<p>console.log(a, name, _age, sex); &#x2F;&#x2F; 1 icoding 23 undefined</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>我们来看下面代码中，那些是匹配模式，那些是变量</li>
 </ul>
-<blockquote>
+<pre><code>const obj = &#123;
+  arr: [&quot;1&quot;, [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;], &#123; name: &quot;icoding&quot;, age: 23 &#125;],
+&#125;;
+&gt;
+let &#123;
+  arr: [a, , &#123; name, age: _age, sex &#125;],
+&#125; = obj;
+&gt;
+// a  name  _age  sex是变量
+// arr age 是匹配模式
+&gt;
+console.log(a, name, _age, sex); // 1 icoding 23 undefined
+</code></pre>
 <pre><code>const obj = &#123;
   foo: &#123;
     bar: &#123;
@@ -1881,120 +1921,125 @@ arr: [&quot;1&quot;, [&quot;一&quot;, &quot;二&quot;, &quot;三&quot;], &#123;
     &#125;,
   &#125;,
 &#125;;
+&gt;
+var &#123;
+  foo,
+  foo: &#123; bar &#125;,
+  foo: &#123;
+    bar: &#123;
+      start: &#123; number &#125;,
+    &#125;,
+  &#125;,
+&#125; = obj;
+// 第一个foo，第一个bar ,number是变量，其它的都是匹配
+&gt;
+console.log(foo);//&#123;bar: &#123;...&#125;&#125;
+console.log(bar);//&#123;start: &#123;...&#125;&#125;
+console.log(number);//1
 </code></pre>
-</blockquote>
-<p>var {<br>  foo,<br>  foo: { bar },<br>  foo: {<br>    bar: {<br>      start: { number },<br>    },<br>  },<br>} &#x3D; obj;<br>&#x2F;&#x2F; 第一个foo，第一个bar ,number是变量，其它的都是匹配</p>
-<blockquote>
-</blockquote>
-<p>console.log(foo);&#x2F;&#x2F;{bar: {…}}<br>console.log(bar);&#x2F;&#x2F;{start: {…}}<br>console.log(number);&#x2F;&#x2F;1</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="4">
-<li><p>复杂结构的嵌套取值</p>
-<blockquote>
+<li>复杂结构的嵌套取值<blockquote>
 <p>取出如下结构中<code>z</code>属性值和<code>z</code>中的<code>b</code>属性值及<code>y</code>属性中的第 <code>3</code>个值</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>const obj = &#123;
   x: 1,
   y: [2, 3, 4],
   z: &#123; a: 5, b: 6 &#125;,
 &#125;;
+&gt;
+// 对象解构赋值
+const &#123;
+  z,
+  z: &#123; b &#125;,
+  y: [, , c],
+&#125; = obj;
+&gt;
+console.log(z); // &#123;a: 5, b: 6&#125;
+console.log(b); // 6
+console.log(c); // 4
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 对象解构赋值<br>const {<br>  z,<br>  z: { b },<br>  y: [, , c],<br>} &#x3D; obj;</p>
-<blockquote>
-</blockquote>
-<p>console.log(z); &#x2F;&#x2F; {a: 5, b: 6}<br>console.log(b); &#x2F;&#x2F; 6<br>console.log(c); &#x2F;&#x2F; 4</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>对象解构的默认值</p>
-<blockquote>
+<ol start="5">
+<li>对象解构的默认值<blockquote>
 <p>对象解构时，如果变量的取值为<code>undefined</code>时，我们想为变量采用其它值，则就可以为变量<strong>指定默认值</strong>。</p>
 <ul>
 <li>当解构赋值时，变量对应的值<code>严格等于=== undefind</code>时，其默认值才会生效</li>
 </ul>
-<pre><code>let &#123; a: _a = 0, b: _b = 0 &#125; = &#123; a: 1, b: 2 &#125;;
-console.log(_a, _b); // 1 2
-</code></pre>
-</blockquote>
-<p>let { x: _x &#x3D; 0, y: _y &#x3D; 0 } &#x3D; { x: 3 };<br>&#x2F;&#x2F; _x 和 _y 解构取值为undefined，则会采用默认值<br>console.log(_x, _y); &#x2F;&#x2F; 3 0</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>let &#123; a: _a = 0, b: _b = 0 &#125; = &#123; a: 1, b: 2 &#125;;
+console.log(_a, _b); // 1 2
+&gt;
+let &#123; x: _x = 0, y: _y = 0 &#125; = &#123; x: 3 &#125;;
+// _x 和 _y 解构取值为undefined，则会采用默认值
+console.log(_x, _y); // 3 0
+</code></pre>
 <blockquote>
 <ul>
 <li>解构赋值的简写形式（为变量指定默认值）</li>
 </ul>
+</blockquote>
 <pre><code>let &#123; a = &quot;A&quot;, b = &quot;B&quot;, c = &quot;C&quot; &#125; = &#123; a: 2, b: 3 &#125;;
 console.log(a, b, c);//2,3,&quot;C&quot; 
+&gt;
+//   上面代码等价于;
+let &#123; a: a = &quot;A&quot;, b: b = &quot;B&quot;, c: c = &quot;C&quot; &#125; = &#123; a: 2, b: 3 &#125;;
+console.log(a, b, c);//2,3,&quot;C&quot; 
+&gt;
+let &#123;x = 3 , y = 4 &#125; = &#123;&#125;;
+console.log(x,y);//3 4
+//相当于
+let &#123;x : x = 3 , y : y = 4 &#125; = &#123;&#125;;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;   上面代码等价于;<br>let { a: a &#x3D; “A”, b: b &#x3D; “B”, c: c &#x3D; “C” } &#x3D; { a: 2, b: 3 };<br>console.log(a, b, c);&#x2F;&#x2F;2,3,”C” </p>
-<blockquote>
-</blockquote>
-<p>let {x &#x3D; 3 , y &#x3D; 4 } &#x3D; {};<br>console.log(x,y);&#x2F;&#x2F;3 4<br>&#x2F;&#x2F;相当于<br>let {x : x &#x3D; 3 , y : y &#x3D; 4 } &#x3D; {};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="6">
-<li><p>默认值为表达式</p>
-<blockquote>
+<li>默认值为表达式<blockquote>
 <ul>
 <li>如果默认值为表达式，那这个表达式<strong>惰性求值</strong></li>
 </ul>
-<pre><code>const fn = () =&gt; 3;
-let &#123; a = fn() &#125; = &#123; a: 1 &#125;;
-console.log(a); // 1   a能成功赋值,所以fn()函数不会被执行
-</code></pre>
-</blockquote>
-<p>let { b &#x3D; fn() } &#x3D; {};<br>console.log(b); &#x2F;&#x2F; 执行  3<br>&#x2F;&#x2F; b求值不成功,则采用默认值,即fn()函数执行</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>解构原型链上属性</p>
-<blockquote>
-<pre><code>// 对&#123;&#125;空对象进行解构赋值
-const &#123; x &#125; = &#123;&#125;;
-console.log(x); // undefined 是取不到值的
-</code></pre>
-</blockquote>
-<p>const { valueOf, toString } &#x3D; {};<br>console.log(valueOf); &#x2F;&#x2F; ƒ valueOf() { [native code] }<br>console.log(toString); &#x2F;&#x2F; ƒ toString() { [native code] }</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const fn = () =&gt; 3;
+let &#123; a = fn() &#125; = &#123; a: 1 &#125;;
+console.log(a); // 1   a能成功赋值,所以fn()函数不会被执行
+&gt;
+let &#123; b = fn() &#125; = &#123;&#125;;
+console.log(b); // 执行  3
+// b求值不成功,则采用默认值,即fn()函数执行
+</code></pre>
+<ol start="7">
+<li>解构原型链上属性</li>
+</ol>
+<pre><code>// 对&#123;&#125;空对象进行解构赋值
+const &#123; x &#125; = &#123;&#125;;
+console.log(x); // undefined 是取不到值的
+&gt;
+const &#123; valueOf, toString &#125; = &#123;&#125;;
+console.log(valueOf); // ƒ valueOf() &#123; [native code] &#125;
+console.log(toString); // ƒ toString() &#123; [native code] &#125;
+</code></pre>
 <blockquote>
 <p>在之前的对象解构赋值的模式匹配时，我们说等号的左右两边只要都是对象类型就可以。</p>
 <blockquote>
 <p>接下来我们看下面这几种情况，他们是如何完成解构赋值。</p>
 </blockquote>
 </blockquote>
-<blockquote>
 <pre><code>// 数组本质也是一个对象，他身上有length属性，原型上有push属性（方法）等
 let &#123; length, push &#125; = [1, 3, 3];
 console.log(length, push);//3 ƒ push() &#123; [native code] &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>变量<code>length</code>去等号右边找<code>length</code>属性，虽然没在数组里找到，但是它可以拿到数组身上的length属性</li>
 <li>同理，也可以拿到数组身上的<code>push</code>属性(方法)</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>let &#123; 0: x, 1: y, at &#125; = new String(&quot;hello&quot;);
 console.log(x, y, at); // h e ƒ at() &#123; [native code] &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li><code>new String(&quot;hello&quot;)</code>是一个包装对象：</li>
 <li>会被转化为：<code>String&#123;0 : &quot;h&quot; , 1 : &quot;t&quot;,...&#125;</code></li>
@@ -2008,75 +2053,73 @@ console.log(x, y, at); // h e ƒ at() &#123; [native code] &#125;
 </li>
 </ol>
 <ul>
-<li><p>数组的形式解构赋值</p>
-<blockquote>
+<li>数组的形式解构赋值</li>
+</ul>
 <pre><code>// 把字符串icoding当做一个数组，[i,c,o,d,i,n,g]
 const [x, y, , , , , z] = &quot;icoding&quot;;
 console.log(x, y, z); // i c g
 </code></pre>
-</blockquote>
-</li>
-<li><p>对象形式的解构赋值</p>
-<blockquote>
+<ul>
+<li>对象形式的解构赋值<blockquote>
 <ul>
 <li>解构赋值时，对象的属性名为数组的索引值（下标）</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 0 -&gt; i , 1 -&gt; c ...  length 表示数组的长度
 const &#123; 0: x, 1: y, length &#125; = &quot;icoding&quot;;
 console.log(x, y, length); // i c 7
 </code></pre>
+<blockquote>
 <ul>
 <li>上面的”icoding”包装成对象后，再用对象形式解构赋值。”icoding”包装成对象如下</li>
 </ul>
+</blockquote>
 <pre><code>//相当于
 var str = new String(&quot;icoding&quot;);
 console.log(str);
 </code></pre>
-<img src="字符串的解构赋值.png"></blockquote>
-</li>
-</ul>
+<img src="字符串的解构赋值.png">
+
 <ol start="2">
 <li>数值和布尔值的解构赋值<blockquote>
 <p>用对象模式解构赋值时，如果等号右边是数值或布尔值，是会<strong>先转为对象</strong>，再用参于对象的解构赋值</p>
 <ul>
 <li>数值和布尔值，与字符串不同，它们拿不到数值&#x2F;布尔值，只能得到<code>undefined</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let &#123; 0 : x, toFixed &#125; = 124;
 console.log(x); // undefined
 console.log(toFixed); // ƒ toFixed() &#123; [native code] &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
 <pre><code>let &#123; 0 : x, toString &#125; = true;
 console.log(x); // undefined
 console.log(toString); //ƒ toString() &#123; [native code] &#125;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>undefined 和 null 的解构赋值<blockquote>
 <p>由于 <code>undefined</code> 和 <code>null</code> 没有对应的包装对象，所以无法通过它们转换成相应的对象。</p>
 <ul>
 <li>因此，对它们进行解构赋值，都会报错。</li>
 </ul>
-<pre><code>const &#123; toString &#125; = undefined; // 报错，undefined的原型上没有toString方法
-const &#123; toString &#125; = undefined; // 报错
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const &#123; toString &#125; = undefined; // 报错，undefined的原型上没有toString方法
+const &#123; toString &#125; = undefined; // 报错
+</code></pre>
 <h3 id="六、解构赋值在实际开发中的应用场景"><a href="#六、解构赋值在实际开发中的应用场景" class="headerlink" title="六、解构赋值在实际开发中的应用场景"></a>六、解构赋值在实际开发中的应用场景</h3><ol>
-<li>交换变量的值<blockquote>
+<li>交换变量的值</li>
+</ol>
 <pre><code>let a = 2;
 let b = 3;
 let c = 4;
 [a, b, c] = [b, c, a]; // a、b、c 已经声明了，这里就不用再添加 let 等关键字声明了
 console.log(a, b, c); // 3 4 2
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li>解构赋值实现变量交换的本质是：<blockquote>
 <ul>
@@ -2092,30 +2135,25 @@ console.log(a, b, c); // 3 4 2
 </li>
 </ol>
 <ul>
-<li><p>返回一个数组</p>
-<blockquote>
+<li>返回一个数组</li>
+</ul>
 <pre><code>const foo = () =&gt; [5, 6, 7];
 let [x, y, z] = foo(); // 函数返回结果一个数组，对该数组进行解构，获取里面的每个值
 //相当于let [x, y, z] =[5, 6, 7];
 console.log(x, y, z); // 5 6 7
 </code></pre>
-</blockquote>
-</li>
-<li><p>返回一个对象</p>
-<blockquote>
-<pre><code>const fun = () =&gt; (&#123;
-foo: 2,
-bar: 3,
-&#125;);
-</code></pre>
-</blockquote>
-<p>let { foo, bar } &#x3D; fun(); &#x2F;&#x2F; 函数返回结果一个对象，对该对象进行解构，获取里面的每个值<br>&#x2F;&#x2F;相当于let { foo, bar } &#x3D; {foo: 2, bar: 3};<br>console.log(foo, bar); &#x2F;&#x2F; 2 3</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>返回一个对象</li>
 </ul>
+<pre><code>const fun = () =&gt; (&#123;
+  foo: 2,
+  bar: 3,
+&#125;);
+&gt;
+let &#123; foo, bar &#125; = fun(); // 函数返回结果一个对象，对该对象进行解构，获取里面的每个值
+//相当于let &#123; foo, bar &#125; = &#123;foo: 2, bar: 3&#125;;
+console.log(foo, bar); // 2 3
+</code></pre>
 <ol start="3">
 <li>函数参数的解构<blockquote>
 <p>可以方便地将一组参数与变量名对应起来</p>
@@ -2123,27 +2161,23 @@ bar: 3,
 </li>
 </ol>
 <ul>
-<li><p>如果传入函数的参数是数组时，可以对参数进行解构，获取数组中每一项的值</p>
-<blockquote>
+<li>如果传入函数的参数是数组时，可以对参数进行解构，获取数组中每一项的值</li>
+</ul>
 <pre><code>function f([a, b, c]) &#123;
-// 相当于  let  [a, b, c]=[5, 6, 7]
-console.log(a, b, c);
+  // 相当于  let  [a, b, c]=[5, 6, 7]
+  console.log(a, b, c);
 &#125;
 f([5, 6, 7]); // 5 6 7
 </code></pre>
-</blockquote>
-</li>
-<li><p>传入函数的参数是对象时，可以对参数进行解构，获取对象中对应的属性值</p>
-<blockquote>
+<ul>
+<li>传入函数的参数是对象时，可以对参数进行解构，获取对象中对应的属性值</li>
+</ul>
 <pre><code>function f(&#123; a, b, c &#125;) &#123;
-// 相当于 &#123; a, b, c &#125;=&#123; c: 5, a: 6, b: 7 &#125;
-console.log(a, b, c); // 6 7 5
+  // 相当于 &#123; a, b, c &#125;=&#123; c: 5, a: 6, b: 7 &#125;
+  console.log(a, b, c); // 6 7 5
 &#125;
 f(&#123; c: 5, a: 6, b: 7 &#125;);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="七、函数参数的默认值"><a href="#七、函数参数的默认值" class="headerlink" title="七、函数参数的默认值"></a>七、函数参数的默认值</h3><blockquote>
 <p><strong>提示：</strong></p>
 <ul>
@@ -2162,48 +2196,47 @@ f(&#123; c: 5, a: 6, b: 7 &#125;);
 </li>
 </ol>
 <ul>
-<li><p>在 <code>ES6</code> 之前，<strong>不能</strong>直接为函数参数指定默认值，我们通常采用以下变通方法</p>
-<blockquote>
+<li>在 <code>ES6</code> 之前，<strong>不能</strong>直接为函数参数指定默认值，我们通常采用以下变通方法</li>
+</ul>
 <pre><code>function sum(a, b) &#123;
-if (a === undefined) a = 0;
-if (b === undefined) b = 0;
-console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+  if (a === undefined) a = 0;
+  if (b === undefined) b = 0;
+  console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
 &#125;
 sum(); // 0+0=0
 sum(1, 3); // 1+3=4
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>ES6</code>中，函数指定默认值，非常简单，直接在形参后面赋值</p>
-<blockquote>
+<ul>
+<li><code>ES6</code>中，函数指定默认值，非常简单，直接在形参后面赋值</li>
+</ul>
 <pre><code>function sum(a = 0, b = 0) &#123;
-console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+  console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
 &#125;
 sum(); // 0+0=0
 sum(1, 3); // 1+3=4
 </code></pre>
+<blockquote>
 <ul>
 <li>这种写法不仅简单，也可以一眼就能意识到那些参数是可以省略不传值的。</li>
 </ul>
 </blockquote>
-</li>
-<li><p>默认值生效的<strong>条件</strong>：参数没有赋值，或赋值为 <code>undefined</code></p>
-<blockquote>
+<ul>
+<li>默认值生效的<strong>条件</strong>：参数没有赋值，或赋值为 <code>undefined</code></li>
+</ul>
 <pre><code>function sum(a = 0, b = 0) &#123;
-console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
+  console.log(`$&#123;a&#125;+$&#123;b&#125;=$&#123;a + b&#125;`);
 &#125;
 sum(); // 0+0=0
 sum(undefined, &quot;B&quot;); //0+B=0B
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
-<li><p>函数参数默认值是惰性求值的</p>
-<blockquote>
+<li>函数参数默认值是惰性求值的<blockquote>
 <ul>
 <li>如果默认值是表达式，默认值表达式是惰性求值的</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let x = 1;
 function fn(a = x++) &#123;
   console.log(x);
@@ -2212,14 +2245,15 @@ fn(2); // 1   x++不会执行
 fn(); // 2   x++被执行
 fn(undefined); // 3   x++被执行
 </code></pre>
-</blockquote>
-</li>
-<li><p>参数默认值的<strong>位置</strong></p>
-<blockquote>
+<ol start="3">
+<li>参数默认值的<strong>位置</strong><blockquote>
 <p>通常情况下，定义了默认值的参数应该是函数的<strong>尾参数</strong>。因为这样容易看出，哪些参数是可以省略不传值的。</p>
 <ul>
 <li>如果非尾部的参数设置了默认值，实际上我们是<strong>无法跳过</strong>此参数，设置其后参数的值的。除非显示传入<code>undefined</code>值</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function fn(a = 1, b, c) &#123;
   console.log(a, b, c);
 &#125;
@@ -2228,14 +2262,14 @@ fn(2); // 2 undefined undefined
 fn(undefined, 4, 5); // 1 4 5
 // fn(,3,3); // 报错
 </code></pre>
+<blockquote>
 <ul>
 <li>参数如果设置了默认值，能往后放，一定放在后面为好，按实际需要调整</li>
 <li>之前设置默认值的参数如果放前面，可能会出现语法错误，现在这个<code>bug</code>已经修复</li>
 </ul>
 </blockquote>
-</li>
-<li><p>函数的 length 属性</p>
-<blockquote>
+<ol start="4">
+<li>函数的 length 属性<blockquote>
 <p>函数的 <code>lenght</code> 属性用来返回<strong>没有指定默认值</strong>的参数个数。</p>
 <ul>
 <li>同时，<code>rest</code> 参数也不会计入 <code>length</code> 属性<img src="函数的length属性1.png"></li>
@@ -2254,20 +2288,21 @@ fn(undefined, 4, 5); // 1 4 5
 <ul>
 <li>不过这种语法行为在不设置参数默认值时是不会出现的。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let a = 1;
 const f = (a, b = a) =&gt; &#123;
   console.log(b);
 &#125;;
 f(3); // 3
 </code></pre>
+<blockquote>
 <ul>
 <li>函数被调用时，在进入函数作用域之前，参数会形成单独的作用域</li>
 <li>在这个作用域内：<code>&#123;let a; let b=a;&#125;</code>，在这个作用域里，执行<code>b=a</code>时，会<strong>先在本作用域内</strong>找a，没找到就去<strong>全局</strong>作用域找，还没找到就报错。<strong>不会</strong>去函数作用域内找；</li>
 </ul>
 </blockquote>
-</li>
-</ol>
-<blockquote>
 <pre><code>let a = 1;
 const f = (b = a) =&gt; &#123;
   let a = 33;
@@ -2277,25 +2312,27 @@ const f = (b = a) =&gt; &#123;
 f(); // 1
 f(2); // 2  b没有启用默认值，而是传过来的实参2
 </code></pre>
-</blockquote>
 <ul>
 <li>注意区分以下几种错误写法：<blockquote>
 <p><strong>第一种</strong></p>
+</blockquote>
+</li>
+</ul>
 <pre><code>const f = (b = a) =&gt; &#123;
-let a = 33;
-console.log(b);
+  let a = 33;
+  console.log(b);
 &#125;;
 f(); // 报错
 </code></pre>
+<blockquote>
 <ul>
 <li>因为没有传入对应实参，则会启动默认值<code>b=a</code></li>
 <li>在参数单独形成的作用域内，没有找到<code>a</code>，沿着作用域链往外找，在全局作用域里也没有找到，所以会报错</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <p><strong>第二种</strong></p>
+</blockquote>
 <pre><code>let a = 5;
 const f = (a = a) =&gt; &#123;
   console.log(a);
@@ -2303,6 +2340,7 @@ const f = (a = a) =&gt; &#123;
 f(4); // 4
 f(); // 报错
 </code></pre>
+<blockquote>
 <ul>
 <li>因为没有传入对应实参，则会启动默认值<code>a=a</code></li>
 <li>在参数单独形成的作用域内，<code>let a=a</code>；在a没有完成声明前调用a，就会形成暂时性死区</li>
@@ -2310,22 +2348,21 @@ f(); // 报错
 </ul>
 </blockquote>
 <ul>
-<li>如果参数的默认值是一个函数，该函数的作用域也遵守这个规则。<blockquote>
+<li>如果参数的默认值是一个函数，该函数的作用域也遵守这个规则。</li>
+</ul>
 <pre><code>let c = 4;
 function f(a = 2, fn = () =&gt; c + a) &#123;
-let c = 5;
-console.log(fn());
+  let c = 5;
+  console.log(fn());
 &#125;
 f(); // 6
 </code></pre>
+<blockquote>
 <ul>
 <li><code>f()</code>没有传入对应的实参，则会启用默认值，因为参数设置了默认值，所以参数会形成一个作用域</li>
 <li>此时作用域中相当于<code>let a=2,fn=()=&gt;c+a;</code>函数返回值中的<code>a</code>为当前作用域中的<code>2</code>，<code>c</code>为全局作用域中的<code>4</code>，最后<code>fn()</code>调用，输出结果为<code>6</code></li>
 </ul>
 </blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>let a = 1;
 function fn() &#123;
   a = 5;
@@ -2339,6 +2376,7 @@ function f(a, b = fn) &#123;
 f(); // 55
 console.log(a);//5
 </code></pre>
+<blockquote>
 <ul>
 <li>在调用<code>f()</code>时，没有传入参数，所以启动默认值</li>
 <li>在参数作用域内，<code>let a=1; let b=fn</code>；(此时b&#x3D;fn是赋值，不是声明)</li>
@@ -2361,6 +2399,7 @@ console.log(a);//5
 <ul>
 <li>如果fn是在参数作用域声明的，那情况就另当别论了：</li>
 </ul>
+</blockquote>
 <pre><code>let a = 1;
 function fn() &#123;
   a = 5;
@@ -2375,6 +2414,7 @@ function f(a, b = function fn1()&#123;a=3&#125;) &#123;
 f(); // 55
 console.log(a);//1
 </code></pre>
+<blockquote>
 <ul>
 <li>在调用<code>f()</code>时，没有传入参数，所以启动默认值</li>
 <li>在参数作用域内，<code>&#123;let a; let b=function fn1()&#123;a=3&#125;&#125;</code>，<code>fn1</code>在参数作用域内声明，一旦被调用，那它改变的是参数作用域内声明的a的值</li>
@@ -2396,98 +2436,101 @@ console.log(a);//1
 <ul>
 <li>如果不传实参就会报错</li>
 </ul>
+</blockquote>
 <pre><code>function foo(&#123; a = 1, b = 3 &#125;) &#123;
   console.log(a, b);
 &#125;
+&gt;
+// foo(); // 报错
+// 相当于  let &#123;a = 1, b = 3&#125;=undefined
+&gt;
+foo(&#123;&#125;); // 1 3
+// 相当于 let &#123;a = 1, b = 3&#125;=&#123;&#125; 没有对应值，则用默认值
+&gt;
+foo(&#123; a: &quot;A&quot; &#125;); // A 3
+// 相当于 let &#123;a = 1, b = 3&#125;=&#123; a: &quot;A&quot; &#125; a有值，用传的值，b无值，用默认值
+&gt;
+foo(&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125;); // A B
+// 相当于 let &#123;a = 1, b = 3&#125;=&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125; a与b都有值，用传的值
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; foo(); &#x2F;&#x2F; 报错<br>&#x2F;&#x2F; 相当于  let {a &#x3D; 1, b &#x3D; 3}&#x3D;undefined</p>
-<blockquote>
-</blockquote>
-<p>foo({}); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{} 没有对应值，则用默认值</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A” }); &#x2F;&#x2F; A 3<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{ a: “A” } a有值，用传的值，b无值，用默认值</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let {a &#x3D; 1, b &#x3D; 3}&#x3D;{ a: “A”, b: “B” } a与b都有值，用传的值</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>第二种</strong></p>
+</blockquote>
 <pre><code>function foo(&#123; a = 1, b = 3 &#125; = &#123;&#125;) &#123;
   console.log(a, b);
 &#125;
 foo(); // 1 3
 // 相当于 let &#123; a = 1, b = 3 &#125; = &#123;&#125;
+&gt;
+foo(&#123;&#125;); // 1 3
+// 相当于 let &#123; a = 1, b = 3 &#125;=&#123;&#125;
+&gt;
+foo(&#123; a: &quot;A&quot; &#125;); // A 3
+// 相当于 let &#123; a = 1, b = 3 &#125;=&#123; a: &quot;A&quot; &#125;
+&gt;
+foo(&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125;); // A B
+// 相当于 let &#123; a = 1, b = 3 &#125;=&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125;
 </code></pre>
-</blockquote>
-<p>foo({}); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{}</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A” }); &#x2F;&#x2F; A 3<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{ a: “A” }</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let { a &#x3D; 1, b &#x3D; 3 }&#x3D;{ a: “A”, b: “B” }</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>第三种</strong></p>
 <ul>
 <li>传空值或者只传一个就会得到<code>undefinded</code></li>
 </ul>
+</blockquote>
 <pre><code>function foo(&#123; a, b &#125; = &#123; a: 1, b: 3 &#125;) &#123;
   console.log(a, b);
 &#125;
+&gt;
+foo(); // 1 3
+// 相当于 let &#123; a, b &#125; = &#123; a: 1, b: 3 &#125;
+&gt;
+foo(&#123;&#125;); // undefined undefined
+// 相当于 let &#123; a, b &#125; = &#123;&#125;
+&gt;
+foo(&#123; a: &quot;A&quot; &#125;); // A  undefined
+// 相当于 let &#123; a, b &#125; =&#123; a: &quot;A&quot; &#125;
+&gt;
+foo(&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125;); // A B
+// 相当于 let &#123; a, b &#125;=&#123; a: &quot;A&quot;, b: &quot;B&quot; &#125;
 </code></pre>
-</blockquote>
-<p>foo(); &#x2F;&#x2F; 1 3<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D; { a: 1, b: 3 }</p>
-<blockquote>
-</blockquote>
-<p>foo({}); &#x2F;&#x2F; undefined undefined<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D; {}</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A” }); &#x2F;&#x2F; A  undefined<br>&#x2F;&#x2F; 相当于 let { a, b } &#x3D;{ a: “A” }</p>
-<blockquote>
-</blockquote>
-<p>foo({ a: “A”, b: “B” }); &#x2F;&#x2F; A B<br>&#x2F;&#x2F; 相当于 let { a, b }&#x3D;{ a: “A”, b: “B” }</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h2 id="ES6-剩余参数-和-展开运算符在实际开发中的应用"><a href="#ES6-剩余参数-和-展开运算符在实际开发中的应用" class="headerlink" title="ES6 剩余参数 和 展开运算符在实际开发中的应用"></a>ES6 剩余参数 和 展开运算符在实际开发中的应用</h2><h3 id="一、剩余参数"><a href="#一、剩余参数" class="headerlink" title="一、剩余参数"></a>一、剩余参数</h3><ol>
-<li><p>什么是剩余参数</p>
-<blockquote>
+<li>什么是剩余参数<blockquote>
 <p><code>ES6</code>中引入了 <code>rest</code>（剩余）参数，允许将<strong>不确定部分的参数</strong>合成一个数组。其写法为 <code>...变量名</code>，变量是一个<strong>数组</strong>，用来保存不确定部分的参数，变量名自己取。</p>
 <ul>
 <li>简单理解：rest 参数，就是把用逗号隔开的值合成一个数组，保存在变量中。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// ...args 为剩余参数，其中变量args表示一个数组,用来接受传过来的所有实参
 const sum = (...args) =&gt; &#123;
   console.log(args);
 &#125;;
 sum(1, 2, 3, 4); //  [1, 2, 3, 4]
 sum(); // []
+&gt;
+// ...args 为剩余参数，其中变量args表示一个数组，用于接受第3个（包含）之后的所有实参
+const f = (a, b, ...args) =&gt; &#123;
+  console.log(a); // 1
+  console.log(b); // 2
+  console.log(args); // [3, 4, 5]
+&#125;;
+f(1, 2, 3, 4, 5);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; …args 为剩余参数，其中变量args表示一个数组，用于接受第3个（包含）之后的所有实参<br>const f &#x3D; (a, b, …args) &#x3D;&gt; {<br>  console.log(a); &#x2F;&#x2F; 1<br>  console.log(b); &#x2F;&#x2F; 2<br>  console.log(args); &#x2F;&#x2F; [3, 4, 5]<br>};<br>f(1, 2, 3, 4, 5);</p>
 <blockquote>
-<pre><code>&gt;注：
-- 我们要确定剩余参数对应的参数，**先要把确定的参数排除**，剩下的不确定参数就全部归剩余参数。
-</code></pre>
-</blockquote>
-</li>
-<li><p>剩余参数的本质</p>
 <blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>我们要确定剩余参数对应的参数，<strong>先要把确定的参数排除</strong>，剩下的不确定参数就全部归剩余参数。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>剩余参数的本质<blockquote>
 <p>剩余参数中的变量本质是一个数组，即使没有值，也是一个空数组，所以<strong>数组所有的方法这个变量都可以用</strong></p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>const f = (a, ...args) =&gt; &#123;
   console.log(args); // [2, 3, 4, 5]
   args.push(a);
@@ -2495,26 +2538,25 @@ sum(); // []
 &#125;;
 f(1, 2, 3, 4, 5);
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>剩余参数的注意事项<blockquote>
 <ul>
 <li>剩余参数之后不能再有其它参数，即剩余参数<strong>必须是最后一个参数</strong>，否则会报错</li>
 </ul>
-<pre><code>const f = (a,...args,b)=&gt;&#123;&#125; // 报错
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const f = (a,...args,b)=&gt;&#123;&#125; // 报错
+</code></pre>
 <blockquote>
 <ul>
 <li>当箭头函数中只有一个剩余参数时，其圆括号也不能省略</li>
 </ul>
+</blockquote>
 <pre><code>// const f = ...args =&gt; args;  错误写法
 const f = (...args) =&gt; args;
 console.log(f(1, 2, 3)); // [1, 2, 3]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>在箭头头函数中没有<code>arguments</code>，所以<code>rest</code>剩余参数可以在箭头或普通函数中<strong>替代</strong> <code>arguments</code> 来接受对应的实参列表。</li>
@@ -2522,35 +2564,33 @@ console.log(f(1, 2, 3)); // [1, 2, 3]
 </ul>
 </blockquote>
 <ul>
-<li><p>之前用<code>arguments</code></p>
-<blockquote>
+<li>之前用<code>arguments</code><blockquote>
 <ul>
 <li>要先将类数组转化为数组</li>
 </ul>
-<pre><code>function sum() &#123;
-let result = 0; // 累加器
-//将arguments转化为数组
-Array.prototype.forEach.call(arguments, (item) =&gt; &#123;
-  result += item;
-&#125;);
-return result;
-&#125;
-console.log(sum(1, 2, 3, 4));
-</code></pre>
-</blockquote>
-</li>
-<li><p>现在用剩余参数+箭头函数更加方便、简洁</p>
-<blockquote>
-<pre><code>const sum = (...args) =&gt; &#123;
-let result = 0;
-args.forEach((item) =&gt; (result += item));
-return result;
-&#125;;
-console.log(sum(1, 2, 3, 4)); //10
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>function sum() &#123;
+  let result = 0; // 累加器
+  //将arguments转化为数组
+  Array.prototype.forEach.call(arguments, (item) =&gt; &#123;
+    result += item;
+  &#125;);
+  return result;
+&#125;
+console.log(sum(1, 2, 3, 4));
+</code></pre>
+<ul>
+<li>现在用剩余参数+箭头函数更加方便、简洁</li>
+</ul>
+<pre><code>const sum = (...args) =&gt; &#123;
+  let result = 0;
+  args.forEach((item) =&gt; (result += item));
+  return result;
+&#125;;
+console.log(sum(1, 2, 3, 4)); //10
+</code></pre>
 <blockquote>
 <ul>
 <li>函数的<code>length</code>属性用来保存未设置默认值参数的个数，<code>rest</code>剩余参数<strong>不计入其中</strong><blockquote>
@@ -2558,12 +2598,12 @@ console.log(sum(1, 2, 3, 4)); //10
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code> const f = (a, b, c = 2, ...args) =&gt; &#123;&#125;;
  console.log(f.length); // 2
  const fn = (a, b = 1, c, ...args) =&gt; &#123;&#125;;
  console.log(fn.length); //1
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>总结</strong></p>
 <table>
@@ -2595,52 +2635,53 @@ console.log(sum(1, 2, 3, 4)); //10
 <li>剩余参数在实际开发中的应用</li>
 </ol>
 <ul>
-<li><p>根据实参传递的个数来求和</p>
-<blockquote>
+<li>根据实参传递的个数来求和</li>
+</ul>
 <pre><code>const sum = (...args) =&gt; &#123;
-let result = 0;
-args.forEach((item) =&gt; (result += item));
-return result;
+  let result = 0;
+  args.forEach((item) =&gt; (result += item));
+  return result;
 &#125;;
 console.log(sum(1, 2, 3, 4)); //10
 </code></pre>
-</blockquote>
-</li>
-<li><p>剩余参数与<strong>数组</strong>的解构赋值的结合应用</p>
-<blockquote>
+<ul>
+<li>剩余参数与<strong>数组</strong>的解构赋值的结合应用</li>
+</ul>
 <pre><code>// 绑定模式
 let [a, b, ...c] = [1, 2, 3, 4, 5, 6];
 console.log(a); // 1
 console.log(b); // 2
 console.log(c); //  [3, 4, 5, 6]
+&gt;
+// 赋值模式
+let a, b, c;
+[a, b, ...c] = [1, 2, 3, 4, 5, 6];
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); //  [3, 4, 5, 6]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 赋值模式<br>let a, b, c;<br>[a, b, …c] &#x3D; [1, 2, 3, 4, 5, 6];<br>console.log(a); &#x2F;&#x2F; 1<br>console.log(b); &#x2F;&#x2F; 2<br>console.log(c); &#x2F;&#x2F;  [3, 4, 5, 6]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>剩余参数与与对象的解构赋值结合应用</p>
-<blockquote>
+<ul>
+<li>剩余参数与与对象的解构赋值结合应用<blockquote>
 <ul>
 <li>剩余元素与对象解构赋值结合时，它不是数组，而是<strong>对象</strong></li>
 <li>同时解构赋值时，剩余元素<strong>不会复制原型对象上的属性</strong></li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 绑定模式
 const &#123; a, b, ...c &#125; = &#123; a: 1, b: 2, c: 3, d: 5 &#125;;
 console.log(a); // 1
 console.log(b); // 2
 console.log(c); // &#123;c: 3, d: 5&#125;
+&gt;
+// 赋值模式
+const a, b, c;
+(&#123; a, b, ...c &#125; = &#123; a: 1, b: 2, c: 3, d: 5 &#125;);
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // &#123;c: 3, d: 5&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 赋值模式<br>const a, b, c;<br>({ a, b, …c } &#x3D; { a: 1, b: 2, c: 3, d: 5 });<br>console.log(a); &#x2F;&#x2F; 1<br>console.log(b); &#x2F;&#x2F; 2<br>console.log(c); &#x2F;&#x2F; {c: 3, d: 5}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>总结：</p>
@@ -2652,20 +2693,20 @@ console.log(c); // &#123;c: 3, d: 5&#125;
 </ul>
 </blockquote>
 <ul>
-<li>我们来看下面这种情况，以下<code>args</code>是剩余参数还是剩余元素<blockquote>
+<li>我们来看下面这种情况，以下<code>args</code>是剩余参数还是剩余元素</li>
+</ul>
 <pre><code>function fn([a, ...args1], ...args2) &#123;
-console.log(args1); // [2, 3, 4] 剩余元素
-console.log(args2); // [&#39;A&#39;, &#39;B&#39;] 剩余参数
+  console.log(args1); // [2, 3, 4] 剩余元素
+  console.log(args2); // [&#39;A&#39;, &#39;B&#39;] 剩余参数
 &#125;
 fn([1, 2, 3, 4], &quot;A&quot;, &quot;B&quot;);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>[a, ...args1]</code>由数组包裹，所以是解构赋值；因此里面<code>...args</code>只能是剩余元素</li>
 <li><code>...args2</code>作为函数参数使用，所以是剩余参数</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>总结</p>
@@ -2678,39 +2719,35 @@ fn([1, 2, 3, 4], &quot;A&quot;, &quot;B&quot;);
 <h3 id="二、数组的扩展（展开）运算符"><a href="#二、数组的扩展（展开）运算符" class="headerlink" title="二、数组的扩展（展开）运算符"></a>二、数组的扩展（展开）运算符</h3><ol>
 <li>什么是数组扩展运算符<blockquote>
 <p>数组扩展运算符（spread）是三个点<code>...</code>,他可以将数组<strong>展开</strong>为用逗分隔的参数序列。</p>
-<pre><code>const arr = [1, 2, 3];
-console.log(...arr); // 1 2 3
-// ...arr 相当于把数组展开以逗号分隔的序列 console.log(1,2,3)
-</code></pre>
-</blockquote>
-console.log(1, …[“A”, “B”, “C”], 2); &#x2F;&#x2F; 1 ‘A’ ‘B’ ‘C’ 2<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const arr = [1, 2, 3];
+console.log(...arr); // 1 2 3
+// ...arr 相当于把数组展开以逗号分隔的序列 console.log(1,2,3)
+&gt;
+console.log(1, ...[&quot;A&quot;, &quot;B&quot;, &quot;C&quot;], 2); // 1 &#39;A&#39; &#39;B&#39; &#39;C&#39; 2
+</code></pre>
 <ul>
-<li><p>如果扩展运算符后面是一个空数组，则不会产生任何效果</p>
-<blockquote>
+<li>如果扩展运算符后面是一个空数组，则不会产生任何效果</li>
+</ul>
 <pre><code>const arr = [1, 2, ...[], 3];
 console.log(arr); // [1, 2, 3]
 //不要以为它是[1, 2, , 3]
 </code></pre>
+<blockquote>
 <ul>
 <li>注意！！！不要以为<code>...[]</code>会占一个值，它没有效果<strong>不占空间</strong></li>
 </ul>
 </blockquote>
-</li>
-<li><p>数组扩展运算符后面可以放置<strong>表达式</strong></p>
-<blockquote>
+<ul>
+<li>数组扩展运算符后面可以放置<strong>表达式</strong></li>
+</ul>
 <pre><code>let a = 1;
 let b = 3;
 const arr = [...(a &gt; b ? [a] : [b])];
 console.log(arr); // [3]
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
 <li>区分扩展运算符和剩余参数<blockquote>
 <p>我们上边学习的展开运算符，发现它和剩余参数在语法上是一样的，都是前边加上<code>...</code>这样就会导致我们经常分不清楚。</p>
@@ -2721,38 +2758,36 @@ console.log(arr); // [3]
 </li>
 </ol>
 <ul>
-<li><p>展开运算符：展开运算符是将数组展开成一个个以逗号分隔的序列。</p>
-<blockquote>
+<li>展开运算符：展开运算符是将数组展开成一个个以逗号分隔的序列。</li>
+</ul>
 <pre><code>[6,2,3] -&gt; 6,2,3
 </code></pre>
-</blockquote>
-</li>
-<li><p>剩余参数：将参数列表的形式转换成数组形式</p>
-<blockquote>
+<ul>
+<li>剩余参数：将参数列表的形式转换成数组形式</li>
+</ul>
 <pre><code>6,2,3 -&gt; [6,2,3]
 </code></pre>
-</blockquote>
-</li>
-<li><p>区分以下代码中，哪些是扩展运算符，哪些是剩余参数</p>
-<blockquote>
+<ul>
+<li>区分以下代码中，哪些是扩展运算符，哪些是剩余参数</li>
+</ul>
 <pre><code>const sum = (...args) =&gt; &#123;
-// ...args：剩余参数 args是由所有实参组成的数组
-console.log(args); // [6, 2, 3]
-// 展开运算符，...args 相当于 ...[6, 2, 3] 将数组展开成 6,2,3
-console.log(...args); // 6 2 3
+  // ...args：剩余参数 args是由所有实参组成的数组
+  console.log(args); // [6, 2, 3]
+  // 展开运算符，...args 相当于 ...[6, 2, 3] 将数组展开成 6,2,3
+  console.log(...args); // 6 2 3
 &#125;;
 sum(6, 2, 3);
 </code></pre>
-</blockquote>
-</li>
-<li><p>以下代码中的第一个<code>...arg1</code>、<code>...arg2</code>、第二个<code>...arg1</code>，分别是表示什么 ？</p>
-<blockquote>
+<ul>
+<li>以下代码中的第一个<code>...arg1</code>、<code>...arg2</code>、第二个<code>...arg1</code>，分别是表示什么 ？</li>
+</ul>
 <pre><code>const f = ([...arg1], ...arg2) =&gt; &#123;
-console.log(arg2);
-console.log(...arg1);
+  console.log(arg2);
+  console.log(...arg1);
 &#125;;
 f([1, 2, 3], &quot;A&quot;, &quot;B&quot;, [&quot;x&quot;, &quot;y&quot;]);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>[...arg1], ...arg2</code>共同作为函数的参数</li>
 <li><code>[...arg1]</code>由数组包裹，与解构赋值结合，所以<code>...arg1</code>肯定是剩余元素，<code>arg1</code>是由剩余元素组成的数组</li>
@@ -2760,56 +2795,55 @@ f([1, 2, 3], &quot;A&quot;, &quot;B&quot;, [&quot;x&quot;, &quot;y&quot;]);
 <li>因为<code>arg1</code>是由剩余元素组成的数组,所以函数体内的<code>...arg1</code>是为了将第一个<code>arg1</code>对应的数组展开</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <ol start="4">
 <li>数组展开运算符在实际开发中的应用</li>
 </ol>
 <ul>
-<li><p>复制数组</p>
-<blockquote>
+<li>复制数组</li>
+</ul>
 <pre><code>const arr = [1, 2, 3, 4, 5];
 // 展开运算符复制数组
 const arr1 = [...arr];
 console.log(arr1); // [1, 2, 3, 4, 5]
 </code></pre>
+<blockquote>
 <ul>
 <li>复制数组本质：在原来的数组中展开数组即可，展开也是浅复制(浅拷贝)</li>
 </ul>
 </blockquote>
-</li>
-<li><p>合并数组</p>
-<blockquote>
+<ul>
+<li>合并数组</li>
+</ul>
 <pre><code>// 合并数组
 const x = [1];
 const y = [2, 3];
 const z = [5, 6, 8];
+&gt;
+// 展开运算符合并数组
+console.log([...x, ...y, ...z]); // [1, 2, 3, 5, 6, 8]
+// 随意调换顺序
+console.log([...y, ...x, ...z]); // [2, 3, 1, 5, 6, 8]
+console.log([...z, ...x, ...y]); // [5, 6, 8, 1, 2, 3]
+// 还可以根据自己的需求增加数组的值
+console.log([...z, 10, ...x, 20, ...y, 30]); // [5, 6, 8, 10, 1, 20, 2, 3, 30]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 展开运算符合并数组<br>console.log([…x, …y, …z]); &#x2F;&#x2F; [1, 2, 3, 5, 6, 8]<br>&#x2F;&#x2F; 随意调换顺序<br>console.log([…y, …x, …z]); &#x2F;&#x2F; [2, 3, 1, 5, 6, 8]<br>console.log([…z, …x, …y]); &#x2F;&#x2F; [5, 6, 8, 1, 2, 3]<br>&#x2F;&#x2F; 还可以根据自己的需求增加数组的值<br>console.log([…z, 10, …x, 20, …y, 30]); &#x2F;&#x2F; [5, 6, 8, 10, 1, 20, 2, 3, 30]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>字符串转为数组</p>
-<blockquote>
+<ul>
+<li>字符串转为数组<blockquote>
 <ul>
 <li>字符串可以按照数组的形式展开</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 字符串可以看做是一个类数组，因此字符串是可以按照数组的形式展开
 const str = &quot;icoding&quot;;
 // 使用展开运算符将字符串展开
 console.log(...str); // i c o d i n g
+&gt;
+// 将字符串转为数组，只需要将展开字符串放到数组[]中即可
+const arr = [...str];
+console.log(arr); // [&#39;i&#39;, &#39;c&#39;, &#39;o&#39;, &#39;d&#39;, &#39;i&#39;, &#39;n&#39;, &#39;g&#39;]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 将字符串转为数组，只需要将展开字符串放到数组[]中即可<br>const arr &#x3D; […str];<br>console.log(arr); &#x2F;&#x2F; [‘i’, ‘c’, ‘o’, ‘d’, ‘i’, ‘n’, ‘g’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>为什么要将字符串转数组呢 ？</p>
@@ -2823,26 +2857,26 @@ console.log(...str); // i c o d i n g
 <ul>
 <li><code>arguments</code>类数组</li>
 </ul>
-<pre><code>function foo() &#123;
-// 在数组中展开 arguments 即可 将类数组转为数组
-console.log([...arguments]);
-&#125;
-foo(1, 2, 3); // [1, 2, 3]
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>function foo() &#123;
+  // 在数组中展开 arguments 即可 将类数组转为数组
+  console.log([...arguments]);
+&#125;
+foo(1, 2, 3); // [1, 2, 3]
+</code></pre>
 <blockquote>
 <ul>
 <li><code>NodeList</code> 类数组</li>
 </ul>
+</blockquote>
 <pre><code>// NodeList 是类数组没有数组相关方法
 const p = document.querySelectorAll(&quot;p&quot;);
 // 使用展开运算符转为数组
 const arr = [...p];
 console.log(arr); // [p, p, p]
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：任何<code>Iterator</code>接口的对象都可以用扩展运算符转为真正的数组</p>
@@ -2854,51 +2888,57 @@ console.log(arr); // [p, p, p]
 <li>由于扩展运算符可以展开数组，所以不再需要使用 <code>apply</code> 方法将一个数组转为函数的参数了。可以直接用扩展运算符来实现。<br><strong>案例：求数组中的最大值和最小值</strong></li>
 <li>先来复习两个Math对象上的方法</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>let max = Math.max(1, 2, 5); // 返回参数列表中的最大值
 let min = Math.min(1, 2, 5); // 返回参数列表中的最小值
 console.log(max, min); // 5 1
 </code></pre>
+<blockquote>
 <ul>
 <li>没有扩展运算符之前，实现代码如下:</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [17, 5, 1, 8, 3, 20];
 let max = Math.max.apply(null, arr);
 let min = Math.min.apply(null, arr);
 console.log(max, min); // 20 1
 </code></pre>
+<blockquote>
 <ul>
 <li>利用扩展运算符实现，代码如下</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [17, 5, 1, 8, 3, 20];
 let max = Math.max(...arr);
 let min = Math.min(...arr);
 console.log(max, min); // 20 1
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="三、对象的扩展（展开）运算符"><a href="#三、对象的扩展（展开）运算符" class="headerlink" title="三、对象的扩展（展开）运算符"></a>三、对象的扩展（展开）运算符</h3><ol>
 <li>什么是对象的扩展运算符<blockquote>
 <p>扩展运算符<code>...</code>用于取出对象的<strong>所有可遍历属性</strong>，并将其复制到当前对象之中。</p>
 <ul>
 <li>也就是说 <strong>对象不能直接展开或在数组中展开</strong>，必须在<code>&#123;&#125;</code>对象中展开。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const student = &#123;
   username: &quot;icoding&quot;,
   age: 18,
   sex: &quot;male&quot;,
   addr: &quot;北京&quot;,
 &#125;;
+&gt;
+console.log(&#123; ...student &#125;); // &#123;username: &#39;icoding&#39;, age: 18, sex: &#39;male&#39;, addr: &#39;北京&#39;&#125;
+// 对象不能使用以下方式展开
+console.log(...student); // 报错
+console.log([...student]); // 报错
 </code></pre>
-</blockquote>
-console.log({ …student }); &#x2F;&#x2F; {username: ‘icoding’, age: 18, sex: ‘male’, addr: ‘北京’}<br>&#x2F;&#x2F; 对象不能使用以下方式展开<br>console.log(…student); &#x2F;&#x2F; 报错<br>console.log([…student]); &#x2F;&#x2F; 报错<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>或</strong></p>
+</blockquote>
 <pre><code>const obj = &#123;
   a: 1,
   ...&#123; b: 2, c: 3 &#125;,
@@ -2906,32 +2946,32 @@ console.log({ …student }); &#x2F;&#x2F; {username: ‘icoding’, age: 18, sex
 &#125;;
 console.log(obj); // &#123;a: 1, b: 2, c: 3, d: 4&#125;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>对象扩展运算符的注意事项</li>
 </ol>
 <ul>
-<li><p>空对象的展开</p>
-<blockquote>
+<li>空对象的展开<blockquote>
 <blockquote>
 <p>如果展开一个空对象，没有任何效果</p>
 </blockquote>
-<pre><code>console.log(&#123; ...&#123;&#125; &#125;); // &#123;&#125;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 空对象 和 属性的合并<br>console.log({ …{}, x: 123 }); &#x2F;&#x2F; {x: 123}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>非对象的展开，自动转换为对象</p>
-<blockquote>
+</ul>
+<pre><code>console.log(&#123; ...&#123;&#125; &#125;); // &#123;&#125;
+&gt;
+// 空对象 和 属性的合并
+console.log(&#123; ...&#123;&#125;, x: 123 &#125;); // &#123;x: 123&#125;
+</code></pre>
+<ul>
+<li>非对象的展开，自动转换为对象<blockquote>
 <blockquote>
 <p>如果展开的不是对象，则会<strong>自动将其转为对象</strong>，再将其属性罗列出来</p>
 </blockquote>
 <ul>
 <li>数值、<code>undefined</code>、<code>null</code>、<code>boolean</code></li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 数值类型
 console.log(&#123; ...2 &#125;); // &#123;&#125;
@@ -2942,39 +2982,39 @@ console.log(&#123; ...null &#125;); // &#123;&#125;
 // boolean
 console.log(&#123; ...true &#125;); // &#123;&#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>对象扩展运算符的参数是<code>null</code>或<code>undefined</code>时，这两个值会被忽略，但不会报错</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>字符串类型</li>
 </ul>
+</blockquote>
 <pre><code>// 对象中展开运算符后边是字符串
 console.log(&#123; ...&quot;arry&quot; &#125;); // &#123;0: &#39;a&#39;, 1: &#39;r&#39;, 2: &#39;r&#39;, 3: &#39;y&#39;&#125;
 // 数组中展开运算符后边是字符串
 console.log([...&quot;arry&quot;]); // [&#39;a&#39;, &#39;r&#39;, &#39;r&#39;, &#39;y&#39;]
 // 直接展开字符串
 console.log(...&quot;arry&quot;); // a r r y
+&gt;
+// 对象中展开运算符后边是数组
+console.log(&#123; ...[1, 2, 3] &#125;); // &#123;0: 1, 1: 2, 2: 3&#125;
+//在数组中展开对象：报错
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 对象中展开运算符后边是数组<br>console.log({ …[1, 2, 3] }); &#x2F;&#x2F; {0: 1, 1: 2, 2: 3}<br>&#x2F;&#x2F;在数组中展开对象：报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
-<li><p>对象展开属于浅复制（浅拷贝）</p>
-<blockquote>
+<li>对象展开属于浅复制（浅拷贝）<blockquote>
 <ul>
 <li>对象展开的本质：就是把对象的属性复制罗列出来，用逗号分隔，放到一个<code>&#123;&#125;</code>中，不过在复制属性时，属于浅复制（浅拷贝）</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
-arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+  a: 1,
+  b: 2,
+  arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
 &#125;;
 // 将obj在一个对象中展开
 const obj2 = &#123; ...obj &#125;;
@@ -2983,77 +3023,66 @@ console.log(obj === obj2); // false
 obj.arr.push(&quot;D&quot;);
 console.log(obj2); // &#123;a: 1, b: 2, arr: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;,&quot;D&quot;]&#125;
 console.log(obj.arr === obj2.arr); // true
+&gt;
+// 当我们给obj中的arr数组后面添加一个新的元素&quot;D&quot;时，obj2中的arr数组中的元素也更改了，本质上obj.arr与obj2.arr 是完全相等的
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 当我们给obj中的arr数组后面添加一个新的元素”D”时，obj2中的arr数组中的元素也更改了，本质上obj.arr与obj2.arr 是完全相等的</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>合并对象，同名属性会<strong>覆盖</strong></p>
-<blockquote>
+<ul>
+<li>合并对象，同名属性会<strong>覆盖</strong><blockquote>
 <ul>
 <li>如果展开的对象中有与现有对象中同名的属性，则会发生覆盖。覆盖原则以<strong>写在后面的覆盖前面</strong>。</li>
 </ul>
-<pre><code>const obj = &#123;
-a: 1,
-b: 2,
-c: 3,
-&#125;;
-const obj2 = &#123;
-a: &quot;清心&quot;,
-...obj,
-c: &quot;icoding&quot;,
-&#125;;
-console.log(obj2);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; obj中的属性a覆盖了obj2中同名的a，obj2中的属性c，覆盖了obj中同名的属性c</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>扩展运算符的参数对象之中如果有取值函数<code>get</code>，这个函数将会被执行</p>
-<blockquote>
+</ul>
+<pre><code>const obj = &#123;
+  a: 1,
+  b: 2,
+  c: 3,
+&#125;;
+const obj2 = &#123;
+  a: &quot;清心&quot;,
+  ...obj,
+  c: &quot;icoding&quot;,
+&#125;;
+console.log(obj2);
+&gt;
+// obj中的属性a覆盖了obj2中同名的a，obj2中的属性c，覆盖了obj中同名的属性c
+</code></pre>
+<ul>
+<li>扩展运算符的参数对象之中如果有取值函数<code>get</code>，这个函数将会被执行</li>
+</ul>
 <pre><code>let obj = &#123;
-_x: 1,
-get x() &#123;
-  return this._x;
-&#125;,
-set x(value) &#123;
-  if (value === 3) &#123;
-    this._x = &quot;不通过&quot;;
-  &#125; else &#123;
-    this._x = value;
-  &#125;
-&#125;,
+  _x: 1,
+  get x() &#123;
+    return this._x;
+  &#125;,
+  set x(value) &#123;
+    if (value === 3) &#123;
+      this._x = &quot;不通过&quot;;
+    &#125; else &#123;
+      this._x = value;
+    &#125;
+  &#125;,
 &#125;;
 const obj2 = &#123; ...obj &#125;;
 console.log(obj2); // &#123;_x: 1, x: 1&#125;
 obj2.x = 3; // 丢失了set函数的功能,原本应该=&quot;不通过&quot;
 console.log(obj2); // &#123;_x: 1, x: 3&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="3">
 <li>对象展开运算符在实际开发中的应用</li>
 </ol>
 <ul>
-<li><p>复制对象（浅复制）</p>
-<blockquote>
+<li>复制对象（浅复制）</li>
+</ul>
 <pre><code>const x = &#123; a: 1, b: 2 &#125;;
 // 使用展开运算符复制对象
 const y = &#123; ...x &#125;;
 console.log(y); // &#123;a: 1, b: 2&#125;
 console.log(y === x); // false 只是复制对象
 </code></pre>
-</blockquote>
-</li>
-<li><p>用户参数与默认参数合并</p>
-<blockquote>
+<ul>
+<li>用户参数与默认参数合并<blockquote>
 <p>如果我们想写一个提供给用户使用的函数或方法时，就会涉及用户参数和默认参数。即：</p>
 <ul>
 <li><strong>用户参数</strong>： 是用户调用方法时实际传递的参数都叫做用户参数，也就是我们之前提到的实参。</li>
@@ -3064,16 +3093,19 @@ console.log(y === x); // false 只是复制对象
 </ul>
 <blockquote>
 <p><strong>方法1</strong></p>
+</blockquote>
 <pre><code>// 之前讲过的做法，给对象设置默认值 &#123;&#125;
 const person = (&#123; username = &quot;icoding&quot;, age = 0, sex = &quot;male&quot; &#125; = &#123;&#125;) =&gt; &#123;
   console.log(username, age, sex);
 &#125;;
+&gt;
+person(); // icoding 0 male // 默认值生效
+person(&#123; username: &quot;arry&quot; &#125;); // arry 0 male
 </code></pre>
-</blockquote>
-<p>person(); &#x2F;&#x2F; icoding 0 male &#x2F;&#x2F; 默认值生效<br>person({ username: “arry” }); &#x2F;&#x2F; arry 0 male</p>
 <blockquote>
-<pre><code>- 这种方法需要在函数的参数括号里写
-</code></pre>
+<ul>
+<li>这种方法需要在函数的参数括号里写</li>
+</ul>
 </blockquote>
 <blockquote>
 <p><strong>方法2</strong></p>
@@ -3081,6 +3113,7 @@ const person = (&#123; username = &quot;icoding&quot;, age = 0, sex = &quot;male
 <li>统一用一个<strong>对象的形式</strong>来设置<strong>默认参数</strong></li>
 <li>利用<code>写在后面的会覆盖前面的</code>原理，解构赋值</li>
 </ul>
+</blockquote>
 <pre><code>const person = (userParam) =&gt; &#123;
 // 统一用一个对象的形式来设置默认参数
   const defaultParam = &#123;
@@ -3093,13 +3126,14 @@ const person = (&#123; username = &quot;icoding&quot;, age = 0, sex = &quot;male
   console.log(username, age, sex);
 &#125;;
 person(); //icoding 18 女  默认值生效
+&gt;
+const myDate = &#123;
+  username: &quot;小明&quot;,
+  age: 20,
+  sex: &quot;男&quot;,
+&#125;;
+person(myDate); //小明 20 男
 </code></pre>
-</blockquote>
-<p>const myDate &#x3D; {<br>  username: “小明”,<br>  age: 20,<br>  sex: “男”,<br>};<br>person(myDate); &#x2F;&#x2F;小明 20 男</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 
                 
             </div>

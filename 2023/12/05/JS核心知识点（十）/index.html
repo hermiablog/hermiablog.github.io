@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-05
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    16.8k
+                    17.1k
                 </div>
                 
 
@@ -457,8 +457,7 @@
 </li>
 </ol>
 <ul>
-<li><p>on 方式注册事件</p>
-<blockquote>
+<li>on 方式注册事件<blockquote>
 <p>基本用法：</p>
 <ul>
 <li>语法<br><code>eventTarget.on事件类型 = fn;</code></li>
@@ -467,21 +466,30 @@
 <li>fn是一个函数，事件触发时调用的函数，被称为<strong>事件处理函数</strong></li>
 <li>一个完整的 DOM 事件，需要具备以上三部分：事件源、事件类型、事件处理函数</li>
 </ul>
-<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
-&lt;script&gt;
-// 获取dom元素
-var btn = document.getElementById(&quot;btn&quot;);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; btn 为事件源 click 为事件类型名，这里的函数为事件处理函数<br>btn.onclick &#x3D; function () {<br>  alert(“我被点击了1”);<br>};<br>btn.onclick &#x3D; function () {<br>  alert(“我被点击了2”);<br>};</p>
-<blockquote>
-<p></script></p>
-<pre><code>&gt;on 方式注册事件，同一元素的同一事件，**只能有一个**事件处理函数，同时以写在**后面的为主**
-</code></pre>
 </blockquote>
 </li>
-<li><p>以 addEventListener 方式监听注册事件</p>
+</ul>
+<pre><code>&gt;&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&gt;&lt;script&gt;
+  // 获取dom元素
+  var btn = document.getElementById(&quot;btn&quot;);
+&gt;
+  // btn 为事件源 click 为事件类型名，这里的函数为事件处理函数
+  btn.onclick = function () &#123;
+    alert(&quot;我被点击了1&quot;);
+  &#125;;
+  btn.onclick = function () &#123;
+    alert(&quot;我被点击了2&quot;);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
+<blockquote>
+<p>on 方式注册事件，同一元素的同一事件，<strong>只能有一个</strong>事件处理函数，同时以写在<strong>后面的为主</strong></p>
+</blockquote>
+</blockquote>
+<ul>
+<li>以 addEventListener 方式监听注册事件<blockquote>
 <p>基本用法</p>
 <ul>
 <li>语法<br><code>eventTarget.addEventListener(type, fn, useCapture);</code></li>
@@ -504,8 +512,9 @@ var btn = document.getElementById(&quot;btn&quot;);
 <li>同一个页面要实现<strong>吸顶盒效果、楼梯式导航、滚动到底部加载更多</strong>等效果，这些效果都会用到<code>window.srcoll事件</code></li>
 <li>所以我们需要为 window 的 scroll 事件，添加三个事件处理函数来分别处理以上三种效果。</li>
 </ul>
-<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&gt;&lt;script&gt;
   // 获取dom元素
   var btn = document.getElementById(&quot;btn&quot;);
   // btn 为事件源 click 为事件类型名，fn为事件处理函数  false表示在冒泡阶段触发
@@ -517,44 +526,42 @@ var btn = document.getElementById(&quot;btn&quot;);
   function fn2() &#123;
     alert(&quot;我被点击了fn2&quot;);
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>移除事件监听</li>
 </ol>
 <ul>
-<li><p>移除<code>on</code>方式绑定（注册）的事件</p>
-<blockquote>
+<li>移除<code>on</code>方式绑定（注册）的事件<blockquote>
 <p><code>eventTarget.on事件类型 = null; // 移除事件处理程序</code></p>
-<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
-
-&lt;script&gt;
-// 获取dom元素
-var btn = document.getElementById(&quot;btn&quot;);
-btn.onclick = function () &#123;
-  console.log(&quot;点击后要执行的内容&quot;);
-&#125;;
-btn.onclick = null; // 移除 click事件
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>移除<code>addEventListener</code>方式的事件监听，需要通过 <code>removeEventListener</code>方法来实现</p>
-<blockquote>
-<pre><code>removeEventListener(事件名，事件处理函数，布尔值); // 用来移除具体的某一个事件监听
-// 移除时的，事件名，事件处理函数，布尔值 要与addEventListener添加时的参数完全相同
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&gt;
+&gt;&lt;script&gt;
+  // 获取dom元素
+  var btn = document.getElementById(&quot;btn&quot;);
+  btn.onclick = function () &#123;
+    console.log(&quot;点击后要执行的内容&quot;);
+  &#125;;
+  btn.onclick = null; // 移除 click事件
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>移除<code>addEventListener</code>方式的事件监听，需要通过 <code>removeEventListener</code>方法来实现</li>
+</ul>
+<pre><code>removeEventListener(事件名，事件处理函数，布尔值); // 用来移除具体的某一个事件监听
+// 移除时的，事件名，事件处理函数，布尔值 要与addEventListener添加时的参数完全相同
+</code></pre>
 <blockquote>
 <ul>
 <li>因为<code>addEventListener</code>可以为同一元素的的同一事件绑定多个事件处理函数</li>
 <li>所以，用<code>removeEventListener</code>方法来移除对应事件监听时，要<strong>保证移除的事件名，事件处理函数，布尔值</strong>要与 <code>addEventListener</code><strong>添加时的参数完全相同</strong>。才能移除具体的某个事件监听</li>
 </ul>
-<pre><code>&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;button id=&quot;btn&quot;&gt;点我&lt;/button&gt;
+&gt;&lt;script&gt;
   // 获取dom元素
   var btn = document.getElementById(&quot;btn&quot;);
   btn.addEventListener(&quot;click&quot;, fn1, false);
@@ -565,9 +572,8 @@ btn.onclick = null; // 移除 click事件
   function fn1() &#123;
     console.log(&quot;执行了fn1&quot;);
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -576,6 +582,7 @@ btn.onclick = null; // 移除 click事件
 <li>如果注册事件时，fn写的是整个函数，而不是函数名，则无法移除</li>
 <li>以下写法，不能移除事件</li>
 </ul>
+</blockquote>
 <pre><code>//注册事件
  btn.addEventListener(
    &quot;click&quot;,
@@ -593,7 +600,6 @@ btn.onclick = null; // 移除 click事件
    false
  );
 </code></pre>
-</blockquote>
 <h3 id="二、常见鼠标事件"><a href="#二、常见鼠标事件" class="headerlink" title="二、常见鼠标事件"></a>二、常见鼠标事件</h3><blockquote>
 <ul>
 <li>用<code>addEventListener</code>时，去掉<code>on</code><table>
@@ -659,16 +665,15 @@ btn.onclick = null; // 移除 click事件
 <td>鼠标双击事件，当鼠标双击某个对象时触发</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;style&gt;
- .box &#123;
-   width: 200px;
-   height: 200px;
-   background-color: skyblue;
- &#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;style&gt;
+&gt;  .box &#123;
+&gt;    width: 200px;
+&gt;    height: 200px;
+&gt;    background-color: skyblue;
+&gt;  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   // 单击事件
   box.onclick = function () &#123;
@@ -678,59 +683,59 @@ btn.onclick = null; // 移除 click事件
   box.ondblclick = function () &#123;
     alert(&quot;我是 ondblclick&quot;);
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h4 id="事件处理函数中的-this-指向"><a href="#事件处理函数中的-this-指向" class="headerlink" title="事件处理函数中的 this 指向"></a>事件处理函数中的 this 指向</h4><blockquote>
 <ul>
 <li>事件处理函数中的 this 指向<strong>绑定事件的那个对象</strong></li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   // on开头绑定事件
   box.onclick = function () &#123;
     console.log(this); // &lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
   &#125;;
+&gt;
+  // addEventListener 绑定事件
+  box.addEventListener(&quot;click&quot;, fn, false);
+  function fn() &#123;
+    console.log(this); // &lt;div class=&quot;box&quot;&gt;点我&lt;/div&gt;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; addEventListener 绑定事件<br>  box.addEventListener(“click”, fn, false);<br>  function fn() {<br>    console.log(this); &#x2F;&#x2F; <div class="box">点我</div><br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><ol>
-<li><p>案例1：当用户点击页面上的 div 后，更改 div 的背景色</p>
-<blockquote>
-<pre><code>&lt;style&gt;
- .box &#123;
-   width: 200px;
-   height: 200px;
-   background-color: skyblue;
- &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+<li>案例1：当用户点击页面上的 div 后，更改 div 的背景色</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
+&gt;  .box &#123;
+&gt;    width: 200px;
+&gt;    height: 200px;
+&gt;    background-color: skyblue;
+&gt;  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   // 获取class名为box的div
   var box = document.querySelector(&quot;.box&quot;);
   // on开头的方式给box元素添加click点击事件
   // 当box元素被点击后，就会触发click事件，从而执行后面函数中的代码
   box.onclick = function () &#123;
- this.style.backgroundColor = &quot;khaki&quot;; // 更改div的背景颜色
+    this.style.backgroundColor = &quot;khaki&quot;; // 更改div的背景颜色
   &#125;;
+&gt;
+  // 以addEventListener（）方法给 box元素添加click事件
+  // 当box元素被点击后，就会触发click事件，从而执行bgColor函数
+  box.addEventListener(&quot;click&quot;, bgColor, false);
+  function bgColor() &#123;
+    this.style.backgroundColor = &quot;blue&quot;;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 以addEventListener（）方法给 box元素添加click事件<br>  &#x2F;&#x2F; 当box元素被点击后，就会触发click事件，从而执行bgColor函数<br>  box.addEventListener(“click”, bgColor, false);<br>  function bgColor() {<br> this.style.backgroundColor &#x3D; “blue”;<br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>案例2：点击显示和隐藏</p>
-<blockquote>
+<ol start="2">
+<li>案例2：点击显示和隐藏<blockquote>
 <ul>
 <li>默认状态为隐藏，点击按钮切换状态</li>
 </ul>
@@ -749,19 +754,18 @@ btn.onclick = null; // 移除 click事件
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 200px;
     background-color: green;
     display: none;
   &#125;
-&lt;/style&gt;
-
-&lt;button&gt;点击&lt;/button&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;button&gt;点击&lt;/button&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   btn = document.querySelector(&quot;button&quot;);
   box = document.querySelector(&quot;.box&quot;);
   var flag = false; //默认情况下不显示
@@ -776,41 +780,40 @@ btn.onclick = null; // 移除 click事件
     flag = true;
   &#125;
 &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ul>
 <li>方法2<blockquote>
 <ul>
 <li>利用<code>classList.toggle()</code>方法，实现两种样式之间相互转换</li>
 <li><code>toggle()</code>：如果有这个类名,则删除这个类名，返回 <code>false</code>，如果没有，则添加该类名，返回 <code>true</code></li>
 </ul>
-<pre><code>&lt;style&gt;
-.box &#123;
-  width: 200px;
-  height: 200px;
-  background-color: green;
-  display: none;
-&#125;
-.hide &#123;
-display: none;
-&#125;
-&lt;/style&gt;
-
-&lt;button&gt;点击&lt;/button&gt;
-&lt;div class=&quot;box hide&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-btn = document.querySelector(&quot;button&quot;);
-box = document.querySelector(&quot;.box&quot;);
-// 方法2：
-btn.onclick = function () &#123;
-  box.classList.toggle(&quot;hide&quot;);
-&#125;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    display: none;
+  &#125;
+.hide &#123;
+  display: none;
+&#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;button&gt;点击&lt;/button&gt;
+&gt;&lt;div class=&quot;box hide&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  btn = document.querySelector(&quot;button&quot;);
+  box = document.querySelector(&quot;.box&quot;);
+  // 方法2：
+  btn.onclick = function () &#123;
+    box.classList.toggle(&quot;hide&quot;);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="3">
 <li>案例 3：变色小球<blockquote>
 <ul>
@@ -835,18 +838,17 @@ btn.onclick = function () &#123;
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .ball &#123;
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background-color: red;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;ball&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;ball&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var ball = document.querySelector(&quot;.ball&quot;);
   var bgColor = &quot;red&quot;;
   ball.onclick = function () &#123;
@@ -864,9 +866,8 @@ btn.onclick = function () &#123;
       bgColor = &quot;red&quot;;
     &#125;
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ul>
 <li><strong>优化版</strong><blockquote>
 <ul>
@@ -874,37 +875,57 @@ btn.onclick = function () &#123;
 <li>把 <code>bgColor</code> 这个变量，更改为<strong>对象自身的一个属性</strong>，更好，这样就可以<strong>消除全局变量</strong>，同时如果页面有多个相似的对象，那这些对象之间互不干扰</li>
 <li>把这个改变元素背景颜色的<strong>函数封装</strong>成一个大家共用的方法</li>
 </ul>
-<pre><code>&lt;style&gt;
-.ball1 &#123;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: red;
-&#125;
-.ball2 &#123;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: green;
-&#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;ball1&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;ball2&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-var ball1 = document.querySelector(&quot;.ball1&quot;);
-var ball2 = document.querySelector(&quot;.ball2&quot;);
-ball1.bgColor = &quot;red&quot;; // bgColor为对象的一个属性
-ball1.onclick = changeBgColor;
-ball2.bgColor = &quot;green&quot;; // bgColor为对象的一个属性
-ball2.onclick = changeBgColor;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 把切换背景的功能，抽离成一个公共方法<br>function changeBgColor() {<br>  switch (this.bgColor) {<br>case “red”:<br>  this.style.backgroundColor &#x3D; “green”;<br>  this.bgColor &#x3D; “green”;<br>  break;<br>case “green”:<br>  this.style.backgroundColor &#x3D; “yellow”;<br>  this.bgColor &#x3D; “yellow”;<br>  break;<br>case “yellow”:<br>  this.style.backgroundColor &#x3D; “blue”;<br>  this.bgColor &#x3D; “blue”;<br>  break;<br>case “blue”:<br>  this.style.backgroundColor &#x3D; “red”;<br>  this.bgColor &#x3D; “red”;<br>  break;<br>  }<br>}<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;style&gt;
+  .ball1 &#123;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+  &#125;
+  .ball2 &#123;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: green;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;ball1&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;ball2&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var ball1 = document.querySelector(&quot;.ball1&quot;);
+  var ball2 = document.querySelector(&quot;.ball2&quot;);
+  ball1.bgColor = &quot;red&quot;; // bgColor为对象的一个属性
+  ball1.onclick = changeBgColor;
+  ball2.bgColor = &quot;green&quot;; // bgColor为对象的一个属性
+  ball2.onclick = changeBgColor;
+&gt;
+  // 把切换背景的功能，抽离成一个公共方法
+  function changeBgColor() &#123;
+    switch (this.bgColor) &#123;
+      case &quot;red&quot;:
+        this.style.backgroundColor = &quot;green&quot;;
+        this.bgColor = &quot;green&quot;;
+        break;
+      case &quot;green&quot;:
+        this.style.backgroundColor = &quot;yellow&quot;;
+        this.bgColor = &quot;yellow&quot;;
+        break;
+      case &quot;yellow&quot;:
+        this.style.backgroundColor = &quot;blue&quot;;
+        this.bgColor = &quot;blue&quot;;
+        break;
+      case &quot;blue&quot;:
+        this.style.backgroundColor = &quot;red&quot;;
+        this.bgColor = &quot;red&quot;;
+        break;
+    &#125;
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>总结：</p>
@@ -927,15 +948,14 @@ ball2.onclick = changeBgColor;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;body&gt;
-&lt;ul class=&quot;list&quot;&gt;
+<pre><code>&gt;&lt;body&gt;
+&gt; &lt;ul class=&quot;list&quot;&gt;
     &lt;li&gt;1&lt;/li&gt;
     &lt;li&gt;2&lt;/li&gt;
     &lt;li&gt;3&lt;/li&gt;
     &lt;li&gt;4&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
     var liList = document.querySelectorAll(&quot;.list li&quot;);
     // 常见错误写法
     for (var i = 0; i &lt; liList.length; i++) &#123;
@@ -943,32 +963,26 @@ ball2.onclick = changeBgColor;
         alert(i);
       &#125;;
     &#125;
+&gt;
+    // 正确写法一：自定义属性
+    for (var i = 0; i &lt; liList.length; i++) &#123;
+      liList[i].index = i; // 给每个对象添加自定义属性，来保存对应下标
+      liList[i].onclick = function () &#123;
+        alert(this.index);
+      &#125;;
+    &#125;
+&gt;
+    // 正确写法二：利用闭包
+    for (var i = 0; i &lt; liList.length; i++) &#123;
+      (function (i) &#123;
+        liList[i].onclick = function () &#123;
+          alert(i);
+        &#125;;
+      &#125;)(i);
+    &#125;
+&gt;  &lt;/script&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
-<pre><code>// 正确写法一：自定义属性
-for (var i = 0; i &lt; liList.length; i++) &#123;
-  liList[i].index = i; // 给每个对象添加自定义属性，来保存对应下标
-  liList[i].onclick = function () &#123;
-    alert(this.index);
-  &#125;;
-&#125;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 正确写法二：利用闭包
-for (var i = 0; i &lt; liList.length; i++) &#123;
-  (function (i) &#123;
-    liList[i].onclick = function () &#123;
-      alert(i);
-    &#125;;
-  &#125;)(i);
-&#125;
-</code></pre>
-<blockquote>
-<p> </script></p>
-</body>
-```
-</blockquote>
 <blockquote>
 <p><strong>错误写法解读</strong></p>
 <ul>
@@ -1008,8 +1022,7 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   /* .yzm &#123;
     position: relative;
     width: 150px;
@@ -1038,8 +1051,8 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
     background-size: cover;
     cursor: pointer;
   &#125; */
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
   &lt;!-- &lt;div class=&quot;yzm&quot;&gt;
     &lt;div class=&quot;yzm-code&quot;&gt;
       &lt;span&gt;1&lt;/span&gt;
@@ -1051,8 +1064,8 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;yzm-bg&quot;&gt;&lt;/div&gt; --&gt;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   // 用js写出html元素
   function getYzm(el) &#123;
     // 首先创建yzm的html结构
@@ -1085,17 +1098,47 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
         updateBg(yzmBg);
       &#125;
     &#125;
+&gt;
+  // 生成随机数字、颜色
+  function updateCode(el) &#123;
+    // 在赋值前，先把之前内容全部清空
+    el.innerHTML = &quot;&quot;;
+    // 声明数字组成的数组
+    var codeArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, &quot;a&quot;, &quot;f&quot;, &quot;r&quot;, &quot;l&quot;, &quot;i&quot;, &quot;o&quot;];
+    var colorArr = [&quot;#000&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;tomato&quot;, &quot;red&quot;, &quot;purple&quot;];
+    for (var i = 0; i &lt; 6; i++) &#123;
+      var span = document.createElement(&quot;span&quot;);
+      //   添加样式
+      span.style.cssText =
+        &quot;font-weight: bold;font-size: 30px;margin: 2px; user-select: none;&quot;;
+      // 生成随机数字
+      var codeIndex = (Math.random() * codeArr.length) &gt;&gt; 0;
+      span.innerText = codeArr[codeIndex];
+      // 生成随机颜色
+      var colorIndex = (Math.random() * colorArr.length) &gt;&gt; 0;
+      span.style.color = colorArr[colorIndex];
+      // 添加到yzmCode中
+      el.appendChild(span);
+    &#125;
+  &#125;
+&gt;
+  // 生成随机背景
+  function updateBg(el) &#123;
+    var bgArr = [
+      &quot;../src/yzm/line1.png&quot;,
+      &quot;../src/yzm/line2.png&quot;,
+      &quot;../src/yzm/line3.png&quot;,
+      &quot;../src/yzm/line4.png&quot;,
+    ];
+    var bgIndex = (Math.random() * bgArr.length) &gt;&gt; 0;
+    // 把背景添加到el样式中
+    el.style.backgroundImage = &quot;url(&quot; + bgArr[bgIndex] + &quot;)&quot;;
+  &#125;
+  var box = document.querySelector(&quot;.box&quot;);
+  getYzm(box);
+&gt;&lt;/script&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 生成随机数字、颜色<br>  function updateCode(el) {<br>    &#x2F;&#x2F; 在赋值前，先把之前内容全部清空<br>    el.innerHTML &#x3D; “”;<br>    &#x2F;&#x2F; 声明数字组成的数组<br>    var codeArr &#x3D; [1, 2, 3, 4, 5, 6, 7, 8, 9, “a”, “f”, “r”, “l”, “i”, “o”];<br>    var colorArr &#x3D; [“#000”, “blue”, “green”, “tomato”, “red”, “purple”];<br>    for (var i &#x3D; 0; i &lt; 6; i++) {<br>      var span &#x3D; document.createElement(“span”);<br>      &#x2F;&#x2F;   添加样式<br>      span.style.cssText &#x3D;<br>        “font-weight: bold;font-size: 30px;margin: 2px; user-select: none;”;<br>      &#x2F;&#x2F; 生成随机数字<br>      var codeIndex &#x3D; (Math.random() * codeArr.length) &gt;&gt; 0;<br>      span.innerText &#x3D; codeArr[codeIndex];<br>      &#x2F;&#x2F; 生成随机颜色<br>      var colorIndex &#x3D; (Math.random() * colorArr.length) &gt;&gt; 0;<br>      span.style.color &#x3D; colorArr[colorIndex];<br>      &#x2F;&#x2F; 添加到yzmCode中<br>      el.appendChild(span);<br>    }<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 生成随机背景<br>  function updateBg(el) {<br>    var bgArr &#x3D; [<br>      “..&#x2F;src&#x2F;yzm&#x2F;line1.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line2.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line3.png”,<br>      “..&#x2F;src&#x2F;yzm&#x2F;line4.png”,<br>    ];<br>    var bgIndex &#x3D; (Math.random() * bgArr.length) &gt;&gt; 0;<br>    &#x2F;&#x2F; 把背景添加到el样式中<br>    el.style.backgroundImage &#x3D; “url(“ + bgArr[bgIndex] + “)”;<br>  }<br>  var box &#x3D; document.querySelector(“.box”);<br>  getYzm(box);</p>
-<blockquote>
-<p></script></p>
-</body>
-```
-</blockquote>
 <blockquote>
 <ul>
 <li><code>user-select: none;</code>不能选中文字</li>
@@ -1130,8 +1173,7 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   ul,
   li &#123;
     list-style: none;
@@ -1210,48 +1252,48 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
   .hide &#123;
     display: none;
   &#125;
-&lt;/style&gt;
-
-&lt;body&gt;
-&lt;div class=&quot;update-skin&quot;&gt;更换皮肤&lt;/div&gt;
-&lt;div class=&quot;container-skin&quot;&gt;
-  &lt;!-- 皮肤 --&gt;
-  &lt;ul class=&quot;select-skin clearfix&quot;&gt;
-    &lt;li&gt;
-      &lt;img
-        src=&quot;../src/skin/min1.jpg&quot;
-        alt=&quot;&quot;
-        data-skin=&quot;../src/skin/big1.jpg&quot;
-      /&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;img
-        src=&quot;../src/skin/min2.jpg&quot;
-        alt=&quot;&quot;
-        data-skin=&quot;../src/skin/big2.jpg&quot;
-      /&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;img
-        src=&quot;../src/skin/min3.jpg&quot;
-        alt=&quot;&quot;
-        data-skin=&quot;../src/skin/big3.jpg&quot;
-      /&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;img
-        src=&quot;../src/skin/min4.jpg&quot;
-        alt=&quot;&quot;
-        data-skin=&quot;../src/skin/big4.jpg&quot;
-      /&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;!-- 关闭按钮 --&gt;
-  &lt;div class=&quot;close&quot;&gt;X&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- 遮罩层 --&gt;
-&lt;div class=&quot;mask hide&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;body&gt;
+&gt; &lt;div class=&quot;update-skin&quot;&gt;更换皮肤&lt;/div&gt;
+&gt; &lt;div class=&quot;container-skin&quot;&gt;
+&gt;   &lt;!-- 皮肤 --&gt;
+&gt;   &lt;ul class=&quot;select-skin clearfix&quot;&gt;
+&gt;     &lt;li&gt;
+&gt;       &lt;img
+&gt;         src=&quot;../src/skin/min1.jpg&quot;
+&gt;         alt=&quot;&quot;
+&gt;         data-skin=&quot;../src/skin/big1.jpg&quot;
+&gt;       /&gt;
+&gt;     &lt;/li&gt;
+&gt;     &lt;li&gt;
+&gt;       &lt;img
+&gt;         src=&quot;../src/skin/min2.jpg&quot;
+&gt;         alt=&quot;&quot;
+&gt;         data-skin=&quot;../src/skin/big2.jpg&quot;
+&gt;       /&gt;
+&gt;     &lt;/li&gt;
+&gt;     &lt;li&gt;
+&gt;       &lt;img
+&gt;         src=&quot;../src/skin/min3.jpg&quot;
+&gt;         alt=&quot;&quot;
+&gt;         data-skin=&quot;../src/skin/big3.jpg&quot;
+&gt;       /&gt;
+&gt;     &lt;/li&gt;
+&gt;     &lt;li&gt;
+&gt;       &lt;img
+&gt;         src=&quot;../src/skin/min4.jpg&quot;
+&gt;         alt=&quot;&quot;
+&gt;         data-skin=&quot;../src/skin/big4.jpg&quot;
+&gt;       /&gt;
+&gt;     &lt;/li&gt;
+&gt;   &lt;/ul&gt;
+&gt;   &lt;!-- 关闭按钮 --&gt;
+&gt;   &lt;div class=&quot;close&quot;&gt;X&lt;/div&gt;
+&gt; &lt;/div&gt;
+&gt; &lt;!-- 遮罩层 --&gt;
+&gt; &lt;div class=&quot;mask hide&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
  // 点击换肤按钮，跳出选择框、遮罩层
   var btnSkin = document.querySelector(&quot;.update-skin&quot;);
   var container = document.querySelector(&quot;.container-skin&quot;);
@@ -1290,10 +1332,9 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
       document.body.style.backgroundImage = &quot;url(&quot; + url + &quot;)&quot;;
     &#125;;
   &#125;
-&lt;/script&gt;
-&lt;/body&gt;
+&gt;&lt;/script&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
 <h4 id="onmouseover-和-onmouseout-事件"><a href="#onmouseover-和-onmouseout-事件" class="headerlink" title="onmouseover 和 onmouseout 事件"></a>onmouseover 和 onmouseout 事件</h4><table>
 <thead>
 <tr>
@@ -1316,42 +1357,42 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
 </ul>
 </blockquote>
 <ol>
-<li><p>案例1：鼠标滑动，表格隔行变色</p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<li>案例1：鼠标滑动，表格隔行变色</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   ul,
   li &#123;
- padding: 0;
- margin: 0;
- list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   &#125;
   ul li &#123;
- width: 400px;
- height: 50px;
+    width: 400px;
+    height: 50px;
   &#125;
   li:nth-child(even) &#123;
- background-color: #ddd;
+    background-color: #ddd;
   &#125;
   li:nth-child(odd) &#123;
- background-color: #8b7f7f;
+    background-color: #8b7f7f;
   &#125;
   li.color &#123;
- background-color: plum;
+    background-color: plum;
   &#125;
   /* li:hover &#123;
- background-color: palegreen;
+    background-color: palegreen;
   &#125; */
-&lt;/style&gt;
-&lt;body&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;body&gt;
+&gt; &lt;ul&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt;   &lt;li&gt;&lt;/li&gt;
+&gt; &lt;/ul&gt;
+&gt; &lt;script&gt;
   var liList = document.querySelectorAll(&quot;ul li&quot;);
   var len = liList.length;
   // 方法1
@@ -1365,21 +1406,19 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
   //   &#125;
   // 方法2
   for (var i = 0; i &lt; len; i++) &#123;
- liList[i].onmouseover = function () &#123;
-   this.classList.add(&quot;color&quot;);
- &#125;;
- liList[i].onmouseout = function () &#123;
-   this.classList.remove(&quot;color&quot;);
- &#125;;
+    liList[i].onmouseover = function () &#123;
+      this.classList.add(&quot;color&quot;);
+    &#125;;
+    liList[i].onmouseout = function () &#123;
+      this.classList.remove(&quot;color&quot;);
+    &#125;;
   &#125;
   //方法3`:hover`
-&lt;/script&gt;
-&lt;/body&gt;
+&gt; &lt;/script&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>案例 2：扫图游戏</p>
-<blockquote>
+<ol start="2">
+<li>案例 2：扫图游戏<blockquote>
 <ul>
 <li>当图形中的花全部被扫出来，整个游戏就结束了<img src="扫图游戏.gif"></li>
 </ul>
@@ -1403,6 +1442,7 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>li.onmouseover = function () &#123;
   //鼠标划到小方块时，变透明
   this.style.opacity = 0;
@@ -1421,7 +1461,6 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
   this.onmouseover = null;
 &#125;;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>方法2：<ul>
@@ -1432,7 +1471,6 @@ for (var i = 0; i &lt; liList.length; i++) &#123;
 </li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var item = 0; //记录结果数组中已经变透明的方块数
 li.onmouseover = function () &#123;
   //鼠标划到小方块时，变透明
@@ -1451,7 +1489,6 @@ li.onmouseover = function () &#123;
   this.onmouseover = null;
 &#125;;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>两种方法各有优劣，视具体情况而定</p>
@@ -1468,6 +1505,7 @@ li.onmouseover = function () &#123;
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>for (var i = 0; i &lt; 12 * 16; i++) &#123;
   var li = document.createElement(&quot;li&quot;);
   li.index = i;
@@ -1475,7 +1513,6 @@ li.onmouseover = function () &#123;
   ul.appendChild(li);
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>方法2：<ul>
@@ -1489,6 +1526,7 @@ li.onmouseover = function () &#123;
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>var sum = 0;
 for (var i = 0; i &lt; 12; i++) &#123;
   // 行
@@ -1502,7 +1540,6 @@ for (var i = 0; i &lt; 12; i++) &#123;
   &#125;
 &#125;
 </code></pre>
-</blockquote>
 <p><strong>扫方块后，变透明</strong></p>
 <blockquote>
 <ul>
@@ -1510,6 +1547,7 @@ for (var i = 0; i &lt; 12; i++) &#123;
 <li>注意：移出鼠标后要马上删掉该li身上的<code>onmouseover</code>事件</li>
 <li>因为我们只是把它变透明，下次滑到，仍然会进行该事件，会影响对下标的操作</li>
 </ul>
+</blockquote>
 <pre><code>li.onmouseover = function () &#123;
   //鼠标划到小方块时，变透明
   this.style.opacity = 0;
@@ -1519,128 +1557,145 @@ for (var i = 0; i &lt; 12; i++) &#123;
   this.onmouseover = null;
 &#125;;
 </code></pre>
-</blockquote>
 <ul>
-<li>最终代码<blockquote>
-<pre><code>&lt;style&gt;
+<li>最终代码</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
  body &#123;
- margin: 0;
+   margin: 0;
  &#125;
  .container &#123;
- width: 800px;
- margin: 50px auto;
- border: 1px solid #000;
+   width: 800px;
+   margin: 50px auto;
+   border: 1px solid #000;
  &#125;
  .container h1 &#123;
- text-align: center;
+   text-align: center;
  &#125;
  .container .game &#123;
- width: 800px;
- height: 600px;
- background: url(../src/games/flower.png) no-repeat;
+   width: 800px;
+   height: 600px;
+   background: url(../src/games/flower.png) no-repeat;
  &#125;
  ul,
  li &#123;
- padding: 0;
- margin: 0;
- list-style: none;
+   padding: 0;
+   margin: 0;
+   list-style: none;
  &#125;
  ul li &#123;
- float: left;
- width: 50px;
- height: 50px;
- background-color: #ddd;
+   float: left;
+   width: 50px;
+   height: 50px;
+   background-color: #ddd;
  &#125;
  /* 游戏结束 */
  .mask &#123;
- display: none;
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: rgba(0, 0, 0, 0.5);
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.5);
  &#125;
  .mask p &#123;
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- color: red;
- font-size: 50px;
- margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: red;
+   font-size: 50px;
+   margin: 0;
  &#125;
-&lt;/style&gt;
-&lt;div class=&quot;container&quot;&gt;
- &lt;h1&gt;扫图游戏&lt;/h1&gt;
- &lt;div class=&quot;game&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;mask&quot;&gt;&lt;p&gt;游戏结束！&lt;/p&gt;&lt;/div&gt;
-&lt;script&gt;
-var game = document.querySelector(&quot;.game&quot;);
-var ul = document.createElement(&quot;ul&quot;);
-var mask = document.querySelector(&quot;.mask&quot;);
-var data = [
-  23, 24, 25, 38, 39, 40, 41, 42, 43, 53, 54, 55, 56, 57, 58, 59, 67, 68,
-  69, 70, 71, 72, 73, 74, 75, 76, 77, 83, 84, 85, 86, 87, 88, 89, 91, 92,
-  93, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 115, 116, 117, 118,
-  119, 120, 121, 122, 123, 124, 130, 131, 132, 133, 134, 135, 136, 137,
-  138, 139, 147, 148, 149, 150, 151, 152, 153, 166, 167, 168, 169,
-]; //结果数组
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 构建小方块，方法1：一层for循环+浮动<br>&#x2F;&#x2F; 在图上构建li，并标记数字<br>&#x2F;&#x2F;   for (var i &#x3D; 0; i &lt; 12 * 16; i++) {<br>&#x2F;&#x2F;     var li &#x3D; document.createElement(“li”);<br>&#x2F;&#x2F;     li.index &#x3D; i;<br>&#x2F;&#x2F;     li.innerText &#x3D; i;<br>&#x2F;&#x2F;     ul.appendChild(li);<br>&#x2F;&#x2F;     onmouseover事件<br>&#x2F;&#x2F;   }<blockquote>
-</blockquote>
-&#x2F;&#x2F; 构建小方块，方法2：两层for循环+绝对定位<br>var item &#x3D; 0; &#x2F;&#x2F;记录结果数组中已经变透明的方块数<br>var sum &#x3D; 0;  &#x2F;&#x2F;记录下标<br>for (var i &#x3D; 0; i &lt; 12; i++) {<br>  &#x2F;&#x2F; 行<br>  for (var j &#x3D; 0; j &lt; 16; j++) {<br>&#x2F;&#x2F; 列<br>var li &#x3D; document.createElement(“li”);<br>li.index &#x3D; sum;<br>&#x2F;&#x2F;   li.innerText &#x3D; sum;<br>sum++;<br>ul.appendChild(li);&#x2F;&#x2F;将每个li添加到ul上</li>
-</ul>
-<blockquote>
-</blockquote>
-<pre><code>  //查询删除结果数组的下标,方法1：
-  // 给每一个li添加一个onmouseover事件
-  //   li.onmouseover = function () &#123;
-  //     //鼠标划到小方块时，变透明
-  //     this.style.opacity = 0;
-  //     if (data.length === 0) &#123;
-  //       // 游戏结束
-  //       mask.style.display = &quot;block&quot;;
-  //     &#125;
-  //     // 查询其下标，删除
-  //     var k = data.indexOf(this.index);
-  //     // 如果它存在于结果数组中，则返回所查元素的下标
-  //     if (k !== -1) &#123;
-  //       //根据所返回的下标，删掉该元素
-  //       data.splice(k, 1);
-  //     &#125;
-  //     // 被扫过的元素，把身上的onmouseover事件取消
-  //     this.onmouseover = null;
-  //   &#125;;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>//方法2：用item记录变透明的结果数组的个数
-  li.onmouseover = function () &#123;
-    //鼠标划到小方块时，变透明
-    this.style.opacity = 0;
-    if (item === data.length) &#123;
-      // 游戏结束
-      mask.style.display = &quot;block&quot;;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;container&quot;&gt;
+&gt;  &lt;h1&gt;扫图游戏&lt;/h1&gt;
+&gt;  &lt;div class=&quot;game&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;mask&quot;&gt;&lt;p&gt;游戏结束！&lt;/p&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var game = document.querySelector(&quot;.game&quot;);
+  var ul = document.createElement(&quot;ul&quot;);
+  var mask = document.querySelector(&quot;.mask&quot;);
+  var data = [
+    23, 24, 25, 38, 39, 40, 41, 42, 43, 53, 54, 55, 56, 57, 58, 59, 67, 68,
+    69, 70, 71, 72, 73, 74, 75, 76, 77, 83, 84, 85, 86, 87, 88, 89, 91, 92,
+    93, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 115, 116, 117, 118,
+    119, 120, 121, 122, 123, 124, 130, 131, 132, 133, 134, 135, 136, 137,
+    138, 139, 147, 148, 149, 150, 151, 152, 153, 166, 167, 168, 169,
+  ]; //结果数组
+&gt;
+  // 构建小方块，方法1：一层for循环+浮动
+  // 在图上构建li，并标记数字
+  //   for (var i = 0; i &lt; 12 * 16; i++) &#123;
+  //     var li = document.createElement(&quot;li&quot;);
+  //     li.index = i;
+  //     li.innerText = i;
+  //     ul.appendChild(li);
+  //     onmouseover事件
+  //   &#125;
+&gt;
+  // 构建小方块，方法2：两层for循环+绝对定位
+  var item = 0; //记录结果数组中已经变透明的方块数
+  var sum = 0;  //记录下标
+  for (var i = 0; i &lt; 12; i++) &#123;
+    // 行
+    for (var j = 0; j &lt; 16; j++) &#123;
+      // 列
+      var li = document.createElement(&quot;li&quot;);
+      li.index = sum;
+      //   li.innerText = sum;
+      sum++;
+      ul.appendChild(li);//将每个li添加到ul上
+&gt;
+      //查询删除结果数组的下标,方法1：
+      // 给每一个li添加一个onmouseover事件
+      //   li.onmouseover = function () &#123;
+      //     //鼠标划到小方块时，变透明
+      //     this.style.opacity = 0;
+      //     if (data.length === 0) &#123;
+      //       // 游戏结束
+      //       mask.style.display = &quot;block&quot;;
+      //     &#125;
+      //     // 查询其下标，删除
+      //     var k = data.indexOf(this.index);
+      //     // 如果它存在于结果数组中，则返回所查元素的下标
+      //     if (k !== -1) &#123;
+      //       //根据所返回的下标，删掉该元素
+      //       data.splice(k, 1);
+      //     &#125;
+      //     // 被扫过的元素，把身上的onmouseover事件取消
+      //     this.onmouseover = null;
+      //   &#125;;
+&gt;
+    //方法2：用item记录变透明的结果数组的个数
+      li.onmouseover = function () &#123;
+        //鼠标划到小方块时，变透明
+        this.style.opacity = 0;
+        if (item === data.length) &#123;
+          // 游戏结束
+          mask.style.display = &quot;block&quot;;
+        &#125;
+        // 查询其下标，删除
+        var k = data.indexOf(this.index);
+        // 如果它存在于结果数组中，则item+1
+        if (k !== -1) &#123;
+          item++;
+        &#125;
+        // 被扫过的元素，把身上的onmouseover事件取消
+        this.onmouseover = null;
+      &#125;;
     &#125;
-    // 查询其下标，删除
-    var k = data.indexOf(this.index);
-    // 如果它存在于结果数组中，则item+1
-    if (k !== -1) &#123;
-      item++;
-    &#125;
-    // 被扫过的元素，把身上的onmouseover事件取消
-    this.onmouseover = null;
-  &#125;;
-&#125;
+  &#125;
+//将ul添加到game上
+  game.appendChild(ul);
+&gt;&lt;/script&gt;
 </code></pre>
-<p>  }<br>&#x2F;&#x2F;将ul添加到game上<br>  game.appendChild(ul);</p>
 <blockquote>
-<p></script></p>
-<pre><code>&gt;还有一个综合案例：放大镜效果，放在后面的综合案例应用中讲解
-</code></pre>
+<blockquote>
+<p>还有一个综合案例：放大镜效果，放在后面的综合案例应用中讲解</p>
+</blockquote>
 </blockquote>
 <h4 id="onmousedown、onmouseup-和-onmousemove"><a href="#onmousedown、onmouseup-和-onmousemove" class="headerlink" title="onmousedown、onmouseup 和 onmousemove"></a>onmousedown、onmouseup 和 onmousemove</h4><table>
 <thead>
@@ -1662,18 +1717,17 @@ var data = [
 <td>当某个鼠标按键在某个对象上被移动时触发</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
       .box &#123;
         width: 300px;
         height: 300px;
         background-color: lightblue;
       &#125;
-&lt;/style&gt;
-&lt;/head&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;/head&gt;
+&gt;
+&gt; &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt; &lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   box.onmousedown = function () &#123;
     box.style.width = &quot;500px&quot;;
@@ -1685,9 +1739,8 @@ var data = [
     box.style.backgroundColor = &quot;pink&quot;;
     console.log(&quot;鼠标在我上面移动&quot;);//触发频率特别高
   &#125;;
-&lt;/script&gt;
+&gt; &lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>代码解读</strong></p>
 <blockquote>
 <ul>
@@ -1730,18 +1783,17 @@ var data = [
 <li>可以通过 <code>keyup</code> 事件，来获取每次键盘抬起时，文本输入框中的内容</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 100px;
     height: 50px;
     background-color: aqua;
     margin: 10px;
   &#125;
-&lt;/style&gt;
-&lt;input type=&quot;text&quot; /&gt;
-&lt;div class=&quot;box&quot; contenteditable=&quot;true&quot; ;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;input type=&quot;text&quot; /&gt;
+&gt;&lt;div class=&quot;box&quot; contenteditable=&quot;true&quot; ;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var user = document.querySelector(&quot;input&quot;);
   var box = document.querySelector(&quot;.box&quot;);
   document.onkeydown = function () &#123;
@@ -1761,9 +1813,8 @@ var data = [
   user.onkeyup = function () &#123;
     console.log(this.value);
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h3 id="四、常见表单事件"><a href="#四、常见表单事件" class="headerlink" title="四、常见表单事件"></a>四、常见表单事件</h3><blockquote>
 <p>常见的表单事件如下</p>
 <table>
@@ -1788,9 +1839,8 @@ var data = [
 </tbody></table>
 </blockquote>
 <p>1、focus 和 blur 事件</p>
-<blockquote>
-<pre><code>&lt;input type=&quot;text&quot; /&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;input type=&quot;text&quot; /&gt;
+&gt;&lt;script&gt;
   var text = document.querySelector(&quot;input&quot;);
   text.onfocus = function () &#123;
     //输入框获取焦点时，改变外轮廓
@@ -1801,9 +1851,8 @@ var data = [
   function fn() &#123;
     this.style.outline = &quot;&quot;;
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>change 事件<blockquote>
 <ul>
@@ -1813,29 +1862,27 @@ var data = [
 </li>
 </ol>
 <ul>
-<li>案例：当选中下拉列表中的某个元素，把对应选中的内容显示在控制台<blockquote>
-<pre><code>你最喜欢的水果
-&lt;select id=&quot;friut&quot;&gt;
- &lt;option value=&quot;apple&quot;&gt;苹果&lt;/option&gt;
- &lt;option value=&quot;banana&quot;&gt;香蕉&lt;/option&gt;
- &lt;option value=&quot;pear&quot;&gt;梨子&lt;/option&gt;
- &lt;option value=&quot;watermelon&quot;&gt;西瓜&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;script&gt;
-var friut = document.getElementById(&quot;friut&quot;);
-friut.addEventListener(&quot;change&quot;, fn, false);
-function fn() &#123;
-  var _index = this.selectedIndex; // 被选中元素的下标
-  var value = this.options[_index].value; // 被选中元素的value值,如 pear
-  var text = this.options[_index].text; // 被选中元素的文本 如 梨子
-  console.log(value, text);
-&#125;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>案例：当选中下拉列表中的某个元素，把对应选中的内容显示在控制台</li>
 </ul>
+<pre><code>你最喜欢的水果
+&gt;&lt;select id=&quot;friut&quot;&gt;
+&gt;  &lt;option value=&quot;apple&quot;&gt;苹果&lt;/option&gt;
+&gt;  &lt;option value=&quot;banana&quot;&gt;香蕉&lt;/option&gt;
+&gt;  &lt;option value=&quot;pear&quot;&gt;梨子&lt;/option&gt;
+&gt;  &lt;option value=&quot;watermelon&quot;&gt;西瓜&lt;/option&gt;
+&gt;&lt;/select&gt;
+&gt;
+&gt;&lt;script&gt;
+  var friut = document.getElementById(&quot;friut&quot;);
+  friut.addEventListener(&quot;change&quot;, fn, false);
+  function fn() &#123;
+    var _index = this.selectedIndex; // 被选中元素的下标
+    var value = this.options[_index].value; // 被选中元素的value值,如 pear
+    var text = this.options[_index].text; // 被选中元素的文本 如 梨子
+    console.log(value, text);
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li><code>_index =this.selectedIndex;</code>：被选中元素的下标</li>
@@ -1867,36 +1914,51 @@ function fn() &#123;
 <li>在body里设置省份、城市这两个下拉框<code>select</code>，不写任何值</li>
 <li>用数组保存省份和城市的数据，以对象的形式一一对应</li>
 </ul>
-<pre><code>&lt;select name=&quot;&quot; id=&quot;province&quot;&gt;&lt;/select&gt;
-</code></pre>
-</blockquote>
-<!-- <option data-city="长沙市,株洲市,湘潭市,常德市"></option> -->
-<blockquote>
-<p><select name="" id="city"></select><br>&#x2F;&#x2F;script<br>var data &#x3D; [<br>{<br>  province: “湖南”,<br>  city: [“长沙市”, “株洲市”, “湘潭市”, “常德市”],<br>},<br>{<br>  province: “陕西”,<br>  city: [“西安市”, “铜川市”, “咸阳市”, “安康市”, “宝鸡市”],<br>},<br>{<br>  province: “四川”,<br>  city: [“成都市”, “广元市”, “德阳市”, “眉山市”],<br>},<br>];</p>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>初始化：填充省份数据和默认的城市数据</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;select name=&quot;&quot; id=&quot;province&quot;&gt;&lt;/select&gt;
+&lt;!-- &lt;option data-city=&quot;长沙市,株洲市,湘潭市,常德市&quot;&gt;&lt;/option&gt; --&gt;
+&gt;&lt;select name=&quot;&quot; id=&quot;city&quot;&gt;&lt;/select&gt;
+//script
+var data = [
+  &#123;
+    province: &quot;湖南&quot;,
+    city: [&quot;长沙市&quot;, &quot;株洲市&quot;, &quot;湘潭市&quot;, &quot;常德市&quot;],
+  &#125;,
+  &#123;
+    province: &quot;陕西&quot;,
+    city: [&quot;西安市&quot;, &quot;铜川市&quot;, &quot;咸阳市&quot;, &quot;安康市&quot;, &quot;宝鸡市&quot;],
+  &#125;,
+  &#123;
+    province: &quot;四川&quot;,
+    city: [&quot;成都市&quot;, &quot;广元市&quot;, &quot;德阳市&quot;, &quot;眉山市&quot;],
+  &#125;,
+];
+</code></pre>
+<ul>
+<li>初始化：填充省份数据和默认的城市数据<blockquote>
 <ul>
 <li>由于每个部分都是用的是函数，所以定义一个初始化函数，统一调用其他函数</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function init(data) &#123;
-//添加省份数据
-addProvince(province, data);
-//添加默认城市数据
-addCityDate(city, data[0].city); // addCitydate(city元素，城市数据)
+  //添加省份数据
+  addProvince(province, data);
+  //添加默认城市数据
+  addCityDate(city, data[0].city); // addCitydate(city元素，城市数据)
 &#125;
 init(data);
 </code></pre>
 <blockquote>
+<blockquote>
 <p>注意：要设置一个默认显示的城市信息，在’change’事件发生之前显示</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>添加省份信息</p>
-<blockquote>
+<ul>
+<li>添加省份信息<blockquote>
 <ul>
 <li>构建函数</li>
 <li>用for循环遍历数组，有多少省份，就有多少个对象</li>
@@ -1906,25 +1968,26 @@ init(data);
 <li>为了提升性能，可以创建一个虚拟仓库<code>.createDocumentFragment()</code>来储存每一次创建的<code>option</code></li>
 <li>在循环结束后，用仓库一次性将所有option添加进对应的<code>select</code></li>
 </ul>
-<pre><code>//添加省份信息
- function addProvince(el, data) &#123;
- // 用for循环，将省份添加进去
- var frag = document.createDocumentFragment();
- for (var i = 0; i &lt; data.length; i++) &#123;
-   var option = document.createElement(&quot;option&quot;);
-   option.text = data[i].province;
-   //先存储到仓库里，再添加到province，提升性能
-   // 将城市信息以自定义属性的方式绑定到省份上
-   //option.dataset.city = data[i].city;
-   frag.appendChild(option);
- &#125;
- el.appendChild(frag);
- &#125;
-</code></pre>
 </blockquote>
 </li>
-<li><p>添加城市信息</p>
-<blockquote>
+</ul>
+<pre><code>//添加省份信息
+ function addProvince(el, data) &#123;
+   // 用for循环，将省份添加进去
+   var frag = document.createDocumentFragment();
+   for (var i = 0; i &lt; data.length; i++) &#123;
+     var option = document.createElement(&quot;option&quot;);
+     option.text = data[i].province;
+     //先存储到仓库里，再添加到province，提升性能
+     // 将城市信息以自定义属性的方式绑定到省份上
+     //option.dataset.city = data[i].city;
+     frag.appendChild(option);
+   &#125;
+   el.appendChild(frag);
+ &#125;
+</code></pre>
+<ul>
+<li>添加城市信息<blockquote>
 <ul>
 <li>构建函数</li>
 <li>用for循环遍历包含了<strong>对应城市信息的数组</strong>，这个数组需要另外的函数来得到</li>
@@ -1934,22 +1997,23 @@ init(data);
 <li>为了提升性能，可以创建一个虚拟仓库<code>.createDocumentFragment()</code>来储存每一次创建的<code>option</code></li>
 <li>在循环结束后，用仓库一次性将所有option添加进对应的<code>select</code></li>
 </ul>
-<pre><code>//要先获得城市数据，el是city元素
- function addCityDate(el, citydate) &#123;
- el.innerHTML = &quot;&quot;;
- var frag = document.createDocumentFragment();
- for (var i = 0; i &lt; citydate.length; i++) &#123;
-   var option = document.createElement(&quot;option&quot;);
-   option.text = citydate[i];
-   frag.appendChild(option);
- &#125;
- el.appendChild(frag);
- &#125;
-</code></pre>
 </blockquote>
 </li>
-<li><p>怎么拿到对应城市信息的<strong>数组</strong></p>
-<blockquote>
+</ul>
+<pre><code>//要先获得城市数据，el是city元素
+ function addCityDate(el, citydate) &#123;
+   el.innerHTML = &quot;&quot;;
+   var frag = document.createDocumentFragment();
+   for (var i = 0; i &lt; citydate.length; i++) &#123;
+     var option = document.createElement(&quot;option&quot;);
+     option.text = citydate[i];
+     frag.appendChild(option);
+   &#125;
+   el.appendChild(frag);
+ &#125;
+</code></pre>
+<ul>
+<li>怎么拿到对应城市信息的<strong>数组</strong><blockquote>
 <ul>
 <li>定义一个函数，通过省份名字，返回对应省份的市信息</li>
 <li>使用<code>change</code>事件</li>
@@ -1977,6 +2041,7 @@ init(data);
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>//通过省份名，返回对应的城市信息
  province.addEventListener(&quot;change&quot;, connect, false);
  function connect() &#123;
@@ -1998,7 +2063,6 @@ init(data);
    &#125;
  &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><strong>方法2：</strong></li>
@@ -2021,6 +2085,7 @@ init(data);
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>//通过省份名，返回对应的城市信息
  province.addEventListener(&quot;change&quot;, connect, false);
  function connect() &#123;
@@ -2037,7 +2102,6 @@ init(data);
    addCityDate(city, citydate);
  &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>代码实现见html文件</p>
@@ -2047,12 +2111,11 @@ init(data);
 <li>省市区三级联动<br><strong>思路</strong>：</li>
 </ol>
 <ul>
-<li><p>定义一个html元素，作为容器</p>
-<blockquote>
-<pre><code>&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
+<li>定义一个html元素，作为容器</li>
+</ul>
+<pre><code>&gt;&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
+<ul>
 <li><p>填充数据</p>
 <blockquote>
 <ul>
@@ -2078,7 +2141,6 @@ init(data);
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>//初始化：填充省份数据和默认的市区数据
  init(area, data);
  function init(el, data) &#123;
@@ -2101,53 +2163,55 @@ init(data);
    &#125;
  &#125;
 </code></pre>
-</blockquote>
 <ul>
-<li><p>利用<code>change</code>事件，拿到当前省、市id,并调用查找函数和填充函数</p>
-<blockquote>
+<li>利用<code>change</code>事件，拿到当前省、市id,并调用查找函数和填充函数<blockquote>
 <ul>
 <li>选择省份时，才能拿到省id并填充市数据</li>
 <li>同样的选择市区时，才能拿到市id并填充区数据</li>
 <li>因此，在为了在选择省份后能显示出默认的区数据</li>
 <li>所以在填充市数据后，要把第一个市的<strong>区数据</strong>填充进去，作为默认值</li>
 </ul>
-<pre><code>//利用change事件，拿到当前点击的省份id
- selectArr[0].onchange = function () &#123;
- var _index = this.selectedIndex;
- var id = this.options[_index].value; //省份编码
- //找市数据
- var children = find(id, data);
- //拿到市数据后，将其填充到下拉菜单
- addDate(selectArr[1], children);
- // 驱动 默认的 区数据的变化
- addDate(selectArr[2], children[0].children);
- &#125;;
-</code></pre>
-</blockquote>
-<p> &#x2F;&#x2F;利用change事件，拿到当前点击的市id<br> selectArr[1].onchange &#x3D; function () {<br> var _index &#x3D; this.selectedIndex;<br> var id &#x3D; this.options[_index].value; &#x2F;&#x2F;省份编码<br>  &#x2F;&#x2F;找区数据<br> var children &#x3D; find(id, data);<br> &#x2F;&#x2F;拿到区数据后，将其填充到下拉菜单<br> addDate(selectArr[2], children);<br> };</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>将查到的<code>children</code>数据填充进下拉菜单</p>
-<blockquote>
-<pre><code>// 填充市区数据,el:selectArr[];date:市/区数据
- function addDate(el, date) &#123;
- el.innerHTML = &quot;&quot;;
- var frag = document.createDocumentFragment();
- for (var i = 0; i &lt; date.length; i++) &#123;
-   var option = document.createElement(&quot;option&quot;);
-   option.value = date[i].pid || date[i].cid || date[i].aid;
-   option.text = date[i].fullname;
-   frag.appendChild(option);
- &#125;
- el.appendChild(frag);
- &#125;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>//利用change事件，拿到当前点击的省份id
+ selectArr[0].onchange = function () &#123;
+   var _index = this.selectedIndex;
+   var id = this.options[_index].value; //省份编码
+   //找市数据
+   var children = find(id, data);
+   //拿到市数据后，将其填充到下拉菜单
+   addDate(selectArr[1], children);
+   // 驱动 默认的 区数据的变化
+   addDate(selectArr[2], children[0].children);
+ &#125;;
+&gt;
+ //利用change事件，拿到当前点击的市id
+ selectArr[1].onchange = function () &#123;
+   var _index = this.selectedIndex;
+   var id = this.options[_index].value; //省份编码
+    //找区数据
+   var children = find(id, data);
+   //拿到区数据后，将其填充到下拉菜单
+   addDate(selectArr[2], children);
+ &#125;;
+</code></pre>
+<ul>
+<li>将查到的<code>children</code>数据填充进下拉菜单</li>
+</ul>
+<pre><code>// 填充市区数据,el:selectArr[];date:市/区数据
+ function addDate(el, date) &#123;
+   el.innerHTML = &quot;&quot;;
+   var frag = document.createDocumentFragment();
+   for (var i = 0; i &lt; date.length; i++) &#123;
+     var option = document.createElement(&quot;option&quot;);
+     option.value = date[i].pid || date[i].cid || date[i].aid;
+     option.text = date[i].fullname;
+     frag.appendChild(option);
+   &#125;
+   el.appendChild(frag);
+ &#125;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意</p>
@@ -2160,37 +2224,38 @@ init(data);
 <ul>
 <li>取得id后，查找该id的<code>children</code>数据——一个可递归的函数<br><strong>方法1：先深度再广度，全盘搜索</strong><blockquote>
 <p><strong>基础版</strong></p>
-<pre><code> //用id,找市、区数据
- var result = &quot;&quot;;
- function find(id, data) &#123;
- //先深度再广度，每一个for循环查一个省，在这个for循环里，先查省，再查它的children市区
- //如果拿到的是市id，那每个省市区都找一遍
- for (var i = 0; i &lt; data.length; i++) &#123;
-   if (data[i].pid === id || data[i].cid === id || data[i].aid === id) &#123;
-     result = data[i].children;
-     return result;
-   //第一轮查的是省pid,查不到，如果它有children就下一轮
-   //第二轮到市，第三轮到区，区没有children就停止
- &#125; else &#123;
-     if (data[i].children) &#123;
-       find(id, data[i].children);
-     &#125;
-   &#125;
- &#125;
- return result;
- &#125;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code> //用id,找市、区数据
+ var result = &quot;&quot;;
+ function find(id, data) &#123;
+   //先深度再广度，每一个for循环查一个省，在这个for循环里，先查省，再查它的children市区
+   //如果拿到的是市id，那每个省市区都找一遍
+   for (var i = 0; i &lt; data.length; i++) &#123;
+     if (data[i].pid === id || data[i].cid === id || data[i].aid === id) &#123;
+       result = data[i].children;
+       return result;
+     //第一轮查的是省pid,查不到，如果它有children就下一轮
+     //第二轮到市，第三轮到区，区没有children就停止
+ &#125; else &#123;
+       if (data[i].children) &#123;
+         find(id, data[i].children);
+       &#125;
+     &#125;
+   &#125;
+   return result;
+ &#125;
+</code></pre>
 <blockquote>
 <p><strong>优化版</strong></p>
-<pre><code>/**
-* find 根据pid 或 cid 或aid来查找对应省或市或区的下一级
-* id为对应pid或 cid或aid
-* data为省市区数据
-* n表示递归的深度
-*/
+</blockquote>
+<pre><code>&gt;/**
+&gt; * find 根据pid 或 cid 或aid来查找对应省或市或区的下一级
+&gt; * id为对应pid或 cid或aid
+&gt; * data为省市区数据
+&gt; * n表示递归的深度
+&gt; */
 function find(id, data, n) &#123;
   var result;
   var flag = false; // 用来标记，退出整个for循环
@@ -2199,13 +2264,24 @@ function find(id, data, n) &#123;
   function search(id, data, n) &#123;
     // 递归深度达到 或 数据不存在，则退出
     if (n === -1 || !data) return;
+&gt;
+  // 数据遍历
+    for (var i = 0; i &lt; data.length; i++) &#123;
+      if (flag) break; // 退出整个for循环
+      if (data[i].pid === id || data[i].cid === id || data[i].aid === id) &#123;
+        result = data[i].children;
+        flag = true; // 找到了标记为true,用来退出后面所有for循环
+        break; // 或 return result;
+      &#125; else &#123;
+        n--; // 调用递归就开始减
+        search(id, data[i].children, n); // 值
+        n++;//下一次for循环的递归层数不能变
+      &#125;
+    &#125;
+    return result;
+  &#125;
+&#125;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 数据遍历<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      if (flag) break; &#x2F;&#x2F; 退出整个for循环<br>      if (data[i].pid &#x3D;&#x3D;&#x3D; id || data[i].cid &#x3D;&#x3D;&#x3D; id || data[i].aid &#x3D;&#x3D;&#x3D; id) {<br>        result &#x3D; data[i].children;<br>        flag &#x3D; true; &#x2F;&#x2F; 找到了标记为true,用来退出后面所有for循环<br>        break; &#x2F;&#x2F; 或 return result;<br>      } else {<br>        n–; &#x2F;&#x2F; 调用递归就开始减<br>        search(id, data[i].children, n); &#x2F;&#x2F; 值<br>        n++;&#x2F;&#x2F;下一次for循环的递归层数不能变<br>      }<br>    }<br>    return result;<br>  }<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <p><strong>方法2：逐级查询</strong></p>
 <blockquote>
 <ul>
@@ -2221,18 +2297,33 @@ function find(id, data, n) &#123;
 <li>查省-市对应区var ids &#x3D; {pid: “130000”,cid: “130100”};</li>
 <li>查省-市-区对应街道 var ids &#x3D; {pid: “130000”,cid: “130100”,aid: “130102”};</li>
 </ul>
-<pre><code>/**
-* find 根据传递id集合，找到对应市、区、街道信息
-* ids查询id集合   &#123; pid: &quot;130000&quot;, cid: &quot;130100&quot; &#125;
-* data 查询的数据
-*/
-</code></pre>
 </blockquote>
-<p>&#x2F;&#x2F;   var a &#x3D; 0;  查看查询的次数<br>function find(ids, data) {<br>  &#x2F;&#x2F; 遍历对象<br>  for (var key in ids) {<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      &#x2F;&#x2F; a++;<br>      if (<br>        (data[i].pid &amp;&amp; data[i].pid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>        (data[i].cid &amp;&amp; data[i].cid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>        (data[i].aid &amp;&amp; data[i].aid &#x3D;&#x3D;&#x3D; ids[key])<br>      ) {<br>        data &#x3D; data[i].children; &#x2F;&#x2F; 每一轮查找下一轮要查询的数据<br>        break; &#x2F;&#x2F; 找到了就退出，不找了，只退出第一层for循环<br>      }<br>    }<br>  }<br>  &#x2F;&#x2F; console.log(a);<br>  return data || null;<br>}</p>
-<blockquote>
-<pre><code>
+<pre><code>&gt;/**
+&gt; * find 根据传递id集合，找到对应市、区、街道信息
+&gt; * ids查询id集合   &#123; pid: &quot;130000&quot;, cid: &quot;130100&quot; &#125;
+&gt; * data 查询的数据
+&gt; */
+&gt;
+//   var a = 0;  查看查询的次数
+function find(ids, data) &#123;
+  // 遍历对象
+  for (var key in ids) &#123;
+    for (var i = 0; i &lt; data.length; i++) &#123;
+      // a++;
+      if (
+        (data[i].pid &amp;&amp; data[i].pid === ids[key]) ||
+        (data[i].cid &amp;&amp; data[i].cid === ids[key]) ||
+        (data[i].aid &amp;&amp; data[i].aid === ids[key])
+      ) &#123;
+        data = data[i].children; // 每一轮查找下一轮要查询的数据
+        break; // 找到了就退出，不找了，只退出第一层for循环
+      &#125;
+    &#125;
+  &#125;
+  // console.log(a);
+  return data || null;
+&#125;
 </code></pre>
-</blockquote>
 <ul>
 <li>如何记录每个下拉列表当前被选中项的 pid或cid或aid的值呢 ？<blockquote>
 <ul>
@@ -2245,37 +2336,38 @@ function find(id, data, n) &#123;
 <ul>
 <li><code>init()</code>函数初始化时，给对象添加对应属性保存对应值</li>
 </ul>
+</blockquote>
 <pre><code>data[0].pid &amp;&amp; (select.pid = data[0].pid);
 data[0].cid &amp;&amp; (select.cid = data[0].cid);
 data[0].aid &amp;&amp; (select.aid = data[0].aid);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>对应的 change 事件中</li>
 </ul>
+</blockquote>
 <pre><code>this.pid = this.options[_index].value;
 // 或
 this.cid = this.options[_index].value;
 // 或
 this.aid = this.options[_index].value;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>addDate 函数中</li>
 </ul>
+</blockquote>
 <pre><code>el.pid &amp;&amp; (el.pid = data[0].pid);
 el.cid &amp;&amp; (el.cid = data[0].cid);
 el.aid &amp;&amp; (el.aid = data[0].aid);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>完整实现</li>
 </ul>
-<pre><code>&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div id=&quot;area&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   // 我们需要利用JS来动态创建三个下拉列表，同时把对应的数据填充好，然后再一次性插入到页面中来
   var area = document.getElementById(&quot;area&quot;);
   var selectArr = []; // 用来保存初始的三个下拉列表
@@ -2295,51 +2387,94 @@ el.aid &amp;&amp; (el.aid = data[0].aid);
       select.appendChild(option);
     &#125;
     el.appendChild(select);
+&gt;
+    // 保存对应pid或cid 或 aid到对象身上
+    data[0].pid &amp;&amp; (select.pid = data[0].pid);
+    data[0].cid &amp;&amp; (select.cid = data[0].cid);
+    data[0].aid &amp;&amp; (select.aid = data[0].aid);
+&gt;
+    // 递归调用 初始化市 区数据
+    if (data[0].children) &#123;
+      init(el, data[0].children);
+    &#125;
+  &#125;
+&gt;
+  // 开始级省份下拉列表添加change事件
+  selectArr[0].onchange = function () &#123;
+    // 查找省份对应的id，然后用他来查找省份对应的市数据
+    var _index = this.selectedIndex;
+    var pid = this.options[_index].value;
+    this.pid = pid; // 保存pid
+    // 找到对应省份的市数据 ，首先找到对应省份，然后找到对应的市数据，然后再填充
+    // 直接拿着对应的省份，去所有数据中找，然后把对应市数据拿到
+    var children = find(&#123; pid: pid &#125;, data);
+    // 拿省份对应的市数据，那就开始填充数据
+    addDate(selectArr[1], children);
+    // 驱动区数据的变化
+    addDate(selectArr[2], children[0].children);
+  &#125;;
+&gt;
+  // 开始市级下拉列表添加change事件
+  selectArr[1].onchange = function () &#123;
+    var _index = this.selectedIndex;
+    var cid = this.options[_index].value;
+    this.cid = cid; // 保存id
+    // 拿市 id要去找对应的区数据
+&gt;
+    var children = find(&#123; pid: selectArr[0].pid, cid: cid &#125;, data);
+    // 填充数据
+    addDate(selectArr[2], children);
+  &#125;;
+&gt;
+  selectArr[2].onchange = function () &#123;
+    var _index = this.selectedIndex;
+    var id = this.options[_index].value;
+    this.aid = id; // 保存aid
+  &#125;;
+&gt;
+  // 填充数据，el谁里面填数据 data用来填充的数据
+  function addDate(el, data) &#123;
+    el.innerHTML = &quot;&quot;; // 往el中填数据前，要清空之前数据
+    el.pid &amp;&amp; (el.pid = data[0].pid);
+    el.cid &amp;&amp; (el.cid = data[0].cid);
+    el.aid &amp;&amp; (el.aid = data[0].aid);
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i &lt; data.length; i++) &#123;
+      var option = document.createElement(&quot;option&quot;);
+      option.value = data[i].pid || data[i].cid || data[i].aid;
+      option.text = data[i].fullname;
+      frag.appendChild(option);
+    &#125;
+    el.appendChild(frag);
+  &#125;
+&gt;
+  function find(ids, data) &#123;
+    // 遍历对象
+    for (var key in ids) &#123;
+      for (var i = 0; i &lt; data.length; i++) &#123;
+        // a++;
+        if (
+          (data[i].pid &amp;&amp; data[i].pid === ids[key]) ||
+          (data[i].cid &amp;&amp; data[i].cid === ids[key]) ||
+          (data[i].aid &amp;&amp; data[i].aid === ids[key])
+        ) &#123;
+          data = data[i].children; // 每一轮查找下一轮要查询的数据
+          break; // 找到了就退出，不找了，只退出第一层for循环
+        &#125;
+      &#125;
+    &#125;
+    // console.log(a);
+    return data || null;
+  &#125;
+&gt;
+  // 无关函数，用来询对象身上的pid或cid 或 aid属性
+  function show() &#123;
+    for (var i = 0; i &lt; selectArr.length; i++) &#123;
+      console.log(selectArr[i].pid || selectArr[i].cid || selectArr[i].aid);
+    &#125;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>// 保存对应pid或cid 或 aid到对象身上
-data[0].pid &amp;&amp; (select.pid = data[0].pid);
-data[0].cid &amp;&amp; (select.cid = data[0].cid);
-data[0].aid &amp;&amp; (select.aid = data[0].aid);
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 递归调用 初始化市 区数据
-if (data[0].children) &#123;
-  init(el, data[0].children);
-&#125;
-</code></pre>
-<p>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 开始级省份下拉列表添加change事件<br>  selectArr[0].onchange &#x3D; function () {<br>    &#x2F;&#x2F; 查找省份对应的id，然后用他来查找省份对应的市数据<br>    var _index &#x3D; this.selectedIndex;<br>    var pid &#x3D; this.options[_index].value;<br>    this.pid &#x3D; pid; &#x2F;&#x2F; 保存pid<br>    &#x2F;&#x2F; 找到对应省份的市数据 ，首先找到对应省份，然后找到对应的市数据，然后再填充<br>    &#x2F;&#x2F; 直接拿着对应的省份，去所有数据中找，然后把对应市数据拿到<br>    var children &#x3D; find({ pid: pid }, data);<br>    &#x2F;&#x2F; 拿省份对应的市数据，那就开始填充数据<br>    addDate(selectArr[1], children);<br>    &#x2F;&#x2F; 驱动区数据的变化<br>    addDate(selectArr[2], children[0].children);<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 开始市级下拉列表添加change事件<br>  selectArr[1].onchange &#x3D; function () {<br>    var _index &#x3D; this.selectedIndex;<br>    var cid &#x3D; this.options[_index].value;<br>    this.cid &#x3D; cid; &#x2F;&#x2F; 保存id<br>    &#x2F;&#x2F; 拿市 id要去找对应的区数据</p>
-<blockquote>
-</blockquote>
-<pre><code>var children = find(&#123; pid: selectArr[0].pid, cid: cid &#125;, data);
-// 填充数据
-addDate(selectArr[2], children);
-</code></pre>
-<p>  };</p>
-<blockquote>
-</blockquote>
-<p>  selectArr[2].onchange &#x3D; function () {<br>    var _index &#x3D; this.selectedIndex;<br>    var id &#x3D; this.options[_index].value;<br>    this.aid &#x3D; id; &#x2F;&#x2F; 保存aid<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 填充数据，el谁里面填数据 data用来填充的数据<br>  function addDate(el, data) {<br>    el.innerHTML &#x3D; “”; &#x2F;&#x2F; 往el中填数据前，要清空之前数据<br>    el.pid &amp;&amp; (el.pid &#x3D; data[0].pid);<br>    el.cid &amp;&amp; (el.cid &#x3D; data[0].cid);<br>    el.aid &amp;&amp; (el.aid &#x3D; data[0].aid);<br>    var frag &#x3D; document.createDocumentFragment();<br>    for (var i &#x3D; 0; i &lt; data.length; i++) {<br>      var option &#x3D; document.createElement(“option”);<br>      option.value &#x3D; data[i].pid || data[i].cid || data[i].aid;<br>      option.text &#x3D; data[i].fullname;<br>      frag.appendChild(option);<br>    }<br>    el.appendChild(frag);<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  function find(ids, data) {<br>    &#x2F;&#x2F; 遍历对象<br>    for (var key in ids) {<br>      for (var i &#x3D; 0; i &lt; data.length; i++) {<br>        &#x2F;&#x2F; a++;<br>        if (<br>          (data[i].pid &amp;&amp; data[i].pid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>          (data[i].cid &amp;&amp; data[i].cid &#x3D;&#x3D;&#x3D; ids[key]) ||<br>          (data[i].aid &amp;&amp; data[i].aid &#x3D;&#x3D;&#x3D; ids[key])<br>        ) {<br>          data &#x3D; data[i].children; &#x2F;&#x2F; 每一轮查找下一轮要查询的数据<br>          break; &#x2F;&#x2F; 找到了就退出，不找了，只退出第一层for循环<br>        }<br>      }<br>    }<br>    &#x2F;&#x2F; console.log(a);<br>    return data || null;<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 无关函数，用来询对象身上的pid或cid 或 aid属性<br>  function show() {<br>    for (var i &#x3D; 0; i &lt; selectArr.length; i++) {<br>      console.log(selectArr[i].pid || selectArr[i].cid || selectArr[i].aid);<br>    }<br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="五、DOM-事件流"><a href="#五、DOM-事件流" class="headerlink" title="五、DOM 事件流"></a>五、DOM 事件流</h3><ol>
 <li>事件流<blockquote>
 <p>在了解什么是事件流之前，我们先来回答下面这个问题。</p>
@@ -2394,36 +2529,36 @@ addDate(selectArr[2], children);
 </li>
 </ol>
 <ul>
-<li><p>on开头方式，只能监听到事件冒泡阶段，不支持监听事件捕获阶段</p>
-<blockquote>
+<li>on开头方式，只能监听到事件冒泡阶段，不支持监听事件捕获阶段<blockquote>
 <ul>
 <li>书写顺序不影响冒泡顺序，只会从内往外触发</li>
 </ul>
-<pre><code>&lt;div class=&quot;box1&quot;&gt;
- &lt;div class=&quot;box2&quot;&gt;
-   &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-var box1 = document.querySelector(&quot;.box1&quot;);
-var box2 = document.querySelector(&quot;.box2&quot;);
-var box3 = document.querySelector(&quot;.box3&quot;);
- box2.onclick = function () &#123;
-  console.log(&quot;冒泡2&quot;);
-&#125;;
- box1.onclick = function () &#123;
-  console.log(&quot;冒泡1&quot;);
-&#125;;
- box3.onclick = function () &#123;
-  console.log(&quot;冒泡3&quot;);
-&#125;;
-//冒泡3-&gt;冒泡2-&gt;冒泡1
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>addEventListener 方式监听事件</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;div class=&quot;box1&quot;&gt;
+&gt;  &lt;div class=&quot;box2&quot;&gt;
+&gt;    &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  var box3 = document.querySelector(&quot;.box3&quot;);
+   box2.onclick = function () &#123;
+    console.log(&quot;冒泡2&quot;);
+  &#125;;
+   box1.onclick = function () &#123;
+    console.log(&quot;冒泡1&quot;);
+  &#125;;
+   box3.onclick = function () &#123;
+    console.log(&quot;冒泡3&quot;);
+  &#125;;
+  //冒泡3-&gt;冒泡2-&gt;冒泡1
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>addEventListener 方式监听事件<blockquote>
 <p>由它的第三个参数决定，是监听捕获还是冒泡阶段</p>
 <ul>
 <li>如果第三个参数是true ， 表示监听捕获阶段</li>
@@ -2431,24 +2566,21 @@ var box3 = document.querySelector(&quot;.box3&quot;);
 <li>同一个事件的不同阶段，先执行捕获阶段，再执行冒泡阶段</li>
 <li>不同事件的同一阶段，如果是”true”则由外向内执行，如果是”false”则由内向外执行，书写顺序不影响执行顺序</li>
 </ul>
-<pre><code>// 监听捕获阶段
-element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 监听冒泡阶段<br>element.addEventListener(“click”, function () {}, false);</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<pre><code>&lt;div class=&quot;box1&quot;&gt;
- &lt;div class=&quot;box2&quot;&gt;
-   &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
+<pre><code>// 监听捕获阶段
+element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
+&gt;
+// 监听冒泡阶段
+element.addEventListener(&quot;click&quot;, function () &#123;&#125;, false);
+</code></pre>
+<pre><code>&gt;&lt;div class=&quot;box1&quot;&gt;
+&gt;  &lt;div class=&quot;box2&quot;&gt;
+&gt;    &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box1 = document.querySelector(&quot;.box1&quot;);
   var box2 = document.querySelector(&quot;.box2&quot;);
   var box3 = document.querySelector(&quot;.box3&quot;);
@@ -2481,9 +2613,8 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
     false
   );
   //捕获2-&gt;冒泡3-&gt;冒泡2-&gt;冒泡1
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>mouseenter 和 mouseleave 事件不支持冒泡<table>
 <thead>
@@ -2503,11 +2634,10 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 </tbody></table>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;div class=&quot;box1&quot;&gt;
- &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;div class=&quot;box1&quot;&gt;
+&gt;  &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box1 = document.querySelector(&quot;.box1&quot;);
   var box2 = document.querySelector(&quot;.box2&quot;);
   //   mouseenter不会冒泡
@@ -2525,15 +2655,32 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
     &#125;,
     false
   );
+
+  //mouseover会冒泡
+  box1.addEventListener(
+    &quot;mouseover&quot;,
+    function () &#123;
+      console.log(&quot;冒泡移入1&quot;);
+    &#125;,
+    false
+  );
+  box2.addEventListener(
+    &quot;mouseover&quot;,
+    function () &#123;
+      console.log(&quot;冒泡移入2&quot;);
+    &#125;,
+    false
+  );
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F;mouseover会冒泡<br>  box1.addEventListener(<br>    “mouseover”,<br>    function () {<br>      console.log(“冒泡移入1”);<br>    },<br>    false<br>  );<br>  box2.addEventListener(<br>    “mouseover”,<br>    function () {<br>      console.log(“冒泡移入2”);<br>    },<br>    false<br>  );</p>
 <blockquote>
-<p></script></p>
-<pre><code>&gt;当鼠标从外往内移入时
-&gt;- mouseenter：冒泡移入1-&gt;冒泡移入2
-&gt;- mouseover：冒泡移入1-&gt;冒泡移入2-&gt;冒泡移入1，也就是当鼠标放在里面的div时，会同时触发两个冒泡事件
-</code></pre>
+<blockquote>
+<p>当鼠标从外往内移入时</p>
+<ul>
+<li>mouseenter：冒泡移入1-&gt;冒泡移入2</li>
+<li>mouseover：冒泡移入1-&gt;冒泡移入2-&gt;冒泡移入1，也就是当鼠标放在里面的div时，会同时触发两个冒泡事件</li>
+</ul>
+</blockquote>
 </blockquote>
 <ol start="4">
 <li><p>on 与 addEventListener 两者监听事件的区别</p>
@@ -2581,11 +2728,11 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 <li>事件处理函数提供了一个形参，它是一个对象，封装了本次<strong>事件的所有细节</strong></li>
 <li>这个参数通常用单词<code>event</code>或<code>e</code>、<code>ev</code>表示</li>
 </ul>
+</blockquote>
 <pre><code>box.onmousemove = function (e) &#123;
   // 对象e就是这次事件的 “事件对象”
 &#125;;
 </code></pre>
-</blockquote>
 <ol>
 <li>鼠标位置<blockquote>
 <p>事件对象 event 上提供了鼠标位置相关的属性，具体如下表</p>
@@ -2624,8 +2771,7 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   body &#123;
     margin: 0;
     height: 3000px;
@@ -2637,10 +2783,10 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
     background-color: khaki;
     margin: 100px;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   box.onclick = function (e) &#123;
     console.log(&quot;clientX:&quot; + e.clientX);
@@ -2650,9 +2796,8 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
     console.log(&quot;offsetX:&quot; + e.offsetX);
     console.log(&quot;offsetY:&quot; + e.offsetY);
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ul>
 <li><p>滚动条到顶时</p>
 <blockquote>
@@ -2728,15 +2873,14 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 </tbody></table>
 </li>
 </ul>
+</blockquote>
 <pre><code>document.onkeydown = function (e) &#123;
   console.log(&quot;key:&quot; + e.key);
   console.log(&quot;code:&quot; + e.code);
 &#125;;
 </code></pre>
-</blockquote>
 <ol start="3">
-<li><p>e.altKey、e.ctrlKey、e.shiftKey</p>
-<table>
+<li>e.altKey、e.ctrlKey、e.shiftKey<table>
 <thead>
 <tr>
 <th>属性名</th>
@@ -2756,77 +2900,78 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 <td>表示事件触发时<code>shift键</code>是否按下；如果按下，则 <code>e.shiftKey</code>返回值为<code>true</code>，否则为<code>false</code></td>
 </tr>
 </tbody></table>
-<blockquote>
+</li>
+</ol>
 <pre><code>document.onkeydown = function (e) &#123;
   console.log(&quot;altkey:&quot; + e.altKey);
   console.log(&quot;ctrlkey:&quot; + e.ctrlKey);
   console.log(&quot;shift:&quot; + e.shiftKey);
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>e.preventDefault() 方法</p>
-<blockquote>
+<ol start="4">
+<li>e.preventDefault() 方法<blockquote>
 <ul>
 <li><code>e.preventDefault()</code>方法用来阻止事件产生的**”默认动作”**</li>
 <li>常见图片默认的拖拽行为、超链接的默认点击跳转行为</li>
 </ul>
-<pre><code>&lt;img src=&quot;../src/games/flower.png&quot; alt=&quot;&quot; width=&quot;300px&quot; /&gt;
-&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;img src=&quot;../src/games/flower.png&quot; alt=&quot;&quot; width=&quot;300px&quot; /&gt;
+&gt;&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
+&gt; &lt;script&gt;
   var img = document.querySelector(&quot;img&quot;);
   var a = document.querySelector(&quot;a&quot;);
   img.onmousedown = function (e) &#123;
- e.preventDefault();
+    e.preventDefault();
   &#125;;
   a.onclick = function (e) &#123;
- e.preventDefault();
+    e.preventDefault();
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>e.stopPropagation() 方法</p>
-<blockquote>
+<ol start="5">
+<li>e.stopPropagation() 方法<blockquote>
 <ul>
 <li><code>e.stopPropagation()</code>方法<strong>用来阻止事件冒泡</strong></li>
 <li>在一些场合，非常有必要切断事件继续传播，否则会造成页面特效显示出bug</li>
 </ul>
-<pre><code>&lt;div class=&quot;box1&quot;&gt;
- &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  var box1 = document.querySelector(&quot;.box1&quot;);
-  var box2 = document.querySelector(&quot;.box2&quot;);
-  box1.onclick = function (e) &#123;
- console.log(&quot;冒泡box1&quot;);
-  &#125;;
-  box2.onclick = function (e) &#123;
- console.log(&quot;冒泡box2&quot;);
- e.stopPropagation();//加了之后，阻止冒泡
-  &#125;;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>案例</p>
-<blockquote>
-<ul>
-<li><code>ctrl+a</code>改变网页背景颜色</li>
-</ul>
-<pre><code>&lt;script&gt;
-  document.onkeydown = function (e) &#123;
- console.log(e.key);
- console.log(e.ctrlKey);
- if (e.key === &quot;a&quot; &amp;&amp; e.ctrlKey) &#123;
-   document.body.style.backgroundColor = &quot;red&quot;;
- &#125;
-  &#125;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;div class=&quot;box1&quot;&gt;
+&gt;  &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  box1.onclick = function (e) &#123;
+    console.log(&quot;冒泡box1&quot;);
+  &#125;;
+  box2.onclick = function (e) &#123;
+    console.log(&quot;冒泡box2&quot;);
+    e.stopPropagation();//加了之后，阻止冒泡
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="6">
+<li>案例<blockquote>
+<ul>
+<li><code>ctrl+a</code>改变网页背景颜色</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+  document.onkeydown = function (e) &#123;
+    console.log(e.key);
+    console.log(e.ctrlKey);
+    if (e.key === &quot;a&quot; &amp;&amp; e.ctrlKey) &#123;
+      document.body.style.backgroundColor = &quot;red&quot;;
+    &#125;
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <h3 id="七、事件委托"><a href="#七、事件委托" class="headerlink" title="七、事件委托"></a>七、事件委托</h3><h4 id="什么是事件委托"><a href="#什么是事件委托" class="headerlink" title="什么是事件委托"></a>什么是事件委托</h4><blockquote>
 <ul>
 <li>事件委托可以理解为，本来是 A 要处理的事情，现在委托给了 B 来处理，事件委托也称为<strong>事件代理</strong>。</li>
@@ -2842,33 +2987,56 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 <li>页面上有一个无序列表<ul>，它内部共有10个<li>元素，请批量给它们添加点击事件监听</li>
 <li>实现效果：点击哪个<li>元素，哪个<li>元素的文字颜色就变红</li>
 </ul>
-<pre><code>&lt;ul&gt;
- &lt;li&gt;我是第1个li&lt;/li&gt;
- &lt;li&gt;我是第2个li&lt;/li&gt;
- &lt;li&gt;我是第3个li&lt;/li&gt;
- &lt;li&gt;我是第4个li&lt;/li&gt;
- &lt;li&gt;我是第5个li&lt;/li&gt;
- &lt;li&gt;我是第6个li&lt;/li&gt;
- &lt;li&gt;我是第7个li&lt;/li&gt;
- &lt;li&gt;我是第8个li&lt;/li&gt;
- &lt;li&gt;我是第9个li&lt;/li&gt;
- &lt;li&gt;我是第10个li&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
-  //点击哪个&lt;li&gt;元素，哪个&lt;li&gt;元素的文字颜色就变红
-  var ul = document.getElementsByTagName(&quot;ul&quot;)[0];
-  var liList = document.getElementsByTagName(&quot;li&quot;);
-</code></pre>
-</blockquote>
-  &#x2F;&#x2F; 常规思路：for循环给每个li添加点击事件<br>  for (var i &#x3D; 0; i &lt; liList.length; i++) {<br> liList[i].onclick &#x3D; function () {<br>   this.style.color &#x3D; “red”;<br> };<br>  }<blockquote>
-</blockquote>
-  &#x2F;&#x2F;事件委托 基础版：<br>  ul.onclick &#x3D; function (e) {<br> console.log(e.target); &#x2F;&#x2F; <li>….</li>;<br> console.log(e.currentTarget); &#x2F;&#x2F; <ul>…</ul>;<br> e.target.style.color &#x3D; “red”; &#x2F;&#x2F;这时，如果点击ul的区域，那所有li都会变色<br>  };<blockquote>
-<p>  &#x2F;&#x2F;事件委托 优化版：<br>  ul.onclick &#x3D; function (e) {<br> var tag &#x3D; e.target.tagName; &#x2F;&#x2F;获取元素的标签名，大写形式<br> if (tag.toLowerCase() &#x3D;&#x3D;&#x3D; “li”) {<br>   e.target.style.color &#x3D; “red”;<br> }<br>  };<br></script></p>
-<pre><code>&gt;- `.toLowerCase()`大写转小写
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;ul&gt;
+&gt;  &lt;li&gt;我是第1个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第2个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第3个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第4个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第5个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第6个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第7个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第8个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第9个li&lt;/li&gt;
+&gt;  &lt;li&gt;我是第10个li&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
+  //点击哪个&lt;li&gt;元素，哪个&lt;li&gt;元素的文字颜色就变红
+  var ul = document.getElementsByTagName(&quot;ul&quot;)[0];
+  var liList = document.getElementsByTagName(&quot;li&quot;);
+&gt;
+  // 常规思路：for循环给每个li添加点击事件
+  for (var i = 0; i &lt; liList.length; i++) &#123;
+    liList[i].onclick = function () &#123;
+      this.style.color = &quot;red&quot;;
+    &#125;;
+  &#125;
+&gt;
+  //事件委托 基础版：
+  ul.onclick = function (e) &#123;
+    console.log(e.target); // &lt;li&gt;....&lt;/li&gt;;
+    console.log(e.currentTarget); // &lt;ul&gt;...&lt;/ul&gt;;
+    e.target.style.color = &quot;red&quot;; //这时，如果点击ul的区域，那所有li都会变色
+  &#125;;
+&gt;  
+  //事件委托 优化版：
+  ul.onclick = function (e) &#123;
+    var tag = e.target.tagName; //获取元素的标签名，大写形式
+    if (tag.toLowerCase() === &quot;li&quot;) &#123;
+      e.target.style.color = &quot;red&quot;;
+    &#125;
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<ul>
+<li><code>.toLowerCase()</code>大写转小写</li>
+</ul>
+</blockquote>
+</blockquote>
 <ul>
 <li><p>常规思路：for循环批量给li添加点击事件</p>
 <blockquote>
@@ -2923,60 +3091,83 @@ element.addEventListener(&quot;click&quot;, function () &#123;&#125;, true);
 </li>
 </ol>
 <ul>
-<li><p>常规方法</p>
-<blockquote>
+<li>常规方法<blockquote>
 <ul>
 <li><code>span</code>的删除操作在新增按钮的点击事件里，因为在外面获取不到<code>span</code></li>
 </ul>
-<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
-&lt;ul id=&quot;J_list&quot;&gt;
- &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
-&lt;/ul&gt;
-&lt;script&gt;
-var addButton = document.getElementById(&quot;J_add&quot;);
-var ul = document.getElementById(&quot;J_list&quot;);
-var span = document.querySelector(&quot;span&quot;);
-var sum = 0;
-</code></pre>
-</blockquote>
-<p>addButton.onclick &#x3D; function () {<br>  &#x2F;&#x2F;新增li元素<br>  var li &#x3D; document.createElement(“li”);<br>  sum++;<br>  li.innerText &#x3D; “第” + sum + “个li元素”;<br>  ul.appendChild(li);<br>  &#x2F;&#x2F;新增span元素<br>  var span &#x3D; document.createElement(“span”);<br>  span.innerText &#x3D; “删除”;<br>  li.appendChild(span);<br>  ul.appendChild(li);</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;删除操作——常规版 parent.removeChild(child)<br>  span.onclick &#x3D; function () {<br>var li &#x3D; this.parentNode;<br>li.parentNode.removeChild(li);<br>  };<br>};</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>事件委托版</p>
-<blockquote>
-<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
-&lt;ul id=&quot;J_list&quot;&gt;
- &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
- &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
-&lt;/ul&gt;
-&lt;script&gt;
-var addButton = document.getElementById(&quot;J_add&quot;);
-var ul = document.getElementById(&quot;J_list&quot;);
-var span = document.querySelector(&quot;span&quot;);
-var sum = 0;
-</code></pre>
-</blockquote>
-<p>addButton.onclick &#x3D; function () {<br>  &#x2F;&#x2F;新增li元素<br>  var li &#x3D; document.createElement(“li”);<br>  sum++;<br>  li.innerText &#x3D; “第” + sum + “个li元素”;<br>  ul.appendChild(li);<br>  &#x2F;&#x2F;新增span元素<br>  var span &#x3D; document.createElement(“span”);<br>  span.innerText &#x3D; “删除”;<br>  li.appendChild(span);<br>  ul.appendChild(li);<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;事件委托版<br>oul.onclick &#x3D; function (e) {<br>  var tag &#x3D; e.target;<br>  if (tag.tagName.toLowerCase() !&#x3D;&#x3D; “span”) return;<br>  this.removeChild(tag.parentNode); &#x2F;&#x2F;this是ul<br>};</p>
-<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
+&gt;&lt;ul id=&quot;J_list&quot;&gt;
+&gt;  &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
+  var addButton = document.getElementById(&quot;J_add&quot;);
+  var ul = document.getElementById(&quot;J_list&quot;);
+  var span = document.querySelector(&quot;span&quot;);
+  var sum = 0;
+&gt;
+  addButton.onclick = function () &#123;
+    //新增li元素
+    var li = document.createElement(&quot;li&quot;);
+    sum++;
+    li.innerText = &quot;第&quot; + sum + &quot;个li元素&quot;;
+    ul.appendChild(li);
+    //新增span元素
+    var span = document.createElement(&quot;span&quot;);
+    span.innerText = &quot;删除&quot;;
+    li.appendChild(span);
+    ul.appendChild(li);
+&gt;
+    //删除操作——常规版 parent.removeChild(child)
+    span.onclick = function () &#123;
+      var li = this.parentNode;
+      li.parentNode.removeChild(li);
+    &#125;;
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>事件委托版</li>
+</ul>
+<pre><code>&lt;button id=&quot;J_add&quot;&gt;新增&lt;/button&gt;
+&gt;&lt;ul id=&quot;J_list&quot;&gt;
+&gt;  &lt;!-- &lt;li&gt;第1个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第2个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第3个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt;
+&gt;  &lt;li&gt;第4个li元素&lt;span&gt;删除&lt;/span&gt;&lt;/li&gt; --&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
+  var addButton = document.getElementById(&quot;J_add&quot;);
+  var ul = document.getElementById(&quot;J_list&quot;);
+  var span = document.querySelector(&quot;span&quot;);
+  var sum = 0;
+&gt;
+  addButton.onclick = function () &#123;
+    //新增li元素
+    var li = document.createElement(&quot;li&quot;);
+    sum++;
+    li.innerText = &quot;第&quot; + sum + &quot;个li元素&quot;;
+    ul.appendChild(li);
+    //新增span元素
+    var span = document.createElement(&quot;span&quot;);
+    span.innerText = &quot;删除&quot;;
+    li.appendChild(span);
+    ul.appendChild(li);
+&#125;;
+&gt;
+  //事件委托版
+  oul.onclick = function (e) &#123;
+    var tag = e.target;
+    if (tag.tagName.toLowerCase() !== &quot;span&quot;) return;
+    this.removeChild(tag.parentNode); //this是ul
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -2984,11 +3175,11 @@ var sum = 0;
 <li>如果写成这样是报错的，因为此时的<code>tag</code>只是保存着字符串<code>&quot;span&quot;</code>的变量，找不到它的父元素</li>
 </ul>
 </blockquote>
+</blockquote>
 <pre><code>tag = e.target.tagName.toLowerCase()
 if (tag !== &quot;span&quot;) return;
     this.removeChild(tag.parentNode); 
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>案例 3：选项卡效果<blockquote>
 <p>涉及知识点</p>
@@ -3001,119 +3192,143 @@ if (tag !== &quot;span&quot;) return;
 </li>
 </ol>
 <ul>
-<li><p>方式一：用相同的下标</p>
-<blockquote>
-<pre><code>&lt;style&gt;
-ul,
-li &#123;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-&#125;
-.box &#123;
-  width: 400px;
-  height: 250px;
-  margin: 50px;
-  border: 1px solid #000;
-&#125;
-.box-tab &#123;
-  width: 100%;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-&#125;
-.box-tab li &#123;
-  float: left;
-  width: 80px;
-  cursor: pointer;
-&#125;
-.box-tab li.current &#123;
-  color: red;
-&#125;
-.box-show .item &#123;
-  width: 100%;
-  height: 200px;
-  background-color: #ddd;
-  display: none;
-  font-size: 30px;
-  text-align: center;
-&#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;
- &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
-   &lt;li class=&quot;current&quot;&gt;最新&lt;/li&gt;
-   &lt;li&gt;内地&lt;/li&gt;
-   &lt;li&gt;港台&lt;/li&gt;
-   &lt;li&gt;欧美&lt;/li&gt;
-   &lt;li&gt;韩国&lt;/li&gt;
- &lt;/ul&gt;
- &lt;div class=&quot;box-show&quot;&gt;
-   &lt;div class=&quot;item&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
-   &lt;div class=&quot;item&quot;&gt;内地&lt;/div&gt;
-   &lt;div class=&quot;item&quot;&gt;港台&lt;/div&gt;
-   &lt;div class=&quot;item&quot;&gt;欧美&lt;/div&gt;
-   &lt;div class=&quot;item&quot;&gt;韩国&lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-var oUL = document.getElementById(&quot;J_tab&quot;);
-var liList = document.querySelectorAll(&quot;.box-tab li&quot;);
-var items = document.querySelectorAll(&quot;.box-show .item&quot;);
+<li>方式一：用相同的下标</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  ul,
+  li &#123;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  &#125;
+  .box &#123;
+    width: 400px;
+    height: 250px;
+    margin: 50px;
+    border: 1px solid #000;
+  &#125;
+  .box-tab &#123;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  &#125;
+  .box-tab li &#123;
+    float: left;
+    width: 80px;
+    cursor: pointer;
+  &#125;
+  .box-tab li.current &#123;
+    color: red;
+  &#125;
+  .box-show .item &#123;
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    display: none;
+    font-size: 30px;
+    text-align: center;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
+&gt;    &lt;li class=&quot;current&quot;&gt;最新&lt;/li&gt;
+&gt;    &lt;li&gt;内地&lt;/li&gt;
+&gt;    &lt;li&gt;港台&lt;/li&gt;
+&gt;    &lt;li&gt;欧美&lt;/li&gt;
+&gt;    &lt;li&gt;韩国&lt;/li&gt;
+&gt;  &lt;/ul&gt;
+&gt;  &lt;div class=&quot;box-show&quot;&gt;
+&gt;    &lt;div class=&quot;item&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot;&gt;内地&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot;&gt;港台&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot;&gt;欧美&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot;&gt;韩国&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  var oUL = document.getElementById(&quot;J_tab&quot;);
+  var liList = document.querySelectorAll(&quot;.box-tab li&quot;);
+  var items = document.querySelectorAll(&quot;.box-show .item&quot;);
+&gt;
+  var currentLi = oUL.firstElementChild; //默认第一个
+  var currentItem = items[0]; //默认第一个
+   //给每一个li添加下标
+  for (var i = 0; i &lt; liList.length; i++) &#123;
+    liList[i].index = i;
+  &#125;
+  oUL.onclick = function (e) &#123;
+    var tag = e.target; //获取事件源元素
+    var tagName = tag.tagName.toLowerCase();
+    //如果事件源是li
+    if (tagName !== &quot;li&quot;) return;
+    //移除上一个点击元素的类名
+    currentLi.classList.remove(&quot;current&quot;);
+    //给每个被点击的li添加current
+    tag.classList.add(&quot;current&quot;);
+    currentLi = tag;
+     //切换下方菜单
+    var num = tag.index; //获得当前点击元素的下标
+    currentItem.style = &quot;display:none&quot;; //将上一个点击的元素隐藏
+    items[num].style = &quot;display:block&quot;;
+    currentItem = items[num];
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>var currentLi &#x3D; oUL.firstElementChild; &#x2F;&#x2F;默认第一个<br>var currentItem &#x3D; items[0]; &#x2F;&#x2F;默认第一个<br> &#x2F;&#x2F;给每一个li添加下标<br>for (var i &#x3D; 0; i &lt; liList.length; i++) {<br>  liList[i].index &#x3D; i;<br>}<br>oUL.onclick &#x3D; function (e) {<br>  var tag &#x3D; e.target; &#x2F;&#x2F;获取事件源元素<br>  var tagName &#x3D; tag.tagName.toLowerCase();<br>  &#x2F;&#x2F;如果事件源是li<br>  if (tagName !&#x3D;&#x3D; “li”) return;<br>  &#x2F;&#x2F;移除上一个点击元素的类名<br>  currentLi.classList.remove(“current”);<br>  &#x2F;&#x2F;给每个被点击的li添加current<br>  tag.classList.add(“current”);<br>  currentLi &#x3D; tag;<br>   &#x2F;&#x2F;切换下方菜单<br>  var num &#x3D; tag.index; &#x2F;&#x2F;获得当前点击元素的下标<br>  currentItem.style &#x3D; “display:none”; &#x2F;&#x2F;将上一个点击的元素隐藏<br>  items[num].style &#x3D; “display:block”;<br>  currentItem &#x3D; items[num];<br>};</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>方式二：用相同的属性</p>
-<blockquote>
+<ul>
+<li>方式二：用相同的属性<blockquote>
 <ul>
 <li>使用属性选择器获得与<code>li</code>的id相同的展示页</li>
 <li>属性选择器<code>标签名/类名[属性=&quot;&quot;]</code></li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
-   &lt;li class=&quot;current&quot; data-id=&quot;a&quot;&gt;最新&lt;/li&gt;
-   &lt;li data-id=&quot;b&quot;&gt;内地&lt;/li&gt;
-   &lt;li data-id=&quot;c&quot;&gt;港台&lt;/li&gt;
-   &lt;li data-id=&quot;d&quot;&gt;欧美&lt;/li&gt;
-   &lt;li data-id=&quot;e&quot;&gt;韩国&lt;/li&gt;
- &lt;/ul&gt;
- &lt;div class=&quot;box-show&quot;&gt;
-   &lt;div class=&quot;item&quot; data-id=&quot;a&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
-   &lt;div class=&quot;item&quot; data-id=&quot;b&quot;&gt;内地&lt;/div&gt;
-   &lt;div class=&quot;item&quot; data-id=&quot;c&quot;&gt;港台&lt;/div&gt;
-   &lt;div class=&quot;item&quot; data-id=&quot;d&quot;&gt;欧美&lt;/div&gt;
-   &lt;div class=&quot;item&quot; data-id=&quot;e&quot;&gt;韩国&lt;/div&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-var oUL = document.getElementById(&quot;J_tab&quot;);
-var items = document.querySelectorAll(&quot;.box-show .item&quot;);
- var currentLi = oUL.firstElementChild; //默认第一个
-var currentItem = items[0]; //默认第一个
- oUL.onclick = function (e) &#123;
-  var tag = e.target; //获取事件源元素
-  var tagName = tag.tagName.toLowerCase();
-  //如果事件源是li
-  if (tagName !== &quot;li&quot;) return;
-  //移除上一个点击元素的类名
-  currentLi.classList.remove(&quot;current&quot;);
-  //给每个被点击的li添加current
-  tag.classList.add(&quot;current&quot;);
-  currentLi = tag;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;切换下方菜单<br>var id &#x3D; tag.dataset.id; &#x2F;&#x2F;获得当前点击元素的id<br>&#x2F;&#x2F;选择属性与id相同的item，使用属性选择器img[alt&#x3D;””]<br>var item &#x3D; document.querySelector(<br>  “.box-show .item[data-id&#x3D;” + id + “]”<br>);<br>currentItem.style.display &#x3D; “none”; &#x2F;&#x2F;将上一个点击的元素隐藏<br>item.style.display &#x3D; “block”;<br>currentItem &#x3D; item;<br>};</p>
-<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;ul class=&quot;box-tab&quot; id=&quot;J_tab&quot;&gt;
+&gt;    &lt;li class=&quot;current&quot; data-id=&quot;a&quot;&gt;最新&lt;/li&gt;
+&gt;    &lt;li data-id=&quot;b&quot;&gt;内地&lt;/li&gt;
+&gt;    &lt;li data-id=&quot;c&quot;&gt;港台&lt;/li&gt;
+&gt;    &lt;li data-id=&quot;d&quot;&gt;欧美&lt;/li&gt;
+&gt;    &lt;li data-id=&quot;e&quot;&gt;韩国&lt;/li&gt;
+&gt;  &lt;/ul&gt;
+&gt;  &lt;div class=&quot;box-show&quot;&gt;
+&gt;    &lt;div class=&quot;item&quot; data-id=&quot;a&quot; style=&quot;display: block&quot;&gt;最新&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot; data-id=&quot;b&quot;&gt;内地&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot; data-id=&quot;c&quot;&gt;港台&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot; data-id=&quot;d&quot;&gt;欧美&lt;/div&gt;
+&gt;    &lt;div class=&quot;item&quot; data-id=&quot;e&quot;&gt;韩国&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var oUL = document.getElementById(&quot;J_tab&quot;);
+  var items = document.querySelectorAll(&quot;.box-show .item&quot;);
+   var currentLi = oUL.firstElementChild; //默认第一个
+  var currentItem = items[0]; //默认第一个
+   oUL.onclick = function (e) &#123;
+    var tag = e.target; //获取事件源元素
+    var tagName = tag.tagName.toLowerCase();
+    //如果事件源是li
+    if (tagName !== &quot;li&quot;) return;
+    //移除上一个点击元素的类名
+    currentLi.classList.remove(&quot;current&quot;);
+    //给每个被点击的li添加current
+    tag.classList.add(&quot;current&quot;);
+    currentLi = tag;
+&gt;
+  //切换下方菜单
+  var id = tag.dataset.id; //获得当前点击元素的id
+  //选择属性与id相同的item，使用属性选择器img[alt=&quot;&quot;]
+  var item = document.querySelector(
+    &quot;.box-show .item[data-id=&quot; + id + &quot;]&quot;
+  );
+  currentItem.style.display = &quot;none&quot;; //将上一个点击的元素隐藏
+  item.style.display = &quot;block&quot;;
+  currentItem = item;
+&#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="4">
 <li>事件委托的使用场景和注意事项和优点</li>
 </ol>

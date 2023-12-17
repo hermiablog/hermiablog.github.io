@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-05
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15.9k
+                    16.4k
                 </div>
                 
 
@@ -483,33 +483,28 @@
 </ul>
 </blockquote>
 <ul>
-<li>我们来下面这段简单的 HTML 代码<blockquote>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
- &lt;head&gt;
-   &lt;meta charset=&quot;UTF-8&quot; /&gt;
-   &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
-   &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
-   &lt;title&gt;DOM文档结构树&lt;/title&gt;
- &lt;/head&gt;
- &lt;body&gt;
-   &lt;div&gt;
-     &lt;div&gt;我是文本节点&lt;/div&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>我们来下面这段简单的 HTML 代码</li>
 </ul>
-<blockquote>
-<pre><code> &lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;
- &lt;h3&gt;&lt;/h3&gt;
+<pre><code>&gt;&lt;!DOCTYPE html&gt;
+&gt;&lt;html lang=&quot;en&quot;&gt;
+&gt;  &lt;head&gt;
+&gt;    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+&gt;    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+&gt;    &lt;title&gt;DOM文档结构树&lt;/title&gt;
+&gt;  &lt;/head&gt;
+&gt;  &lt;body&gt;
+&gt;    &lt;div&gt;
+&gt;      &lt;div&gt;我是文本节点&lt;/div&gt;
+&gt;      &lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;
+&gt;      &lt;h3&gt;&lt;/h3&gt;
+&gt;    &lt;/div&gt;
+&gt;    &lt;p&gt;&lt;/p&gt;
+&gt;  &lt;/body&gt;
+&gt;&lt;/html&gt;
 </code></pre>
-   </div>
-   <p></p>
- </body>
-</html>
-```
 <img src="DOM树.png">
-</blockquote>
+
 <blockquote>
 <blockquote>
 <p>注</p>
@@ -567,12 +562,12 @@
 <li>document 是 window 对象的属性，因此是一个<strong>全局对象</strong></li>
 <li>控制台 console 可以输入下面两行代码，就可以获得当前网页的文档对象</li>
 </ul>
+</blockquote>
 <pre><code>window.document; // 获取 文档节点对象
 document; // 获取 文档节点对象
 // 注意区分大小写， document 与 Document是两个不同的东西
 // HTMLDocument 继承 Document
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <ul>
@@ -616,8 +611,7 @@ document; // 获取 文档节点对象
 </ul>
 </blockquote>
 <ol>
-<li><p>getElementById()</p>
-<blockquote>
+<li>getElementById()<blockquote>
 <ul>
 <li><code>document.getElementById()</code>的功能是，通过元素的<strong>id名</strong>来得到元素节点</li>
 <li>不管元素藏的位置有多深，都能通过 id 把它找到<blockquote>
@@ -625,45 +619,48 @@ document; // 获取 文档节点对象
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;div id=&quot;box&quot;&gt;我是一个盒子&lt;/div&gt;
-&lt;div id=&quot;box&quot;&gt;我是2&lt;/div&gt;
-&lt;p id=&quot;title&quot;&gt;我是一个段落&lt;/p&gt;
-
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div id=&quot;box&quot;&gt;我是一个盒子&lt;/div&gt;
+&gt;&lt;div id=&quot;box&quot;&gt;我是2&lt;/div&gt;
+&gt;&lt;p id=&quot;title&quot;&gt;我是一个段落&lt;/p&gt;
+&gt;
+&gt;&lt;script&gt;
   var box = document.getElementById(&quot;box&quot;);
   var title = document.getElementById(&quot;title&quot;);
   console.log(box); // &lt;div id=&quot;box&quot;&gt;我是一个盒子&lt;/div&gt;
   console.log(title); // &lt;p id=&quot;title&quot;&gt;我是一个段落&lt;/p&gt;
   console.log(typeof box); // object
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>getElementsByTagName()</p>
-<blockquote>
+<ol start="2">
+<li>getElementsByTagName()<blockquote>
 <ul>
 <li><code>getElementsByTagName()</code>方法的功能是通过<strong>标签名</strong>得到节点元素组成的<strong>数组</strong>,而且得到的是一个类数组，没有数组身上的方法</li>
 <li>所以我们可以通过遍历数组，批量操控每一元素节点</li>
 </ul>
-<pre><code>&lt;div id=&quot;box1&quot;&gt;
- &lt;p&gt;我是p段落标签&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&quot;box2&quot;&gt;
- &lt;p&gt;我是p段落标签&lt;/p&gt;
- &lt;p&gt;我是p段落标签&lt;/p&gt;
- &lt;h3&gt;我是h3标签&lt;/h3&gt;
-&lt;/div&gt;
-&lt;script&gt;
- var pList = document.getElementsByTagName(&quot;p&quot;);
- console.log(pList); // HTMLCollection(3) [p, p, p]
-&lt;/script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div id=&quot;box1&quot;&gt;
+&gt;  &lt;p&gt;我是p段落标签&lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;div id=&quot;box2&quot;&gt;
+&gt;  &lt;p&gt;我是p段落标签&lt;/p&gt;
+&gt;  &lt;p&gt;我是p段落标签&lt;/p&gt;
+&gt;  &lt;h3&gt;我是h3标签&lt;/h3&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+&gt;  var pList = document.getElementsByTagName(&quot;p&quot;);
+&gt;  console.log(pList); // HTMLCollection(3) [p, p, p]
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>HTMLCollection 对象，是一个类数组对象，他没有数组身上的方法。</p>
 </blockquote>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>即使页面上<strong>只有一个</strong>指定标签名的节点，也将得到长度为 1 的数组</li>
@@ -672,20 +669,22 @@ document; // 获取 文档节点对象
 </ul>
 </blockquote>
 <ol start="3">
-<li><p>getElementsByClassName()</p>
-<blockquote>
+<li>getElementsByClassName()<blockquote>
 <ul>
 <li><code>getElementsByClassName()</code>方法的功能是通过<strong>class 类名</strong>得到节点数组</li>
 <li>如果只能获取一个元素，返回长度为 1 的数组，如果没有找到，则返回空数组</li>
 <li>document和节点元素都可以调用 <code>getElementsByClassName()</code>方法，从而得到其内部的某类名的元素节点</li>
 </ul>
-<pre><code>&lt;div class=&quot;box box1&quot;&gt;box1&lt;/div&gt;
-&lt;div class=&quot;box box2&quot;&gt;box2&lt;/div&gt;
-&lt;div id=&quot;content&quot;&gt;
- &lt;div class=&quot;box box3&quot;&gt;box3&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;box box1&quot;&gt;box1&lt;/div&gt;
+&gt;&lt;div class=&quot;box box2&quot;&gt;box2&lt;/div&gt;
+&gt;&lt;div id=&quot;content&quot;&gt;
+&gt;  &lt;div class=&quot;box box3&quot;&gt;box3&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   // 获取所有class名中包含 box的元素
   var box = document.getElementsByClassName(&quot;box&quot;);
   console.log(box);
@@ -694,51 +693,52 @@ document; // 获取 文档节点对象
   // 获取content中class名为box的元素
   var conBox = content.getElementsByClassName(&quot;box&quot;);
   console.log(conBox);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>querySelector()</p>
-<blockquote>
+<ol start="4">
+<li>querySelector()<blockquote>
 <ul>
 <li>通过<strong>CSS 选择器</strong>得到页面当中的元素，不过只能得到<strong>第一个</strong>被找到的元素</li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
-  &lt;p&gt;我是p1&lt;/p&gt;
-  &lt;p&gt;我是p2&lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  var p = document.querySelector(&quot;.box p&quot;);
-  console.log(p); // &lt;p&gt;我是p1&lt;/p&gt;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>querySelectorAll()</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+  &lt;p&gt;我是p1&lt;/p&gt;
+  &lt;p&gt;我是p2&lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var p = document.querySelector(&quot;.box p&quot;);
+  console.log(p); // &lt;p&gt;我是p1&lt;/p&gt;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="5">
+<li>querySelectorAll()<blockquote>
 <ul>
 <li>通过<strong>CSS选择器</strong>得到页面当中的元素，返回被找到元素组成的<strong>数组</strong></li>
 <li>如果只有一个符合要求的，也将得到长度为 1 的数组</li>
 <li>如果没有符合要求的，则返回一个空数组</li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;div class=&quot;title&quot;&gt;
-   &lt;p&gt;我是p&lt;/p&gt;
-   &lt;p&gt;我是p&lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;title&quot;&gt;
- &lt;p&gt;我是p&lt;/p&gt;
- &lt;p&gt;我是p&lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
- var pList = document.querySelectorAll(&quot;.title p&quot;);
- console.log(pList); // NodeList(4) [p, p, p, p]
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;title&quot;&gt;
+&gt;    &lt;p&gt;我是p&lt;/p&gt;
+&gt;    &lt;p&gt;我是p&lt;/p&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;div class=&quot;title&quot;&gt;
+&gt;  &lt;p&gt;我是p&lt;/p&gt;
+&gt;  &lt;p&gt;我是p&lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+&gt;  var pList = document.querySelectorAll(&quot;.title p&quot;);
+&gt;  console.log(pList); // NodeList(4) [p, p, p, p]
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="6">
 <li><p>querySelectorAll 、getElementsByClassName()、getElementsByTagName() 的区别</p>
 <blockquote>
 <ul>
@@ -785,31 +785,31 @@ document; // 获取 文档节点对象
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;script&gt;
- var box1 = document.getElementById(&quot;box1&quot;);
- console.log(box1); // null  没有获取到元素
-&lt;/script&gt;
-&lt;div id=&quot;box1&quot;&gt;box&lt;/div&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var box1 = document.getElementById(&quot;box1&quot;);
+&gt;  console.log(box1); // null  没有获取到元素
+&gt;&lt;/script&gt;
+&gt;&lt;div id=&quot;box1&quot;&gt;box&lt;/div&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li>如果 JS 代码写在 body 前面，也能正常执行，可以使用<code>window.onload = function()&#123;&#125;</code>事件，使页面加载完毕后，再执行指定的代码</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
   // 给window对象添加onload事件监听，onload表示页面都加载完毕了
   window.onload = function () &#123;
     var box1 = document.getElementById(&quot;box1&quot;);
     console.log(box1);
   &#125;;
-&lt;/script&gt;
-&lt;body&gt;
- &lt;div id=&quot;box1&quot;&gt;box&lt;/div&gt;
-&lt;/body&gt;
+&gt;&lt;/script&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div id=&quot;box1&quot;&gt;box&lt;/div&gt;
+&gt;&lt;/body&gt;
 </code></pre>
-</blockquote>
 <h3 id="三、操作元素属性"><a href="#三、操作元素属性" class="headerlink" title="三、操作元素属性"></a>三、操作元素属性</h3><h4 id="符合标准的-w3c-属性"><a href="#符合标准的-w3c-属性" class="headerlink" title="符合标准的 w3c 属性"></a>符合标准的 w3c 属性</h4><blockquote>
 <p>常见的符合标准的 w3c 属性有</p>
 <ul>
@@ -823,28 +823,28 @@ document; // 获取 文档节点对象
 </ul>
 </blockquote>
 <ol>
-<li><p>id、alt 、title</p>
-<blockquote>
+<li>id、alt 、title<blockquote>
 <ul>
 <li>id 这个属性在实际中，我们肯定不会去更改他的值</li>
 <li>alt 图片描述属性</li>
 <li>title 提示属性，主要用在 a 标签上</li>
 <li>获取元素后，打点调用来修改或者新增属性</li>
 </ul>
-<pre><code>&lt;img src=&quot;../src/3.avif&quot; id=&quot;img&quot; /&gt;
-&lt;a href=&quot;http://www.baidu.com&quot; id=&quot;link&quot;&gt;百度&lt;/a&gt;
-&lt;script&gt;
- var img2 = document.getElementById(&quot;img&quot;);
- var a2 = document.getElementById(&quot;link&quot;);
- img2.id = &quot;img1&quot;;
- img2.alt = &quot;美女图片&quot;;
- a2.title = &quot;去百度走一趟&quot;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>src 和 href</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;img src=&quot;../src/3.avif&quot; id=&quot;img&quot; /&gt;
+&gt;&lt;a href=&quot;http://www.baidu.com&quot; id=&quot;link&quot;&gt;百度&lt;/a&gt;
+&gt;&lt;script&gt;
+&gt;  var img2 = document.getElementById(&quot;img&quot;);
+&gt;  var a2 = document.getElementById(&quot;link&quot;);
+&gt;  img2.id = &quot;img1&quot;;
+&gt;  img2.alt = &quot;美女图片&quot;;
+&gt;  a2.title = &quot;去百度走一趟&quot;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>src 和 href<blockquote>
 <ul>
 <li>src 属性，用来修改图片的地址</li>
 <li>href 属性，用来修改超链接的地址</li>
@@ -853,59 +853,61 @@ document; // 获取 文档节点对象
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;img src=&quot;images/img1.png&quot; alt=&quot;&quot; id=&quot;img&quot; /&gt;
-&lt;a href=&quot;http://www.baidu.com&quot; title=&quot;百度&quot; id=&quot;link&quot;&gt;百度&lt;/a&gt;
-
-&lt;script&gt;
-  var img = document.getElementById(&quot;img&quot;);
-  var a = document.getElementById(&quot;link&quot;);
-</code></pre>
 </blockquote>
-<p>  img.src &#x3D; “images&#x2F;logo.png”;<br>  a.href &#x3D; “<a target="_blank" rel="noopener" href="http://www.icodingedu.com/">http://www.icodingedu.com</a>“;<br>  a.innerText &#x3D; “艾编程”;<br>  a.title &#x3D; “艾编程”;</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>表单属性</p>
 </li>
 </ol>
+<pre><code>&gt;&lt;img src=&quot;images/img1.png&quot; alt=&quot;&quot; id=&quot;img&quot; /&gt;
+&gt;&lt;a href=&quot;http://www.baidu.com&quot; title=&quot;百度&quot; id=&quot;link&quot;&gt;百度&lt;/a&gt;
+&gt;
+&gt;&lt;script&gt;
+  var img = document.getElementById(&quot;img&quot;);
+  var a = document.getElementById(&quot;link&quot;);
+&gt;
+  img.src = &quot;images/logo.png&quot;;
+  a.href = &quot;http://www.icodingedu.com&quot;;
+  a.innerText = &quot;艾编程&quot;;
+  a.title = &quot;艾编程&quot;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>表单属性</li>
+</ol>
 <ul>
-<li><p>value 表单值</p>
-<blockquote>
+<li>value 表单值<blockquote>
 <ul>
 <li>获取元素后，调用value值可以获取<code>value的初始值</code>或<code>输入框中的内容</code></li>
 </ul>
-<pre><code>用户名：&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;userName&quot; value=&quot;123&quot; /&gt;&lt;br /&gt;
-&lt;script&gt;
-// 获取用户名
-var userName = document.getElementById(&quot;userName&quot;);
-console.log(userName.value);//123
-//在输入框输入aabb后
-console.log(userName.value);//aabb
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>type 表单类型</p>
-<blockquote>
+</ul>
+<pre><code>用户名：&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;userName&quot; value=&quot;123&quot; /&gt;&lt;br /&gt;
+&gt;&lt;script&gt;
+  // 获取用户名
+  var userName = document.getElementById(&quot;userName&quot;);
+  console.log(userName.value);//123
+  //在输入框输入aabb后
+  console.log(userName.value);//aabb
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>type 表单类型<blockquote>
 <ul>
 <li>把<code>text</code>改成<code>password</code>隐藏密码，也可反向操作</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>密码：&lt;input type=&quot;text&quot; name=&quot;&quot; id=&quot;iphone&quot; value=&quot;&quot; /&gt;
-&lt;script&gt;
+&gt;&lt;script&gt;
 // 获取电话号码输入框
 var iphone = document.getElementById(&quot;iphone&quot;);
 // 写入密码，将电话号码隐藏
 iphone.value = &quot;1223333&quot;;
 iphone.type = &quot;password&quot;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>checked 单选和复选框选中状态</p>
-<blockquote>
+<ul>
+<li>checked 单选和复选框选中状态<blockquote>
 <ul>
 <li>单选框是互斥的</li>
 <li>默认选中：<ul>
@@ -915,46 +917,45 @@ iphone.type = &quot;password&quot;;
 </li>
 <li>单选</li>
 </ul>
-<pre><code>&lt;h3&gt;姓别&lt;/h3&gt;
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;&quot; value=&quot;男&quot; /&gt;男
-&lt;input type=&quot;radio&quot; name=&quot;sex&quot; checked=&quot;true&quot; id=&quot;&quot; value=&quot;女&quot; /&gt;女
-&lt;script&gt;
- // 获取单选框
-var sex = document.getElementsByName(&quot;sex&quot;);
-// 选中第一个男
-//sex[0].checked = true;
-//sex[1].checked = &quot;checked&quot;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;h3&gt;姓别&lt;/h3&gt;
+&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;&quot; value=&quot;男&quot; /&gt;男
+&gt;&lt;input type=&quot;radio&quot; name=&quot;sex&quot; checked=&quot;true&quot; id=&quot;&quot; value=&quot;女&quot; /&gt;女
+&gt;&lt;script&gt;
+ // 获取单选框
+  var sex = document.getElementsByName(&quot;sex&quot;);
+  // 选中第一个男
+  //sex[0].checked = true;
+  //sex[1].checked = &quot;checked&quot;;
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li>复选</li>
 </ul>
-<pre><code>&lt;h3&gt;喜欢的水果&lt;/h3&gt;
-&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt; 苹果
-&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt;梨子
-&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt;葡萄
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;h3&gt;喜欢的水果&lt;/h3&gt;
+&gt;&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt; 苹果
+&gt;&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt;梨子
+&gt;&lt;input type=&quot;checkbox&quot; name=&quot;fruit&quot; id=&quot;&quot; /&gt;葡萄
+&gt;&lt;script&gt;
   // 获取复选框
   var fruit = document.getElementsByName(&quot;fruit&quot;);
   //选中第一个
   fruit[0].checked=true;//或者&quot;checked&quot;
   //取消选中
   fruit[0].checked=false;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p><code>getElementsByName</code>：通过表单的<code>name</code>属性获取元素，得到的是一个类数组元素</p>
 </blockquote>
 </blockquote>
 <ul>
-<li><p>selected 下拉列表元素选中状态</p>
-<blockquote>
+<li>selected 下拉列表元素选中状态<blockquote>
 <ul>
 <li>修改默认选中元素：<ul>
 <li>方式1：<code>.selected = true</code></li>
@@ -962,42 +963,43 @@ var sex = document.getElementsByName(&quot;sex&quot;);
 </ul>
 </li>
 </ul>
-<pre><code>&lt;h3&gt;选择所在城市&lt;/h3&gt;
-&lt;select name=&quot;&quot; id=&quot;city&quot;&gt;
- &lt;option value=&quot;湖南&quot;&gt;湖南&lt;/option&gt;
- &lt;option value=&quot;深圳&quot;&gt;深圳&lt;/option&gt;
- &lt;option value=&quot;上海&quot;&gt;上海&lt;/option&gt;
-&lt;/select&gt;
-&lt;script&gt;
- // 获取下拉列表
- var city = document.getElementById(&quot;city&quot;);
- var ops = city.getElementsByTagName(&quot;option&quot;);
- //修改被选中元素——方式1
- ops[2].selected = true;
- console.log(city.selectedIndex); //2
- //修改被选中元素——方式2
- city.selectedIndex = 0;
- console.log(city.selectedIndex); //0
-</code></pre>
 </blockquote>
 </li>
-<li><p>disabled 元素是否被禁用</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;h3&gt;选择所在城市&lt;/h3&gt;
+&gt;&lt;select name=&quot;&quot; id=&quot;city&quot;&gt;
+&gt;  &lt;option value=&quot;湖南&quot;&gt;湖南&lt;/option&gt;
+&gt;  &lt;option value=&quot;深圳&quot;&gt;深圳&lt;/option&gt;
+&gt;  &lt;option value=&quot;上海&quot;&gt;上海&lt;/option&gt;
+&gt;&lt;/select&gt;
+&gt;&lt;script&gt;
+&gt;  // 获取下拉列表
+&gt;  var city = document.getElementById(&quot;city&quot;);
+&gt;  var ops = city.getElementsByTagName(&quot;option&quot;);
+&gt;  //修改被选中元素——方式1
+&gt;  ops[2].selected = true;
+&gt;  console.log(city.selectedIndex); //2
+&gt;  //修改被选中元素——方式2
+&gt;  city.selectedIndex = 0;
+&gt;  console.log(city.selectedIndex); //0
+</code></pre>
+<ul>
+<li>disabled 元素是否被禁用<blockquote>
 <ul>
 <li><code>.disabled = true</code></li>
 <li><code>.disabled = &quot;disabled&quot;</code></li>
 </ul>
-<pre><code>&lt;input type=&quot;submit&quot; id=&quot;submit&quot; value=&quot;提交&quot; /&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ul>
+<pre><code>&gt;&lt;input type=&quot;submit&quot; id=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&gt;&lt;script&gt;
 // 提交按扭
 var submit = document.getElementById(&quot;submit&quot;);
 submit.disabled = true; // 禁用
 // submit.disabled = &quot;disabled&quot;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h4><blockquote>
 <ul>
 <li>自定义属性：由我们自己定义在元素身上的属性</li>
@@ -1021,9 +1023,8 @@ submit.disabled = true; // 禁用
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;div id=&quot;box&quot; abs=&quot;值&quot; title=&quot;我是提示&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;div id=&quot;box&quot; abs=&quot;值&quot; title=&quot;我是提示&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.getElementById(&quot;box&quot;);
   console.log(box.abs); // undefined
   console.log(box.getAttribute(&quot;abs&quot;)); // 值
@@ -1031,8 +1032,9 @@ submit.disabled = true; // 禁用
   box.setAttribute(&quot;mycustom&quot;, &quot;自定义属性值&quot;);//添加属性
   box.setAttribute(&quot;id&quot;, &quot;box2&quot;); //id=&quot;box2&quot;
   console.log(box.getAttribute(&quot;id&quot;));//box2
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p><code>setAttribute(key,value)</code>与<code>getAttribute(key)</code>也是可以操作标准属性</p>
 </blockquote>
@@ -1047,24 +1049,23 @@ submit.disabled = true; // 禁用
 <li>设置自定义属性的 2 种方式</li>
 </ol>
 <ul>
-<li><p>方式一： 可以直接在 HTML 标签上面书写</p>
-<blockquote>
-<pre><code>&lt;h2 data-weather=&quot;sunny&quot;&gt;今天是晴天&lt;/h2&gt;
+<li>方式一： 可以直接在 HTML 标签上面书写</li>
+</ul>
+<pre><code>&gt;&lt;h2 data-weather=&quot;sunny&quot;&gt;今天是晴天&lt;/h2&gt;
+&lt;!--
+    data-weather 自定义属性名
+    sunny 自定义属性值
+--&gt;
+&lt;!-- 多个单词组合 --&gt;
+&gt;&lt;h2 data-birth-date=&quot;20230501&quot;&gt;今天是我的生日&lt;/h2&gt;
 </code></pre>
-</blockquote>
-<!--
-  data-weather 自定义属性名
-  sunny 自定义属性值
--->
-<!-- 多个单词组合 -->
 <blockquote>
-<h2 data-birth-date="20230501">今天是我的生日</h2>
-```
->如果设置的自定义属性是多个单词组合的形式，需要用中横线-连接
-</blockquote>
-</li>
-<li><p>方式二： 通过 JS 的<code>dataset</code>属性来设置</p>
 <blockquote>
+<p>如果设置的自定义属性是多个单词组合的形式，需要用中横线-连接</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>方式二： 通过 JS 的<code>dataset</code>属性来设置<blockquote>
 <ul>
 <li><code>.dataset.属性名=&quot;属性值&quot;</code></li>
 <li>属性名中的大写，会自动用<code>-</code>分隔(驼峰命名法)</li>
@@ -1072,32 +1073,30 @@ submit.disabled = true; // 禁用
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<pre><code>&lt;h2&gt;今天是我的生日&lt;/h2&gt;
-&lt;script&gt;
- var h2 = document.querySelector(&quot;h2&quot;);
- h2.dataset.birthDate = &quot;20230501&quot;;
+<pre><code>&gt;&lt;h2&gt;今天是我的生日&lt;/h2&gt;
+&gt;&lt;script&gt;
+&gt;  var h2 = document.querySelector(&quot;h2&quot;);
+&gt;  h2.dataset.birthDate = &quot;20230501&quot;;
    //data-birth-date=&quot;20230501&quot;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>获取自定义属性<blockquote>
 <ul>
 <li>直接通过<code>对象.dataset.属性名</code>（属性名书写格式：属性去掉 <code>data-</code>之后的单词，<strong>以驼峰命名</strong>）</li>
 <li>如 属性名为<code>data-ab-cd-fg</code>则访问方式：<code>对象.dataset.abCdFg</code></li>
 </ul>
-<pre><code>&lt;img src=&quot;images/dog.png&quot; data-animal-type=&quot;animal&quot; /&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;img src=&quot;images/dog.png&quot; data-animal-type=&quot;animal&quot; /&gt;
+&gt;&lt;script&gt;
   var img = document.getElementsByTagName(&quot;img&quot;);
   //获取自定义属性
   var animalType = img[0].dataset.animalType;
   console.log(animalType);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="四、操作元素样式"><a href="#四、操作元素样式" class="headerlink" title="四、操作元素样式"></a>四、操作元素样式</h3><blockquote>
 <ul>
 <li>操作元素样式的属性有style 、cssText、 className</li>
@@ -1111,28 +1110,30 @@ submit.disabled = true; // 禁用
 <li><strong>获取</strong>行内样式的写法：<br><code>对象.style.属性名; // 属性名要采用驼峰形式书写</code></li>
 <li><strong>修改或添加</strong>行内样式的写法<br><code>对象.style.属性名 = 属性值; // 属性名要采用驼峰形式书写</code></li>
 </ul>
-<pre><code>&lt;style&gt;
- .box &#123;
-     width: 100px;
-     height: 200px;
-     background-color: hotpink;
-     color: red;
- &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
+    .box &#123;
+        width: 100px;
+        height: 200px;
+        background-color: hotpink;
+        color: red;
+    &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.getElementsByClassName(&quot;box&quot;);
   box[0].style.width = &quot;200px&quot;;
   box[0].style.backgroundColor = &quot;red&quot;;
   box[0].style.borderTop = &quot;15px solid blue&quot;;
+&gt;
+  // 获取样式
+  console.log(box[0].style.color); // 获取不到,color写在class内
+  console.log(box[0].style.borderTop); //15px solid blue
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-  &#x2F;&#x2F; 获取样式<br>  console.log(box[0].style.color); &#x2F;&#x2F; 获取不到,color写在class内<br>  console.log(box[0].style.borderTop); &#x2F;&#x2F;15px solid blue<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ol>
 <p><strong>注意事项：</strong></p>
 <blockquote>
 <ul>
@@ -1150,16 +1151,16 @@ submit.disabled = true; // 禁用
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;div
+<pre><code>&gt;&lt;div
   class=&quot;box&quot;
   style=&quot;width: 100px; height: 200px; background-color: red&quot;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.getElementsByClassName(&quot;box&quot;)[0];
   box.style.cssText = &quot;color:blue&quot;; // 覆盖了之前的style样式中的值
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>cssText 主要用来合并多次对 CSS 样式的修改，改为一次性处理</p>
 </blockquote>
@@ -1171,27 +1172,27 @@ submit.disabled = true; // 禁用
 <li>我们可以通过<code>对象.className</code>的方式来操作</li>
 <li>注意事项：<code>className</code>修改样式，如果是多个样式，样式之间要用<strong>空隔</strong>隔开</li>
 </ul>
-<pre><code>&lt;style&gt;
-  .box &#123;
- width: 100px;
- height: 100px;
- background-color: skyblue;
-  &#125;
-  .box1 &#123;
- border: 5px dashed tomato;
-  &#125;
-&lt;/style&gt;
-&lt;body&gt;
-  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-  &lt;script&gt;
- var box = document.getElementsByClassName(&quot;box&quot;);
- box[0].className = &quot;box box1&quot;; // box与box1之间要有空格
-  &lt;/script&gt;
-&lt;/body&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+  &#125;
+  .box1 &#123;
+    border: 5px dashed tomato;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;body&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+  &lt;script&gt;
+    var box = document.getElementsByClassName(&quot;box&quot;);
+    box[0].className = &quot;box box1&quot;; // box与box1之间要有空格
+  &lt;/script&gt;
+&gt;&lt;/body&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li>className 操作 CSS 样式有一个很大的<strong>缺点</strong>，就是我每次更新 class 类名时，都要把<strong>所有的类名带上</strong>。</li>
@@ -1259,7 +1260,6 @@ submit.disabled = true; // 禁用
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code> var box = document.getElementsByClassName(&quot;box&quot;)[0];
  console.log(box.classList.length); // 3 类名个数
  box.classList.add(&quot;box3&quot;); // 追加一个类名box3
@@ -1272,7 +1272,6 @@ submit.disabled = true; // 禁用
  console.log(box.classList.contains(&quot;box&quot;)); // true
  console.log(box.classList.replace(&quot;box&quot;, &quot;mybox&quot;)); // 用mybox 替换box
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注</p>
@@ -1297,20 +1296,25 @@ submit.disabled = true; // 禁用
 </ul>
 </li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>//元素节点只有构造函数不同，后续都一样
 var box = document.getElementsByClassName(&quot;box&quot;)[0];
 //得到它的构造函数：HTMLDivElement
 console.log(box.__proto__);
 //通过一层层翻找`[[prototype]]`可知继承关系
 //HTMLDivElement-&gt;HTMLElement-&gt;Element-&gt;Node-&gt;EventTarget-&gt;Object;
+&gt;
+var attr = document.createAttribute(&quot;id&quot;);
+//属性节点：attr.__proto__;//实例-&gt;Attr(继承)-&gt;Node-&gt;EventTarget-&gt;Object
+var text = document.createTextNode(&quot;文本&quot;);
+//文本节点：text.__proto__;//实例-&gt;Text(继承)-&gt;CharacterData-&gt;Node-&gt;EventTarget-&gt;Object
+var frag = document.createDocumentFragment();
+//文档片段：frag.__proto__;//实例-&gt;DocumentFragment(继承)-&gt;Node-&gt;EventTarget-&gt;Object
+var comment = document.createComment(&quot;我是一段注释&quot;);
+//注释节点：comment.__proto__;//实例-&gt;Comment(继承)-&gt;CharacterData-&gt;Node-&gt;EventTarget-&gt;Object
 </code></pre>
-</blockquote>
-var attr &#x3D; document.createAttribute(“id”);<br>&#x2F;&#x2F;属性节点：attr.<strong>proto</strong>;&#x2F;&#x2F;实例-&gt;Attr(继承)-&gt;Node-&gt;EventTarget-&gt;Object<br>var text &#x3D; document.createTextNode(“文本”);<br>&#x2F;&#x2F;文本节点：text.<strong>proto</strong>;&#x2F;&#x2F;实例-&gt;Text(继承)-&gt;CharacterData-&gt;Node-&gt;EventTarget-&gt;Object<br>var frag &#x3D; document.createDocumentFragment();<br>&#x2F;&#x2F;文档片段：frag.<strong>proto</strong>;&#x2F;&#x2F;实例-&gt;DocumentFragment(继承)-&gt;Node-&gt;EventTarget-&gt;Object<br>var comment &#x3D; document.createComment(“我是一段注释”);<br>&#x2F;&#x2F;注释节点：comment.<strong>proto</strong>;&#x2F;&#x2F;实例-&gt;Comment(继承)-&gt;CharacterData-&gt;Node-&gt;EventTarget-&gt;Object<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>结论：</p>
@@ -1321,8 +1325,7 @@ var attr &#x3D; document.createAttribute(“id”);<br>&#x2F;&#x2F;属性节点�
 </ul>
 </blockquote>
 <ol start="7">
-<li><p>手写 addClass 方法</p>
-<blockquote>
+<li>手写 addClass 方法<blockquote>
 <p>该方法实现对元素添加对应的 class 类名，如果元素上没有对应 class 类名添加，有的话就不加</p>
 <ul>
 <li>className 属性：<ul>
@@ -1334,62 +1337,118 @@ var attr &#x3D; document.createAttribute(“id”);<br>&#x2F;&#x2F;属性节点�
 <li><code>includes()</code>方法用来判断一个数组<strong>是否包含</strong>一个指定的值</li>
 <li><code>join()</code>方法将一个数组的所有元素以<strong>特定的某种字符</strong>连接成一个字符串，并返回这个<strong>字符串</strong></li>
 </ul>
-<pre><code>&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   /**
+   * addClass 方法实现对元素添加对应的class类名，如果元素上没有对应class类名就添加，有就不加
+   * @param name  class类名字符串
+   */
+  HTMLElement.prototype.addClass = function (name) &#123;
+    if (typeof name !== &quot;string&quot;) return;
+    // 获取当前对象上的class类名
+    var className = this.className;
+    // 以空格分隔成一个数组
+    var classArr = className.split(&quot; &quot;);
+    // 判断传过来的类名在不在当前数组中，如果不存在，就添加
+    if (!classArr.includes(name)) &#123;
+      classArr.push(name); // 将类名添加到数组中
+    &#125;
+    var newClassName = classArr.join(&quot; &quot;); // 将数组元素以空格拼接成字符串
+    this.className = newClassName;//修改类名
+  &#125;;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.addClass(&quot;box4&quot;);//谁调用this就是谁
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<ul>
-<li>addClass 方法实现对元素添加对应的class类名，如果元素上没有对应class类名就添加，有就不加</li>
-<li>@param name  class类名字符串<br>*&#x2F;<br>HTMLElement.prototype.addClass &#x3D; function (name) {<br> if (typeof name !&#x3D;&#x3D; “string”) return;<br> &#x2F;&#x2F; 获取当前对象上的class类名<br> var className &#x3D; this.className;<br> &#x2F;&#x2F; 以空格分隔成一个数组<br> var classArr &#x3D; className.split(“ “);<br> &#x2F;&#x2F; 判断传过来的类名在不在当前数组中，如果不存在，就添加<br> if (!classArr.includes(name)) {<br> classArr.push(name); &#x2F;&#x2F; 将类名添加到数组中<br> }<br> var newClassName &#x3D; classArr.join(“ “); &#x2F;&#x2F; 将数组元素以空格拼接成字符串<br> this.className &#x3D; newClassName;&#x2F;&#x2F;修改类名<br>};<br>var box &#x3D; document.querySelector(“.box”);<br>box.addClass(“box4”);&#x2F;&#x2F;谁调用this就是谁<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>手写 removeClass 方法</p>
-<blockquote>
+<ol start="8">
+<li>手写 removeClass 方法<blockquote>
 <ul>
 <li>该方法实现移除元素上对应的 Class 类名，如果有就移除，如果没有不做处理</li>
 </ul>
-<pre><code>&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   /**
+   * addClass 方法实现对元素添加对应的class类名，如果元素上没有对应class类名就添加，有就不加
+   * @param name  class类名字符串
+   */
+  HTMLElement.prototype.removeClass = function (name) &#123;
+    if (typeof name !== &quot;string&quot;) return;
+    // 获取当前对象上的class类名
+    var className = this.className;
+    // 以空格分隔成一个数组
+    var classArr = className.split(&quot; &quot;);
+    // 获取所查找类名的下标
+    var index = classArr.indexOf(name);
+    //如果找不到，则退出
+    if (index === -1) return;
+    //while循环删除所有 给定类名
+    while (index !== -1) &#123;
+      classArr.splice(index, 1);
+      // 要考虑傻逼模式，就是他本来就出现了两个相同的类名
+      index = classArr.indexOf(name, index); //从刚删除的下标开始查找该元素
+    &#125;
+    var newClassName = classArr.join(&quot; &quot;); // 将数组元素以空格拼接成字符串
+    this.className = newClassName;//修改类名
+  &#125;;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.removeClass(&quot;box4&quot;);//谁调用this就是谁
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<ul>
-<li>addClass 方法实现对元素添加对应的class类名，如果元素上没有对应class类名就添加，有就不加</li>
-<li>@param name  class类名字符串<br>*&#x2F;<br>HTMLElement.prototype.removeClass &#x3D; function (name) {<br> if (typeof name !&#x3D;&#x3D; “string”) return;<br> &#x2F;&#x2F; 获取当前对象上的class类名<br> var className &#x3D; this.className;<br> &#x2F;&#x2F; 以空格分隔成一个数组<br> var classArr &#x3D; className.split(“ “);<br> &#x2F;&#x2F; 获取所查找类名的下标<br> var index &#x3D; classArr.indexOf(name);<br> &#x2F;&#x2F;如果找不到，则退出<br> if (index &#x3D;&#x3D;&#x3D; -1) return;<br> &#x2F;&#x2F;while循环删除所有 给定类名<br> while (index !&#x3D;&#x3D; -1) {<br> classArr.splice(index, 1);<br> &#x2F;&#x2F; 要考虑傻逼模式，就是他本来就出现了两个相同的类名<br> index &#x3D; classArr.indexOf(name, index); &#x2F;&#x2F;从刚删除的下标开始查找该元素<br> }<br> var newClassName &#x3D; classArr.join(“ “); &#x2F;&#x2F; 将数组元素以空格拼接成字符串<br> this.className &#x3D; newClassName;&#x2F;&#x2F;修改类名<br>};<br>var box &#x3D; document.querySelector(“.box”);<br>box.removeClass(“box4”);&#x2F;&#x2F;谁调用this就是谁<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>手写 toggleClass 方法</p>
-<blockquote>
+<ol start="9">
+<li>手写 toggleClass 方法<blockquote>
 <ul>
 <li>该方法实现自动判断是给元素添加还是删除对应的 Class 类名，如果元素存在对应 Class 类名就删除，否则就添加</li>
 </ul>
-<pre><code>&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  /**
-</code></pre>
 </blockquote>
-<ul>
-<li>toggleClass 该该方法实现自动判断是给元素添加还是删除对应的Class类名，如果元素存在对应Class类名就删除，否则就添加</li>
-<li>@param name  class类名字符串<br>*&#x2F;<br>HTMLElement.prototype.toggleClass &#x3D; function (name) {<br> &#x2F;&#x2F; 获取当前对象上的class类名<br> var className &#x3D; this.className;<br> &#x2F;&#x2F; 以空格分隔成一个数组<br> var classArr &#x3D; className.split(“ “);<br> &#x2F;&#x2F; 判断传过来的类名在不在当前数组中，如果不在，就添加，存在，找到对应下标然后删掉<br> var index &#x3D; classArr.indexOf(name);<br> if (index &#x3D;&#x3D;&#x3D; -1) {<br> &#x2F;&#x2F; 没有就添加<br> classArr.push(name);<br> } else {<br> &#x2F;&#x2F; 存在，就删除<br> &#x2F;&#x2F; 要考虑傻逼模式，就是他本来就出现了两个相同的类名<br> var _index &#x3D; index;<br> while (_index !&#x3D;&#x3D; -1) {<br>   classArr.splice(_index, 1);<br>   _index &#x3D; classArr.indexOf(name, _index);<br> }<br> }<br> var newClassName &#x3D; classArr.join(“ “); &#x2F;&#x2F; 将数组元素以空格拼接成字符串<br> this.className &#x3D; newClassName;<blockquote>
-</blockquote>
- &#x2F;&#x2F; 处理返回值<br> if (index &#x3D;&#x3D;&#x3D; -1) return true;<br> return false;<br>};<blockquote>
-</blockquote>
-var box &#x3D; document.querySelector(“.box”);<br>box.toggleClass(“box2”);<br>box.toggleClass(“box1”);<br>box.toggleClass(“box3”);<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
 </li>
 </ol>
+<pre><code>&gt;&lt;div class=&quot;box box1 box2 box2&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  /**
+   * toggleClass 该该方法实现自动判断是给元素添加还是删除对应的Class类名，如果元素存在对应Class类名就删除，否则就添加
+   * @param name  class类名字符串
+   */
+  HTMLElement.prototype.toggleClass = function (name) &#123;
+    // 获取当前对象上的class类名
+    var className = this.className;
+    // 以空格分隔成一个数组
+    var classArr = className.split(&quot; &quot;);
+    // 判断传过来的类名在不在当前数组中，如果不在，就添加，存在，找到对应下标然后删掉
+    var index = classArr.indexOf(name);
+    if (index === -1) &#123;
+      // 没有就添加
+      classArr.push(name);
+    &#125; else &#123;
+      // 存在，就删除
+      // 要考虑傻逼模式，就是他本来就出现了两个相同的类名
+      var _index = index;
+      while (_index !== -1) &#123;
+        classArr.splice(_index, 1);
+        _index = classArr.indexOf(name, _index);
+      &#125;
+    &#125;
+    var newClassName = classArr.join(&quot; &quot;); // 将数组元素以空格拼接成字符串
+    this.className = newClassName;
+&gt;
+    // 处理返回值
+    if (index === -1) return true;
+    return false;
+  &#125;;
+&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.toggleClass(&quot;box2&quot;);
+  box.toggleClass(&quot;box1&quot;);
+  box.toggleClass(&quot;box3&quot;);
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注：</p>
@@ -1410,8 +1469,7 @@ var box &#x3D; document.querySelector(“.box”);<br>box.toggleClass(“box2”
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 200px;
@@ -1422,39 +1480,37 @@ var box &#x3D; document.querySelector(“.box”);<br>box.toggleClass(“box2”
     color: yellow;
     line-height: 100px;
   &#125;
-&lt;/style&gt;
-&lt;/head&gt;
-
-&lt;div class=&quot;box box1&quot; id=&quot;mybox&quot;&gt;我是css盒子&lt;/div&gt;
-&lt;script&gt;
- var mybox = document.getElementById(&quot;mybox&quot;);
- var style = getComputedStyle(mybox, null); //得到CSS访问声明
- console.log(style);
- for (var i = 0; i &lt; style.length; i++) &#123;
-   key = style[i];
-   //CSS样式及值
-   console.log(key + &quot;=&quot; + style.getPropertyValue(key));
- &#125;
-&lt;/script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;/head&gt;
+&gt;
+&gt;&lt;div class=&quot;box box1&quot; id=&quot;mybox&quot;&gt;我是css盒子&lt;/div&gt;
+&gt;&lt;script&gt;
+&gt;  var mybox = document.getElementById(&quot;mybox&quot;);
+&gt;  var style = getComputedStyle(mybox, null); //得到CSS访问声明
+&gt;  console.log(style);
+&gt;  for (var i = 0; i &lt; style.length; i++) &#123;
+&gt;    key = style[i];
+&gt;    //CSS样式及值
+&gt;    console.log(key + &quot;=&quot; + style.getPropertyValue(key));
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="11">
-<li>访问 CSS 属性值 3 种方式<blockquote>
+<li>访问 CSS 属性值 3 种方式</li>
+</ol>
 <pre><code>// 访问方式一
 // propName 属性名，正常书写
 window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
+&gt;
+// 访问方式二
+// propName 属性名 要采用驼峰命名方式
+window.getComputedStyle(element, [pseudoElt]).propName;
+&gt;
+// 访问方式三
+// propName 属性名，正常书写
+window.getComputedStyle(element, [pseudoElt])[propName];
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 访问方式二<br>&#x2F;&#x2F; propName 属性名 要采用驼峰命名方式<br>window.getComputedStyle(element, [pseudoElt]).propName;<blockquote>
-</blockquote>
-&#x2F;&#x2F; 访问方式三<br>&#x2F;&#x2F; propName 属性名，正常书写<br>window.getComputedStyle(element, [pseudoElt])[propName];<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 200px;
@@ -1465,23 +1521,21 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
     color: yellow;
     line-height: 100px;
   &#125;
-&lt;/style&gt;
-&lt;div class=&quot;box box1&quot; id=&quot;mybox&quot;&gt;我是css盒子&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box box1&quot; id=&quot;mybox&quot;&gt;我是css盒子&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var mybox = document.getElementById(&quot;mybox&quot;);
   var style = getComputedStyle(mybox, null);
   console.log(style.height);
   console.log(style.backgroundColor);
   console.log(style.lineHeight);
+&gt;
+  console.log(style.getPropertyValue(&quot;height&quot;));
+  console.log(style[&quot;background-color&quot;]);
+  console.log(style.getPropertyValue(&quot;line-height&quot;));
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  console.log(style.getPropertyValue(“height”));<br>  console.log(style[“background-color”]);<br>  console.log(style.getPropertyValue(“line-height”));</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="12">
 <li>获取伪元素样式<blockquote>
 <ul>
@@ -1490,8 +1544,7 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   #mybox &#123;
     width: 200px;
     height: 200px;
@@ -1501,17 +1554,16 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
     content: &quot;我是伪元素内容&quot;;
     color: yellow;
   &#125;
-&lt;/style&gt;
-
-&lt;div id=&quot;mybox&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div id=&quot;mybox&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var mybox = document.getElementById(&quot;mybox&quot;);
   var style = getComputedStyle(mybox, &quot;::after&quot;);
   console.log(style.color);
   console.log(style.content);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h3 id="五、获取元素尺寸"><a href="#五、获取元素尺寸" class="headerlink" title="五、获取元素尺寸"></a>五、获取元素尺寸</h3><h4 id="偏移尺寸"><a href="#偏移尺寸" class="headerlink" title="偏移尺寸"></a>偏移尺寸</h4><blockquote>
 <ul>
 <li>以下 5 个属性，都与元素的偏移尺寸有关 ,并且都是<strong>只读</strong>的</li>
@@ -1546,33 +1598,44 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
-</code></pre>
-</blockquote>
-<ul>
-<li>{<br>margin: 0;<br>padding: 0;<br>  }<br>  .box {<br>width: 200px;<br>height: 200px;<br>padding: 30px;<br>border: 10px solid red;<br>margin: 20px;<br>  }<br>  .box1 {<br>width: 100px;<br>height: 100px;<br>padding: 30px;<br>border: 10px solid blue;<br>margin: 20px;<br>&#x2F;* box-sizing: border-box; *&#x2F;<br>  }<blockquote>
-<p></style></p>
-<div class="box">
- <div class="box1"></div>
-</div>
-
-<script>
-  var box1 = document.querySelector(".box1");
+<pre><code>&gt;&lt;style&gt;
+  * &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    padding: 30px;
+    border: 10px solid red;
+    margin: 20px;
+  &#125;
+  .box1 &#123;
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+    border: 10px solid blue;
+    margin: 20px;
+    /* box-sizing: border-box; */
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  var box1 = document.querySelector(&quot;.box1&quot;);
   var _width = box1.offsetWidth;
   var _height = box1.offsetHeight;
   console.log(_width); // width+padding+border=100+60+20=180
   console.log(_height); //  height+padding+border=100+60+20=180
-
-</blockquote>
-  &#x2F;&#x2F; 如果box1更改为border-box，则最后输出结果为100 100<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
+&gt;
+  // 如果box1更改为border-box，则最后输出结果为100 100
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="2">
-<li><p>offsetParent</p>
-<blockquote>
+<li>offsetParent<blockquote>
 <ul>
 <li>此属性为<strong>只读</strong>属性，每次访问都会<strong>重新计算</strong></li>
 <li><strong>返回</strong>离当前元素<strong>最近的定位祖先元素</strong>或最近的 <code>table,td,th,tbody</code> 元素</li>
@@ -1582,41 +1645,42 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
 </ul>
 </li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>style<span class="token operator">></span>
+</blockquote>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>style<span class="token operator">></span>
   <span class="token punctuation">.</span>box <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">.</span>box1 <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* display: none; */</span>
- position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/* display: none; */</span>
+    position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token punctuation">.</span>box3 <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">/* position: fixed; */</span>
- display<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">/* position: fixed; */</span>
+    display<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
- <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>绝对定位<span class="token operator">--</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box"</span><span class="token operator">></span>
- <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>相对定位<span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>绝对定位<span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>相对定位<span class="token operator">--</span><span class="token operator">></span>
   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box1"</span><span class="token operator">></span>
-   <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>未定位<span class="token operator">--</span><span class="token operator">></span>
- <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box2"</span><span class="token operator">></span>
-   <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box3"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
- <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>未定位<span class="token operator">--</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box2"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"box3"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token comment" spellcheck="true">// 获取box3元素</span>
   <span class="token keyword">var</span> box3 <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".box3"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token comment" spellcheck="true">// 获取离box3最近的定位祖先元素</span>
   <span class="token keyword">var</span> parent <span class="token operator">=</span> box3<span class="token punctuation">.</span>offsetParent<span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>parent<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// null</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-</blockquote>
-</li>
-<li><p>offsetLeft 和 offsetTop</p>
-<blockquote>
+<ol start="3">
+<li>offsetLeft 和 offsetTop<blockquote>
 <ul>
 <li>以下两属性为<strong>只读</strong>属性，每次访问都会<strong>重新计算</strong></li>
 <li>本质上可以简单理解为定位元素的top&#x2F;left值，但也会受到margin的影响<table>
@@ -1637,32 +1701,57 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
 </tbody></table>
 </li>
 </ul>
-<pre><code>&lt;style&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<ul>
-<li>{<br>margin: 0;<br>padding: 0;<br>  }<br>  body {<br>padding: 100px;<br>  }<br>  .box1 {<br>margin: 50px;<br>padding: 20px;<br>border: 5px solid blue;<br>width: 200px;<br>height: 200px;<br>position: relative;<br>  }<br>  .box2 {<br>border: 2px solid red;<br>height: 150px;<br>  }<br>  .box3 {<br>width: 100px;<br>height: 100px;<br>position: absolute;<br>border: 10px solid skyblue;<br>margin-top: 50px;<br>margin-left: 30px;<br>left: 20px;<br>top: 50px;<br>  }<blockquote>
-<p></style></p>
-<div class="box1">
-  <div class="box2">
-</blockquote>
-<div class="box3"></div>
-  </div>
-></div>
->
-><script>
+<pre><code>&gt;&lt;style&gt;
+  * &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  body &#123;
+    padding: 100px;
+  &#125;
+  .box1 &#123;
+    margin: 50px;
+    padding: 20px;
+    border: 5px solid blue;
+    width: 200px;
+    height: 200px;
+    position: relative;
+  &#125;
+  .box2 &#123;
+    border: 2px solid red;
+    height: 150px;
+  &#125;
+  .box3 &#123;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border: 10px solid skyblue;
+    margin-top: 50px;
+    margin-left: 30px;
+    left: 20px;
+    top: 50px;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box1&quot;&gt;
+  &lt;div class=&quot;box2&quot;&gt;
+    &lt;div class=&quot;box3&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   // 获取box3元素
-  var box3 = document.querySelector(".box3");
+  var box3 = document.querySelector(&quot;.box3&quot;);
   // 与离他最近的定位祖先元素左内边距的距离
   var _left = box3.offsetLeft; // left + margin-left = 20 + 30 = 50
   // 与离他最近的定位祖先元素上内边距的距离
   var _top = box3.offsetTop; //  top + margin-top = 50 + 50 = 100
   console.log(_left, _top);
-></script>
->```</li>
-</ul>
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="4">
 <li>计算元素与页面偏移量<blockquote>
 <ul>
@@ -1680,55 +1769,51 @@ window.getComputedStyle(element, [pseudoElt]).getgetPropertyValue(propName);
 </li>
 </ol>
 <ul>
-<li><p>while 循环版</p>
-<blockquote>
-<pre><code>function getElementLeft(el) &#123;
-// 获取当前元素左偏移量
-var left = el.offsetLeft;
-// 获了当前元素的offsetParent
-var parent = el.offsetParent;
-// 如果 offsetParent 存在，则一直获取,计算他的offsetLeft值，如果不存在，则终止
-while (parent) &#123;
-  left += parent.offsetLeft; // 与每一轮元素的父元素与其定位父元素左边距离累加
-  // 计算父元素左边框大小
-  style = getComputedStyle(parent, null);
-  border = parseInt(style.borderLeftWidth); // 过滤单位部分，只取数字部分
-  // 把左边框累加进去
-  left += border;
-  parent = parent.offsetParent;
-&#125;
-// 最终返回获取的left值
-return left;
-&#125;
-var box1 = document.querySelector(&quot;.box1&quot;);
-console.log(getLeft(box1));
-</code></pre>
-</blockquote>
-</li>
-<li><p>递归版</p>
-<blockquote>
-<pre><code>function getElementLeft(el) &#123;
-// 获取当前元素左边距
-var left = el.offsetLeft;
-// 获了当前元素的offsetParent
-var parent = el.offsetParent;
-// 如果 offsetParent 存在，则一直获取,计算他的offsetLeft值，如果不存在，则终止
-if (parent) &#123;
-  // 计算父元素左边框大小
-  style = getComputedStyle(parent, null);
-  border = parseInt(style.borderLeftWidth); // 过滤单位部分，只取数字部分
-  // 把左边框累加进去
-  left += border;
-  left += getElementLeft(parent);
-&#125;
-return left;
-&#125;
-var box1 = document.querySelector(&quot;.box1&quot;);
-console.log(getLeft(box1));
-</code></pre>
-</blockquote>
-</li>
+<li>while 循环版</li>
 </ul>
+<pre><code>function getElementLeft(el) &#123;
+  // 获取当前元素左偏移量
+  var left = el.offsetLeft;
+  // 获了当前元素的offsetParent
+  var parent = el.offsetParent;
+  // 如果 offsetParent 存在，则一直获取,计算他的offsetLeft值，如果不存在，则终止
+  while (parent) &#123;
+    left += parent.offsetLeft; // 与每一轮元素的父元素与其定位父元素左边距离累加
+    // 计算父元素左边框大小
+    style = getComputedStyle(parent, null);
+    border = parseInt(style.borderLeftWidth); // 过滤单位部分，只取数字部分
+    // 把左边框累加进去
+    left += border;
+    parent = parent.offsetParent;
+  &#125;
+  // 最终返回获取的left值
+  return left;
+&#125;
+var box1 = document.querySelector(&quot;.box1&quot;);
+console.log(getLeft(box1));
+</code></pre>
+<ul>
+<li>递归版</li>
+</ul>
+<pre><code>function getElementLeft(el) &#123;
+  // 获取当前元素左边距
+  var left = el.offsetLeft;
+  // 获了当前元素的offsetParent
+  var parent = el.offsetParent;
+  // 如果 offsetParent 存在，则一直获取,计算他的offsetLeft值，如果不存在，则终止
+  if (parent) &#123;
+    // 计算父元素左边框大小
+    style = getComputedStyle(parent, null);
+    border = parseInt(style.borderLeftWidth); // 过滤单位部分，只取数字部分
+    // 把左边框累加进去
+    left += border;
+    left += getElementLeft(parent);
+  &#125;
+  return left;
+&#125;
+var box1 = document.querySelector(&quot;.box1&quot;);
+console.log(getLeft(box1));
+</code></pre>
 <ol start="5">
 <li>总结<blockquote>
 <ul>
@@ -1754,7 +1839,6 @@ console.log(getLeft(box1));
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// 求两点之间的距离
 // obj1与obj2分别表示上图中 box1与box2
 function getDistance(obj1, obj2) &#123;
@@ -1769,6 +1853,7 @@ function getDistance(obj1, obj2) &#123;
   return Math.sqrt(a * a + b * b);
 &#125;
 </code></pre>
+<blockquote>
 <blockquote>
 <ul>
 <li>开平方：<code>Math.sqrt()</code></li>
@@ -1785,81 +1870,102 @@ function getDistance(obj1, obj2) &#123;
 </li>
 </ol>
 <ul>
-<li><p>数组结构如下</p>
-<blockquote>
+<li>数组结构如下</li>
+</ul>
 <pre><code>var elementArr = [
-&#123;
-  element: li1, // html元素
-  distance: 30, // 与当前元素的最近距离
-&#125;,
-&#123;
-  element: li2,
-  distance: 50,
-&#125;,
+  &#123;
+    element: li1, // html元素
+    distance: 30, // 与当前元素的最近距离
+  &#125;,
+  &#123;
+    element: li2,
+    distance: 50,
+  &#125;,
 ];
 </code></pre>
-</blockquote>
-</li>
-<li><p>最后找出数组中 distance 值最小的那一个对象中的 element 元素</p>
-<blockquote>
+<ul>
+<li>最后找出数组中 distance 值最小的那一个对象中的 element 元素</li>
+</ul>
 <pre><code>// for循环遍历elementArr数组，找出数组中距离最小的那个元素，然后返回
  var minElement = elementArr[0];
  for (var j = 0; j &lt; elementArr.length; j++) &#123;
- if (elementArr[j].distance &lt; minElement.distance) &#123;
-   minElement = elementArr[j];
- &#125;
+   if (elementArr[j].distance &lt; minElement.distance) &#123;
+     minElement = elementArr[j];
+   &#125;
  &#125;
  return minElement.element; // 返回最小的距离的那个对象
 </code></pre>
-</blockquote>
-</li>
-<li><p>代码实现：</p>
-<blockquote>
-<pre><code>&lt;body&gt;
- &lt;div class=&quot;container&quot;&gt;
-   &lt;div class=&quot;box box1&quot;&gt;box1&lt;/div&gt;
-   &lt;div class=&quot;box box2&quot;&gt;box2&lt;/div&gt;
-   &lt;div class=&quot;box box3&quot;&gt;box3&lt;/div&gt;
-   &lt;div class=&quot;box box4&quot;&gt;box4&lt;/div&gt;
- &lt;/div&gt;
-
-&lt;script&gt;
-//通过数组下标查询
-var conatiner = document.querySelector(&quot;.container&quot;);
-var box = document.querySelectorAll(&quot;.container .box&quot;);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 找出与obj元素距离最近的元素<br>function findNearest(obj) {<br>  var elementArr &#x3D; [];<br>  var len &#x3D; box.length;<br>  &#x2F;&#x2F; 遍历每个元素，计算每个元素于obj的中心位置，然后保存到数组中<br>  for (var i &#x3D; 0; i &lt; len; i++) {<br>&#x2F;&#x2F; 当前被用来比较的obj，不用存到数组中，要排除<br>if (box[i] !&#x3D;&#x3D; obj) {<br>  &#x2F;&#x2F; 计算两中心点距离<br>  var centerDistance &#x3D; getDistance(box[i], obj);<br>  &#x2F;&#x2F; 把这个元素和对应中心点距离保存到数组中<br>  var el &#x3D; {};<br>  el.element &#x3D; box[i];<br>  el.distance &#x3D; centerDistance;<br>  elementArr.push(el);<br>}<br>  }</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; for循环遍历elementArr数组，找出数组中距离最小的那个元素，然后返回<br>var minElement &#x3D; elementArr[0];<br>for (var j &#x3D; 0; j &lt; elementArr.length; j++) {<br>  if (elementArr[j].distance &lt; minElement.distance) {<br>minElement &#x3D; elementArr[j];<br>  }<br>}<br>return minElement.element; &#x2F;&#x2F; 返回最小的距离的那个对象<br>}</p>
-<blockquote>
-</blockquote>
-<p>console.log(findNearest(box[2]));</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 计算两个元素中心点位置<br>function getDistance(obj1, obj2) {<br>  var x &#x3D;<br>obj1.offsetLeft +<br>obj1.offsetWidth &#x2F; 2 -<br>(obj2.offsetLeft + obj2.offsetWidth &#x2F; 2);</p>
-</li>
+<ul>
+<li>代码实现：</li>
 </ul>
-<blockquote>
-</blockquote>
-<p>  var y &#x3D;<br>    obj1.offsetTop +<br>    obj1.offsetHeight &#x2F; 2 -<br>    (obj2.offsetTop + obj2.offsetHeight &#x2F; 2);</p>
-<blockquote>
-</blockquote>
-<p>  return Math.sqrt(x * x + y * y);<br>}</p>
-<blockquote>
-<p></script></p>
-</body>
-```
-</blockquote>
+<pre><code>&gt;&lt;body&gt;
+&gt;  &lt;div class=&quot;container&quot;&gt;
+&gt;    &lt;div class=&quot;box box1&quot;&gt;box1&lt;/div&gt;
+&gt;    &lt;div class=&quot;box box2&quot;&gt;box2&lt;/div&gt;
+&gt;    &lt;div class=&quot;box box3&quot;&gt;box3&lt;/div&gt;
+&gt;    &lt;div class=&quot;box box4&quot;&gt;box4&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;
+&gt; &lt;script&gt;
+  //通过数组下标查询
+  var conatiner = document.querySelector(&quot;.container&quot;);
+  var box = document.querySelectorAll(&quot;.container .box&quot;);
+&gt;
+  // 找出与obj元素距离最近的元素
+  function findNearest(obj) &#123;
+    var elementArr = [];
+    var len = box.length;
+    // 遍历每个元素，计算每个元素于obj的中心位置，然后保存到数组中
+    for (var i = 0; i &lt; len; i++) &#123;
+      // 当前被用来比较的obj，不用存到数组中，要排除
+      if (box[i] !== obj) &#123;
+        // 计算两中心点距离
+        var centerDistance = getDistance(box[i], obj);
+        // 把这个元素和对应中心点距离保存到数组中
+        var el = &#123;&#125;;
+        el.element = box[i];
+        el.distance = centerDistance;
+        elementArr.push(el);
+      &#125;
+    &#125;
+&gt;
+  // for循环遍历elementArr数组，找出数组中距离最小的那个元素，然后返回
+  var minElement = elementArr[0];
+  for (var j = 0; j &lt; elementArr.length; j++) &#123;
+    if (elementArr[j].distance &lt; minElement.distance) &#123;
+      minElement = elementArr[j];
+    &#125;
+  &#125;
+  return minElement.element; // 返回最小的距离的那个对象
+&#125;
+&gt;
+  console.log(findNearest(box[2]));
+&gt;
+  // 计算两个元素中心点位置
+  function getDistance(obj1, obj2) &#123;
+    var x =
+      obj1.offsetLeft +
+      obj1.offsetWidth / 2 -
+      (obj2.offsetLeft + obj2.offsetWidth / 2);
+&gt;
+  var y =
+    obj1.offsetTop +
+    obj1.offsetHeight / 2 -
+    (obj2.offsetTop + obj2.offsetHeight / 2);
+&gt;
+  return Math.sqrt(x * x + y * y);
+&#125;
+&gt; &lt;/script&gt;
+&gt;&lt;/body&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li>方法2：通过类名查询——见HTML文档</li>
 </ul>
+</blockquote>
 <pre><code>// 获取与目标元素同级的兄弟元素
 var children = obj.parentNode.children;
 </code></pre>
-</blockquote>
 <h4 id="客户端尺寸"><a href="#客户端尺寸" class="headerlink" title="客户端尺寸"></a>客户端尺寸</h4><blockquote>
 <ul>
 <li>以下两个属性为元素的客户端尺寸，属性为<strong>只读的</strong>，每次访问都会<strong>重新计算</strong><table>
@@ -1880,27 +1986,32 @@ var children = obj.parentNode.children;
 </tbody></table>
 </li>
 </ul>
-<pre><code>&lt;style&gt;
-</code></pre>
 </blockquote>
-<ul>
-<li>{<br>margin: 0;<br>padding: 0;<br>  }<br>  .box {<br>width: 200px;<br>height: 200px;<br>padding: 30px;<br>border: 10px solid red;<br>margin: 20px;<br>  }<blockquote>
-<p></style></p>
-<div class="box">
- <div class="box1"></div>
-</div>
-
-<script>
-  var box = document.querySelector(".box");
+<pre><code>&gt;&lt;style&gt;
+  * &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    padding: 30px;
+    border: 10px solid red;
+    margin: 20px;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
   var w = box.clientWidth; // width + padding = 200 + 60 = 260
   var h = box.clientHeight; // height + padding = 200 + 60 = 260
   console.log(w, h);
-</script>
-<pre><code>
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="滚动尺寸"><a href="#滚动尺寸" class="headerlink" title="滚动尺寸"></a>滚动尺寸</h4><blockquote>
 <p>滚动尺寸，提供了元素内容滚动相关的信息。有以下四个属性</p>
 <ul>
@@ -1935,8 +2046,7 @@ var children = obj.parentNode.children;
 <td>元素内容高度的度量，包括由于<code>overflow</code>溢出导致的视图中不可见内容；如果没有垂直滚动条，其它大小与 <code>clientHeight</code>相同</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 100px;
@@ -1951,22 +2061,21 @@ var children = obj.parentNode.children;
     &lt;!-- height: 500px;  --&gt;
   background-color: skyblue;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;
- &lt;div class=&quot;box1&quot;&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;box1&quot;&gt;
     滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var _w = box.scrollWidth;
   var _h = box.scrollHeight;
   console.log(_w, _h); // 900 900
   &lt;!-- console.log(_w, _h); // 279 600 --&gt;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>scrollLeft 和 scrollTop<blockquote>
 <ul>
@@ -1993,8 +2102,7 @@ var children = obj.parentNode.children;
 </ol>
 <img src="scrollTop和scrollLeft.png">
 
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 100px;
@@ -2008,28 +2116,27 @@ var children = obj.parentNode.children;
     height: 800px;
     background-color: skyblue;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;
- &lt;div class=&quot;box1&quot;&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;box1&quot;&gt;
     滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容滚动的内容
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   box.onscroll = function () &#123;
     console.log(box.scrollTop); // 打印滚动条滚动的高度
     console.log(box.scrollLeft); // 打印滚动条滚动的宽度
   &#125;;
-//修改滚动距离(根据scrollWidth/height得到滚动条宽高)
+&gt;//修改滚动距离(根据scrollWidth/height得到滚动条宽高)
   // 滚动条，滚动到底部
   box.scrollTop = 721; // 800-100+21=721 要注意，不要多减了滚动条的高度
   // 滚动条，滚动到最右边
   box.scrollLeft = 621; // 800-200+21=621 要注意，不要多减了滚动条的宽度
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h4 id="确定元素尺寸"><a href="#确定元素尺寸" class="headerlink" title="确定元素尺寸"></a>确定元素尺寸</h4><blockquote>
 <ul>
 <li>浏览器在每个元素上都暴露了<code>getBoundingClientRect()</code>方法，返回一个 <code>DOMRect 对象</code></li>
@@ -2073,8 +2180,7 @@ var children = obj.parentNode.children;
 </tbody></table>
 <img src="确定元素尺寸.png">
 
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
    body &#123;
     margin:0;
     height: 3000px;
@@ -2086,11 +2192,11 @@ var children = obj.parentNode.children;
     padding: 20px;
     border: 20px solid khaki;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var domRect = box.getBoundingClientRect();
   console.log(domRect); // 打印 DOMRect对象
@@ -2101,14 +2207,14 @@ var children = obj.parentNode.children;
       console.log(key + &quot;:&quot; + domRect[key]);
     &#125;
   &#125;
+&gt;
+  // 滚动浏览器窗口
+  window.onscroll = function () &#123;
+    var domRect = box.getBoundingClientRect();
+    console.log(domRect);
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 滚动浏览器窗口<br>  window.onscroll &#x3D; function () {<br>    var domRect &#x3D; box.getBoundingClientRect();<br>    console.log(domRect);<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例"></a>案例</h4><ol>
 <li>如何判断两个元素发生了碰撞（经典面试题）<img src="碰撞检测.png"></li>
 </ol>
@@ -2118,54 +2224,50 @@ var children = obj.parentNode.children;
 </ul>
 </blockquote>
 <ul>
-<li><p>用<code>getBoundingClientRect()</code>方法</p>
-<blockquote>
-<pre><code>&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
-   &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
-function isBump(obj1, obj2) &#123;
-  var domRect1 = box1.getBoundingClientRect();
-  var T1 = domRect1.top;
-  var B1 = domRect1.bottom;
-  var L1 = domRect1.left;
-  var R1 = domRect1.right;
-  var domRect2 = box2.getBoundingClientRect();
-  var T2 = domRect2.top;
-  var B2 = domRect2.bottom;
-  var L2 = domRect2.left;
-  var R2 = domRect2.right;
-  if (L2 &gt; R1 || T1 &gt; B2 || L1 &gt; R2 || T2 &gt; B1) return false;
-  return true;
-&#125;
-var box1 = document.querySelector(&quot;.box1&quot;);
-var box2 = document.querySelector(&quot;.box2&quot;);
-isBump(box1, box2);
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>用偏移尺寸</p>
-<blockquote>
-<pre><code>function isBump(obj1, obj2) &#123;
-var L1 = obj1.offsetLeft;
-var R1 = L1 + obj1.offsetWidth;
-var T1 = obj1.offsetTop;
-var B1 = T1 + obj1.offsetHeight;
-var L2 = obj2.offsetLeft;
-var R2 = L2 + obj2.offsetWidth;
-var T2 = obj2.offsetTop;
-var B2 = T2 + obj2.offsetHeight;
-if (L2 &gt; R1 || L1 &gt; R2 || T2 &gt; B1 || T1 &gt; B2) &#123;
-  return false; // 未碰撞，返回false
-&#125; else &#123;
-  return true; // 碰撞，返回true
-&#125;
-&#125;
-</code></pre>
-</blockquote>
-</li>
+<li>用<code>getBoundingClientRect()</code>方法</li>
 </ul>
+<pre><code>&gt;&lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+&gt;    &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  function isBump(obj1, obj2) &#123;
+    var domRect1 = box1.getBoundingClientRect();
+    var T1 = domRect1.top;
+    var B1 = domRect1.bottom;
+    var L1 = domRect1.left;
+    var R1 = domRect1.right;
+    var domRect2 = box2.getBoundingClientRect();
+    var T2 = domRect2.top;
+    var B2 = domRect2.bottom;
+    var L2 = domRect2.left;
+    var R2 = domRect2.right;
+    if (L2 &gt; R1 || T1 &gt; B2 || L1 &gt; R2 || T2 &gt; B1) return false;
+    return true;
+  &#125;
+  var box1 = document.querySelector(&quot;.box1&quot;);
+  var box2 = document.querySelector(&quot;.box2&quot;);
+  isBump(box1, box2);
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>用偏移尺寸</li>
+</ul>
+<pre><code>function isBump(obj1, obj2) &#123;
+  var L1 = obj1.offsetLeft;
+  var R1 = L1 + obj1.offsetWidth;
+  var T1 = obj1.offsetTop;
+  var B1 = T1 + obj1.offsetHeight;
+  var L2 = obj2.offsetLeft;
+  var R2 = L2 + obj2.offsetWidth;
+  var T2 = obj2.offsetTop;
+  var B2 = T2 + obj2.offsetHeight;
+  if (L2 &gt; R1 || L1 &gt; R2 || T2 &gt; B1 || T1 &gt; B2) &#123;
+    return false; // 未碰撞，返回false
+  &#125; else &#123;
+    return true; // 碰撞，返回true
+  &#125;
+&#125;
+</code></pre>
 <ol start="2">
 <li>判断元素是否在可视区（经典面试题）<blockquote>
 <ul>
@@ -2175,48 +2277,44 @@ if (L2 &gt; R1 || L1 &gt; R2 || T2 &gt; B1 || T1 &gt; B2) &#123;
 </li>
 </ol>
 <ul>
-<li><p>在浏览器可视区内</p>
-<blockquote>
+<li>在浏览器可视区内</li>
+</ul>
 <pre><code>// 判断元素是否是在可视区内，只有当元素全部在可视区内才算是在可视区内
 function isElementInViewport(el) &#123;
-var rect = el.getBoundingClientRect();
-var T1 = rect.top;
-var B1 = rect.bottom;
-var L1 = rect.left;
-var R1 = rect.right;
-return (
-  T1 &gt;= 0 &amp;&amp;
-  B1 &lt;= document.documentElement.clientHeight &amp;&amp;
-  L1 &gt;= 0 &amp;&amp;
-  R1 &lt;= document.documentElement.clientWidth
-);
+  var rect = el.getBoundingClientRect();
+  var T1 = rect.top;
+  var B1 = rect.bottom;
+  var L1 = rect.left;
+  var R1 = rect.right;
+  return (
+    T1 &gt;= 0 &amp;&amp;
+    B1 &lt;= document.documentElement.clientHeight &amp;&amp;
+    L1 &gt;= 0 &amp;&amp;
+    R1 &lt;= document.documentElement.clientWidth
+  );
 &#125;
-
-// 测试，自行在页面加一个.box的div
-var box = document.querySelector(&quot;.box&quot;);
-window.onscroll = function () &#123;
-  console.log(isElementInViewport(box));
-&#125;;
+&gt;
+&gt; // 测试，自行在页面加一个.box的div
+&gt; var box = document.querySelector(&quot;.box&quot;);
+&gt; window.onscroll = function () &#123;
+&gt;   console.log(isElementInViewport(box));
+&gt; &#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>在父级盒子可视区内</p>
-<blockquote>
+<ul>
+<li>在父级盒子可视区内</li>
+</ul>
 <pre><code>function isInViewport(el) &#123;
-var T1 = el.offsetTop;
-var B1 = T1 + el.offsetHeight;
-var L1 = el.offsetLeft;
-var R1 = L1 + el.offsetWidth;
-var PH = el.offsetParent.clientHeight;
-var PW = el.offsetParent.clientWidth;
-return T1 &gt;= 0 &amp;&amp; L1 &gt;= 0 &amp;&amp; B1 &lt;= PH &amp;&amp; R1 &lt;= PW;
+  var T1 = el.offsetTop;
+  var B1 = T1 + el.offsetHeight;
+  var L1 = el.offsetLeft;
+  var R1 = L1 + el.offsetWidth;
+  var PH = el.offsetParent.clientHeight;
+  var PW = el.offsetParent.clientWidth;
+  return T1 &gt;= 0 &amp;&amp; L1 &gt;= 0 &amp;&amp; B1 &lt;= PH &amp;&amp; R1 &lt;= PW;
 &#125;
 var box1 = document.querySelector(&quot;.box1&quot;);
 console.log(isInViewport(box1));
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="六、节点操作"><a href="#六、节点操作" class="headerlink" title="六、节点操作"></a>六、节点操作</h3><blockquote>
 <p>接下来我们来学习与节点相关的操作，在开始学习 DOM 的时候，我们提到过 DOM 的节点类型有以下 7 种</p>
 </blockquote>
@@ -2338,24 +2436,22 @@ console.log(isInViewport(box1));
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;h3 class=&quot;title&quot;&gt;我是h3标签&lt;/h3&gt;
- &lt;p class=&quot;p1&quot;&gt;我是p标签&lt;/p&gt;
- &lt;div class=&quot;item&quot;&gt;我是item&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
- var box = document.querySelector(&quot;.box&quot;);
- console.log(box.childNodes);
- console.log(box.parentNode); //body
- console.log(box.firstChild); //#text
- console.log(box.lastChild); //#text
- var p1 = document.querySelector(&quot;.p1&quot;);
- console.log(p1.previousSibling); //#text
- console.log(p1.nextSibling); //#text
-&lt;/script&gt;
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;h3 class=&quot;title&quot;&gt;我是h3标签&lt;/h3&gt;
+&gt;  &lt;p class=&quot;p1&quot;&gt;我是p标签&lt;/p&gt;
+&gt;  &lt;div class=&quot;item&quot;&gt;我是item&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+&gt;  var box = document.querySelector(&quot;.box&quot;);
+&gt;  console.log(box.childNodes);
+&gt;  console.log(box.parentNode); //body
+&gt;  console.log(box.firstChild); //#text
+&gt;  console.log(box.lastChild); //#text
+&gt;  var p1 = document.querySelector(&quot;.p1&quot;);
+&gt;  console.log(p1.previousSibling); //#text
+&gt;  console.log(p1.nextSibling); //#text
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意点：文本节点也属于节点</p>
@@ -2412,24 +2508,22 @@ console.log(isInViewport(box1));
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;h3 class=&quot;title&quot;&gt;我是h3标签&lt;/h3&gt;
- &lt;p class=&quot;p1&quot;&gt;我是p标签&lt;/p&gt;
- &lt;div class=&quot;item&quot;&gt;我是item&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
- var box = document.querySelector(&quot;.box&quot;);
- var p1 = document.querySelector(&quot;.p1&quot;);
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;h3 class=&quot;title&quot;&gt;我是h3标签&lt;/h3&gt;
+&gt;  &lt;p class=&quot;p1&quot;&gt;我是p标签&lt;/p&gt;
+&gt;  &lt;div class=&quot;item&quot;&gt;我是item&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+&gt;  var box = document.querySelector(&quot;.box&quot;);
+&gt;  var p1 = document.querySelector(&quot;.p1&quot;);
 //只考虑元素节点
   console.log(box.children);
   console.log(box.firstElementChild); //h3
   console.log(box.lastElementChild); //item
   console.log(p1.previousElementSibling); //h3
   console.log(p1.nextElementSibling); //item
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>手写 children 方法<blockquote>
 <p>实现思路</p>
@@ -2441,7 +2535,6 @@ console.log(isInViewport(box1));
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>HTMLElement.prototype._children = function () &#123;
   // this 指向，谁调用_children 那this就是谁
   var nodes = this.childNodes;
@@ -2459,8 +2552,8 @@ var box = document.querySelector(&quot;.box&quot;);
 console.log(box._children());
 </code></pre>
 <ol start="4">
-<li>手写 prevElementSibling 方法<br>实现思路</li>
-</ol>
+<li>手写 prevElementSibling 方法<blockquote>
+<p>实现思路</p>
 <ul>
 <li><code>当前节点.previousSibling</code></li>
 <li>如果返回值为<code>null</code>，说明<strong>没有</strong>上一个元素兄弟节点，直接将返回值<code>null</code>返回</li>
@@ -2468,7 +2561,8 @@ console.log(box._children());
 <li>如果不成立，则继续用<code>返回的节点.previousSibling</code>，一直重复上面过程，直到<code>返回节点.nodeType === 1</code>成立或返回值为 <code>null</code>，就不再继续查找了。</li>
 </ul>
 </blockquote>
-<blockquote>
+</li>
+</ol>
 <pre><code>HTMLElement.prototype._prevElementSibling = function () &#123;
   // this，谁打点调用这个方法，this是谁
   var prevElement = this.previousSibling; // 找上一个兄弟节点
@@ -2482,23 +2576,22 @@ console.log(box._children());
   return prevElement; // 如果上面为null，直接返回null,如果不是，返回对应元素节点
 &#125;;
 </code></pre>
-</blockquote>
 <h4 id="修改节点内容"><a href="#修改节点内容" class="headerlink" title="修改节点内容"></a>修改节点内容</h4><blockquote>
 <ul>
 <li>改变元素节点中的内容可以使用两个相关属性：</li>
 <li>innerHTML：更改元素的内容，更改的内容能以<strong>HTML语法</strong>的形式显示</li>
 <li>innerText：更改的内容，更改的内容只能以<strong>纯文本</strong>的形式显示</li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var box = document.getElementsByClassName(&quot;box&quot;);
   box[0].innerHTML = &quot;&lt;h3&gt;我是h3标签&lt;/h3&gt;&quot;;
   box[1].innerText = &quot;&lt;h3&gt;我是h3标签&lt;/h3&gt;&quot;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h4 id="节点创建与移动"><a href="#节点创建与移动" class="headerlink" title="节点创建与移动"></a>节点创建与移动</h4><blockquote>
 <ul>
 <li>DOM 中提供了以下方法，用来创建节点，并将创建好的节点插入到页面当中</li>
@@ -2562,35 +2655,34 @@ console.log(box._children());
 </blockquote>
 </li>
 </ul>
-<pre><code>element.appendChild(child);
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; element  将节点追节到的那个父节点<br>&#x2F;&#x2F; child 要追加给父节点的节点（通通是一个元素节点）</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>element.appendChild(child);
+&gt;
+// element  将节点追节到的那个父节点
+// child 要追加给父节点的节点（通通是一个元素节点）
+</code></pre>
 <blockquote>
 <ul>
 <li>代码演示：</li>
 </ul>
+</blockquote>
 <pre><code>//获取页面元素
 var ul = document.querySelector(&quot;ul&quot;);
 //将div插入到ul的最后面
 var div = document.createElement(&quot;div&quot;);
 ul.appendChild(div);
+&gt;
+//将文本节点插入到ul的最后面
+var pt = document.createTextNode(&quot;我是一个文本节点&quot;);
+ul.appendChild(pt);
+&gt;
+//将文本节点插入到li中
+var li = document.createElement(&quot;li&quot;);
+ul.appendChild(li);
+li.appendChild(pt);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;将文本节点插入到ul的最后面<br>var pt &#x3D; document.createTextNode(“我是一个文本节点”);<br>ul.appendChild(pt);</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;将文本节点插入到li中<br>var li &#x3D; document.createElement(“li”);<br>ul.appendChild(li);<br>li.appendChild(pt);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="4">
 <li>insertBefore()<blockquote>
 <ul>
@@ -2614,12 +2706,13 @@ ul.appendChild(div);
 <ul>
 <li>功能一：创建新元素，插入到指定元素前</li>
 </ul>
-<pre><code>&lt;ul&gt;
- &lt;li&gt;1&lt;/li&gt;
- &lt;li&gt;2&lt;/li&gt;
- &lt;li&gt;3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;ul&gt;
+&gt;  &lt;li&gt;1&lt;/li&gt;
+&gt;  &lt;li&gt;2&lt;/li&gt;
+&gt;  &lt;li&gt;3&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
   //获取ul
   var oul = document.querySelector(&quot;ul&quot;);
   //创建li元素
@@ -2630,19 +2723,19 @@ ul.appendChild(div);
   li1.appendChild(liText);
   //   将li1插入到第二个li前面
   oul.insertBefore(li1, oul.children[1]);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>功能二：移动元素</li>
 </ul>
-<pre><code>&lt;ul&gt;
- &lt;li&gt;1&lt;/li&gt;
- &lt;li&gt;2&lt;/li&gt;
- &lt;li&gt;3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;ul&gt;
+&gt;  &lt;li&gt;1&lt;/li&gt;
+&gt;  &lt;li&gt;2&lt;/li&gt;
+&gt;  &lt;li&gt;3&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
   //获取ul
   var oul = document.querySelector(&quot;ul&quot;);
   //获取li元素
@@ -2651,17 +2744,17 @@ ul.appendChild(div);
   oul.insertBefore(li[3], li[0]);
   //如果第二个参数为null，新节点将移动到父节点的最后面
   oul.insertBefore(li[1], null);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="5">
-<li>综合代码<blockquote>
-<pre><code>&lt;ul&gt;
- &lt;li&gt;1&lt;/li&gt;
- &lt;li&gt;2&lt;/li&gt;
- &lt;li&gt;3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;script&gt;
+<li>综合代码</li>
+</ol>
+<pre><code>&gt;&lt;ul&gt;
+&gt;  &lt;li&gt;1&lt;/li&gt;
+&gt;  &lt;li&gt;2&lt;/li&gt;
+&gt;  &lt;li&gt;3&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
   // 获取元素
   var ul = document.querySelector(&quot;ul&quot;);
   var li = document.getElementsByTagName(&quot;li&quot;);
@@ -2673,49 +2766,47 @@ ul.appendChild(div);
   ul.appendChild(div);
   //  移动节点：将新建元素插到li[1]前面
   ul.insertBefore(div, li[1]);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例"></a>案例</h4><ol>
 <li>请动态创建出一个 15 行 10 列的表格<blockquote>
 <ul>
 <li>方式1：创建table,tr,td标签</li>
 </ul>
-<pre><code>&lt;div class=&quot;table1&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;table1&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
 // 获取元素
 function creatTable1(rows, columns, el) &#123;
   var table = document.createElement(&quot;table&quot;);
   for (var i = 1; i &lt;= rows; i++) &#123;
- // 创建行
- var tr = document.createElement(&quot;tr&quot;);
- for (var j = 1; j &lt;= columns; j++) &#123;
-   // 创建列
-   var td = document.createElement(&quot;td&quot;);
-   // 将列插入行中
-   tr.appendChild(td);
- &#125;
- // 将行插入表格中
- table.appendChild(tr);
+    // 创建行
+    var tr = document.createElement(&quot;tr&quot;);
+    for (var j = 1; j &lt;= columns; j++) &#123;
+      // 创建列
+      var td = document.createElement(&quot;td&quot;);
+      // 将列插入行中
+      tr.appendChild(td);
+    &#125;
+    // 将行插入表格中
+    table.appendChild(tr);
   &#125;
   // 将表格插入到页面中
   el.appendChild(table);
 &#125;
 var table1 = document.querySelector(&quot;.table1&quot;);
 creatTable1(15, 10, table1);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>方式2：创建ul,li,span标签</li>
 </ul>
-<pre><code>&lt;div class=&quot;table2&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;table2&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
 // 获取元素
  function creatTable2(rows, columns, el) &#123;
    var ul = document.createElement(&quot;ul&quot;);
@@ -2736,78 +2827,77 @@ creatTable1(15, 10, table1);
  &#125;
  var table2 = document.querySelector(&quot;.table2&quot;);
  creatTable2(5, 5, table2);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p><code>span</code>要转换为行内元素</p>
 </blockquote>
 </blockquote>
 <ol start="2">
-<li><p>案例 2：请制作九九乘法表</p>
-<blockquote>
+<li>案例 2：请制作九九乘法表<blockquote>
 <ul>
 <li>列数与行数一致</li>
 <li>表格内插入文字：<code>innerText</code></li>
 </ul>
-<pre><code>&lt;div class=&quot;mytable&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;div class=&quot;mytable&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   // 创建表格
   var table = document.createElement(&quot;table&quot;);
   for (var i = 1; i &lt;= 9; i++) &#123;
- // 创建行
- var tr = document.createElement(&quot;tr&quot;);
- for (var j = 1; j &lt;= i; j++) &#123;
-   // 创建列，输入文字
-   var td = document.createElement(&quot;td&quot;);
-   td.innerText = i + &quot;*&quot; + j + &quot;=&quot; + i * j;
-   //   将td插入行中
-   tr.appendChild(td);
- &#125;
- // 将行插入表格
- table.appendChild(tr);
+    // 创建行
+    var tr = document.createElement(&quot;tr&quot;);
+    for (var j = 1; j &lt;= i; j++) &#123;
+      // 创建列，输入文字
+      var td = document.createElement(&quot;td&quot;);
+      td.innerText = i + &quot;*&quot; + j + &quot;=&quot; + i * j;
+      //   将td插入行中
+      tr.appendChild(td);
+    &#125;
+    // 将行插入表格
+    table.appendChild(tr);
   &#125;
   var mytable = document.querySelector(&quot;.mytable&quot;);
   // 将表格插入页面
   mytable.appendChild(table);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>案例 3：创建电影座位号</p>
-<blockquote>
+<ol start="3">
+<li>案例 3：创建电影座位号<blockquote>
 <ul>
 <li>根据需求，创建几行几列的电影座位号<br>关键点：</li>
 <li>座位号：用累加器</li>
 <li>顺序是从下往上，所以用<code>insertBefore</code></li>
 </ul>
-<pre><code>&lt;div class=&quot;table&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  function getSeats(rows, columns, el) &#123;
- var ul = document.createElement(&quot;ul&quot;);
- var sum = 0;
- for (var i = 1; i &lt;= rows; i++) &#123;
-   // 创建行
-   var li = document.createElement(&quot;li&quot;);
-   for (var j = 1; j &lt;= columns; j++) &#123;
-     // 创建列
-     var div = document.createElement(&quot;div&quot;);
-     sum++;
-     div.innerText = sum;
-     li.appendChild(div);
-   &#125;
-   ul.insertBefore(li, ul.children[0]);
- &#125;
- el.appendChild(ul);
-  &#125;
-  var table = document.querySelector(&quot;.table&quot;);
-  getSeats(5, 5, table);
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;div class=&quot;table&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  function getSeats(rows, columns, el) &#123;
+    var ul = document.createElement(&quot;ul&quot;);
+    var sum = 0;
+    for (var i = 1; i &lt;= rows; i++) &#123;
+      // 创建行
+      var li = document.createElement(&quot;li&quot;);
+      for (var j = 1; j &lt;= columns; j++) &#123;
+        // 创建列
+        var div = document.createElement(&quot;div&quot;);
+        sum++;
+        div.innerText = sum;
+        li.appendChild(div);
+      &#125;
+      ul.insertBefore(li, ul.children[0]);
+    &#125;
+    el.appendChild(ul);
+  &#125;
+  var table = document.querySelector(&quot;.table&quot;);
+  getSeats(5, 5, table);
+&gt;&lt;/script&gt;
+</code></pre>
 <h4 id="innerHTML-与-createElement-的效率问题"><a href="#innerHTML-与-createElement-的效率问题" class="headerlink" title="innerHTML 与 createElement 的效率问题"></a>innerHTML 与 createElement 的效率问题</h4><blockquote>
 <ul>
 <li><code>innerHTML</code>更改元素的内容，更改的内容能以 HTML 语法的形式显示</li>
@@ -2818,21 +2908,39 @@ creatTable1(15, 10, table1);
 </ul>
 </blockquote>
 <ol>
-<li>在页面动态创建 1000 个 li，插入到页面中<blockquote>
-<pre><code>&lt;ul class=&quot;list&quot;&gt;&lt;/ul&gt;
-&lt;script&gt;
-  var oUl = document.querySelector(&quot;.list&quot;);
-</code></pre>
-</blockquote>
-  &#x2F;&#x2F;innerHTML实现<br>  console.time(“innerHTML”);<br>  for (var i &#x3D; 1; i &lt;&#x3D; 1000; i++) {<br> oUl.innerHTML +&#x3D; “<li>这是第” + i + “条新闻</li>“;<br>  }<br>  console.timeEnd(“innerHTML”); &#x2F;&#x2F; 238.225830078125 ms<blockquote>
-</blockquote>
-  &#x2F;&#x2F; createElement实现<br>  console.time(“createElement”);<br>  for (var j &#x3D; 1; j &lt;&#x3D; 1000; j++) {<br> var oLi &#x3D; document.createElement(“li”);<br> oLi.innerText &#x3D; “这是第” + j + “条新闻”;<br> oUl.appendChild(oLi);<br>  }<br>  console.timeEnd(“createElement”); &#x2F;&#x2F;3.586669921875 ms<blockquote>
-</blockquote>
-  &#x2F;&#x2F;innerHTML优化版<br>  var oUl &#x3D; document.querySelector(“.list”);<br>  console.time(“innerHTML”);<br>  var str &#x3D; “”;<br>  for (var i &#x3D; 1; i &lt;&#x3D; 1000; i++) {<br> str +&#x3D; “<li>这是第” + i + “条新闻</li>“;<br>  }<br>  oUl.innerHTML +&#x3D; str;<br>  console.timeEnd(“innerHTML”); &#x2F;&#x2F; 0.52294921875 ms<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
+<li>在页面动态创建 1000 个 li，插入到页面中</li>
 </ol>
+<pre><code>&gt;&lt;ul class=&quot;list&quot;&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
+  var oUl = document.querySelector(&quot;.list&quot;);
+&gt;
+  //innerHTML实现
+  console.time(&quot;innerHTML&quot;);
+  for (var i = 1; i &lt;= 1000; i++) &#123;
+    oUl.innerHTML += &quot;&lt;li&gt;这是第&quot; + i + &quot;条新闻&lt;/li&gt;&quot;;
+  &#125;
+  console.timeEnd(&quot;innerHTML&quot;); // 238.225830078125 ms
+&gt;
+  // createElement实现
+  console.time(&quot;createElement&quot;);
+  for (var j = 1; j &lt;= 1000; j++) &#123;
+    var oLi = document.createElement(&quot;li&quot;);
+    oLi.innerText = &quot;这是第&quot; + j + &quot;条新闻&quot;;
+    oUl.appendChild(oLi);
+  &#125;
+  console.timeEnd(&quot;createElement&quot;); //3.586669921875 ms
+&gt;
+  //innerHTML优化版
+  var oUl = document.querySelector(&quot;.list&quot;);
+  console.time(&quot;innerHTML&quot;);
+  var str = &quot;&quot;;
+  for (var i = 1; i &lt;= 1000; i++) &#123;
+    str += &quot;&lt;li&gt;这是第&quot; + i + &quot;条新闻&lt;/li&gt;&quot;;
+  &#125;
+  oUl.innerHTML += str;
+  console.timeEnd(&quot;innerHTML&quot;); // 0.52294921875 ms
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>分析：以上代码中</p>
@@ -2892,53 +3000,53 @@ creatTable1(15, 10, table1);
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;h3 class=&quot;title&quot;&gt;我是标题&lt;/h3&gt;
-&lt;/div&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;h3 class=&quot;title&quot;&gt;我是标题&lt;/h3&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var h3 = document.querySelector(&quot;.title&quot;);
+&gt;
+  // 删除h3标签，方法一:先找到父节点，然后删除其子节点
+  // var _h3 = box.removeChild(h3);
+  // console.log(_h3);
+&gt;
+  // 删除h3标签，方法二：通过自身调用parentNode，将自身删除
+  h3.parentNode.removeChild(h3);
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 删除h3标签，方法一:先找到父节点，然后删除其子节点<br>  &#x2F;&#x2F; var _h3 &#x3D; box.removeChild(h3);<br>  &#x2F;&#x2F; console.log(_h3);</p>
 <blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 删除h3标签，方法二：通过自身调用parentNode，将自身删除<br>  h3.parentNode.removeChild(h3);</p>
 <blockquote>
-<p></script></p>
-<pre><code>&gt;更推荐使用`.parentNode`的方式找到父节点
-</code></pre>
+<p>更推荐使用<code>.parentNode</code>的方式找到父节点</p>
+</blockquote>
 </blockquote>
 <blockquote>
 <ul>
 <li>删除一个元素的所有子节点</li>
 </ul>
-<pre><code>&lt;ul class=&quot;list&quot;&gt;
- &lt;li&gt;1&lt;/li&gt;
- &lt;li&gt;2&lt;/li&gt;
- &lt;li&gt;3&lt;/li&gt;
- &lt;li&gt;4&lt;/li&gt;
- &lt;li&gt;5&lt;/li&gt;
- &lt;li&gt;6&lt;/li&gt;
- &lt;li&gt;7&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;ul class=&quot;list&quot;&gt;
+&gt;  &lt;li&gt;1&lt;/li&gt;
+&gt;  &lt;li&gt;2&lt;/li&gt;
+&gt;  &lt;li&gt;3&lt;/li&gt;
+&gt;  &lt;li&gt;4&lt;/li&gt;
+&gt;  &lt;li&gt;5&lt;/li&gt;
+&gt;  &lt;li&gt;6&lt;/li&gt;
+&gt;  &lt;li&gt;7&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;
+&gt;&lt;script&gt;
 //方法1：
 var oUl = document.querySelector(&quot;.list&quot;);
 // 如果有第一个子元素，就将他给删除
 // while (oUl.firstChild) &#123;
 //   oUl.removeChild(oUl.firstChild);
 // &#125;
+&gt;
+// 最简单的方法
+oUl.innerHTML = &quot;&quot;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 最简单的方法<br>oUl.innerHTML &#x3D; “”;</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="节点的替换（修改）"><a href="#节点的替换（修改）" class="headerlink" title="节点的替换（修改）"></a>节点的替换（修改）</h4><blockquote>
 <ul>
 <li><code>replaceChild</code>方法用指定的节点替换当前节点的一个子节点，并返回被替换掉的节点</li>
@@ -2947,28 +3055,29 @@ var oUl = document.querySelector(&quot;.list&quot;);
 <li><code>oldChild</code>： 被替换掉的原始节点。</li>
 <li><code>parentNode</code>是<code>oldChild</code>的父节点</li>
 </ul>
-<pre><code>&lt;ul&gt;
- &lt;li&gt;第一个li&lt;/li&gt;
- &lt;li&gt;第二个li&lt;/li&gt;
- &lt;li&gt;第三个li&lt;/li&gt;
- &lt;li&gt;第四个li&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;ul&gt;
+&gt;  &lt;li&gt;第一个li&lt;/li&gt;
+&gt;  &lt;li&gt;第二个li&lt;/li&gt;
+&gt;  &lt;li&gt;第三个li&lt;/li&gt;
+&gt;  &lt;li&gt;第四个li&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;
+&gt;&lt;script&gt;
   // 获取页面元素
   var oul = document.getElementsByTagName(&quot;ul&quot;)[0];
   //用最后一个元素替换新的元素
   var firstli = oul.children[0];
   var lastli = oul.children[3];
   oul.replaceChild(lastli, firstli);
+&gt;
+  // 创建新的元素来替换
+  var oli = document.createElement(&quot;li&quot;);
+  oli.innerHTML = &quot;&lt;p&gt;我是新创建的&lt;/p&gt;&quot;;
+  oli.title = &quot;我是新创建的&quot;;
+  oul.replaceChild(oli, oul.children[1]);
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 创建新的元素来替换<br>  var oli &#x3D; document.createElement(“li”);<br>  oli.innerHTML &#x3D; “<p>我是新创建的</p>“;<br>  oli.title &#x3D; “我是新创建的”;<br>  oul.replaceChild(oli, oul.children[1]);</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>案例：交换两个元素在节点中的位置（阿里面试题）</li>
 </ol>
@@ -2984,36 +3093,39 @@ var oUl = document.querySelector(&quot;.list&quot;);
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;box&lt;/div&gt;
-&lt;ul class=&quot;list&quot;&gt;
- &lt;li&gt;第一个li&lt;/li&gt;
- &lt;li&gt;第二个li&lt;/li&gt;
- &lt;li&gt;第三个li&lt;/li&gt;
- &lt;li&gt;第四个li&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script&gt;
-function changeOfPosition(obj1, obj2) &#123;
-  // 如果传过来的节点，有一个不存在，就不做任何操作
-  if (!obj1 || !obj2) return false;
-  // 首先创建一个新节点
-  var newNode = document.createElement(&quot;div&quot;);
-  // 把新创建的节点插入到 obj1的前面
-  obj1.parentNode.insertBefore(newNode, obj1);
-  // 用obj1替换obj2,返回obj2
-  obj2.parentNode.replaceChild(obj1, obj2);
-  // 用obj2替换newNode,为什么不用obj1的父级，而要用newNode
-  // 在上面用obj1替换obj2了，所以obj1的父级此时变成了obj2的父级
-  newNode.parentNode.replaceChild(obj2, newNode);
-  return true;
-&#125;
-</code></pre>
-</blockquote>
-var liList &#x3D; document.querySelectorAll(“.list li”);<br>var box &#x3D; document.querySelector(“.box”);<br>&#x2F;&#x2F; 交换第1个和第3个元素位置<br>changeOfPosition(box, liList[3]);<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;box&lt;/div&gt;
+&gt;&lt;ul class=&quot;list&quot;&gt;
+&gt;  &lt;li&gt;第一个li&lt;/li&gt;
+&gt;  &lt;li&gt;第二个li&lt;/li&gt;
+&gt;  &lt;li&gt;第三个li&lt;/li&gt;
+&gt;  &lt;li&gt;第四个li&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;
+&gt;&lt;script&gt;
+  function changeOfPosition(obj1, obj2) &#123;
+    // 如果传过来的节点，有一个不存在，就不做任何操作
+    if (!obj1 || !obj2) return false;
+    // 首先创建一个新节点
+    var newNode = document.createElement(&quot;div&quot;);
+    // 把新创建的节点插入到 obj1的前面
+    obj1.parentNode.insertBefore(newNode, obj1);
+    // 用obj1替换obj2,返回obj2
+    obj2.parentNode.replaceChild(obj1, obj2);
+    // 用obj2替换newNode,为什么不用obj1的父级，而要用newNode
+    // 在上面用obj1替换obj2了，所以obj1的父级此时变成了obj2的父级
+    newNode.parentNode.replaceChild(obj2, newNode);
+    return true;
+  &#125;
+&gt;
+  var liList = document.querySelectorAll(&quot;.list li&quot;);
+  var box = document.querySelector(&quot;.box&quot;);
+  // 交换第1个和第3个元素位置
+  changeOfPosition(box, liList[3]);
+&gt;&lt;/script&gt;
+</code></pre>
 <h4 id="克隆节点"><a href="#克隆节点" class="headerlink" title="克隆节点"></a>克隆节点</h4><blockquote>
 <ul>
 <li><code>cloneNode</code>方法返回调用该方法的节点的一个<strong>副本</strong>。</li>
@@ -3031,17 +3143,16 @@ var liList &#x3D; document.querySelectorAll(“.list li”);<br>var box &#x3D; d
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;ul&gt;
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;ul&gt;
     &lt;li&gt;第一个li&lt;/li&gt;
     &lt;li&gt;第二个li&lt;/li&gt;
     &lt;li&gt;第三个li&lt;/li&gt;
     &lt;li&gt;第四个li&lt;/li&gt;
- &lt;/ul&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
+&gt;  &lt;/ul&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   // 获取页面元素
   var box = document.getElementsByClassName(&quot;box&quot;);
   // var box2 = box[0].cloneNode(); // 浅克隆
@@ -3051,9 +3162,8 @@ var liList &#x3D; document.querySelectorAll(“.list li”);<br>var box &#x3D; d
   console.log(box3);
   document.body.appendChild(box2);
   document.body.appendChild(box3);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>温馨提示：</p>
@@ -3075,20 +3185,23 @@ var liList &#x3D; document.querySelectorAll(“.list li”);<br>var box &#x3D; d
 <li>你可以把他理解成<strong>虚拟节点对象</strong>，他的作用是充当其它要被添加到真实文档节点的<strong>仓库</strong>。而他自己永远不会被添加到真实的文档对中</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
-&lt;script&gt;
+<pre><code>&gt;&lt;ul id=&quot;list&quot;&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
   var oUl = document.getElementById(&quot;list&quot;);
   // 创建一个文档片段，此时还没有插入到真实DOM树中，其存在内存中
   var fragment = document.createDocumentFragment();
+&gt;
+  // for循环创建5个li，然后插入到ul中
+  for (var i = 0; i &lt; 4; i++) &#123;
+    var oLi = document.createElement(&quot;li&quot;);
+    oLi.innerText = &quot;第&quot; + i + &quot;个li&quot;;
+    // 将创建的DOM先放在文档片段中，这样就不会造成频繁的操作真实DOM
+    fragment.appendChild(oLi);
+  &#125;
+  // 一次性将创建的5个oLi插入到真实的DOM树中
+  oUl.appendChild(fragment);
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; for循环创建5个li，然后插入到ul中<br>  for (var i &#x3D; 0; i &lt; 4; i++) {<br>    var oLi &#x3D; document.createElement(“li”);<br>    oLi.innerText &#x3D; “第” + i + “个li”;<br>    &#x2F;&#x2F; 将创建的DOM先放在文档片段中，这样就不会造成频繁的操作真实DOM<br>    fragment.appendChild(oLi);<br>  }<br>  &#x2F;&#x2F; 一次性将创建的5个oLi插入到真实的DOM树中<br>  oUl.appendChild(fragment);</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>DocumentFragment 文档片段的主要功能：</p>

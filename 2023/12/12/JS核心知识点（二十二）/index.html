@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-12
+                    2023-12-18
                 </div>
                 
 
@@ -443,18 +443,18 @@
 <li>for 循环遍历数组中的每个成员，需要知道数组的长度，同时还需要知道以什么形式访问数组中的成员</li>
 <li>forEach 遍历数组中的成员，并不需要知道数组的长度和访问数组中成员的形式（即不需要知道对象的内部结构）</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 // 需要知道数组长度 arr.length
 for (let i = 0; i &lt; arr.length; i++) &#123;
   console.log(arr[i]); // 需要知道访问数组成员的形式
 &#125;
+&gt;
+// 并不需要知道数组的内部结构，也可以按顺序访问其中的每个成员
+arr.forEach((value) =&gt; &#123;
+  console.log(value);
+&#125;);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 并不需要知道数组的内部结构，也可以按顺序访问其中的每个成员<br>arr.forEach((value) &#x3D;&gt; {<br>  console.log(value);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>迭代器模式必需要满足条件：<br>在<strong>不暴露对象的内部结构</strong>时，<strong>有序的</strong>访问对象中成员。所以 <code>for</code> 循环并遵顺迭代器模式，<code>forEach</code> 是符合的。</p>
@@ -496,19 +496,18 @@ for (let i = 0; i &lt; arr.length; i++) &#123;
 </blockquote>
 <h4 id="实现一个内部迭代器"><a href="#实现一个内部迭代器" class="headerlink" title="实现一个内部迭代器"></a>实现一个内部迭代器</h4><blockquote>
 <p>数组的<code>forEach</code>方法可以看作是一个简易的迭代器，那我们来手动实现下数组的<code>forEach()</code>方法</p>
+</blockquote>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 Array.prototype.forEach = function (callBack) &#123;
   for (let i = 0; i &lt; this.length; i++) &#123;
     callBack(this[i], i, this);
   &#125;
 &#125;;
+&gt;
+arr.forEach((value, index, arr) =&gt; &#123;
+  console.log(value, index, arr);
+&#125;);
 </code></pre>
-</blockquote>
-<p>arr.forEach((value, index, arr) &#x3D;&gt; {<br>  console.log(value, index, arr);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p>不过内部迭代器也有自己的问题，就是<strong>灵活性相对较差</strong>。</p>
 <ul>
@@ -516,30 +515,31 @@ Array.prototype.forEach = function (callBack) &#123;
 </ul>
 </blockquote>
 <ul>
-<li>比较两个数组中的元素是否完全相等<blockquote>
+<li>比较两个数组中的元素是否完全相等</li>
+</ul>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 const arr2 = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 Array.prototype.compare = function (arr2) &#123;
-if (this.length !== arr2.length) &#123;
-  throw new Error(`两个数组不相等`);
-&#125;
-// 遍历来对比
-this.forEach((value, index) =&gt; &#123;
-  if (value !== arr2[index]) &#123;
+  if (this.length !== arr2.length) &#123;
     throw new Error(`两个数组不相等`);
   &#125;
-&#125;);
-// 上面没有抛错，说明下面则是相等的
-console.log(&quot;两个数组相等&quot;);
+  // 遍历来对比
+  this.forEach((value, index) =&gt; &#123;
+    if (value !== arr2[index]) &#123;
+      throw new Error(`两个数组不相等`);
+    &#125;
+  &#125;);
+  // 上面没有抛错，说明下面则是相等的
+  console.log(&quot;两个数组相等&quot;);
 &#125;;
+&gt;
+arr.compare(arr2);
 </code></pre>
-</blockquote>
-arr.compare(arr2);<blockquote>
-<pre><code>- 上面不完美之处在于，我们必须知道 `arr2` 数组的**内部结构**，才能与数组 arr 作比较。
-</code></pre>
-</blockquote>
-</li>
+<blockquote>
+<ul>
+<li>上面不完美之处在于，我们必须知道 <code>arr2</code> 数组的<strong>内部结构</strong>，才能与数组 arr 作比较。</li>
 </ul>
+</blockquote>
 <h4 id="手动实现外部迭代器"><a href="#手动实现外部迭代器" class="headerlink" title="手动实现外部迭代器"></a>手动实现外部迭代器</h4><blockquote>
 <p>外部迭代器是主动的，我们必须知道他的<strong>内部实现</strong>，同时必须<strong>显示的请求迭代下一个元素</strong>。其灵活性相对较好，我们可以手动控制迭代的过程或顺序。</p>
 </blockquote>
@@ -553,13 +553,16 @@ arr.compare(arr2);<blockquote>
 <li>在 Array 的原型上定义一个<code>getIterator</code>方法，当<code>数组.getIterator()</code>方法，返回一个<strong>对象</strong>（迭代器对象），<code>迭代器对象.next()</code>方法显示迭代数组的下一个元素。</li>
 <li>当数组中元素全部迭代完成，返回值为<code>undefined</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Array.prototype.getIterator = function () &#123;
   let index = 0; // 相当于指针，最开始指向数组中的第一个元素的下标
   let self = this; // 保存this
   return &#123;
- next() &#123;
-   return self[index++];
- &#125;,
+    next() &#123;
+      return self[index++];
+    &#125;,
   &#125;;
 &#125;;
 const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
@@ -570,9 +573,6 @@ console.log(it.next()); // B
 console.log(it.next()); // C
 console.log(it.next()); // undefined
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p>上面代码中</p>
 <ul>
@@ -586,19 +586,22 @@ console.log(it.next()); // undefined
 <li>给迭代器对象添加一个<code>isDone</code>方法，用来判断当前对象中的成员是否全部迭代完成</li>
 <li>同时修改<code>next()</code>方法体中的代码</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Array.prototype.getIterator = function () &#123;
   let index = 0; // 相当于指针，最开始指向数组中的第一个元素的下标
   let self = this; // 保存this
   return &#123;
- isDone() &#123;
-   // 返回值为true，表示对象中成员全部迭代完成，false表示没有迭代完成
-   return index &gt; self.length - 1; // index &gt;= self.length
- &#125;,
- next() &#123;
-   if (!this.isDone()) &#123;
-     return self[index++];
-   &#125;
- &#125;,
+    isDone() &#123;
+      // 返回值为true，表示对象中成员全部迭代完成，false表示没有迭代完成
+      return index &gt; self.length - 1; // index &gt;= self.length
+    &#125;,
+    next() &#123;
+      if (!this.isDone()) &#123;
+        return self[index++];
+      &#125;
+    &#125;,
   &#125;;
 &#125;;
 const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
@@ -608,22 +611,22 @@ console.log(it.next()); // B
 console.log(it.next()); // C
 console.log(it.next()); // undefined
 </code></pre>
+<blockquote>
 <ul>
 <li>利用 <code>while</code> 循环，一次性有序的迭代出数组中的所有成员</li>
 </ul>
+</blockquote>
 <pre><code>const it = arr.getIterator();
 while (!it.isDone()) &#123;
   console.log(it.next());
 &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>缺陷：</strong></p>
 <ul>
 <li>如果我们想要在while循环中结合<code>break</code>,<code>continue</code>,<code>return</code>关键字终止迭代器（退出循环） 时，以上迭代器没有办法实现。</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 const it = arr.getIterator();
 while (!it.isDone()) &#123;
@@ -634,6 +637,7 @@ while (!it.isDone()) &#123;
 &#125;
 // 输出结果 B undefined
 </code></pre>
+<blockquote>
 <p>以上代码输出结果 :<code>B undefined</code>并不是我们所期望的，我们期望的结果是 <code>A</code>。<br><strong>为什么呢</strong> ？</p>
 <ul>
 <li>while 循环第一次，<code>it.next()</code>的结果为 A，肯定不等于 B，所以执行 <code>console.log(it.next())</code>，这里的<code>it.next()</code>相当于迭代下一个元素，结果为 <code>B</code>。所以并没有得到我们想要的 A 。</li>
@@ -642,28 +646,33 @@ while (!it.isDone()) &#123;
 <ol start="3">
 <li>优化二：next() 方法返回值为对象<blockquote>
 <p>把<code>next()</code>方法的返回结果改成如下结构的对象</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>&#123;
- value: &quot;数组成员&quot;, // 值表示数组成员
+    value: &quot;数组成员&quot;, // 值表示数组成员
 &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>具体代码实现如下：</li>
 </ul>
+</blockquote>
 <pre><code>Array.prototype.getIterator = function () &#123;
   let index = 0; // 相当于指针，最开始指向数组中的第一个元素的下标
   let self = this; // 保存this
   return &#123;
- isDone() &#123;
-   // 返回值为true，表示对象中成员全部迭代完成，false表示全部元素没有迭代
-   return index &gt; self.length - 1; // index&gt;=self.length
- &#125;,
- next() &#123;
-   if (!this.isDone()) &#123;
-     return &#123;
-       value: self[index++],
-     &#125;;
-   &#125;
- &#125;,
+    isDone() &#123;
+      // 返回值为true，表示对象中成员全部迭代完成，false表示全部元素没有迭代
+      return index &gt; self.length - 1; // index&gt;=self.length
+    &#125;,
+    next() &#123;
+      if (!this.isDone()) &#123;
+        return &#123;
+          value: self[index++],
+        &#125;;
+      &#125;
+    &#125;,
   &#125;;
 &#125;;
 const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
@@ -673,13 +682,11 @@ console.log(it.next()); // &#123;value: &#39;B&#39;&#125;
 console.log(it.next()); // &#123;value: &#39;C&#39;&#125;
 console.log(it.next()); // &#123;value: undefined&#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>利用 <code>while</code> 循环，一次性有序的迭代出数组中的所有成员</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 // while循环，实现一次性有序的遍历出数组的所有成员
 let it = arr.getIterator();
@@ -689,9 +696,11 @@ while (!it.isDone()) &#123;
 &#125;
 // 输出结果： A  B  C
 </code></pre>
+<blockquote>
 <ul>
 <li><code>while</code> 循环与<code>break、continue、return</code>结合终止迭代器或退出 <code>while</code> 循环</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
 // while循环，实现一次性有序的遍历出数组的所有成员
 let it = arr.getIterator();
@@ -703,13 +712,10 @@ while (!it.isDone()) &#123;
   &#125;
   console.log(obj.value);
 &#125;
+&gt;
+// 使用break关键字执行结果： A
+// 使用continue关键字执行结果： A C
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 使用break关键字执行结果： A<br>&#x2F;&#x2F; 使用continue关键字执行结果： A C</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>缺陷</strong>：</p>
 <ul>
@@ -719,16 +725,17 @@ while (!it.isDone()) &#123;
 <ol start="4">
 <li>优化三：修改 next 方法返回结果<blockquote>
 <p>把·方法的返回结果修改为以下结构的对象</p>
-<pre><code>&#123;
- value: &quot;数组成员&quot;, // 值表示数组成员，当done为true时，其值为undefined
- done: false, // false 表示没有遍历完，true表示遍历完成
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&#123;
+    value: &quot;数组成员&quot;, // 值表示数组成员，当done为true时，其值为undefined
+    done: false, // false 表示没有遍历完，true表示遍历完成
+&#125;
+</code></pre>
 <blockquote>
 <p><strong>具体代码实现如下：</strong></p>
+</blockquote>
 <pre><code>Array.prototype.getIterator = function () &#123;
   let index = 0; // 相当于指针，最开始指向数组中的第一个元素的下标
   let self = this; // 保存this
@@ -753,17 +760,19 @@ while (!it.isDone()) &#123;
     &#125;,
   &#125;;
 &#125;;
+&gt;
+const arr = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;];
+let it = arr.getIterator(); // 返回迭代器对象
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
 </code></pre>
-</blockquote>
-<p>const arr &#x3D; [“A”, “B”, “C”];<br>let it &#x3D; arr.getIterator(); &#x2F;&#x2F; 返回迭代器对象<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>while 循环与break、continue、return结合终止迭代器或退出 while 循环</li>
 </ul>
+</blockquote>
 <pre><code>let it2 = arr.getIterator(); // 返回迭代器对象
 while (!it2.isDone()) &#123;
   let obj = it2.next();
@@ -775,7 +784,6 @@ while (!it2.isDone()) &#123;
 &#125;
 //  输出结果为：A C
 </code></pre>
-</blockquote>
 <h4 id="迭代器实际应用场景"><a href="#迭代器实际应用场景" class="headerlink" title="迭代器实际应用场景"></a>迭代器实际应用场景</h4><blockquote>
 <p>通过上面的学习，我们知道<strong>迭代器模式</strong>是一种解决在不需要知道对象的内部结构情况下，有序遍历出对象中成员的一种解决思想。</p>
 <ul>
@@ -799,42 +807,104 @@ while (!it2.isDone()) &#123;
 <ul>
 <li>外部迭代器在while循环中可以与<code>break、continue、return</code>关键字配合使用，功能更强大</li>
 </ul>
-<pre><code>class Stack &#123;
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<p>  #length; &#x2F;&#x2F; 私有属性<br>  #data &#x3D; []; &#x2F;&#x2F; 私有成员，存储入栈成员<br>  constructor(length) {<br>    this.#length &#x3D; length;<br>  }<br>  &#x2F;&#x2F; 返回#lenght属性，只能访问，不能修改<br>  get length() {<br>    return this.#length;<br>  }<br>  &#x2F;&#x2F; 判断栈是否空<br>  isEmpty() {<br>    return this.#data &#x3D;&#x3D;&#x3D; 0;<br>  }<br>  &#x2F;&#x2F; 栈满<br>  isFull() {<br>    return this.#data.length &#x3D;&#x3D;&#x3D; this.#length;<br>  }<br>  &#x2F;&#x2F; 入栈<br>  push(value) {<br>    if (this.isFull()) throw new Error(“栈满，不能再添加元素”);<br>    this.#data.push(value);<br>    return this; &#x2F;&#x2F; 支持链式调用<br>  }<br>  &#x2F;&#x2F; 出栈<br>  pop() {<br>    if (this.isEmpty()) throw new Error(“栈空，不能再添加元素”);<br>    return this.#data.pop();<br>  }<br>  &#x2F;&#x2F; 迭代器方法，用来生成迭代器对象<br>  getIterator() {<br>    let index &#x3D; 0;<br>    let self &#x3D; this;<br>    return {<br>      isDone() {<br>        return index &gt;&#x3D; self.#data.length;<br>      },<br>      next() {<br>        if (!this.isDone()) {<br>          return {<br>            value: self.#data[index++],<br>            done: false,<br>          };<br>        } else {<br>          return { value: undefined, done: true };<br>        }<br>      },<br>    };<br>  }<br>}</p>
-<blockquote>
-</blockquote>
-<p>const stack &#x3D; new Stack(5);<br>const stack2 &#x3D; new Stack(3);<br>stack.push(1).push(2).push(3).push(4).push(5);<br>stack.pop();<br>stack.pop();<br>&#x2F;&#x2F; 访问栈容器长度<br>stack.length &#x3D; 999;<br>console.log(stack.length); &#x2F;&#x2F;  5<br>&#x2F;&#x2F; 生成迭代器对象 it<br>const it &#x3D; stack.getIterator();<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; while循环，一次性有序的迭代出对象的所有成员<br>const it2 &#x3D; stack.getIterator();<br>let obj &#x3D; it2.next();<br>while (!obj.done) {<br>  console.log(obj.value);<br>  obj &#x3D; it2.next();<br>}</p>
-<blockquote>
-<pre><code>
+<pre><code>class Stack &#123;
+  #length; // 私有属性
+  #data = []; // 私有成员，存储入栈成员
+  constructor(length) &#123;
+    this.#length = length;
+  &#125;
+  // 返回#lenght属性，只能访问，不能修改
+  get length() &#123;
+    return this.#length;
+  &#125;
+  // 判断栈是否空
+  isEmpty() &#123;
+    return this.#data === 0;
+  &#125;
+  // 栈满
+  isFull() &#123;
+    return this.#data.length === this.#length;
+  &#125;
+  // 入栈
+  push(value) &#123;
+    if (this.isFull()) throw new Error(&quot;栈满，不能再添加元素&quot;);
+    this.#data.push(value);
+    return this; // 支持链式调用
+  &#125;
+  // 出栈
+  pop() &#123;
+    if (this.isEmpty()) throw new Error(&quot;栈空，不能再添加元素&quot;);
+    return this.#data.pop();
+  &#125;
+  // 迭代器方法，用来生成迭代器对象
+  getIterator() &#123;
+    let index = 0;
+    let self = this;
+    return &#123;
+      isDone() &#123;
+        return index &gt;= self.#data.length;
+      &#125;,
+      next() &#123;
+        if (!this.isDone()) &#123;
+          return &#123;
+            value: self.#data[index++],
+            done: false,
+          &#125;;
+        &#125; else &#123;
+          return &#123; value: undefined, done: true &#125;;
+        &#125;
+      &#125;,
+    &#125;;
+  &#125;
+&#125;
+&gt;
+const stack = new Stack(5);
+const stack2 = new Stack(3);
+stack.push(1).push(2).push(3).push(4).push(5);
+stack.pop();
+stack.pop();
+// 访问栈容器长度
+stack.length = 999;
+console.log(stack.length); //  5
+// 生成迭代器对象 it
+const it = stack.getIterator();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+&gt;
+// while循环，一次性有序的迭代出对象的所有成员
+const it2 = stack.getIterator();
+let obj = it2.next();
+while (!obj.done) &#123;
+  console.log(obj.value);
+  obj = it2.next();
+&#125;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>为 Stack 类添加内部迭代器 forEach 方法<blockquote>
 <p>外部迭代器相对于内部迭代器灵活性更高，但是使用起来相对麻烦。所以我们通常<strong>会暴露内部迭代器</strong>对外使用。</p>
 <ul>
 <li>接下来我们给<code>Stack</code>类添加内部迭代器<code>forEach</code>方法</li>
 </ul>
-<pre><code> // 内部迭代器
-  forEach(callBack) &#123;
- for (var i = 0; i &lt; this.#data.length; i++) &#123;
-   callBack(this.#data[i], i, this);
- &#125;
-  &#125;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code> // 内部迭代器
+  forEach(callBack) &#123;
+    for (var i = 0; i &lt; this.#data.length; i++) &#123;
+      callBack(this.#data[i], i, this);
+    &#125;
+  &#125;
+</code></pre>
 <blockquote>
 <ul>
 <li>完整代码</li>
 </ul>
+</blockquote>
 <pre><code>class Stack &#123;
   #length; // 私有属性
   #data = []; // 私有成员，存储入栈成员
@@ -891,18 +961,20 @@ while (!it2.isDone()) &#123;
     &#125;
   &#125;
 &#125;
+&gt;
+const stack = new Stack(5);
+const stack2 = new Stack(3);
+stack.push(1).push(2).push(3).push(4).push(5);
+stack.forEach((v) =&gt; &#123;
+  console.log(v); // 1 2 3 4 5
+&#125;);
 </code></pre>
-</blockquote>
-<p>const stack &#x3D; new Stack(5);<br>const stack2 &#x3D; new Stack(3);<br>stack.push(1).push(2).push(3).push(4).push(5);<br>stack.forEach((v) &#x3D;&gt; {<br>  console.log(v); &#x2F;&#x2F; 1 2 3 4 5<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="将-class（数据类）与-迭代器类分离"><a href="#将-class（数据类）与-迭代器类分离" class="headerlink" title="将 class（数据类）与 迭代器类分离"></a>将 class（数据类）与 迭代器类分离</h4><blockquote>
 <p>我们很多时候会有这样的需求，我可能有 10 个类，每个类都有一个自己的外部迭代器，这些迭代器的内部实现都是相同的。<br>如果我们把迭代器与某个类绑定死，那就意味着这个迭代器没有办法供 10 个类重用，只能为每个类单独写一个。</p>
 <ul>
 <li>所以我们可以将迭代器分类出去，单独定义成一个类，然后在其它类的内部来使用这个迭代器</li>
 </ul>
+</blockquote>
 <pre><code>// 迭代器类  创建迭代器对象
 class DataIterator &#123;
   // 私有属性
@@ -922,19 +994,41 @@ class DataIterator &#123;
       : &#123; value: this.#data[this.#index++], done: false &#125;;
   &#125;
 &#125;
+&gt;
+// 数据类
+class DataContainer &#123;
+  #data; // 私有属性
+  constructor(data = []) &#123;
+    if (Array.isArray(data)) &#123;
+      this.#data = data;
+    &#125; else &#123;
+      throw new Error(&quot;传入的参数只能是一个数组&quot;);
+    &#125;
+  &#125;
+  // 生成迭代器对象的方法
+  getIterator() &#123;
+    return new DataIterator(this.#data);
+  &#125;
+  //..... 对象其它方法自行添加
+&#125;
+&gt;
+// 创建实例对象
+const obj = new DataContainer([&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]);
+// 生成一个迭代器对象
+const it = obj.getIterator();
+// 调用next方法，手动遍历下一个元素
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+&gt;
+const it2 = obj.getIterator();
+// while循环
+while (!it2.isDone()) &#123;
+  const obj = it2.next();
+  console.log(obj.value);
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 数据类<br>class DataContainer {<br>  #data; &#x2F;&#x2F; 私有属性<br>  constructor(data &#x3D; []) {<br>    if (Array.isArray(data)) {<br>      this.#data &#x3D; data;<br>    } else {<br>      throw new Error(“传入的参数只能是一个数组”);<br>    }<br>  }<br>  &#x2F;&#x2F; 生成迭代器对象的方法<br>  getIterator() {<br>    return new DataIterator(this.#data);<br>  }<br>  &#x2F;&#x2F;….. 对象其它方法自行添加<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 创建实例对象<br>const obj &#x3D; new DataContainer([“A”, “B”, “C”]);<br>&#x2F;&#x2F; 生成一个迭代器对象<br>const it &#x3D; obj.getIterator();<br>&#x2F;&#x2F; 调用next方法，手动遍历下一个元素<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-</blockquote>
-<p>const it2 &#x3D; obj.getIterator();<br>&#x2F;&#x2F; while循环<br>while (!it2.isDone()) {<br>  const obj &#x3D; it2.next();<br>  console.log(obj.value);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>解读：</strong><code>DataIterator</code> 类<br><code>DataIterator</code>类用来创建迭代器对象，有<code>#data</code>和<code>#index</code>两个私有属性，同时有<code>isDone()</code>和<code>next()</code>两个实例方法。</p>
 <ul>
@@ -982,6 +1076,9 @@ class DataIterator &#123;
 <li><code>Symbol.iterator</code>本身是一个表达式，返回<code>Symbol</code>对象的<code>iterator</code>属性，这是一个预定义好的特殊的<code>Symbol</code>类型的值。</li>
 <li>所以作为对象的属性时，要写在<code>[]</code>方括号中</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 数组
 let arr = [1, 2, 3];
 const iterator = arr[Symbol.iterator](); // 生成可遍历对象
@@ -991,24 +1088,21 @@ console.log(iterator.next());
 console.log(iterator.next());
 console.log(iterator.next());
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li><code>while</code>循环配合迭代器，一次性有序的迭代出数组中的所有成员<blockquote>
 <ul>
 <li>注意：<code>[Symbol.iterator]</code>返回的迭代器对象，没有<code>isDone</code>方法，所以这里用<code>while</code>循环的方式和我们手写的外部迭代器不一样</li>
 </ul>
-<pre><code>const it = arr[Symbol.iterator]();
-let obj = it.next();
-while (!obj.done) &#123;
-console.log(obj.value);
-obj = it.next(); // 1  2  3
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const it = arr[Symbol.iterator]();
+let obj = it.next();
+while (!obj.done) &#123;
+  console.log(obj.value);
+  obj = it.next(); // 1  2  3
+&#125;
+</code></pre>
 <ol start="3">
 <li><p><code>Iterator</code> 是什么 ？</p>
 <blockquote>
@@ -1027,58 +1121,66 @@ obj = it.next(); // 1  2  3
 <ul>
 <li>只是代码上稍微有一些差异，因为数组的<code>Symbol.iterator</code>方法，生成的迭代器对象只有<code>next</code>方法，<strong>没有</strong><code>isDone</code>方法。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Array.prototype[Symbol.iterator] = function () &#123;
   let index = 0;
   let self = this;
   return &#123;
- next() &#123;
-   return index &lt; self.length
-     ? &#123;
-         value: self[index++],
-         done: false,
-       &#125;
-     : &#123; value: undefined, done: true &#125;;
- &#125;,
+    next() &#123;
+      return index &lt; self.length
+        ? &#123;
+            value: self[index++],
+            done: false,
+          &#125;
+        : &#123; value: undefined, done: true &#125;;
+    &#125;,
   &#125;;
 &#125;;
+&gt;
+const arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;];
+const it = arr[Symbol.iterator]();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+&gt;
+// 一次性迭代出数组的所有成员
+const it2 = arr[Symbol.iterator]();
+let obj = it2.next();
+while (!obj.done) &#123;
+  console.log(obj.value);
+  obj = it2.next();
+&#125;
 </code></pre>
-</blockquote>
-<p>const arr &#x3D; [“a”, “b”, “c”, “d”];<br>const it &#x3D; arr<a href="">Symbol.iterator</a>;<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 一次性迭代出数组的所有成员<br>const it2 &#x3D; arr<a href="">Symbol.iterator</a>;<br>let obj &#x3D; it2.next();<br>while (!obj.done) {<br>  console.log(obj.value);<br>  obj &#x3D; it2.next();<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li>用<code>while</code>循环，遍历出数组成员<blockquote>
 <ul>
 <li>特别注意，用<code>continue</code>的时候，避免进入死循环</li>
 </ul>
-<pre><code>//break
-while (!obj.done) &#123;
-if (obj.value === &quot;c&quot;) &#123;
-  break;
-&#125;
-console.log(obj.value);
-obj = it.next();
-&#125;
-//continue
-while (!obj.done) &#123;
-if (obj.value === &quot;c&quot;) &#123;
-  obj = it.next();
-  continue;
-&#125;
-console.log(obj.value);
-obj = it.next();
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>//break
+while (!obj.done) &#123;
+  if (obj.value === &quot;c&quot;) &#123;
+    break;
+  &#125;
+  console.log(obj.value);
+  obj = it.next();
+&#125;
+//continue
+while (!obj.done) &#123;
+  if (obj.value === &quot;c&quot;) &#123;
+    obj = it.next();
+    continue;
+  &#125;
+  console.log(obj.value);
+  obj = it.next();
+&#125;
+</code></pre>
 <h3 id="三、for-of"><a href="#三、for-of" class="headerlink" title="三、for ... of"></a>三、<code>for ... of</code></h3><blockquote>
 <p>通过上面的学习，我们知道，<code>Iterator</code>的使用特别的麻烦，难道以后，我们都需要那样来使用 <code>Iterator</code> 吗 ？那肯定是不用的，如果这么麻烦，那估计早就没人用了。</p>
 <ul>
@@ -1090,15 +1192,15 @@ obj = it.next();
 <ul>
 <li><code>for...of</code>用来遍历<strong>迭代器对象</strong>，比如数组的<code>[Symbol.iterator]</code>方法，调用这个方法，可以生成一个迭代器对象。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;];
 const it = arr[Symbol.iterator]();
 for (let v of it) &#123;
   console.log(v);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p><code>ES6</code> 中的<code>数组、Set、Map</code>都有<code>keys、values、entries</code>方法，这三个方法调用后，<strong>都返回一个迭代器对象</strong>，所以可以用<code>for...of</code>来遍历他们</p>
 </blockquote>
@@ -1122,69 +1224,73 @@ for (let v of it) &#123;
 <td>返回一个遍历器对象，用来遍历 [键名，键值] 成的数组。</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code>const s = new Set();
 console.log(s.keys());
 </code></pre>
+<blockquote>
 <img src="keys方法生成的的迭代器对象.png">
 - 其他方法也类似
 </blockquote>
 <ul>
-<li><p>数组</p>
-<blockquote>
+<li>数组<blockquote>
 <ul>
 <li>用<code>for...of</code>遍历数组的<code>keys()</code>方法可以遍历数组的下标</li>
 <li></li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>const arr = [1, 2, 3];
 console.log(arr); //arr是一个可迭代对象
 console.log(arr.keys()); //arr.keys()会返回一个迭代器对象
 for (let k of arr.keys()) &#123;
-console.log(k); //0 1 2
+  console.log(k); //0 1 2
 &#125;
 for (let k of arr.values()) &#123;
-console.log(k); //1 2 3
+  console.log(k); //1 2 3
 &#125;
 for (let k of arr.entries()) &#123;
-console.log(k); // [0, 1] [1, 2] [2, 3]
+  console.log(k); // [0, 1] [1, 2] [2, 3]
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>Set</p>
-<blockquote>
+<ul>
+<li>Set<blockquote>
 <ul>
 <li><code>Set</code>对象没有键名，所以返回成员值</li>
 </ul>
-<pre><code>const s = new Set([1, 2, 3]);
-for (let k of s.keys()) &#123;
-console.log(k); // 1 2 3
-&#125;
-for (let v of s.values()) &#123;
-console.log(v); // 1 2 3
-&#125;
-for (let [k, v] of s.entries()) &#123;
-console.log(k, v); // 1 1  2 2  3 3
-&#125;
-</code></pre>
-</blockquote>
-</li>
-<li><p>Map</p>
-<blockquote>
-<pre><code>const m = new Map([
-[&quot;数组&quot;, [&quot;a&quot;, &quot;b&quot;]],
-[&quot;对象&quot;, &#123; a: 1, b: 2 &#125;],
-[&quot;函数&quot;, function () &#123;&#125;],
-]);
-</code></pre>
-</blockquote>
-<p>for (let k of m.keys()) {<br>console.log(k);<br>}<br>for (let v of m.values()) {<br>console.log(v);<br>}<br>for (let [k, v] of m.entries()) {<br>console.log(<code>$&#123;k&#125;=&gt;$&#123;v&#125;</code>);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const s = new Set([1, 2, 3]);
+for (let k of s.keys()) &#123;
+  console.log(k); // 1 2 3
+&#125;
+for (let v of s.values()) &#123;
+  console.log(v); // 1 2 3
+&#125;
+for (let [k, v] of s.entries()) &#123;
+  console.log(k, v); // 1 1  2 2  3 3
+&#125;
+</code></pre>
+<ul>
+<li>Map</li>
+</ul>
+<pre><code>const m = new Map([
+  [&quot;数组&quot;, [&quot;a&quot;, &quot;b&quot;]],
+  [&quot;对象&quot;, &#123; a: 1, b: 2 &#125;],
+  [&quot;函数&quot;, function () &#123;&#125;],
+]);
+&gt;
+for (let k of m.keys()) &#123;
+  console.log(k);
+&#125;
+for (let v of m.values()) &#123;
+  console.log(v);
+&#125;
+for (let [k, v] of m.entries()) &#123;
+  console.log(`$&#123;k&#125;=&gt;$&#123;v&#125;`);
+&#125;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -1194,22 +1300,22 @@ console.log(k, v); // 1 1  2 2  3 3
 </ul>
 </blockquote>
 <ol start="2">
-<li><p>for … of 遍历可迭代对象</p>
-<blockquote>
+<li>for … of 遍历可迭代对象<blockquote>
 <p>只要一个对象身上有<code>[Symbol.iterator]</code>属性，则就可以用<code>for...of</code>来遍历对象，我们把带有<code>[Symbol.iterator]</code>属性的对象称为<strong>可遍历（迭代）对象</strong></p>
 <ul>
 <li>也就是说，当用<code>for...of</code>来遍历某个对象时，内部会自动调用对象的<code>[Symbol.iterator]</code>方法来<strong>生成一个迭代器对象</strong>，然后按顺序迭代对象的成员。</li>
 <li>数组原生自带<code>[Symbol.iterator]</code>属性，所以我们可以用<code>for...of</code>来遍历其成员</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>const arr = [1, 2, 3];
 for (let v of arr) &#123;
   console.log(v); // 1 2 3
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>原生可遍历对象</p>
-<blockquote>
+<ol start="3">
+<li>原生可遍历对象<blockquote>
 <p>原生可遍历对象，是指<code>JS</code>中原生自带<code>[Symbol.iterator]</code>属性的对象。<br>JS 中具原生可遍历对象有：</p>
 <ul>
 <li>Array 数组</li>
@@ -1222,7 +1328,8 @@ for (let v of arr) &#123;
 </li>
 </ol>
 <ul>
-<li>Set<blockquote>
+<li>Set</li>
+</ul>
 <pre><code>const set = new Set([1, 2, 3]);
 const iterator = set[Symbol.iterator]();
 console.log(iterator.next());//&#123;value: 1, done: false&#125;
@@ -1230,41 +1337,38 @@ console.log(iterator.next());//&#123;value: 2, done: false&#125;
 console.log(iterator.next());//&#123;value: 3, done: false&#125;
 console.log(iterator.next());//&#123;value: 4, done: false&#125;
 </code></pre>
-</blockquote>
-</li>
-<li>Map<blockquote>
+<ul>
+<li>Map</li>
+</ul>
 <pre><code>const map = new Map([
-[[1, 3, 3], &quot;数组&quot;],
-[&#123; a: 1, b: 2 &#125;, &quot;对象&quot;],
+  [[1, 3, 3], &quot;数组&quot;],
+  [&#123; a: 1, b: 2 &#125;, &quot;对象&quot;],
 ]);
 const iterator = map[Symbol.iterator]();
 console.log(iterator.next());
 console.log(iterator.next());
 console.log(iterator.next());
 </code></pre>
-</blockquote>
-</li>
-<li>String<blockquote>
+<ul>
+<li>String</li>
+</ul>
 <pre><code>const str = &quot;hello&quot;;
 for (let v of str) &#123;
-console.log(v);
+  console.log(v);
 &#125;
 // 结果: h e l l o
 </code></pre>
-</blockquote>
-</li>
-<li>类数组<blockquote>
+<ul>
+<li>类数组</li>
+</ul>
 <pre><code>function sum() &#123;
-for (let v of arguments) &#123;
-  console.log(v);
-&#125;
+  for (let v of arguments) &#123;
+    console.log(v);
+  &#125;
 &#125;
 sum(1, 2, 3, 4);
 // 结果 1 2 3 4
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>特别强调：</p>
@@ -1290,40 +1394,44 @@ sum(1, 2, 3, 4);
 <li>即对象身上要有<code>[Symbol.iterator]</code>属性，其为一个函数，调用该函数会返回一个<strong>迭代器对象</strong>。</li>
 <li>迭代器对象要遵顺<strong>迭代器协议</strong>，即迭代器对象有<code>next</code>方法，方法返回值为一个对象，对象有<code>value</code>和<code>done</code>两个属性等。</li>
 </ul>
-<pre><code>const obj = &#123;
-  data: [1, 2, 3, 4],
-  [Symbol.iterator]() &#123;
- let index = 0;
- self = this;
- return &#123;
-   next() &#123;
-     if (index &lt; self.data.length) &#123;
-       return &#123;
-         value: self.data[index++],
-         done: false,
-       &#125;;
-     &#125; else &#123;
-       return &#123;
-         value: undefined,
-         done: true,
-       &#125;;
-     &#125;
-   &#125;,
- &#125;;
-  &#125;,
-&#125;;
-</code></pre>
-</blockquote>
-<p>let it &#x3D; obj<a href="">Symbol.iterator</a>;<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());<br>console.log(it.next());</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 当用 for…of 来遍历obj对象时，其内部会自动调用obj的 [Symbol.iterator]方法来生成一个迭代器对象，来对其data数据中的成员遍历。<br>for (let v of obj) {<br>  console.log(v);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const obj = &#123;
+  data: [1, 2, 3, 4],
+  [Symbol.iterator]() &#123;
+    let index = 0;
+    self = this;
+    return &#123;
+      next() &#123;
+        if (index &lt; self.data.length) &#123;
+          return &#123;
+            value: self.data[index++],
+            done: false,
+          &#125;;
+        &#125; else &#123;
+          return &#123;
+            value: undefined,
+            done: true,
+          &#125;;
+        &#125;
+      &#125;,
+    &#125;;
+  &#125;,
+&#125;;
+&gt;
+let it = obj[Symbol.iterator]();
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+&gt;
+// 当用 for...of 来遍历obj对象时，其内部会自动调用obj的 [Symbol.iterator]方法来生成一个迭代器对象，来对其data数据中的成员遍历。
+for (let v of obj) &#123;
+  console.log(v);
+&#125;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -1331,12 +1439,12 @@ sum(1, 2, 3, 4);
 <ul>
 <li>自定义的<code>[Symbol.iterator]</code>方法，单独调用，<strong>其生成的迭代器对象</strong>，不能用<code>for...of</code>来遍历。</li>
 </ul>
+</blockquote>
 <pre><code>let it = obj[Symbol.iterator]();
 for (let v of it) &#123;
   console.log(v);//报错
 &#125;
 </code></pre>
-</blockquote>
 <ol start="6">
 <li>退出 for … of 循环<blockquote>
 <p>在for…of循环语句中，可以使用</p>
@@ -1350,64 +1458,61 @@ for (let v of it) &#123;
 </li>
 </ol>
 <ul>
-<li>break 关键字<blockquote>
+<li>break 关键字</li>
+</ul>
 <pre><code>const arr = [1, 2, 3, 4, 5];
-for (let v of arr) &#123;
-if (v === 3) &#123;
-  break;
-&#125;
-console.log(v);
-&#125;
-// 结果：  1  2
-</code></pre>
-</blockquote>
-</li>
-<li>continue 关键字<blockquote>
-<pre><code>const arr = [1, 2, 3, 4, 5];
-for (let v of arr) &#123;
-if (v === 3) &#123;
-  continue;
-&#125;
-console.log(v);
-&#125;
-// 结果  1  2  4  5
-</code></pre>
-</blockquote>
-</li>
-<li>throw 关键字<blockquote>
-<pre><code>const arr = [1, 2, 3, 4, 5];
-for (let v of arr) &#123;
-if (v === 3) &#123;
-  throw new Error(&quot;抛出错误，退出循环&quot;);
-&#125;
-console.log(v);
-&#125;
-// 结果  1  2  Uncaught Error: 抛出错误，退出循环
-</code></pre>
-</blockquote>
-</li>
-<li>return 关键字<blockquote>
-<pre><code>function fn() &#123;
-const arr = [1, 2, 3, 4, 5];
 for (let v of arr) &#123;
   if (v === 3) &#123;
-    return &quot;停止&quot;;
+    break;
   &#125;
   console.log(v);
 &#125;
+// 结果：  1  2
+</code></pre>
+<ul>
+<li>continue 关键字</li>
+</ul>
+<pre><code>const arr = [1, 2, 3, 4, 5];
+for (let v of arr) &#123;
+  if (v === 3) &#123;
+    continue;
+  &#125;
+  console.log(v);
+&#125;
+// 结果  1  2  4  5
+</code></pre>
+<ul>
+<li>throw 关键字</li>
+</ul>
+<pre><code>const arr = [1, 2, 3, 4, 5];
+for (let v of arr) &#123;
+  if (v === 3) &#123;
+    throw new Error(&quot;抛出错误，退出循环&quot;);
+  &#125;
+  console.log(v);
+&#125;
+// 结果  1  2  Uncaught Error: 抛出错误，退出循环
+</code></pre>
+<ul>
+<li>return 关键字</li>
+</ul>
+<pre><code>function fn() &#123;
+  const arr = [1, 2, 3, 4, 5];
+  for (let v of arr) &#123;
+    if (v === 3) &#123;
+      return &quot;停止&quot;;
+    &#125;
+    console.log(v);
+  &#125;
 &#125;
 console.log(fn());
 // 结果  1  2  停止
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="7">
 <li>总结</li>
 </ol>
 <ul>
-<li><p>可迭代对象与迭代器对象</p>
-<blockquote>
+<li>可迭代对象与迭代器对象<blockquote>
 <p><strong>可迭代对象</strong></p>
 <ul>
 <li>定义：带有<code>[Symbol.iterator]</code>属性的对象</li>
@@ -1425,15 +1530,16 @@ console.log(fn());
 </li>
 <li>迭代器协议：是指迭代器对象必需要有<code>next()</code>方法，其方法的返回值必需为一个对象，对象有<code>value</code>和<code>done</code>两个属性，<code>value</code>表示每次迭代的成员，<code>done</code>用来标识成员是否迭代完成。</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>//arr是Array的实例，自带[Symbol.iterator]方法，所以arr是可迭代对象
 const arr = [1, 2, 3];
 //调用[Symbol.iterator]方法的时候，会自动生成迭代器对象，也就是it
 const it = arr[Symbol.iterator]();
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>for...of</code>循环</p>
-<blockquote>
+<ul>
+<li><code>for...of</code>循环<blockquote>
 <ul>
 <li><code>for...of</code>既可以遍历<strong>迭代器对象</strong>，也可以遍历<strong>可迭代对象</strong></li>
 <li>如果对象要能用<code>for...of</code>来遍历，则需要遵循可迭代协议和迭代器协议<blockquote>
@@ -1449,35 +1555,37 @@ const it = arr[Symbol.iterator]();
 <ul>
 <li>遍历 调用<code>[Symbol.iterator]</code>方法的时候，生成的迭代器对象</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;];
 const it = arr[Symbol.iterator]();
 for (let v of it) &#123;
   console.log(v);
 &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>遍历<code>keys、values、entries</code>方法调用后，返回的迭代器对象<ul>
 <li>keys是键名，value是键值，entries是[键名，键值]的数组</li>
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>const s = new Set([1, 2, 3]);
 for (let k of s.keys()) &#123;
   console.log(k); // 1 2 3
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>遍历可迭代对象</strong></p>
 <ul>
 <li>也就是原生的可迭代对象：<code>Array</code> 数组、<code>Set</code>、<code>Map</code>、<code>String</code>字符串、<code>arguments</code> 、<code>NodeList</code>等类数组对象</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [1, 2, 3];
 for (let v of arr) &#123;
   console.log(v); // 1 2 3
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>遍历<code>Array</code>的实例时，实际上是在遍历<code>valus()</code>生成的迭代器</li>
@@ -1530,47 +1638,54 @@ for (let v of arr) &#123;
 </li>
 </ol>
 <ul>
-<li>修改前：<blockquote>
+<li>修改前：</li>
+</ul>
 <pre><code>let str = &quot;hello&quot;;
 const [a, b] = str; // 解构赋值
 console.log(a, b); // h e
 console.log(...str); //h e l l o
 </code></pre>
-</blockquote>
-</li>
-<li>修改后：<blockquote>
+<ul>
+<li>修改后：</li>
+</ul>
 <pre><code>// 接下来我们修改字符串原型上的[Symbol.iterator]方法
 String.prototype[Symbol.iterator] = function () &#123;
-index = 0;
-return &#123;
-  next() &#123;
-    if (index &lt; 3) &#123;
-      return &#123;
-        value: index++,
-        done: false,
-      &#125;;
-    &#125; else &#123;
-      return &#123;
-        value: undefined,
-        done: true,
-      &#125;;
-    &#125;
-  &#125;,
+  index = 0;
+  return &#123;
+    next() &#123;
+      if (index &lt; 3) &#123;
+        return &#123;
+          value: index++,
+          done: false,
+        &#125;;
+      &#125; else &#123;
+        return &#123;
+          value: undefined,
+          done: true,
+        &#125;;
+      &#125;
+    &#125;,
+  &#125;;
 &#125;;
-&#125;;
+&gt;
+let str = &quot;hello&quot;;
+const [x, y] = str; // 解构赋值
+console.log(x, y); // 0 1
+&gt;
+// 解构赋值内部相当于执行了以下代码
+// const it = str[Symbol.iterator]();
+// x = it.next().value;
+// y = it.next().value;
+&gt;
+// 展开运算符
+console.log(...str); // 0 1 2
 </code></pre>
-</blockquote>
-let str &#x3D; “hello”;<br>const [x, y] &#x3D; str; &#x2F;&#x2F; 解构赋值<br>console.log(x, y); &#x2F;&#x2F; 0 1<blockquote>
-</blockquote>
-&#x2F;&#x2F; 解构赋值内部相当于执行了以下代码<br>&#x2F;&#x2F; const it &#x3D; str<a href="">Symbol.iterator</a>;<br>&#x2F;&#x2F; x &#x3D; it.next().value;<br>&#x2F;&#x2F; y &#x3D; it.next().value;<blockquote>
-</blockquote>
-&#x2F;&#x2F; 展开运算符<br>console.log(…str); &#x2F;&#x2F; 0 1 2<blockquote>
-<pre><code>- 修改了`String.prototype[Symbol.iterator]`方法，所以在解构赋值时 其结果并不是输入`h e`，而是输出了`0 1`。
-- 说明解构赋值时，其内部就是自动调用了`String.prototype[Symbol.iterator]`方法，然后迭代内部的成员来完成解构赋值的。
-</code></pre>
-</blockquote>
-</li>
+<blockquote>
+<ul>
+<li>修改了<code>String.prototype[Symbol.iterator]</code>方法，所以在解构赋值时 其结果并不是输入<code>h e</code>，而是输出了<code>0 1</code>。</li>
+<li>说明解构赋值时，其内部就是自动调用了<code>String.prototype[Symbol.iterator]</code>方法，然后迭代内部的成员来完成解构赋值的。</li>
 </ul>
+</blockquote>
 <blockquote>
 <p><strong>关于以下使用场景</strong></p>
 <ul>
@@ -1584,8 +1699,12 @@ let str &#x3D; “hello”;<br>const [x, y] &#x3D; str; &#x2F;&#x2F; 解构赋�
 <ol start="2">
 <li>面试题<blockquote>
 <p>编写相关代码，使下面代码成立，并且<code>a,b</code>成功赋值</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>const [a, b] = &#123; a: 1, b: 2 &#125;;
 </code></pre>
+<blockquote>
 <p><strong>答案解析</strong></p>
 <ul>
 <li>数组的解构赋值 <code>=</code> 号右边只要是一个可迭代对象就可以，但<code>&#123;a:1, b:2&#125;</code>是一个<code>Object</code>类型的对象，他不是一个可迭代对象，也就是说他没有<code>[Symbol.iterator]</code>属性。</li>
@@ -1593,57 +1712,53 @@ let str &#x3D; “hello”;<br>const [x, y] &#x3D; str; &#x2F;&#x2F; 解构赋�
 <li>迭代器是按顺序迭代成员，但对象是无序的；所以有两种方法</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>方法一：</p>
-<blockquote>
+<li>方法一：</li>
+</ul>
 <pre><code>Object.prototype[Symbol.iterator] = function () &#123;
-let index = -1;
-const self = this;
-return &#123;
-  next() &#123;
-    index++;
-    if (index === 0) &#123;
-      return &#123; value: 1, done: false &#125;;
-    &#125; else if (index === 1) &#123;
-      return &#123; value: 2, done: false &#125;;
-    &#125; else &#123;
-      return &#123; value: undefined, done: true &#125;;
-    &#125;
-  &#125;,
-&#125;;
+  let index = -1;
+  const self = this;
+  return &#123;
+    next() &#123;
+      index++;
+      if (index === 0) &#123;
+        return &#123; value: 1, done: false &#125;;
+      &#125; else if (index === 1) &#123;
+        return &#123; value: 2, done: false &#125;;
+      &#125; else &#123;
+        return &#123; value: undefined, done: true &#125;;
+      &#125;
+    &#125;,
+  &#125;;
 &#125;;
 const [a, b, c] = &#123; a: 1, b: 2 &#125;;
 console.log(a, b, c); //1 2 undefined
 </code></pre>
-</blockquote>
-</li>
-<li><p>方式二：</p>
-<blockquote>
+<ul>
+<li>方式二：<blockquote>
 <ul>
 <li><code>Object.keys(obj)</code>：返回obj的属性名</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>Object.prototype[Symbol.iterator] = function () &#123;
-let key = Object.keys(this);
-let index = 0;
-const self = this;
-return &#123;
-  next() &#123;
-    if (index &lt; key.length) &#123;
-      return &#123; value: self[key[index++]], done: false &#125;;
-    &#125; else &#123;
-      return &#123; value: undefined, done: true &#125;;
-    &#125;
-  &#125;,
-&#125;;
+  let key = Object.keys(this);
+  let index = 0;
+  const self = this;
+  return &#123;
+    next() &#123;
+      if (index &lt; key.length) &#123;
+        return &#123; value: self[key[index++]], done: false &#125;;
+      &#125; else &#123;
+        return &#123; value: undefined, done: true &#125;;
+      &#125;
+    &#125;,
+  &#125;;
 &#125;;
 const [a, b, c] = &#123; a: 1, b: 2 &#125;;
 console.log(a, b, c); //1 2 undefined
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="五、迭代器对象的-return-、throw-方法"><a href="#五、迭代器对象的-return-、throw-方法" class="headerlink" title="五、迭代器对象的 return 、throw 方法"></a>五、迭代器对象的 return 、throw 方法</h3><blockquote>
 <p>迭代器对象除了具有<code>next()</code>方法，还可以具有<code>return</code>方法和<code>throw</code>方法。</p>
 <ul>
@@ -1651,71 +1766,75 @@ console.log(a, b, c); //1 2 undefined
 </ul>
 </blockquote>
 <ol>
-<li><p><code>return</code>方法</p>
-<blockquote>
+<li><code>return</code>方法<blockquote>
 <p>如果迭代器提前关闭时，则会<strong>自动调用</strong><code>return</code>方法。提前退出迭代器情况如下：</p>
 <ul>
 <li>遇到<code>break，throw，return</code>关键字时，会提前退出循环时<br>解构赋值时，未能消费所有值时<br><strong>注：</strong></li>
 <li><code>return</code>方法的<strong>返回值，必需是一个对象</strong>，这是<code>Generator</code>规格决定的。</li>
 <li><code>return</code>应用场景：如果一个对象在完成遍历前做某些操作，则可以为迭代器对象添加<code>return</code>方法。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>class DataContainer &#123;
   data = [1, 2, 3, 4];
   [Symbol.iterator]() &#123;
- let index = 0;
- let data = this.data;
- return &#123;
-   next() &#123;
-     if (index &lt; data.length) &#123;
-       return &#123;
-         value: data[index++],
-         done: false,
-       &#125;;
-     &#125; else &#123;
-       return &#123;
-         value: undefined,
-         done: true,
-       &#125;;
-     &#125;
-   &#125;,
-   return() &#123;
-     console.log(&quot;提前提出for...of,return方法被调用&quot;);
-     return &#123; done: true &#125;;
-   &#125;,
- &#125;;
+    let index = 0;
+    let data = this.data;
+    return &#123;
+      next() &#123;
+        if (index &lt; data.length) &#123;
+          return &#123;
+            value: data[index++],
+            done: false,
+          &#125;;
+        &#125; else &#123;
+          return &#123;
+            value: undefined,
+            done: true,
+          &#125;;
+        &#125;
+      &#125;,
+      return() &#123;
+        console.log(&quot;提前提出for...of,return方法被调用&quot;);
+        return &#123; done: true &#125;;
+      &#125;,
+    &#125;;
   &#125;
 &#125;
+&gt;
+for (let v of new DataContainer()) &#123;
+  if (v === 2) &#123;
+    break;
+  &#125;
+  console.log(v);
+&#125;
+ //1
+ //  提前提出for...of,return方法被调用
 </code></pre>
-</blockquote>
-<p>for (let v of new DataContainer()) {<br>  if (v &#x3D;&#x3D;&#x3D; 2) {<br> break;<br>  }<br>  console.log(v);<br>}<br> &#x2F;&#x2F;1<br> &#x2F;&#x2F;  提前提出for…of,return方法被调用</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>不能关闭的迭代器</p>
-<blockquote>
+<ol start="2">
+<li>不能关闭的迭代器<blockquote>
 <p>因为 <code>return</code> 方法是可选的，所以数组、<code>Set</code>、<code>Map</code>、<code>String</code>，类数组的迭代器对象上<strong>都没有</strong><code>return</code>方法。<br>当<code>for...of</code>遍历时遇到<code>break、continue、return、throw</code>，<strong>都不会关闭迭代器</strong>。</p>
 <blockquote>
 <p>如果一个迭代器<strong>没关闭</strong>，则还可以<strong>继承</strong>从上次离开的地方继承迭代。</p>
 </blockquote>
+</blockquote>
+</li>
+</ol>
 <pre><code>const arr = new Set([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]);
 const it = arr[Symbol.iterator]();
 for (let v of it) &#123;
   console.log(v); // a b
   if (v === &quot;b&quot;) &#123;
- break;
+    break;
   &#125;
 &#125;
+&gt;
+// 上面的迭代器没有关闭，下面继承迭代
+for (let v of it) &#123;
+  console.log(v); // c d
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 上面的迭代器没有关闭，下面继承迭代<br>for (let v of it) {<br>  console.log(v); &#x2F;&#x2F; c d<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="六、为什么需要迭代器和-for-…-of"><a href="#六、为什么需要迭代器和-for-…-of" class="headerlink" title="六、为什么需要迭代器和 for … of"></a>六、为什么需要迭代器和 for … of</h3><blockquote>
 <p>在 JS 中遍历的方法有<code>for、forEach、for...in</code>，为什么还有要<code>for...of</code>呢 ？ 也就是说，为什么需要迭代器呢 ？</p>
 <ul>
@@ -1823,35 +1942,39 @@ for (let v of it) &#123;
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>padEnd(targetLength[, padString])
 </code></pre>
+<blockquote>
 <ul>
 <li><code>targetLength</code>当前字符串需要填充到的目标长度</li>
 <li><code>padString</code>填充字符串，如果需要的话，会反复多次来填充，默认值为空格<code> </code></li>
 </ul>
 </blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>console.log(&quot;abcd&quot;.padStart(7, &quot;*&quot;)); // ***abcd
 console.log(&quot;abcd&quot;.padStart(7, &quot;@#&quot;)); // @#@abcd
 </code></pre>
-</blockquote>
-</li>
+<ul>
 <li>注意事项<blockquote>
 <ul>
 <li>如果<code>targetLength</code>的值<code>&lt;=</code>当前字符串的长度，则返回当前字符串本身</li>
 </ul>
-<pre><code>console.log(&quot;abcd&quot;.padStart(4, &quot;*&quot;)); // abcd
-</code></pre>
-<ul>
-<li>如果 padString 长度过长，只会保留最左侧部分，其他部分会被截断</li>
-</ul>
-<pre><code>console.log(&quot;abcd&quot;.padStart(8, &quot;01234&quot;)); // 0123abcd
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>console.log(&quot;abcd&quot;.padStart(4, &quot;*&quot;)); // abcd
+</code></pre>
+<blockquote>
+<ul>
+<li>如果 padString 长度过长，只会保留最左侧部分，其他部分会被截断</li>
+</ul>
+</blockquote>
+<pre><code>console.log(&quot;abcd&quot;.padStart(8, &quot;01234&quot;)); // 0123abcd
+</code></pre>
 <ol start="2">
 <li>padEnd<blockquote>
 <p>用一个字符串从当前字符串的<strong>末尾</strong>来填充当前字符串，使字符串达到指定长度。</p>
@@ -1862,97 +1985,102 @@ console.log(&quot;abcd&quot;.padStart(7, &quot;@#&quot;)); // @#@abcd
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>padEnd(targetLength[, padString])
 </code></pre>
+<blockquote>
 <ul>
 <li><code>targetLength</code>当前字符串需要填充到的目标长度</li>
 <li><code>padString</code>填充字符串，如果需要的话，会反复多次来填充</li>
 </ul>
 </blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>let str = &quot;清心&quot;.padEnd(6, &quot;爱你&quot;);
 console.log(str); // 清心爱你爱你
+&gt;
+let str2 = &quot;清心&quot;.padEnd(5, &quot;52&quot;);
+console.log(str2); // 清心525
 </code></pre>
-</blockquote>
-let str2 &#x3D; “清心”.padEnd(5, “52”);<br>console.log(str2); &#x2F;&#x2F; 清心525<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
 <li>注意事项<blockquote>
 <ul>
 <li>如果 targetLength 的值 &lt;&#x3D; 当前字符串的长度，则返回当前字符串本身</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>let str = &quot;清心&quot;.padEnd(2, &quot;爱你&quot;);
 console.log(str); // 清心
 </code></pre>
+<blockquote>
 <ul>
 <li>如果 padString 长度过长，只会保留最左侧部分，其他部分会被截断</li>
 </ul>
+</blockquote>
 <pre><code>str = &quot;清心&quot;.padEnd(5, &quot;520def&quot;);
 console.log(str); // 清心520
 </code></pre>
-</blockquote>
-</li>
+<ul>
 <li>案例应用<blockquote>
 <p>将以下 map 数据，在控制台以以下图形式显示出来</p>
-<pre><code>const map = new Map([
-[&quot;luobo&quot;, 5],
-[&quot;baicai&quot;, 2.5],
-[&quot;doujiao&quot;, 3],
-[&quot;huacai&quot;, 5],
-]);
-</code></pre>
 </blockquote>
 </li>
 </ul>
-<blockquote>
+<pre><code>const map = new Map([
+  [&quot;luobo&quot;, 5],
+  [&quot;baicai&quot;, 2.5],
+  [&quot;doujiao&quot;, 3],
+  [&quot;huacai&quot;, 5],
+]);
+</code></pre>
 <pre><code>for ([k, v] of map) &#123;
   console.log(k.padEnd(20, &quot;-&quot;) + v);
 &#125;
 </code></pre>
-</blockquote>
 <ol start="3">
-<li><p>trimStart</p>
-<blockquote>
+<li>trimStart<blockquote>
 <p><code>trimStart()</code>方法会删除<strong>字符串开头</strong>的空白字符。<code>trimLeft()</code>是此方法的别名</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>let str = &quot;   love   &quot;;
 console.log(str.length); // 10
 str = str.trimStart(); // 去掉前面的空白字符
 console.log(str); // &quot;love   &quot;
 console.log(str.length); // 7
 </code></pre>
+<ol start="4">
+<li>trimEnd<blockquote>
+<p><code>trimEnd()</code>方法会删除字符串<strong>末尾</strong>的空白字符。<code>trimRight()</code>是这个方法的别名。</p>
 </blockquote>
 </li>
-<li><p>trimEnd</p>
-<blockquote>
-<p><code>trimEnd()</code>方法会删除字符串<strong>末尾</strong>的空白字符。<code>trimRight()</code>是这个方法的别名。</p>
+</ol>
 <pre><code>let str = &quot;   love   &quot;;
 console.log(str.length); // 10
 str = str.trimEnd(); // 去掉字符串后面的空白字符
 console.log(str); // &quot;   love&quot;
 console.log(str.length); // 7
 </code></pre>
-</blockquote>
-</li>
-<li><p>trim</p>
-<blockquote>
+<ol start="5">
+<li>trim<blockquote>
 <p><code>trim()</code>方法从字符串的<strong>两端</strong>清除空格，返回一个新的字符串，而不修改原始字符串</p>
 <blockquote>
 <p>这三个方法都是返回新字符串，不会改变原始字符串</p>
 </blockquote>
+</blockquote>
+</li>
+</ol>
 <pre><code>let str = &quot;   love   &quot;;
 console.log(str.length); // 10
 str = str.trim();
 console.log(str); // &quot;love&quot;
 console.log(str.length); // 4
 </code></pre>
-</blockquote>
-</li>
-<li><p>startsWith</p>
-<blockquote>
+<ol start="6">
+<li>startsWith<blockquote>
 <p><code>startsWith()</code>方法用来判断当前字符串是否以另外一个给定的子字符串<strong>开头</strong>。如果是返回<code>true</code>，否则返回<code>false</code>。</p>
 <ul>
 <li>注意：此方法，严格区分大小写</li>
@@ -1961,24 +2089,24 @@ console.log(str.length); // 4
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>str.startsWith(searchString[, position])
 </code></pre>
+<blockquote>
 <ul>
 <li><code>searchString</code> 要搜索的子字符串</li>
 <li><code>position</code> 可选参数在<code>str</code>中搜索<code>searchString </code>的开始位置，默认值为<code>0</code></li>
 </ul>
 </blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>console.log(&quot;data_iconfont&quot;.startsWith(&quot;data_&quot;)); // true
 console.log(&quot;data_iconfont&quot;.startsWith(&quot;data-&quot;)); // false
 console.log(&quot;data_iconfont&quot;.startsWith(&quot;icon&quot;, 4)); // false
 console.log(&quot;data_iconfont&quot;.startsWith(&quot;icon&quot;, 5)); // true
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="7">
 <li>endsWith<blockquote>
 <p><code>endsWith()</code>方法用来判断当前字符串是否是以另外一个给定的子字符串<strong>“结尾”</strong>的。</p>
@@ -1990,22 +2118,20 @@ console.log(&quot;data_iconfont&quot;.startsWith(&quot;icon&quot;, 5)); // true
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>str.endsWith(searchString[, length])
 searchString : 要搜索的子字符串
 length ： 作为 str 的长度。默认值为 str.length
 </code></pre>
-</blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>console.log(&quot;data_iconfont&quot;.endsWith(&quot;font&quot;)); // true
 console.log(&quot;data_iconfont&quot;.endsWith(&quot;t&quot;)); // true
 console.log(&quot;data_iconfont&quot;.endsWith(&quot;con&quot;, 9)); // true
 console.log(&quot;data_iconfont&quot;.startsWith(&quot;con&quot;, 10)); // false
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="8">
 <li>repeat 方法<blockquote>
 <p>构造并返回一个新字符串，该字符串包含被连接在一起的<strong>指定数量</strong>的字符串的副本。</p>
@@ -2013,16 +2139,15 @@ console.log(&quot;data_iconfont&quot;.startsWith(&quot;con&quot;, 10)); // false
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>str.repeat(count);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li><code>count</code>是介于<code>0</code>和<code>+Infinity</code>之间的整数。表示在新构造的字符串中<strong>重复了多少遍</strong>原字符串。</li>
 </ul>
+</blockquote>
 <pre><code>// &quot;abc&quot;.repeat(-1); // 报错
 console.log(&quot;abc&quot;.repeat()); // &quot;&quot;
 console.log(&quot;abc&quot;.repeat(0)); // &quot;&quot;
@@ -2030,7 +2155,6 @@ console.log(&quot;abc&quot;.repeat(1)); // abc
 console.log(&quot;abc&quot;.repeat(2)); // abcabc
 console.log(&quot;abc&quot;.repeat(3)); // abcabcabc
 </code></pre>
-</blockquote>
 <h3 id="二、数组新增方法"><a href="#二、数组新增方法" class="headerlink" title="二、数组新增方法"></a>二、数组新增方法</h3><ul>
 <li>数组相关的实例方法<table>
 <thead>
@@ -2139,14 +2263,15 @@ console.log(&quot;abc&quot;.repeat(3)); // abcabcabc
 </li>
 </ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>map(function (element, index, array) &#123;
-/* … */
+  /* … */
 &#125;, thisArg);
 // 或
 map((element, index, array) =&gt; &#123;&#125;);
 </code></pre>
+<blockquote>
 <ul>
 <li>回调函数中的三个参数<ul>
 <li>element 表示数组中正在处理的当前元素</li>
@@ -2157,19 +2282,18 @@ map((element, index, array) =&gt; &#123;&#125;);
 <li>thisArg 可选参数，用来更改回调函数中的 this 指向，如果回调函数为箭头函数，则 this 更改无效</li>
 </ul>
 </blockquote>
-</li>
-<li><p>基础应用</p>
-<blockquote>
+<ul>
+<li>基础应用<blockquote>
 <ul>
 <li>将数组中每个元素乘以 2</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>const arr = [1, 2, 3];
 const newArr = arr.map((value) =&gt; value * 2);
 console.log(newArr); // [2, 4, 6]
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>求数组中每个元素的平方<blockquote>
@@ -2177,11 +2301,11 @@ console.log(newArr); // [2, 4, 6]
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>const arr = [1, 2, 3];
 const newArr = arr.map((value) =&gt; Math.pow(value, 2));
 console.log(newArr); // [1, 4, 9]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>获取字符串中每个字符对应的<code>ASCII</code>码的映射关系<blockquote>
@@ -2189,6 +2313,7 @@ console.log(newArr); // [1, 4, 9]
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>const str = &quot;hello&quot;;
 const charCods = Array.prototype.map.call(str, (value) =&gt; &#123;
   return &#123;
@@ -2197,22 +2322,19 @@ const charCods = Array.prototype.map.call(str, (value) =&gt; &#123;
 &#125;);
 console.log(charCods);
 </code></pre>
-</blockquote>
 <ul>
-<li>回调函数中 this 指向<blockquote>
+<li>回调函数中 this 指向</li>
+</ul>
 <pre><code>const arr = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
 const obj = &#123; a: 1, b: 2 &#125;;
 arr.map(() =&gt; &#123;
-console.log(this); // window
+  console.log(this); // window
+&#125;, obj);
+&gt;
+arr.map(function () &#123;
+  console.log(this); // &#123; a: 1, b: 2 &#125;
 &#125;, obj);
 </code></pre>
-</blockquote>
-arr.map(function () {<br>console.log(this); &#x2F;&#x2F; { a: 1, b: 2 }<br>}, obj);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
 <li>some 方法<blockquote>
 <p><code>some()</code>方法测试数组中是不是<strong>至少有 1 个元素</strong>通过了被提供的函数测试。</p>
@@ -2223,16 +2345,17 @@ arr.map(function () {<br>console.log(this); &#x2F;&#x2F; { a: 1, b: 2 }<br>}, ob
 </li>
 </ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>some(function (element, index, array) &#123;
-/* … */
+  /* … */
 &#125;, thisArg);
 // 或
 some((element, index, array) =&gt; &#123;
-/* … */
+  /* … */
 &#125;);
 </code></pre>
+<blockquote>
 <ul>
 <li>回调函数中的三个参数<ul>
 <li>element 表示数组中正在处理的当前元素</li>
@@ -2243,38 +2366,32 @@ some((element, index, array) =&gt; &#123;
 <li>thisArg 可选参数，用来更改回调函数中的 this 指向，如果回调函数为箭头函数，则 this 更改无效</li>
 </ul>
 </blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<ul>
+<li>基本用法<blockquote>
 <ul>
 <li>测试数组中是否存在偶数</li>
 </ul>
-<pre><code>const result = [1, 3, 5, 7, 9].some((value) =&gt; value % 2 === 0);
-console.log(result); // false
-</code></pre>
-</blockquote>
-<p>const result2 &#x3D; [1, 4, 5, 7, 9].some((value) &#x3D;&gt; value % 2 &#x3D;&#x3D;&#x3D; 0);<br>console.log(result2); &#x2F;&#x2F; true</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>检测以下数组中，蔬菜价格是否有大于 10 元的</p>
-<blockquote>
-<pre><code>const arr = [
-&#123; name: &quot;白菜&quot;, price: 7 &#125;,
-&#123; name: &quot;西蓝花&quot;, price: 11 &#125;,
-&#123; name: &quot;豆角&quot;, price: 9 &#125;,
-];
-</code></pre>
-</blockquote>
-<p>const result &#x3D; arr.some((v) &#x3D;&gt; v.price &gt;&#x3D; 10);<br>console.log(result); &#x2F;&#x2F;true</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const result = [1, 3, 5, 7, 9].some((value) =&gt; value % 2 === 0);
+console.log(result); // false
+&gt;
+const result2 = [1, 4, 5, 7, 9].some((value) =&gt; value % 2 === 0);
+console.log(result2); // true
+</code></pre>
+<ul>
+<li>检测以下数组中，蔬菜价格是否有大于 10 元的</li>
+</ul>
+<pre><code>const arr = [
+  &#123; name: &quot;白菜&quot;, price: 7 &#125;,
+  &#123; name: &quot;西蓝花&quot;, price: 11 &#125;,
+  &#123; name: &quot;豆角&quot;, price: 9 &#125;,
+];
+&gt;
+const result = arr.some((v) =&gt; v.price &gt;= 10);
+console.log(result); //true
+</code></pre>
 <ol start="3">
 <li>every 方法<blockquote>
 <p><code>every()</code>方法测试一个数组内的<strong>所有元素</strong>是否都能通过某个指定函数的测试</p>
@@ -2285,15 +2402,17 @@ console.log(result); // false
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>every(function (element, index, array) &#123;
-/* … */
+  /* … */
 &#125;, thisArg);
 // 或
 every((element, index, array) =&gt; &#123;
-/* … */
+  /* … */
 &#125;);
 </code></pre>
+<blockquote>
 <ul>
 <li>回调函数中的三个参数<ul>
 <li>element 表示数组中正在处理的当前元素</li>
@@ -2304,21 +2423,20 @@ every((element, index, array) =&gt; &#123;
 <li>thisArg 可选参数，用来更改回调函数中的 this 指向，如果回调函数为箭头函数，则 this 更改无效</li>
 </ul>
 </blockquote>
-</li>
+<ul>
 <li>基本用法<blockquote>
 <ul>
 <li>检测数组中是否所有元素都小于 100</li>
 </ul>
-<pre><code>const result1 = [20, 30, 40, 50, 120].every((v) =&gt; v &lt; 100);
-console.log(result1); // false
-</code></pre>
-</blockquote>
-const result2 &#x3D; [20, 30, 40, 50, 10].every((v) &#x3D;&gt; v &lt; 100);<br>console.log(result2); &#x2F;&#x2F; true<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const result1 = [20, 30, 40, 50, 120].every((v) =&gt; v &lt; 100);
+console.log(result1); // false
+&gt;
+const result2 = [20, 30, 40, 50, 10].every((v) =&gt; v &lt; 100);
+console.log(result2); // true
+</code></pre>
 <ol start="4">
 <li>reduce 方法<blockquote>
 <p><code>reduce()</code>方法对数组中的每个元素<strong>按序执行</strong>一个由您提供的 <code>reducer</code> 函数，每一次运行 <code>reducer</code> 会将<strong>先前元素</strong>的计算结果作为参数传入，最后将其结果汇总为单个返回值。</p>
@@ -2332,12 +2450,13 @@ const result2 &#x3D; [20, 30, 40, 50, 10].every((v) &#x3D;&gt; v &lt; 100);<br>c
 </ul>
 </blockquote>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>reduce(function (previousValue, currentValue, currentIndex, array) &#123;
-/* … */
+  /* … */
 &#125;, initialValue);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>initialValue</code>可选参数，作为第一次调用<code>callback</code>函数时参数<code>previousValue</code>的值</li>
 <li>回调函数中的 4 个参数，分别表示：<table>
@@ -2367,19 +2486,22 @@ const result2 &#x3D; [20, 30, 40, 50, 10].every((v) &#x3D;&gt; v &lt; 100);<br>c
 </li>
 </ul>
 </blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<ul>
+<li>基本用法<blockquote>
 <ul>
 <li>没有传入<code>initialValue</code>参数时，第一次调用 <code>callBackFn</code>，即<code>previousValue = array[0]</code>、<code>currentValue = array[1]</code></li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const result = [1, 2, 3, 4].reduce(
-(previousValue, currentValue, currentIndex, array) =&gt; &#123;
-  console.log(previousValue, currentValue, currentIndex, array);
-  return previousValue;
-&#125;
+  (previousValue, currentValue, currentIndex, array) =&gt; &#123;
+    console.log(previousValue, currentValue, currentIndex, array);
+    return previousValue;
+  &#125;
 );
 </code></pre>
+<blockquote>
 <table>
 <thead>
 <tr>
@@ -2420,15 +2542,15 @@ const result2 &#x3D; [20, 30, 40, 50, 10].every((v) &#x3D;&gt; v &lt; 100);<br>c
 <p>最终返回值为最后一次回调函数的返回值： 1</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>传入<code>initialValue</code>参数时，即<code>previousValue = initialValue、currentValue = array[0]</code></p>
-<blockquote>
+<ul>
+<li>传入<code>initialValue</code>参数时，即<code>previousValue = initialValue、currentValue = array[0]</code></li>
+</ul>
 <pre><code>const result = [1, 2, 3, 4].reduce(
-(previousValue, currentValue, currentIndex, array) =&gt; &#123;
-  console.log(previousValue, currentValue, currentIndex, array);
-  return previousValue;
-&#125;,
-10
+  (previousValue, currentValue, currentIndex, array) =&gt; &#123;
+    console.log(previousValue, currentValue, currentIndex, array);
+    return previousValue;
+  &#125;,
+  10
 );
 console.log(result);
 </code></pre>
@@ -2477,27 +2599,28 @@ console.log(result);
 </tr>
 </tbody></table>
 <blockquote>
+<blockquote>
 <p>最终返回值为最后一次回调函数的返回值： 10</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>案例应用</p>
-<blockquote>
+<ul>
+<li>案例应用<blockquote>
 <ul>
 <li>求数组中所有元素之和</li>
 </ul>
-<pre><code>const result = [10, 20, 30, 40].reduce((previousValue, currentValue) =&gt; &#123;
-return previousValue + currentValue;
-&#125;);
-console.log(result);
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const result = [10, 20, 30, 40].reduce((previousValue, currentValue) =&gt; &#123;
+  return previousValue + currentValue;
+&#125;);
+console.log(result);
+</code></pre>
 <blockquote>
 <ul>
 <li>数组去重</li>
 </ul>
+</blockquote>
 <pre><code>const result = [1, 2, 2, 3, 3, 4, 5].reduce((prev, current) =&gt; &#123;
   if (!prev.includes(current)) &#123;
     prev.push(current);
@@ -2506,31 +2629,29 @@ console.log(result);
 &#125;, []);
 console.log(result); // [1, 2, 3, 4, 5]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>求数组中最大值</li>
 </ul>
+</blockquote>
 <pre><code>const result = [1, 2, 10, 4, 5, 40].reduce((prev, current) =&gt; &#123;
   return Math.max(prev, current);
 &#125;);
 console.log(result); // 40
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>计算数组中每个元素出现的次数</li>
 </ul>
+</blockquote>
 <pre><code>const result = [&quot;a&quot;, &quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;b&quot;, &quot;d&quot;].reduce((prev, current) =&gt; &#123;
   prev.set(current, (prev.get(current) || 0) + 1);
   return prev;
 &#125;, new Map());
 console.log(result); // Map(4) &#123;&#39;a&#39; =&gt; 2, &#39;b&#39; =&gt; 2, &#39;c&#39; =&gt; 1, &#39;d&#39; =&gt; 1&#125;
 </code></pre>
-</blockquote>
 <ol start="5">
-<li><p>keys、values、entries 方法</p>
-<table>
+<li>keys、values、entries 方法<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -2550,18 +2671,27 @@ console.log(result); // Map(4) &#123;&#39;a&#39; =&gt; 2, &#39;b&#39; =&gt; 2, &
 <td>返回一个遍历器对象，用来遍历 [键名，键值] 组成的数组。</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>const arr = [&quot;a&quot;, &quot;b&quot;, &quot;a&quot;];
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 遍历数组的所有键名<br>for (let k of arr.keys()) {<br>  console.log(k); &#x2F;&#x2F; 0 1 2<br>}<br>&#x2F;&#x2F; 遍历数组的所有键值<br>for (let v of arr.values()) {<br>  console.log(v); &#x2F;&#x2F; a b a<br>}<br>&#x2F;&#x2F; 遍历由数组的 [键名，键值] 组成的数组，然后参于数组的解构赋值<br>for (let [k, v] of arr.entries()) {<br>  console.log(<code>$&#123;k&#125; =&gt; $&#123;v&#125;</code>);<br>  &#x2F;&#x2F; 结果<br>  &#x2F;&#x2F; 0 &#x3D;&gt; a    1 &#x3D;&gt; b   2 &#x3D;&gt; a<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 </li>
-<li><p>fill 方法</p>
-<blockquote>
+</ol>
+<pre><code>const arr = [&quot;a&quot;, &quot;b&quot;, &quot;a&quot;];
+&gt;
+// 遍历数组的所有键名
+for (let k of arr.keys()) &#123;
+  console.log(k); // 0 1 2
+&#125;
+// 遍历数组的所有键值
+for (let v of arr.values()) &#123;
+  console.log(v); // a b a
+&#125;
+// 遍历由数组的 [键名，键值] 组成的数组，然后参于数组的解构赋值
+for (let [k, v] of arr.entries()) &#123;
+  console.log(`$&#123;k&#125; =&gt; $&#123;v&#125;`);
+  // 结果
+  // 0 =&gt; a    1 =&gt; b   2 =&gt; a
+&#125;
+</code></pre>
+<ol start="6">
+<li>fill 方法<blockquote>
 <p><code>fill()</code>方法用一个<strong>固定值</strong>填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。</p>
 <ul>
 <li>返回结果：修改后的数组。</li>
@@ -2570,15 +2700,17 @@ console.log(result); // Map(4) &#123;&#39;a&#39; =&gt; 2, &#39;b&#39; =&gt; 2, &
 </li>
 </ol>
 <ul>
-<li><p>语法：</p>
-<blockquote>
+<li>语法：</li>
+</ul>
 <pre><code>fill(value, start, end); // 参数 start 和 end为可选参数
 </code></pre>
+<blockquote>
 <ul>
 <li>value：用来填充数组元素的值</li>
 <li>start：可选参数，起始索引，默认值为 0 ，如果值为<strong>负数</strong>，则索引值会被自动计算为数组<code>length+start</code></li>
 <li>end: 可选参数，终止索引，默认值为 <code>arr.length</code>, 如果值为<strong>负数</strong>，则索引值会被自动计算为数组<code>length+start</code></li>
 </ul>
+</blockquote>
 <pre><code>console.log([1, 2, 3].fill(&quot;a&quot;)); //  [&#39;a&#39;, &#39;a&#39;, &#39;a&#39;]
 console.log([1, 2, 3].fill(&quot;a&quot;, 1)); // [1, &#39;a&#39;, &#39;a&#39;]
 console.log([1, 2, 3, 4, 5].fill(&quot;a&quot;, 1, 4)); //  [1, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, 5]
@@ -2586,16 +2718,19 @@ console.log([1, 2, 3, 4, 5].fill(&quot;a&quot;, -4, -1)); // [1, &#39;a&#39;, &#
 console.log([1, 2, 3, 4, 5].fill(&quot;a&quot;, -1, -4)); //4&gt;1  [1, 2, 3, 4, 5]
 </code></pre>
 <blockquote>
+<blockquote>
 <p>如果自动计算后，起始索引&gt;结束索引，那就返回原数组</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
+<ul>
+<li>注意事项<blockquote>
 <ul>
 <li><code>fill()</code>方法被设计为一个<strong>通用</strong>方法，其方法内部的 <code>this</code> 不一定非要是数组，可以利用 <code>call</code> 来修改，也就是说，<code>fill()</code>方法，可以用来操作<strong>类数组对象</strong></li>
 <li>类数组对象：<blockquote>
 <p>必须要有<code>length</code>属性</p>
+</blockquote>
+</li>
+</ul>
 </blockquote>
 </li>
 </ul>
@@ -2604,27 +2739,23 @@ console.log([1, 2, 3, 4, 5].fill(&quot;a&quot;, -1, -4)); //4&gt;1  [1, 2, 3, 4,
 console.log([].fill.call(&#123; length: 3 &#125;, 8));
 //&#123;0: 8, 1: 8, 2: 8, length: 3&#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>默认情况下，<code>value</code>按<code>length</code>属性的长度填充，键名为从0开始的数字，键值为<code>value</code></li>
 <li>如果有起始&#x2F;结束索引，规则和上面一样，最长为<code>length</code>属性规定的长度</li>
 </ul>
 </blockquote>
-</li>
-<li><p><code>fill()</code>中用来填充的数据，如果是一个<strong>引用类型</strong>，会导致执行同一个引用</p>
-<blockquote>
+<ul>
+<li><code>fill()</code>中用来填充的数据，如果是一个<strong>引用类型</strong>，会导致执行同一个引用</li>
+</ul>
 <pre><code>const arr = [1, 2, 3, 4];
 arr.fill(&#123;&#125;, 1);
 console.log(arr); // [1,&#123;&#125;,&#123;&#125;,&#123;&#125;]
 console.log(arr[1] === arr[2]); //true
+&gt;
+arr[1].a = 1;
+console.log(arr); // [1,&#123;a:1&#125;,&#123;a:1&#125;,&#123;a:1&#125;]
 </code></pre>
-</blockquote>
-<p>arr[1].a &#x3D; 1;<br>console.log(arr); &#x2F;&#x2F; [1,{a:1},{a:1},{a:1}]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="7">
 <li>copyWithin<blockquote>
 <p><code>copyWithin()</code>方法<strong>浅复制</strong>数组的一部分到同一数组中的另一个位置，会覆盖原有成员。不会改变原数组的长度。</p>
@@ -2635,10 +2766,11 @@ console.log(arr[1] === arr[2]); //true
 </li>
 </ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>copyWithin(target, start, end);
 </code></pre>
+<blockquote>
 <ul>
 <li>target 目标索引，从该位置开始替换数据<ul>
 <li>如果为<strong>负数</strong>，其值相当于等于<code>arr.length + start</code></li>
@@ -2653,26 +2785,25 @@ console.log(arr[1] === arr[2]); //true
 </li>
 </ul>
 </blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>[1, 2, 3, 4, 5].copyWithin(0, 2); //  [3, 4, 5, 4, 5]
 [1, 2, 3, 4, 5, 6].copyWithin(2, 3, 5); // [1, 2, 4, 5, 5, 6]
 [1, 2, 3, 4, 5, 6].copyWithin(4, 2, 5); // [1, 2, 3, 4, 3, 4];
 [1, 2, 3, 4, 5, 6].copyWithin(1, -4, -2); // [1, 3, 4,4, 5, 6];
 [1, 2, 3, 4, 5, 6].copyWithin(1, -2, -4); //  不变 [1, 2, 3, 4, 5, 6]
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li><code>copyWithin</code>方法，利用<code>call</code>方法改变内部<code>this</code>，也可以用来操作类数组对象</li>
 </ul>
+</blockquote>
 <pre><code>let obj = &#123; 0: &quot;a&quot;, 1: &quot;b&quot;, 2: &quot;c&quot;, 3: &quot;d&quot;, 4: &quot;e&quot;, length: 5 &#125;;
 obj = [].copyWithin.call(obj, 0, 1, 3);
 console.log(obj); // &#123;0: &#39;b&#39;, 1: &#39;c&#39;, 2: &#39;c&#39;, 3: &#39;d&#39;, 4: &#39;e&#39;, length: 5&#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>只替换键值</li>
 </ul>
@@ -2687,15 +2818,17 @@ console.log(obj); // &#123;0: &#39;b&#39;, 1: &#39;c&#39;, 2: &#39;c&#39;, 3: &#
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>flat(depth);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>depth</code>可选参数，默认值为1，用来指定数组的展开层级。如果值<code>&lt;= 0</code>，表示不展开</li>
 <li><code>depth</code>是几，就表示去掉几个<code>[]</code></li>
 </ul>
 </blockquote>
-</li>
+<ul>
 <li>基本应用<blockquote>
 <ul>
 <li>扁平化嵌套数组<blockquote>
@@ -2703,20 +2836,20 @@ console.log(obj); // &#123;0: &#39;b&#39;, 1: &#39;c&#39;, 2: &#39;c&#39;, 3: &#
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const arr1 = [1, [2, [3, 4]], 5];
 const arr2 = arr1.flat();
 console.log(arr2);
 console.log(arr1 === arr2); // false
+&gt;
+console.log([1, [2, [3, 4]], 5].flat(2)); //  [1, 2, 3, 4, 5]
+&gt;
+// 使用 Infinity，可以展开任意深度的嵌套
+const arr = [1, [2, [3, 4, [5, [6], 7], 8], 9]];
+console.log(arr.flat(Infinity)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
-</blockquote>
-console.log([1, [2, [3, 4]], 5].flat(2)); &#x2F;&#x2F;  [1, 2, 3, 4, 5]<blockquote>
-</blockquote>
-&#x2F;&#x2F; 使用 Infinity，可以展开任意深度的嵌套<br>const arr &#x3D; [1, [2, [3, 4, [5, [6], 7], 8], 9]];<br>console.log(arr.flat(Infinity)); &#x2F;&#x2F; [1, 2, 3, 4, 5, 6, 7, 8, 9]<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>移除数组中的空项<blockquote>
@@ -2724,12 +2857,12 @@ console.log([1, [2, [3, 4]], 5].flat(2)); &#x2F;&#x2F;  [1, 2, 3, 4, 5]<blockquo
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>const arr = [1, [, , [, 2, 3, ,], 4], 5, 6];
 console.log(arr.flat(0)); //[1, [, , [, 2, 3, ,], 4], 5, 6]
 console.log(arr.flat(1)); // [1, [, 2, 3, ,], 4, 5, 6]
 console.log(arr.flat(2)); //[1, 2, 3, 4, 5, 6]
 </code></pre>
-</blockquote>
 <ol start="9">
 <li>flatMap 方法<blockquote>
 <p><code>flatMap</code> 方法相当于数组的 <code>map</code> 方法和 <code>flat</code> 方法的<strong>合并</strong>用法。<br>数组调用<code>flatMap</code>方法，相当于<strong>先</strong>调用数组的<code>map</code>，然后再将返回的结果数组<strong>再</strong>调用 <code>flat()</code> 方法展开，展开深度为 <code>1</code>。</p>
@@ -2740,11 +2873,13 @@ console.log(arr.flat(2)); //[1, 2, 3, 4, 5, 6]
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>flatMap(function (currentValue, index, array) &#123;
-/* … */
+  /* … */
 &#125;, thisArg);
 </code></pre>
+<blockquote>
 <ul>
 <li>callBack 回调函数的三个参数<ul>
 <li>currentValue： 当前正在数组中处理的元素</li>
@@ -2755,28 +2890,27 @@ console.log(arr.flat(2)); //[1, 2, 3, 4, 5, 6]
 <li>thisArg 可选的，用来更改 callBack 回调函数中的 this 指向</li>
 </ul>
 </blockquote>
-</li>
-<li>基本用法：<blockquote>
+<ul>
+<li>基本用法：</li>
+</ul>
 <pre><code>const arr = [1, 2, 3, 4];
 const res = arr.flatMap((x) =&gt; [x * 2]);
 console.log(res); // [2, 4, 6, 8]
+&gt;
+// 上面代码 arr.flatMap((x) =&gt; [x * 2]) 的内部相当于执行了以下两步
+const arr2 = arr.map((x) =&gt; [x * 2]);
+const res2 = arr2.flat();
+console.log(res2);// [2, 4, 6, 8]
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 上面代码 arr.flatMap((x) &#x3D;&gt; [x * 2]) 的内部相当于执行了以下两步<br>const arr2 &#x3D; arr.map((x) &#x3D;&gt; [x * 2]);<br>const res2 &#x3D; arr2.flat();<br>console.log(res2);&#x2F;&#x2F; [2, 4, 6, 8]<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>将几句话的数组拆份成单个词组成的新数组</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [&quot;Happy New Year&quot;, &quot;May you be happy and prosperous&quot;];
 const word = arr.flatMap((v) =&gt; v.split(&quot; &quot;));
 console.log(word); // [&#39;Happy&#39;, &#39;New&#39;, &#39;Year&#39;, &#39;May&#39;, &#39;you&#39;, &#39;be&#39;, &#39;happy&#39;, &#39;and&#39;, &#39;prosperous&#39;]
 </code></pre>
-</blockquote>
 <ol start="10">
 <li>at 方法<blockquote>
 <p>返回数组<strong>指定索引</strong>的元素。索引值允许正数和负数。<strong>负数</strong>表示从末尾开始。</p>
@@ -2784,18 +2918,16 @@ console.log(word); // [&#39;Happy&#39;, &#39;New&#39;, &#39;Year&#39;, &#39;May&
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>at(index); // index为整数，正数负数都可以
 </code></pre>
-</blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>[1, 2, 3].at(1); // 2
 [1, 2, 3].at(-1); // 3
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="11">
 <li>Array.from 方法<blockquote>
 <p><code>Array.form()</code>方法对一个类似数组或可迭代对象创建一个新的，<strong>浅拷贝</strong>的<strong>数组实例</strong>。</p>
@@ -2806,18 +2938,17 @@ console.log(word); // [&#39;Happy&#39;, &#39;New&#39;, &#39;Year&#39;, &#39;May&
 </li>
 </ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Array.from(
-arrayLike,
-function mapFn(element, index) &#123;
-  /* … */
-&#125;,
-thisArg
+  arrayLike,
+  function mapFn(element, index) &#123;
+    /* … */
+  &#125;,
+  thisArg
 );
 </code></pre>
-</blockquote>
-</li>
+<ul>
 <li><p>参数</p>
 <blockquote>
 <ul>
@@ -2832,40 +2963,48 @@ thisArg
 <ul>
 <li>string 类型生成数组</li>
 </ul>
-<pre><code>Array.from(&quot;hello&quot;);
-// [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>Array.from(&quot;hello&quot;);
+// [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;]
+</code></pre>
 <blockquote>
 <ul>
 <li>Set 生成数组</li>
 </ul>
+</blockquote>
 <pre><code>const set = new Set([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]);
 console.log(Array.from(set)); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;]
 </code></pre>
-</blockquote>
 <ul>
-<li>Map 生成二维数组<blockquote>
+<li>Map 生成二维数组</li>
+</ul>
 <pre><code>const map = new Map([
-[&quot;a&quot;, 1],
-[&quot;b&quot;, 2],
-[&quot;c&quot;, 3],
+  [&quot;a&quot;, 1],
+  [&quot;b&quot;, 2],
+  [&quot;c&quot;, 3],
 ]);
 console.log(Array.from(map)); // [[&quot;a&quot;, 1],[&quot;b&quot;, 2],[&quot;c&quot;, 3]]
+&gt;
+// 传入第二个参数
+let res = Array.from(map, (v) =&gt; v[1]);
+console.log(res); // [1, 2, 3]
+&gt;
+// 传入第三个参数，修改this指向
+let res = Array.from(map, (v, i) =&gt; this[i], [&quot;foo&quot;, &quot;bar&quot;, &quot;zoo&quot;]);
+console.log(res); // [undefined, undefined, undefined]
+&gt;
+// 修改this只能是普通函数
+let res2 = Array.from(
+  map,
+  function (v, i) &#123;
+    return this[i];
+  &#125;,
+  [&quot;foo&quot;, &quot;bar&quot;, &quot;zoo&quot;]
+);
+console.log(res2);
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 传入第二个参数<br>let res &#x3D; Array.from(map, (v) &#x3D;&gt; v[1]);<br>console.log(res); &#x2F;&#x2F; [1, 2, 3]<blockquote>
-</blockquote>
-&#x2F;&#x2F; 传入第三个参数，修改this指向<br>let res &#x3D; Array.from(map, (v, i) &#x3D;&gt; this[i], [“foo”, “bar”, “zoo”]);<br>console.log(res); &#x2F;&#x2F; [undefined, undefined, undefined]<blockquote>
-</blockquote>
-&#x2F;&#x2F; 修改this只能是普通函数<br>let res2 &#x3D; Array.from(<br>map,<br>function (v, i) {<br>  return this[i];<br>},<br>[“foo”, “bar”, “zoo”]<br>);<br>console.log(res2);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="12">
 <li>Array.of 方法<blockquote>
 <p><code>Array.of()</code>方法通过可变数量的参数创建一个新的<code>Array</code>实例，而不考虑参数的数量或类型。</p>
@@ -2873,19 +3012,17 @@ console.log(Array.from(map)); // [[&quot;a&quot;, 1],[&quot;b&quot;, 2],[&quot;c
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Array.of(element0, element1, /* … ,*/ elementN);
 </code></pre>
-</blockquote>
-</li>
-<li>基本用法<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>Array.of(); // []
 Array.of(1); // [1]
 Array.of(1, 2, 3); // [1, 2, 3]
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>此方法主要目的是：</p>
@@ -2899,19 +3036,17 @@ Array.of(1, 2, 3); // [1, 2, 3]
 </li>
 <li>这意味着一个由7个空槽组成的数组，而不是具有实际 <code>undefined</code>值的槽</li>
 </ul>
+</blockquote>
 <pre><code>Array.of(7); // [7]
 new Array(7); //  [empty × 7]
 </code></pre>
-</blockquote>
 <ul>
-<li>模拟 ArrayOf 方法<blockquote>
+<li>模拟 ArrayOf 方法</li>
+</ul>
 <pre><code>Array.of = function () &#123;
-return [].slice.call(arguments);
+  return [].slice.call(arguments);
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="三、对象新增方法"><a href="#三、对象新增方法" class="headerlink" title="三、对象新增方法"></a>三、对象新增方法</h3><blockquote>
 <p>对象的静态方法</p>
 <table>
@@ -2976,30 +3111,32 @@ return [].slice.call(arguments);
 </tbody></table>
 </blockquote>
 <ol>
-<li><p>Object.is 方法</p>
-<blockquote>
+<li>Object.is 方法<blockquote>
 <p><code>Object.is()</code>方法判断两个值是否为同一个值。如果是同一个值，返回 <code>true</code>,否则返回 <code>false</code>。</p>
 <ul>
 <li>其判断标准与<code>===</code>相似，唯一的差别在于他两对<strong>零值</strong>和<code>NaN</code>的判断不同</li>
 <li><code>===</code>中认为<code>0</code>,<code>-0</code>,<code>+0</code>是同一个值，<code>NaN</code>和<code>NaN</code> 是不同的值</li>
 <li><code>Object.is()</code>中认为0,-0,+0 三者中<strong>只有0、+0是同值</strong>，<code>NaN</code>和<code>NaN</code> 是相同的值</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(Object.is(1, 1)); // true
 console.log(Object.is(true, 1)); // false
 console.log(Object.is([], [])); // false
+&gt;
+console.log(NaN === NaN); // false
+console.log(0 === -0); // true
+console.log(0 === +0); // true
+console.log(-0 === +0); // true
+&gt;
+console.log(Object.is(NaN, NaN)); // true
+console.log(Object.is(0, -0)); // false
+console.log(Object.is(0, +0)); // true
+console.log(Object.is(-0, +0)); // false
 </code></pre>
-</blockquote>
-<p>console.log(NaN &#x3D;&#x3D;&#x3D; NaN); &#x2F;&#x2F; false<br>console.log(0 &#x3D;&#x3D;&#x3D; -0); &#x2F;&#x2F; true<br>console.log(0 &#x3D;&#x3D;&#x3D; +0); &#x2F;&#x2F; true<br>console.log(-0 &#x3D;&#x3D;&#x3D; +0); &#x2F;&#x2F; true</p>
-<blockquote>
-</blockquote>
-<p>console.log(Object.is(NaN, NaN)); &#x2F;&#x2F; true<br>console.log(Object.is(0, -0)); &#x2F;&#x2F; false<br>console.log(Object.is(0, +0)); &#x2F;&#x2F; true<br>console.log(Object.is(-0, +0)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>Objec.assign 方法</p>
-<blockquote>
+<ol start="2">
+<li>Objec.assign 方法<blockquote>
 <p><code>Object.assign()</code>方法用于将源（source）对象的所有<strong>可枚举的自有属性</strong>复制到目标<code>target</code>对象。</p>
 <ul>
 <li>返回值：为 target 目标对象</li>
@@ -3008,183 +3145,180 @@ console.log(Object.is([], [])); // false
 </li>
 </ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Object.assign(target, sources1, sources1,...)
 </code></pre>
+<blockquote>
 <ul>
 <li>target：目标对象，接收源对象属性的对象，也是修改后的返回值</li>
 <li>sources1, sources1,…： 为源对象</li>
 </ul>
 </blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<ul>
+<li>基本用法</li>
+</ul>
 <pre><code>const obj1 = &#123; a: 1, b: 2 &#125;;
 const obj2 = &#123; c: 3, d: 4 &#125;;
 Object.assign(obj1, obj2);
 console.log(obj1); // &#123;a: 1, b: 2, c: 3, d: 4&#125;
+&gt;
+// 注意区分以下写法的不同
+Object.assign(obj1, obj2); // 将obj2合并到obj1
+const obj = &#123; ...obj1, ...obj2 &#125;; // 将obj1和obj2合并到一个新对象，然后赋值给obj
+&gt;
+// 用Object.assign实现 const obj= &#123;...obj1,...obj2&#125; 写法如下
+const obj = Object.assign(&#123;&#125;, obj1, obj2);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 注意区分以下写法的不同<br>Object.assign(obj1, obj2); &#x2F;&#x2F; 将obj2合并到obj1<br>const obj &#x3D; { …obj1, …obj2 }; &#x2F;&#x2F; 将obj1和obj2合并到一个新对象，然后赋值给obj</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 用Object.assign实现 const obj&#x3D; {…obj1,…obj2} 写法如下<br>const obj &#x3D; Object.assign({}, obj1, obj2);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>如果<code>Object.assign</code>方法只有一个参数</p>
-<blockquote>
+<ul>
+<li>如果<code>Object.assign</code>方法只有一个参数<blockquote>
 <ul>
 <li>该参数为一个对象，直接将该对象作为返回值返回。</li>
 <li>如果该参数不是一个对象类型，会先转换为对象类型，然后将其作为返回值返回。</li>
 <li>如果该参数是<code>null</code>或<code>undefined</code>，因为<code>null</code>和<code>undefined</code>不能转换为对象，所以会报错。</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 只有一个参数，且为对象类型，直接将该对象作为返回值返回
 const obj1 = Object.assign(&#123; a: 1, b: 2 &#125;);
 console.log(obj1); // &#123;a: 1, b: 2&#125;
+&gt;
+//只有一个参数，且为基本数据类型，将其转换为对象然后作为返回值返回
+const obj2 = Object.assign(2);
+console.log(obj2); // Number &#123;2&#125;
+&gt;
+// 由于null和undefined不能转换为对象，报错
+const obj3 = Object.assign(null); // 报错
+const obj4 = Object.assign(undefined); // 报错
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;只有一个参数，且为基本数据类型，将其转换为对象然后作为返回值返回<br>const obj2 &#x3D; Object.assign(2);<br>console.log(obj2); &#x2F;&#x2F; Number {2}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 由于null和undefined不能转换为对象，报错<br>const obj3 &#x3D; Object.assign(null); &#x2F;&#x2F; 报错<br>const obj4 &#x3D; Object.assign(undefined); &#x2F;&#x2F; 报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>Object.assign</code>方法的<strong>源对象位置</strong>的参数</p>
-<blockquote>
+<ul>
+<li><code>Object.assign</code>方法的<strong>源对象位置</strong>的参数<blockquote>
 <ul>
 <li>如果是非对象类型的参数，则会将其自动转换为对象</li>
 <li>如果是<code>null</code>和<code>undefined</code>，则会直接忽略，并不会报错</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>const obj1 = &#123; a: 1, b: 2 &#125;;
 Object.assign(obj1, 1, &quot;hello&quot;, null, undefined, true);
 console.log(obj1); // &#123;0: &#39;h&#39;, 1: &#39;e&#39;, 2: &#39;l&#39;, 3: &#39;l&#39;, 4: &#39;o&#39;, a: 1, b: 2&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="3">
 <li><code>Object.assign</code> 的注意事项</li>
 </ol>
 <ul>
-<li><p>如果目标对象与源对象具有相同的属性，则目标对象中的属性将被源对象属性<strong>覆盖</strong></p>
-<blockquote>
+<li>如果目标对象与源对象具有相同的属性，则目标对象中的属性将被源对象属性<strong>覆盖</strong></li>
+</ul>
 <pre><code>const obj1 = &#123;
-color: [&quot;红色&quot;, &quot;黑色&quot;],
-a: 1,
-b: 2,
+  color: [&quot;红色&quot;, &quot;黑色&quot;],
+  a: 1,
+  b: 2,
 &#125;;
 const obj2 = &#123;
-color: [&quot;白色&quot;, &quot;蓝色&quot;],
-b: 3,
-c: 4,
+  color: [&quot;白色&quot;, &quot;蓝色&quot;],
+  b: 3,
+  c: 4,
 &#125;;
+&gt;
+Object.assign(obj1, obj2);
+console.log(obj1);
 </code></pre>
-</blockquote>
-<p>Object.assign(obj1, obj2);<br>console.log(obj1);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>将源对象中的属性复制到目标对象，其本质是<strong>浅拷贝</strong></p>
-<blockquote>
+<ul>
+<li>将源对象中的属性复制到目标对象，其本质是<strong>浅拷贝</strong></li>
+</ul>
 <pre><code>const obj1 = &#123;&#125;;
 const obj2 = &#123;
-arr: [1, 2],
+  arr: [1, 2],
 &#125;;
 Object.assign(obj1, obj2);
 obj2.arr.push(3); // 修改obj2的arr属性，其相当于修改了obj1的arr属性
 console.log(obj1.arr); //  [1, 2, 3]
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>Object.assign</code>方法将只能将源对象上的<strong>自身可枚举属性</strong>复制到目标对象，只要是自身的可枚举属性，其属性名为 <code>Symbol</code>类型也会被复制</p>
-<blockquote>
+<ul>
+<li><code>Object.assign</code>方法将只能将源对象上的<strong>自身可枚举属性</strong>复制到目标对象，只要是自身的可枚举属性，其属性名为 <code>Symbol</code>类型也会被复制</li>
+</ul>
 <pre><code>const obj = &#123; a: 1, b: 2 &#125;;
 const obj2 = &#123; c: 3, [Symbol()]: &quot;Symbol&quot; &#125;;
 // 为obj2添加两个自身属性
 Object.defineProperties(obj2, &#123;
-name: &#123;
-  value: &quot;清心&quot;, // 属性值
-  writable: true, // 可写
-  configurable: false, // 不可重匹配
-  enumerable: true, // 可枚举
-&#125;,
-age: &#123;
-  value: 33,
-  writable: true,
-  configurable: false,
-  enumerable: false, // 不可枚举
-&#125;,
+  name: &#123;
+    value: &quot;清心&quot;, // 属性值
+    writable: true, // 可写
+    configurable: false, // 不可重匹配
+    enumerable: true, // 可枚举
+  &#125;,
+  age: &#123;
+    value: 33,
+    writable: true,
+    configurable: false,
+    enumerable: false, // 不可枚举
+  &#125;,
 &#125;);
+&gt;
+console.log(obj2); // &#123;c: 3, name: &#39;清心&#39;, age: 33, Symbol(): &#39;Symbol&#39;&#125;
+Object.assign(obj, obj2);
+console.log(obj); // &#123;a: 1, b: 2, c: 3, name: &#39;清心&#39;, Symbol(): &#39;Symbol&#39;&#125;
 </code></pre>
-</blockquote>
-<p>console.log(obj2); &#x2F;&#x2F; {c: 3, name: ‘清心’, age: 33, Symbol(): ‘Symbol’}<br>Object.assign(obj, obj2);<br>console.log(obj); &#x2F;&#x2F; {a: 1, b: 2, c: 3, name: ‘清心’, Symbol(): ‘Symbol’}</p>
 <blockquote>
-<pre><code>- 不可枚举的`age`属性不会被复制到目标对象
-</code></pre>
+<ul>
+<li>不可枚举的<code>age</code>属性不会被复制到目标对象</li>
+</ul>
 </blockquote>
-</li>
-<li><p>如果源对象上有 get 和 set 函数，其相当于<strong>新增一个属性</strong>合并到原型中，但没有 get 和 set 函数</p>
-<blockquote>
+<ul>
+<li>如果源对象上有 get 和 set 函数，其相当于<strong>新增一个属性</strong>合并到原型中，但没有 get 和 set 函数</li>
+</ul>
 <pre><code>const obj1 = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
 const obj2 = &#123;
-_x: &quot;a&quot;,
-get x() &#123;
-  return this._x;
-&#125;,
-set x(value) &#123;
-  if (x === 3) &#123;
-    throw new Error(&quot;值不能为3&quot;);
-  &#125; else &#123;
-    this._x = value;
-  &#125;
-&#125;,
+  _x: &quot;a&quot;,
+  get x() &#123;
+    return this._x;
+  &#125;,
+  set x(value) &#123;
+    if (x === 3) &#123;
+      throw new Error(&quot;值不能为3&quot;);
+    &#125; else &#123;
+      this._x = value;
+    &#125;
+  &#125;,
 &#125;;
+&gt;
+Object.assign(obj1, obj2);
+console.log(obj1); // &#123;a: 1, b: 2, _x: &#39;a&#39;, x: &#39;a&#39;&#125;
+obj1.x = 3;//不会报错，因为此时x已经等于&quot;a&quot;了
+console.log(obj1.x);//3
 </code></pre>
-</blockquote>
-<p>Object.assign(obj1, obj2);<br>console.log(obj1); &#x2F;&#x2F; {a: 1, b: 2, _x: ‘a’, x: ‘a’}<br>obj1.x &#x3D; 3;&#x2F;&#x2F;不会报错，因为此时x已经等于”a”了<br>console.log(obj1.x);&#x2F;&#x2F;3</p>
-<blockquote>
-<pre><code>
-</code></pre>
+<ol start="4">
+<li>Object.assign 的常见应用<blockquote>
+<p>常用合并默认参数和用户参数</p>
 </blockquote>
 </li>
-</ul>
-<ol start="4">
-<li><p>Object.assign 的常见应用</p>
-<blockquote>
-<p>常用合并默认参数和用户参数</p>
+</ol>
 <pre><code>// userOptions为用户参数
 const userInfo = (userOptions) =&gt; &#123;
   // 默认参数
   const DEFAULTS = &#123;
- username: &quot;icoding&quot;,
- age: 0,
- sex: &quot;male&quot;,
+    username: &quot;icoding&quot;,
+    age: 0,
+    sex: &quot;male&quot;,
   &#125;;
+&gt;
+  // 合并默认参数和用户参数
+  const options = Object.assign(&#123;&#125;, DEFAULTS, userOptions);
+  console.log(options);
+&#125;;
+&gt;
+userInfo(); // &#123;username: &#39;icoding&#39;, age: 0, sex: &#39;male&#39;&#125;
+userInfo(&#123;&#125;); // &#123;username: &#39;icoding&#39;, age: 0, sex: &#39;male&#39;&#125;
+userInfo(&#123; username: &quot;arry&quot; &#125;); // &#123;username: &#39;arry&#39;, age: 0, sex: &#39;male&#39;&#125;
+userInfo(&#123; username: &quot;清心&quot;, age: 18, sex: &quot;female&quot; &#125;); // &#123;username: &#39;清心&#39;, age: 18, sex: &#39;female&#39;&#125;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 合并默认参数和用户参数<br>  const options &#x3D; Object.assign({}, DEFAULTS, userOptions);<br>  console.log(options);<br>};</p>
-<blockquote>
-</blockquote>
-<p>userInfo(); &#x2F;&#x2F; {username: ‘icoding’, age: 0, sex: ‘male’}<br>userInfo({}); &#x2F;&#x2F; {username: ‘icoding’, age: 0, sex: ‘male’}<br>userInfo({ username: “arry” }); &#x2F;&#x2F; {username: ‘arry’, age: 0, sex: ‘male’}<br>userInfo({ username: “清心”, age: 18, sex: “female” }); &#x2F;&#x2F; {username: ‘清心’, age: 18, sex: ‘female’}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>keys、values、entries</p>
-<table>
+<ol start="6">
+<li>keys、values、entries<table>
 <thead>
 <tr>
 <th>方法</th>
@@ -3204,7 +3338,8 @@ const userInfo = (userOptions) =&gt; &#123;
 <td>方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for…in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环还会枚举原型链中的属性</td>
 </tr>
 </tbody></table>
-<blockquote>
+</li>
+</ol>
 <pre><code>const obj = &#123;
   a: 1,
   b: 2,
@@ -3213,54 +3348,49 @@ const userInfo = (userOptions) =&gt; &#123;
 // 定义自身属性
 Object.defineProperties(obj, &#123;
   name: &#123;
- value: &quot;清心&quot;,
- enumerable: true,
+    value: &quot;清心&quot;,
+    enumerable: true,
   &#125;,
   age: &#123;
- value: 33,
+    value: 33,
   &#125;,
 &#125;);
+&gt;
+const keys = Object.keys(obj);
+console.log(keys); // [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;name&#39;]
+&gt;
+const values = Object.values(obj);
+console.log(values); // [1, 2, 3, &#39;清心&#39;]
+&gt;
+const entries = Object.entries(obj);
+console.log(entries); // [Array(2), Array(2), Array(2), Array(2)]
 </code></pre>
-</blockquote>
-<p>const keys &#x3D; Object.keys(obj);<br>console.log(keys); &#x2F;&#x2F; [‘a’, ‘b’, ‘c’, ‘name’]</p>
-<blockquote>
-</blockquote>
-<p>const values &#x3D; Object.values(obj);<br>console.log(values); &#x2F;&#x2F; [1, 2, 3, ‘清心’]</p>
-<blockquote>
-</blockquote>
-<p>const entries &#x3D; Object.entries(obj);<br>console.log(entries); &#x2F;&#x2F; [Array(2), Array(2), Array(2), Array(2)]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li>与 for…of 的结合应用<blockquote>
 <ul>
 <li>因为对象的<code>Object.keys()</code>、<code>Object.values()</code>、<code>Object.entries()</code>返回的是数组，数组是可迭代对象</li>
 </ul>
-<pre><code>const obj = &#123;
-a: 1,
-b: 2,
-c: 3,
-&#125;;
-// 遍历对象的所有自身可枚举属性名
-for (let key of Object.keys(obj)) &#123;
-console.log(key);
-&#125;
-// 遍历对象的所有自身可枚举属性值
-for (let values of Object.values(obj)) &#123;
-console.log(values);
-&#125;
-// 遍历对象的属性名与对应的属性值
-for (let [key, value] of Object.entries(obj)) &#123;
-console.log(`$&#123;key&#125; =&gt; $&#123;value&#125;`);
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const obj = &#123;
+  a: 1,
+  b: 2,
+  c: 3,
+&#125;;
+// 遍历对象的所有自身可枚举属性名
+for (let key of Object.keys(obj)) &#123;
+  console.log(key);
+&#125;
+// 遍历对象的所有自身可枚举属性值
+for (let values of Object.values(obj)) &#123;
+  console.log(values);
+&#125;
+// 遍历对象的属性名与对应的属性值
+for (let [key, value] of Object.entries(obj)) &#123;
+  console.log(`$&#123;key&#125; =&gt; $&#123;value&#125;`);
+&#125;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意和数组、Set、Map 的<code>keys、values、entries</code>方法<strong>对比</strong><br>调用方式的不同</p>
@@ -3271,11 +3401,11 @@ console.log(`$&#123;key&#125; =&gt; $&#123;value&#125;`);
 <li>对象的<code>Object.keys()</code>、<code>Object.values()</code>、<code>Object.entries()</code>等方法是构造函数方法，返回的都是<strong>数组</strong></li>
 <li>数组的<code>keys()</code>、<code>values()</code>、<code>entries()</code>等方法是实例方法，返回的统一都是数组的遍历对象<code>Iterator</code></li>
 </ul>
+</blockquote>
 <pre><code>console.log([1, 2, 3].keys()); // Array Iterator &#123;&#125;
 console.log([1, 2, 3].values()); // Array Iterator &#123;&#125;
 console.log([1, 2, 3].entries()); // Array Iterator &#123;&#125;
 </code></pre>
-</blockquote>
 <ol start="7">
 <li>Object.getOwnPropertyDescriptor<blockquote>
 <p>方法返回指定对象上一个指定的自有属性对应的<strong>属性描述符</strong>，如果对象身上有这个属性，返回其属性描述符对象，否则返回<code>undefined</code></p>
@@ -3283,15 +3413,12 @@ console.log([1, 2, 3].entries()); // Array Iterator &#123;&#125;
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Object.getOwnPropertyDescriptor(obj, prop);
 // obj 需要查找的目标对象
 // prop 目标对象内属性名称
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>const obj = &#123;
   name: &quot;清心&quot;,
   get sex() &#123;
@@ -3307,13 +3434,14 @@ Object.defineProperty(obj, &quot;age&quot;, &#123;
   enumerable: true,
   writable: false,
 &#125;);
+&gt;
+let desc1 = Object.getOwnPropertyDescriptor(obj, &quot;name&quot;);
+console.log(desc1);
+let desc2 = Object.getOwnPropertyDescriptor(obj, &quot;sex&quot;);
+console.log(desc2);
+let desc3 = Object.getOwnPropertyDescriptor(obj, &quot;age&quot;);
+console.log(desc3);
 </code></pre>
-</blockquote>
-<p>let desc1 &#x3D; Object.getOwnPropertyDescriptor(obj, “name”);<br>console.log(desc1);<br>let desc2 &#x3D; Object.getOwnPropertyDescriptor(obj, “sex”);<br>console.log(desc2);<br>let desc3 &#x3D; Object.getOwnPropertyDescriptor(obj, “age”);<br>console.log(desc3);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="8">
 <li>Object.getOwnPropertyDescriptors<blockquote>
 <p>获取一个对象的所有自身属性的描述符。如果没有属性，则返回空对象</p>
@@ -3321,43 +3449,39 @@ Object.defineProperty(obj, &quot;age&quot;, &#123;
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>const obj = &#123;
-name: &quot;清心&quot;,
-get sex() &#123;
-  return this._sex;
-&#125;,
-set sex(value) &#123;
-  this._sex = value;
-&#125;,
+  name: &quot;清心&quot;,
+  get sex() &#123;
+    return this._sex;
+  &#125;,
+  set sex(value) &#123;
+    this._sex = value;
+  &#125;,
 &#125;;
 Object.defineProperty(obj, &quot;age&quot;, &#123;
-value: 33,
-configurable: false,
-enumerable: true,
-writable: false,
+  value: 33,
+  configurable: false,
+  enumerable: true,
+  writable: false,
 &#125;);
+&gt;
+let descAll = Object.getOwnPropertyDescriptors(obj);
+console.log(descAll);
 </code></pre>
-</blockquote>
-let descAll &#x3D; Object.getOwnPropertyDescriptors(obj);<br>console.log(descAll);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <p>浅拷贝一个对象</p>
 <ul>
 <li><code>Object.assign()</code>方法只能拷贝源对象的可枚举的自身属性，同时拷贝时无法拷贝属性的特性们，而且访问器属性会被转换成数据属性，也无法拷贝源对象的原型。</li>
 <li>而<code>Object.getOwnPropertyDescriptors</code>方法配合 <code>Object.create()</code>方法可以实现上面说的这些。</li>
 </ul>
+</blockquote>
 <pre><code>Object.create(
   Object.getPrototypeOf(obj),
   Object.getOwnPropertyDescriptors(obj)
 );
 </code></pre>
-</blockquote>
-<blockquote>
 <pre><code>const obj = &#123;
   name: &quot;清心&quot;,
   get sex() &#123;
@@ -3377,13 +3501,14 @@ Object.defineProperty(obj, &quot;age&quot;, &#123;
   enumerable: true,
   writable: false,
 &#125;);
+&gt;
+const obj2 = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+);
+console.log(obj2);//&#123;name: &#39;清心&#39;, age: 33&#125;并带有get set方法
+obj2.sex = 22;//报错：年龄不符
 </code></pre>
-</blockquote>
-<p>const obj2 &#x3D; Object.create(<br>  Object.getPrototypeOf(obj),<br>  Object.getOwnPropertyDescriptors(obj)<br>);<br>console.log(obj2);&#x2F;&#x2F;{name: ‘清心’, age: 33}并带有get set方法<br>obj2.sex &#x3D; 22;&#x2F;&#x2F;报错：年龄不符</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="9">
 <li>Object.getOwnPropertyNames<blockquote>
 <p>返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括 <code>Symbol</code> 值作为名称的属性）组成的数组。</p>
@@ -3411,14 +3536,11 @@ Object.defineProperty(obj, &quot;age&quot;, &#123;
 </tr>
 </tbody></table>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Object.getOwnPropertyNames(obj);
 // 在 ES2015 中，非对象参数被强制转换为对象
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>const obj = &#123;
   [Symbol()]: &quot;Symbol&quot;,
   name: &quot;清心&quot;,//可枚举
@@ -3426,21 +3548,23 @@ Object.defineProperty(obj, &quot;age&quot;, &#123;
 Object.defineProperty(obj, &quot;sex&quot;, &#123;
   value: &quot;女&quot;,//不可枚举
 &#125;);
+&gt;
+const desc = Object.getOwnPropertyNames(obj);
+console.log(desc); // [&#39;name&#39;, &#39;sex&#39;]
 </code></pre>
-</blockquote>
-<p>const desc &#x3D; Object.getOwnPropertyNames(obj);<br>console.log(desc); &#x2F;&#x2F; [‘name’, ‘sex’]</p>
 <blockquote>
-<pre><code>&gt;如果只想获取对象的自身可枚举属性，可以使用`Object.keys`方法。
-</code></pre>
+<blockquote>
+<p>如果只想获取对象的自身可枚举属性，可以使用<code>Object.keys</code>方法。</p>
+</blockquote>
 </blockquote>
 <blockquote>
 <ul>
 <li>在 ES2015 中，非对象参数被强制转换为对象</li>
 </ul>
+</blockquote>
 <pre><code>Object.getOwnPropertyNames(1); // []
 Object.getOwnPropertyNames(&quot;hello&quot;); //  [&#39;0&#39;, &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;length&#39;]
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -3477,13 +3601,10 @@ Object.getOwnPropertyNames(&quot;hello&quot;); //  [&#39;0&#39;, &#39;1&#39;, &#
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Object.getOwnPropertySymbols(obj);
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>const obj = &#123;
   [Symbol()]: &quot;Symbol&quot;,
   name: &quot;清心&quot;,
@@ -3491,13 +3612,10 @@ Object.getOwnPropertyNames(&quot;hello&quot;); //  [&#39;0&#39;, &#39;1&#39;, &#
 Object.defineProperty(obj, &quot;sex&quot;, &#123;
   value: &quot;女&quot;,
 &#125;);
+&gt;
+const desc = Object.getOwnPropertySymbols(obj);
+console.log(desc); // [Symbol()]
 </code></pre>
-</blockquote>
-<p>const desc &#x3D; Object.getOwnPropertySymbols(obj);<br>console.log(desc); &#x2F;&#x2F; [Symbol()]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="11">
 <li><p>四种获取对象属性方法的对比</p>
 <table>
@@ -3548,6 +3666,9 @@ Object.defineProperty(obj, &quot;sex&quot;, &#123;
 <li><p>Object.freeze</p>
 <blockquote>
 <p><code>Object.freeze()</code>方法可以冻结一个对象。一个被冻结的对象<strong>再也不能被修改</strong>。</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>const obj = &#123;
   a: 1,
   b: 2,
@@ -3559,51 +3680,51 @@ delete obj.b; // 不能删除属 性
 obj.c = 4; // 不能添加属性
 console.log(obj); // &#123;a: 1, b: 2, arr: [1, 2, 3]&#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
-<li><p><code>Object.freeze()</code>冻结对象，属于<strong>浅冻结</strong>。如果对象的属性是一个引用类型，修改属性值指向的对象的属性是可以。</p>
-<blockquote>
+<li><code>Object.freeze()</code>冻结对象，属于<strong>浅冻结</strong>。如果对象的属性是一个引用类型，修改属性值指向的对象的属性是可以。</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
-arr: [1, 2, 3],
+  a: 1,
+  b: 2,
+  arr: [1, 2, 3],
 &#125;;
 Object.freeze(obj); // 冻结对象
 obj.arr.push(&quot;abc&quot;);
 console.log(obj.arr); // [1, 2, 3, &#39;abc&#39;]
 </code></pre>
-</blockquote>
-</li>
-<li><p>深度冻结</p>
-<blockquote>
+<ul>
+<li>深度冻结<blockquote>
 <ul>
 <li>以下代码来自 MDN 官方文档</li>
 </ul>
-<pre><code>// 深冻结函数。
-function deepFreeze(obj) &#123;
-// 取回定义在 obj 上的属性名
-var propNames = Object.getOwnPropertyNames(obj);
-</code></pre>
 </blockquote>
-<p>&#x2F;&#x2F; 在冻结自身之前冻结属性<br>propNames.forEach(function (name) {<br>  var prop &#x3D; obj[name];</p>
-<p>  &#x2F;&#x2F; 如果 prop 是个对象，冻结它<br>  if (typeof prop &#x3D;&#x3D; “object” &amp;&amp; prop !&#x3D;&#x3D; null) deepFreeze(prop);<br>});</p>
 </li>
 </ul>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 冻结自身 (no-op if already frozen)<br>  return Object.freeze(obj);<br>}</p>
-<blockquote>
-</blockquote>
-<p>obj2 &#x3D; {<br>  internal: {},<br>};</p>
-<blockquote>
-</blockquote>
-<p>deepFreeze(obj2);<br>obj2.internal.a &#x3D; “anotherValue”;<br>obj2.internal.a; &#x2F;&#x2F; undefined</p>
-<blockquote>
-<pre><code>
+<pre><code>// 深冻结函数。
+function deepFreeze(obj) &#123;
+  // 取回定义在 obj 上的属性名
+  var propNames = Object.getOwnPropertyNames(obj);
+&gt;
+  // 在冻结自身之前冻结属性
+  propNames.forEach(function (name) &#123;
+    var prop = obj[name];
+
+    // 如果 prop 是个对象，冻结它
+    if (typeof prop == &quot;object&quot; &amp;&amp; prop !== null) deepFreeze(prop);
+  &#125;);
+&gt;
+  // 冻结自身 (no-op if already frozen)
+  return Object.freeze(obj);
+&#125;
+&gt;
+obj2 = &#123;
+  internal: &#123;&#125;,
+&#125;;
+&gt;
+deepFreeze(obj2);
+obj2.internal.a = &quot;anotherValue&quot;;
+obj2.internal.a; // undefined
 </code></pre>
-</blockquote>
 <ol start="13">
 <li>Object.fromEntries<blockquote>
 <p><code>Object.fromEntries()</code>方法把<strong>键值对列表</strong>转换为一个<strong>对象</strong>。其返回值为一个新的对象。</p>
@@ -3611,33 +3732,36 @@ var propNames = Object.getOwnPropertyNames(obj);
 </li>
 </ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>Object.fromEntries(iterable);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>iterable</code>可以理解为一个可迭代对象或一个迭代器对象。可迭代对象或迭代器对象的返回值<strong>必须是一个双元素数组</strong>。如:二维数组，<code>Map</code>，<code>Object.entries()</code>的返回值等</li>
 </ul>
 </blockquote>
-</li>
+<ul>
 <li>基本用法<blockquote>
 <ul>
 <li>二维数组转对象</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>const arr = [
-[&quot;a&quot;, 1],
-[&quot;b&quot;, 2],
-[&quot;c&quot;, 3],
+  [&quot;a&quot;, 1],
+  [&quot;b&quot;, 2],
+  [&quot;c&quot;, 3],
 ];
 const obj = Object.fromEntries(arr);
 console.log(obj); // &#123;a: 1, b: 2, c: 3&#125;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>Map 转 Object</li>
 </ul>
+</blockquote>
 <pre><code>let map = new Map([
   [&quot;a&quot;, 1],
   [&quot;b&quot;, 2],
@@ -3646,11 +3770,11 @@ console.log(obj); // &#123;a: 1, b: 2, c: 3&#125;
 const obj = Object.fromEntries(map);
 console.log(obj); // &#123;a: 1, b: 2, c: 3&#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>迭代器对象转对象</li>
 </ul>
+</blockquote>
 <pre><code>function* gen() &#123;
   yield [&quot;a&quot;, 1];
   yield [&quot;b&quot;, 2];
@@ -3659,6 +3783,7 @@ console.log(obj); // &#123;a: 1, b: 2, c: 3&#125;
 const obj = Object.fromEntries(gen());
 console.log(obj);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>总结：</p>
 </blockquote>

@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-07
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.6k
+                    12k
                 </div>
                 
 
@@ -451,35 +451,33 @@
 <ol>
 <li>全局变量是 window 属性<blockquote>
 <p>所有全局作用域下 var 声明的全局变量和函数都是<code>window</code>对象的属性</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>var a = 2;
 // hasOwnProperty 检测当前对象是否拥有该属性
 console.log(window.hasOwnProperty(&quot;a&quot;)); // true
 console.log(window.a); // 2
 console.log(window.a == a); // true
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>多个 JS 文件之间是<strong>共享全局作用域</strong>的，即 JS 文件没有作用域隔离功能</li>
 <li>创建<code>a.js</code>和<code>b.js</code>及<code>c.html</code>文件，在<code>c.html</code>页面引入<code>a.js</code>和<code>b.js</code></li>
 </ul>
+</blockquote>
 <pre><code>// a.js文件代码如下
 var i=2;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; b.js文件代码如下<br>var i++;</p>
-<!-- c.html文件代码如下 -->
-<blockquote>
-<script src="js/a.js"></script>
-<script src="js/b.js"></script>
-<script>
+&gt;
+// b.js文件代码如下
+var i++;
+&lt;!-- c.html文件代码如下 --&gt;
+&gt;&lt;script src=&quot;js/a.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script src=&quot;js/b.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
   console.log(i); // 3
-</script>
-<pre><code>
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li><p>内置函数普遍是 window 对象的方法</p>
 <blockquote>
@@ -524,19 +522,18 @@ var i=2;
 <ul>
 <li>因为 innerWidth 和 innerHeight 包括了滚动条的宽和高，所以很多时候我们获取页面可视宽和高是通过：<code>document.body.clientWidth || document.documentElement.clientWidth</code>来实现，它不包括滚动条宽高、浏览器边框和工具栏</li>
 </ul>
+</blockquote>
 <pre><code>// 浏览器窗口中页面视口大小 包括滚动条
 console.log(&quot;innerWidth:&quot; + window.innerWidth);
 console.log(&quot;innerHeight:&quot; + window.innerHeight);
 // 浏览器窗口大小
 console.log(&quot;outerWidth:&quot; + window.outerWidth);
 console.log(&quot;outerHeight:&quot; + window.outerHeight);
+&gt;
+// 页面可视区大小（不包括滚动条）
+console.log(&quot;clientWidth:&quot; + document.documentElement.clientWidth);
+console.log(&quot;clientHeight:&quot; + document.documentElement.clientHeight);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 页面可视区大小（不包括滚动条）<br>console.log(“clientWidth:” + document.documentElement.clientWidth);<br>console.log(“clientHeight:” + document.documentElement.clientHeight);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="4">
 <li>滚动距离<table>
 <thead>
@@ -572,6 +569,7 @@ console.log(&quot;outerHeight:&quot; + window.outerHeight);
 <li>文档水平滚动距离：<code>document.documentElement.scrollLeft || document.body.scrollLeft</code></li>
 <li>文档垂直滚动距离：<code>document.documentElement.scrollTop || document.body.scrollTop</code></li>
 </ul>
+</blockquote>
 <pre><code>console.log(&quot;scrollX:&quot; + window.scrollX);
 console.log(&quot;scrollY:&quot; + window.scrollY);
 console.log(&quot;pageXoffset:&quot; + window.pageXOffset);
@@ -579,7 +577,6 @@ console.log(&quot;pageYoffset:&quot; + window.pageYOffset);
 console.log(&quot;scrollTop:&quot; + document.documentElement.scrollTop);
 console.log(&quot;scrollLeft:&quot; + document.documentElement.scrollLeft);
 </code></pre>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -602,7 +599,8 @@ console.log(&quot;scrollLeft:&quot; + document.documentElement.scrollLeft);
 <li><code>scroll(x,y)</code>只能点击一次，直接滚动条指定位置</li>
 <li><code>scrollBy(x,y)</code>可多次点击，每次点击后移动指定距离</li>
 </ul>
-<pre><code>&lt;style&gt;
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
   html,
   body &#123;
     margin: 0;
@@ -620,24 +618,23 @@ console.log(&quot;scrollLeft:&quot; + document.documentElement.scrollLeft);
   .by &#123;
     top: 280px;
   &#125;
-&lt;/style&gt;
-
-&lt;button class=&quot;to&quot;&gt;滚动到指定位置&lt;/button&gt;
-&lt;button class=&quot;by&quot;&gt;滚动一定距离&lt;/button&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;button class=&quot;to&quot;&gt;滚动到指定位置&lt;/button&gt;
+&gt;&lt;button class=&quot;by&quot;&gt;滚动一定距离&lt;/button&gt;
+&gt;
+&gt;&lt;script&gt;
   var button = document.getElementsByTagName(&quot;button&quot;);
   button[0].onclick = function () &#123;
     window.scroll(100, 200); // 点击后，跳转到与视口x=100,y=200的坐标位置
   &#125;;
+&gt;
+  button[1].onclick = function () &#123;
+    // window.scrollBy(0, -100); // 每次点击，滚动条向上滚动 100px
+    window.scrollBy(0, 100); // 每次点击，滚动条向上滚动100px
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  button[1].onclick &#x3D; function () {<br>    &#x2F;&#x2F; window.scrollBy(0, -100); &#x2F;&#x2F; 每次点击，滚动条向上滚动 100px<br>    window.scrollBy(0, 100); &#x2F;&#x2F; 每次点击，滚动条向上滚动100px<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
 <li>window 其它属性<blockquote>
 <p>重点提示</p>
@@ -679,10 +676,10 @@ console.log(&quot;scrollLeft:&quot; + document.documentElement.scrollLeft);
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>// 跳转到  http://www.icodingedu.com 这个页面
 window.location = &quot;http://www.icodingedu.com&quot;;
 </code></pre>
-</blockquote>
 <ol>
 <li>URL 组成部分<blockquote>
 <ul>
@@ -694,11 +691,9 @@ window.location = &quot;http://www.icodingedu.com&quot;;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>protocol://host[:port]/path/[?query]#fragment  /* [] 方括号表示可选 */
 http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
 </code></pre>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -780,16 +775,12 @@ http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// location.search得到 URL中的query数据
 &quot;?targetId=99&amp;sort=hot&amp;bool=true&amp;name=张三&quot;
+&gt;
+// 最终转换成下面这样一个对象
+&#123; targetId: 99, sort: &#39;hot&#39;, bool: true, name: &#39;张三&#39;&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 最终转换成下面这样一个对象<br>{ targetId: 99, sort: ‘hot’, bool: true, name: ‘张三’}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li>思路：<blockquote>
 <p><strong>写一个函数，将传入的查询字符串query，处理成对象形式</strong></p>
@@ -839,16 +830,15 @@ http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
 <li>如果上面的都不是，就只能是字符串了</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   var search = &quot;?targetId=99&amp;sort=hot&amp;bool=true&amp;name=张三&quot;;
   var paramObj = getVars(search);
   console.log(paramObj);
   //将query转换成一个对象，并考虑数据类型
-/**
- * getVars 将取得的查询参数以键值对形式存到对象中，同时考虑数据类型
- * @param search查询的字符串内容
- */
+&gt; /**
+&gt;  * getVars 将取得的查询参数以键值对形式存到对象中，同时考虑数据类型
+&gt;  * @param search查询的字符串内容
+&gt;  */
   function getVars(search) &#123;
     var obj = &#123;&#125;;
     if (search.length === 1) return &#123;&#125;; //如果只有?就返回空对象
@@ -862,14 +852,22 @@ http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
     &#125;);
     return obj;
   &#125;
+&gt;
+  //处理数据类型的函数
+  function transferValue(value) &#123;
+    //先考虑传入的值是否为空、null、undfined、&quot;  &quot;
+    if (value == undefined || value.trim() == &quot;&quot;) return null;
+    //考虑布尔值
+    if (value.toLowerCase() === &quot;true&quot;) return true;
+    if (value.toLowerCase() === &quot;false&quot;) return false;
+    //考虑数值
+    if (isFinite(value)) return parseFloat(value);
+    //考虑日期
+    if (isFinite(Date.parse(value))) return new Date(value);
+    return value;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F;处理数据类型的函数<br>  function transferValue(value) {<br>    &#x2F;&#x2F;先考虑传入的值是否为空、null、undfined、”  “<br>    if (value &#x3D;&#x3D; undefined || value.trim() &#x3D;&#x3D; “”) return null;<br>    &#x2F;&#x2F;考虑布尔值<br>    if (value.toLowerCase() &#x3D;&#x3D;&#x3D; “true”) return true;<br>    if (value.toLowerCase() &#x3D;&#x3D;&#x3D; “false”) return false;<br>    &#x2F;&#x2F;考虑数值<br>    if (isFinite(value)) return parseFloat(value);<br>    &#x2F;&#x2F;考虑日期<br>    if (isFinite(Date.parse(value))) return new Date(value);<br>    return value;<br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="4">
 <li>数据交互 - 根据参数显示页面内容<blockquote>
 <ul>
@@ -896,162 +894,154 @@ http://www.arryblog.com/guide/html5/html5.html?targetId=12&amp;preview=0#top
 </blockquote>
 </li>
 <li><p><code>index.html</code> 页面源代码</p>
-<blockquote>
-<pre><code>&lt;ul class=&quot;container&quot;&gt;
-</code></pre>
-</blockquote>
-<!-- <li>
-  <a href="./06-goods.html?targetID=93">
-    Web前端高级工程师系统课-星辰班
-  </a>
-</li>
-<li>
-  <a href="./06-goods.html?targetID=91"> 30个HTML+CSS实战小案例详解 </a>
-</li>
-<li>
-  <a href="./06-goods.html?targetID=77"
-    >云原生Kubernetes与云上DevOps新版系统实战课
-  </a>
-</li> -->
-<blockquote>
-</ul>
-<script>
-var data = [
-  {
-    targetId: 93,
-    title: "Web前端高级工程师系统课-星辰班",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg",
-    price: 8680,
-  },
-  {
-    targetId: 91,
-    title: "30个HTML+CSS实战小案例详解",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg",
-    price: 0,
-  },
-  {
-    targetId: 77,
-    title: "云原生Kubernetes与云上DevOps新版系统实战课",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png",
-    price: 2680,
-  },
-];
-var oUL = document.querySelector(".container");
-data.forEach(function (item) {
-  var li = document.createElement("li");
-  var a = document.createElement("a");
-  a.href = "./06-goods.html?targetId=" + item.targetId;
-  a.innerText = item.title;
-  a.target = "blank";
-  li.appendChild(a);
-  oUL.appendChild(li);
-});
-</script>
-```
-</blockquote>
-</li>
-<li><p><code>goods.html</code> 页面源代码</p>
-<blockquote>
-<pre><code>&lt;div class=&quot;show&quot;&gt;
-</code></pre>
-</blockquote>
-<!-- <img
-  src="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg"
-  alt=""
-/>
-<h3>Web前端高级工程师系统课-星辰班</h3>
-<p>价格：8680</p> -->
-<blockquote>
-</div>
-<script src="./getVars.js"></script>
-<script>
-var data = [
-  {
-    targetId: 93,
-    title: "Web前端高级工程师系统课-星辰班",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg",
-    price: 8680,
-  },
-  {
-    targetId: 91,
-    title: "30个HTML+CSS实战小案例详解",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg",
-    price: 0,
-  },
-  {
-    targetId: 77,
-    title: "云原生Kubernetes与云上DevOps新版系统实战课",
-    mainImage:
-      "https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png",
-    price: 2680,
-  },
-];
-var show = document.querySelector(".show");
-var search = location.search;
-var Vars = getVars(search);
-data.forEach(function (item) {
-  if (item.targetId === Vars.targetId) {
-    var frag = document.createDocumentFragment();
-    var img = document.createElement("img");
-    img.src = item.mainImage;
-    frag.appendChild(img);
-    var h3 = document.createElement("h3");
-    h3.innerText = item.title;
-    frag.appendChild(h3);
-    var p = document.createElement("p");
-    var price = item.price === 0 ? "免费" : item.price;
-    p.innerText = "价格：" + price;
-    frag.appendChild(p);
-    show.appendChild(frag);
-  }
-});
-</script>
-```</blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;ul class=&quot;container&quot;&gt;
+  &lt;!-- &lt;li&gt;
+    &lt;a href=&quot;./06-goods.html?targetID=93&quot;&gt;
+      Web前端高级工程师系统课-星辰班
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;./06-goods.html?targetID=91&quot;&gt; 30个HTML+CSS实战小案例详解 &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;./06-goods.html?targetID=77&quot;
+      &gt;云原生Kubernetes与云上DevOps新版系统实战课
+    &lt;/a&gt;
+  &lt;/li&gt; --&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;script&gt;
+  var data = [
+    &#123;
+      targetId: 93,
+      title: &quot;Web前端高级工程师系统课-星辰班&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+      price: 8680,
+    &#125;,
+    &#123;
+      targetId: 91,
+      title: &quot;30个HTML+CSS实战小案例详解&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+      price: 0,
+    &#125;,
+    &#123;
+      targetId: 77,
+      title: &quot;云原生Kubernetes与云上DevOps新版系统实战课&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png&quot;,
+      price: 2680,
+    &#125;,
+  ];
+  var oUL = document.querySelector(&quot;.container&quot;);
+  data.forEach(function (item) &#123;
+    var li = document.createElement(&quot;li&quot;);
+    var a = document.createElement(&quot;a&quot;);
+    a.href = &quot;./06-goods.html?targetId=&quot; + item.targetId;
+    a.innerText = item.title;
+    a.target = &quot;blank&quot;;
+    li.appendChild(a);
+    oUL.appendChild(li);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>goods.html</code> 页面源代码</li>
+</ul>
+<pre><code>&gt;&lt;div class=&quot;show&quot;&gt;
+  &lt;!-- &lt;img
+    src=&quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;
+    alt=&quot;&quot;
+  /&gt;
+  &lt;h3&gt;Web前端高级工程师系统课-星辰班&lt;/h3&gt;
+  &lt;p&gt;价格：8680&lt;/p&gt; --&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script src=&quot;./getVars.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
+  var data = [
+    &#123;
+      targetId: 93,
+      title: &quot;Web前端高级工程师系统课-星辰班&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;,
+      price: 8680,
+    &#125;,
+    &#123;
+      targetId: 91,
+      title: &quot;30个HTML+CSS实战小案例详解&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/03-19/174949d70767470556.jpg&quot;,
+      price: 0,
+    &#125;,
+    &#123;
+      targetId: 77,
+      title: &quot;云原生Kubernetes与云上DevOps新版系统实战课&quot;,
+      mainImage:
+        &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/07-14/122139326c0d505110.png&quot;,
+      price: 2680,
+    &#125;,
+  ];
+  var show = document.querySelector(&quot;.show&quot;);
+  var search = location.search;
+  var Vars = getVars(search);
+  data.forEach(function (item) &#123;
+    if (item.targetId === Vars.targetId) &#123;
+      var frag = document.createDocumentFragment();
+      var img = document.createElement(&quot;img&quot;);
+      img.src = item.mainImage;
+      frag.appendChild(img);
+      var h3 = document.createElement(&quot;h3&quot;);
+      h3.innerText = item.title;
+      frag.appendChild(h3);
+      var p = document.createElement(&quot;p&quot;);
+      var price = item.price === 0 ? &quot;免费&quot; : item.price;
+      p.innerText = &quot;价格：&quot; + price;
+      frag.appendChild(p);
+      show.appendChild(frag);
+    &#125;
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="5">
-<li><p>404 页面，定时跳转功能</p>
-<blockquote>
+<li>404 页面，定时跳转功能<blockquote>
 <ul>
 <li>写一个定时器，做倒计时效果</li>
 <li>当倒计时结束，就改变页面的<code>url</code>，使其跳转到另一个页面</li>
 </ul>
-<pre><code>&lt;style&gt;
- body &#123;
-   margin: 0;
-   display: flex;
-   justify-content: center;
- &#125;
- span &#123;
-   font-size: 50px;
-   color: red;
- &#125;
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
- &lt;p&gt;&lt;span class=&quot;time&quot;&gt;5&lt;/span&gt;秒后，跳转到首页&lt;/p&gt;
-&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
+    body &#123;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    &#125;
+    span &#123;
+      font-size: 50px;
+      color: red;
+    &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;/head&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;p&gt;&lt;span class=&quot;time&quot;&gt;5&lt;/span&gt;秒后，跳转到首页&lt;/p&gt;
+&gt;&lt;script&gt;
   var span = document.querySelector(&quot;.time&quot;);
   var sum = 5;
   var timer = setInterval(function () &#123;
- sum--;
- span.innerText = sum;
- if (sum &lt;= 0) &#123;
-   clearInterval(timer);
-   location.href = &quot;https://www.icodingedu.com/&quot;;
- &#125;
+    sum--;
+    span.innerText = sum;
+    if (sum &lt;= 0) &#123;
+      clearInterval(timer);
+      location.href = &quot;https://www.icodingedu.com/&quot;;
+    &#125;
   &#125;, 1000);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>location 对象的方法</p>
-<blockquote>
+<ol start="6">
+<li>location 对象的方法<blockquote>
 <p>以下是<code>location</code>对象身上的一些常见的方法</p>
 </blockquote>
 </li>
@@ -1076,8 +1066,7 @@ data.forEach(function (item) {
 <td>重新加载当前页面，相当于刷新按扭或F5；如果参数 为<code>true</code>，表示强制刷新<code>ctrl + F5</code>，即：要<strong>从服务器上</strong>加载数据；如果参数为<code>false</code>，表示浏览器优先从缓存当中加载页面</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   document.onclick = function () &#123;
     // assign 相当于href，跳转到一个新的页面
     location.assign(&quot;https://www.baidu.com/&quot;);
@@ -1085,9 +1074,8 @@ data.forEach(function (item) {
     location.replace(&quot;https://www.baidu.com/&quot;);
     location.reload(true); // 强制制新，重新从服务器加载数据
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h3 id="三、window-history-对象"><a href="#三、window-history-对象" class="headerlink" title="三、window.history 对象"></a>三、window.history 对象</h3><blockquote>
 <ul>
 <li><code>Window.history</code>是一个只读属性，用来获取<code>History</code>对象的引用，<code>History</code>对象提供了操作浏览器<strong>会话历史</strong>的接口<br>window.history对象相关方法</li>
@@ -1113,12 +1101,10 @@ data.forEach(function (item) {
 <td>前进与后退，当参数为<code>1</code>，表示进入下一页；当参数为<code>-1</code>，表示退回上一页，如果参数为<code>0</code>，则重新载入当前页面</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code>history.back(); // 后退
 history.forward(); // 前进
 history.go(1); // 前进 进入下一页
 </code></pre>
-</blockquote>
 <h3 id="四、navigator-对象"><a href="#四、navigator-对象" class="headerlink" title="四、navigator 对象"></a>四、navigator 对象</h3><blockquote>
 <ul>
 <li><code>window.navigator</code>对象包含用户此次活动的浏览器的相关属性和标识</li>
@@ -1138,7 +1124,6 @@ history.go(1); // 前进 进入下一页
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>function BrowserName() &#123;
   var sBrowser,
     sUsrAg = navigator.userAgent;
@@ -1160,12 +1145,14 @@ history.go(1); // 前进 进入下一页
   return sBrowser;
 &#125;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>判断是否为微信环境<blockquote>
 <ul>
 <li><code>micromessenger</code>为微信内嵌的浏览器，有此标识的基本上可以判断是微信环境，但此标识也<strong>可以伪造</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 判断是否为微信
 const isWx = function () &#123;
   var ua = window.navigator.userAgent.toLowerCase();
@@ -1173,11 +1160,7 @@ const isWx = function () &#123;
   return false;
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p>3、设备判断：android、ios、web</p>
-<blockquote>
 <pre><code>function isDevice() &#123;
   if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) &#123;
     return &quot;iOS&quot;;
@@ -1187,7 +1170,6 @@ const isWx = function () &#123;
   return &quot;Web&quot;;
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注：</p>
@@ -1238,7 +1220,6 @@ const isWx = function () &#123;
 </li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>console.log(&quot;我第一个出来&quot;);
 // DOM树构建完成时触发
 window.addEventListener(&quot;DOMContentLoaded&quot;, function () &#123;
@@ -1249,7 +1230,6 @@ window.onload = function () &#123;
   alert(&quot;我第三个出来&quot;);
 &#125;;
 </code></pre>
-</blockquote>
 <ul>
 <li>除了页面加完会触发 load 事件外，其它元素也会触发与之对应的 load 的事件<table>
 <thead>
@@ -1284,11 +1264,10 @@ window.onload = function () &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>/**
-* loadImg 动态加载图片
-* @param url 图片地址
-*/
+<pre><code>&gt;/**
+&gt; * loadImg 动态加载图片
+&gt; * @param url 图片地址
+&gt; */
 function loadImg(url) &#123;
   var img = new Image(); // 创建img对象
   // 图片加载成功，插入到页面
@@ -1302,13 +1281,11 @@ function loadImg(url) &#123;
   &#125;;
   img.src = url;
 &#125;
+&gt;
+var url =
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;;
+loadImg(url);
 </code></pre>
-</blockquote>
-<p>var url &#x3D;<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“;<br>loadImg(url);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>动态加载 JS<blockquote>
 <ul>
@@ -1318,12 +1295,11 @@ function loadImg(url) &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>/**
-* loadScript 动态加载JS文件
-* @param src js文件地址
-* @param callback回调函数，js加载完成后，要处理的事情
-*/
+<pre><code>&gt;/**
+&gt; * loadScript 动态加载JS文件
+&gt; * @param src js文件地址
+&gt; * @param callback回调函数，js加载完成后，要处理的事情
+&gt; */
 function loadScript(src, callback) &#123;
   var script = document.createElement(&quot;script&quot;);
   script.onload = function () &#123;
@@ -1336,13 +1312,11 @@ function loadScript(src, callback) &#123;
   script.src = src;
   document.body.appendChild(script); // 不插入到页面，load事件永远不会触发
 &#125;
+&gt;
+loadScript(&quot;./a.js&quot;, function () &#123;
+  alert(&quot;加载成功&quot;);
+&#125;);
 </code></pre>
-</blockquote>
-<p>loadScript(“.&#x2F;a.js”, function () {<br>  alert(“加载成功”);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>动态加载 CSS<blockquote>
 <ul>
@@ -1354,11 +1328,10 @@ function loadScript(src, callback) &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>/**
-* 动态插入外链css
-* href css外链地址
-*/
+<pre><code>&gt;/**
+&gt; * 动态插入外链css
+&gt; * href css外链地址
+&gt; */
 function loadCSS(href) &#123;
   var link = document.createElement(&quot;link&quot;);
   link.rel = &quot;stylesheet&quot;;
@@ -1376,34 +1349,39 @@ function loadCSS(href) &#123;
 &#125;
 loadCSS(&quot;./index.css&quot;);
 </code></pre>
-</blockquote>
 <h4 id="resize-事件"><a href="#resize-事件" class="headerlink" title="resize 事件"></a>resize 事件</h4><blockquote>
 <ul>
 <li>当调整浏览器的窗口大小时，会触发<code>resize</code>事件</li>
 <li><code>resize</code>事件触发会很频繁，所以我们在处理时，可以设置节流操作</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var a = 0;
 window.onresize = throttle(fn, 50);
 function fn() &#123;
   console.log(a++);
 &#125;
-
-/**
-* 节流函数
-* fn 事件处理函数
-* delay 函数执行间隔时间
-*/
+&gt;
+&gt;/**
+&gt; * 节流函数
+&gt; * fn 事件处理函数
+&gt; * delay 函数执行间隔时间
+&gt; */
 function throttle(fn, delay) &#123;
   var timer = null;
+&gt;
+  return function () &#123;
+    var self = this;
+    var args = arguments;
+    if (timer) return;
+    timer = setTimeout(function () &#123;
+      // 函数体执行代码
+      fn.apply(self, args);
+      // 开锁
+      timer = null;
+    &#125;, delay);
+  &#125;;
+&#125;
 </code></pre>
-</blockquote>
-<p>  return function () {<br>    var self &#x3D; this;<br>    var args &#x3D; arguments;<br>    if (timer) return;<br>    timer &#x3D; setTimeout(function () {<br>      &#x2F;&#x2F; 函数体执行代码<br>      fn.apply(self, args);<br>      &#x2F;&#x2F; 开锁<br>      timer &#x3D; null;<br>    }, delay);<br>  };<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="srcoll-事件"><a href="#srcoll-事件" class="headerlink" title="srcoll 事件"></a>srcoll 事件</h4><blockquote>
 <ul>
 <li>当浏览器滚动条发生滚动时触发<code>window.onsrcoll</code>事件</li>
@@ -1411,8 +1389,7 @@ function throttle(fn, delay) &#123;
 <li><code>scroll</code>事件的触发频率也非常的快，所以了要根据实际业务场景来添加节流操作</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .body &#123;
     margin: 0;
     height: 3000px;
@@ -1430,13 +1407,13 @@ function throttle(fn, delay) &#123;
     margin: 0;
     background-color: khaki;
   &#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot;&gt;
- &lt;p&gt;
-   我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容
- &lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;p&gt;
+&gt;    我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容我是一段内容
+&gt;  &lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var a = 0;
   //浏览器的scroll事件
@@ -1449,34 +1426,29 @@ function throttle(fn, delay) &#123;
   function fn1() &#123;
     console.log(&quot;box&quot;);
   &#125;
-
-/**
- * 节流函数
- * fn 事件处理函数
- * delay 函数执行间隔时间
- */
+&gt;
+&gt; /**
+&gt;  * 节流函数
+&gt;  * fn 事件处理函数
+&gt;  * delay 函数执行间隔时间
+&gt;  */
   function throttle(fn, delay) &#123;
     var timer = null;
+&gt;
+    return function () &#123;
+      var self = this;
+      var args = arguments;
+      if (timer) return;
+      timer = setTimeout(function () &#123;
+        // 函数体执行代码
+        fn.apply(self, args);
+        // 开锁
+        timer = null;
+      &#125;, delay);
+    &#125;;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>return function () &#123;
-  var self = this;
-  var args = arguments;
-  if (timer) return;
-  timer = setTimeout(function () &#123;
-    // 函数体执行代码
-    fn.apply(self, args);
-    // 开锁
-    timer = null;
-  &#125;, delay);
-&#125;;
-</code></pre>
-<p>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例1：返回顶部"><a href="#案例1：返回顶部" class="headerlink" title="案例1：返回顶部"></a>案例1：返回顶部</h4><blockquote>
 <ul>
 <li>实现效果：点击返回顶部按扭，页面滚动到最顶部，即滚动条与浏览器顶部的滚动距离<strong>不断的减小</strong>(不是直接到顶部)，直到减少到 0</li>
@@ -1494,87 +1466,95 @@ function throttle(fn, delay) &#123;
 </li>
 </ol>
 <ul>
-<li><p>三种实现方式的通用布局</p>
-<blockquote>
-<pre><code>&lt;style&gt;
-#back-top &#123;
-  width: 80px;
-  height: 80px;
-  background-color: #ddd;
-  text-align: center;
-  line-height: 80px;
-  cursor: pointer;
-  position: fixed;
-  right: 10px;
-  bottom: 100px;
-&#125;
-body &#123;
-  height: 3000px;
-&#125;
-&lt;/style&gt;
-
-&lt;div id=&quot;back-top&quot;&gt;返回顶部&lt;/div&gt;
+<li>三种实现方式的通用布局</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  #back-top &#123;
+    width: 80px;
+    height: 80px;
+    background-color: #ddd;
+    text-align: center;
+    line-height: 80px;
+    cursor: pointer;
+    position: fixed;
+    right: 10px;
+    bottom: 100px;
+  &#125;
+  body &#123;
+    height: 3000px;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div id=&quot;back-top&quot;&gt;返回顶部&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>实现方式1</p>
-<blockquote>
+<ul>
+<li>实现方式1<blockquote>
 <p>使用 <code>window.scroll(x,y)</code> 和 <code>window.scrollY</code></p>
 <ul>
 <li>点击后，首先获取当前滚动条滚动的距离<code>scrollY = window.scrollY</code></li>
 <li>然后开启一个定时器，隔一定时间让<code>window.scroll(0,y)</code>中 <code>y</code> 的值减小 100 ，直到<code>window.scrollY &lt;= 0</code>，说明滚动条滚动到页面的顶部，然后暂停定时器</li>
 <li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
 </ul>
-<pre><code>&lt;script&gt;
-var backTop = document.getElementById(&quot;back-top&quot;);
-// 第一套方案 window.scroll();
-var timer = null;
-var lock = false; // 可以点击
-// 点击事件
-backTop.onclick = function () &#123;
-  // 获取滚动条与浏览器顶部的距
-  if (lock) return;
-  lock = true;
-  var scrollY = window.scrollY; // 把他放在外面，不用频繁的读他
-  timer = setInterval(function () &#123;
-    scrollY -= 100;
-    if (scrollY &lt;= 0) &#123;
-      clearInterval(timer);
-      lock = false;
-    &#125;
-    window.scroll(0, scrollY);
-  &#125;, 20);
-&#125;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>实现方式二</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  var backTop = document.getElementById(&quot;back-top&quot;);
+  // 第一套方案 window.scroll();
+  var timer = null;
+  var lock = false; // 可以点击
+  // 点击事件
+  backTop.onclick = function () &#123;
+    // 获取滚动条与浏览器顶部的距
+    if (lock) return;
+    lock = true;
+    var scrollY = window.scrollY; // 把他放在外面，不用频繁的读他
+    timer = setInterval(function () &#123;
+      scrollY -= 100;
+      if (scrollY &lt;= 0) &#123;
+        clearInterval(timer);
+        lock = false;
+      &#125;
+      window.scroll(0, scrollY);
+    &#125;, 20);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>实现方式二<blockquote>
 <p>使用 <code>window.scrollBy</code> 和 <code>window.scrollY</code></p>
 <ul>
 <li>通过<code>window.scrollBy(x,y)</code> 方法，每次向上移动一点距离，直到<code>window.scrollY &lt;= 0</code></li>
 <li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
 </ul>
-<pre><code>&lt;script&gt;
-var backTop = document.getElementById(&quot;back-top&quot;);
-// 第一套方案 window.scroll();
-var timer = null;
-var lock = false; // 可以点击
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 点击事件<br>backTop.onclick &#x3D; function () {<br>  &#x2F;&#x2F; 获取滚动条与浏览器顶部的距离<br>  if (lock) return;<br>  lock &#x3D; true;</p>
-<blockquote>
-</blockquote>
-<p>  timer &#x3D; setInterval(function () {<br>var scrollY &#x3D; window.scrollY;<br>if (scrollY &lt;&#x3D; 0) {<br>  clearInterval(timer);<br>  lock &#x3D; false;<br>}<br>window.scrollBy(0, -20);<br>  }, 20);<br>};</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>实现方式三</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  var backTop = document.getElementById(&quot;back-top&quot;);
+  // 第一套方案 window.scroll();
+  var timer = null;
+  var lock = false; // 可以点击
+&gt;
+  // 点击事件
+  backTop.onclick = function () &#123;
+    // 获取滚动条与浏览器顶部的距离
+    if (lock) return;
+    lock = true;
+&gt;
+    timer = setInterval(function () &#123;
+      var scrollY = window.scrollY; 
+      if (scrollY &lt;= 0) &#123;
+        clearInterval(timer);
+        lock = false;
+      &#125;
+      window.scrollBy(0, -20);
+    &#125;, 20);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>实现方式三<blockquote>
 <p>使用 <code>document.documentElement.scrollTop</code> 来实现</p>
 <ul>
 <li>首先获取当前滚动条滚动过的距离<code>document.documentElement.scrollTop</code></li>
@@ -1582,26 +1562,34 @@ var lock = false; // 可以点击
 <li>开启定时器，不断的减小<code>scrollTop</code> 的值，直到 <code>&lt;= 0</code></li>
 <li>添加 <code>lock</code> 变量，用来防止当次滚动没有结束前，再次执行新的动画</li>
 </ul>
-<pre><code>&lt;script&gt;
-var backTop = document.getElementById(&quot;back-top&quot;);
-backTop.addEventListener(&quot;click&quot;, backToTop, false);
-var lock = false;
-function backToTop() &#123;
-  if (lock) return;
-  lock = true;
-  // 获取当前滚动条滚动的距离
-  var doc = document.documentElement || document.body;
-  var top = doc.scrollTop;
-  clearInterval(this.timer); // 多次点击无效，以最后一次为主
-  var that = this; // 保存this，在定时器内需要用到
-</code></pre>
-</blockquote>
-<p>  this.timer &#x3D; setInterval(function () {<br>if (top &lt;&#x3D; 0) {<br>  clearInterval(that.timer); &#x2F;&#x2F; 如果top小于0清除定时器<br>  lock &#x3D; false;<br>} else {<br>  top &#x3D; top - 100; &#x2F;&#x2F; 每次减 100<br>  doc.scrollTop &#x3D; top; &#x2F;&#x2F; 动态更改滚动条件与浏览器的滚动的距离<br>}<br>  }, 20);<br>}</p>
-<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;script&gt;
+  var backTop = document.getElementById(&quot;back-top&quot;);
+  backTop.addEventListener(&quot;click&quot;, backToTop, false);
+  var lock = false;
+  function backToTop() &#123;
+    if (lock) return;
+    lock = true;
+    // 获取当前滚动条滚动的距离
+    var doc = document.documentElement || document.body;
+    var top = doc.scrollTop;
+    clearInterval(this.timer); // 多次点击无效，以最后一次为主
+    var that = this; // 保存this，在定时器内需要用到
+&gt;
+    this.timer = setInterval(function () &#123;
+      if (top &lt;= 0) &#123;
+        clearInterval(that.timer); // 如果top小于0清除定时器
+        lock = false;
+      &#125; else &#123;
+        top = top - 100; // 每次减 100
+        doc.scrollTop = top; // 动态更改滚动条件与浏览器的滚动的距离
+      &#125;
+    &#125;, 20);
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="2">
 <li>限时匀速运动——最佳实践<blockquote>
 <ul>
@@ -1615,40 +1603,37 @@ function backToTop() &#123;
 </li>
 </ol>
 <ul>
-<li><p>使用<code>window.scroll(x,y)</code>和<code>window.scrollY</code>实现</p>
-<blockquote>
-<pre><code>&lt;script&gt;
-var backTop = document.getElementById(&quot;back-top&quot;);
-var timer = null; //定时器
-var lock = false; //未上锁
-backTop.onclick = function () &#123;
-  if (lock) return;
-  lock = true;
-  var T = 0; //记录已经运动的时间
-  var B = window.scrollY; // 开始位置
-  var C = 0 - B; //需要移动的总距离,target=0
-  var D = 500; //限定时间
-  timer = setInterval(function () &#123;
-    T += 20;
-    // 当次滚动条要到的位置
-    var currentDistance = (T / D) * C + B;
-    if (T &gt; D) &#123;
-      clearInterval(timer);
-      currentDistance = 0;
-      lock = false;
-    &#125;
-    window.scroll(0, currentDistance);
-  &#125;, 20);
-&#125;;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>使用 <code>document.documentElement.scrollTop</code> 实现</p>
-</li>
+<li>使用<code>window.scroll(x,y)</code>和<code>window.scrollY</code>实现</li>
 </ul>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
+  var backTop = document.getElementById(&quot;back-top&quot;);
+  var timer = null; //定时器
+  var lock = false; //未上锁
+  backTop.onclick = function () &#123;
+    if (lock) return;
+    lock = true;
+    var T = 0; //记录已经运动的时间
+    var B = window.scrollY; // 开始位置
+    var C = 0 - B; //需要移动的总距离,target=0
+    var D = 500; //限定时间
+    timer = setInterval(function () &#123;
+      T += 20;
+      // 当次滚动条要到的位置
+      var currentDistance = (T / D) * C + B;
+      if (T &gt; D) &#123;
+        clearInterval(timer);
+        currentDistance = 0;
+        lock = false;
+      &#125;
+      window.scroll(0, currentDistance);
+    &#125;, 20);
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>使用 <code>document.documentElement.scrollTop</code> 实现</li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
   var backTop = document.getElementById(&quot;back-top&quot;);
   var doc = document.documentElement || document.body;
   var timer = null;
@@ -1664,31 +1649,24 @@ backTop.onclick = function () &#123;
     // target=0 目标位置
     var C = 0 - B; // 总共需要改变的距离
     var D = 500; // 总共运动的时间
+&gt;
+    timer = setInterval(function () &#123;
+      // 记录运的时间
+      T += 20;
+      // 当前运动到的位置
+      var currentDistance = (T / D) * C + B;
+      // currentDistance &lt; 0
+      if (T &gt;= D) &#123;
+        clearInterval(timer);
+        currentDistance = 0;
+        lock = false;
+      &#125;
+&gt;
+      doc.scrollTop = currentDistance;
+    &#125;, 20);
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>timer = setInterval(function () &#123;
-  // 记录运的时间
-  T += 20;
-  // 当前运动到的位置
-  var currentDistance = (T / D) * C + B;
-  // currentDistance &lt; 0
-  if (T &gt;= D) &#123;
-    clearInterval(timer);
-    currentDistance = 0;
-    lock = false;
-  &#125;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>  doc.scrollTop = currentDistance;
-&#125;, 20);
-</code></pre>
-<p>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例2：图片延时加载"><a href="#案例2：图片延时加载" class="headerlink" title="案例2：图片延时加载"></a>案例2：图片延时加载</h4><blockquote>
 <p><strong>实现原理：</strong></p>
 <ul>
@@ -1710,8 +1688,7 @@ backTop.onclick = function () &#123;
 <ul>
 <li>布局</li>
 </ul>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   html,
   body,
   ul,
@@ -1736,53 +1713,52 @@ backTop.onclick = function () &#123;
     width: 200px;
     height: 200px;
   &#125;
-&lt;/style&gt;
-
-&lt;ul id=&quot;J_container&quot;&gt;
- &lt;li&gt;
-   &lt;img
-     src=&quot;./images/loading-svg/loading-bars.svg&quot;
-     data-src=&quot;./images/01.png&quot;
-     class=&quot;lazy&quot;
-   /&gt;
- &lt;/li&gt;
- &lt;li&gt;
-   &lt;img
-     src=&quot;./images/loading-svg/loading-bars.svg&quot;
-     data-src=&quot;./images/01.png&quot;
-     class=&quot;lazy&quot;
-   /&gt;
- &lt;/li&gt;
-……
-&lt;/ul&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;ul id=&quot;J_container&quot;&gt;
+&gt;  &lt;li&gt;
+&gt;    &lt;img
+&gt;      src=&quot;./images/loading-svg/loading-bars.svg&quot;
+&gt;      data-src=&quot;./images/01.png&quot;
+&gt;      class=&quot;lazy&quot;
+&gt;    /&gt;
+&gt;  &lt;/li&gt;
+&gt;  &lt;li&gt;
+&gt;    &lt;img
+&gt;      src=&quot;./images/loading-svg/loading-bars.svg&quot;
+&gt;      data-src=&quot;./images/01.png&quot;
+&gt;      class=&quot;lazy&quot;
+&gt;    /&gt;
+&gt;  &lt;/li&gt;
+&gt; ……
+&gt;&lt;/ul&gt;
 </code></pre>
-</blockquote>
 <ul>
 <li>JS 实现页面响应式布局<blockquote>
 <ul>
 <li>效果：无论怎么调整浏览器窗口，ul都能居中对齐</li>
 <li>第一次打开页面或当浏览器窗口大小发生改变时，获取浏览器窗口的可视区宽 <code>clientWidth</code></li>
 </ul>
-<pre><code>var clientWidth =
-document.documentElement.clientWidth || document.body.clientWidth;
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>var clientWidth =
+  document.documentElement.clientWidth || document.body.clientWidth;
+</code></pre>
 <blockquote>
 <ul>
 <li>然后用<code>clienwWidth / 每个li元素的占位宽</code>（包括 margin，border，padding），对结果向下取整，计算得出页面一行最多能放几个li</li>
 </ul>
+</blockquote>
 <pre><code>var count = Math.floor(clientWidth / 242);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>利用 <code>count * li占位宽</code> 动态计算得到其父容器ul的宽</li>
 </ul>
+</blockquote>
 <pre><code>container.style.width = count * 242 + &quot;px&quot;;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>ul</code>设置左右居中</li>
@@ -1793,6 +1769,9 @@ document.documentElement.clientWidth || document.body.clientWidth;
 <ul>
 <li>获取页面中所有<code>class = &#39;lazy&#39;</code> 的元素，同时过滤掉不是图片的元素</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 1、需要获取到所有需要延时加载的图片
 var imgs = document.querySelectorAll(&quot;.lazy&quot;);
 // 2、过滤掉不是图片的标签
@@ -1800,28 +1779,27 @@ var imgs = document.querySelectorAll(&quot;.lazy&quot;);
 var imgs = document.querySelectorAll(&quot;img.lazy&quot;);
 //方式二：
 imgs = Array.prototype.filter.call(imgs, function (item) &#123;
-return item instanceof Image;
+  return item instanceof Image;
 &#125;);
 //方式三：
 imgs = Array.prototype.filter.call(imgs, function (item) &#123;
-return item instanceof HTMLImageElement;
+  return item instanceof HTMLImageElement;
 &#125;);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>注意：方式一得到的是类数组，没有<code>indexOf</code>方法</p>
 </blockquote>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>获取页面可视区的高</li>
 </ul>
+</blockquote>
 <pre><code>// 获取浏览器可视区的高
 var clientHeight =
   document.documentElement.clientHeight || document.body.clientHeight;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>对获取的所有图片进行遍历，遍历时判断元素是否进入到可视区</li>
@@ -1839,8 +1817,7 @@ var clientHeight =
 </ul>
 </blockquote>
 <p><strong>主页面</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   //获取元素
   var container = document.getElementById(&quot;J_container&quot;);
   //第一次进来时，初始化ul的宽度
@@ -1856,11 +1833,11 @@ var clientHeight =
     container.style.width = count * 242 + &quot;px&quot;;
   &#125;
   lazyload(); //实现延迟加载效果
-/**
- * 节流函数
- * fn 事件处理函数
- * delay 函数执行间隔时间
- */
+&gt; /**
+&gt;  * 节流函数
+&gt;  * fn 事件处理函数
+&gt;  * delay 函数执行间隔时间
+&gt;  */
   function throttle(fn, delay) &#123;
     var timer = null;
     return function () &#123;
@@ -1875,14 +1852,14 @@ var clientHeight =
       &#125;, delay);
     &#125;;
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>完整JS文件</strong></p>
 <blockquote>
 <ul>
 <li>只需要将图片上添加<code>data-src</code>属性，存放真实图片地址，同时添加<code>class=&#39;lazy&quot;</code>,最后调用<code>lazyLoad()</code>即可</li>
 </ul>
+</blockquote>
 <pre><code>(function () &#123;
   // 实现延时加载
   function lazyLoad() &#123;
@@ -1900,44 +1877,51 @@ var clientHeight =
       // 获取浏览器可视区的高
       var clientHeight =
         document.documentElement.clientHeight || document.body.clientHeight;
-</code></pre>
-</blockquote>
-<pre><code>  // 遍历所有过滤后得图片，然后查看图片是否进入到可视区，
-  // 如果进入到可视区，就动态给图片添加真实的图片地址
-  for (var i = 0; i &lt; imgs.length; i++) &#123;
-    // 判断图片是否进入可视区  bottom&gt;0  &amp;&amp; top&lt;浏览器可视区高
-    var rect = imgs[i].getBoundingClientRect();
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>    var bottom = rect.bottom;
-    var _top = rect.top;
-    // 以下条件成立，代表元素进入到可视区
-    if (bottom &gt; 0 &amp;&amp; _top &lt; clientHeight) &#123;
-      // 把自定义属性上的真实地址赋值给图片
-      imgs[i].src = imgs[i].dataset.src;
-      // 如果图片进入过一次可视区，动态赋过值，就不用再管他了
-      var index = imgs.indexOf(imgs[i]);
-      imgs.splice(index, 1);
-      i--; // 一定要注意，i--
+&gt;
+      // 遍历所有过滤后得图片，然后查看图片是否进入到可视区，
+      // 如果进入到可视区，就动态给图片添加真实的图片地址
+      for (var i = 0; i &lt; imgs.length; i++) &#123;
+        // 判断图片是否进入可视区  bottom&gt;0  &amp;&amp; top&lt;浏览器可视区高
+        var rect = imgs[i].getBoundingClientRect();
+&gt;
+        var bottom = rect.bottom;
+        var _top = rect.top;
+        // 以下条件成立，代表元素进入到可视区
+        if (bottom &gt; 0 &amp;&amp; _top &lt; clientHeight) &#123;
+          // 把自定义属性上的真实地址赋值给图片
+          imgs[i].src = imgs[i].dataset.src;
+          // 如果图片进入过一次可视区，动态赋过值，就不用再管他了
+          var index = imgs.indexOf(imgs[i]);
+          imgs.splice(index, 1);
+          i--; // 一定要注意，i--
+        &#125;
+      &#125;
     &#125;
   &#125;
-&#125;
+&gt;
+&gt;/**
+&gt; * 节流函数
+&gt; * fn 事件处理函数
+&gt; * delay 函数执行间隔时间
+&gt; */
+  function throttle(fn, delay) &#123;
+    var timer = null;
+    return function () &#123;
+      var self = this;
+      var args = arguments;
+      if (timer) return;
+      timer = setTimeout(function () &#123;
+        // 函数体执行代码
+        fn.apply(self, args);
+        // 开锁
+        timer = null;
+      &#125;, delay);
+    &#125;;
+  &#125;
+&gt;
+  window.lazyLoad = lazyLoad;
+&#125;)();
 </code></pre>
-<p>  }</p>
-<blockquote>
-<p>&#x2F;**</p>
-<ul>
-<li>节流函数</li>
-<li>fn 事件处理函数</li>
-<li>delay 函数执行间隔时间<br>*&#x2F;<br>function throttle(fn, delay) {<br>  var timer &#x3D; null;<br>  return function () {<br>var self &#x3D; this;<br>var args &#x3D; arguments;<br>if (timer) return;<br>timer &#x3D; setTimeout(function () {<br>  &#x2F;&#x2F; 函数体执行代码<br>  fn.apply(self, args);<br>  &#x2F;&#x2F; 开锁<br>  timer &#x3D; null;<br>}, delay);<br>  };<br>}</li>
-</ul>
-</blockquote>
-<p>  window.lazyLoad &#x3D; lazyLoad;<br>})();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例3：吸顶盒导航"><a href="#案例3：吸顶盒导航" class="headerlink" title="案例3：吸顶盒导航"></a>案例3：吸顶盒导航</h4><blockquote>
 <p><strong>涉及知识点</strong></p>
 <ul>
@@ -1963,8 +1947,7 @@ var clientHeight =
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   html,
   body &#123;
     margin: 0;
@@ -1994,31 +1977,43 @@ var clientHeight =
   .main &#123;
     height: 3000px;
   &#125;
-&lt;/style&gt;
-
-&lt;!-- 模拟的头部内部 --&gt;
-&lt;div class=&quot;top&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
-&lt;!-- 吸顶盒 --&gt;
-&lt;!-- nav2相当于nav1的副本，不过nav2是固定定位在浏览器的外部 --&gt;
-&lt;div class=&quot;nav nav1&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;nav nav2&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;!-- 模拟的头部内部 --&gt;
+&gt;&lt;div class=&quot;top&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;
+&gt;&lt;!-- 吸顶盒 --&gt;
+&gt;&lt;!-- nav2相当于nav1的副本，不过nav2是固定定位在浏览器的外部 --&gt;
+&gt;&lt;div class=&quot;nav nav1&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;nav nav2&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   // 获取nav1与nav2
   var nav1 = document.querySelector(&quot;.nav1&quot;);
   var nav2 = document.querySelector(&quot;.nav2&quot;);
   var nav1Top = nav1.offsetTop; // nav1的顶部与浏览器顶部距离
   var bottom = nav1Top + nav1.offsetHeight; // nav1的底部与浏览器顶部距离
+&gt;
+  //添加 scroll事件
+  window.addEventListener(&quot;scroll&quot;, fn);
+  function fn() &#123;
+    var scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    // 滚动条滚动距离 &gt;= 元素底部与浏览器顶部距离
+    if (scrollTop &gt;= bottom) &#123;
+      nav2.classList.add(&quot;transition&quot;);
+      //nav2 区块显示出
+      nav2.style.top = &quot;0px&quot;;
+    &#125;
+    // 滚动条滚动距离 &lt;= 元素顶部与浏览器项部距离
+    if (scrollTop &lt;= nav1Top) &#123;
+      nav2.classList.remove(&quot;transition&quot;);
+      nav2.style.top = &quot;-100px&quot;;
+    &#125;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F;添加 scroll事件<br>  window.addEventListener(“scroll”, fn);<br>  function fn() {<br>    var scrollTop &#x3D;<br>      document.documentElement.scrollTop || document.body.scrollTop;<br>    &#x2F;&#x2F; 滚动条滚动距离 &gt;&#x3D; 元素底部与浏览器顶部距离<br>    if (scrollTop &gt;&#x3D; bottom) {<br>      nav2.classList.add(“transition”);<br>      &#x2F;&#x2F;nav2 区块显示出<br>      nav2.style.top &#x3D; “0px”;<br>    }<br>    &#x2F;&#x2F; 滚动条滚动距离 &lt;&#x3D; 元素顶部与浏览器项部距离<br>    if (scrollTop &lt;&#x3D; nav1Top) {<br>      nav2.classList.remove(“transition”);<br>      nav2.style.top &#x3D; “-100px”;<br>    }<br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例4：滚动加载更多"><a href="#案例4：滚动加载更多" class="headerlink" title="案例4：滚动加载更多"></a>案例4：滚动加载更多</h4><blockquote>
 <ul>
 <li>当滚动条滚动到最底部时，加载一批数据，填充到页面上</li>
@@ -2045,15 +2040,12 @@ var clientHeight =
 <td>元素实际内容的高</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code>var doc = document.documentElement || document.body;
 if (doc.scrollHeight - doc.scrollTop - doc.clientHeight &lt; 100) &#123;
   // 快滚动到底部时，就开始请求加载数据
 &#125;
 </code></pre>
-</blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .main &#123;
     height: 3000px;
   &#125;
@@ -2062,11 +2054,11 @@ if (doc.scrollHeight - doc.scrollTop - doc.clientHeight &lt; 100) &#123;
     height: 500px;
     margin: 50px;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   // window滚动事件
   window.addEventListener(&quot;scroll&quot;, throttle(loadmore, 100));
   // 加载更多函数
@@ -2085,23 +2077,33 @@ if (doc.scrollHeight - doc.scrollTop - doc.clientHeight &lt; 100) &#123;
       var div = document.createElement(&quot;div&quot;);
       div.className = &quot;box1&quot;;
       document.body.appendChild(div);
+&gt;
+      // ajax请求
+      // 把数据渲染到页面当中来
+    &#125;
+  &#125;
+&gt;
+&gt; /**
+&gt;  * 节流函数
+&gt;  * fn 事件处理函数
+&gt;  * delay 函数执行间隔时间
+&gt;  */
+  function throttle(fn, delay) &#123;
+    var timer = null;
+    return function () &#123;
+      var self = this;
+      var args = arguments;
+      if (timer) return;
+      timer = setTimeout(function () &#123;
+        // 函数体执行代码
+        fn.apply(self, args);
+        // 开锁
+        timer = null;
+      &#125;, delay);
+    &#125;;
+  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>  // ajax请求
-  // 把数据渲染到页面当中来
-&#125;
-</code></pre>
-<p>  }</p>
-<blockquote>
-<p>&#x2F;**</p>
-<ul>
-<li>节流函数</li>
-<li>fn 事件处理函数</li>
-<li>delay 函数执行间隔时间<br> *&#x2F;<br>  function throttle(fn, delay) {<br> var timer &#x3D; null;<br> return function () {<br>   var self &#x3D; this;<br>   var args &#x3D; arguments;<br>   if (timer) return;<br>   timer &#x3D; setTimeout(function () {<br> &#x2F;&#x2F; 函数体执行代码<br> fn.apply(self, args);<br> &#x2F;&#x2F; 开锁<br> timer &#x3D; null;<br>   }, delay);<br> };<br>  }<br></script></li>
-</ul>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="案例5：楼梯式导航"><a href="#案例5：楼梯式导航" class="headerlink" title="案例5：楼梯式导航"></a>案例5：楼梯式导航</h4><blockquote>
 <p>涉及知识</p>
 <ul>
@@ -2123,92 +2125,90 @@ if (doc.scrollHeight - doc.scrollTop - doc.clientHeight &lt; 100) &#123;
 </ul>
 </blockquote>
 <ul>
-<li><p>HTML结构</p>
-<blockquote>
-<pre><code>&lt;style&gt;
-html &#123;
-  /* 滚动条平滑滚动效果 */
-  scroll-behavior: smooth;
-&#125;
-html,
-body,
-ul,
-li &#123;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-&#125;
-body &#123;
-  background-color: #ddd;
-&#125;
-.floor-nav &#123;
-  position: fixed;
-  right: 50px;
-  top: 100px;
-  width: 50px;
-  background-color: #fff;
-  padding: 10px 10px;
-&#125;
-.floor-nav li &#123;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  color: #000;
-  font-size: 14px;
-  border-bottom: 1px dashed #ddd;
-  cursor: pointer;
-&#125;
-.floor-nav li:hover,
-.floor-nav li.active:hover &#123;
-  background-color: red;
-  color: #fff;
-&#125;
-.floor-nav li.active &#123;
-  color: red;
-&#125;
-.main &#123;
-  width: 600px;
-  margin: 0px auto;
-&#125;
-.main .floor-item &#123;
-  width: 100%;
-  background-color: skyblue;
-  font-size: 50px;
-  text-align: center;
-  line-height: 200px;
-  margin-top: 50px;
-&#125;
-&lt;/style&gt;
-
-&lt;!-- 楼梯导航按扭开始 --&gt;
-&lt;ul class=&quot;floor-nav&quot; id=&quot;J_floor&quot;&gt;
- &lt;li&gt;国创&lt;/li&gt;
- &lt;li&gt;综艺&lt;/li&gt;
- &lt;li&gt;娱乐&lt;/li&gt;
- &lt;li&gt;电影&lt;/li&gt;
- &lt;li&gt;游戏&lt;/li&gt;
- &lt;li&gt;纪录片&lt;/li&gt;
- &lt;li&gt;电视剧&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- 楼梯导航按扭开始 --&gt;
-&lt;div class=&quot;header&quot; style=&quot;height: 500px&quot;&gt;&lt;/div&gt;
-&lt;!--楼梯内容开始--&gt;
-&lt;div id=&quot;J_app&quot; class=&quot;main&quot;&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 500px&quot;&gt;国创&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 530px&quot;&gt;综艺&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;娱乐&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 600px&quot;&gt;电影&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 560px&quot;&gt;游戏&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;纪录片&lt;/div&gt;
- &lt;div class=&quot;floor-item&quot; style=&quot;height: 620px&quot;&gt;电视剧&lt;/div&gt;
-&lt;/div&gt;
-&lt;!--楼梯内容结束--&gt;
-&lt;div class=&quot;footer&quot; style=&quot;height: 1500px&quot;&gt;&lt;/div&gt;
+<li>HTML结构</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  html &#123;
+    /* 滚动条平滑滚动效果 */
+    scroll-behavior: smooth;
+  &#125;
+  html,
+  body,
+  ul,
+  li &#123;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  &#125;
+  body &#123;
+    background-color: #ddd;
+  &#125;
+  .floor-nav &#123;
+    position: fixed;
+    right: 50px;
+    top: 100px;
+    width: 50px;
+    background-color: #fff;
+    padding: 10px 10px;
+  &#125;
+  .floor-nav li &#123;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+    border-bottom: 1px dashed #ddd;
+    cursor: pointer;
+  &#125;
+  .floor-nav li:hover,
+  .floor-nav li.active:hover &#123;
+    background-color: red;
+    color: #fff;
+  &#125;
+  .floor-nav li.active &#123;
+    color: red;
+  &#125;
+  .main &#123;
+    width: 600px;
+    margin: 0px auto;
+  &#125;
+  .main .floor-item &#123;
+    width: 100%;
+    background-color: skyblue;
+    font-size: 50px;
+    text-align: center;
+    line-height: 200px;
+    margin-top: 50px;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;!-- 楼梯导航按扭开始 --&gt;
+&gt;&lt;ul class=&quot;floor-nav&quot; id=&quot;J_floor&quot;&gt;
+&gt;  &lt;li&gt;国创&lt;/li&gt;
+&gt;  &lt;li&gt;综艺&lt;/li&gt;
+&gt;  &lt;li&gt;娱乐&lt;/li&gt;
+&gt;  &lt;li&gt;电影&lt;/li&gt;
+&gt;  &lt;li&gt;游戏&lt;/li&gt;
+&gt;  &lt;li&gt;纪录片&lt;/li&gt;
+&gt;  &lt;li&gt;电视剧&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;!-- 楼梯导航按扭开始 --&gt;
+&gt;&lt;div class=&quot;header&quot; style=&quot;height: 500px&quot;&gt;&lt;/div&gt;
+&gt;&lt;!--楼梯内容开始--&gt;
+&gt;&lt;div id=&quot;J_app&quot; class=&quot;main&quot;&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 500px&quot;&gt;国创&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 530px&quot;&gt;综艺&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;娱乐&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 600px&quot;&gt;电影&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 560px&quot;&gt;游戏&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 400px&quot;&gt;纪录片&lt;/div&gt;
+&gt;  &lt;div class=&quot;floor-item&quot; style=&quot;height: 620px&quot;&gt;电视剧&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;!--楼梯内容结束--&gt;
+&gt;&lt;div class=&quot;footer&quot; style=&quot;height: 1500px&quot;&gt;&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>JS 实现思路</p>
-<blockquote>
+<ul>
+<li>JS 实现思路<blockquote>
 <p><strong>第一步：实现右侧楼梯导航按扭点击滚动效果</strong></p>
 <ul>
 <li>利用事件委托来实现，所有<code>li</code>的点击事件全委托给父元素<code>#J_floor</code>来实现</li>
@@ -2218,7 +2218,6 @@ body &#123;
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>// 获取id为 J_floor元素
 var floorNav = document.getElementById(&quot;J_floor&quot;);
 var navs = document.querySelectorAll(&quot;#J_floor li&quot;);
@@ -2229,13 +2228,18 @@ floorNav.onclick = function (e) &#123;
   var tagName = target.tagName.toLowerCase();
   // 如果不是点击对应的li啥也不做
   if (tagName !== &quot;li&quot;) return;
+&gt;
+  // 点击后要处理的事情
+  // 1.前面变红的li复原
+  prevIndex !== -1 &amp;&amp; navs[prevIndex].classList.remove(&quot;active&quot;);
+  // 2.当前项变红色
+  target.classList.add(&quot;active&quot;);
+  // 3、把前一个序号更新为当前序号，供后面使用
+  prevIndex = Array.prototype.indexOf.call(navs, target);
+  // 4、滚动条滚动到当前楼层所在位置
+  // .........具体实现思路看下一步，
+&#125;;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 点击后要处理的事情<br>  &#x2F;&#x2F; 1.前面变红的li复原<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  &#x2F;&#x2F; 2.当前项变红色<br>  target.classList.add(“active”);<br>  &#x2F;&#x2F; 3、把前一个序号更新为当前序号，供后面使用<br>  prevIndex &#x3D; Array.prototype.indexOf.call(navs, target);<br>  &#x2F;&#x2F; 4、滚动条滚动到当前楼层所在位置<br>  &#x2F;&#x2F; ………具体实现思路看下一步，<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>第二步：实现点击导航按扭后，滚动条滚动到对应楼层</strong></p>
 <ul>
@@ -2247,11 +2251,12 @@ floorNav.onclick = function (e) &#123;
 </ul>
 </li>
 </ul>
-<pre><code>/**
-* scrollByTop 滚动条从当前位置滚动到目标位置（只针对垂直方向）
-* target 滚动到的目标位置
-* delay 滚动的总时间
-*/
+</blockquote>
+<pre><code>&gt;/**
+&gt; * scrollByTop 滚动条从当前位置滚动到目标位置（只针对垂直方向）
+&gt; * target 滚动到的目标位置
+&gt; * delay 滚动的总时间
+&gt; */
 function scrollByTop(target, delay = 200) &#123;
   // 已经运动的时间
   var T = 0;
@@ -2262,13 +2267,20 @@ function scrollByTop(target, delay = 200) &#123;
   var C = target - B;
   // 总共需要运动的时间
   var D = delay;
+&gt;
+  // 开始执行动画
+  timer = setInterval(function () &#123;
+    T += 20; // 记录运动的时间
+    // 当前滚动条运动的距离
+    var currentDistance = (T / D) * C + B;
+    if (T &gt;= D) &#123;
+      currentDistance = target;
+      clearInterval(timer);
+    &#125;
+    window.scroll(0, currentDistance);
+  &#125;, 20);
+&#125;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 开始执行动画<br>  timer &#x3D; setInterval(function () {<br>    T +&#x3D; 20; &#x2F;&#x2F; 记录运动的时间<br>    &#x2F;&#x2F; 当前滚动条运动的距离<br>    var currentDistance &#x3D; (T &#x2F; D) * C + B;<br>    if (T &gt;&#x3D; D) {<br>      currentDistance &#x3D; target;<br>      clearInterval(timer);<br>    }<br>    window.scroll(0, currentDistance);<br>  }, 20);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>第三步：实现滚动浏览器窗口，对应楼层按扭显示对应样式</strong></p>
 <ul>
@@ -2285,6 +2297,7 @@ function scrollByTop(target, delay = 200) &#123;
 <li>如果滚动条一直在当前楼层中滚动，则不需要频繁执行更改楼层按扭样式的代码</li>
 <li>如果<code>prevIndex === currentIndex</code>说明当前滚动条一直在当前楼层滚动</li>
 </ul>
+</blockquote>
 <pre><code>var currentIndex = -1; // 当前楼梯所在按扭序号
 // 当滚动浏览器窗口时，对应导航的样式要显示到对应楼层
 window.onscroll = function () &#123;
@@ -2298,16 +2311,15 @@ window.onscroll = function () &#123;
       break;
     &#125;
   &#125;
+&gt;
+  if (prevIndex === currentIndex) return;
+&gt;
+  // 找到对应楼层后，需要处理的事情
+  prevIndex !== -1 &amp;&amp; navs[prevIndex].classList.remove(&quot;active&quot;);
+  currentIndex !== -1 &amp;&amp; navs[currentIndex].classList.add(&quot;active&quot;);
+  prevIndex = currentIndex;
+&#125;;
 </code></pre>
-</blockquote>
-<p>  if (prevIndex &#x3D;&#x3D;&#x3D; currentIndex) return;</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 找到对应楼层后，需要处理的事情<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  currentIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[currentIndex].classList.add(“active”);<br>  prevIndex &#x3D; currentIndex;<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>第四步：第一个按扭和最后一个按扭样式的特殊情况</strong></p>
 <ul>
@@ -2316,7 +2328,6 @@ window.onscroll = function () &#123;
 <li>要使楼层按扭文字不变红，只需要把<code>currentIndex = -1</code>即可</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var len = floorItemTopArr.length;
 // 最后一个元素底部与浏览器顶部距离
 var bottom = floorItemsTopArr[len - 1] + floorItems[len - 1].offsetHeight;
@@ -2324,33 +2335,77 @@ if (scrollY &lt; floorItemsTopArr[0] || scrollY &gt; bottom) &#123;
   currentIndex = -1;
 &#125;
 </code></pre>
-</blockquote>
 <ul>
-<li>完整源代码<blockquote>
-<pre><code>&lt;script&gt;
-// 获取id为 J_floor元素
-var floorNav = document.getElementById(&quot;J_floor&quot;);
-var navs = document.querySelectorAll(&quot;#J_floor li&quot;);
-var floorItems = document.querySelectorAll(&quot;#J_app .floor-item&quot;);
-var len = floorItemTopArr.length;
-var prevIndex = -1; // 前一个楼梯按扭序号
-var currentIndex = -1; // 当前楼梯所在按扭序号
-var floorItemsTopArr = []; // 用来保存每一层的顶部与浏览器顶部的高
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 把所有 floor-item与body顶部的距离添加到一个数组floorItemsTopArr<br>for (var i &#x3D; 0; i &lt; floorItems.length; i++) {<br>  floorItemsTopArr.push(floorItems[i].offsetTop);<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F; 事件委托，所有子元素li的点击事件委托给父元素来处理<br>floorNav.onclick &#x3D; function (e) {<br>  var target &#x3D; e.target;<br>  var tagName &#x3D; target.tagName.toLowerCase();<br>  &#x2F;&#x2F; 如果不是点击对应的li啥也不做<br>  if (tagName !&#x3D;&#x3D; “li”) return;<blockquote>
-</blockquote>
-  &#x2F;&#x2F; 点击后要处理的事情<br>  &#x2F;&#x2F; 1.前面变红的li复原<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  &#x2F;&#x2F; 2.当前项变红色<br>  target.classList.add(“active”);<br>  &#x2F;&#x2F; 3、把前一个序号更新为当前序号，供后面使用<br>  prevIndex &#x3D; Array.prototype.indexOf.call(navs, target);<br>  &#x2F;&#x2F; 4、滚动条滚动到当前楼层所在位置<br>  &#x2F;&#x2F; 方法一：<br>  window.scroll(0, floorItemsTopArr[prevIndex]);<br>  &#x2F;&#x2F; 方法二：<br>  &#x2F;&#x2F; var doc &#x3D; document.documentElement || document.body;<br>  &#x2F;&#x2F; doc.scrollTop &#x3D; floorItemsTopArr[prevIndex];<br>  &#x2F;&#x2F; 方法三<br>  &#x2F;&#x2F;   scrollByTop(floorItemsTopArr[prevIndex]);<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 当滚动浏览器窗口时，对应导航的样式要显示到对应楼层<br>window.onscroll &#x3D; function () {<br>  &#x2F;&#x2F; 不断获取浏览器滚动的距离<br>  var scrollY &#x3D; window.scrollY;<br>  &#x2F;&#x2F; 找到当前滚动所在的楼层序号<br>  &#x2F;&#x2F; 楼层数据中最后一个满足： 条件的的元素所在序号<br>  for (var i &#x3D; 0; i &lt; floorItemsTopArr.length; i++) {<br>if (scrollY &gt;&#x3D; floorItemsTopArr[i]) {<br>  currentIndex &#x3D; i; &#x2F;&#x2F; 最后一次找到的i就是当前滚动所在的楼层<br>} else {<br>  break;<br>}<br>  }<br>  &#x2F;&#x2F; 考虑第一个和最后一个的特殊情况<br>  &#x2F;&#x2F; 最后一个元素底部与浏览器顶部距离<br>  var bottom &#x3D; floorItemsTopArr[len - 1] + floorItems[len - 1].offsetHeight;<br>  if (scrollY &lt; floorItemsTopArr[0] || scrollY &gt; bottom) {<br>currentIndex &#x3D; -1;<br>  }<blockquote>
-</blockquote>
-  &#x2F;&#x2F; 优化处理，如果一直在当前楼层内滚动，不执行以下代码<br>  if (prevIndex &#x3D;&#x3D;&#x3D; currentIndex) return;<br>  &#x2F;&#x2F; 找到对应楼层后，需要处理的事情<br>  prevIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[prevIndex].classList.remove(“active”);<br>  currentIndex !&#x3D;&#x3D; -1 &amp;&amp; navs[currentIndex].classList.add(“active”);<br>  prevIndex &#x3D; currentIndex;<br>};<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
+<li>完整源代码</li>
 </ul>
+<pre><code>&gt;&lt;script&gt;
+  // 获取id为 J_floor元素
+  var floorNav = document.getElementById(&quot;J_floor&quot;);
+  var navs = document.querySelectorAll(&quot;#J_floor li&quot;);
+  var floorItems = document.querySelectorAll(&quot;#J_app .floor-item&quot;);
+  var len = floorItemTopArr.length;
+  var prevIndex = -1; // 前一个楼梯按扭序号
+  var currentIndex = -1; // 当前楼梯所在按扭序号
+  var floorItemsTopArr = []; // 用来保存每一层的顶部与浏览器顶部的高
+&gt;
+  // 把所有 floor-item与body顶部的距离添加到一个数组floorItemsTopArr
+  for (var i = 0; i &lt; floorItems.length; i++) &#123;
+    floorItemsTopArr.push(floorItems[i].offsetTop);
+  &#125;
+&gt;
+  // 事件委托，所有子元素li的点击事件委托给父元素来处理
+  floorNav.onclick = function (e) &#123;
+    var target = e.target;
+    var tagName = target.tagName.toLowerCase();
+    // 如果不是点击对应的li啥也不做
+    if (tagName !== &quot;li&quot;) return;
+&gt;
+    // 点击后要处理的事情
+    // 1.前面变红的li复原
+    prevIndex !== -1 &amp;&amp; navs[prevIndex].classList.remove(&quot;active&quot;);
+    // 2.当前项变红色
+    target.classList.add(&quot;active&quot;);
+    // 3、把前一个序号更新为当前序号，供后面使用
+    prevIndex = Array.prototype.indexOf.call(navs, target);
+    // 4、滚动条滚动到当前楼层所在位置
+    // 方法一：
+    window.scroll(0, floorItemsTopArr[prevIndex]);
+    // 方法二：
+    // var doc = document.documentElement || document.body;
+    // doc.scrollTop = floorItemsTopArr[prevIndex];
+    // 方法三
+    //   scrollByTop(floorItemsTopArr[prevIndex]);
+  &#125;;
+&gt;
+  // 当滚动浏览器窗口时，对应导航的样式要显示到对应楼层
+  window.onscroll = function () &#123;
+    // 不断获取浏览器滚动的距离
+    var scrollY = window.scrollY;
+    // 找到当前滚动所在的楼层序号
+    // 楼层数据中最后一个满足： 条件的的元素所在序号
+    for (var i = 0; i &lt; floorItemsTopArr.length; i++) &#123;
+      if (scrollY &gt;= floorItemsTopArr[i]) &#123;
+        currentIndex = i; // 最后一次找到的i就是当前滚动所在的楼层
+      &#125; else &#123;
+        break;
+      &#125;
+    &#125;
+    // 考虑第一个和最后一个的特殊情况
+    // 最后一个元素底部与浏览器顶部距离
+    var bottom = floorItemsTopArr[len - 1] + floorItems[len - 1].offsetHeight;
+    if (scrollY &lt; floorItemsTopArr[0] || scrollY &gt; bottom) &#123;
+      currentIndex = -1;
+    &#125;
+&gt;
+    // 优化处理，如果一直在当前楼层内滚动，不执行以下代码
+    if (prevIndex === currentIndex) return;
+    // 找到对应楼层后，需要处理的事情
+    prevIndex !== -1 &amp;&amp; navs[prevIndex].classList.remove(&quot;active&quot;);
+    currentIndex !== -1 &amp;&amp; navs[currentIndex].classList.add(&quot;active&quot;);
+    prevIndex = currentIndex;
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 
                 
             </div>

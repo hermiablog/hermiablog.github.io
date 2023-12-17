@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-14
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.6k
+                    17.7k
                 </div>
                 
 
@@ -425,9 +425,6 @@
             <div id="articleContent">
                 <span id="more"></span>
 <h2 id="ES6-Module模块系统"><a href="#ES6-Module模块系统" class="headerlink" title="ES6 Module模块系统"></a>ES6 Module模块系统</h2><blockquote>
-<p>本节内容我们开始学习 ES6 中的 Module 模块系统相关内容，以及 Module 在实际开发中的注意事项 和 应用。</p>
-</blockquote>
-<blockquote>
 <p>历史上，JavaScript 一直没有模块（module）体系，无法将一个大程序拆分成互相依赖的小文件，再用简单的方法拼装起来。其他语言都有这项功能，比如 Ruby 的require、Python 的import，甚至就连 CSS 都有@import，但是 JavaScript 任何这方面的支持都没有，这对开发大型的、复杂的项目形成了巨大障碍</p>
 <ul>
 <li>在 ES6 之前，社区制定了一些模块加载方案，最主要的有 CommonJS 和 AMD 两种。前者用于服务器，后者用于浏览器。</li>
@@ -435,12 +432,9 @@
 <li>ES6 模块的设计思想是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。</li>
 </ul>
 </blockquote>
-<h3 id="一、JavaScript-模块化历程"><a href="#一、JavaScript-模块化历程" class="headerlink" title="一、JavaScript 模块化历程"></a>一、JavaScript 模块化历程</h3><ol>
-<li>JS 发展中遇到的问题<blockquote>
+<h3 id="一、JavaScript-模块化历程"><a href="#一、JavaScript-模块化历程" class="headerlink" title="一、JavaScript 模块化历程"></a>一、JavaScript 模块化历程</h3><h4 id="JS-发展中遇到的问题"><a href="#JS-发展中遇到的问题" class="headerlink" title="JS 发展中遇到的问题"></a>JS 发展中遇到的问题</h4><blockquote>
 <p>早期 JS 能做的事情不多，其代码量也不大，我们通常把所有的 JS 写在一个文件中。但随着 JS 的发展，JS 能做的事情也就越来越多了，JS 的代码量也就越来越多，如果所有的 JS 代码都放在一个文件中，开发和维护都是极为不方便的，更不方便多人协作开发。</p>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <p>为了解决这些问题，我们开始考虑 JS 模块化，把不同功能的 JS 代码抽取出来放在一个单独的 JS 文件中，然后用简单的办法他们拼接起来。</p>
 </blockquote>
@@ -452,6 +446,7 @@
 </blockquote>
 <blockquote>
 <p>我们来看一个简单的案例，求对象中两个属性的最大值和最小值，我们可以把所有代码写在一个 JS 文件中，如下：</p>
+</blockquote>
 <pre><code>// 数据配置对象
 const data = &#123;
   max: 10,
@@ -466,84 +461,84 @@ function max() &#123;
   return data.max &gt; data.min ? data.max : data.min;
 &#125;
 </code></pre>
-<blockquote>
-<p>注：</p>
-</blockquote>
 <ul>
-<li>求最大值和最小值是两个独立的函数，并没有什么关联。但后面很多其的项目中需要用到这两个方法。 </li>
+<li>求最大值和最小值是两个独立的函数，并没有什么关联。但后面很多其他的项目中需要用到这两个方法。 </li>
 <li>为了能够实现复用，我们把这两个函数独立出去放到两个不同的 JS 文件中实现。假设这两个函数内部实现相当复杂，我们就把他们交给了两个不同的程序员来开发。在开发前，协商好数据配置对象按规定的格式，写入<code>config.js</code>文件中。最终开发出来的代码如下：</li>
-<li><code>config.js</code>文件为数据配置对象，用户可以自定义两个需要比较的数,前期是要遵守一定规则。</li>
+<li><code>config.js</code>文件为数据配置对象，用户可以自定义两个需要比较的数,前提是要遵守一定规则。<ul>
 <li><code>min.js</code>文件，用来求两个数中的最小值</li>
 <li><code>max.js</code>文件，用来求两个数中的最大值</li>
+</ul>
+</li>
 </ul>
 <pre><code>// config.js
 const data = &#123;
   max: 10,
   min: 1,
 &#125;;
+
+// max.js
+let a = data.max;
+let b = data.min;
+function max() &#123;
+  return a &gt; b ? a : b;
+&#125;
+
+// min.js
+let a = data.max;
+let b = data.min;
+function min() &#123;
+  return a &lt; b ? a : b;
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; max.js<br>let a &#x3D; data.max;<br>let b &#x3D; data.min;<br>function max() {<br>  return a &gt; b ? a : b;<br>}</p>
 <blockquote>
+<p>接下来我们在<code>index.html</code>页面引入这三个 JS 文件，并调用<code>max</code>和<code>min</code>函数，求出最大值和最小值</p>
 </blockquote>
-<p>&#x2F;&#x2F; min.js<br>let a &#x3D; data.max;<br>let b &#x3D; data.min;<br>function min() {<br>  return a &gt; b ? a : b;<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-<blockquote>
-<ul>
-<li>接下来我们在<code>index.html</code>页面引入这三个 JS 文件，并调用<code>max</code>和<code>min</code>函数，求出最大值和最小值</li>
-</ul>
 <pre><code>&lt;script src=&quot;./config.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;./max.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;./min.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
-  console.log(max());
-  console.log(min());
+ console.log(max());
+ console.log(min());
 &lt;/script&gt;
 </code></pre>
-<p><strong>注：</strong><br>以上代码并没有办法正确的执行，原因在于</p>
 <ul>
-<li><code>max.js</code>和<code>min.js</code>文中的变量a,b发生了<strong>命名的冲突</strong><br>当我们把<code>max.js</code>中的变量a,b改为m,n（代码如下），错误消失了，并且代码正常执行了。</li>
+<li><strong>注：</strong> 以上代码并没有办法正确的执行，原因在于<code>max.js</code>和<code>min.js</code>文中的变量a,b发生了<strong>命名的冲突</strong></li>
 </ul>
+<blockquote>
+<p>当我们把<code>max.js</code>中的变量a,b改为m,n（代码如下），错误消失了，并且代码正常执行了。</p>
+</blockquote>
 <pre><code>let m = data.max;
 let n = data.min;
 function max() &#123;
   return m &gt; n ? m : n;
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
-<ul>
-<li>但是，如果我们再把<code>index.html</code>页面中引入 JS 文件的顺序打乱，代码如下：</li>
-</ul>
+<p>但是，如果我们再把<code>index.html</code>页面中引入 JS 文件的顺序打乱，代码如下：</p>
+</blockquote>
 <pre><code>&lt;script src=&quot;./max.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;./min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;./config.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
- console.log(max());
- console.log(min());
+  console.log(max());
+  console.log(min());
 &lt;/script&gt;
 </code></pre>
-<p><strong>注：</strong><br>以上代码执行时，又抛出了错误<code>max.js:1 Uncaught ReferenceError: data is not defined</code> 错误。原因在于<code>max.js</code>和<code>min.js</code>在<code>config.js</code>文件前面引入，所以在执行<code>max.js</code>和<code>min.js</code>时，<code>data</code>变量还没有定义。这就引发了我们上面提到的第二个错误</p>
 <ul>
+<li>以上代码执行时，又抛出了错误<code>max.js:1 Uncaught ReferenceError: data is not defined</code> 错误。</li>
+<li>原因在于<code>max.js</code>和<code>min.js</code>在<code>config.js</code>文件前面引入，所以在执行<code>max.js</code>和<code>min.js</code>时，<code>data</code>变量还没有定义。这就引发了我们上面提到的第二个错误</li>
 <li>多个 JS 文件之间存在依赖关系，必需严格的保证 JS 的<strong>加载顺序</strong></li>
 </ul>
-</blockquote>
-<ol start="2">
-<li><p>早期模块化遇到的问题</p>
-<blockquote>
+<h4 id="早期模块化遇到的问题"><a href="#早期模块化遇到的问题" class="headerlink" title="早期模块化遇到的问题"></a>早期模块化遇到的问题</h4><blockquote>
 <p>通过上面案例的讲解，我们发现当我们把一个大的 JS 程序拆分成多个小的 JS 文件后，<strong>好处</strong>很明显，就是可以实现代码的复用，同时可以多人协作开发，每人开发一个小的功能，然后再把他们拼接起来。但同时也遇到了以下两个<strong>问题</strong>：</p>
+</blockquote>
 <ul>
 <li>一个页面需要加载多个 JS 文件，多个不同的 JS 文件之间就有可能存在变量命名冲突问题（同时大部分变量为全局变量，造成全局变量的污染）</li>
 <li>多个 JS 文件之间还存在依赖关系，因此必须要严格的保证 JS 文件的加载顺序，否则就会出错</li>
 </ul>
-</blockquote>
-</li>
-<li><p>解决多个 JS 文件变量命名冲突问题</p>
-<blockquote>
+<h4 id="解决多个-JS-文件变量命名冲突问题"><a href="#解决多个-JS-文件变量命名冲突问题" class="headerlink" title="解决多个 JS 文件变量命名冲突问题"></a>解决多个 JS 文件变量命名冲突问题</h4><blockquote>
 <p>多个 JS 文件中的变量之所以发生命名冲突问题，是因为这些相同的变量都在同一作用域（全局作用域下）<br><strong>早期的解决办法有以下二种：</strong></p>
+</blockquote>
 <ul>
 <li>1、所有代码定义在一个对象中，对外暴露这个对象,通过访问对象的属性和方法来使用</li>
 <li>2、将所有代码用<code>IIFE</code>立即执行函数包裹起来，将需要暴露的接口作为<code>window</code>对象的属性暴露出去。这样他们分别处于不同的函数作用域中，<strong>不仅解决了变量命名冲突问题，也减少了全局变量的污染，但并没有完全消除全局变量的污染</strong></li>
@@ -553,18 +548,18 @@ const maxObj = &#123;
   m: data.max,
   n: data.min,
   max() &#123;
- return this.m &gt; this.n ? this.m : this.n;
+    return this.m &gt; this.n ? this.m : this.n;
   &#125;,
 &#125;
 (// 方法二： IIFE立即执行函数
   function () &#123;
- let m = data.max;
- let n = data.min;
- function max() &#123;
-   return m &gt; n ? m : n;
- &#125;
- // 将max作为window对象的属性，暴露出去
- window.max = max;
+    let m = data.max;
+    let n = data.min;
+    function max() &#123;
+      return m &gt; n ? m : n;
+    &#125;
+    // 将max作为window对象的属性，暴露出去
+    window.max = max;
   &#125;
 )();
 </code></pre>
@@ -572,49 +567,41 @@ const maxObj = &#123;
 <ul>
 <li>JS 模块化对于 JS 来说很重要，但 JS 原生不支持，所以社区制定了一些模块加载的方案，最主要的有 CommonJS 和 AMD、CMD。当然现在 ES6 原生支持模块化了，所以我们不再需要了解这些插件库的应用，直接来学习 ES6 的 Module 模块化就好。</li>
 </ul>
-</blockquote>
-</li>
-</ol>
 <h3 id="二、认识-Module"><a href="#二、认识-Module" class="headerlink" title="二、认识 Module"></a>二、认识 Module</h3><blockquote>
 <p>ES Module 把一个 JS 文件当作一个独立的模块，这个文件内的所有变量，外部都无法获取。如果外部需要获取模块内的某个变量，就必需要使用<code>export</code>关键字输出该变量。在外部利用<code>import</code>关键字来导入该模块，并导入模块对外输出的内容。</p>
 </blockquote>
 <blockquote>
 <p>ES Module 主要就是用来解决以下<strong>三大问题</strong>：</p>
+</blockquote>
 <ul>
 <li>JS 模块化的问题（一个 JS 文件就是一个模块，有自己独立的作用域）</li>
 <li>变量命名冲突问题</li>
 <li>管理模块间的加载顺序问题</li>
 </ul>
-</blockquote>
-<ol>
-<li><p>Module 需要的环境</p>
-<blockquote>
+<h4 id="Module-需要的环境"><a href="#Module-需要的环境" class="headerlink" title="Module 需要的环境"></a>Module 需要的环境</h4><blockquote>
 <p>在学习 Module 模块系统之前，首先需要知道一点，Module 模块系统它需要一个服务器环境才能正常的执行。</p>
+</blockquote>
 <ul>
 <li>如我们将<code>Module</code>模块系统的代码写在<code>.html</code>文件中，直接打开是不能正常执行的</li>
-<li>直接使用<code>VSCode</code>中的<code>Live Server</code>本地服务器环境即可。</li>
+<li>直接使用<code>VSCode</code>中的<code>Live Server</code>本地服务器环境即可。<blockquote>
+<ul>
 <li>接下来的学习，我们需要全程使用<code>Open with Live Server</code>的方式打开了</li>
 </ul>
 </blockquote>
 </li>
-<li><p>Module 模块化的简单使用</p>
-<blockquote>
-<ul>
-<li><code>.config.js</code>数据配置文件，为一个单独的模块</li>
 </ul>
+<h4 id="Module-模块化的简单使用"><a href="#Module-模块化的简单使用" class="headerlink" title="Module 模块化的简单使用"></a>Module 模块化的简单使用</h4><blockquote>
+<p><code>.config.js</code>数据配置文件，为一个单独的模块</p>
+</blockquote>
 <pre><code>const data=&#123;
- max:10;
- min:1
+    max:10;
+    min:1
 &#125;
 export default data; // 导出模块接口
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
-<ul>
-<li><code>max.js</code> 为一个单独的模块</li>
-</ul>
+<p><code>max.js</code> 为一个单独的模块</p>
+</blockquote>
 <pre><code>import data from &quot;./config.js&quot;;
 let a = data.max;
 let b = data.min;
@@ -623,11 +610,9 @@ function max() &#123;
 &#125;
 export default max; // 导出模块接口
 </code></pre>
-</blockquote>
 <blockquote>
-<ul>
-<li><code>min.js</code> 为一个单独的模块</li>
-</ul>
+<p><code>min.js</code> 为一个单独的模块</p>
+</blockquote>
 <pre><code>import data from &quot;./config.js&quot;;
 let a = data.max;
 let b = data.min;
@@ -636,11 +621,9 @@ function min() &#123;
 &#125;
 export default min; // 导出模块接口
 </code></pre>
-</blockquote>
 <blockquote>
-<ul>
-<li><code>index.html</code>文件中，通过以下方式来加载模块</li>
-</ul>
+<p><code>index.html</code>文件中，通过以下方式来加载模块</p>
+</blockquote>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   // 加载模块
   import max from &quot;./max.js&quot;;
@@ -648,91 +631,70 @@ export default min; // 导出模块接口
   // 加载模块
   import min from &quot;./min.js&quot;;
   console.log(min());
+
+  // 在这里，我们没有办法访问max.js和min.js中的变量a和b
+  // console.log(a,b); // 报错
+&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 在这里，我们没有办法访问max.js和min.js中的变量a和b<br>  &#x2F;&#x2F; console.log(a,b); &#x2F;&#x2F; 报错</p>
 <blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>注：<br>通过 ES Moudle 来实现 JS 模块化的模块化，轻松的解决了上面提到的三大问题：</p>
+<p>注：通过 ES Moudle 来实现 JS 模块化的模块化，轻松的解决了上面提到的三大问题：</p>
 </blockquote>
 <ul>
 <li>JS 模块化的问题（每个 JS 文件就是一个模块，有自己独立的作用域，通过<code>export</code>导出模块接口）</li>
 <li>变量命名冲突问题</li>
 <li>管理模块间的加载顺序问题</li>
 </ul>
-</blockquote>
 <h3 id="三、Module-的导入与导出"><a href="#三、Module-的导入与导出" class="headerlink" title="三、Module 的导入与导出"></a>三、Module 的导入与导出</h3><blockquote>
 <p>Module 导入和导出模块有两种形式：</p>
+</blockquote>
 <ul>
 <li><code>export default</code>导出和<code>import</code> 导出</li>
 <li><code>export</code>导出和<code>import</code> 导出</li>
 </ul>
-</blockquote>
-<h4 id="export-default和对应的import"><a href="#export-default和对应的import" class="headerlink" title="export default和对应的import"></a><code>export default</code>和对应的<code>import</code></h4><blockquote>
-<ul>
+<h4 id="export-default和对应的import"><a href="#export-default和对应的import" class="headerlink" title="export default和对应的import"></a><code>export default</code>和对应的<code>import</code></h4><ul>
 <li><code>export default</code>命令为模块指定默认输出（导出）</li>
 <li><code>import</code>用来加载模块，并导入模块中导出的内容</li>
 </ul>
+<blockquote>
+<p>使用示例</p>
 </blockquote>
-<ol>
-<li>使用示例</li>
-</ol>
 <ul>
-<li>新建<code>module.js</code>文件<blockquote>
-<ul>
-<li>用export default 导出模块中的默认输出</li>
+<li>新建<code>module.js</code>文件，使用<code>export default</code>导出模块中的默认输出</li>
 </ul>
 <pre><code>const username = &quot;icoding&quot;;
 // 用export default 导出模块中的默认输出
 export default username;
 </code></pre>
-</blockquote>
-</li>
-<li>新建<code>index.html</code>文件<blockquote>
 <ul>
-<li>在<code>index.html</code>文件里，<code>type=&quot;module&quot;</code> 必须要写，否则没有办法把js当成模块来加载</li>
+<li>新建<code>index.html</code>文件，在<code>index.html</code>文件里，<code>type=&quot;module&quot;</code>必须要写，否则没有办法把js当成模块来加载</li>
 <li>用import来导入模块导出的变量，这里的变量名可以是任意名字</li>
 </ul>
-<pre><code>
-</code></pre>
-</blockquote>
-<!-- type="module" 必需要写，否则没有办法把js当成模块来加载-->
-<blockquote>
-<script type="module">
-// import username from "./module.js";  // 这里的变量名可以取任意名字
-// console.log(username);
+<pre><code>&lt;!-- type=&quot;module&quot; 必需要写，否则没有办法把js当成模块来加载--&gt;
+&lt;script type=&quot;module&quot;&gt;
+  // import username from &quot;./module.js&quot;;  // 这里的变量名可以取任意名字
+  // console.log(username);
 
-</blockquote>
-import myname from “.&#x2F;module.js”;<br>console.log(myname);<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li>注意事项</li>
-</ol>
-<ul>
-<li><p>带有<code>type = &#39;module&#39;</code>的<code>&lt;script&gt;</code>标签，浏览器是<strong>异步加载</strong>的</p>
+  import myname from &quot;./module.js&quot;;
+  console.log(myname);
+&lt;/script&gt;
+</code></pre>
 <blockquote>
+<p>注意事项</p>
+</blockquote>
 <ul>
+<li>带有<code>type = &#39;module&#39;</code>的<code>&lt;script&gt;</code>标签，浏览器是<strong>异步加载</strong>的</li>
 <li>这意味着不会造成浏览器堵塞，即等到<strong>整个页面渲染完</strong>再执行模块脚本，等同于打开了<code>&lt;script&gt;</code>标签的<code>defer</code>属性</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
- const box = document.getElementById(&quot;box&quot;);
- console.log(box.innerHTML); // 我居然显示出来了
+  const box = document.getElementById(&quot;box&quot;);
+  console.log(box.innerHTML); // 我居然显示出来了
 &lt;/script&gt;
 
 &lt;div id=&quot;box&quot;&gt;我居然显示出来了&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>export default</code>命令为模块指定默认输出时，显然一个模块<strong>只能有一个默认输出</strong></p>
 <blockquote>
+<p><code>export default</code>命令为模块指定默认输出时，显然一个模块<strong>只能有一个默认输出</strong></p>
+</blockquote>
 <ul>
 <li>所以<code>export default</code>命令只能使用一次</li>
 <li>如果我们的模块只需要导出一个值，即可使用<code>export default</code></li>
@@ -742,10 +704,9 @@ import myname from “.&#x2F;module.js”;<br>console.log(myname);<blockquote>
 export default username
 export default 53;
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>export default</code>本质上就是输出一个叫作<code>default</code>的变量或方法</p>
 <blockquote>
+<p><code>export default</code>本质上就是输出一个叫作<code>default</code>的变量或方法</p>
+</blockquote>
 <ul>
 <li>所以<code>export default</code>后面<strong>只能是变量或值</strong>，不能是变量声明语句，相当于把后面的值或变量中的值赋值给到变量<code>default</code></li>
 <li>所以在用<code>import</code>接收的时候，可以取任意名字接收</li>
@@ -753,98 +714,97 @@ export default 53;
 <pre><code>const username = &quot;icoding&quot;;
 // 正确导出
 export default username;
-// export default 53;
-// export default function fn()&#123;&#125;
-// export default function()&#123;&#125;
-// export default &#123;&#125;
-// export default class A&#123;&#125;
-// export default class&#123;&#125;
+export default 53;
+export default function fn()&#123;&#125;
+export default function()&#123;&#125;
+export default &#123;&#125;
+export default class A&#123;&#125;
+export default class&#123;&#125;
+
+// 错误导出
+export default const username = &quot;icoding&quot;;
+export default let fn = function()&#123;&#125;
+export default const obj = &#123;&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 错误导出<br>&#x2F;&#x2F; export default const username &#x3D; “icoding”;<br>&#x2F;&#x2F; export default let fn &#x3D; function(){}<br>&#x2F;&#x2F; export default const obj &#x3D; {}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="export和对应的import"><a href="#export和对应的import" class="headerlink" title="export和对应的import"></a><code>export</code>和对应的<code>import</code></h4><blockquote>
+<p><code>export</code>命令用来指定模块的对外输出接口，<strong>可以对外输出多个接口</strong>，这一点与<code>export default</code>不同</p>
+</blockquote>
 <ul>
-<li><code>export</code>命令用来指定模块的对外输出接口，<strong>可以对外输出多个接口</strong>，这一点与<code>export default</code>不同</li>
 <li><code>import</code>命令用来导入其他模块的导出接口</li>
 </ul>
+<blockquote>
+<p>使用示例</p>
 </blockquote>
-<ol>
-<li>使用示例</li>
-</ol>
 <ul>
-<li>新建<code>module.js</code>文件<blockquote>
+<li>新建<code>module.js</code>文件</li>
+</ul>
 <pre><code>// export导出多个接口：函数  类  变量等
 export function foo() &#123;&#125;
 export class Person &#123;&#125;
 export const sex = &quot;male&quot;;
 </code></pre>
-</blockquote>
-</li>
-<li>新建<code>index.js</code>文件<blockquote>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-// import导入多个接口，其导入时变量名与export导出时一模一样，同时要写在&#123;&#125;中
-// import &#123; foo &#125; from &quot;./module.js&quot;;
-// import &#123; Person &#125; from &quot;./module.js&quot;;
-// import &#123; sex &#125; from &quot;./module.js&quot;;
-// 下面import代码，等价于上面分三次导入
-import &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
-</code></pre>
-</blockquote>
-console.log(foo); &#x2F;&#x2F;  ƒ foo() { }<br>console.log(Person); &#x2F;&#x2F; class Person { }<br>console.log(sex); &#x2F;&#x2F; male<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li>注意事项</li>
-</ol>
 <ul>
-<li><code>export</code>命令规定的是对外的接口，所以其后<strong>只能是声明语句</strong>，不能是值或变量。<blockquote>
+<li>新建<code>index.js</code>文件</li>
+</ul>
+<pre><code>&lt;script type=&quot;module&quot;&gt;
+  // import导入多个接口，其导入时变量名与export导出时一模一样，同时要写在&#123;&#125;中
+  // import &#123; foo &#125; from &quot;./module.js&quot;;
+  // import &#123; Person &#125; from &quot;./module.js&quot;;
+  // import &#123; sex &#125; from &quot;./module.js&quot;;
+  // 下面import代码，等价于上面分三次导入
+  import &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
+
+  console.log(foo); //  ƒ foo() &#123; &#125;
+  console.log(Person); // class Person &#123; &#125;
+  console.log(sex); // male
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li><code>export</code>命令规定的是对外的接口，所以其后<strong>只能是声明语句</strong>，不能是值或变量。</li>
+</ul>
 <pre><code>// 正确导出
 export let num=1;
 export function fn(params) &#123;&#125;
 export class A&#123;&#125;
 export let obj=&#123;&#125;
+
+// 错误导出接口
+let num=1
+export num;
+export function()&#123;&#125;
+export class &#123;&#125;
+export obj&#123;&#125;
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 错误导出接口<br>let num&#x3D;1<br>export num;<br>export function(){}<br>export class {}<br>export obj{}<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><code>import</code> 用导入<code>export</code>导出的接口时，导入时变量名，需要与导出时<strong>一模一样</strong>。<blockquote>
+<ul>
+<li><code>import</code>导入<code>export</code>导出的接口时，导入时的变量名，需要与导出时<strong>一模一样</strong>。</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-// import导入多个接口，其导入时变量名与export导出时一模一样，同时要写在&#123;&#125;中
-// import &#123; foo &#125; from &quot;./module.js&quot;;
-// import &#123; Person &#125; from &quot;./module.js&quot;;
-// import &#123; sex &#125; from &quot;./module.js&quot;;
-// 或统一导出
-import &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
+  // import导入多个接口，其导入时变量名与export导出时一模一样，同时要写在&#123;&#125;中
+  // import &#123; foo &#125; from &quot;./module.js&quot;;
+  // import &#123; Person &#125; from &quot;./module.js&quot;;
+  // import &#123; sex &#125; from &quot;./module.js&quot;;
+  // 或统一导出
+  import &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
+
+  console.log(foo); //  ƒ foo() &#123; &#125;
+  console.log(Person); // class Person &#123; &#125;
+  console.log(sex); // male
+&lt;/script&gt;
 </code></pre>
+<blockquote>
+<p>export 语句输出的接口与其对应的值是<strong>动态绑定关系</strong>，即可以通过接口取到模块内部实时的值</p>
 </blockquote>
-console.log(foo); &#x2F;&#x2F;  ƒ foo() { }<br>console.log(Person); &#x2F;&#x2F; class Person { }<br>console.log(sex); &#x2F;&#x2F; male<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-<li>export 语句输出的接口与其对应的值是<strong>动态绑定关系</strong>，即可以通过接口取到模块内部实时的值<blockquote>
 <ul>
 <li><code>module.js</code> 文件</li>
 </ul>
 <pre><code>export let username = &quot;清心&quot;;
 setTimeout(() =&gt; &#123;
-username = &quot;icoding&quot;;
+  username = &quot;icoding&quot;;
 &#125;, 3000);
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <ul>
 <li><code>index.js</code> 文件</li>
 </ul>
@@ -854,19 +814,15 @@ username = &quot;icoding&quot;;
   setTimeout(() =&gt; &#123;
     console.log(username);
   &#125;, 3000);
+
+  // 最终输出结果： 清心  icoding
+&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 最终输出结果： 清心  icoding</p>
 <blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
+<p>export 多个接口统一导出</p>
 </blockquote>
-<ol start="3">
-<li><p>export 多个接口统一导出</p>
-<blockquote>
-<p>如果需要导出的变量、对象或方法有几十个怎么办，难道也要一个一个手动导出吗 ？</p>
 <ul>
+<li>如果需要导出的变量、对象或方法有几十个怎么办，难道也要一个一个手动导出吗 ？</li>
 <li>一个一个导出，显然太麻烦了，export 允许<strong>一次导出多个</strong></li>
 </ul>
 <pre><code>function foo() &#123;&#125;
@@ -875,39 +831,32 @@ const sex = &quot;male&quot;;
 // 一次性导出多个接口
 export &#123; foo, Person, sex &#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>export</code>导出取别名</p>
 <blockquote>
+<p><code>export</code>导出取别名</p>
+</blockquote>
 <ul>
 <li>使用<code>as</code>关键字可以为导出的变量取别名，如果取了别名后，<code>import</code>在导入时，需要<strong>用别名</strong>来导入。</li>
 </ul>
 <pre><code>function foo() &#123;&#125;
 class Person &#123;&#125;
 const sex = &quot;male&quot;;
+
+// 使用 as 关键字起别名
+export &#123; foo as func, Person, sex &#125;;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 使用 as 关键字起别名<br>export { foo as func, Person, sex };</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
-<li>导入时，必须用别名<blockquote>
+<li>导入时，必须用别名</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
- // func必需与export导出时的别名一致
- import &#123; func, Person, sex &#125; from &quot;./module.js&quot;;
- // 调用时
- console.log(func, Person, sex);
+  // func必需与export导出时的别名一致
+  import &#123; func, Person, sex &#125; from &quot;./module.js&quot;;
+  // 调用时
+  console.log(func, Person, sex);
 &lt;/script&gt;
 </code></pre>
+<blockquote>
+<p><code>export</code>与<code>export default</code><strong>同时</strong>导出</p>
 </blockquote>
-</li>
-</ul>
-<ol start="5">
-<li><code>export</code>与<code>export default</code><strong>同时</strong>导出<blockquote>
 <ul>
 <li>我们可以在一个模块文件中同时用<code>export</code>来导出多个接口，也可以同时使用<code>export default</code>导出默认输出（接口）</li>
 </ul>
@@ -920,12 +869,9 @@ export &#123; foo, Person, sex &#125;;
 // 默认导出
 export default username;
 </code></pre>
+<h4 id="import导入"><a href="#import导入" class="headerlink" title="import导入"></a><code>import</code>导入</h4><blockquote>
+<p><code>import</code>导入<code>export</code>时取别名</p>
 </blockquote>
-</li>
-</ol>
-<h4 id="import导入"><a href="#import导入" class="headerlink" title="import导入"></a><code>import</code>导入</h4><ol>
-<li><p><code>import</code>导入<code>export</code>时取别名</p>
-<blockquote>
 <ul>
 <li>使用<code>as</code>关键字可以为导入的变量取别名，如果取了别名后，<strong>后面输出内容只能使用别名</strong>。</li>
 <li>导入：一般在使用第三方库时，为了保证代码风格的统一，就需要取别名</li>
@@ -933,29 +879,24 @@ export default username;
 <pre><code>function foo() &#123;&#125;
 class Person &#123;&#125;
 const sex = &quot;male&quot;;
+
+export &#123; foo, Person, sex &#125;;
+// 使用 as 关键字起别名
+import &#123; foo as bar, Person as People, sex &#125; from &quot;./module.js&quot;;
+console.log(bar); // 必需使用别名，否则访问不到
+console.log(People); // 必需使用别名，否则访问不到
+console.log(sex);
 </code></pre>
-</blockquote>
-<p>export { foo, Person, sex };<br>&#x2F;&#x2F; 使用 as 关键字起别名<br>import { foo as bar, Person as People, sex } from “.&#x2F;module.js”;<br>console.log(bar); &#x2F;&#x2F; 必需使用别名，否则访问不到<br>console.log(People); &#x2F;&#x2F; 必需使用别名，否则访问不到<br>console.log(sex);</p>
 <blockquote>
-<pre><code>
-</code></pre>
+<p>同时导入所有接口——方式一：<code>* as</code></p>
 </blockquote>
-</li>
-<li><p>同时导入所有接口</p>
-</li>
-</ol>
 <ul>
-<li>方式一：<code>* as</code><blockquote>
-<ul>
-<li>利用<code>* as</code>来导入多个导出，因为<code>*</code>不能当做变量名来使用，所以我们都要为他<strong>用<code>as</code>的方式取别名</strong>。</li>
-<li><code>*</code>得到的是一个<strong>模块对象<code>Module</code></strong></li>
-</ul>
-</blockquote>
+<li><p>利用<code>* as</code>来导入多个导出，因为<code>*</code>不能当做变量名来使用，所以我们都要为他<strong>用<code>as</code>的方式取别名</strong>。</p>
 </li>
-</ul>
-<blockquote>
-<ul>
-<li>导出</li>
+<li><p><code>*</code>得到的是一个<strong>模块对象<code>Module</code></strong></p>
+</li>
+<li><p>导出</p>
+</li>
 </ul>
 <pre><code>function foo() &#123;&#125;
 class Person &#123;&#125;
@@ -966,7 +907,7 @@ export default username;
 export &#123; foo, Person, sex &#125;;
 </code></pre>
 <ul>
-<li>导出</li>
+<li>导入</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   // * 表示所有的输入
@@ -1007,33 +948,29 @@ console.log(username);//&quot;icoding&quot;
 console.log(sex);//&quot;male&quot;
 &lt;/script&gt;
 </code></pre>
+<blockquote>
+<p>同时导入所有接口——方式二：<code>默认接口,&#123;export接口&#125;</code></p>
 </blockquote>
 <ul>
-<li>方式二：<code>默认接口,&#123;export接口&#125;</code><blockquote>
-<ul>
-<li><code>export default</code> 导出的默认接口，<strong>必须要写在最前面</strong>，然后<strong>用逗号分隔</strong></li>
+<li><code>export default</code>导出的默认接口，<strong>必须要写在最前面</strong>，然后<strong>用逗号分隔</strong></li>
 <li>后面的<code>&#123;&#125;</code>为 <code>export</code> 导出的多个接口</li>
 <li>如果只有<code>export</code>接口，就直接用<code>&#123;&#125;</code></li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-// 错误写法
-// import &#123; foo, Person, sex &#125;,username from &quot;./module.js&quot;;
-// 正确写法
-import username, &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
-console.log(username); // icoding
-console.log(foo); // ƒ foo() &#123; &#125;
-console.log(Person); // class Person &#123; &#125;
-console.log(sex); // male
+  // 错误写法
+  // import &#123; foo, Person, sex &#125;,username from &quot;./module.js&quot;;
+  // 正确写法
+  import username, &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
+  console.log(username); // icoding
+  console.log(foo); // ƒ foo() &#123; &#125;
+  console.log(Person); // class Person &#123; &#125;
+  console.log(sex); // male
 &lt;/script&gt;
 </code></pre>
 <p><strong>取出接口</strong>：直接使用接口名</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="四、import-关键字"><a href="#四、import-关键字" class="headerlink" title="四、import 关键字"></a>四、import 关键字</h3><ol>
-<li><p><code>import</code>关键字</p>
-<blockquote>
+<h3 id="四、import-关键字"><a href="#四、import-关键字" class="headerlink" title="四、import 关键字"></a>四、import 关键字</h3><blockquote>
 <p>通过前面的学习，我们知道<code>import</code>关键字用来导入模块的输出接口。不过他还有一些重要的特点，需要我们掌握，具体如下：</p>
+</blockquote>
 <ul>
 <li><code>import</code>可以只用来导入模块（模块中可以没有导出接口）</li>
 <li><code>import</code>命令具有提升效果，会提升到整个模块的头部，率先执行</li>
@@ -1041,105 +978,79 @@ console.log(sex); // male
 <li>多次加载同一个<code>import</code>语句，只会执行一次（相当多次加载，后面的会覆盖前面的，所以在执行阶段只有一份代码）。</li>
 <li><code>import</code>可以用于在一个模块中导入另一个模块</li>
 </ul>
-</blockquote>
-</li>
-<li><p>import 只用来导入模块</p>
-<blockquote>
+<h4 id="import-只用来导入模块"><a href="#import-只用来导入模块" class="headerlink" title="import 只用来导入模块"></a>import 只用来导入模块</h4><blockquote>
 <p>import 可以只用来导入模块（<strong>模块中可以没有导出接口</strong>）</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><code>module.js</code> 模块文件<blockquote>
+<li><code>module.js</code> 模块文件</li>
+</ul>
 <pre><code>console.log(&quot;我是module.js模块中引入的代码 ...&quot;);
 </code></pre>
-</blockquote>
-</li>
-<li><code>index.js</code>文件中引入<code>module.js</code>模块文件<blockquote>
+<ul>
+<li><code>index.js</code>文件中引入<code>module.js</code>模块文件</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
- // 导入模块
- import &quot;./module.js&quot;;
+  // 导入模块
+  import &quot;./module.js&quot;;
 
- // 在控制台输出： 我是module.js模块中引入的代码 ...
+  // 在控制台输出： 我是module.js模块中引入的代码 ...
 &lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
-<ul>
-<li>简写</li>
-</ul>
+<p>简写</p>
+</blockquote>
 <pre><code>&lt;!--如果import只是用来导入模块，则可以简写成如下形式--&gt;
 &lt;script type=&quot;module&quot; src=&quot;./module.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<ol start="3">
-<li>import 具有提升效果<blockquote>
+<h4 id="import-具有提升效果"><a href="#import-具有提升效果" class="headerlink" title="import 具有提升效果"></a>import 具有提升效果</h4><blockquote>
 <p>import 命令具有提升效果，会提升到整个模块的头部，率先执行</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>module.js 模块文件</p>
-<blockquote>
-<pre><code>console.log(&quot;我是module.js模块中引入的代码 ...&quot;);
+<li><code>module.js</code>模块文件</li>
+</ul>
+<pre><code>onsole.log(&quot;我是module.js模块中引入的代码 ...&quot;);
 </code></pre>
-</blockquote>
-</li>
-<li><p>index.js文件中引入 module.js模块文件</p>
-<blockquote>
+<ul>
+<li><code>index.js</code>文件中引入<code>module.js</code>模块文件</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
- console.log(&quot;我是第一个&quot;);
- console.log(&quot;我是第二个&quot;);
- // 导入模块
- import &quot;./module.js&quot;;
+  console.log(&quot;我是第一个&quot;);
+  console.log(&quot;我是第二个&quot;);
+  // 导入模块
+  import &quot;./module.js&quot;;
 &lt;/script&gt;
 //我是module.js模块中引入的代码 ...
 //我是第一个
 //我是第二个
 </code></pre>
-<p><strong>注：</strong><br>以上打印输出结果，我们可以看到<strong>导入的模块中的代码</strong>率先执行了</p>
-<blockquote>
-<p>import 命名导入的模块代码，不论你写在页面的任何位置，<strong>都会提升到最开头的地方</strong>（所有代码的前面，率先执行）</p>
-</blockquote>
 <ul>
-<li>因为，在执行代码之前，浏览器 JavaScript 引擎<strong>静态分析</strong>会先分析代码中的 import 语法，会在所有代码执行之前先找到 import，将它提升到最前面并先执行完成之后，再执行其他代码。</li>
+<li>import 命名导入的模块代码，不论你写在页面的任何位置，<strong>都会提升到最开头的地方</strong>（所有代码的前面，率先执行）</li>
+<li>因为，在执行代码之前，浏览器 JavaScript 引擎<strong>静态分析</strong>会先分析代码中的 import 语法，会在所有代码执行之前先找到 import，将它提升到最前面并先执行完成之后，再执行其他代码</li>
 </ul>
-</blockquote>
-</li>
-<li><p>以下代码，并不会如我们期望的那样去执行</p>
 <blockquote>
+<p>以下代码，并不会如我们期望的那样去执行</p>
+</blockquote>
 <ul>
 <li>因为<code>import</code>命令会被<code>JavaScript</code>引擎静态分析，先于模块内的其他语句执行</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-// 模拟判断如果是PC端，执行pc端模块代码，如移动端执行移动端代码（伪代码）
-let pc = true; // pc端
-let yd = false; // 移动端
-if (pc) &#123;
-  import &quot;./pc.js&quot;;
-&#125; else if (yd) &#123;
-  import &quot;mobile.js&quot;;
-&#125;
+  // 模拟判断如果是PC端，执行pc端模块代码，如果是移动端执行移动端代码（伪代码）
+  let pc = true; // pc端
+  let yd = false; // 移动端
+  if (pc) &#123;
+    import &quot;./pc.js&quot;;
+  &#125; else if (yd) &#123;
+    import &quot;mobile.js&quot;;
+  &#125;
 &lt;/script&gt;
 </code></pre>
-<blockquote>
-<p>注：</p>
-</blockquote>
 <ul>
 <li>上面代码中，引擎处理<code>import</code>语句是在编译时，这时不会去分析或执行<code>if</code>语句，所以<code>import</code>语句放在<code>if</code>代码块之中毫无意义，因此会报语法错误，而不是执行时错误。</li>
 <li>因此，<code>import</code>和<code>export</code>命令只能在<strong>模块的顶层</strong>(指的是最外层，不是最顶端)，不能在代码块之中。</li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<ol start="4">
-<li><p>import 是静态执行</p>
-<blockquote>
-<ul>
-<li><code>import</code>是静态执行，也就是说<code>import</code>命令是编译阶段执行的，也就是说<code>import</code>导入的模块是<strong>编译阶段</strong>就确定好了。</li>
-<li>由于<code>import</code>是静态执行的，所以<code>import</code>语句中<strong>不能使用表达式或变量</strong>，也就是只有在代码执行阶段才能得到结果的语法结构。</li>
+<h4 id="import-是静态执行"><a href="#import-是静态执行" class="headerlink" title="import 是静态执行"></a>import 是静态执行</h4><ul>
+<li><code>import</code>是静态执行，也就是说<code>import</code>导入的模块是<strong>编译阶段</strong>就确定好了。</li>
+<li>所以<code>import</code>语句中<strong>不能使用表达式或变量</strong>，也就不能使用只有在代码执行阶段才能得到结果的语法结构</li>
 </ul>
 <pre><code>// 报错
 import &#123;&#39;f&#39;+&#39;oo&#39;&#125; &quot;./module.js&quot;;
@@ -1147,86 +1058,76 @@ import &#123;&#39;f&#39;+&#39;oo&#39;&#125; &quot;./module.js&quot;;
 let bar = &quot;foo&quot;;
 import &#123; bar &#125; from &quot;./module.js&quot;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>import 多次加载，只执行一次</p>
-<blockquote>
+<h4 id="import-多次加载，只执行一次"><a href="#import-多次加载，只执行一次" class="headerlink" title="import 多次加载，只执行一次"></a>import 多次加载，只执行一次</h4><blockquote>
 <p>多次加载同一个<code>import</code>语句，只会执行一次</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p><code>module.js</code> 模块文件</p>
-<blockquote>
+<li><code>module.js</code> 模块文件</li>
+</ul>
 <pre><code>console.log(&quot;我是module.js模块中引入的代码 ...&quot;);
 function foo() &#123;&#125;
 class Person &#123;&#125;
 const sex = &quot;male&quot;;
 const username = &quot;icoding&quot;;
+
+export &#123; foo, Person, sex &#125;;
 </code></pre>
-</blockquote>
-<p>export { foo, Person, sex };</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>index.js</code>文件中多次引入<code>module.js</code>模块文件</p>
-<blockquote>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-import &#123; foo &#125; from &quot;./module.js&quot;;
-import &#123; Person &#125; from &quot;./module.js&quot;;
-import &#123; sex &#125; from &quot;./module.js&quot;;
-</code></pre>
-</blockquote>
-<p>console.log(foo);<br>console.log(Person);<br>console.log(sex);</p>
-<blockquote>
-<p></script><br>&#x2F;&#x2F;我是module.js模块中引入的代码 …<br>&#x2F;&#x2F;foo(){}<br>&#x2F;&#x2F;class Person {}<br>&#x2F;&#x2F;male</p>
-<pre><code>**注：**
-- 上面`import`导入了三次`module.js`文件，但是控制台**只输出了一次**&quot;我是module.js模块中引入的代码 ...&quot;。说明三次导入中只有一次被执行了。
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li><code>index.js</code>文件中多次引入<code>module.js</code>模块文件</li>
 </ul>
-<ol start="6">
-<li>一个模块中导入另一个模块<blockquote>
+<pre><code>&lt;script type=&quot;module&quot;&gt;
+  import &#123; foo &#125; from &quot;./module.js&quot;;
+  import &#123; Person &#125; from &quot;./module.js&quot;;
+  import &#123; sex &#125; from &quot;./module.js&quot;;
+
+  console.log(foo);
+  console.log(Person);
+  console.log(sex);
+&lt;/script&gt;
+//我是module.js模块中引入的代码 ...
+//foo()&#123;&#125;
+//class Person &#123;&#125;
+//male
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>上面<code>import</code>导入了三次<code>module.js</code>文件，但是控制台<strong>只输出了一次</strong>“我是module.js模块中引入的代码 …”。说明三次导入中只有一次被执行了。</li>
+</ul>
+<h4 id="一个模块中导入另一个模块"><a href="#一个模块中导入另一个模块" class="headerlink" title="一个模块中导入另一个模块"></a>一个模块中导入另一个模块</h4><blockquote>
 <p><code>import</code>可以用于在一个模块中导入另一个模块，这个功能解决了多个<code>JS</code>文件之间的依赖关系</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><code>config.js</code>配置文件<blockquote>
+<li><code>config.js</code>配置文件</li>
+</ul>
 <pre><code>const data = &#123;
-max: 10,
-min: 1,
+  max: 10,
+  min: 1,
 &#125;;
 export default data; // 默认导出
 </code></pre>
-</blockquote>
-</li>
-<li><code>max.js</code>文件，在这文件中导入<code>config.js</code>文件<blockquote>
+<ul>
+<li><code>max.js</code>文件，在这文件中导入<code>config.js</code>文件</li>
+</ul>
 <pre><code>import data from &quot;./config.js&quot;; // 导入config.js模块
 let a = data.max;
 let b = data.min;
 function max() &#123;
-return a &gt; b ? a : b;
+  return a &gt; b ? a : b;
 &#125;
 export default max;
 </code></pre>
-</blockquote>
-</li>
-<li><code>index.js</code>文件<blockquote>
+<ul>
+<li><code>index.js</code>文件</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-// 导入模块
-import max from &quot;./max.js&quot;;
-console.log(max());
+  // 导入模块
+  import max from &quot;./max.js&quot;;
+  console.log(max());
 &lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="五、import-函数"><a href="#五、import-函数" class="headerlink" title="五、import() 函数"></a>五、import() 函数</h3><blockquote>
 <p>在前面我们学习了<code>import</code>命令（关键字），<code>import</code>命令会被<code>JS</code>引擎静态分析（也就是被加载的模块会在编译阶段就确定好），同时他会被提升到当前模块（代码）的最前面，并在执行阶段最先执行。</p>
+</blockquote>
 <ul>
 <li>所以，以下这种形式的代码会报错</li>
 </ul>
@@ -1237,36 +1138,26 @@ console.log(max());
   &#125;
 &lt;/script&gt;
 </code></pre>
-<p><strong>注：</strong><br>上面代码中，引擎处理<code>import</code>语句是在编译阶段，这时不会去分析或执行<code>if</code>语句，所以<code>import</code>语句放在<code>if</code>代码块之中毫无意义，因此会报句法错误，而不是执行时错误。</p>
+<blockquote>
+<p>因为模块的加载是在编译阶段就确定好的，也就是模块之间的依赖关系是在编译阶段就确定好的。这样有利于提高编译器的效率，但也导致无法在运行时加载模块。也就是我们没有办法按条件来加载对应模块。</p>
 <ul>
-<li>因此，<code>import</code>命令只能在模块的顶层，不能在代码块之中。<br>因为模块的加载是在编译阶段就确定好的，也就是模块之间的依赖关系是在编译阶段就确定好的。这样有利于提高编译器的效率，但也导致无法在运行时加载模块。也就是我们没有办法按条件来加载对应模块。</li>
-<li>因此，ES2020 提案引入<code>import()</code>函数，支持动态加载模块。</li>
+<li>因此，ES2020 提案引入<code>import()</code>函数，支持动态加载模块</li>
 </ul>
 </blockquote>
-<ol>
-<li><code>import()</code>动态加载模块<blockquote>
+<h4 id="import-动态加载模块"><a href="#import-动态加载模块" class="headerlink" title="import()动态加载模块"></a><code>import()</code>动态加载模块</h4><blockquote>
 <p><code>import()</code>函数用于<strong>动态加载模块</strong>，他与<code>import</code>关键字存在以下区别</p>
+</blockquote>
 <ul>
 <li><code>import()</code>函数支持动态加载模块，他可以<strong>在任何地方使用</strong>。</li>
 <li><code>import()</code>函数是<strong>在运行时执行</strong>的，只有当代码运行到<code>improt()</code>函数这一语句时，才会开始加载指定模块。</li>
-<li><code>import()</code>函数加载模块属于运行时<strong>异步加载</strong></li>
+<li><code>import()</code>函数加载模块属于运行时<strong>异步加载</strong><br>代码演示</li>
 </ul>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>代码演示<blockquote>
 <pre><code>// a.js文件
 console.log(&quot;a.js模块执行了&quot;);
+
+// b.js文件
+console.log(&quot;b.js模块执行了&quot;);
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; b.js文件<br>console.log(“b.js模块执行了”);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <ul>
 <li><code>index.js</code>文件</li>
 </ul>
@@ -1281,42 +1172,52 @@ console.log(&quot;a.js模块执行了&quot;);
   &#125; else &#123;
     import(&quot;./b.js&quot;);
   &#125;
+
+  setTimeout(function f0() &#123;
+    console.log(&quot;定时器0&quot;);
+  &#125;, 0);
+  console.log(&quot;同步二&quot;);
+&lt;/script&gt;
+//同步一
+//同步二
+//定时器0
+//b.js模块执行了
+//定时器1000
 </code></pre>
-</blockquote>
-<p>  setTimeout(function f0() {<br>    console.log(“定时器0”);<br>  }, 0);<br>  console.log(“同步二”);</p>
 <blockquote>
-<p></script><br>&#x2F;&#x2F;同步一<br>&#x2F;&#x2F;同步二<br>&#x2F;&#x2F;定时器0<br>&#x2F;&#x2F;b.js模块执行了<br>&#x2F;&#x2F;定时器1000</p>
-<pre><code>**上面代码，从上往下执行**
-- 遇到同步代码，打印“同步一”，
-- 遇到异步代码，在`1s`后，将回调函数`f1`添加到宏任务队列，接着向下执行。
-- 遇到`import()`函数加载模块，因为`import()`函数加载模块为异步加载，需要等模块加载成功后，才会把模块代码添加到宏任务队列中排着。等着同步任务全部执行完后，再执行。
-- 遇到定时器，马上将回调函数`f0`添加到宏任务队列。
-&gt;任务队列中需要执行的任务：`fn0`，`import`模块，`fn1`
-</code></pre>
+<p><strong>上面代码，从上往下执行</strong></p>
 </blockquote>
-<ol start="2">
-<li><code>import()</code>函数返回值<blockquote>
-<p><code>import()</code>函数的返回值为<code>promise</code>对象</p>
 <ul>
+<li>遇到同步代码，打印“同步一”，</li>
+<li>遇到异步代码，在<code>1s</code>后，将回调函数<code>f1</code>添加到宏任务队列，接着向下执行。</li>
+<li>遇到<code>import()</code>函数加载模块，因为<code>import()</code>函数加载模块为异步加载，需要等模块加载成功后，才会把模块代码添加到宏任务队列中排着。等着同步任务全部执行完后，再执行。</li>
+<li>遇到定时器，马上将回调函数<code>f0</code>添加到宏任务队列。</li>
+<li>任务队列中需要执行的任务：<code>fn0</code>，<code>import</code>模块，<code>fn1</code></li>
+</ul>
+<blockquote>
+<p><code>import()</code>函数返回值</p>
+</blockquote>
+<ul>
+<li><code>import()</code>函数的返回值为<code>promise</code>对象</li>
 <li><code>promise</code>对象的返回值(即<code>[[PromiseResult]]</code>属性值)为<code>mudule</code>，这个对象的成员为模块对外导出的接口。</li>
 <li>所以我们可以利用<code>promise</code>对象的<code>then</code>方法中的参数来接受这个对象</li>
-<li>获取输出的接口的方式<br>-<code>mudule</code>是一个对象，所以可以采用<code>对象.属性名</code>的方式，注意获取<code>export defalut</code>的时候用<code>对象.default</code><ul>
+<li>获取输出的接口的方式<br> -<code>mudule</code>是一个对象，所以可以采用<code>对象.属性名</code>的方式，注意获取<code>export defalut</code>的时候用<code>对象.default</code><ul>
 <li>利用<strong>对象的解构赋值</strong>来获取输出的接口。注意获取<code>export defalut</code>的时候用<code>&#123;default : 变量名&#125;</code>的方式</li>
 </ul>
 </li>
 </ul>
-</blockquote>
-</li>
-</ol>
+<h4 id="使用import-函数导入的模块"><a href="#使用import-函数导入的模块" class="headerlink" title="使用import()函数导入的模块"></a>使用<code>import()</code>函数导入的模块</h4><blockquote>
+<p>模块中只有<code>export</code>方式导出的接口</p>
 <ul>
-<li>模块中只有<code>export</code>方式导出的接口<blockquote>
-<ul>
-<li>可以打点调用</li>
-<li>可以直接利用对象解构赋值来获取输出的接口<ul>
+<li>方式一：打点调用</li>
+<li>方式二：直接利用对象解构赋值来获取输出的接口<ul>
 <li>接收data后再解构赋值</li>
 <li>接收时就解构赋值</li>
 </ul>
 </li>
+</ul>
+</blockquote>
+<ul>
 <li><code>moudle.js</code></li>
 </ul>
 <pre><code>function foo() &#123;&#125;
@@ -1325,13 +1226,8 @@ const obj = &#123;&#125;;
 // 导出接口
 export &#123; foo, Person, obj &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <ul>
-<li><code>index.html</code></li>
-<li>方式一</li>
+<li><code>index.html</code>——方式一</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   const p = import(&quot;./module.js&quot;);
@@ -1345,7 +1241,7 @@ export &#123; foo, Person, obj &#125;;
 &lt;/script&gt;
 </code></pre>
 <ul>
-<li>方式二</li>
+<li><code>index.html</code>——方式二</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   const p = import(&quot;./module.js&quot;);
@@ -1360,7 +1256,7 @@ export &#123; foo, Person, obj &#125;;
 &lt;/script&gt;
 </code></pre>
 <ul>
-<li>方式三</li>
+<li><code>index.html</code>——方式三</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   const p = import(&quot;./a.js&quot;);
@@ -1371,171 +1267,143 @@ export &#123; foo, Person, obj &#125;;
   &#125;);
 &lt;/script&gt;
 </code></pre>
+<blockquote>
+<p>如果模块中，只有 export default 的默认输出</p>
 </blockquote>
-<ul>
-<li>如果模块中，只有 export default 的默认输出<blockquote>
 <ul>
 <li><code>moudle.js</code></li>
 </ul>
 <pre><code>let username = &quot;icoding&quot;;
 export default username;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <ul>
-<li><code>index.html</code></li>
+<li><code>index.html</code><ul>
 <li>方式一：打点调用</li>
 <li>方式二：解构赋值，不过由于<code>default</code>是关键字，不能作为变量名，所以要取一个变量名来接收属性值</li>
+</ul>
+</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
   const p = import(&quot;./module.js&quot;);
   p.then((data) =&gt; &#123;
     console.log(data.default); // // &quot;icoding&quot;
   &#125;);
+
+  // 或下面这种方式，具名输出
+  p.then((&#123; default: username &#125;) =&gt; &#123;
+    console.log(username); // &quot;icoding&quot;
+  &#125;);
+&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 或下面这种方式，具名输出<br>  p.then(({ default: username }) &#x3D;&gt; {<br>    console.log(username); &#x2F;&#x2F; “icoding”<br>  });</p>
 <blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
+<p>有 <code>export</code> 导出，又有 <code>export default</code> 的默认导出</p>
 </blockquote>
 <ul>
-<li>有 <code>export</code> 导出，又有 <code>export default</code> 的默认导出<blockquote>
-<ul>
-<li>方式一：对象.属性名</li>
+<li>方式一：<code>对象.属性名</code></li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-const p = import(&quot;./module.js&quot;);
-p.then((data) =&gt; &#123;
-  console.log(data.default);
-  console.log(data.foo);
-  console.log(data.Person);
-  console.log(data.obj);
-&#125;);
+  const p = import(&quot;./module.js&quot;);
+  p.then((data) =&gt; &#123;
+    console.log(data.default);
+    console.log(data.foo);
+    console.log(data.Person);
+    console.log(data.obj);
+  &#125;);
 &lt;/script&gt;
 </code></pre>
 <ul>
 <li>方式二：解构赋值</li>
 </ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-const p = import(&quot;./module.js&quot;);
-p.then((&#123; default: username, foo, Person, obj &#125;) =&gt; &#123;
-  console.log(username);
-  console.log(foo);
-  console.log(Person);
-  console.log(obj);
-&#125;);
+  const p = import(&quot;./module.js&quot;);
+  p.then((&#123; default: username, foo, Person, obj &#125;) =&gt; &#123;
+    console.log(username);
+    console.log(foo);
+    console.log(Person);
+    console.log(obj);
+  &#125;);
 &lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="3">
-<li>一次性动态加载多模块<blockquote>
+<h4 id="一次性动态加载多模块"><a href="#一次性动态加载多模块" class="headerlink" title="一次性动态加载多模块"></a>一次性动态加载多模块</h4><blockquote>
 <p>一次性动态加载多个模块，用一个新的 <code>Promise</code> 对象包装下，利用 <code>Promise.all</code> 方法来处理</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>一个一个处理</p>
-<blockquote>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-const p1 = import(&quot;./a.js&quot;);
-const p2 = import(&quot;./b.js&quot;);
-const p3 = import(&quot;./c.js&quot;);
-// 然后分别处理，获取输出的接口
-p1.then((data)=&gt;&#123;....&#125;)
-p2.then((data)=&gt;&#123;....&#125;)
-p3.then((data)=&gt;&#123;....&#125;)
-// 如果我们需要一次拿 到三个模块的输出接口，才开始后面的操作，显然上面的写法不能实现
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-<li><p>利用<code>Promise.all</code>方法来处理</p>
-<blockquote>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-Promise.all([import(&quot;./a.js&quot;), import(&quot;./b.js&quot;), import(&quot;./c.js&quot;)]).then(
-  ([module1, module2, module3]) =&gt; &#123;
-    // ....
-    console.log(module1);
-    console.log(module2);
-    console.log(module3);
-  &#125;
-);
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>一个一个处理</li>
 </ul>
-<h3 id="六、在实际开发中的注意事项"><a href="#六、在实际开发中的注意事项" class="headerlink" title="六、在实际开发中的注意事项"></a>六、在实际开发中的注意事项</h3><ol>
-<li>模块顶层的 <code>this</code> 指向<blockquote>
+<pre><code>&lt;script type=&quot;module&quot;&gt;
+  const p1 = import(&quot;./a.js&quot;);
+  const p2 = import(&quot;./b.js&quot;);
+  const p3 = import(&quot;./c.js&quot;);
+  // 然后分别处理，获取输出的接口
+  p1.then((data)=&gt;&#123;....&#125;)
+  p2.then((data)=&gt;&#123;....&#125;)
+  p3.then((data)=&gt;&#123;....&#125;)
+  // 如果我们需要一次拿 到三个模块的输出接口，才开始后面的操作，显然上面的写法不能实现
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>利用<code>Promise.all</code>方法来处理</li>
+</ul>
+<pre><code>&lt;script type=&quot;module&quot;&gt;
+  Promise.all([import(&quot;./a.js&quot;), import(&quot;./b.js&quot;), import(&quot;./c.js&quot;)]).then(
+    ([module1, module2, module3]) =&gt; &#123;
+      // ....
+      console.log(module1);
+      console.log(module2);
+      console.log(module3);
+    &#125;
+  );
+&lt;/script&gt;
+</code></pre>
+<h3 id="六、在实际开发中的注意事项"><a href="#六、在实际开发中的注意事项" class="headerlink" title="六、在实际开发中的注意事项"></a>六、在实际开发中的注意事项</h3><h4 id="模块顶层的-this-指向"><a href="#模块顶层的-this-指向" class="headerlink" title="模块顶层的 this 指向"></a>模块顶层的 <code>this</code> 指向</h4><blockquote>
 <p>模块中，顶层的 <code>this</code> 指向 <code>undefined</code></p>
+</blockquote>
 <pre><code>// module.js 文件
 console.log(this); // module.js作为模块时，其顶层this指向undefined
-</code></pre>
-</blockquote>
-<!--在index.js文件中导入模块module.js-->
-<blockquote>
-<script type="module">
- import "./module.js";
-</script>
 
-</blockquote>
-<!-- 或 -->
-<blockquote>
-<script src="./module.js" type="module"></script>
-<pre><code>
+&lt;!--在index.js文件中导入模块module.js--&gt;
+&lt;script type=&quot;module&quot;&gt;
+  import &quot;./module.js&quot;;
+&lt;/script&gt;
+
+&lt;!-- 或 --&gt;
+&lt;script src=&quot;./module.js&quot; type=&quot;module&quot;&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
 <li>应用：JS 文件只能以模块方式加载<blockquote>
 <p>防止用户不使用模块的方式导入（如不使用模块的方式导入，<code>this</code> 就是指向<code>window</code>了，相当于导入了一个普通的 JS 文件），我们可以使用这一特性来限定某个 JS 文件只能以模块的方式加载，否则就抛出错误。</p>
 <ul>
 <li>在模块 <code>module.js</code> 文件中，如果 <code>this 指向 ≠ undefined</code> 时，抛出错误，提示用户需要使用模块化的方式来加载</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// module.js 文件
 if (typeof this !== &quot;undefined&quot;) &#123;
-throw new Error(&quot;请使用模块的方式加载 ...&quot;);
+  throw new Error(&quot;请使用模块的方式加载 ...&quot;);
 &#125;
 </code></pre>
 <ul>
 <li>如果在<code>index.html</code>文件中使用普通的<code>JS</code>文件的方式导入</li>
 </ul>
-<pre><code>
+<pre><code>&lt;!-- 使用普通引入JS文件的方式，未使用模块化的方式加载时，就会抛出自定义错误 --&gt;
+&lt;script src=&quot;./module.js&quot;&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<!-- 使用普通引入JS文件的方式，未使用模块化的方式加载时，就会抛出自定义错误 -->
-<blockquote>
-<script src="./module.js"></script>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li>导入导出的复合写法（了解）<blockquote>
+<h4 id="导入导出的复合写法（了解）"><a href="#导入导出的复合写法（了解）" class="headerlink" title="导入导出的复合写法（了解）"></a>导入导出的复合写法（了解）</h4><blockquote>
 <p>如果在一个模块之中<strong>先输入后输出同一个模块</strong>，则可以采用复合写法，将 <code>import</code> 语句与 <code>export</code> 语句写在一起。</p>
 <ul>
 <li>具体如下</li>
 </ul>
+</blockquote>
 <pre><code>import &#123; a, b &#125; from &quot;./a.js&quot;; // 在b模块中，导入a模块接口
 export &#123; a, b &#125;; // 导出接口a,b
+
+// 上面写法，等同于
+export &#123; a, b &#125; from &quot;./a.js&quot;; // 导出从a模块导入的接口a，b
 </code></pre>
+<blockquote>
+<p>不过分开写与复合写法之间还是存在不同</p>
 </blockquote>
-&#x2F;&#x2F; 上面写法，等同于<br>export { a, b } from “.&#x2F;a.js”; &#x2F;&#x2F; 导出从a模块导入的接口a，b<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>不过分开写与复合写法之间还是存在不同<blockquote>
 <ul>
 <li>分开写，可以在当前模块中使用导入的接口，而复合写法是没有办法在当前模块中使用导入的接口。</li>
 </ul>
@@ -1544,53 +1412,37 @@ import &#123; a, b &#125; from &quot;./a.js&quot;;
 export &#123; a, b &#125;;
 console.log(a, b); // 正确输出结果
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>// b.js文件
 export &#123; a, b &#125; from &quot;./a.js&quot;;
 console.log(a, b); // 抛出引用错误，a和b未定义
 </code></pre>
+<blockquote>
+<p>基本应用</p>
 </blockquote>
-<ul>
-<li>基本应用<blockquote>
 <pre><code>// a.js文件
 export let a = 1;
 export let b = 2;
+
+// b.js文件
+export let m = 10;
+export let n = 20;
+export &#123; a, b &#125; from &quot;./a.js&quot;; // 导出从a模块导入的接口a，b
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; b.js文件<br>export let m &#x3D; 10;<br>export let n &#x3D; 20;<br>export { a, b } from “.&#x2F;a.js”; &#x2F;&#x2F; 导出从a模块导入的接口a，b<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-<!--index.js 文件-->
-<blockquote>
-<script type="module">
-  import { a, b, m, n } from "./b.js";
+<pre><code>&lt;!--index.js 文件--&gt;
+&lt;script type=&quot;module&quot;&gt;
+  import &#123; a, b, m, n &#125; from &quot;./b.js&quot;;
   console.log(a, b, m, n); // 1 2 10 20
-</script>
-<pre><code>
+&lt;/script&gt;
 </code></pre>
+<blockquote>
+<p>其它应用</p>
 </blockquote>
-<ul>
-<li>其它应用<blockquote>
 <ul>
 <li>复合写法中实现修改接口名字</li>
 </ul>
 <pre><code>// b.js文件
 export &#123; a as aa, b &#125; from &quot;./a.js&quot;;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <ul>
 <li>整体导入并导出</li>
 </ul>
@@ -1603,86 +1455,74 @@ export * from &quot;./a.js&quot;;
 <pre><code>// a.js文件
 let username = &quot;icoding&quot;;
 export default username;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; b.js文件<br>export * from “.&#x2F;a.js”;</p>
-<!--index.js-->
-<blockquote>
-<script type="module">
-  import username from "./b.js";
+
+// b.js文件
+export * from &quot;./a.js&quot;;
+&lt;!--index.js--&gt;
+&gt;&lt;script type=&quot;module&quot;&gt;
+  import username from &quot;./b.js&quot;;
   console.log(username);
 
-</blockquote>
-<p>  &#x2F;&#x2F; 抛出错识：不提供名为 “default” 的导出</p>
-<blockquote>
-<p></script></p>
-<pre><code>
+  // 抛出错识：不提供名为 “default” 的导出
+&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
-<ul>
-<li>导入默认接口，并将其作为默认接口导出<blockquote>
-<p>default表示导入的默认接口，并将其作为默认接口导出（前提要保证b.js中没有其它的默认导出，否则会报错）</p>
-<ul>
-<li>默认接口，<strong>必需要写在最前面</strong>，然后<strong>用逗号分隔</strong>.后面的<code>&#123;&#125;</code>为 <code>export</code> 导出的多个接口</li>
-</ul>
+<p>导入默认接口，并将其作为默认接口导出</p>
 </blockquote>
-</li>
+<ul>
+<li>default表示导入的默认接口，并将其作为默认接口导出（前提要保证b.js中没有其它的默认导出，否则会报错）</li>
+<li>默认接口，<strong>必需要写在最前面</strong>，然后<strong>用逗号分隔</strong>.后面的<code>&#123;&#125;</code>为 <code>export</code> 导出的多个接口</li>
 </ul>
 <pre><code>// a.js
 let a = 1;
 export default a
 export let b = 2;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; b.js<br>export let m &#x3D; 10;<br>export let n &#x3D; 20;<br>export {default,b} from “.&#x2F;a.js”;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; index.html</p>
-<blockquote>
-<script type="module">
-  import a, { b, m, n } from "./b.js";
+
+// b.js
+export let m = 10;
+export let n = 20;
+export &#123;default,b&#125; from &quot;./a.js&quot;;
+
+// index.html
+&lt;script type=&quot;module&quot;&gt;
+  import a, &#123; b, m, n &#125; from &quot;./b.js&quot;;
   console.log(a, b, m, n); // 1 2 10 20
-</script>
-<pre><code>
+&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
-<ul>
-<li>将导入的接口作为默认接口导出<blockquote>
-<p>a.js和b.js都不能有默认接口</p>
+<p>将导入的接口作为默认接口导出</p>
 </blockquote>
-</li>
+<ul>
+<li>a.js和b.js都不能有默认接口</li>
 </ul>
 <pre><code>// a.js
 export let a = 1;
 export let b = 2;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; b.js<br>export let m &#x3D; 10;<br>export let n &#x3D; 20;<br>export {a as default,b} from “.&#x2F;a.js”;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; index.html</p>
-<blockquote>
-<script type="module">
-  import a, { b, m, n } from "./b.js";
+
+// b.js
+export let m = 10;
+export let n = 20;
+export &#123;a as default,b&#125; from &quot;./a.js&quot;;
+
+// index.html
+&lt;script type=&quot;module&quot;&gt;
+  import a, &#123; b, m, n &#125; from &quot;./b.js&quot;;
   console.log(a, b, m, n); // 1 2 10 20
-</script>
-<pre><code>
+&lt;/script&gt;
 </code></pre>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>以上复合写法仅需了解即可。</p>
-</blockquote>
-</blockquote>
+<ul>
+<li>以上复合写法仅需了解即可。</li>
+</ul>
 <h3 id="七、应用"><a href="#七、应用" class="headerlink" title="七、应用"></a>七、应用</h3><blockquote>
 <p>我们现在有这样一个需求，实现一个名为<code>ball.js</code>的模块，当我们在 <code>html</code> 页面加载这个模块时，导入其<code>init</code>接口，调用下<code>init()</code>函数，就可以实现在页面插入一个小球。</p>
 </blockquote>
 <blockquote>
 <p>当然，用户也可以根据自己的需求，在根目录下创建一个<code>ball.config.js</code>文件,然后按下面要求来配置小球的相关属性或方法等。</p>
 <ul>
-<li><code>ball.config.js</code>文件默认导出一个对象，对象的相关属性和值需要遵守以下表格中的规则。<table>
+<li><code>ball.config.js</code>文件默认导出一个对象，对象的相关属性和值需要遵守以下表格中的规则。</li>
+</ul>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>属性名</th>
@@ -1716,70 +1556,64 @@ export let b = 2;
 <td>数字类型，必须为 0-1 之间的小数</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-</blockquote>
 <ul>
-<li><code>ball.config.js</code>文件<blockquote>
+<li><code>ball.config.js</code>文件</li>
+</ul>
 <pre><code>export default &#123;
-  color:&quot;pink&quot;,
-  r:200,
-  x:300,
-  y:400,
-  opacity:0.5,
-  name:&quot;球球&quot;,
+    color:&quot;pink&quot;,
+    r:200,
+    x:300,
+    y:400,
+    opacity:0.5,
+    name:&quot;球球&quot;,
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><code>ball.js</code>文件<blockquote>
+<ul>
+<li><code>ball.js</code>文件</li>
+</ul>
 <pre><code>//导入
 import userDate from &#39;./ball.config.js&#39;
 function init()&#123;
-  const defaultDate=&#123;
-      color:&quot;yellow&quot;,
-      r:100,
-      x:100,
-      y:100,
-      opacity:1
-  &#125;
-   // 遍历用户配置的参数，把不相关的属性过滤掉
-  let config=&#123;&#125;
-  const keys=Object.keys(userDate)
-  for(let key of keys)&#123;
-      if(defaultDate.hasOwnProperty(key))&#123;
-          config[key]=userDate[key]
-      &#125;
-  &#125;
-  //创建小球
-  const ball = document.createElement(&quot;div&quot;);
-  ball.style.backgroundColor=config.color;
-  ball.style.width=config.r*2+&quot;px&quot;;
-  ball.style.height=config.r*2+&quot;px&quot;;
-  ball.style.opacity=config.opacity;
-  ball.style.position=&quot;absolute&quot;;
-  ball.style.left=config.x;
-  ball.style.top=config.y;
-  ball.style.borderRadius=&quot;50%&quot;;
-  //插入页面
-  document.body.appendChild(ball);
+    const defaultDate=&#123;
+        color:&quot;yellow&quot;,
+        r:100,
+        x:100,
+        y:100,
+        opacity:1
+    &#125;
+     // 遍历用户配置的参数，把不相关的属性过滤掉
+    let config=&#123;&#125;
+    const keys=Object.keys(userDate)
+    for(let key of keys)&#123;
+        if(defaultDate.hasOwnProperty(key))&#123;
+            config[key]=userDate[key]
+        &#125;
+    &#125;
+    //创建小球
+    const ball = document.createElement(&quot;div&quot;);
+    ball.style.backgroundColor=config.color;
+    ball.style.width=config.r*2+&quot;px&quot;;
+    ball.style.height=config.r*2+&quot;px&quot;;
+    ball.style.opacity=config.opacity;
+    ball.style.position=&quot;absolute&quot;;
+    ball.style.left=config.x;
+    ball.style.top=config.y;
+    ball.style.borderRadius=&quot;50%&quot;;
+    //插入页面
+    document.body.appendChild(ball);
 &#125;
 //导出
 export default init;
 </code></pre>
-</blockquote>
-</li>
-<li><code>index.html</code>页面<blockquote>
+<ul>
+<li><code>index.html</code>页面</li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
- import init from &quot;./ball.js&quot;;
- init();
+  import init from &quot;./ball.js&quot;;
+  init();
 &lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<h3 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h3><ol>
-<li>导出和导入<table>
+<h3 id="八、总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h3><h4 id="导出和导入"><a href="#导出和导入" class="headerlink" title="导出和导入"></a>导出和导入</h4><table>
 <thead>
 <tr>
 <th></th>
@@ -1808,23 +1642,18 @@ export default init;
 <td>导入和导出时都可以用<code>as</code>取别名</td>
 </tr>
 </tbody></table>
-</li>
-</ol>
-<ul>
-<li><p>导出多个<code>export</code>接口：</p>
+<p>导出多个<code>export</code>接口：</p>
 <blockquote>
+<p>用<code>&#123;&#125;</code>将接口包裹：<code>export&#123;&#125;</code>；可以取别名，但导入时也要用别名</p>
 <ul>
-<li>用<code>&#123;&#125;</code>将接口包裹：<code>export&#123;&#125;</code>；可以取别名，但导入时也要用别名<ul>
 <li><code>export &#123; foo, Person, sex &#125;;</code></li>
 </ul>
-</li>
-</ul>
 </blockquote>
-</li>
-<li><p><code>import</code>整体导入所有接口</p>
 <blockquote>
-<p><strong>方式一：</strong>用<code>* as 别名</code>的方式，必须取别名来接收这个模块对象；</p>
+<p><code>import</code>整体导入所有接口</p>
+</blockquote>
 <ul>
+<li>方式一：用<code>* as 别名</code>的方式，必须取别名来接收这个模块对象；</li>
 <li>从对象中取出接口的方式：<ul>
 <li>1.对象打点属性，默认属性：<code>对象.default</code></li>
 <li>2.解构赋值，默认属性：<code>&#123;default:别名&#125;</code></li>
@@ -1839,12 +1668,8 @@ console.log(obj.default);
 const &#123; default: username, foo, Person, sex &#125; = obj;
 console.log(username);//
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p><strong>方式二：</strong>用<code>默认接口,&#123;export接口&#125;</code>，默认接口取任意名字，不能改变顺序</p>
 <ul>
+<li>方式二：用<code>默认接口,&#123;export接口&#125;</code>，默认接口取任意名字，不能改变顺序</li>
 <li>取出接口的方式：直接调用接口名</li>
 </ul>
 <pre><code>//导入
@@ -1852,10 +1677,10 @@ import username, &#123; foo, Person, sex &#125; from &quot;./module.js&quot;;
 //取出接口
 console.log(username); // icoding
 </code></pre>
-</blockquote>
-<ol start="2">
-<li>import 命令与 import 关键字<blockquote>
+<p>import 命令与 import 关键字</p>
+<blockquote>
 <p><code>import</code> 命令与 <code>import()</code> 函数都可以实现导入模块，并接受导出的接口，不过他们存在以下<strong>不同点</strong></p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1879,22 +1704,11 @@ console.log(username); // icoding
 <td>静态加载（编译时加载）</td>
 <td>异步加载</td>
 </tr>
-<tr>
-<td><strong>注：</strong></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
 <ul>
 <li><code>import</code>命令不能与<code>if</code>配合，实现按需加载，而<code>import()</code>函数可以与<code>if</code>配合，实现按需加载</li>
 </ul>
-</blockquote>
-</li>
-</ol>
-<h2 id="ES6Proxy-代理-与-Reflect反射"><a href="#ES6Proxy-代理-与-Reflect反射" class="headerlink" title="ES6Proxy 代理 与 Reflect反射"></a>ES6Proxy 代理 与 Reflect反射</h2><blockquote>
-<p>本章我们来学习 Proxy，Proxy 英文翻译为代理。</p>
-</blockquote>
-<p><strong>什么是代理</strong></p>
+<h2 id="ES6Proxy-代理-与-Reflect反射"><a href="#ES6Proxy-代理-与-Reflect反射" class="headerlink" title="ES6Proxy 代理 与 Reflect反射"></a>ES6Proxy 代理 与 Reflect反射</h2><p><strong>什么是代理</strong></p>
 <blockquote>
 <ul>
 <li>代理就是针对一个对象设置代理，控制对这个对象的直接访问。用户不得直接访问这个对象，只能访问该对象的代理，代理会帮忙完成相关操作。</li>
@@ -1913,10 +1727,8 @@ console.log(username); // icoding
 </ul>
 <p><strong>为什么明星不直接与客户对接呢？</strong></p>
 <ul>
-<li>明星作为公众人为要维护好自己对外的形象，所以不方便直接和客户谈钱。谈钱这种事交给经纪人更合理。如果明星对于合作有要求，比如低于 10 万的演出就不要接，那这种情况自然是经纪人出面会更好，经经人可以直接帮明星拒绝一些不合理的要求和合作。<blockquote>
-<p>通过上面的例子，我们知道代理可以帮对象做很多对象自己做不了的事情，或拒绝，过滤掉一些不合法，不安全，不满足要求的事情等</p>
-</blockquote>
-</li>
+<li>明星作为公众人为要维护好自己对外的形象，所以不方便直接和客户谈钱。谈钱这种事交给经纪人更合理。如果明星对于合作有要求，比如低于 10 万的演出就不要接，那这种情况自然是经纪人出面会更好，经经人可以直接帮明星拒绝一些不合理的要求和合作。</li>
+<li>通过上面的例子，我们知道代理可以帮对象做很多对象自己做不了的事情，或拒绝，过滤掉一些不合法，不安全，不满足要求的事情等</li>
 </ul>
 </blockquote>
 <p><strong>代理的价值</strong></p>
@@ -1928,31 +1740,27 @@ console.log(username); // icoding
 <h3 id="一、Proxy-基本用法"><a href="#一、Proxy-基本用法" class="headerlink" title="一、Proxy 基本用法"></a>一、Proxy 基本用法</h3><blockquote>
 <p>Proxy（代理）可以理解成：在目标对象之前架设一层<strong>“拦截”</strong>，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。</p>
 </blockquote>
-<ol>
-<li>Proxy 语法<blockquote>
+<h4 id="Proxy-语法"><a href="#Proxy-语法" class="headerlink" title="Proxy 语法"></a>Proxy 语法</h4><blockquote>
 <p>ES6 原生提供了<code>Proxy</code>构造函数，用于生成<code>Proxy</code>实例。</p>
+</blockquote>
 <ul>
-<li>我们实际操作的是 Proxy 的实例</li>
-</ul>
+<li>我们实际操作的是 Proxy 的实例<blockquote>
+<p>语法</p>
 </blockquote>
 </li>
-</ol>
-<ul>
-<li>语法<blockquote>
+</ul>
 <pre><code>const proxy = new Proxy(target, handler);
 </code></pre>
-<p><strong>参数</strong></p>
+<blockquote>
+<p>参数</p>
+</blockquote>
 <ul>
 <li><code>target</code>：表示要使用<code>Proxy</code>代理的目标对象（可以是任何类型的对象，包括原生数组，函数，甚至另一个代理）</li>
 <li><code>handler</code>：是一个处理器对象，对象的每个属性是一个函数，用来定制相关的拦截行为。</li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li><p>proxy 基本用法</p>
-<blockquote>
+<h4 id="proxy-基本用法"><a href="#proxy-基本用法" class="headerlink" title="proxy 基本用法"></a>proxy 基本用法</h4><blockquote>
 <p>当我们读取对象的某个属性时，<code>handler</code>对象中的<code>get</code>方法就可以拦截该操作，如果读取对象身上不存在的属性时，就会抛出错误。</p>
+</blockquote>
 <ul>
 <li>具体代码实现如下：</li>
 </ul>
@@ -1961,427 +1769,479 @@ const obj = &#123;
   name: &quot;icoding&quot;,
   age: 33,
 &#125;;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 代理对象<br>const proxy &#x3D; new Proxy(obj, {<br>  get(target, key) {<br> if (key in target) {<br>   return target[key];<br> } else {<br>   throw new Error(“访问的属性不存在”);<br> }<br>  },<br>});</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;使用代理对象<br>console.log(proxy.name); &#x2F;&#x2F; icoding<br>console.log(proxy.sex); &#x2F;&#x2F; Uncaught Error: 访问的属性不存在</p>
-<blockquote>
-<pre><code>**代码解析**
-上面代码中的 obj 为目标对象，proxy 为代理对象。当我们访问 proxy 对象的属性时，就相当于是在访问目标对象上的相关属性。
-- 但和直接访问目标对象不同，通过 proxy 代理访问时，就会调用代理构造函数的第二个参数`handle`对象中的`get`方法来处理（相当于拦截）
 
-**注意事项**
-- 要使 Proxy 代理起作用，必须对**Proxy实例**（上例中的 proxy）进行操作，**而不是针对目标对象**（上例中的 obj）进行操作
-- 如果直接访问`obj.sex`，会得到`undefined`，因为`Proxy`没起作用
+// 代理对象
+const proxy = new Proxy(obj, &#123;
+  get(target, key) &#123;
+    if (key in target) &#123;
+      return target[key];
+    &#125; else &#123;
+      throw new Error(&quot;访问的属性不存在&quot;);
+    &#125;
+  &#125;,
+&#125;);
+
+//使用代理对象
+console.log(proxy.name); // icoding
+console.log(proxy.sex); // Uncaught Error: 访问的属性不存在
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
 <blockquote>
+<p>代码解析</p>
+</blockquote>
 <ul>
-<li>当<code>handler = &#123;&#125;</code>时，相当于没有设置任何拦截，那操作代理对象<strong>等同于直接操作目标对象</strong>。</li>
+<li>上面代码中的 obj 为目标对象，proxy 为代理对象。当我们访问 proxy 对象的属性时，就相当于是在访问目标对象上的相关属性。</li>
+<li>但和直接访问目标对象不同，通过 proxy 代理访问时，就会调用代理构造函数的第二个参数<code>handle</code>对象中的<code>get</code>方法来处理（相当于拦截）</li>
 </ul>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>要使 Proxy 代理起作用，必须对<strong>Proxy实例</strong>（上例中的 proxy）进行操作，<strong>而不是针对目标对象</strong>（上例中的 obj）进行操作</li>
+<li>如果直接访问<code>obj.sex</code>，会得到<code>undefined</code>，因为<code>Proxy</code>没起作用</li>
+</ul>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><blockquote>
+<p>当<code>handler = &#123;&#125;</code>时，相当于没有设置任何拦截，那操作代理对象<strong>等同于直接操作目标对象</strong>。</p>
+</blockquote>
 <pre><code>// 目标对象
 const obj = &#123;
   name: &quot;icoding&quot;,
   age: 33,
 &#125;;
+
+// 代理对象
+const proxy = new Proxy(obj, &#123;&#125;);
+
+//使用代理对象
+console.log(proxy.name); // icoding
+console.log(proxy.sex); // undefined 相当于obj.sex
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 代理对象<br>const proxy &#x3D; new Proxy(obj, {});</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;使用代理对象<br>console.log(proxy.name); &#x2F;&#x2F; icoding<br>console.log(proxy.sex); &#x2F;&#x2F; undefined 相当于obj.sex</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="二、handler-对象的方法"><a href="#二、handler-对象的方法" class="headerlink" title="二、handler 对象的方法"></a>二、handler 对象的方法</h3><blockquote>
 <p><code>handler</code>：是一个<strong>处理器对象</strong>，对象的每个属性是一个函数（每个函数相当于是具有特定功能的捕捉器），用来定制相关的拦截行为。如果对象中没有指定相关的捕捉器，那就会保留目标对象的默认行为。</p>
 <ul>
 <li>那接下来我们来学习下 handler 对象身上可以设置那些方法（捕捉器）</li>
 </ul>
 </blockquote>
-<ol>
-<li><code>handler.get()</code>方法<blockquote>
+<h4 id="handler-get-方法"><a href="#handler-get-方法" class="headerlink" title="handler.get()方法"></a><code>handler.get()</code>方法</h4><blockquote>
+<p><code>handler.get()</code>方法用于拦截对象的读取属性操作，包括访问原型上的属性</p>
 <ul>
-<li><code>handler.get()</code>方法用于拦截对象的读取属性操作，包括访问原型上的属性。</li>
 <li>返回值：可以是任何类型，表示最终访问到的属性值。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
-<ul>
-<li><p>语法</p>
 <blockquote>
+<p>语法</p>
+</blockquote>
 <pre><code>var p = new Proxy(target, &#123;
-get: function (target, property, receiver) &#123;
-  // ....
-&#125;,
+  get: function (target, property, receiver) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
-<p><strong>get函数的参数：</strong></p>
+<blockquote>
+<p>get函数的参数：</p>
+</blockquote>
 <ul>
 <li>target：被代理的目标对象</li>
 <li>property：<strong>被获取的</strong>属性名，注意是<strong>字符串类型</strong></li>
 <li>receiver：可选参数，指代上面的<code>p</code>，<code>Proxy</code>实例</li>
 </ul>
-</blockquote>
-</li>
-<li><p>基本应用</p>
 <blockquote>
+<p>基本应用</p>
 <ul>
 <li>访问对象身上不存在的属性时会报错</li>
 </ul>
+</blockquote>
 <pre><code>// target 目标对象
 const obj = &#123;
-name: &quot;icoding&quot;,
-age: 33,
+  name: &quot;icoding&quot;,
+  age: 33,
 &#125;;
+
+// proxy 代理对象
+const proxy = new Proxy(obj, &#123;
+  get(target, prop) &#123;
+    if (prop in target) &#123;
+      return target[prop];
+    &#125; else &#123;
+      throw new Error(&quot;访问的属性不存在&quot;);
+    &#125;
+  &#125;,
+&#125;);
+
+console.log(proxy.name); // icoding
+console.log(proxy.toString); // ƒ toString() &#123; [native code] &#125;
+proxy.sex; // Uncaught Error: 访问的属性不存在
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; proxy 代理对象<br>const proxy &#x3D; new Proxy(obj, {<br>get(target, prop) {<br>  if (prop in target) {<br>return target[prop];<br>  } else {<br>throw new Error(“访问的属性不存在”);<br>  }<br>},<br>});</p>
+<ul>
+<li>正常情况下，当我们访问对象上不存在的属性时，返回值是<code>undefined</code>，但是上面抛出了错误，说明 <code>proxy</code> 代理生效，拦截了对 <code>obj</code> 对象的访问</li>
+</ul>
 <blockquote>
+<ul>
+<li>实现数组可以通过负索引来访问</li>
+</ul>
 </blockquote>
-<p>console.log(proxy.name); &#x2F;&#x2F; icoding<br>console.log(proxy.toString); &#x2F;&#x2F; ƒ toString() { [native code] }<br>proxy.sex; &#x2F;&#x2F; Uncaught Error: 访问的属性不存在</p>
-<blockquote>
-<pre><code>- 正常情况下，当我们访问对象上不存在的属性时，返回值是`undefined`，但是上面抛出了错误，说明 `proxy` 代理生效，拦截了对 `obj` 对象的访问
-</code></pre>
-</blockquote>
-</li>
-<li><p>实现数组可以通过负索引来访问</p>
-<blockquote>
 <pre><code>const target = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
 const arr = new Proxy(target, &#123;
-get(target, prop) &#123;
-  prop = Number(prop); // 将属性转换为数字类型
-  if (prop &lt; 0) &#123;
-    prop = target.length + prop; // 将负数转换为正数对应索引
-  &#125;
-  return target[prop];
-&#125;,
+  get(target, prop) &#123;
+    prop = Number(prop); // 将属性转换为数字类型
+    if (prop &lt; 0) &#123;
+      prop = target.length + prop; // 将负数转换为正数对应索引
+    &#125;
+    return target[prop];
+  &#125;,
 &#125;);
+
+console.log(arr[-1]); // c
+console.log(arr[-2]); // b
+console.log(arr[0]); // a
 </code></pre>
-</blockquote>
-<p>console.log(arr[-1]); &#x2F;&#x2F; c<br>console.log(arr[-2]); &#x2F;&#x2F; b<br>console.log(arr[0]); &#x2F;&#x2F; a</p>
+<ul>
+<li>当访问的数组的属性（下标）值是小于 0 的负数时，则将其转换为对应的正数索引下标并输出：<code>数组长度+下标</code>。</li>
+<li>注意：<code>property</code>是字符串类型，进行计算时，要转为数字类型</li>
+</ul>
 <blockquote>
-<pre><code>- 当访问的数组的属性（下标）值是小于 0 的负数时，则将其转换为对应的正数索引下标并输出：`数组长度+下标`。
-- 注意：`property`是字符串类型，进行计算时，要转为数字类型
-</code></pre>
+<ul>
+<li>注意事项</li>
+</ul>
 </blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
 <ul>
 <li>如果一个属性<strong>不可配置</strong>(configurable)或<strong>不可写</strong>(writable)，代理时的返回值必须与该目标对象的属性的值相同，否则就会抛出错误</li>
 </ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
 Object.defineProperty(obj, &quot;c&quot;, &#123;
-configurable: false,
-value: 3,
-writable: false,
+  configurable: false,
+  value: 3,
+  writable: false,
 &#125;);
+
+const proxy = new Proxy(obj, &#123;
+  get(target, prop) &#123;
+    if (prop === &quot;c&quot;) &#123;
+      // return 3;  // 访问属性时，正确输出3
+      return 4; // 访问属性c时，因为输出的值不是3，和目标属性的值不相同，所以抛出错误
+    &#125; else &#123;
+      return target[prop];
+    &#125;
+  &#125;,
+&#125;);
+
+console.log(proxy.a); // 1
+console.log(proxy.c); // 如果上面return3，则正确输出3，否则抛错
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>get(target, prop) {<br>  if (prop &#x3D;&#x3D;&#x3D; “c”) {<br>&#x2F;&#x2F; return 3;  &#x2F;&#x2F; 访问属性时，正确输出3<br>return 4; &#x2F;&#x2F; 访问属性c时，因为输出的值不是3，和目标属性的值不相同，所以抛出错误<br>  } else {<br>return target[prop];<br>  }<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>console.log(proxy.a); &#x2F;&#x2F; 1<br>console.log(proxy.c); &#x2F;&#x2F; 如果上面return3，则正确输出3，否则抛错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li><code>handler.set()</code>方法<blockquote>
+<h4 id="handler-set-方法"><a href="#handler-set-方法" class="headerlink" title="handler.set()方法"></a><code>handler.set()</code>方法</h4><blockquote>
 <p><code>handler.set()</code>方法用于拦截对对象的某个属性做赋值操作。</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>const p = new Proxy(target, &#123;
-set: function (target, property, value, receiver) &#123;
-  // ....
-&#125;,
+  set: function (target, property, value, receiver) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p><code>set</code>函数的参数：</p>
+</blockquote>
 <ul>
 <li>target：被代理的目标对象</li>
 <li>property：将要被设置值的属性名</li>
 <li>value：新的属性值</li>
 <li>receiver：可选参数，最初被调用的对象。通常是 proxy 本身</li>
 </ul>
-</blockquote>
-</li>
-<li><p>返回值：是一个布尔值，<code>true</code>表示赋值成功，<code>false</code>表示赋值失败</p>
 <blockquote>
+<p>返回值：是一个布尔值，<code>true</code>表示赋值成功，<code>false</code>表示赋值失败</p>
+</blockquote>
 <ul>
 <li>非严格模式下，返回值可写可不写</li>
 <li><strong>严格模式</strong>下，一定要写(除非抛出错误)，同时返回值为<code>false</code>时，会抛出错误</li>
 </ul>
 <pre><code>//   &quot;use strict&quot;;
 const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
+
+let handler = &#123;
+  set(target, prop, value) &#123;
+    if (prop === &quot;a&quot;) &#123;
+      return false;
+    &#125;
+    target[prop] = value;
+    return true; // 非严格模式下，可以省略不写
+  &#125;,
+&#125;;
+const proxy = new Proxy(obj, handler);
+proxy.b = &quot;hello&quot;;
+// 捕获错误
+try &#123;
+  proxy.a = &quot;world&quot;;
+&#125; catch (err) &#123;
+  console.log(err);
+&#125;
+
+console.log(proxy.b);
+console.log(proxy.a);
 </code></pre>
-</blockquote>
-<p>let handler &#x3D; {<br>set(target, prop, value) {<br>  if (prop &#x3D;&#x3D;&#x3D; “a”) {<br>return false;<br>  }<br>  target[prop] &#x3D; value;<br>  return true; &#x2F;&#x2F; 非严格模式下，可以省略不写<br>},<br>};<br>const proxy &#x3D; new Proxy(obj, handler);<br>proxy.b &#x3D; “hello”;<br>&#x2F;&#x2F; 捕获错误<br>try {<br>proxy.a &#x3D; “world”;<br>} catch (err) {<br>console.log(err);<br>}</p>
 <blockquote>
-</blockquote>
-<p>console.log(proxy.b);<br>console.log(proxy.a);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<p>基本用法</p>
 <ul>
 <li>禁止给以<code>_</code>下划线开头的私有属性被重新赋值，并抛出错误</li>
 </ul>
+</blockquote>
 <pre><code>// &quot;use strict&quot;;
 const obj = &#123;
-name: &quot;icoding&quot;,
-age: 33,
-_sex: &quot;女&quot;,
+  name: &quot;icoding&quot;,
+  age: 33,
+  _sex: &quot;女&quot;,
 &#125;;
+
+const proxy = new Proxy(obj, &#123;
+  set(target, prop, value) &#123;
+    // 如果属性名以_开头，则抛出错误
+    if (prop[0] === &quot;_&quot;) &#123;
+      throw new Error(&quot;不允许赋值操作&quot;);
+    &#125;
+    // 其它情况，正常赋值
+    target[prop] = value;
+    // 非严格模式下，return语句可以省略
+    return true;
+  &#125;,
+&#125;);
+
+proxy.name = &quot;arry&quot;;
+proxy._sex = &quot;男&quot;;//报错
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>set(target, prop, value) {<br>  &#x2F;&#x2F; 如果属性名以_开头，则抛出错误<br>  if (prop[0] &#x3D;&#x3D;&#x3D; “_”) {<br>throw new Error(“不允许赋值操作”);<br>  }<br>  &#x2F;&#x2F; 其它情况，正常赋值<br>  target[prop] &#x3D; value;<br>  &#x2F;&#x2F; 非严格模式下，return语句可以省略<br>  return true;<br>},<br>});</p>
 <blockquote>
+<ul>
+<li>实现数据绑定，当对象的某个属性发生变化时，自动更新 DOM</li>
+</ul>
 </blockquote>
-<p>proxy.name &#x3D; “arry”;<br>proxy._sex &#x3D; “男”;&#x2F;&#x2F;报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>实现数据绑定，当对象的某个属性发生变化时，自动更新 DOM</p>
-<blockquote>
 <pre><code>&lt;h3 class=&quot;title&quot;&gt;标题&lt;/h3&gt;
 &lt;p class=&quot;desc&quot;&gt;内容&lt;/p&gt;
 &lt;script&gt;
-const data = &#123;
-  title: &quot;新闻标题&quot;,
-  desc: &quot;新问内容&quot;,
-&#125;;
+ const data = &#123;
+   title: &quot;新闻标题&quot;,
+   desc: &quot;新问内容&quot;,
+ &#125;;
+
+ const title = document.querySelector(&quot;.title&quot;);
+ const desc = document.querySelector(&quot;.desc&quot;);
+ title.innerText = data.title;
+ desc.innerText = data.desc;
+
+ const proxy = new Proxy(data, &#123;
+   set(target, prop, value) &#123;
+     switch (prop) &#123;
+       case &quot;title&quot;:
+         title.innerText = value;
+         break;
+       case &quot;desc&quot;:
+         desc.innerText = value;
+         break;
+     &#125;
+   &#125;,
+ &#125;);
+
+ // 点击页面，更新数据
+ document.onclick = function () &#123;
+   proxy.title = &quot;set方法能做什么？&quot;;
+   proxy.desc = &quot;set方法可以实现动态更新DOM&quot;;
+ &#125;;
+&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>const title &#x3D; document.querySelector(“.title”);<br>const desc &#x3D; document.querySelector(“.desc”);<br>title.innerText &#x3D; data.title;<br>desc.innerText &#x3D; data.desc;</p>
 <blockquote>
+<p>注意事项</p>
 </blockquote>
-<p>const proxy &#x3D; new Proxy(data, {<br>  set(target, prop, value) {<br>switch (prop) {<br>  case “title”:<br>    title.innerText &#x3D; value;<br>    break;<br>  case “desc”:<br>    desc.innerText &#x3D; value;<br>    break;<br>}<br>  },<br>});</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 点击页面，更新数据<br>document.onclick &#x3D; function () {<br>  proxy.title &#x3D; “set方法能做什么？”;<br>  proxy.desc &#x3D; “set方法可以实现动态更新DOM”;<br>};</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
 <ul>
 <li>若目标属性是一个不可写及不可配置的数据属性，则不能改变它的值，否则会报错</li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<ol start="3">
-<li>handler.has() 方法<blockquote>
+<h4 id="handler-has-方法"><a href="#handler-has-方法" class="headerlink" title="handler.has() 方法"></a>handler.has() 方法</h4><blockquote>
 <p><code>handler.has()</code>方法用来拦截判断<strong>某个属性是否为对象属性</strong>的操作，但并不拦截判断某个属性是否为对象自身属性的操作。</p>
+</blockquote>
 <ul>
 <li>也就是说 <code>has </code>方法主要针对<code>in</code>运算符，而不针对<code>hasOwnProperty</code>，还有<code>for...in</code>中用到了 in 运算符，但<code>has()</code>拦截对<code>for…in</code>循环不生效。</li>
 <li>返回值： 返回一个布尔值，<code>true</code>表示该属性存在于该对象上，<code>false</code>表示不存在该对象上</li>
 </ul>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li><p>语法</p>
 <blockquote>
+<p>语法</p>
+</blockquote>
 <pre><code>const p = new Proxy(target, &#123;
-has: function (target, property) &#123;
-  // ....
-&#125;,
+  has: function (target, property) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
+<p><code>has</code>函数的参数：</p>
+</blockquote>
 <ul>
-<li><code>has</code>函数的参数：</li>
 <li><code>target</code>：被代理的目标对象</li>
 <li><code>property</code>：需要检查是否存在的属性名</li>
 </ul>
-</blockquote>
-</li>
-<li><p>基本应用</p>
 <blockquote>
+<p>基本应用</p>
 <ul>
 <li>用来隐藏对象的某个属性</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-name: &quot;icoding&quot;,
-age: 33,
-_sex: &quot;女&quot;,
+  name: &quot;icoding&quot;,
+  age: 33,
+  _sex: &quot;女&quot;,
 &#125;;
 const proxy = new Proxy(obj, &#123;
-has(target, prop) &#123;
-  if (prop[0] === &quot;_&quot;) &#123;
-    return false;
-  &#125;
-  return prop in target;
-&#125;,
+  has(target, prop) &#123;
+    if (prop[0] === &quot;_&quot;) &#123;
+      return false;
+    &#125;
+    return prop in target;
+  &#125;,
 &#125;);
+
+console.log(&quot;name&quot; in proxy); // true
+console.log(&quot;_sex&quot; in proxy); // false
+console.log(&quot;toString&quot; in proxy); // true
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<p>console.log(“name” in proxy); &#x2F;&#x2F; true<br>console.log(“_sex” in proxy); &#x2F;&#x2F; false<br>console.log(“toString” in proxy); &#x2F;&#x2F; true</p>
 <blockquote>
-<pre><code>
-</code></pre>
+<p>判断对象身上是否有这个属性，如果有，再判断是否为函数，如果是，就调用下这个方法</p>
 </blockquote>
-<ul>
-<li><p>判断对象身上是否有这个属性，如果有，再判断是否为函数，如果是，就调用下这个方法</p>
-<blockquote>
 <pre><code>const obj = &#123;
-name: &quot;icoding&quot;,
-say() &#123;
-  console.log(`大家好，我是$&#123;this.name&#125;`);
-&#125;,
+  name: &quot;icoding&quot;,
+  say() &#123;
+    console.log(`大家好，我是$&#123;this.name&#125;`);
+  &#125;,
 &#125;;
 const proxy = new Proxy(obj, &#123;
-has(target, prop) &#123;
-  if (prop === &quot;say&quot; &amp;&amp; typeof target[prop] === &quot;function&quot;) &#123;
-    target[prop]();
-  &#125;
-&#125;,
+  has(target, prop) &#123;
+    if (prop === &quot;say&quot; &amp;&amp; typeof target[prop] === &quot;function&quot;) &#123;
+      target[prop]();
+    &#125;
+  &#125;,
 &#125;);
+
+&quot;say&quot; in proxy; // 大家好，我是icoding
 </code></pre>
-</blockquote>
-<p>“say” in proxy; &#x2F;&#x2F; 大家好，我是icoding</p>
 <blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
+<p>注意事项</p>
 <ul>
 <li>如果目标对象的某一属性为<strong>不可配置</strong>，则该属性不能够被代理设置为隐藏(false)，只能返回<code>true</code></li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;&#125;;
 Object.defineProperty(obj, &quot;name&quot;, &#123;
-value: &quot;icoding&quot;,
-writable: false,
-configurable: false, // 不可配置
+  value: &quot;icoding&quot;,
+  writable: false,
+  configurable: false, // 不可配置
 &#125;);
+
+const proxy = new Proxy(obj, &#123;
+  has(target, prop) &#123;
+    return true; // false是会报错，true不会
+  &#125;,
+&#125;);
+console.log(&quot;name&quot; in proxy);
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>has(target, prop) {<br>  return true; &#x2F;&#x2F; false是会报错，true不会<br>},<br>});<br>console.log(“name” in proxy);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>如果目标对象为<strong>不可扩展对象</strong>，则该对象的属性不能够被代理设置为隐藏(false)</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
   a: 1,
   b: 2,
 &#125;;
+
+Object.preventExtensions(obj); // 将对象设置为不可扩展的
+const proxy = new Proxy(obj, &#123;
+  has(target, prop) &#123;
+    if (prop in target) &#123;
+      return true; // false是会报错，true不会
+    &#125; else &#123;
+      return false;
+    &#125;
+  &#125;,
+&#125;);
+console.log(&quot;name&quot; in proxy); // false
+console.log(&quot;toString&quot; in proxy); // true
+console.log(&quot;a&quot; in proxy); // 抛出错误
 </code></pre>
-</blockquote>
-<p>Object.preventExtensions(obj); &#x2F;&#x2F; 将对象设置为不可扩展的<br>const proxy &#x3D; new Proxy(obj, {<br>  has(target, prop) {<br>    if (prop in target) {<br>      return true; &#x2F;&#x2F; false是会报错，true不会<br>    } else {<br>      return false;<br>    }<br>  },<br>});<br>console.log(“name” in proxy); &#x2F;&#x2F; false<br>console.log(“toString” in proxy); &#x2F;&#x2F; true<br>console.log(“a” in proxy); &#x2F;&#x2F; 抛出错误</p>
-<blockquote>
-<pre><code>&gt;`Object.preventExtensions()`方法让一个对象变的不可扩展，也就是永远不能再添加新的属性。
-</code></pre>
-</blockquote>
-<ol start="4">
-<li><code>handler.apply()</code>方法<blockquote>
+<p>-<code>Object.preventExtensions()</code>方法让一个对象变的不可扩展，也就是永远不能再添加新的属性。</p>
+<h4 id="handler-apply-方法"><a href="#handler-apply-方法" class="headerlink" title="handler.apply()方法"></a><code>handler.apply()</code>方法</h4><blockquote>
 <p><code>handler.apply()</code>方法用于拦截函数的调用，<code>call</code> 和 <code>apply</code> 操作。</p>
 <ul>
 <li>返回值可以是任意类型，表示函数调用的返回值</li>
 </ul>
 </blockquote>
-</li>
-</ol>
-<ul>
-<li><p>语法</p>
 <blockquote>
+<p>语法</p>
+</blockquote>
 <pre><code>var p = new Proxy(target, &#123;
-apply: function (target, thisArg, args) &#123;
-  // ...
-&#125;,
+  apply: function (target, thisArg, args) &#123;
+    // ...
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p>apply函数的参数：</p>
-<ul>
-<li>target：被代理的目标对象（函数）</li>
-<li>thisArg：被调用时的上下文对象</li>
-<li>args：被调用时的参数组成的数组</li>
-</ul>
 </blockquote>
+<ul>
+<li><p>target：被代理的目标对象（函数）</p>
+</li>
+<li><p>thisArg：被调用时的上下文对象</p>
+</li>
+<li><p>args：被调用时的参数组成的数组</p>
 </li>
 <li><p>关于 apply 方法的参数的理解，可以看下面代码的演示</p>
-<blockquote>
-<pre><code>function foo() &#123;
-console.log(this);
-&#125;
-</code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(foo, {<br>apply(target, thisArg, args) {<br>  console.log(target); &#x2F;&#x2F; 被代理的目标对象（函数 foo)<br>  console.log(thisArg); &#x2F;&#x2F; 被调用是的上下文对象，指 undefined 或{m:1,n:2}<br>  console.log(args); &#x2F;&#x2F; 被调用时的参数数组，指[1,2,3] 或[‘a’,’b’,’c’]<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>proxy(1, 2, 3); &#x2F;&#x2F; foo  undefined  [1, 2, 3]<br>proxy.call({ m: 1, n: 2 }, “a”, “b”, “c”); &#x2F;&#x2F; foo undefined  [‘a’, ‘b’, ‘c’]</p>
-<blockquote>
-<pre><code>- 代理使用的是严格模式，所以在不改变this指向的情况下，函数的`this`默认为`undefined`
-</code></pre>
-</blockquote>
 </li>
-<li><p>基本应用</p>
+</ul>
+<pre><code>function foo() &#123;
+  console.log(this);
+&#125;
+
+const proxy = new Proxy(foo, &#123;
+  apply(target, thisArg, args) &#123;
+    console.log(target); // 被代理的目标对象(函数 foo)
+    console.log(thisArg); // 被调用是的上下文对象，指 undefined 或&#123;m:1,n:2&#125;
+    console.log(args); // 被调用时的参数数组，指[1,2,3] 或[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+  &#125;,
+&#125;);
+
+proxy(1, 2, 3); // foo  undefined  [1, 2, 3]
+proxy.call(&#123; m: 1, n: 2 &#125;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;); // foo undefined  [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+</code></pre>
+<ul>
+<li>代理使用的是严格模式，所以在不改变this指向的情况下，函数的<code>this</code>默认为<code>undefined</code></li>
+</ul>
 <blockquote>
+<p>基本应用</p>
 <ul>
 <li>改变函数调用时的返回值</li>
 </ul>
+</blockquote>
 <pre><code>// 函数返回的是一个数组
 function foo() &#123;
-return [1, 4, 5, 6, 20, 3, 44];
+  return [1, 4, 5, 6, 20, 3, 44];
 &#125;
 // // 代理后，返回的数组是升序排序好的
 const proxy = new Proxy(foo, &#123;
-apply(target, thisArg, args) &#123;
-  const arr = target();
-  return arr.sort((a, b) =&gt; a - b); // 降序
-&#125;,
+  apply(target, thisArg, args) &#123;
+    const arr = target();
+    return arr.sort((a, b) =&gt; a - b); // 降序
+  &#125;,
 &#125;);
+
+console.log(proxy()); // [1, 3, 4, 5, 6, 20, 44]
 </code></pre>
-</blockquote>
-<p>console.log(proxy()); &#x2F;&#x2F; [1, 3, 4, 5, 6, 20, 44]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
-<li>预加载图片<br>在 <code>web</code> 开发中，图片预加载是一种常用的技术。通常我们加载一张图片的做法是：</li>
+<li>预加载图片</li>
+</ul>
+</blockquote>
+<ul>
+<li>在 <code>web</code> 开发中，图片预加载是一种常用的技术。通常我们加载一张图片的做法是：</li>
 <li>直接给<code>img</code>标签设置<code>src</code>属性，但如果图片过大或网络不佳，图片加载到显示需要很长的一段时间，这时页面显示图片的位置就会出现很长时间的一片空白。</li>
 <li>解决这个问题，常见的做法是，在图片没有加载成功前，先用一张 <code>loading</code> 图片占位，然后异步方式加载图片，等图片加载好了，再显示真正的图片。</li>
 <li>上面这种情况，我们就可以通过代理来实现。</li>
@@ -2396,306 +2256,313 @@ function loadImg(url) &#123;
   img.src = url;
   return img; // 返回img节点
 &#125;
+
+// 代理loadImg方法来加载图片
+const proxyImg = new Proxy(loadImg, &#123;
+  apply(target, thisArg, args) &#123;
+    // 调用方法，先加载loading占位图,为了演示效果，这里采用本地图片
+    const realImg = target(&quot;./loading-svg/loading-bars.svg&quot;);
+    // 创建img标签，来加载真实图片
+    const img = new Image();
+    img.src = args[0];
+    // 真实图片加载成功，再用真实图片替换掉占位图
+    img.onload = function () &#123;
+      realImg.src = args[0]; // 把图片的地址改变真实图片地址
+    &#125;;
+  &#125;,
+&#125;);
+
+const url =
+  &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;;
+proxyImg(url);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 代理loadImg方法来加载图片<br>const proxyImg &#x3D; new Proxy(loadImg, {<br>  apply(target, thisArg, args) {<br>    &#x2F;&#x2F; 调用方法，先加载loading占位图,为了演示效果，这里采用本地图片<br>    const realImg &#x3D; target(“.&#x2F;loading-svg&#x2F;loading-bars.svg”);<br>    &#x2F;&#x2F; 创建img标签，来加载真实图片<br>    const img &#x3D; new Image();<br>    img.src &#x3D; args[0];<br>    &#x2F;&#x2F; 真实图片加载成功，再用真实图片替换掉占位图<br>    img.onload &#x3D; function () {<br>      realImg.src &#x3D; args[0]; &#x2F;&#x2F; 把图片的地址改变真实图片地址<br>    };<br>  },<br>});</p>
-<blockquote>
-</blockquote>
-<p>const url &#x3D;<br>  “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“;<br>proxyImg(url);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-<ol start="5">
-<li><code>handler.construct()</code>方法<blockquote>
+<h4 id="handler-construct-方法"><a href="#handler-construct-方法" class="headerlink" title="handler.construct()方法"></a><code>handler.construct()</code>方法</h4><blockquote>
 <p><code>construct()</code>方法用于拦截<code>new</code>命令。</p>
 <ul>
 <li>其返回值必需是一个<strong>对象</strong>，否则报错</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>var p = new Proxy(target, &#123;
-construct: function (target, argumentsList, newTarget) &#123;
-  // ....
-&#125;,
+  construct: function (target, argumentsList, newTarget) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p>construct函数的<strong>参数</strong>：</p>
-<ul>
-<li>target：被代理的目标对象(类)</li>
-<li>argumentsList：constructor的参数组成的数组</li>
-<li>newTarget：最初被调用的构造函数，就上面的例子而言是 p</li>
-</ul>
 </blockquote>
+<ul>
+<li><p>target：被代理的目标对象(类)</p>
+</li>
+<li><p>argumentsList：constructor的参数组成的数组</p>
+</li>
+<li><p>newTarget：最初被调用的构造函数，就上面的例子而言是 p</p>
 </li>
 <li><p>关于 construct 方法的参数的理解，可以看下面代码的演示</p>
-<blockquote>
-<pre><code>class A &#123;
-constructor(x, y) &#123;
-  this.x = x;
-  this.y = y;
-&#125;
-&#125;
-</code></pre>
-</blockquote>
-<p>function fn() {}<br>const proxy &#x3D; new Proxy(A, {<br>construct(target, args, newTarget) {<br>  console.log(target);<br>  console.log(args);<br>  console.log(newTarget &#x3D;&#x3D;&#x3D; proxy);<br>  return new target(…args); &#x2F;&#x2F; 参数记得传<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>const p &#x3D; new proxy(1, 2);<br>console.log(p);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 </li>
-<li><p>注意事项</p>
+</ul>
+<pre><code>class A &#123;
+  constructor(x, y) &#123;
+    this.x = x;
+    this.y = y;
+  &#125;
+&#125;
+
+function fn() &#123;&#125;
+const proxy = new Proxy(A, &#123;
+  construct(target, args, newTarget) &#123;
+    console.log(target);
+    console.log(args);
+    console.log(newTarget === proxy);
+    return new target(...args); // 参数记得传
+  &#125;,
+&#125;);
+
+const p = new proxy(1, 2);
+console.log(p);
+</code></pre>
 <blockquote>
+<p>注意事项</p>
+</blockquote>
 <ul>
 <li><code>construct</code> 方法必需要返回一个对象，否则报错</li>
 <li><code>new Proxy()</code>时，传入的<strong>目标对象本身</strong>必需能使用<code>new</code> 来操作</li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<ol start="6">
-<li>handler.deleteProperty() 方法<blockquote>
+<h4 id="handler-deleteProperty-方法"><a href="#handler-deleteProperty-方法" class="headerlink" title="handler.deleteProperty() 方法"></a>handler.deleteProperty() 方法</h4><blockquote>
 <p><code>handler.deleteProperty()</code>方法用于拦截对对象属性的 <code>delete</code>操作。</p>
 <ul>
 <li>返回值必须为一个布尔值，表示该属性是否被成功删除</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>var p = new Proxy(target, &#123;
-deleteProperty: function (target, property) &#123;
-  // ....
-&#125;,
+  deleteProperty: function (target, property) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p>deleteProperty函数的<strong>参数</strong>：</p>
+</blockquote>
 <ul>
 <li>target：被代理的目标对象</li>
 <li>property：待删除的属性名</li>
 </ul>
-</blockquote>
-</li>
-<li><p>基本用法</p>
 <blockquote>
+<p>基本用法</p>
 <ul>
 <li>禁止删除指定的属性</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-name: &quot;清心&quot;,
-age: 22,
-sex: &quot;女&quot;,
+  name: &quot;清心&quot;,
+  age: 22,
+  sex: &quot;女&quot;,
 &#125;;
+
+const proxy = new Proxy(obj, &#123;
+  deleteProperty(target, prop) &#123;
+    if (prop === &quot;name&quot;) &#123;
+      return false;
+    &#125;
+    return delete target[prop];
+  &#125;,
+&#125;);
+
+console.log(delete proxy.age);
+console.log(obj);
+console.log(delete proxy.name);
+console.log(obj);
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>deleteProperty(target, prop) {<br>  if (prop &#x3D;&#x3D;&#x3D; “name”) {<br>return false;<br>  }<br>  return delete target[prop];<br>},<br>});</p>
 <blockquote>
-</blockquote>
-<p>console.log(delete proxy.age);<br>console.log(obj);<br>console.log(delete proxy.name);<br>console.log(obj);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
+<p>注意事项</p>
 <ul>
 <li>如果目标对象的属性为不可配置(configurable)，则不能被<code>deleteProperty</code>方法删除，否则报错。</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-name: &quot;清心&quot;,
-age: 22,
-sex: &quot;女&quot;,
+  name: &quot;清心&quot;,
+  age: 22,
+  sex: &quot;女&quot;,
 &#125;;
 Object.defineProperty(obj, &quot;say&quot;, &#123;
-value: function () &#123;&#125;,
-configurable: false,
-writable: true,
+  value: function () &#123;&#125;,
+  configurable: false,
+  writable: true,
 &#125;);
+
+const proxy = new Proxy(obj, &#123;
+  deleteProperty(target, prop) &#123;
+    if (prop === &quot;say&quot;) &#123;
+      // return false; // 正确执行
+      return true; // 报错，因为该属性为不可配置，无法删除
+    &#125;
+    return delete target[prop];
+  &#125;,
+&#125;);
+
+console.log(delete proxy.say);
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<p>const proxy &#x3D; new Proxy(obj, {<br>  deleteProperty(target, prop) {<br>    if (prop &#x3D;&#x3D;&#x3D; “say”) {<br>      &#x2F;&#x2F; return false; &#x2F;&#x2F; 正确执行<br>      return true; &#x2F;&#x2F; 报错，因为该属性为不可配置，无法删除<br>    }<br>    return delete target[prop];<br>  },<br>});</p>
-<blockquote>
-</blockquote>
-<p>console.log(delete proxy.say);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-<ol start="7">
-<li>handler.defineProperty() 方法<blockquote>
+<h4 id="handler-defineProperty-方法"><a href="#handler-defineProperty-方法" class="headerlink" title="handler.defineProperty() 方法"></a>handler.defineProperty() 方法</h4><blockquote>
 <p><code>handler.defineProperty()</code>用于拦截对象的<code>Object.defineProperty()</code>操作，也就是给对象<strong>添加新的属性</strong>时会被拦截。</p>
 <ul>
 <li>返回值： 必须是一个布尔值，表示定义该属性的操作是否成功，<strong>严格模式下</strong>没有返回值或返回值为 false，则会抛出错误</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>var p = new Proxy(target, &#123;
-defineProperty: function (target, property, descriptor) &#123;
-  // ....
-&#125;,
+  defineProperty: function (target, property, descriptor) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p>defineProperty函数的参数：</p>
-<ul>
-<li>target: 被代理的目标对象</li>
-<li>property：待添加的属性名</li>
-<li>descriptor：待添加的属性的描述符对象</li>
-</ul>
 </blockquote>
+<ul>
+<li><p>target: 被代理的目标对象</p>
+</li>
+<li><p>property：待添加的属性名</p>
+</li>
+<li><p>descriptor：待添加的属性的描述符对象</p>
 </li>
 <li><p>对于defineProperty中参数的理解，看如下代码示例</p>
-<blockquote>
+</li>
+</ul>
 <pre><code>&quot;use strict&quot;;
 let handler = &#123;
-defineProperty(target, key, descriptor) &#123;
-  // 被代理的目标对象 &#123;a:1&#125;
-  console.log(target);
-  // 将要被添加的属性名 foo
-  console.log(key);
-  // 将要被添加的属性的属性描述符对象
-  //  &#123;value: &#39;bar&#39;, writable: true, enumerable: true, configurable: true&#125;
-  console.log(descriptor);
-  // 添加属性
-  Object.defineProperty(target, key, descriptor);
-  return true; // 严格模式下，不写或为false，则会抛出错误
-&#125;,
+  defineProperty(target, key, descriptor) &#123;
+    // 被代理的目标对象 &#123;a:1&#125;
+    console.log(target);
+    // 将要被添加的属性名 foo
+    console.log(key);
+    // 将要被添加的属性的属性描述符对象
+    //  &#123;value: &#39;bar&#39;, writable: true, enumerable: true, configurable: true&#125;
+    console.log(descriptor);
+    // 添加属性
+    Object.defineProperty(target, key, descriptor);
+    return true; // 严格模式下，不写或为false，则会抛出错误
+  &#125;,
 &#125;;
 const obj = &#123; a: 1 &#125;;
 let proxy = new Proxy(obj, handler);
 proxy.foo = &quot;bar&quot;;
 console.log(obj); //  &#123;a: 1, foo: &#39;bar&#39;&#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
 <blockquote>
+<p>注意事项</p>
 <ul>
 <li>如果目标对象不可扩展，则<code>defineProperty</code>不能增加目标对象中不存在的属性，否则会报错。</li>
 </ul>
+</blockquote>
 <pre><code>//   &quot;use strict&quot;;
 const obj = &#123; name: &quot;icoding&quot; &#125;;
 Object.preventExtensions(obj);
 const proxy = new Proxy(obj, &#123;
-defineProperty(target, prop, desc) &#123;
-  Object.defineProperty(target, prop, desc);
-&#125;,
+  defineProperty(target, prop, desc) &#123;
+    Object.defineProperty(target, prop, desc);
+  &#125;,
 &#125;);
+&gt;
+proxy.age = 33; // 报错
 </code></pre>
-</blockquote>
-<p>proxy.age &#x3D; 33; &#x2F;&#x2F; 报错</p>
 <blockquote>
-<pre><code>
-</code></pre>
+<ul>
+<li>如果目标对象的某个属性不可以写(writable)或不可配置(configurable)</li>
+</ul>
 </blockquote>
-</li>
-<li><p>如果目标对象的某个属性不可以写(writable)或不可配置(configurable)</p>
-<blockquote>
 <ul>
 <li>则<code>defineProperty</code>不能修改这两个设置，严格模式下会<strong>报错</strong>。</li>
 </ul>
 <pre><code>//   &quot;use strict&quot;;
 const obj = &#123;&#125;;
 Object.defineProperty(obj, &quot;name&quot;, &#123;
-value: &quot;清心&quot;,
-writable: false,
-configurable: true,
+  value: &quot;清心&quot;,
+  writable: false,
+  configurable: true,
 &#125;);
+
+const proxy = new Proxy(obj, &#123;
+  defineProperty(target, prop, desc) &#123;
+    Object.defineProperty(target, prop, desc); // 定义属性
+    return true;
+  &#125;,
+&#125;);
+
+proxy.name = &quot;icoding&quot;;
+console.log(obj); // &#123;name:&#39;清心&#39;&#125;
+// 以上代码，开启严格模式，则会报错
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>defineProperty(target, prop, desc) {<br>  Object.defineProperty(target, prop, desc); &#x2F;&#x2F; 定义属性<br>  return true;<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>proxy.name &#x3D; “icoding”;<br>console.log(obj); &#x2F;&#x2F; {name:’清心’}<br>&#x2F;&#x2F; 以上代码，开启严格模式，则会报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="8">
-<li>handler.getOwnPropertyDescriptor() 方法<blockquote>
+<h4 id="handler-getOwnPropertyDescriptor-方法"><a href="#handler-getOwnPropertyDescriptor-方法" class="headerlink" title="handler.getOwnPropertyDescriptor() 方法"></a>handler.getOwnPropertyDescriptor() 方法</h4><blockquote>
 <p><code>handler.getOwnPropertyDescriptor()</code>方法用来拦截<code>Object.getOwnPropertyDescriptor()</code>方法</p>
 <ul>
 <li>其返回值是一个属性描述符对象或<code>undefinedy</code></li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>var p = new Proxy(target, &#123;
-getOwnPropertyDescriptor: function (target, prop) &#123;
-  // ....
-&#125;,
+  getOwnPropertyDescriptor: function (target, prop) &#123;
+    // ....
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p><code>getOwnPropertyDescriptor</code>函数的参数：</p>
+</blockquote>
 <ul>
 <li>target: 被代理的目标对象</li>
 <li>prop：被用来返回属性描述符对象的属性名</li>
 </ul>
-</blockquote>
-</li>
-<li><p>基本用法</p>
 <blockquote>
+<p>基本用法</p>
 <ul>
 <li>指定属性的描述不允许被获取</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-name: &quot;icoding&quot;,
-age: 33,
+  name: &quot;icoding&quot;,
+  age: 33,
 &#125;;
+
+const proxy = new Proxy(obj, &#123;
+  getOwnPropertyDescriptor(target, prop) &#123;
+    if (prop === &quot;name&quot;) &#123;
+      return undefined;
+    &#125;
+    return Object.getOwnPropertyDescriptor(target, prop);
+  &#125;,
+&#125;);
+
+console.log(Object.getOwnPropertyDescriptor(proxy, &quot;name&quot;));
+console.log(Object.getOwnPropertyDescriptor(proxy, &quot;age&quot;));
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>getOwnPropertyDescriptor(target, prop) {<br>  if (prop &#x3D;&#x3D;&#x3D; “name”) {<br>return undefined;<br>  }<br>  return Object.getOwnPropertyDescriptor(target, prop);<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>console.log(Object.getOwnPropertyDescriptor(proxy, “name”));<br>console.log(Object.getOwnPropertyDescriptor(proxy, “age”));</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="9">
-<li>handler.getPrototypeOf() 方法<blockquote>
+<h4 id="handler-getPrototypeOf-方法"><a href="#handler-getPrototypeOf-方法" class="headerlink" title="handler.getPrototypeOf() 方法"></a>handler.getPrototypeOf() 方法</h4><blockquote>
 <p><code>handler.getPrototypeOf()</code>用来拦截<strong>获取对象原型</strong>的操作。</p>
 <ul>
 <li>返回值必须为一个对象或者<code>null</code>，否则会报错。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p>语法</p>
-<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>const p = new Proxy(obj, &#123;
-getPrototypeOf(target) &#123;
-  // ...
-&#125;,
+  getPrototypeOf(target) &#123;
+    // ...
+  &#125;,
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>getPrototypeOf()</code>方法具体拦截以下操作：</p>
 <blockquote>
+<p><code>getPrototypeOf()</code>方法具体拦截以下操作：</p>
+</blockquote>
 <ul>
 <li><code>对象.__proto__</code></li>
 <li><code>对象.isPrototypeOf()</code>用于测试一个对象是否存在于另一个对象的原型链上。</li>
@@ -2703,63 +2570,60 @@ getPrototypeOf(target) &#123;
 <li><code>instanceof</code>操作</li>
 </ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
 const proxy = new Proxy(obj, &#123;
-getPrototypeOf(target) &#123;
-  console.log(&quot;执行&quot;);
-  return &#123;&#125;;
-&#125;,
+  getPrototypeOf(target) &#123;
+    console.log(&quot;执行&quot;);
+    return &#123;&#125;;
+  &#125;,
 &#125;);
+
+// 以下四种方式，都需要获取对象的 __proto__ 属性值，都会被 getPrototypeOf 方法拦截
+Object.getPrototypeOf(proxy);
+proxy.__proto__;
+proxy instanceof Object; // proxy 的原型链上是否存在 Object.prototype
+Object.prototype.isPrototypeOf(proxy); // Object.prototype 对象是否在 proxy 的原型链上
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以下四种方式，都需要获取对象的 <strong>proto</strong> 属性值，都会被 getPrototypeOf 方法拦截<br>Object.getPrototypeOf(proxy);<br>proxy.<strong>proto</strong>;<br>proxy instanceof Object; &#x2F;&#x2F; proxy 的原型链上是否存在 Object.prototype<br>Object.prototype.isPrototypeOf(proxy); &#x2F;&#x2F; Object.prototype 对象是否在 proxy 的原型链上</p>
 <blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>基本用法</p>
-<blockquote>
+<p>基本用法</p>
 <ul>
 <li>获取对象原型时，返回一个假的对象。</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
+  a: 1,
+  b: 2,
 &#125;;
 const __proto__ = &#123; m: 10, n: 20 &#125;;
 const proxy = new Proxy(obj, &#123;
-getPrototypeOf(target) &#123;
-  return __proto__;
-&#125;,
+  getPrototypeOf(target) &#123;
+    return __proto__;
+  &#125;,
 &#125;);
 // 获取proxy原型，返回的是__proto__
 console.log(Object.getPrototypeOf(proxy) === __proto__);
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
 <blockquote>
+<p>注意事项</p>
 <ul>
 <li><code>getPrototypeOf()</code>方法返回的不是对象也不是<code>null</code>，则会抛出错误。</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;&#125;;
 const proxy = new Proxy(obj, &#123;
-getPrototypeOf(target) &#123;
-  return null; // 如果没有return语句，或返回值不是null或对象，则抛出错误
-&#125;,
+  getPrototypeOf(target) &#123;
+    return null; // 如果没有return语句，或返回值不是null或对象，则抛出错误
+  &#125;,
 &#125;);
 Object.getPrototypeOf(proxy);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>如果目标对象是不可扩展的，且<code>getPrototypeOf()</code>方法返回的原型不是目标对象本身的原型，则会抛出错误</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;&#125;;
 Object.preventExtensions(obj);
 const proxy = new Proxy(obj, &#123;
@@ -2769,82 +2633,73 @@ const proxy = new Proxy(obj, &#123;
 &#125;);
 console.log(Object.getPrototypeOf(proxy) === obj.__proto__);
 </code></pre>
-</blockquote>
-<ol start="10">
-<li>handler.setPrototypeOf() 方法<blockquote>
+<h4 id="handler-setPrototypeOf-方法"><a href="#handler-setPrototypeOf-方法" class="headerlink" title="handler.setPrototypeOf() 方法"></a>handler.setPrototypeOf() 方法</h4><blockquote>
 <p><code>handler.setPrototypeOf()</code>方法用于拦截<code>Object.setPrototypeOf</code>方法。</p>
 <ul>
 <li>返回值必须是一个布尔值，表示原型修改是否成功。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li>语法<blockquote>
+<li>语法</li>
+</ul>
 <pre><code>var p = new Proxy(target, &#123;
-setPrototypeOf: function (target, prototype) &#123;
-  // ...
-&#125;,
+  setPrototypeOf: function (target, prototype) &#123;
+    // ...
+  &#125;,
 &#125;);
 </code></pre>
+<blockquote>
 <p><code>setPrototypeOf</code>函数的<strong>参数</strong>：</p>
+</blockquote>
 <ul>
 <li>target: 被代理的目标对象</li>
 <li>prototype：对象新原型或为null</li>
 </ul>
-</blockquote>
-</li>
-<li>基本用法<blockquote>
+<blockquote>
+<p>基本用法</p>
 <ul>
 <li>不允许更改对象的原型</li>
 </ul>
+</blockquote>
 <pre><code>const arr = [];
 const proxy = new Proxy(arr, &#123;
-setPrototypeOf(target, prototype) &#123;
-  return false;
-  //   或
-  //   throw new Error(&quot;不允许修改原型&quot;);
-&#125;,
+  setPrototypeOf(target, prototype) &#123;
+    return false;
+    //   或
+    //   throw new Error(&quot;不允许修改原型&quot;);
+  &#125;,
 &#125;);
+&gt;
+Object.setPrototypeOf(proxy, Object.prototype);
+console.log(arr.__proto__ === Object.prototype);
 </code></pre>
-</blockquote>
-Object.setPrototypeOf(proxy, Object.prototype);<br>console.log(arr.<strong>proto</strong> &#x3D;&#x3D;&#x3D; Object.prototype);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li>注意事项<blockquote>
+<blockquote>
+<p>注意事项</p>
 <ul>
 <li>如果目对象不可扩展，<code>setPrototypeOf()</code>方法不得改变目标对象的原型（也就是说 <code>setPrototypeOf</code> 的返回值必需与 <code>Object.getPrototypeOf(target)</code> 的值相同</li>
 </ul>
+</blockquote>
 <pre><code>&quot;use strict&quot;;
 const arr = [];
 Object.preventExtensions(arr);
 const proxy = new Proxy(arr, &#123;
-setPrototypeOf(target, prototype) &#123;
-  Object.setPrototypeOf(target, prototype);
-  return true;
-&#125;,
+  setPrototypeOf(target, prototype) &#123;
+    Object.setPrototypeOf(target, prototype);
+    return true;
+  &#125;,
 &#125;);
+
+//   Object.setPrototypeOf(proxy, Object.prototype); // 抛出错误
+Object.setPrototypeOf(proxy, Array.prototype); // 正常执行
 </code></pre>
-</blockquote>
-&#x2F;&#x2F;   Object.setPrototypeOf(proxy, Object.prototype); &#x2F;&#x2F; 抛出错误<br>Object.setPrototypeOf(proxy, Array.prototype); &#x2F;&#x2F; 正常执行<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="11">
-<li>handler.ownKeys() 方法<blockquote>
+<h4 id="handler-ownKeys-方法"><a href="#handler-ownKeys-方法" class="headerlink" title="handler.ownKeys() 方法"></a>handler.ownKeys() 方法</h4><blockquote>
 <p><code>handler.ownKeys()</code>方法用来拦截<strong>对象自身属性的读取操作</strong>，具体拦截以下操作：</p>
+</blockquote>
 <ul>
 <li><code>Object.getOwnPropertyNames()</code>获取对象自身属性（可遍历+不可遍历）</li>
 <li><code>Object.getOwnPropertySymbols()</code>获取对象身的 <code>Symbol</code> 属性（可遍历 + 不可遍历）</li>
 <li><code>Object.keys()</code>获取对象自身所有可遍历属性（不包括 Symbolo 类型）</li>
 </ul>
-</blockquote>
-</li>
-</ol>
 <table>
 <thead>
 <tr>
@@ -2898,24 +2753,20 @@ setPrototypeOf(target, prototype) &#123;
 </tr>
 </tbody></table>
 <blockquote>
-<ul>
-<li>返回值只能是数组，其数组的成员只能是字符串类型或 <code>Symbol</code> 类型。</li>
-</ul>
+<p>返回值只能是数组，其数组的成员只能是字符串类型或 <code>Symbol</code> 类型。</p>
 </blockquote>
-<ul>
-<li><p>语法</p>
 <blockquote>
+<p>语法</p>
+</blockquote>
 <pre><code>var p = new Proxy(target, &#123;
-ownKeys: function (target) &#123;
-  // ...
-&#125;,
+  ownKeys: function (target) &#123;
+    // ...
+  &#125;,
 &#125;);
 </code></pre>
-</blockquote>
-</li>
-<li><p><strong>注：</strong></p>
+<p>在拦截以上三种方法时，对于返回的值会有以下区别：</p>
 <blockquote>
-<p>在拦截以上三种方法时，对于返回的值会有以下区别：<br><strong>不同点一</strong></p>
+<p><strong>不同点一</strong></p>
 <ul>
 <li>拦截<code>Object.keys()</code>时，会过滤掉以下三类属性<ul>
 <li>目标对象上不存在的属性</li>
@@ -2924,79 +2775,92 @@ ownKeys: function (target) &#123;
 </ul>
 </li>
 <li>拦截<code>Object.getOwnPropertyNames()</code>方法，只会留下字符串类型的值（不可遍历 + 可遍历）</li>
-<li>拦截<code>Object.getOwnPropertySymbols()</code>，只会留下 <code>Symbol</code>类型的值（不可遍历 + 可遍历）<br><strong>不同点二</strong></li>
-<li>拦截<code>Object.keys()</code>方法时，其不能返回目标对象身上<strong>不存在</strong>的属性，但是<code>Object.getOwnPropertyNames()</code>和<code>Object.getOwnPropertySymbols()</code>方法是可以的。<br><strong>相同点</strong></li>
-<li>只要是对象身上的不可配置属性，则必须被<code>ownKeys</code>方法返回，即使最后因为类型不符合要求被过滤</li>
-<li>如果对象是不可扩展，则<code>ownKeys</code>方法必须返回对象自身的<strong>所有属性</strong>，即使最后因为类型不符合要求被过滤。但返回的数组中的成员<strong>不能有对象自身没有的属性</strong>，否则会报错<blockquote>
-<p>代理返回的数组成员是自己设置的，但不同的方法会再过滤一遍</p>
-</blockquote>
-</li>
+<li>拦截<code>Object.getOwnPropertySymbols()</code>，只会留下 <code>Symbol</code>类型的值（不可遍历 + 可遍历）</li>
 </ul>
 </blockquote>
-</li>
-<li><p>代码演示</p>
 <blockquote>
+<p><strong>不同点二</strong></p>
+<ul>
+<li>拦截<code>Object.keys()</code>方法时，其不能返回目标对象身上<strong>不存在</strong>的属性，但是<code>Object.getOwnPropertyNames()</code>和<code>Object.getOwnPropertySymbols()</code>方法是可以的。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>相同点</strong></p>
+<ul>
+<li>只要是对象身上的不可配置属性，则必须被<code>ownKeys</code>方法返回，即使最后因为类型不符合要求被过滤</li>
+<li>如果对象是不可扩展，则<code>ownKeys</code>方法必须返回对象自身的<strong>所有属性</strong>，即使最后因为类型不符合要求被过滤。但返回的数组中的成员<strong>不能有对象自身没有的属性</strong>，否则会报错</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>代理返回的数组成员是自己设置的，但不同的方法会再过滤一遍</li>
+</ul>
+</blockquote>
+<ul>
+<li>代码演示</li>
+</ul>
 <pre><code>const obj = &#123;
-a: 1,
-[Symbol.for(&quot;b&quot;)]: 2,
+  a: 1,
+  [Symbol.for(&quot;b&quot;)]: 2,
 &#125;;
 Object.defineProperty(obj, &quot;name&quot;, &#123;
-value: &quot;icoding&quot;,
-configurable: false,
+  value: &quot;icoding&quot;,
+  configurable: false,
 &#125;);
 const proxy = new Proxy(obj, &#123;
-ownKeys(target) &#123;
-  // 正确写法，返回的数组中一定要包含这个值
-  return [&quot;a&quot;, &quot;c&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;)];
-  // 以下方式，则会抛出错误，因没有包含不可配置属性
-  //   return [&quot;a&quot;, &quot;c&quot;，Symbol.for(&quot;b&quot;)];
-&#125;,
+  ownKeys(target) &#123;
+    // 正确写法，返回的数组中一定要包含这个值
+    return [&quot;a&quot;, &quot;c&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;)];
+    // 以下方式，则会抛出错误，因没有包含不可配置属性
+    //   return [&quot;a&quot;, &quot;c&quot;，Symbol.for(&quot;b&quot;)];
+  &#125;,
 &#125;);
+
+const keys = Object.getOwnPropertyNames(proxy);
+console.log(keys); // [&#39;a&#39;, &#39;c&#39;, &#39;name&#39;] 只留下字符串类型
+const keys2 = Object.getOwnPropertySymbols(proxy);
+console.log(keys2); // [Symbol(b)]  只留下Symbol类型的
+const keys3 = Object.keys(proxy);
+console.log(keys3); // [&#39;a&#39;]  过滤Symbol,对象自身不存在的，不可遍历的
 </code></pre>
-</blockquote>
-<p>const keys &#x3D; Object.getOwnPropertyNames(proxy);<br>console.log(keys); &#x2F;&#x2F; [‘a’, ‘c’, ‘name’] 只留下字符串类型<br>const keys2 &#x3D; Object.getOwnPropertySymbols(proxy);<br>console.log(keys2); &#x2F;&#x2F; [Symbol(b)]  只留下Symbol类型的<br>const keys3 &#x3D; Object.keys(proxy);<br>console.log(keys3); &#x2F;&#x2F; [‘a’]  过滤Symbol,对象自身不存在的，不可遍历的</p>
 <blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>代码演示：相同点</p>
-<blockquote>
+<p>代码演示：相同点</p>
 <ul>
 <li>如果代理的目标对象是不可扩展的，则 <code>ownKeys</code> 方法返回的数组中必须包含目标对象自身的所有属性（包括 <code>Symbol</code> 类型，即时最后会被过滤掉），且不能包含多余属性，否则报错。</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
-a: 1,
-[Symbol.for(&quot;b&quot;)]: 2,
+  a: 1,
+  [Symbol.for(&quot;b&quot;)]: 2,
 &#125;;
 Object.defineProperty(obj, &quot;name&quot;, &#123;
-value: &quot;icoding&quot;,
-configurable: false,
+  value: &quot;icoding&quot;,
+  configurable: false,
 &#125;);
 // 对象设置为不可扩展
 Object.preventExtensions(obj);
 const proxy = new Proxy(obj, &#123;
-ownKeys(target) &#123;
-  return [&quot;a&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;)];
-  // 以下两种写法，都会抛出错误
-  // return [&quot;a&quot;, &quot;name&quot;];
-  //   return [&quot;a&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;), &quot;c&quot;];
-&#125;,
+  ownKeys(target) &#123;
+    return [&quot;a&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;)];
+    // 以下两种写法，都会抛出错误
+    // return [&quot;a&quot;, &quot;name&quot;];
+    //   return [&quot;a&quot;, &quot;name&quot;, Symbol.for(&quot;b&quot;), &quot;c&quot;];
+  &#125;,
 &#125;);
+
+const keys = Object.getOwnPropertyNames(proxy);
+console.log(keys); // [&#39;a&#39;, &#39;name&#39;]
+const keys2 = Object.getOwnPropertySymbols(proxy);
+console.log(keys2); // [Symbol(b)]
+const keys3 = Object.keys(proxy);
+console.log(keys3); // [&#39;a&#39;]
 </code></pre>
-</blockquote>
-<p>const keys &#x3D; Object.getOwnPropertyNames(proxy);<br>console.log(keys); &#x2F;&#x2F; [‘a’, ‘name’]<br>const keys2 &#x3D; Object.getOwnPropertySymbols(proxy);<br>console.log(keys2); &#x2F;&#x2F; [Symbol(b)]<br>const keys3 &#x3D; Object.keys(proxy);<br>console.log(keys3); &#x2F;&#x2F; [‘a’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="三、this-问题"><a href="#三、this-问题" class="headerlink" title="三、this 问题"></a>三、this 问题</h3><blockquote>
 <p>虽然 <code>Proxy</code> 可以代理针对目标对象的访问，但它不是目标对象的<strong>透明代理</strong>，即不做任何拦截的情况下也无法保证与目标对象的行为一致。</p>
 <ul>
 <li>主要原因就是 <code>Proxy</code> 代理的情况下，目标对象内部的 <code>this</code> 关键字会指向 <code>Proxy</code> 代理。</li>
 </ul>
+</blockquote>
 <pre><code>const obj = &#123;
   name: &quot;icoding&quot;,
   age: 33,
@@ -3005,99 +2869,88 @@ ownKeys(target) &#123;
     console.log(`大家好，我是$&#123;this.name&#125;，我今年$&#123;this.age&#125;岁了`);
   &#125;,
 &#125;;
+
+const proxy = new Proxy(obj, &#123;&#125;);
+obj.say();//false 
+proxy.say();//true
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {});<br>obj.say();&#x2F;&#x2F;false<br>proxy.say();&#x2F;&#x2F;true</p>
-<blockquote>
-<pre><code>注：
-- 上面代码中，`proxy`代理了`obj`，则`proxy.say()`方法时，其内部的`this`指向`proxy`对象，而非`obj`
-</code></pre>
-</blockquote>
-<ol>
-<li>this 问题，造成无法代理<blockquote>
+<ul>
+<li>上面代码中，<code>proxy</code>代理了<code>obj</code>，则<code>proxy.say()</code>方法时，其内部的<code>this</code>指向<code>proxy</code>对象，而非<code>obj</code></li>
+</ul>
+<h4 id="this-问题，造成无法代理"><a href="#this-问题，造成无法代理" class="headerlink" title="this 问题，造成无法代理"></a>this 问题，造成无法代理</h4><blockquote>
 <p>我们再来看一个例子，由于 <code>this</code> 指向的变化导致 <code>Proxy</code> 无法代理目标对象</p>
 </blockquote>
-</li>
-</ol>
 <ul>
-<li><p><code>Stack.js</code>文件</p>
-<blockquote>
+<li><code>Stack.js</code>文件</li>
+</ul>
 <pre><code>// 存放私有属性
 const privates = new WeakMap();
 class Stack &#123;
-constructor(size) &#123;
-  this.size = size;
-  // 私有属性
-  privates.set(this, []);
-&#125;
-// 入栈
-push(value) &#123;
-  privates.get(this).push(value);
-  return this;
-&#125;
-// 查看栈中成员
-view() &#123;
-  console.log(privates.get(this));
-&#125;
+  constructor(size) &#123;
+    this.size = size;
+    // 私有属性
+    privates.set(this, []);
+  &#125;
+  // 入栈
+  push(value) &#123;
+    privates.get(this).push(value);
+    return this;
+  &#125;
+  // 查看栈中成员
+  view() &#123;
+    console.log(privates.get(this));
+  &#125;
 &#125;
 // 默认导出
 export default Stack;
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>index.html</code></p>
-<blockquote>
+<ul>
+<li><code>index.html</code></li>
+</ul>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-import Stack from &quot;./Stack.js&quot;;
-const stack = new Stack(10);
-// 正确被执行
-console.log(stack.push(1));
-stack.view();
-// 代理
-const proxyStack = new Proxy(stack, &#123;&#125;);
-console.log(proxyStack.push()); // 抛出错误，因为内部this问题，造成privates.get(this)得到的是undefined，所以无法调用push方法而报错
+  import Stack from &quot;./Stack.js&quot;;
+  const stack = new Stack(10);
+  // 正确被执行
+  console.log(stack.push(1));
+  stack.view();
+  // 代理
+  const proxyStack = new Proxy(stack, &#123;&#125;);
+  console.log(proxyStack.push()); // 抛出错误，因为内部this问题，造成privates.get(this)得到的是undefined，所以无法调用push方法而报错
 &lt;/script&gt;
 </code></pre>
-<p><strong>代码解析</strong></p>
 <ul>
 <li>上面代理失败，是因为<code>WeakMap</code>中保存的是<code>stack</code>对象与数组的映射关系，而代理后，<code>this</code>不再指向<code>stack</code>，而指向<code>proxy</code>对象，此时在<code>WeakMap</code>中找不到相关的映射。</li>
 <li>所以<code>privates.get(this)</code>返回的值为<code>undefined</code>, <code>undefined</code>打点调用<code>push</code>方法肯定就会报错。</li>
 </ul>
-</blockquote>
-</li>
-<li><p>如果我们直接代理 <code>Stack</code> 类，是可以的，因为 <code>this</code> 没有问题</p>
 <blockquote>
+<p>如果我们直接代理 <code>Stack</code> 类，是可以的，因为 <code>this</code> 没有问题</p>
+</blockquote>
 <pre><code>&lt;script type=&quot;module&quot;&gt;
-import Stack from &quot;./Stack.js&quot;;
-const proxyStack = new Proxy(Stack, &#123;&#125;);
-const stack = new proxyStack(10);
-stack.push(1).push(2);
-stack.view();
-console.log(stack.size);
+  import Stack from &quot;./Stack.js&quot;;
+  const proxyStack = new Proxy(Stack, &#123;&#125;);
+  const stack = new proxyStack(10);
+  stack.push(1).push(2);
+  stack.view();
+  console.log(stack.size);
 &lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li>无法代理的原生对象<blockquote>
+<h4 id="无法代理的原生对象"><a href="#无法代理的原生对象" class="headerlink" title="无法代理的原生对象"></a>无法代理的原生对象</h4><blockquote>
 <p>有些原生对象的内部属性只能通过正确的 <code>this </code>才能获取，所以 <code>Proxy</code> 也无法代理这些原生对象属性。比如<code>new Date()</code>出来的对象</p>
 <ul>
 <li>具体演示看以下代码：</li>
 </ul>
+</blockquote>
 <pre><code>const date = new Date();
 const handler = &#123;&#125;;
 const proxy = new Proxy(date, handler);
 proxy.getDate(); // this is not a Date
 </code></pre>
-<p><strong>注：</strong><br>上面代码中，<code>getDate()</code>方法只能在 <code>Date</code> 对象的实例上获取，所以 <code>this</code> 不是 <code>Date</code> 对象实例时就会报错。</p>
-</blockquote>
-</li>
-</ol>
-<blockquote>
 <ul>
-<li>解决办法，就是让<code>getDate()</code>方法内的 <code>this</code> 永远指向 <code>Date</code> 实例。</li>
+<li>上面代码中，<code>getDate()</code>方法只能在 <code>Date</code> 对象的实例上获取，所以 <code>this</code> 不是 <code>Date</code> 对象实例时就会报错。</li>
 </ul>
+<blockquote>
+<p>解决办法，就是让<code>getDate()</code>方法内的 <code>this</code> 永远指向 <code>Date</code> 实例。</p>
+</blockquote>
 <pre><code>const date = new Date();
 const proxy = new Proxy(date, &#123;
   get(target, prop) &#123;
@@ -3110,114 +2963,115 @@ const proxy = new Proxy(date, &#123;
 console.log(proxy.getDate()); // 24
 console.log(proxy.getMonth()); // 报错  因为this指向不是Date实例
 </code></pre>
+<blockquote>
+<p>因此，如果你创建了一个对象，不相让代理来代理这个对象，就可以把内部的<code>this</code>绑定死</p>
 </blockquote>
-<ul>
-<li>因此，如果你创建了一个对象，不相让代理来代理这个对象，就可以把内部的<code>this</code>绑定死<blockquote>
 <pre><code>cosnt obj = &#123;
-say()&#123;
-  if(this!==obj)&#123;
-    throw new Error(&quot;不能被代理)；
+  say()&#123;
+    if(this!==obj)&#123;
+      throw new Error(&quot;不能被代理)；
+    &#125;
   &#125;
-&#125;
 &#125;
 const p=new Proxy(obj,&#123;&#125;);
 p.say();//报错 不能被代理
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="四、Reflect-反射"><a href="#四、Reflect-反射" class="headerlink" title="四、Reflect 反射"></a>四、Reflect 反射</h3><blockquote>
 <p>Reflect 对象与 Proxy 对象一样，也是 ES6 为了操作对象而提供的新的 API。</p>
+</blockquote>
+<blockquote>
 <p>Reflect 是一个内置的对象，他<strong>不是一个函数对象</strong>，所以他不可以用 new 来调用。Reflect 对象所有的属性和方法都是<strong>静态</strong>的（这一点和 Math 对象一样）。</p>
 <ul>
 <li>Reflect 对象被设计出来，主要是解决什么问题呢 ？</li>
 </ul>
 </blockquote>
-<ol>
-<li>Reflect 对象被设计的目的<blockquote>
+<h4 id="Reflect-对象被设计的目的"><a href="#Reflect-对象被设计的目的" class="headerlink" title="Reflect 对象被设计的目的"></a>Reflect 对象被设计的目的</h4><blockquote>
 <p>Reflect 对象被设计出来，主要有以下四个目的：</p>
 </blockquote>
-</li>
-</ol>
+<blockquote>
+<p>将 Object 对象一些明显属于<strong>语言内部</strong>的方法，放到了 Reflect 对象上，同时未来新增加的语言内部的方法都会放在 Reflect 对象上</p>
+</blockquote>
 <ul>
-<li>将 Object 对象一些明显属于<strong>语言内部</strong>的方法，放到了 Reflect 对象上，同时未来新增加的语言内部的方法都会放在 Reflect 对象上<blockquote>
-<ul>
-<li>比如<code>Object.defineProperty</code>方法，现在 Reflect 对象上也添加了此方法。所以现阶段<code>Object</code>和<code>Reflect</code>对象上<strong>都有</strong>这个方法</li>
-</ul>
+<li>比如<code>Object.defineProperty</code>方法，现在 Reflect 对象上也添加了此方法。所以现阶段<code>Object</code>和<code>Reflect</code>对象上<strong>都有</strong>这个方法<blockquote>
+<p>修改某些 <code>Object</code> 方法的<strong>返回结果</strong>，让其变得更合理。</p>
 </blockquote>
 </li>
-<li>修改某些 <code>Object</code> 方法的<strong>返回结果</strong>，让其变得更合理。<blockquote>
-<ul>
 <li>比如<code>Object.defineProperty()</code>方法，如果属性定义失败时会抛出一个错误，则<code>Reflect.defineProperty()</code>则会返回 <code>false</code></li>
 </ul>
 <pre><code>// 旧的写法,属性定义不成功抛出错误，所以需要用try...catch语句来捕获错误
 const obj = &#123;&#125;;
 Object.preventExtensions(obj);
 try &#123;
-Object.defineProperty(obj, &quot;name&quot;, &#123;
-  value: &quot;清心&quot;,
-&#125;);
+  Object.defineProperty(obj, &quot;name&quot;, &#123;
+    value: &quot;清心&quot;,
+  &#125;);
 &#125; catch (e) &#123;
-console.log(e);
+  console.log(e);
+&#125;
+
+// 新写法，属性定义不成功，返回值为false，可以直接通过if语句来判断
+const obj = &#123;&#125;;
+Object.preventExtensions(obj);
+if (Reflect.defineProperty(obj, &quot;name&quot;, &#123; value: &quot;清心&quot; &#125;)) &#123;
+  // 成功...
+&#125; else &#123;
+  // 失败
+  console.log(&quot;添加失败&quot;);
 &#125;
 </code></pre>
+<blockquote>
+<p>让 Object 的操作变成函数行为</p>
 </blockquote>
-&#x2F;&#x2F; 新写法，属性定义不成功，返回值为false，可以直接通过if语句来判断<br>const obj &#x3D; {};<br>Object.preventExtensions(obj);<br>if (Reflect.defineProperty(obj, “name”, { value: “清心” })) {<br>&#x2F;&#x2F; 成功…<br>} else {<br>&#x2F;&#x2F; 失败<br>console.log(“添加失败”);<br>}<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li>让 Object 的操作变成函数行为<blockquote>
 <ul>
 <li>比如判断某个属性是否为对象的属性时，我们采用的是 <code>属性 in 对象</code>。而<code>Reflect.has()</code>方法，让他变成了函数行为。</li>
 <li>比如我们想要删除对象的某个属性时，我们采用的是<code>delete 对象.属性</code>。而<code>Reflect.deleteProperty()</code>方 法，将它变成了函数行为。</li>
 </ul>
 <pre><code>// 旧写法
 const obj = &#123;
-name: &quot;清心&quot;,
-age: 33,
+  name: &quot;清心&quot;,
+  age: 33,
 &#125;;
 console.log(&quot;name&quot; in obj);
 console.log(delete obj.age);
 console.log(obj);
+
+// 新写法
+const obj = &#123;
+  name: &quot;清心&quot;,
+  age: 33,
+&#125;;
+// 判断 name是否是obj的属性
+console.log(Reflect.has(obj, &quot;name&quot;));
+// 删除 obj的age属性
+console.log(Reflect.deleteProperty(obj, &quot;age&quot;));
+// 打印obj
+console.log(obj);
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 新写法<br>const obj &#x3D; {<br>name: “清心”,<br>age: 33,<br>};<br>&#x2F;&#x2F; 判断 name是否是obj的属性<br>console.log(Reflect.has(obj, “name”));<br>&#x2F;&#x2F; 删除 obj的age属性<br>console.log(Reflect.deleteProperty(obj, “age”));<br>&#x2F;&#x2F; 打印obj<br>console.log(obj);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li>Reflect对象的方法与Proxy对象的方法<strong>一一对应</strong>，这使得Proxy可以代理（覆盖）目标对象的默认行为，而Reflect对象总能找到对应方法<strong>获取目标对象的默认行为</strong><blockquote>
+<ul>
+<li>Reflect对象的方法与Proxy对象的方法<strong>一一对应</strong>，这使得Proxy可以代理（覆盖）目标对象的默认行为，而Reflect对象总能找到对应方法<strong>获取目标对象的默认行为</strong></li>
+</ul>
 <pre><code>const obj = &#123;
-name: &quot;清心&quot;,
-_sex: &quot;女&quot;,
+  name: &quot;清心&quot;,
+  _sex: &quot;女&quot;,
 &#125;;
 const proxy = new Proxy(obj, &#123;
-set(target, prop, value) &#123;
-  if (prop[0] === &quot;_&quot;) &#123;
-    return false;
-  &#125;
-  Reflect.set(target, prop, value);
-  // 上面代码等价于  target[prop] = value;
-  return true;
-&#125;,
+  set(target, prop, value) &#123;
+    if (prop[0] === &quot;_&quot;) &#123;
+      return false;
+    &#125;
+    Reflect.set(target, prop, value);
+    // 上面代码等价于  target[prop] = value;
+    return true;
+  &#125;,
 &#125;);
+
+proxy.name = &quot;icoding&quot;;
+proxy._sex = &quot;男&quot;;
+console.log(obj);
 </code></pre>
+<h4 id="Reflect-对象的静态方法"><a href="#Reflect-对象的静态方法" class="headerlink" title="Reflect 对象的静态方法"></a>Reflect 对象的静态方法</h4><blockquote>
+<p>Reflect 对象一共有 13 个静态方法，这些方法与 Proxy 对象的方法一一对象</p>
 </blockquote>
-proxy.name &#x3D; “icoding”;<br>proxy._sex &#x3D; “男”;<br>console.log(obj);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
-<ol start="2">
-<li>Reflect 对象的静态方法<blockquote>
-<ul>
-<li>Reflect 对象一共有 13 个静态方法，这些方法与 Proxy 对象的方法一一对象</li>
-</ul>
-</blockquote>
-</li>
-</ol>
 <table>
 <thead>
 <tr>
@@ -3271,95 +3125,155 @@ proxy.name &#x3D; “icoding”;<br>proxy._sex &#x3D; “男”;<br>console.log(
 </tr>
 </tbody></table>
 <ul>
-<li>基本使用<blockquote>
-<pre><code>&lt;script&gt;
-&quot;use strict&quot;;
-const obj = &#123;
-  name: &quot;icoding&quot;,
-  age: 33,
-  _sex: &quot;女&quot;,
-  [Symbol()]: &quot;symbol值&quot;,
-  say() &#123;
-    console.log(`大家好，我是$&#123;this.name&#125;今年$&#123;this.age&#125;岁了`);
-  &#125;,
-&#125;;
-</code></pre>
-</blockquote>
-const proxy &#x3D; new Proxy(obj, {<br>  get(target, prop) {<br>if (prop[0] &#x3D;&#x3D;&#x3D; “<em>“) {<br>  throw new Error(“私有属性，不能获取”);<br>}<br>return Reflect.get(target, prop);<br>  },<br>  set(target, prop, value) {<br>if (prop[0] &#x3D;&#x3D;&#x3D; “</em>“) {<br>  throw new Error(“私有属性，不能重新被赋值”);<br>}<br>return Reflect.set(target, prop, value);<br>  },<br>  deleteProperty(target, prop) {<br>if (prop[0] &#x3D;&#x3D;&#x3D; “<em>“) {<br>  return false; &#x2F;&#x2F; 严格模式下，抛出错误<br>}<br>return Reflect.deleteProperty(target, prop);<br>  },<br>  has(target, prop) {<br>if (prop[0] &#x3D;&#x3D;&#x3D; “</em>“) {<br>  return false;<br>}<br>return Reflect.has(target, prop);<br>  },<br>  defineProperty(target, prop, desc) {<br>&#x2F;&#x2F; ….<br>return Reflect.defineProperty(target, prop, desc);<br>  },<br>  getPrototypeOf(target) {<br>&#x2F;&#x2F; ….<br>return Reflect.getPrototypeOf(target);<br>  },<br>  setPrototypeOf(target, proto) {<br>&#x2F;&#x2F; ….<br>return Reflect.setPrototypeOf(target, { a: 1 });<br>  },<br>  ownKeys(target) {<br>&#x2F;&#x2F; ….<br>return Reflect.ownKeys(target);<br>  },<br>});<br>try {<br>  console.log(proxy._sex);<br>} catch (e) {<br>  console.log(e);<br>}<br>console.log(proxy.name);<br>&#x2F;&#x2F;   proxy._sex &#x3D; “男”;<br>proxy.age &#x3D; 18;<br>console.log(proxy.age);<blockquote>
-</blockquote>
-delete proxy.age;<br>console.log(proxy);<br>try {<br>  delete proxy._sex;<br>} catch (e) {<br>  console.log(e);<br>}<blockquote>
-</blockquote>
-console.log(“c” in proxy); &#x2F;&#x2F; false<br>console.log(“_sex” in proxy); &#x2F;&#x2F; false<br>console.log(“name” in proxy); &#x2F;&#x2F; true<blockquote>
-</blockquote>
-const bool &#x3D; Reflect.defineProperty(obj, “money”, {<br>  value: 1000,<br>  writable: false,<br>});<blockquote>
-</blockquote>
-const bool2 &#x3D; Object.defineProperty(obj, “weight”, {<br>  value: “1.6cm”,<br>  writable: false,<br>});<br>console.log(bool);<br>console.log(obj);<blockquote>
-</blockquote>
-console.log(Object.keys(obj));<br>console.log(Object.getOwnPropertySymbols(obj));<br>console.log(Reflect.ownKeys(obj));<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-<li>温馨提示：<blockquote>
-<p>Reflect 和 Object 上都存在的方法，建议以后使用 Reflect 身上的方法，因为 Object 身上的相关方法会慢慢被 Reflect 替换掉</p>
-</blockquote>
-</li>
+<li>基本使用</li>
 </ul>
-<ol start="3">
-<li>注意事项<blockquote>
+<pre><code>&lt;script&gt;
+  &quot;use strict&quot;;
+  const obj = &#123;
+    name: &quot;icoding&quot;,
+    age: 33,
+    _sex: &quot;女&quot;,
+    [Symbol()]: &quot;symbol值&quot;,
+    say() &#123;
+      console.log(`大家好，我是$&#123;this.name&#125;今年$&#123;this.age&#125;岁了`);
+    &#125;,
+  &#125;;
+
+  const proxy = new Proxy(obj, &#123;
+    get(target, prop) &#123;
+      if (prop[0] === &quot;_&quot;) &#123;
+        throw new Error(&quot;私有属性，不能获取&quot;);
+      &#125;
+      return Reflect.get(target, prop);
+    &#125;,
+    set(target, prop, value) &#123;
+      if (prop[0] === &quot;_&quot;) &#123;
+        throw new Error(&quot;私有属性，不能重新被赋值&quot;);
+      &#125;
+      return Reflect.set(target, prop, value);
+    &#125;,
+    deleteProperty(target, prop) &#123;
+      if (prop[0] === &quot;_&quot;) &#123;
+        return false; // 严格模式下，抛出错误
+      &#125;
+      return Reflect.deleteProperty(target, prop);
+    &#125;,
+    has(target, prop) &#123;
+      if (prop[0] === &quot;_&quot;) &#123;
+        return false;
+      &#125;
+      return Reflect.has(target, prop);
+    &#125;,
+    defineProperty(target, prop, desc) &#123;
+      // ....
+      return Reflect.defineProperty(target, prop, desc);
+    &#125;,
+    getPrototypeOf(target) &#123;
+      // ....
+      return Reflect.getPrototypeOf(target);
+    &#125;,
+    setPrototypeOf(target, proto) &#123;
+      // ....
+      return Reflect.setPrototypeOf(target, &#123; a: 1 &#125;);
+    &#125;,
+    ownKeys(target) &#123;
+      // ....
+      return Reflect.ownKeys(target);
+    &#125;,
+  &#125;);
+  try &#123;
+    console.log(proxy._sex);
+  &#125; catch (e) &#123;
+    console.log(e);
+  &#125;
+  console.log(proxy.name);
+  //   proxy._sex = &quot;男&quot;;
+  proxy.age = 18;
+  console.log(proxy.age);
+
+  delete proxy.age;
+  console.log(proxy);
+  try &#123;
+    delete proxy._sex;
+  &#125; catch (e) &#123;
+    console.log(e);
+  &#125;
+
+  console.log(&quot;c&quot; in proxy); // false
+  console.log(&quot;_sex&quot; in proxy); // false
+  console.log(&quot;name&quot; in proxy); // true
+
+  const bool = Reflect.defineProperty(obj, &quot;money&quot;, &#123;
+    value: 1000,
+    writable: false,
+  &#125;);
+
+  const bool2 = Object.defineProperty(obj, &quot;weight&quot;, &#123;
+    value: &quot;1.6cm&quot;,
+    writable: false,
+  &#125;);
+  console.log(bool);
+  console.log(obj);
+
+  console.log(Object.keys(obj));
+  console.log(Object.getOwnPropertySymbols(obj));
+  console.log(Reflect.ownKeys(obj));
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>Reflect 和 Object 上都存在的方法，建议以后使用 Reflect 身上的方法，因为 Object 身上的相关方法会慢慢被 Reflect 替换掉</li>
+</ul>
+<h4 id="注意事项-1"><a href="#注意事项-1" class="headerlink" title="注意事项"></a>注意事项</h4><blockquote>
 <p>关于 <code>Reflect</code> 对象的静态方法，有以下几个需要注意的点</p>
 </blockquote>
-</li>
-</ol>
-<ul>
-<li><p>如果对象的属性是一个访问器属性，具有 <code>get</code> 方法</p>
 <blockquote>
+<p>如果对象的属性是一个访问器属性，具有 <code>get</code> 方法</p>
+</blockquote>
 <ul>
 <li>则 <code>get</code> 方法内部的 <code>this</code> 指向<code>Reflect.get(target,name,receiver)</code>方法中的 <code>receiver</code> 参数。</li>
 </ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
-get foo() &#123;
-  console.log(this.a);
-  console.log(this.b);
-&#125;,
+  a: 1,
+  b: 2,
+  get foo() &#123;
+    console.log(this.a);
+    console.log(this.b);
+  &#125;,
 &#125;;
+
+const proxy = new Proxy(obj, &#123;
+  get(target, prop, receiver) &#123;
+    //   return Reflect.get(target, prop, receiver);  // receiver默认为proxy
+    return Reflect.get(target, prop, &#123; a: 10, b: 20 &#125;);
+  &#125;,
+&#125;);
+
+proxy.foo;
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>get(target, prop, receiver) {<br>  &#x2F;&#x2F;   return Reflect.get(target, prop, receiver);  &#x2F;&#x2F; receiver默认为proxy<br>  return Reflect.get(target, prop, { a: 10, b: 20 });<br>},<br>});</p>
 <blockquote>
+<p>如果对象的属性是一个访问器属性，具有 <code>set</code> 方法</p>
 </blockquote>
-<p>proxy.foo;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>如果对象的属性是一个访问器属性，具有 <code>set</code> 方法</p>
-<blockquote>
 <ul>
 <li>则 <code>set</code> 方法内部的 <code>this</code> 指向<code>Reflect.set(target,name,value,receiver)</code>方法中的 <code>receiver</code> 参数。</li>
 </ul>
 <pre><code>const obj = &#123;
-a: 1,
-b: 2,
-set foo(value) &#123;
-  console.log(this.a);
-  console.log(this.b);
-&#125;,
+  a: 1,
+  b: 2,
+  set foo(value) &#123;
+    console.log(this.a);
+    console.log(this.b);
+  &#125;,
 &#125;;
+&gt;
+const proxy = new Proxy(obj, &#123;
+  set(target, prop, value, receiver) &#123;
+    //   return Reflect.set(target, prop, value, receiver);
+    return Reflect.set(target, prop, value, &#123; a: 10, b: 20 &#125;);
+  &#125;,
+&#125;);
+&gt;
+proxy.foo = &quot;hello&quot;;
 </code></pre>
-</blockquote>
-<p>const proxy &#x3D; new Proxy(obj, {<br>set(target, prop, value, receiver) {<br>  &#x2F;&#x2F;   return Reflect.set(target, prop, value, receiver);<br>  return Reflect.set(target, prop, value, { a: 10, b: 20 });<br>},<br>});</p>
-<blockquote>
-</blockquote>
-<p>proxy.foo &#x3D; “hello”;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 
                 
             </div>

@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-09
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    19.6k
+                    19.7k
                 </div>
                 
 
@@ -657,85 +657,90 @@
 <li><p>let 和 const 的用法</p>
 <blockquote>
 <p>let 和 const 的用法与 var 一样</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>var username = &quot;清心老师&quot;;
 let age = 18;
 const sex = &quot;female&quot;;
 console.log(username, age, sex); // 清心老师 18 female
 </code></pre>
-</blockquote>
-</li>
-<li><p>什么是变量，什么是常量 ？</p>
-<blockquote>
+<ol start="3">
+<li>什么是变量，什么是常量 ？<blockquote>
 <ul>
 <li><code>var</code>、<code>let</code> 声明的就是变量，变量一旦初始化之后，<strong>还可以重新赋值</strong></li>
 <li><code>const</code> 声明的就是常量，常量一旦初始化，就<strong>不能重新赋值</strong>了，否则就会报错</li>
 </ul>
-<pre><code>var username = &quot;小明&quot;;
-username = &quot;小花&quot;;
-console.log(username); //小花
-</code></pre>
-</blockquote>
-<p>let age &#x3D; “22”;<br>age &#x3D; “30”;<br>let arr1 &#x3D; [1];<br>arr1.push(2);<br>console.log(age, arr1); &#x2F;&#x2F;30  [1, 2]</p>
-<blockquote>
-</blockquote>
-<p>const arr2 &#x3D; [“A”];<br>arr2.push(“B”);<br>console.log(arr2); &#x2F;&#x2F;[‘A’, ‘B’]<br>const sex &#x3D; “男”;<br>sex &#x3D; “女”; &#x2F;&#x2F; 控制台报错 Uncaught TypeError: Assignment to constant variable. 错误意思：给常量赋值了<br>console.log(sex);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>const 的注意事项</p>
-<blockquote>
-<ul>
-<li>使用 const 声明常量，一旦声明，就必须立即初始化，不能留到以后赋值</li>
-</ul>
-<pre><code>// 以下错误演示
-const sex; // Uncaught SyntaxError: Missing initializer in const declaration 未捕获语法错误：const声明中缺少初始值设定项
-sex = &#39;male&#39;;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 正确的做法是：声明+初始化应该一气呵成<br>const sex &#x3D; ‘male’;</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>var username = &quot;小明&quot;;
+username = &quot;小花&quot;;
+console.log(username); //小花
+&gt;
+let age = &quot;22&quot;;
+age = &quot;30&quot;;
+let arr1 = [1];
+arr1.push(2);
+console.log(age, arr1); //30  [1, 2]
+&gt;
+const arr2 = [&quot;A&quot;];
+arr2.push(&quot;B&quot;);
+console.log(arr2); //[&#39;A&#39;, &#39;B&#39;]
+const sex = &quot;男&quot;;
+sex = &quot;女&quot;; // 控制台报错 Uncaught TypeError: Assignment to constant variable. 错误意思：给常量赋值了
+console.log(sex);
+</code></pre>
+<ol start="4">
+<li>const 的注意事项<blockquote>
+<ul>
+<li>使用 const 声明常量，一旦声明，就必须立即初始化，不能留到以后赋值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 以下错误演示
+const sex; // Uncaught SyntaxError: Missing initializer in const declaration 未捕获语法错误：const声明中缺少初始值设定项
+sex = &#39;male&#39;;
+&gt;
+// 正确的做法是：声明+初始化应该一气呵成
+const sex = &#39;male&#39;;
+</code></pre>
 <blockquote>
 <ul>
 <li>const 声明的常量，允许在不重新赋值的情况下修改它的值</li>
 </ul>
 </blockquote>
 <ul>
-<li><p>情况一：const 声明的是基本数据类型</p>
-<blockquote>
+<li>情况一：const 声明的是基本数据类型<blockquote>
 <ul>
 <li>对于基本数据类型来说，我们是没有办法在不重新赋值的情况下修改它的值</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 基本数据类型
 const sex = &quot;male&quot;;
 sex = &quot;female&quot;; // Uncaught TypeError: Assignment to constant variable.
 </code></pre>
-</blockquote>
-</li>
-<li><p>情况二：const 声明的是引用数据类型</p>
-<blockquote>
+<ul>
+<li>情况二：const 声明的是引用数据类型<blockquote>
 <ul>
 <li><code>const</code>声明常量为引用类型，不可以重新赋值，但可以<strong>修改</strong>里面的值。</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 引用数据类型
 const person = &#123;username: &quot;清心&quot;&#125;;
 // 对person重新赋值，通过前边的学习，我们知道对于const声明的常量来说是不被允许的
 // person = &#123;&#125;; // 报错了 Uncaught TypeError: Assignment to constant variable.
+&gt;
+// 但，引用数据类型不一定要通过重新赋值的方式来修改值
+// 可以直接找到对应的属性，对它完成修改
+person.username = &quot;arry&quot;;
+console.log(person); // 正确输出修改后的对象 &#123;username: &#39;arry&#39;&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 但，引用数据类型不一定要通过重新赋值的方式来修改值<br>&#x2F;&#x2F; 可以直接找到对应的属性，对它完成修改<br>person.username &#x3D; “arry”;<br>console.log(person); &#x2F;&#x2F; 正确输出修改后的对象 {username: ‘arry’}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="5">
 <li>为什么需要 const ？<blockquote>
 <p><strong>思考：</strong></p>
@@ -746,31 +751,27 @@ const person = &#123;username: &quot;清心&quot;&#125;;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// 假如只有let的情况，我们期望声明的 sex 值一旦声明后就是不变的。
 // 当然性别一般情况下就是不变的，也符合常识
 let sex = &quot;male&quot;;
 // ... 经历很多程序之后，如果不小心修改了 sex 的值，浏览器也不会报错
 sex = &quot;semale&quot;;
 console.log(sex); // semale
+&gt;
+// 我们可以看到 sex 的值被修改了，其实它按我们的期望来讲就是隐形一个错误
+// 也就是说这样的错误很可能发生，并没有任何提示，但它确实是一个错误，会造成我们的程序出现问题，类似这样的问题在过去么有什么很好的办法解决，只能通过开发者自己小心来定义
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 我们可以看到 sex 的值被修改了，其实它按我们的期望来讲就是隐形一个错误<br>&#x2F;&#x2F; 也就是说这样的错误很可能发生，并没有任何提示，但它确实是一个错误，会造成我们的程序出现问题，类似这样的问题在过去么有什么很好的办法解决，只能通过开发者自己小心来定义</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>但，const 的出现就不会有以上的问题了</li>
 </ul>
+</blockquote>
 <pre><code>// 我们现在使用 const 将 sex 声明为常量
 const sex = &quot;male&quot;;
 // ... 如果不小心完成了以下赋值操作，就报错了
 sex = &quot;semale&quot;; // Uncaught TypeError: Assignment to constant variable.
 console.log(sex);
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>使用 const 就直接从语法层面杜绝了类似错误的发生，我们在实际开发中也不需要为这些问题而小心翼翼了，这就是我们为什么需要 const 的原因。</p>
@@ -792,9 +793,9 @@ console.log(sex);
 <ul>
 <li>对于一些比较简单情况我们一眼能够看出进来的，就直接使用就好，没必要考虑什么 。如下下代码， 就直接用 let 就好</li>
 </ul>
+</blockquote>
 <pre><code>for (let i = 0; i &lt; 5; i++) &#123;&#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>对于一些在刚开始写代码的时候，我们也不清楚到底是用 let 还是 const<blockquote>
@@ -859,35 +860,31 @@ console.log(sex);
 </ul>
 </blockquote>
 <ol>
-<li><p>场景一</p>
-<blockquote>
+<li>场景一</li>
+</ol>
 <pre><code>// 如：使用var重复声明变量
 var i = 1;
 // ... 在写了很多行代码之后，突然忘记了之前有声明过a变量，又声明了一次
 var i = 2;
 console.log(i); // 2 ，这里最可气的是 控制台居然没有报错，还给我们修改了值
+&gt;
+// 如：使用 let 或 const 重复声明变量
+let n = 1;
+// ...
+let n = 2; // Uncaught SyntaxError: Identifier &#39;n&#39; has already been declared 已声明标识符 &quot;n&quot;
+console.log(n);
+&gt;
+// 使用 const 声明与 let 类似
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 如：使用 let 或 const 重复声明变量<br>let n &#x3D; 1;<br>&#x2F;&#x2F; …<br>let n &#x3D; 2; &#x2F;&#x2F; Uncaught SyntaxError: Identifier ‘n’ has already been declared 已声明标识符 “n”<br>console.log(n);</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 使用 const 声明与 let 类似</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>场景二</p>
-<blockquote>
+<ol start="2">
+<li>场景二</li>
+</ol>
 <pre><code>// 声明一个函数（以函数参数的形式声明的变量）
 function foo(i) &#123;
   let i = 2; // Uncaught SyntaxError: Identifier &#39;i&#39; has already been declared 已声明标识符 &quot;i&quot;
 &#125;
 foo();
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>注：<br>以上 let 或 const 重复声明变量时，直接报错，会明确的告诉我们该变量已被声明了，不能再重复声明一遍。这样，就从语法层面直接杜绝了错误的发生。<br>我们可以看到，使用 let 和 const 声明都是类似的。因此在学习后边的区别学习中，就不单独把 const 拿出来讲了，let 已经可以代表了，let 和 const 的表现是一致的。</p>
@@ -900,39 +897,39 @@ foo();
 </ul>
 </blockquote>
 <ol>
-<li><p>var 会提升变量的声明到当前作用域的顶部</p>
-<blockquote>
+<li>var 会提升变量的声明到当前作用域的顶部<blockquote>
 <ul>
 <li>不声明，直接使用：会报错</li>
 </ul>
-<pre><code>// 不声明变量，直接使用
-console.log(a); // Uncaught ReferenceError: a is not defined
-</code></pre>
-<ul>
-<li>先输出，后声明：不会报错</li>
-</ul>
-<pre><code>console.log(a); // undefined
-var a = 1;
-// 没有报错，输出了 undefined ，这就涉及到了变量提升
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以上代码通过变量提升后，实际的相当于如下步骤<br>var a;<br>console.log(a); &#x2F;&#x2F; undefined<br>a &#x3D; 1;<br>console.log(a); &#x2F;&#x2F; 1</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 其实变量提升带给我们更多的是困惑，因为它会和我们的想法和逻辑是不相符的，这也是我们学习JS需要记住的点</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>let、const 不存在变量提升</p>
-<blockquote>
-<pre><code>console.log(a); // Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization 初始化之前无法访问 “a”
-let a = 1;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 不声明变量，直接使用
+console.log(a); // Uncaught ReferenceError: a is not defined
+</code></pre>
+<blockquote>
+<ul>
+<li>先输出，后声明：不会报错</li>
+</ul>
+</blockquote>
+<pre><code>console.log(a); // undefined
+var a = 1;
+// 没有报错，输出了 undefined ，这就涉及到了变量提升
+&gt;
+// 以上代码通过变量提升后，实际的相当于如下步骤
+var a;
+console.log(a); // undefined
+a = 1;
+console.log(a); // 1
+&gt;
+// 其实变量提升带给我们更多的是困惑，因为它会和我们的想法和逻辑是不相符的，这也是我们学习JS需要记住的点
+</code></pre>
+<ol start="2">
+<li>let、const 不存在变量提升</li>
+</ol>
+<pre><code>console.log(a); // Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization 初始化之前无法访问 “a”
+let a = 1;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>总结</p>
@@ -947,19 +944,17 @@ let a = 1;
 <li>只要作用域内存在<code>let</code>、<code>const</code> ，它们所声明的变量或常量就自动 “绑定” 这个区域，不再受到外部作用域的影响</li>
 <li><code>let</code>、<code>const</code>存在暂时性死区，<code>var</code>不存在</li>
 </ul>
+</blockquote>
 <pre><code>let a = 1;
 function foo() &#123;
   console.log(a); // Uncaught ReferenceError: Cannot access &#39;a&#39; before initialization 初始化之前无法访问“a”
   let a = 2;
 &#125;
 foo();
+&gt;
+// 以上代码存在全局变量 a ，但函数作用域内 let 又声明了一个局部变量 a ，导致后者绑定这个函数作用域
+// 所以在 let 声明变量前，输出 a 会报错
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以上代码存在全局变量 a ，但函数作用域内 let 又声明了一个局部变量 a ，导致后者绑定这个函数作用域<br>&#x2F;&#x2F; 所以在 let 声明变量前，输出 a 会报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>ES6 明确规定</strong></p>
 <ul>
@@ -968,67 +963,63 @@ foo();
 </ul>
 </blockquote>
 <ol>
-<li><p>场景一</p>
-<blockquote>
+<li>场景一</li>
+</ol>
 <pre><code>if (true) &#123;
   // TDZ开始
   tmp = &quot;abc&quot;; // ReferenceError
   console.log(tmp); // ReferenceError
+&gt;
+  let tmp; // TDZ结束
+  console.log(tmp); // undefined
+&gt;
+  tmp = 123;
+  console.log(tmp); // 123
+&#125;
+&gt;
+// 上面代码中，在let命令声明变量tmp之前，都属于变量tmp的 “死区”
 </code></pre>
-</blockquote>
-<p>  let tmp; &#x2F;&#x2F; TDZ结束<br>  console.log(tmp); &#x2F;&#x2F; undefined</p>
-<blockquote>
-</blockquote>
-<p>  tmp &#x3D; 123;<br>  console.log(tmp); &#x2F;&#x2F; 123<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码中，在let命令声明变量tmp之前，都属于变量tmp的 “死区”</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>场景二</p>
-<blockquote>
+<ol start="2">
+<li>场景二<blockquote>
 <ul>
 <li>有些“死区”比较隐蔽，不太容易发现</li>
 </ul>
-<pre><code>function bar(x = y, y = 2) &#123;
-  return [x, y];
-&#125;
-</code></pre>
-</blockquote>
-<p>bar(); &#x2F;&#x2F; 报错<br>bar(2, 3); &#x2F;&#x2F; 不报错</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码中，调用bar函数之所以报错，是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于“死区”。<br>&#x2F;&#x2F; 如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>
-<blockquote>
-</blockquote>
-<p>function bar(x &#x3D; 2, y &#x3D; x) {<br>  return [x, y];<br>}<br>bar(); &#x2F;&#x2F; [2, 2]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>场景三</p>
-<blockquote>
-<ul>
-<li>使用let&#x2F;const声明变量时，只要变量在<strong>还没有声明完成前</strong>使用，就会报错。</li>
-</ul>
-<pre><code>// 不报错
-var x = x;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 报错<br>let x &#x3D; x;<br>&#x2F;&#x2F; ReferenceError: x is not defined</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码报错，也是因为暂时性死区。使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。<br>&#x2F;&#x2F; 上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义”。</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>function bar(x = y, y = 2) &#123;
+  return [x, y];
+&#125;
+&gt;
+bar(); // 报错
+bar(2, 3); // 不报错
+&gt;
+// 上面代码中，调用bar函数之所以报错，是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于“死区”。
+// 如果y的默认值是x，就不会报错，因为此时x已经声明了。
+&gt;
+function bar(x = 2, y = x) &#123;
+  return [x, y];
+&#125;
+bar(); // [2, 2]
+</code></pre>
+<ol start="3">
+<li>场景三<blockquote>
+<ul>
+<li>使用let&#x2F;const声明变量时，只要变量在<strong>还没有声明完成前</strong>使用，就会报错。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 不报错
+var x = x;
+&gt;
+// 报错
+let x = x;
+// ReferenceError: x is not defined
+&gt;
+// 上面代码报错，也是因为暂时性死区。使用let声明变量时，只要变量在还没有声明完成前使用，就会报错。
+// 上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错&quot;x 未定义&quot;。
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注：</p>
@@ -1041,22 +1032,22 @@ var x = x;
 </blockquote>
 <h4 id="window-对象的属性和方法"><a href="#window-对象的属性和方法" class="headerlink" title="window 对象的属性和方法"></a>window 对象的属性和方法</h4><blockquote>
 <p>全局作用域中，<code>var</code> 声明的变量，通过 <code>function</code> 声明的函数，会自动变成<code>window</code> 对象的属性或方法</p>
+</blockquote>
 <pre><code>// 全局作用域中，var声明的变量，通过function声明的函数，会自动变成window对象的属性或方法
 var age = 20;
 function add() &#123;&#125;
 console.log(window.age);//20
 console.log(window.add === add);//true
 </code></pre>
-</blockquote>
 <blockquote>
 <p>全局作用域中，<code>let</code>、<code>const</code> 声明的变量 或 <code>function</code> 声明的函数，<strong>不会</strong>自动变成window 对象的属性或方法</p>
+</blockquote>
 <pre><code>// 全局作用域中，let、const 声明的变量 或 function声明的函数，不会自动变成window对象的属性或方法
 let age = 20;
 const add = function () &#123;&#125;;
 console.log(window.age); // undefined
 console.log(window.add === add); // false
 </code></pre>
-</blockquote>
 <h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h4><blockquote>
 <p><code>let</code>、<code>const</code> 和 <code>var</code> <strong>最重要的区别</strong>即：是否拥有块级作用域。<br>在深入了解它们的区别前，我们需要了解一下，在 JavaScript 中有哪些作用域：</p>
 <ul>
@@ -1073,37 +1064,38 @@ console.log(window.add === add); // false
 </ul>
 </blockquote>
 <ol>
-<li><p>全局作用域</p>
-<blockquote>
+<li>全局作用域<blockquote>
 <p>全局作用域顾名思义，就是在任何地方都能访问到它，在浏览器中能通过 <code>window</code> 对象拿到的变量就是全局作用域下声明的变量</p>
-<pre><code>var username = &quot;icoding&quot;;
-console.log(window.username); // icoding
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 使用 var 定义的变量，可以在 window 对象上拿到此变量<br>&#x2F;&#x2F; 这里的 name 就是全局作用域下的变量</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>函数作用域</p>
-<blockquote>
+</ol>
+<pre><code>var username = &quot;icoding&quot;;
+console.log(window.username); // icoding
+&gt;
+// 使用 var 定义的变量，可以在 window 对象上拿到此变量
+// 这里的 name 就是全局作用域下的变量
+</code></pre>
+<ol start="2">
+<li>函数作用域<blockquote>
 <ul>
 <li>函数作用域，也称为局部作用域，所有写在函数内部的代码，就是在函数作用域中</li>
 <li>声明在函数作用域中的变量为<strong>局部变量</strong>，从外层是无法直接访问函数内部的变量</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function foo() &#123;
   var username = &quot;icoding&quot;;
 &#125;
 console.log(username); // Uncaught ReferenceError: username is not defined
 </code></pre>
 <blockquote>
+<blockquote>
 <p>在函数内部定义的 username 变量，在函数外部是访问不了的。要想在函数外部访问函数内部的变量可以通过 <code>return</code> 的方式返回出来。</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>块级作用域（ES6 新增）</p>
-<blockquote>
+<ol start="3">
+<li>块级作用域（ES6 新增）<blockquote>
 <p>块级作用域是 ES6 的概念，它的产生是要<strong>有一定的条件的</strong></p>
 <ul>
 <li>在花括号<code>&#123;&#125;</code>中，使用 <code>let</code> 或 <code>const</code> 声明的变量，才会产生块级作用域。<br><strong>这里需要注意的是</strong></li>
@@ -1117,6 +1109,7 @@ console.log(username); // Uncaught ReferenceError: username is not defined
 <ul>
 <li>在使用 var 声明的情况下，可以看出，外层的 age 会被 {} 中的 age 覆盖，所以没有块级作用域的概念</li>
 </ul>
+</blockquote>
 <pre><code>// var声明的变量，不会产生块级作用域
 var age = 18;
 &#123;
@@ -1125,11 +1118,11 @@ var age = 18;
 &#125;
 console.log(age); // 20
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>使用 <code>let</code> 方式声明时，<code>&#123;&#125;</code>内外是互不干涉和影响的，如果在声明<code>age</code>的前面进行打印的话，还会报错，这个时候，<code>age</code> 处于暂存死区，是不能被使用的，</li>
 </ul>
+</blockquote>
 <pre><code>let age = 18;
 &#123;
   console.log(age); // Uncaught ReferenceError: Cannot access &#39;age&#39; before initialization
@@ -1138,11 +1131,11 @@ console.log(age); // 20
 &#125;
 console.log(age); // 18
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>在低版本浏览器中不支持 ES6 语法，通常需要把 ES6 语法转换成 ES5，使用 babel 把上面的代码转换后得到如下结果：</li>
 </ul>
+</blockquote>
 <pre><code>var age = 18;
 &#123;
   console.log(_age); // undefined
@@ -1152,47 +1145,49 @@ console.log(age); // 18
 console.log(age); // 18
 </code></pre>
 <blockquote>
+<blockquote>
 <p>从上面的代码中可以看出：<br>虽然在 ES6 语法使用的是相同的变量名字，但是底层JS进行编译时会认为他们是不同的变量。也就是说即使花括号中声明的变量和外面的变量是相同的名字，但是在编译过程它们是<strong>没有关系</strong>的。</p>
 </blockquote>
 </blockquote>
 <ul>
-<li>ES6 允许块级作用域的任意嵌套<blockquote>
+<li>ES6 允许块级作用域的任意嵌套</li>
+</ul>
 <pre><code>&#123;
-&#123;
   &#123;
     &#123;
-      let username = &quot;icoding&quot;;
       &#123;
         let username = &quot;icoding&quot;;
+        &#123;
+          let username = &quot;icoding&quot;;
+        &#125;
       &#125;
     &#125;
   &#125;
 &#125;
-&#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>上面代码使用了一个五层的块级作用域，每一层都是一个单独的作用域。第四层作用域无法读取第五层作用域的内部变量。</li>
 <li>所以，内层作用域可以定义外层作用域的同名变量。</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>块级作用域的出现，实际上使得获得广泛应用的<strong>匿名立即执行函数表达式（匿名 IIFE）不再必要了</strong>。以前我们想要将某个全局变量变成私有的，我们会用 IIFE 来实现，现在有了块级作用域，我们只需要用块级作用域来解决就好。</li>
 </ul>
+</blockquote>
 <pre><code>// IIFE 写法
 (function () &#123;
   var age = ...;
   ...
 &#125;());
+&gt;
+// 块级作用域写法
+&#123;
+  let age = ...;
+  ...
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 块级作用域写法<br>{<br>  let age &#x3D; …;<br>  …<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="4">
 <li>为什么需要块级作用域 ？<blockquote>
 <p>我们通过之前的学习知道，ES5 只有全局作用域和函数作用域，没有块级作用域，这带来很多不合理的场景。所以在 ES6 中新增了块级作用域。</p>
@@ -1200,20 +1195,22 @@ console.log(age); // 18
 </li>
 </ol>
 <ul>
-<li>第一种不合理场景： 内层变量可能会覆盖外层变量<blockquote>
-<pre><code>var atmp = 2;
-</code></pre>
-</blockquote>
-function foo() {<br>console.log(atmp);<br>if (false) {<br>  var atmp &#x3D; “hello world”;<br>}<br>}<blockquote>
-</blockquote>
-foo(); &#x2F;&#x2F; undefined<blockquote>
-</blockquote>
-&#x2F;&#x2F; 上面代码的原意是，if代码块的外部使用外层的atmp变量，内部使用内层的atmp变量。<br>&#x2F;&#x2F; 但是，函数foo执行后，输出结果为undefined，原因在于变量提升，导致内层的atmp变量覆盖了外层的atmp变量。<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li>第一种不合理场景： 内层变量可能会覆盖外层变量</li>
 </ul>
+<pre><code>var atmp = 2;
+&gt;
+function foo() &#123;
+  console.log(atmp);
+  if (false) &#123;
+    var atmp = &quot;hello world&quot;;
+  &#125;
+&#125;
+&gt;
+foo(); // undefined
+&gt;
+// 上面代码的原意是，if代码块的外部使用外层的atmp变量，内部使用内层的atmp变量。
+// 但是，函数foo执行后，输出结果为undefined，原因在于变量提升，导致内层的atmp变量覆盖了外层的atmp变量。
+</code></pre>
 <blockquote>
 <ul>
 <li>let 和 const 有块级作用域，就可以避免这种问题产生<blockquote>
@@ -1221,6 +1218,7 @@ foo(); &#x2F;&#x2F; undefined<blockquote>
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>let atmp = 2;
 function foo() &#123;
   console.log(atmp);
@@ -1230,36 +1228,33 @@ function foo() &#123;
 &#125;
 foo(); // 2
 </code></pre>
-</blockquote>
 <ul>
-<li>第二种不合理场景： 用来计数的循环变量泄露为全局变量<blockquote>
+<li>第二种不合理场景： 用来计数的循环变量泄露为全局变量</li>
+</ul>
 <pre><code>for (var i = 0; i &lt; 2; i++) &#123;
-console.log(&quot;循环内：&quot; + i);
+  console.log(&quot;循环内：&quot; + i);
 &#125;
 console.log(&quot;循环外：&quot; + i); // 2
+&gt;
+// 上面代码中，变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 上面代码中，变量i只用来控制循环，但是循环结束后，它并没有消失，泄露成了全局变量。<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>let 和 const 有块级作用域，就可以必免这种问题产生</li>
 </ul>
+</blockquote>
 <pre><code>for (let i = 0; i &lt; 2; i++) &#123;
   console.log(&quot;循环内：&quot; + i);
 &#125;
 console.log(&quot;循环外：&quot; + i); // Uncaught ReferenceError: i is not defined
+&gt;
+// 之所以会报错，是因为使用 let 或 const 声明的变量是有块级作用域的
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 之所以会报错，是因为使用 let 或 const 声明的变量是有块级作用域的</p>
 <blockquote>
-<pre><code>- `let`声明的 `i` 和 `for()&#123;&#125;` 共同构成了块级作用域，因此在块级作用域内定义的变量 `i` 只能在for的`&#123;&#125;`内可访问
-- 执行完`for`循环后，该作用域就销毁了，我们在全局作用域中就找不到`i`，就报错了
-</code></pre>
+<ul>
+<li><code>let</code>声明的 <code>i</code> 和 <code>for()&#123;&#125;</code> 共同构成了块级作用域，因此在块级作用域内定义的变量 <code>i</code> 只能在for的<code>&#123;&#125;</code>内可访问</li>
+<li>执行完<code>for</code>循环后，该作用域就销毁了，我们在全局作用域中就找不到<code>i</code>，就报错了</li>
+</ul>
 </blockquote>
 <ol start="5">
 <li>深入理解块级作用域<blockquote>
@@ -1267,25 +1262,28 @@ console.log(&quot;循环外：&quot; + i); // Uncaught ReferenceError: i is not 
 <ul>
 <li>那如果没有 es6，那我们要实现相同的功能，用 es5 如何模拟呢 ？</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// es6版本
 for (let i = 0; i &lt; 5; i++) &#123;
   console.log(i);
 &#125;
 console.log(i);
+&gt;
+// babel转换成对应的es5版本
+(&quot;use strict&quot;);
+&gt;
+for (var _i = 0; _i &lt; 5; _i++) &#123;
+  console.log(_i);
+&#125;
+console.log(i);
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; babel转换成对应的es5版本<br>(“use strict”);<blockquote>
-</blockquote>
-for (var _i &#x3D; 0; _i &lt; 5; _i++) {<br>  console.log(_i);<br>}<br>console.log(i);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>很多人对于<code>for(let i=0; i&lt;5; i++)&#123; &#125;</code><strong>每次迭代都会创建一个新的块级作用域</strong>不太理解，这里我们将 es6 的语法代码用 babel 转换成 es5 的语法来看下</li>
 </ul>
+</blockquote>
 <pre><code>// es6版本 for 循环一共创建了5个块级作用域
 for (let i = 0; i &lt; 5; i++) &#123;
   setTimeout(function () &#123;
@@ -1293,37 +1291,42 @@ for (let i = 0; i &lt; 5; i++) &#123;
   &#125;, 1000);
 &#125;
 console.log(i);
+&gt;
+// babel转换成对应的es5版本
+(&quot;use strict&quot;);
+&gt;
+var _loop = function _loop(i) &#123;
+  setTimeout(function () &#123;
+    console.log(i);
+  &#125;, 1000);
+&#125;;
+for (var _i = 0; _i &lt; 5; _i++) &#123;
+  _loop(_i);
+&#125;
+console.log(i);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; babel转换成对应的es5版本<br>(“use strict”);</p>
-<blockquote>
-</blockquote>
-<p>var _loop &#x3D; function _loop(i) {<br>  setTimeout(function () {<br>    console.log(i);<br>  }, 1000);<br>};<br>for (var _i &#x3D; 0; _i &lt; 5; _i++) {<br>  _loop(_i);<br>}<br>console.log(i);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="6">
 <li>作用域链的复习<blockquote>
 <p>关于变量的查找会涉及到作用域链，我们再次来复习一下</p>
-<pre><code>function foo() &#123;
-  // 函数作用域
-  for (let i = 0; i &lt; 2; i++) &#123;
- console.log(i); // 0 1
- // 块级作用域
-  &#125;
-  console.log(i); // Uncaught ReferenceError: i is not defined
-&#125;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 全局作用域<blockquote>
-</blockquote>
-foo();<br>console.log(i); &#x2F;&#x2F; Uncaught ReferenceError: i is not defined<blockquote>
-<pre><code>&lt;img src=&quot;复习作用域链.png&quot;&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>function foo() &#123;
+  // 函数作用域
+  for (let i = 0; i &lt; 2; i++) &#123;
+    console.log(i); // 0 1
+    // 块级作用域
+  &#125;
+  console.log(i); // Uncaught ReferenceError: i is not defined
+&#125;
+&gt;
+// 全局作用域
+&gt;
+foo();
+console.log(i); // Uncaught ReferenceError: i is not defined
+</code></pre>
+<img src="复习作用域链.png">
+
 <blockquote>
 <p><strong>代码解读</strong></p>
 <ul>
@@ -1352,18 +1355,20 @@ foo();<br>console.log(i); &#x2F;&#x2F; Uncaught ReferenceError: i is not defined
 <ul>
 <li><strong>大部分</strong>具有花括号<code>&#123;&#125;</code>的结构，都可以构成块级作用域</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>&#123;
   let age = 20;
   console.log(age); // 20
 &#125;
 console.log(age); // Uncaught ReferenceError: age is not defined
 </code></pre>
+<blockquote>
 <ul>
 <li>报错原因：<code>&#123;&#125;</code>花括号就是一个块级作用域， 它执行完毕之后就会被销毁</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>还具有<code>&#123;&#125;</code>块级作用域的结构，如：<code>&#123;&#125;</code>、<code>for()&#123;&#125;</code>、<code>while()&#123;&#125;</code>、<code>do&#123;&#125;while()</code>、<code>if()&#123;&#125;</code>、<code>switch()&#123;&#125;</code></li>
@@ -1390,56 +1395,58 @@ console.log(age); // Uncaught ReferenceError: age is not defined
 </ul>
 </blockquote>
 <h4 id="在-ES6-之前使用-var-如何实现"><a href="#在-ES6-之前使用-var-如何实现" class="headerlink" title="在 ES6 之前使用 var 如何实现"></a>在 ES6 之前使用 var 如何实现</h4><ol>
-<li><p>实现方式一</p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<li>实现方式一</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   .btn &#123;
- width: 50px;
- height: 50px;
- font-size: 30px;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
   &#125;
-&lt;/style&gt;
-
-&lt;button class=&quot;btn&quot;&gt;0&lt;/button&gt;
-&lt;button class=&quot;btn&quot;&gt;1&lt;/button&gt;
-&lt;button class=&quot;btn&quot;&gt;2&lt;/button&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;button class=&quot;btn&quot;&gt;0&lt;/button&gt;
+&gt;&lt;button class=&quot;btn&quot;&gt;1&lt;/button&gt;
+&gt;&lt;button class=&quot;btn&quot;&gt;2&lt;/button&gt;
+&gt;&lt;script&gt;
   var btns = document.querySelectorAll(&quot;.btn&quot;);
   for (var i = 0; i &lt; btns.length; i++) &#123;
- btns[i].onclick = function () &#123;
-   console.log(i);
- &#125;;
+    btns[i].onclick = function () &#123;
+      console.log(i);
+    &#125;;
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <ul>
 <li>运行以上程序，分别点击 0，1，2 三个按钮都会输出 <code>3</code> ，而不是按我们想象的 0，1，2 来输出</li>
 <li>因为点击事件发生时，函数作用域内找不到i，就会往外找；i是在全局作用域下声明的变量，在for循环结束后，在全局作用域下i&#x3D;3；</li>
 </ul>
 </blockquote>
-</li>
-<li><p>在 ES6 之前，我们该如何解决这个问题 ？</p>
-<blockquote>
+<ol start="2">
+<li>在 ES6 之前，我们该如何解决这个问题 ？<blockquote>
 <ul>
 <li>利用立即执行函数，形成闭包</li>
-</ul>
-<pre><code>&lt;script&gt;
-  var btns = document.querySelectorAll(&quot;.btn&quot;);
-  for (var i = 0; i &lt; btns.length; i++) &#123;
- (function (index) &#123;
-   btns[index].onclick = function () &#123;
-     console.log(index);
-   &#125;;
- &#125;)(i);
-  &#125;
-&lt;/script&gt;
-</code></pre>
-<ul>
-<li>运行以上代码，分别点击 0，1，2 三个按钮会正确输出 0，1，2</li>
 </ul>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;script&gt;
+  var btns = document.querySelectorAll(&quot;.btn&quot;);
+  for (var i = 0; i &lt; btns.length; i++) &#123;
+    (function (index) &#123;
+      btns[index].onclick = function () &#123;
+        console.log(index);
+      &#125;;
+    &#125;)(i);
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>运行以上代码，分别点击 0，1，2 三个按钮会正确输出 0，1，2</li>
+</ul>
+</blockquote>
 <blockquote>
 <p><strong>代码分析</strong></p>
 <ul>
@@ -1455,7 +1462,8 @@ console.log(age); // Uncaught ReferenceError: age is not defined
 <ul>
 <li>使用 ES6 中的 let、const 完成此需求</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
   var btns = document.querySelectorAll(&quot;.btn&quot;);
   //es6
   for (let i = 0; i &lt; btns.length; i++) &#123;
@@ -1463,9 +1471,8 @@ console.log(age); // Uncaught ReferenceError: age is not defined
       console.log(i);
     &#125;;
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>代码分析</strong></p>
 <ul>
@@ -1501,10 +1508,12 @@ console.log(age); // Uncaught ReferenceError: age is not defined
 <ul>
 <li>创建一个 Symbol 值的方式如下：</li>
 </ul>
-<pre><code>const s=Symbol();
-console.log(s);//Symbol();
-console.log(typeof s);//Symbol
+</blockquote>
+<pre><code>&gt;const s=Symbol();
+&gt;console.log(s);//Symbol();
+&gt;console.log(typeof s);//Symbol
 </code></pre>
+<blockquote>
 <ul>
 <li><code>Symbol</code>值通过<code>Symbol()</code>函数生成，上面代码中，变量s就是一个<strong>独一无二</strong>的值。</li>
 <li><code>typeof</code>运算符的结果，表明变量s是<code>Symbol</code>数据类型，而不是字符串之类的其他类型。</li>
@@ -1515,27 +1524,29 @@ console.log(typeof s);//Symbol
 <ul>
 <li>通过上边的学习，使用以下语法可创建一个 Symbol 变量</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let s = Symbol();
 console.log(s); // Symbol()
 </code></pre>
+<blockquote>
 <ul>
 <li>我们说 <code>Symbol()</code> 生成的是一个独一无二的值，所以如果用 <code>Symbol()</code> 创建多个 <code>Symbol</code> 值时，即使他们长的完全一样，但是值是不相同的。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
-<blockquote>
 <pre><code>let s = Symbol();
 let m = Symbol();
+&gt;
+console.log(s); // Symbol()
+console.log(m); // Symbol()
+&gt;
+console.log(s === m); // false
 </code></pre>
-</blockquote>
-<p>console.log(s); &#x2F;&#x2F; Symbol()<br>console.log(m); &#x2F;&#x2F; Symbol()</p>
 <blockquote>
-</blockquote>
-<p>console.log(s &#x3D;&#x3D;&#x3D; m); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>- 通过以上代码可知，虽然它们在控制台的输出是一样的，但变量 s 和变量 m 并不是同一个值
-</code></pre>
+<ul>
+<li>通过以上代码可知，虽然它们在控制台的输出是一样的，但变量 s 和变量 m 并不是同一个值</li>
+</ul>
 </blockquote>
 <ol start="2">
 <li>方式二：<blockquote>
@@ -1543,31 +1554,31 @@ let m = Symbol();
 <ul>
 <li>为此，我们可以在调用<code>Symbol</code>的时候传入一个<strong>字符串</strong>作为对当前<code>Symbol</code>变量的<strong>描述</strong></li>
 </ul>
-<pre><code>let s = Symbol(&quot;color&quot;);
-let m = Symbol(&quot;message&quot;);
-</code></pre>
-</blockquote>
-console.log(s); &#x2F;&#x2F; Symbol(color)<br>console.log(m); &#x2F;&#x2F; Symbol(message)<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>let s = Symbol(&quot;color&quot;);
+let m = Symbol(&quot;message&quot;);
+&gt;
+console.log(s); // Symbol(color)
+console.log(m); // Symbol(message)
+</code></pre>
 <blockquote>
 <ul>
 <li>不过还是要特别注意，即使Symbol 的变量的描述是一样的，也是两个不同的值</li>
 </ul>
+</blockquote>
 <pre><code>const s = Symbol(&quot;a&quot;);
 const m = Symbol(&quot;a&quot;);
 console.log(s);
 console.log(m);
 console.log(s === m);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>Symbol 的描述符，如果传入的不是字符串类型，则会转换为对应的字符串</li>
 </ul>
+</blockquote>
 <pre><code>let s1 = Symbol(&quot;abc&quot;);
 let s2 = Symbol(111);
 let s3 = Symbol([1, 2, 3]);
@@ -1575,14 +1586,13 @@ let s4 = Symbol(&#123;&#125;);
 console.log(s1, s2, s3, s4);
 //Symbol(abc) Symbol(111) Symbol(1,2,3) Symbol([object Object])
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>注意：<code>Symbol</code>是基本数据类型，调用<code>Symbol</code>时不可以使用 <code>new</code>关键字</li>
 </ul>
+</blockquote>
 <pre><code>const b = new Symbol(); // 报错 Symbol is not a constructor ，Symbol 不是构造函数
 </code></pre>
-</blockquote>
 <h4 id="Symbol-for"><a href="#Symbol-for" class="headerlink" title="Symbol.for()"></a><code>Symbol.for()</code></h4><blockquote>
 <ul>
 <li>有时，我们希望重新使用<strong>同一个</strong><code>Symbol</code>值，<code>Symbol.for()</code>方法可以做到这一点。</li>
@@ -1594,6 +1604,7 @@ console.log(s1, s2, s3, s4);
 </li>
 <li><strong>不管<code>Symbol.for()</code>在哪里调用，最后都会登记注册在全局环境中</strong></li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   const s1 = Symbol.for(&quot;color&quot;);
   return s1;
@@ -1602,52 +1613,56 @@ const s1 = fn();
 const s2 = Symbol.for(&quot;color&quot;);
 console.log(s1 === s2); //true
 </code></pre>
-</blockquote>
 <h4 id="Symbol-keyFor"><a href="#Symbol-keyFor" class="headerlink" title="Symbol.keyFor()"></a><code>Symbol.keyFor()</code></h4><blockquote>
 <ul>
 <li><code>Symbol.keyFor()</code>返回一个<strong>全局注册</strong>的<code>Symbol</code>的描述符</li>
 </ul>
+</blockquote>
 <pre><code>let s = Symbol.for(&quot;icoding&quot;);
 let m = Symbol.keyFor(s);
 console.log(m); // icoding
+&gt;
+const m = Symbol(color);
+const k = Symbol.keyFor(m); //报错 color is not defined
+console.log(k);
 </code></pre>
-</blockquote>
-<p>const m &#x3D; Symbol(color);<br>const k &#x3D; Symbol.keyFor(m); &#x2F;&#x2F;报错 color is not defined<br>console.log(k);</p>
 <blockquote>
-<pre><code>- 只有在全局作用域下注册过的`Symbol`描述符才能被找到，否则就会报错
-</code></pre>
+<ul>
+<li>只有在全局作用域下注册过的<code>Symbol</code>描述符才能被找到，否则就会报错</li>
+</ul>
 </blockquote>
 <h4 id="Symbol-与基本数据类型转换"><a href="#Symbol-与基本数据类型转换" class="headerlink" title="Symbol 与基本数据类型转换"></a>Symbol 与基本数据类型转换</h4><blockquote>
 <ul>
 <li>Symbol 不能转成数字</li>
 <li>使用 Number 对 Symbol 值转换会报错</li>
 </ul>
+</blockquote>
 <pre><code>const s = Symbol(&quot;123&quot;);
 console.log(Number(s)); // Cannot convert a Symbol value to a number
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>Symbol 可以转成 布尔值 和 字符串</li>
 </ul>
+</blockquote>
 <pre><code>let s = Symbol(&quot;123&quot;);
 console.log(typeof s); // symbol
+&gt;
+let str = String(s);
+console.log(str); // Symbol(123)
+console.log(typeof str); // string
+&gt;
+let bool = Boolean(s);
+console.log(bool); // true
+console.log(typeof bool); // boolean
 </code></pre>
-</blockquote>
-<p>let str &#x3D; String(s);<br>console.log(str); &#x2F;&#x2F; Symbol(123)<br>console.log(typeof str); &#x2F;&#x2F; string</p>
-<blockquote>
-</blockquote>
-<p>let bool &#x3D; Boolean(s);<br>console.log(bool); &#x2F;&#x2F; true<br>console.log(typeof bool); &#x2F;&#x2F; boolean</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="Symbol-属性的遍历"><a href="#Symbol-属性的遍历" class="headerlink" title="Symbol 属性的遍历"></a>Symbol 属性的遍历</h4><blockquote>
 <ul>
 <li>以<code>Symbol</code>类型的变量作为<strong>对象属性</strong>时，该属性不会出现在 <code>for … in</code>、<code>for … of</code>循环中（后面会讲解<code>for…of</code>循环的）。也不会被<code>Object.keys()</code>、<code>Object.getOwnPropertyNames()</code>返回。</li>
 <li>我们可以通过<code>Object.getOwnPropertySymbols()</code>方法返回一个数组，成员是当前对象的<strong>所有</strong>用作<strong>属性名</strong>的 <code>Symbol</code> 值。</li>
 <li>如果想要一次性获取到<strong>对象自身的所有属性</strong>，可以利用<code>Reflect.ownKeys(obj)</code>，但原型上的获取不到</li>
 </ul>
+</blockquote>
 <pre><code> let s = Symbol(&quot;ss&quot;);
  let m = Symbol(&quot;mm&quot;);
  // 由于 s 和 m 是变量，而不是字符串，因此需要使用中括号括起来（否则它会被当做字符串使用）
@@ -1656,19 +1671,20 @@ console.log(typeof s); // symbol
    [s]: 18,
    [m]: function () &#123;&#125;,
  &#125;;
+&gt;
+ // for ... in 循环遍历 obj
+ for (key in obj) &#123;
+   console.log(key); //username
+ &#125;
+&gt;
+ // getOwnPropertySymbols()方法
+ const arr1 = Object.getOwnPropertySymbols(obj);
+ console.log(arr1); //[Symbol(ss), Symbol(mm)]
+&gt;
+ // Reflect.ownKeys()方法
+ const arr2 = Reflect.ownKeys(obj);
+ console.log(arr2); // [&#39;username&#39;, Symbol(ss), Symbol(mm)]
 </code></pre>
-</blockquote>
-<p> &#x2F;&#x2F; for … in 循环遍历 obj<br> for (key in obj) {<br>   console.log(key); &#x2F;&#x2F;username<br> }</p>
-<blockquote>
-</blockquote>
-<p> &#x2F;&#x2F; getOwnPropertySymbols()方法<br> const arr1 &#x3D; Object.getOwnPropertySymbols(obj);<br> console.log(arr1); &#x2F;&#x2F;[Symbol(ss), Symbol(mm)]</p>
-<blockquote>
-</blockquote>
-<p> &#x2F;&#x2F; Reflect.ownKeys()方法<br> const arr2 &#x3D; Reflect.ownKeys(obj);<br> console.log(arr2); &#x2F;&#x2F; [‘username’, Symbol(ss), Symbol(mm)]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="Symbol-的应用"><a href="#Symbol-的应用" class="headerlink" title="Symbol 的应用"></a>Symbol 的应用</h4><blockquote>
 <p>因为 Symbol 产生的是独一无二的值，所以我们可以利用这个特性解决以下<strong>三大问题</strong></p>
 <ul>
@@ -1678,12 +1694,14 @@ console.log(typeof s); // symbol
 </ul>
 </blockquote>
 <ol>
-<li><p>消除对象同名属性之间覆盖问题</p>
-<blockquote>
+<li>消除对象同名属性之间覆盖问题<blockquote>
 <ul>
 <li>由于每一个<code>Symbol</code>值都是不相等的，这意味着<code>Symbol</code>值可以作为标识符，用于对象的属性名，就能<strong>保证不会出现同名的属性</strong>。</li>
 <li>如果我们对一个对象身上有哪些属性不清楚，但我们想再给对象添加一个新属性时，有可能新属性名与对象原有的属性名相同，而造成同名属性的覆盖，如果用 <code>Symbol</code> 就可以解决这个问题。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// addMethod方法为obj对象添加某个属性，属性值为fn
 function addMethod(obj, fn) &#123;
   // ....
@@ -1693,63 +1711,62 @@ function addMethod(obj, fn) &#123;
 &#125;
 </code></pre>
 <blockquote>
+<blockquote>
 <p>注意：使用 Symbol 作为对象属性时，需要使用<strong>方括号</strong>语法去访问对应的属性，而不是字符串。</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>使对象的属性不能单独对外访问</p>
-<blockquote>
+<ol start="2">
+<li>使对象的属性不能单独对外访问<blockquote>
 <p>以<code>Symbol</code>值作为对象的属性名不会被常规的方法遍历得到，所以我们可以利用这个特性为对象定义一组非私有属性，但这些属性又希望<strong>只用于内部方法</strong>的效果。</p>
 </blockquote>
 </li>
 </ol>
 <ul>
-<li><p>用ES5的方式模拟私有变量</p>
-<blockquote>
+<li>用ES5的方式模拟私有变量<blockquote>
 <ul>
 <li>利用闭包</li>
 </ul>
-<pre><code>const Person = (function () &#123;
-var m = Symbol(&quot;m&quot;);
-function Person() &#123;
-  this[m] = 100; //
-&#125;
-Person.prototype.getM = function () &#123;
-  return this[m];
-&#125;;
-return Person;
-&#125;)();
-</code></pre>
-</blockquote>
-<p>const p &#x3D; new Person();<br>console.log(p.getM());</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>在ES6里配合模块化实现</p>
-<blockquote>
-<pre><code>// person.js
-const m = Symbol(&quot;m&quot;);
-export default class Person &#123;
-constructor(name) &#123;
-  this.name = name;
-  this[m] = 100;
-&#125;
-getM() &#123;
-  return this[m];
-&#125;
-&#125;
-// export &#123; Person &#125;;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; index.html  页面导入模块<br>import Person from “.&#x2F;person.js”;<br>const p &#x3D; new Person(“icoding”);<br>console.log(p.getM());<br>for (let key in p) {<br>console.log(key);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>const Person = (function () &#123;
+  var m = Symbol(&quot;m&quot;);
+  function Person() &#123;
+    this[m] = 100; //
+  &#125;
+  Person.prototype.getM = function () &#123;
+    return this[m];
+  &#125;;
+  return Person;
+&#125;)();
+&gt;
+const p = new Person();
+console.log(p.getM());
+</code></pre>
+<ul>
+<li>在ES6里配合模块化实现</li>
+</ul>
+<pre><code>// person.js
+const m = Symbol(&quot;m&quot;);
+export default class Person &#123;
+  constructor(name) &#123;
+    this.name = name;
+    this[m] = 100;
+  &#125;
+  getM() &#123;
+    return this[m];
+  &#125;
+&#125;
+// export &#123; Person &#125;;
+&gt;
+// index.html  页面导入模块
+import Person from &quot;./person.js&quot;;
+const p = new Person(&quot;icoding&quot;);
+console.log(p.getM());
+for (let key in p) &#123;
+  console.log(key);
+&#125;
+</code></pre>
 <ol start="3">
 <li>消除魔术字符串<blockquote>
 <ul>
@@ -1763,6 +1780,7 @@ getM() &#123;
 <ul>
 <li>如果我们要计算不同形状的面积，我们可以写下面这个方法来实现</li>
 </ul>
+</blockquote>
 <pre><code>function getArea(shape, options) &#123;
   let area = 0; // 保存最终计算得到的面积
   switch (shape) &#123;
@@ -1778,28 +1796,30 @@ getM() &#123;
   &#125;
   return area;
 &#125;
+&gt;
+getArea(&quot;rectangle&quot;, &#123; width: 100, height: 100 &#125;);
 </code></pre>
-</blockquote>
-<p>getArea(“rectangle”, { width: 100, height: 100 });</p>
 <blockquote>
-<pre><code>- 以上代码中的字符串 `&quot;rectangle&quot;`、`“triangle”`、`&quot;circle&quot;`就是魔术字符串，它多次出现，与代码形成强耦合，不利于将来的修改和维护。
-</code></pre>
+<ul>
+<li>以上代码中的字符串 <code>&quot;rectangle&quot;</code>、<code>“triangle”</code>、<code>&quot;circle&quot;</code>就是魔术字符串，它多次出现，与代码形成强耦合，不利于将来的修改和维护。</li>
+</ul>
 </blockquote>
 <blockquote>
 <ul>
 <li>常用来消除魔术字符串的方法，就是把它<strong>写成一个变量</strong>。我们定义一个<strong>对象</strong></li>
 </ul>
+</blockquote>
 <pre><code>let shapeType = &#123;
   rectangle: &quot;rectangle&quot;,
   triangle: &quot;triangle&quot;,
   circle: &quot;circle&quot;,
 &#125;;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>然后我再把代码中的魔术字符串改成 shapeType 的属性值</li>
 </ul>
+</blockquote>
 <pre><code>// 计算图形的面积
 function getArea(shape, options) &#123;
   let area = 0; // 保存最终计算得到的面积
@@ -1816,31 +1836,41 @@ function getArea(shape, options) &#123;
   &#125;
   return area;
 &#125;
+&gt;
+getArea(shapeType.rectangle, &#123; width: 100, height: 100 &#125;);
 </code></pre>
-</blockquote>
-<p>getArea(shapeType.rectangle, { width: 100, height: 100 });</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>我们知道，其实 <code>shapeType</code> 中每个属性对应的值是多少，根本不重要，只要保存这些属性的值都是<strong>唯一的就行</strong>（与其它属性值不相同），所以我们可以把他们的值改成 <code>Symbol()</code></li>
 </ul>
+</blockquote>
 <pre><code>// 完整版代码
+&gt;
+let shapeType = &#123;
+  rectangle: Symbol(),
+  triangle: Symbol(),
+  circle: Symbol(),
+&#125;;
+&gt;
+// 计算图形的面积
+function getArea(shape, options) &#123;
+  let area = 0; // 保存最终计算得到的面积
+  switch (shape) &#123;
+    case shapeType.rectangle: // 魔术字符串
+      area = options.width * options.height;
+      break;
+    case shapeType.triangle: // 魔术字符串
+      area = (options.width * options.height) / 2;
+      break;
+    case shapeType.circle: // 魔术字符串
+      area = 2 * Math.PI * options.radius;
+      break;
+  &#125;
+  return area;
+&#125;
+&gt;
+console.log(getArea(shapeType.rectangle, &#123; width: 100, height: 100 &#125;));
 </code></pre>
-</blockquote>
-<p>let shapeType &#x3D; {<br>  rectangle: Symbol(),<br>  triangle: Symbol(),<br>  circle: Symbol(),<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 计算图形的面积<br>function getArea(shape, options) {<br>  let area &#x3D; 0; &#x2F;&#x2F; 保存最终计算得到的面积<br>  switch (shape) {<br>    case shapeType.rectangle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; options.width * options.height;<br>      break;<br>    case shapeType.triangle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; (options.width * options.height) &#x2F; 2;<br>      break;<br>    case shapeType.circle: &#x2F;&#x2F; 魔术字符串<br>      area &#x3D; 2 * Math.PI * options.radius;<br>      break;<br>  }<br>  return area;<br>}</p>
-<blockquote>
-</blockquote>
-<p>console.log(getArea(shapeType.rectangle, { width: 100, height: 100 }));</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="二、原始数据类型-BigInt"><a href="#二、原始数据类型-BigInt" class="headerlink" title="二、原始数据类型 BigInt"></a>二、原始数据类型 <code>BigInt</code></h3><blockquote>
 <p><code>bigint</code> 是 ES6 中新增的一种原始数据类型，它是 JavaScript 中的第八种数据类型，与 undefined、null、Number（数值）、String（字符串）、Boolean（布尔值）、Object（对象）、Symbol 并列。</p>
 </blockquote>
@@ -1850,18 +1880,20 @@ function getArea(shape, options) &#123;
 <li>在之前的课程中我们了解到，JS 能表示的最大的<strong>安全正整数</strong>保存在<code>Number.MAX_SAFE_INTEGER</code>中，他的值 等于<code>2^53-1=9007199254740991</code></li>
 <li>如果 JS 中整数的范围一旦超过这个范围，就无法精确表示。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let n = Number.MAX_SAFE_INTEGER;
 console.log(n); // 9007199254740991
 let n1 = 9007199254740991 + 1;
 let n2 = 9007199254740991 + 2;
 console.log(n1 === n2); // true
 </code></pre>
+<blockquote>
 <ul>
 <li>以上的 n1 显然和 n2 不相等，但是最后的结果显示的为 true，说明 JS 已经无法安全的识别这是两个不同的数了。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>为了解决这个问题，JS 中引用了 <code>BigInt</code> 这种原始数据类型。他可以表示大于<code>2^53 - 1</code> 的整数。它<strong>只用来表示整数</strong>，同时<strong>没有位数的限制</strong>，任何位数的整数都可以精确表示。</li>
@@ -1873,64 +1905,78 @@ console.log(n1 === n2); // true
 <li>可以在一个整数的字面量后面加<code>n</code>的方式定义一个<code>BigInt</code></li>
 <li>也可以调用函数<code>BigInt()</code>并传递一个整数值或字符串值</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>let n1 = 3n;
 let n2 = BigInt(&quot;3&quot;);
 let n3 = BigInt(3);
 let n4 = BigInt(3n);
+&gt;
+console.log(typeof n1); // bigint
+console.log(typeof n2); // bigint
+console.log(typeof n2); // bigint
+&gt;
+console.log(n1); //3n
+console.log(n2); //3n
+console.log(n3); //3n
+console.log(n4); //3n
+&gt;
+console.log(n1 === n2); //true
+console.log(n3 === n2); //true
+console.log(n4 === n3); //true
+&gt;
+console.log(3 == n1); //true
+console.log(3 == n2); //true
+console.log(3 == n3); //true
+console.log(3 == n4); //true
+//由于类型不同，不能全等
+console.log(3 === n1); //false
 </code></pre>
+<blockquote>
+<ul>
+<li>以上的<code>3n</code>表示的就是3，只是在后面加了<code>n</code>后，表示的类型不再是<code>number</code>而是<code>bigint</code></li>
+</ul>
 </blockquote>
-console.log(typeof n1); &#x2F;&#x2F; bigint<br>console.log(typeof n2); &#x2F;&#x2F; bigint<br>console.log(typeof n2); &#x2F;&#x2F; bigint<blockquote>
-</blockquote>
-console.log(n1); &#x2F;&#x2F;3n<br>console.log(n2); &#x2F;&#x2F;3n<br>console.log(n3); &#x2F;&#x2F;3n<br>console.log(n4); &#x2F;&#x2F;3n<blockquote>
-</blockquote>
-console.log(n1 &#x3D;&#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(n3 &#x3D;&#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(n4 &#x3D;&#x3D;&#x3D; n3); &#x2F;&#x2F;true<blockquote>
-</blockquote>
-console.log(3 &#x3D;&#x3D; n1); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n2); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n3); &#x2F;&#x2F;true<br>console.log(3 &#x3D;&#x3D; n4); &#x2F;&#x2F;true<br>&#x2F;&#x2F;由于类型不同，不能全等<br>console.log(3 &#x3D;&#x3D;&#x3D; n1); &#x2F;&#x2F;false<blockquote>
-<pre><code>- 以上的`3n`表示的就是3，只是在后面加了`n`后，表示的类型不再是`number`而是`bigint`
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>不过我们最好不要用<code>==</code>来比较<code>bigint</code>和<code>number</code>类型，因为当<code>number</code>类型超出安全范围就会出错</li>
 </ul>
+</blockquote>
 <pre><code>let n1 = 9007199254740993;
 let n2 = 9007199254740992n;
 console.log(n1 == n2); // true
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>注意事项<blockquote>
 <ul>
 <li><code>BigInt</code>只能用来表示整数，如果是小数，则会自动忽略小数部分或者报错</li>
 </ul>
-<pre><code>let n = 2.3; // 抛出语法类型错误
-let n = BigInt(&quot;2.33&quot;); // 抛出语法类型错误
-</code></pre>
-</blockquote>
-const num &#x3D; 3n &#x2F; 2n;<br>console.log(num); &#x2F;&#x2F;1n<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>let n = 2.3; // 抛出语法类型错误
+let n = BigInt(&quot;2.33&quot;); // 抛出语法类型错误
+&gt;
+const num = 3n / 2n;
+console.log(num); //1n
+</code></pre>
 <blockquote>
 <ul>
 <li>超出 <code>2^53-1</code> 的整数，能精确表示</li>
 </ul>
+</blockquote>
 <pre><code>let n1 = 9007199254740992n;
 let n2 = 9007199254740994n;
 console.log(n1 === n2);//false
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>BigInt</code>类型不能与<code>Number</code>类型进行混合运算</li>
 </ul>
+</blockquote>
 <pre><code>let n1 = 1 + 2n; // 抛出语法错误
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>二进制、八进制、十六进制的表示法后面都要加上后缀 n<blockquote>
@@ -1938,6 +1984,7 @@ console.log(n1 === n2);//false
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>let num1 = 0b000100n;
 console.log(num1); //4n
 let num2 = 0o10n;
@@ -1945,32 +1992,36 @@ console.log(num2); //8n
 let num3 = 0xan;
 console.log(num3); //10n
 </code></pre>
-</blockquote>
 <blockquote>
 <p>几乎所有 <code>Number</code> 运算符都可以有 <code>bigint</code> 中使用</p>
 <ul>
 <li>但 <code>&gt;&gt;&gt;</code> 无符号右位移运算和一元求正运算符 <code>+</code>不可以</li>
 <li>如果是参于<code>/</code>除法运算，最后会丢掉小数部分，<strong>只取整数部分</strong></li>
 </ul>
+</blockquote>
 <pre><code>console.log(2n + 3n); // 5n
 console.log(2n * 3n); // 6n
 console.log(5n / 2n); // 2n
 console.log(5n % 2n); // 1n
 console.log(5n || 0n); // 5n
 console.log(5n &amp;&amp; 0n); // 0n
+&gt;
+console.log(+3n); // 抛出类型错误
+console.log(2n &gt;&gt;&gt; 0); // 抛出类型错误
 </code></pre>
-</blockquote>
-<p>console.log(+3n); &#x2F;&#x2F; 抛出类型错误<br>console.log(2n &gt;&gt;&gt; 0); &#x2F;&#x2F; 抛出类型错误</p>
 <blockquote>
-<pre><code>- `&gt;&gt;&gt;`运算抛出错误，是因为`&gt;&gt;&gt;`要求最高位补`0`，但`bigin`类型**没有最高位**
-</code></pre>
+<ul>
+<li><code>&gt;&gt;&gt;</code>运算抛出错误，是因为<code>&gt;&gt;&gt;</code>要求最高位补<code>0</code>，但<code>bigin</code>类型<strong>没有最高位</strong></li>
+</ul>
 </blockquote>
 <h3 id="三、模板字符串"><a href="#三、模板字符串" class="headerlink" title="三、模板字符串"></a>三、模板字符串</h3><blockquote>
 <p>我们在 ES5 之前使用的普通字符串如下</p>
+</blockquote>
 <pre><code>// 我们常用的普通字符串，使用单引号 &#39;&#39; 或 双引号 &quot;&quot; 的形式
 &quot;icoding&quot;;
 &quot;icoding&quot;;
 </code></pre>
+<blockquote>
 <ul>
 <li>模板字符串相当于加强版的字符串，把原来的<code>&#39;&#39;</code>或<code>&quot;&quot;</code><strong>替换</strong>成反引号&#96;将内容引用起来即可，这样就变成 模板字符串了。</li>
 </ul>
@@ -1979,23 +2030,23 @@ console.log(5n &amp;&amp; 0n); // 0n
 <ul>
 <li>如果只是简单的用法，普通字符串和模板字符串之间没有什么区别</li>
 </ul>
+</blockquote>
 <pre><code>// 定义模板字符串，使用 `` 反引号
 `icoding`;
 // 我们可能有疑惑，模板字符串和普通字符串有什么区别呢 ？ 其实，简单写法没啥区别
 // 如下常量声明：
 const brand1 = &quot;icoding&quot;; // 普通字符串声明
 const brand2 = `icoding`; // 使用模板字符串声明
+&gt;
+// 观察 brand1 和 brand2 之间是否有区别
+console.log(brand1, brand2, brand1 === brand2); // icoding icoding true
+console.log(typeof brand2); // string
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 观察 brand1 和 brand2 之间是否有区别<br>console.log(brand1, brand2, brand1 &#x3D;&#x3D;&#x3D; brand2); &#x2F;&#x2F; icoding icoding true<br>console.log(typeof brand2); &#x2F;&#x2F; string</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="模板字符串与普通字符串的区别"><a href="#模板字符串与普通字符串的区别" class="headerlink" title="模板字符串与普通字符串的区别"></a>模板字符串与普通字符串的区别</h4><blockquote>
 <ul>
 <li>ES5 之前，我们基本都是使用拼接字符串的方式，如果一旦内容多了，拼起来就费时费力</li>
 </ul>
+</blockquote>
 <pre><code>// 声明一个person对象
 const person = &#123;
   username: &quot;icoding&quot;,
@@ -2013,11 +2064,11 @@ const msg =
   &quot; 岁了&quot;;
 console.log(msg); // 我叫：icoding ，性别是：male，今年：20 岁了
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>在 ES6 中，我们使用模板字符串来完成，如下</li>
 </ul>
+</blockquote>
 <pre><code>// 声明一个person对象
 const person = &#123;
   username: &quot;icoding&quot;,
@@ -2028,7 +2079,6 @@ const person = &#123;
 const msg = `我叫：$&#123;person.username&#125; ，性别是：$&#123;person.sex&#125;，今年：$&#123;person.age&#125; 岁了`;
 console.log(msg); // 我叫：icoding ，性别是：male，今年：20 岁了
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>有了模板字符串后，就直接通过反引号中直接定义<strong>多行字符串</strong>和<strong>变量</strong>的拼接，凡是使用<code>+</code>拼接的都可以替换成模板字符串。</li>
@@ -2052,35 +2102,39 @@ console.log(msg); // 我叫：icoding ，性别是：male，今年：20 岁了
 <ul>
 <li>普通字符串</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 普通字符串
 const msg = &quot;第1行\n第2行&quot;;
 console.log(msg);
 // 输出结果如下
 </code></pre>
-<img src="输出多行字符串.png"></blockquote>
-</li>
-</ol>
+<img src="输出多行字符串.png">
+
 <blockquote>
 <ul>
 <li>模板字符串</li>
 </ul>
+</blockquote>
 <pre><code>// 模板字符串
 const msg = `第1行\n第2行`;
 console.log(msg);
 // 输出结果如下
 </code></pre>
 <img src="输出多行字符串.png">
-</blockquote>
+
 <blockquote>
 <ul>
 <li>模板字符串，添加空格、换行或缩进</li>
 </ul>
+</blockquote>
 <pre><code>const msg = `第1行
 第2行`;
 console.log(msg);
 </code></pre>
 <img src="模板字符串换行.png">
-</blockquote>
+
 <blockquote>
 <blockquote>
 <p>总结：</p>
@@ -2090,11 +2144,13 @@ console.log(msg);
 </ul>
 </blockquote>
 <ol start="2">
-<li><p>输出 &#96; 和 \ 等特殊字符</p>
-<blockquote>
+<li>输出 &#96; 和 \ 等特殊字符<blockquote>
 <ul>
 <li>在模板字符串中要输出特殊字符，同样需要用到转义符<code>\</code>反斜杠来进行转义，才能正常输出</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 输出 反引号 `
 const msg = `\``;
 console.log(msg); // `
@@ -2105,13 +2161,13 @@ console.log(msg1); // \
 const msg2 = `&#39;`; // 类似 &#39;&#39; &quot;&quot; 不属于特殊字符
 console.log(msg2); // &#39;
 </code></pre>
+<blockquote>
 <ul>
 <li><code>&quot;</code>、<code>&quot;&quot;</code>、<code>&#39;</code>、<code>&#39;&#39;</code>不属于特殊字符，不需要使用转义符</li>
 </ul>
 </blockquote>
-</li>
-<li><p>模板字符串的注入</p>
-<blockquote>
+<ol start="3">
+<li>模板字符串的注入<blockquote>
 <p>在注入过程中，我们会使用 <code>$&#123;&#125;</code></p>
 <blockquote>
 <p>模板字符串中到底可以放什么内容，有没有规律呢 ？</p>
@@ -2119,122 +2175,130 @@ console.log(msg2); // &#39;
 <ul>
 <li>其实只<strong>要最终可以得出一个值</strong>的就可以通过<code>$&#123;&#125;</code>注入到模板字符串中</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 模板字符串的注入，使用 $&#123;&#125;
 const username = &quot;icoding&quot;;
 const person = &#123; age: 20, sex: &quot;male&quot; &#125;;
 const getSex = function (sex) &#123;
   return sex === &quot;male&quot; ? &quot;男&quot; : &quot;女&quot;;
 &#125;;
+&gt;
+const msg = `我叫 $&#123;username&#125; ，今年 $&#123;person.age + 6&#125; 岁了，我是 $&#123;getSex(
+  person.sex
+)&#125; 生`;
+console.log(msg); // 我叫 icoding ，今年 26 岁了，我是 男 生
 </code></pre>
-</blockquote>
-<p>const msg &#x3D; <code>我叫 $&#123;username&#125; ，今年 $&#123;person.age + 6&#125; 岁了，我是 $&#123;getSex(   person.sex )&#125; 生</code>;<br>console.log(msg); &#x2F;&#x2F; 我叫 icoding ，今年 26 岁了，我是 男 生</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>模板字符串在实际开发中的应用</p>
-<blockquote>
+<ol start="4">
+<li>模板字符串在实际开发中的应用<blockquote>
 <ul>
 <li>通过模板字符串动态注入数据，遍历动态数据</li>
 <li>用模板字符串拼接的方式，搭建HTML结构；代替之前先创建标签，再插入内容的方式；提升性能</li>
 </ul>
-<pre><code>&lt;title&gt;学生信息表 - 模板字符串的应用&lt;/title&gt;
-&lt;style&gt;
-table &#123;
-  border-collapse: collapse;
-  width: 860px;
-  margin: 50px auto;
-&#125;
-table tr th,
-td &#123;
-  border: 1px solid #dfe2e5;
-  text-align: center;
-  padding: 0.6em 1em;
-&#125;
-caption &#123;
-  font-size: 22px;
-&#125;
-&lt;/style&gt;
-
-&lt;table&gt;
- &lt;thead&gt;
-   &lt;caption&gt;
-     大一班学生信息表
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-   </caption>
-   <tr>
-     <th>姓名</th>
-     <th>性别</th>
-     <th>年龄</th>
-     <th>户籍所在地</th>
-   </tr>
- </thead>
- <tbody id="stu-list">
-   <!-- <tr>
-     <td>arry</td>
-     <td>男</td>
-     <td>18</td>
-     <td>北京</td>
-   </tr> -->
-   <tr>
-     <td colspan="4">信息正在加载中 ...</td>
-   </tr>
- </tbody>
- <tfoot>
-   <tr>
-     <th>备注</th>
-     <td colspan="3">新学期开学，学生信息表</td>
-   </tr>
- </tfoot>
-</table>
-
-<script>
+<pre><code>&gt;&lt;title&gt;学生信息表 - 模板字符串的应用&lt;/title&gt;
+&gt;&lt;style&gt;
+   table &#123;
+     border-collapse: collapse;
+     width: 860px;
+     margin: 50px auto;
+   &#125;
+   table tr th,
+   td &#123;
+     border: 1px solid #dfe2e5;
+     text-align: center;
+     padding: 0.6em 1em;
+   &#125;
+   caption &#123;
+     font-size: 22px;
+   &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;table&gt;
+&gt;  &lt;thead&gt;
+&gt;    &lt;caption&gt;
+&gt;      大一班学生信息表
+&gt;    &lt;/caption&gt;
+&gt;    &lt;tr&gt;
+&gt;      &lt;th&gt;姓名&lt;/th&gt;
+&gt;      &lt;th&gt;性别&lt;/th&gt;
+&gt;      &lt;th&gt;年龄&lt;/th&gt;
+&gt;      &lt;th&gt;户籍所在地&lt;/th&gt;
+&gt;    &lt;/tr&gt;
+&gt;  &lt;/thead&gt;
+&gt;  &lt;tbody id=&quot;stu-list&quot;&gt;
+&gt;    &lt;!-- &lt;tr&gt;
+&gt;      &lt;td&gt;arry&lt;/td&gt;
+&gt;      &lt;td&gt;男&lt;/td&gt;
+&gt;      &lt;td&gt;18&lt;/td&gt;
+&gt;      &lt;td&gt;北京&lt;/td&gt;
+&gt;    &lt;/tr&gt; --&gt;
+&gt;    &lt;tr&gt;
+&gt;      &lt;td colspan=&quot;4&quot;&gt;信息正在加载中 ...&lt;/td&gt;
+&gt;    &lt;/tr&gt;
+&gt;  &lt;/tbody&gt;
+&gt;  &lt;tfoot&gt;
+&gt;    &lt;tr&gt;
+&gt;      &lt;th&gt;备注&lt;/th&gt;
+&gt;      &lt;td colspan=&quot;3&quot;&gt;新学期开学，学生信息表&lt;/td&gt;
+&gt;    &lt;/tr&gt;
+&gt;  &lt;/tfoot&gt;
+&gt;&lt;/table&gt;
+&gt;
+&gt;&lt;script&gt;
   // 数据，目前作为演示，在实际开发中这些数据都会用过 Ajax 动态的加载
   const students = [
-    {
-      username: "arry",
+    &#123;
+      username: &quot;arry&quot;,
       age: 18,
-      sex: "male",
-      city: "北京",
-    },
-    {
-      username: "清心",
+      sex: &quot;male&quot;,
+      city: &quot;北京&quot;,
+    &#125;,
+    &#123;
+      username: &quot;清心&quot;,
       age: 20,
-      sex: "female",
-      city: "湖南",
-    },
-    {
-      username: "allen",
+      sex: &quot;female&quot;,
+      city: &quot;湖南&quot;,
+    &#125;,
+    &#123;
+      username: &quot;allen&quot;,
       age: 21,
-      sex: "male",
-      city: "深圳",
-    },
-    {
-      username: "jack",
+      sex: &quot;male&quot;,
+      city: &quot;深圳&quot;,
+    &#125;,
+    &#123;
+      username: &quot;jack&quot;,
       age: 22,
-      sex: "female",
-      city: "上海",
-    },
+      sex: &quot;female&quot;,
+      city: &quot;上海&quot;,
+    &#125;,
   ];
-
-</blockquote>
-<p>  &#x2F;&#x2F; 获取将要填充数据的容器<br>  const dataList &#x3D; document.getElementById(“stu-list”);<br>  &#x2F;&#x2F; 声明变量来保存拼接的字符串<br>  let html &#x3D; “”;<br>  &#x2F;&#x2F; 循环遍历拼接数据<br>  for (let i &#x3D; 0; i &lt; students.length; i++) {<br>    &#x2F;&#x2F; 使用模板字符串拼接<br>    html +&#x3D; <code>&lt;tr&gt;             &lt;td&gt;$&#123;students[i].username&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].age&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].sex === &quot;male&quot; ? &quot;男&quot; : &quot;女&quot;&#125;&lt;/td&gt;             &lt;td&gt;$&#123;students[i].city&#125;&lt;/td&gt;             &lt;/tr&gt;</code>;<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 查看模板字符串注入后的数据<br>  &#x2F;&#x2F;   console.log(html);</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 将拼接注入的数据填充到容器中<br>  dataList.innerHTML &#x3D; html;</p>
-<blockquote>
-<p></script></p>
-<pre><code>
+&gt;
+  // 获取将要填充数据的容器
+  const dataList = document.getElementById(&quot;stu-list&quot;);
+  // 声明变量来保存拼接的字符串
+  let html = &quot;&quot;;
+  // 循环遍历拼接数据
+  for (let i = 0; i &lt; students.length; i++) &#123;
+    // 使用模板字符串拼接
+    html += `&lt;tr&gt;
+            &lt;td&gt;$&#123;students[i].username&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;students[i].age&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;students[i].sex === &quot;male&quot; ? &quot;男&quot; : &quot;女&quot;&#125;&lt;/td&gt;
+            &lt;td&gt;$&#123;students[i].city&#125;&lt;/td&gt;
+            &lt;/tr&gt;`;
+  &#125;
+&gt;
+  // 查看模板字符串注入后的数据
+  //   console.log(html);
+&gt;
+  // 将拼接注入的数据填充到容器中
+  dataList.innerHTML = html;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <h4 id="四、标签模板"><a href="#四、标签模板" class="headerlink" title="四、标签模板"></a>四、标签模板</h4><blockquote>
 <ul>
 <li>模板字符串还可以紧跟在一个函数后面，该函数将被调用，用来处理这个模板字符串，这被称为<strong>“标签模板”</strong>功能。</li>
@@ -2243,9 +2307,11 @@ caption &#123;
 </ul>
 </blockquote>
 <ol>
-<li><p>模板字符串中没有变量</p>
-<blockquote>
+<li>模板字符串中没有变量<blockquote>
 <p>函数后面紧跟的模板字符串中没有变量，则模板字符串为<strong>函数的参数</strong></p>
+</blockquote>
+</li>
+</ol>
 <pre><code>function tagFn(string) &#123;
   console.log(arguments);
   console.log(arguments[0][0]);
@@ -2254,10 +2320,9 @@ caption &#123;
 tagFn`模板字符串内容`;
 </code></pre>
 <img src="标签模板-无变量.png">
-</blockquote>
-</li>
-<li><p>模板字符串中有变量</p>
-<blockquote>
+
+<ol start="2">
+<li>模板字符串中有变量<blockquote>
 <p>函数后面紧跟的模板字符串中包含变量，则模板字符串将会被处理成<strong>多个参数</strong>，再调用函数</p>
 </blockquote>
 </li>
@@ -2278,7 +2343,6 @@ tagFn`模板字符串内容`;
 <td>其它参数都是模板字符串中${…}被替换后对应的值</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code>function sayHello(string, value1, value2, value3) &#123;
   // 类数组对象，其内包含一个数组，数组成员是由$&#123;...&#125;分隔后的字符串组成的
   console.log(string);
@@ -2288,13 +2352,13 @@ tagFn`模板字符串内容`;
   console.log(value2); // 对应模板字符串中$&#123;city&#125;解析后的值
   console.log(value3); // 没有对应的变量被解析，则值为undefined
 &#125;
+&gt;
+let username = &quot;清心&quot;;
+let city = &quot;北京&quot;;
+sayHello`Hello$&#123;username&#125;,欢迎你来到$&#123;city&#125;`;
 </code></pre>
-</blockquote>
-<p>let username &#x3D; “清心”;<br>let city &#x3D; “北京”;<br>sayHello<code>Hello$&#123;username&#125;,欢迎你来到$&#123;city&#125;</code>;</p>
-<blockquote>
-<pre><code>&lt;img src=&quot;标签模板有变量.png&quot;&gt;
-</code></pre>
-</blockquote>
+<img src="标签模板有变量.png">
+
 <blockquote>
 <ul>
 <li><code>arguments</code>的第一个参数是一个类数组对象，对象中包含一个数组，数组中对应的是模板字符串中那些<strong>没有变量替换的部分</strong></li>
@@ -2307,32 +2371,31 @@ tagFn`模板字符串内容`;
 </ul>
 </blockquote>
 <ol start="3">
-<li><p>函数内还原原模板字符串</p>
-<blockquote>
-<pre><code>const obj = &#123;
-username: &quot;清心&quot;,
-age: 18,
-sex: &quot;女&quot;,
-&#125;;
-
-function getString(strArr) &#123;
-//arguments:[strArr 变量值1 变量值2]
-let result = &quot;&quot;;
-let i = 0;
-while (i &lt; strArr.length) &#123;
-result += strArr[i++]; // i是先赋值，再自增 
-if (i &lt; arguments.length) &#123;
-result += arguments[i];
-&#125;
-&#125;
-return result;
-&#125;
-
-let result = getString`大家好，我是$&#123;obj.username&#125;,性别$&#123;obj.sex&#125;,今年$&#123;obj.age&#125;岁了`;
-console.log(result); // 大家好，我是清心,性别女,今年18岁了
+<li>函数内还原原模板字符串</li>
+</ol>
+<pre><code>&gt;const obj = &#123;
+&gt;username: &quot;清心&quot;,
+&gt;age: 18,
+&gt;sex: &quot;女&quot;,
+&gt;&#125;;
+&gt;
+&gt;function getString(strArr) &#123;
+&gt;//arguments:[strArr 变量值1 变量值2]
+&gt;let result = &quot;&quot;;
+&gt;let i = 0;
+&gt;while (i &lt; strArr.length) &#123;
+&gt;result += strArr[i++]; // i是先赋值，再自增 
+&gt;if (i &lt; arguments.length) &#123;
+&gt;result += arguments[i];
+&gt;&#125;
+&gt;&#125;
+&gt;return result;
+&gt;&#125;
+&gt;
+&gt;let result = getString`大家好，我是$&#123;obj.username&#125;,性别$&#123;obj.sex&#125;,今年$&#123;obj.age&#125;岁了`;
+&gt;console.log(result); // 大家好，我是清心,性别女,今年18岁了
 </code></pre>
-</blockquote>
-</li>
+<ol start="4">
 <li><p>标签模板应用场景</p>
 <blockquote>
 <ul>
@@ -2343,49 +2406,50 @@ console.log(result); // 大家好，我是清心,性别女,今年18岁了
 <li><p>案例：根据数据渲染荣誉展示模块</p>
 <blockquote>
 <p><strong>后台返回的数据如下：</strong></p>
-<pre><code>const data = [
-  &#123;
- username: &quot;刘梦宇&quot;, // 用户名
- projectName: &quot;槐里集团&quot;, // 项目名
- role: 3, // 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师
- time: 1669824000000, // 时间戳
- honour: 1,
-  &#125;,
-  &#123;
- username: &quot;王妍&quot;,
- projectName: &quot;槐里集团&quot;,
- role: 4,
- time: 1669824000000,
- honour: 2,
-  &#125;,
-  &#123;
- username: &quot;许尹阳&quot;,
- projectName: &quot;槐里集团&quot;,
- role: 4,
- time: 1669824000000,
- honour: 2,
-  &#125;,
-  &#123;
- username: &quot;侯天帅&quot;,
- projectName: &quot;槐里集团&quot;,
- role: 4,
- time: 1669824000000,
- honour: 3,
-  &#125;,
-  &#123;
- username: &quot;王薇&quot;,
- projectName: &quot;槐里集团&quot;,
- role: 4,
- time: 1669824000000,
- honour: 4,
-  &#125;,
-];
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>const data = [
+  &#123;
+    username: &quot;刘梦宇&quot;, // 用户名
+    projectName: &quot;槐里集团&quot;, // 项目名
+    role: 3, // 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师
+    time: 1669824000000, // 时间戳
+    honour: 1,
+  &#125;,
+  &#123;
+    username: &quot;王妍&quot;,
+    projectName: &quot;槐里集团&quot;,
+    role: 4,
+    time: 1669824000000,
+    honour: 2,
+  &#125;,
+  &#123;
+    username: &quot;许尹阳&quot;,
+    projectName: &quot;槐里集团&quot;,
+    role: 4,
+    time: 1669824000000,
+    honour: 2,
+  &#125;,
+  &#123;
+    username: &quot;侯天帅&quot;,
+    projectName: &quot;槐里集团&quot;,
+    role: 4,
+    time: 1669824000000,
+    honour: 3,
+  &#125;,
+  &#123;
+    username: &quot;王薇&quot;,
+    projectName: &quot;槐里集团&quot;,
+    role: 4,
+    time: 1669824000000,
+    honour: 4,
+  &#125;,
+];
+</code></pre>
 <blockquote>
 <p><strong>其中角色和荣誉后对应的内容如下:</strong></p>
+</blockquote>
 <pre><code>// 角色处理
 const role = &#123;
   1: &quot;技术总监&quot;,
@@ -2393,26 +2457,30 @@ const role = &#123;
   3: &quot;项目组长&quot;,
   4: &quot;工程师&quot;,
 &#125;;
+&gt;
+// 荣誉
+const honour = &#123;
+  1: &quot;年度卓越贡献奖&quot;,
+  2: &quot;最佳效率奖&quot;,
+  3: &quot;最佳创意奖&quot;,
+  4: &quot;最佳贡献奖&quot;,
+&#125;;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 荣誉<br>const honour &#x3D; {<br>  1: “年度卓越贡献奖”,<br>  2: “最佳效率奖”,<br>  3: “最佳创意奖”,<br>  4: “最佳贡献奖”,<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li><strong>实现思路</strong><blockquote>
 <ul>
 <li><strong>第一步</strong>：确认每一条信息的相同点和不同点，得出对应的模板字符串结构如下：</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>恭喜xxx同学，在xxxx年xxx月参于的xxxx项目中担任xxx一职，表现优异，认真负责，荣获xxxx奖
 </code></pre>
+<blockquote>
 <ul>
 <li>其中，动态内容有：人名，时间，项目名、角色，奖项。 需要我们用<code>$&#123;...&#125;</code>向模板字符串中注入对应内容</li>
 </ul>
 </blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>根据后台数据可知，动态内容还需要进行进一步处理</li>
@@ -2421,145 +2489,227 @@ const role = &#123;
 </ul>
 </blockquote>
 <ul>
-<li><p>HTML布局和CSS样式</p>
-<blockquote>
+<li>HTML布局和CSS样式<blockquote>
 <ul>
 <li>需要变红色的元素加<code>text</code>类名</li>
 </ul>
-<pre><code>&lt;style&gt;
-body &#123;
-  margin: 0;
-&#125;
-.honour &#123;
-  margin: 50px;
-&#125;
-/* 字体颜色变红 */
-span.text &#123;
-  color: red;
-&#125;
-&lt;/style&gt;
-&lt;div class=&quot;honour&quot;&gt;
-&lt;h3&gt;荣誉展示&lt;/h3&gt;
-&lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
-&lt;/div&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>处理动态内容</p>
-<blockquote>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  body &#123;
+    margin: 0;
+  &#125;
+  .honour &#123;
+    margin: 50px;
+  &#125;
+  /* 字体颜色变红 */
+  span.text &#123;
+    color: red;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;honour&quot;&gt;
+&gt; &lt;h3&gt;荣誉展示&lt;/h3&gt;
+&gt; &lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
+&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>处理动态内容<blockquote>
 <ul>
 <li>需要加样式的变量，用模板字符串构建<code>span</code>标签，并加上类样式</li>
 <li>将处理好的内容，与不需要处理的内容<strong>重新拼接</strong>，并返回</li>
 </ul>
-<pre><code>function honour(
-  strArr,
-  usernameExp,
-  timeExp,
-  projectExp,
-  roleExp,
-  honourExp
-) &#123;
-  // 名字处理
-  let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
-  // 角色处理
-  const role = &#123;
-    1: &quot;技术总监&quot;,
-    2: &quot;项目经理&quot;,
-    3: &quot;项目组长&quot;,
-    4: &quot;工程师&quot;,
-  &#125;;
-  let strRole = role[roleExp];
-</code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 时间处理<br>  const time &#x3D; new Date(timeExp);<br>  let strTime &#x3D; <code>$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月</code>;</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 荣誉<br>  const honour &#x3D; {<br>1: “年度卓越贡献奖”,<br>2: “最佳效率奖”,<br>3: “最佳创意奖”,<br>4: “最佳贡献奖”,<br>  };<br>  const strHonour &#x3D; <code>&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;</code>;<br>  &#x2F;&#x2F; 输出内容……<br>  let output &#x3D; strArr[0]; &#x2F;&#x2F; 添加被${…}分隔出来的第一个内容<br>  [username, strTime, projectExp, strRole, strHonour].forEach(function (<br>item,<br>index<br>  ) {<br>output +&#x3D; item; &#x2F;&#x2F; 添加${…}解析出来的内容<br>output +&#x3D; strArr[++index]; &#x2F;&#x2F; 添加以${…}分隔出来的内容<br>  });<br>  return output; &#x2F;&#x2F; 返回拼接后的字符串<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>渲染页面</p>
-<blockquote>
+</ul>
+<pre><code>function honour(
+    strArr,
+    usernameExp,
+    timeExp,
+    projectExp,
+    roleExp,
+    honourExp
+  ) &#123;
+    // 名字处理
+    let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
+    // 角色处理
+    const role = &#123;
+      1: &quot;技术总监&quot;,
+      2: &quot;项目经理&quot;,
+      3: &quot;项目组长&quot;,
+      4: &quot;工程师&quot;,
+    &#125;;
+    let strRole = role[roleExp];
+&gt;
+    // 时间处理
+    const time = new Date(timeExp);
+    let strTime = `$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月`;
+&gt;
+    // 荣誉
+    const honour = &#123;
+      1: &quot;年度卓越贡献奖&quot;,
+      2: &quot;最佳效率奖&quot;,
+      3: &quot;最佳创意奖&quot;,
+      4: &quot;最佳贡献奖&quot;,
+    &#125;;
+    const strHonour = `&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;`;
+    // 输出内容......
+    let output = strArr[0]; // 添加被$&#123;...&#125;分隔出来的第一个内容
+    [username, strTime, projectExp, strRole, strHonour].forEach(function (
+      item,
+      index
+    ) &#123;
+      output += item; // 添加$&#123;...&#125;解析出来的内容
+      output += strArr[++index]; // 添加以$&#123;...&#125;分隔出来的内容
+    &#125;);
+    return output; // 返回拼接后的字符串
+  &#125;
+</code></pre>
+<ul>
+<li>渲染页面<blockquote>
 <ul>
 <li>在这里调用处理动态内容的函数，并传入data数据</li>
 </ul>
-<pre><code>// DOM渲染
-function render(obj, data) &#123;
-let html = &quot;&quot;; // 拼接li结构字符串
-// 遍历数据，对数据做处理
-data.forEach(function (item) &#123;
-  let result = honour`恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。`;
-  html += `&lt;li&gt;$&#123;result&#125;&lt;/li&gt;`; // 拼接每一个li
-&#125;);
-obj.innerHTML = html; //添加到页面中
-&#125;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 获取DOM元素<br>const ul &#x3D; document.getElementById(“J_honour”);<br>render(ul, data); &#x2F;&#x2F; 开始渲染</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// DOM渲染
+function render(obj, data) &#123;
+  let html = &quot;&quot;; // 拼接li结构字符串
+  // 遍历数据，对数据做处理
+  data.forEach(function (item) &#123;
+    let result = honour`恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。`;
+    html += `&lt;li&gt;$&#123;result&#125;&lt;/li&gt;`; // 拼接每一个li
+  &#125;);
+  obj.innerHTML = html; //添加到页面中
+&#125;
+&gt;
+// 获取DOM元素
+const ul = document.getElementById(&quot;J_honour&quot;);
+render(ul, data); // 开始渲染
+</code></pre>
 <blockquote>
 <blockquote>
 <p><code>Array.forEach(callbackFn)</code>方法对数组的每个元素执行一次给定的函数。<code>callbackFn(el,index)</code>，el:数组中正在处理的当前元素。index:数组中正在处理的当前元素的索引。</p>
 </blockquote>
 </blockquote>
 <ul>
-<li>完整代码<blockquote>
-<pre><code>&lt;style&gt;
-body &#123;
-  margin: 0;
-&#125;
-.honour &#123;
-  margin: 50px;
-&#125;
-/* 字体颜色变红 */
-span.text &#123;
-  color: red;
-&#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;honour&quot;&gt;
- &lt;h3&gt;荣誉展示&lt;/h3&gt;
- &lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
-&lt;/div&gt;
-&lt;script&gt;
-function honour(
-  strArr,
-  usernameExp,
-  timeExp,
-  projectExp,
-  roleExp,
-  honourExp
-) &#123;
-  // 名字处理
-  let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
-  // 角色处理
-  const role = &#123;
-    1: &quot;技术总监&quot;,
-    2: &quot;项目经理&quot;,
-    3: &quot;项目组长&quot;,
-    4: &quot;工程师&quot;,
-  &#125;;
-  let strRole = role[roleExp];
-</code></pre>
-</blockquote>
-  &#x2F;&#x2F; 时间处理<br>  const time &#x3D; new Date(timeExp);<br>  let strTime &#x3D; <code>$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月</code>;<blockquote>
-</blockquote>
-  &#x2F;&#x2F; 荣誉<br>  const honour &#x3D; {<br>1: “年度卓越贡献奖”,<br>2: “最佳效率奖”,<br>3: “最佳创意奖”,<br>4: “最佳贡献奖”,<br>  };<br>  const strHonour &#x3D; <code>&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;</code>;<br>  &#x2F;&#x2F; 输出内容……<br>  let output &#x3D; strArr[0]; &#x2F;&#x2F; 添加被${…}分隔出来的第一个内容<br>  [username, strTime, projectExp, strRole, strHonour].forEach(function (<br>item,<br>index<br>  ) {<br>output +&#x3D; item; &#x2F;&#x2F; 添加${…}解析出来的内容<br>output +&#x3D; strArr[++index]; &#x2F;&#x2F; 添加以${…}分隔出来的内容<br>  });<br>  return output; &#x2F;&#x2F; 返回拼接后的字符串<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F; DOM渲染<br>function render(obj, data) {<br>  let html &#x3D; “”; &#x2F;&#x2F; 拼接li结构字符串<br>  &#x2F;&#x2F; 遍历数据，对数据做处理<br>  data.forEach(function (item) {<br>let result &#x3D; honour<code>恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。</code>;<br>html +&#x3D; <code>&lt;li&gt;$&#123;result&#125;&lt;/li&gt;</code>; &#x2F;&#x2F; 拼接每一个li<br>  });<br>  obj.innerHTML &#x3D; html; &#x2F;&#x2F;添加到页面中<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F; 获取DOM元素<br>const ul &#x3D; document.getElementById(“J_honour”);<br>const data &#x3D; [<br>  {<br>username: “刘梦宇”, &#x2F;&#x2F; 用户名<br>projectName: “槐里集团”, &#x2F;&#x2F; 项目名<br>role: 3, &#x2F;&#x2F; 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师<br>time: 1669824000000, &#x2F;&#x2F; 时间戳<br>honour: 1,<br>  },<br>  {<br>username: “王妍”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 2,<br>  },<br>  {<br>username: “许尹阳”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 2,<br>  },<br>  {<br>username: “侯天帅”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 3,<br>  },<br>  {<br>username: “王薇”,<br>projectName: “槐里集团”,<br>role: 4,<br>time: 1669824000000,<br>honour: 4,<br>  },<br>];<br>render(ul, data); &#x2F;&#x2F; 开始渲染<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
+<li>完整代码</li>
 </ul>
+<pre><code>&gt;&lt;style&gt;
+  body &#123;
+    margin: 0;
+  &#125;
+  .honour &#123;
+    margin: 50px;
+  &#125;
+  /* 字体颜色变红 */
+  span.text &#123;
+    color: red;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;honour&quot;&gt;
+&gt;  &lt;h3&gt;荣誉展示&lt;/h3&gt;
+&gt;  &lt;ul id=&quot;J_honour&quot;&gt;&lt;/ul&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  function honour(
+    strArr,
+    usernameExp,
+    timeExp,
+    projectExp,
+    roleExp,
+    honourExp
+  ) &#123;
+    // 名字处理
+    let username = `&lt;span class=&#39;text&#39;&gt;$&#123;usernameExp&#125;&lt;/span&gt;`;
+    // 角色处理
+    const role = &#123;
+      1: &quot;技术总监&quot;,
+      2: &quot;项目经理&quot;,
+      3: &quot;项目组长&quot;,
+      4: &quot;工程师&quot;,
+    &#125;;
+    let strRole = role[roleExp];
+&gt;
+    // 时间处理
+    const time = new Date(timeExp);
+    let strTime = `$&#123;time.getFullYear()&#125;年$&#123;time.getMonth() + 1&#125;月`;
+&gt;
+    // 荣誉
+    const honour = &#123;
+      1: &quot;年度卓越贡献奖&quot;,
+      2: &quot;最佳效率奖&quot;,
+      3: &quot;最佳创意奖&quot;,
+      4: &quot;最佳贡献奖&quot;,
+    &#125;;
+    const strHonour = `&lt;span class=&#39;text&#39;&gt;$&#123;honour[honourExp]&#125;&lt;/span&gt;`;
+    // 输出内容......
+    let output = strArr[0]; // 添加被$&#123;...&#125;分隔出来的第一个内容
+    [username, strTime, projectExp, strRole, strHonour].forEach(function (
+      item,
+      index
+    ) &#123;
+      output += item; // 添加$&#123;...&#125;解析出来的内容
+      output += strArr[++index]; // 添加以$&#123;...&#125;分隔出来的内容
+    &#125;);
+    return output; // 返回拼接后的字符串
+  &#125;
+&gt;
+  // DOM渲染
+  function render(obj, data) &#123;
+    let html = &quot;&quot;; // 拼接li结构字符串
+    // 遍历数据，对数据做处理
+    data.forEach(function (item) &#123;
+      let result = honour`恭喜$&#123;item.username&#125;同学，在$&#123;item.time&#125;参于的&lt;&lt;$&#123;item.projectName&#125;&gt;&gt;项目中担任$&#123;item.role&#125;一职，表现优异，认真负责，荣获$&#123;item.honour&#125;。`;
+      html += `&lt;li&gt;$&#123;result&#125;&lt;/li&gt;`; // 拼接每一个li
+    &#125;);
+    obj.innerHTML = html; //添加到页面中
+  &#125;
+&gt;
+  // 获取DOM元素
+  const ul = document.getElementById(&quot;J_honour&quot;);
+  const data = [
+    &#123;
+      username: &quot;刘梦宇&quot;, // 用户名
+      projectName: &quot;槐里集团&quot;, // 项目名
+      role: 3, // 用户角色，角色有 技术总监 、项目经理、 项目组长 、工程师
+      time: 1669824000000, // 时间戳
+      honour: 1,
+    &#125;,
+    &#123;
+      username: &quot;王妍&quot;,
+      projectName: &quot;槐里集团&quot;,
+      role: 4,
+      time: 1669824000000,
+      honour: 2,
+    &#125;,
+    &#123;
+      username: &quot;许尹阳&quot;,
+      projectName: &quot;槐里集团&quot;,
+      role: 4,
+      time: 1669824000000,
+      honour: 2,
+    &#125;,
+    &#123;
+      username: &quot;侯天帅&quot;,
+      projectName: &quot;槐里集团&quot;,
+      role: 4,
+      time: 1669824000000,
+      honour: 3,
+    &#125;,
+    &#123;
+      username: &quot;王薇&quot;,
+      projectName: &quot;槐里集团&quot;,
+      role: 4,
+      time: 1669824000000,
+      honour: 4,
+    &#125;,
+  ];
+  render(ul, data); // 开始渲染
+&gt;&lt;/script&gt;
+</code></pre>
 <h3 id="五、模板字符串面试真题解析-和-扩展知识"><a href="#五、模板字符串面试真题解析-和-扩展知识" class="headerlink" title="五、模板字符串面试真题解析 和 扩展知识"></a>五、模板字符串面试真题解析 和 扩展知识</h3><blockquote>
 <p>深入浅出互联网大厂 ES6 高频面试真题解析 和 相关扩展知识<br>面试真题是检验自己学习成果和查缺补漏的最好方式之一，同时也是了解企业对求职者技能要求的风向标 </p>
 </blockquote>
@@ -2567,6 +2717,7 @@ function honour(
 <ul>
 <li>手写一个方法，能成功解析字符串中的${}方式注入的内容</li>
 </ul>
+</blockquote>
 <pre><code>let obj = &#123;
   name: &quot;清心&quot;,
   age: 23,
@@ -2574,14 +2725,15 @@ function honour(
 // 以下字符串中的$&#123;obj.name&#125;和$&#123;obj.age&#125; 能成功被解析成 清心和 23
 let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
 </code></pre>
-</blockquote>
 <blockquote>
 <p><strong>实现思路：</strong></p>
 <ul>
 <li>首先我们要用正则表达式，提取字符串中${}包裹的内容，正则如下</li>
 </ul>
+</blockquote>
 <pre><code>const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
 </code></pre>
+<blockquote>
 <ul>
 <li>把<strong>正则表达式</strong>中子表达式<code>(.+?)</code>的内容提取出来，然后解析成对应的内容，如<code>obj.name</code>解析成<code>清心</code>,<code>obj.age</code> 解析成<code>23</code></li>
 <li>最后用子表达式解析成功的内容替换正则匹配到的<code>$&#123;&#125;</code>内容</li>
@@ -2590,33 +2742,39 @@ let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#12
 <ol>
 <li>实现方法一：正则与 eval() 函数结合<blockquote>
 <p>如果对<code>eval()</code>函数不了解，可以参考后面的扩展知识，给大家提供了相关的文档</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 自定义字符串解析方法，可以解析string中$&#123;&#125;方式，读取变量中值
 function strParse(string) &#123;
   const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
   let newStr = string.replace(reg, function (v, p1) &#123;
- // eval(obj.name) 返回解析后的字符串内容 如： obj.name解析成清心
- return eval(p1);
+    // eval(obj.name) 返回解析后的字符串内容 如： obj.name解析成清心
+    return eval(p1);
   &#125;);
   return newStr; // 返回替换成功的字符串
 &#125;
+&gt;
+let obj = &#123;
+  name: &quot;清心&quot;,
+  age: 23,
+&#125;;
+let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
+console.log(strParse(str)); // 大家好，我是清心,今年23岁了
+&gt;
+let a = 2;
+let b = 3;
+let str2 = `a+b=$&#123;a + b&#125;`;
+console.log(strParse(str2)); // a+b=5
 </code></pre>
-</blockquote>
-let obj &#x3D; {<br>  name: “清心”,<br>  age: 23,<br>};<br>let str &#x3D; “大家好，我是${obj.name},今年${obj.age}岁了”;<br>console.log(strParse(str)); &#x2F;&#x2F; 大家好，我是清心,今年23岁了<blockquote>
-</blockquote>
-let a &#x3D; 2;<br>let b &#x3D; 3;<br>let str2 &#x3D; <code>a+b=$&#123;a + b&#125;</code>;<br>console.log(strParse(str2)); &#x2F;&#x2F; a+b&#x3D;5<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>如果想成功解析字符串中的<code>&#123;&#123;&#125;&#125;</code>结构，只需将正则替换为如下</li>
 </ul>
+</blockquote>
 <pre><code>const reg = /\&#123;&#123;(.+?)&#125;&#125;/g; // 正则表达式,解析字符串中的&#123;&#123; &#125;&#125;模式
 // let str = &quot;大家好，我是&#123;&#123;obj.name&#125;&#125;,今年&#123;&#123;obj.age&#125;&#125;岁了&quot;;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>实现方法二：正则与Function构造函数<blockquote>
 <ul>
@@ -2629,19 +2787,29 @@ let a &#x3D; 2;<br>let b &#x3D; 3;<br>let str2 &#x3D; <code>a+b=$&#123;a + b&#12
 <ul>
 <li>基础版</li>
 </ul>
+</blockquote>
 <pre><code>let obj = &#123;
   name: &quot;清心&quot;,
   age: 23,
 &#125;;
 let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
 console.log(strParse(str)); //
+&gt;
+// strParse函数能成功解析字符串中的$&#123;&#125;
+function strParse(string) &#123;
+  const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
+  let newStr = string.replace(reg, function (v, p1) &#123;
+    // 生成函数 function anonymous()&#123;return obj.name&#125; 然后自调用
+    return Function(&quot;return &quot; + p1)();
+  &#125;);
+  return newStr;
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; strParse函数能成功解析字符串中的${}<br>function strParse(string) {<br>  const reg &#x3D; &#x2F;${(.+?)}&#x2F;g; &#x2F;&#x2F; 正则表达式<br>  let newStr &#x3D; string.replace(reg, function (v, p1) {<br>    &#x2F;&#x2F; 生成函数 function anonymous(){return obj.name} 然后自调用<br>    return Function(“return “ + p1)();<br>  });<br>  return newStr;<br>}</p>
 <blockquote>
-<pre><code>- 注意：`return`后面记得空一格
-- 上面的 `obj` 为全局作用域中的变量，如果 `obj` 不在全局作用域中，那最后就得不到想要的结果，因为 `Function` 创建的函数**只能访问当前作用域中局部变量和全局作用域中变量**。
-</code></pre>
+<ul>
+<li>注意：<code>return</code>后面记得空一格</li>
+<li>上面的 <code>obj</code> 为全局作用域中的变量，如果 <code>obj</code> 不在全局作用域中，那最后就得不到想要的结果，因为 <code>Function</code> 创建的函数<strong>只能访问当前作用域中局部变量和全局作用域中变量</strong>。</li>
+</ul>
 </blockquote>
 <blockquote>
 <ul>
@@ -2650,6 +2818,7 @@ console.log(strParse(str)); //
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>// dataname 数据对象名   data数据对象   string需要处理的字符串
 function strParse(dataname, data, string) &#123;
   const reg = /\$&#123;(.+?)&#125;/g; // 正则表达式
@@ -2659,16 +2828,24 @@ function strParse(dataname, data, string) &#123;
   &#125;);
   return newStr;
 &#125;
+&gt;
+function fn() &#123;
+  let obj = &#123;
+    name: &quot;清心&quot;,
+    age: 23,
+  &#125;;
+  let str = &quot;大家好，我是$&#123;obj.name&#125;,今年$&#123;obj.age&#125;岁了&quot;;
+  let newStr = strParse(&quot;obj&quot;, obj, str);
+  console.log(newStr);
+&#125;
+fn();
 </code></pre>
-</blockquote>
-<p>function fn() {<br>  let obj &#x3D; {<br>    name: “清心”,<br>    age: 23,<br>  };<br>  let str &#x3D; “大家好，我是${obj.name},今年${obj.age}岁了”;<br>  let newStr &#x3D; strParse(“obj”, obj, str);<br>  console.log(newStr);<br>}<br>fn();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>实现方法三：正则与 Function 构造函数<blockquote>
 <p>这一步我们想要解决的是，能成功解析字符串<code>$&#123;...&#125;</code>的内容，但<code>$&#123;...&#125;</code>中的内容是<strong>直接引用对象的属性</strong>，而不是<code>对象.属性</code>的方式。</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>let obj = &#123;
   name: &quot;清心&quot;,
   age: 23,
@@ -2678,9 +2855,6 @@ function strParse(dataname, data, string) &#123;
 let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁了$&#123;arr[0]&#125;&quot;;
 // str2字符串中的$&#123;name&#125; $&#123;age&#125; $&#123;arr[0]&#125; 要能被成功解析为 清心 23  1
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>如果按照上一个方法，当前作用域中没有<code>name</code>,<code>age</code>,<code>arr</code>变量，所以肯定访问不到，最终报错。</li>
@@ -2691,10 +2865,12 @@ let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁�
 <ul>
 <li>先看new Function要创建什么函数</li>
 </ul>
+</blockquote>
 <pre><code>  (function anonymous(name,age,arr)&#123;
     return name;//age/arr[0];
   &#125;)(&quot;清心&quot;,23,[1,2,3]);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁了$&#123;arr[0]&#125;&quot;;</code></li>
 <li>因为字符串是这样的，p1拿到的就是<code>name、age、arr[0]</code></li>
@@ -2703,7 +2879,6 @@ let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁�
 <li>所以我们要先根据传进来的obj，拿到对象的属性名和属性值；然后再将Function函数返回，执行函数体内的代码，替换<code>$&#123;...&#125;</code>的内容</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code> function strParse(str, obj) &#123;
    const reg = /\$&#123;(.+?)&#125;/g;
    let newStr = str.replace(reg, function (v, p1) &#123;
@@ -2713,13 +2888,18 @@ let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁�
    &#125;);
    return newStr;
  &#125;
+&gt;
+ function fn() &#123;
+   let obj = &#123;
+     name: &quot;清心&quot;,
+     age: 23,
+     arr: [1, 2, 3],
+   &#125;;
+   let str = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁了$&#123;arr[0]&#125;&quot;;
+   return strParse(str, obj);
+ &#125;
+ console.log(fn()); // 大家好，我是清心,今年23岁了1
 </code></pre>
-</blockquote>
-<p> function fn() {<br>   let obj &#x3D; {<br>     name: “清心”,<br>     age: 23,<br>     arr: [1, 2, 3],<br>   };<br>   let str &#x3D; “大家好，我是${name},今年${age}岁了${arr[0]}”;<br>   return strParse(str, obj);<br> }<br> console.log(fn()); &#x2F;&#x2F; 大家好，我是清心,今年23岁了1</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>总结：通过这个面试题，我们重点掌握以下三个思想</p>
@@ -2731,65 +2911,68 @@ let str2 = &quot;大家好，我是$&#123;name&#125;,今年$&#123;age&#125;岁�
 </ul>
 </blockquote>
 <h4 id="扩展知识：eval、Function-构造函数"><a href="#扩展知识：eval、Function-构造函数" class="headerlink" title="扩展知识：eval、Function 构造函数"></a>扩展知识：eval、Function 构造函数</h4><ol>
-<li><p>eval() 函数</p>
-<blockquote>
+<li>eval() 函数<blockquote>
 <ul>
 <li><code>eval()</code>函数 将传入的字符串当成<code>JS</code>脚本代码来执行</li>
 <li>如果参数是一个表达式，<code>eval()</code>函数将执行表达式。如果参数是 <code>JavaScript</code>语句，<code>eval()</code>将执行 <code>JavaScript</code>语句（代码）。</li>
 <li>语法：<code>eval(string); </code></li>
 </ul>
-<pre><code>// eval中的字符串会被当成正常的JS脚本来执行
-eval(&quot;let a=1;let b=2; console.log(a+b);&quot;); // 3
-</code></pre>
-</blockquote>
-<p>const a &#x3D; 3;<br>const b &#x3D; 4;<br>console.log(eval(“a+b”)); &#x2F;&#x2F; 7 对表达式求值，并将结果返回</p>
-<blockquote>
-</blockquote>
-<p>const obj &#x3D; { a: 1 };<br>console.log(eval(obj.a)); &#x2F;&#x2F; 1 对表达式求值，并将结果返回</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>Function 构造函数</p>
-<blockquote>
+</ol>
+<pre><code>// eval中的字符串会被当成正常的JS脚本来执行
+eval(&quot;let a=1;let b=2; console.log(a+b);&quot;); // 3
+&gt;
+const a = 3;
+const b = 4;
+console.log(eval(&quot;a+b&quot;)); // 7 对表达式求值，并将结果返回
+&gt;
+const obj = &#123; a: 1 &#125;;
+console.log(eval(obj.a)); // 1 对表达式求值，并将结果返回
+</code></pre>
+<ol start="2">
+<li>Function 构造函数<blockquote>
 <p><code>Function</code>构造函数用来创建一个新的函数对象，可以直接调用<code>Function</code>构造函数，也可以用<code>new </code>关键字来调用</p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>let fn1=new Function(arg1,arg2,arg3...,functionBody);
 let fn2=Function(arg1,arg2,arg3...,functionBody);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>fn1</code> 和 <code>fn2</code> 为新创建出来的函数</li>
 <li><code>arg1，arg2，arg3...</code> 都是一个个<strong>字符串</strong>(需要双引号包裹)，为新创建出来的函数的形参</li>
 <li><code>functionBody</code> 是 <code>Function()</code> 构造函数的最后一个参数，表示新创建出来的函数的函数体代码</li>
 <li>如果<code>Function()</code>或 <code>new Function()</code>中只一个参数，那这个参数就是函数体代码，这个新创建出来的函数没有参数。</li>
 </ul>
+</blockquote>
 <pre><code>// 以下代码相当于创建了匿名函数  sum= function anonymous(a,b)&#123;return a+b&#125;
 var sum = new Function(&quot;a&quot;, &quot;b&quot;, &quot;return a+b&quot;);
 console.log(sum(1, 2)); // 3
+&gt;
+// 相当于创建了匿名函数
+// sayHell=function anonymous()&#123;console.log(&quot;大家好，我是...&quot;)&#125;
+var sayHello = new Function(&#39;console.log(&quot;大家好，我是...&quot;)&#39;);
+sayHello(); // 大家好，我是...
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 相当于创建了匿名函数<br>&#x2F;&#x2F; sayHell&#x3D;function anonymous(){console.log(“大家好，我是…”)}<br>var sayHello &#x3D; new Function(‘console.log(“大家好，我是…”)’);<br>sayHello(); &#x2F;&#x2F; 大家好，我是…</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>Function 构造函数注意事项<blockquote>
 <p><code>Function</code>构造函数创建的函数，总是被<strong>创建于全局环境</strong>（全局作用域），因此<strong>运行此函数时</strong>只能访问到当前函数作用域中的局部变量和全局变量。</p>
+</blockquote>
+</li>
+</ol>
 <pre><code> const a = 0;
  function createFn() &#123;
-const a = 3;
-const b = 4;
-// return Function(&quot;return a&quot;); //0
-// return Function(&quot;return &quot; + a); //3
-return Function(&quot;b&quot;, &quot;return b&quot;); //2
+   const a = 3;
+   const b = 4;
+   // return Function(&quot;return a&quot;); //0
+   // return Function(&quot;return &quot; + a); //3
+   return Function(&quot;b&quot;, &quot;return b&quot;); //2
  &#125;
  console.log(createFn()(2));
 </code></pre>
+<blockquote>
 <ul>
 <li>Function函数创建后需要调用，要么在调用外层函数时写两个<code>()</code>，要么在创建时调用：<code>return Function()()</code></li>
 <li>第一个<code>return Function(&quot;return a&quot;)</code>是在Function函数体<strong>内</strong>调用a，此时只能访问到Function函数体内或者全局作用域下的变量，所以它返回了0</li>
@@ -2797,8 +2980,6 @@ return Function(&quot;b&quot;, &quot;return b&quot;); //2
 <li>第三个<code>return Function(&quot;b&quot;, &quot;return b&quot;);</code>，此时的b是作为参数从外面传进去的，它是Function函数体内的变量</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>推荐阅读：</p>

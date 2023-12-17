@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-03
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.3k
+                    11.6k
                 </div>
                 
 
@@ -461,12 +461,16 @@
 <li><code>if</code> 是如果的意思，如果<code>()</code>括号中的条件成立，则就执行<code>&#123; &#125;</code>大括号中的语句块。</li>
 <li>如果不成立，则啥也不做</li>
 </ul>
-<pre><code>if (条件) &#123;
- // 当条件为真，则执行这里的代码
- // 语句块.....
-&#125;
-// if语句后面的代码.....
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;if (条件) &#123;
+&gt;  // 当条件为真，则执行这里的代码
+&gt;  // 语句块.....
+&gt;&#125;
+&gt;// if语句后面的代码.....
 </code></pre>
+<blockquote>
 <blockquote>
 <p>注：</p>
 </blockquote>
@@ -477,18 +481,14 @@
 <li>如果条件求值为true,则执行{}中的语句块，如果条件求值为false，则啥也不做。执行 if 语句后面的代码。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <p><strong>if 语句写法</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- // 3&gt;2 条件表达式，返回值为true
- if (3 &gt; 2) &#123;
-   console.log(3 &gt; 2); // true
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // 3&gt;2 条件表达式，返回值为true
+&gt;  if (3 &gt; 2) &#123;
+&gt;    console.log(3 &gt; 2); // true
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>要注意区分那些是属于 if 语句体中的语句</strong></p>
 <blockquote>
 <ul>
@@ -501,29 +501,29 @@
 <li>如果 if 语句体中<strong>只有一条</strong>语句，可以<strong>省略</strong>大括号和换行</li>
 <li>如果<strong>超过一条</strong>语句，是万万不能简写的，简写会造成编译错误。</li>
 </ul>
-<pre><code>&lt;script&gt;
- if (2 &lt; 3) console.log(&quot;2&lt;3成立，在控制台输出&quot;);
- if (2 &gt; 3) console.log(&quot;2&gt;3不成立，不在控制台输出&quot;);
- console.log(&quot;我与if无关，我永远出来&quot;);
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  if (2 &lt; 3) console.log(&quot;2&lt;3成立，在控制台输出&quot;);
+&gt;  if (2 &gt; 3) console.log(&quot;2&gt;3不成立，不在控制台输出&quot;);
+&gt;  console.log(&quot;我与if无关，我永远出来&quot;);
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="2">
 <li>if-else 语句<blockquote>
 <ul>
 <li>如果条件求值为 true，则执行语句块 1 中的内容，否则执行语句块 2 中的内容</li>
 </ul>
-<pre><code>if (条件) &#123;
- // 当条件为true，则执行这里代码
- // 语句块1....
-&#125; else &#123;
- // 当条件为false，则执行这里代码
- // 语句块2....
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;if (条件) &#123;
+&gt;  // 当条件为true，则执行这里代码
+&gt;  // 语句块1....
+&gt;&#125; else &#123;
+&gt;  // 当条件为false，则执行这里代码
+&gt;  // 语句块2....
+&gt;&#125;
+</code></pre>
 <p><strong>案例实践：判断用户输入的数是偶数还是奇数</strong></p>
 <blockquote>
 <ul>
@@ -531,18 +531,18 @@
 <li>如果一个数除以 2,能整除，也就是余数为 0，就是偶数，否则就是奇数</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
- // 弹出弹窗，让用户输入内容
- var num = Number(prompt(&quot;请用户输入一个数字&quot;));
- // 上面num接收过来的值，是字符串类型，不过num%2时num会自动做隐式类型转换，转换成数字
- if (num % 2 == 0) &#123;
-   alert(num + &quot;他是一个偶数&quot;);
- &#125; else &#123;
-   alert(num + &quot;他是一个奇数&quot;);
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // 弹出弹窗，让用户输入内容
+&gt;  var num = Number(prompt(&quot;请用户输入一个数字&quot;));
+&gt;  // 上面num接收过来的值，是字符串类型，不过num%2时num会自动做隐式类型转换，转换成数字
+&gt;  if (num % 2 == 0) &#123;
+&gt;    alert(num + &quot;他是一个偶数&quot;);
+&gt;  &#125; else &#123;
+&gt;    alert(num + &quot;他是一个奇数&quot;);
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>但是如果用户啥也不输，以及<code>&#39;&#39;</code>和<code>&#39; &#39;</code>也会被转成 0，这里暂时不做讲解，下面案例中会完善</p>
 </blockquote>
@@ -553,20 +553,20 @@
 <li>如果条件 1 成立，则执行语句 1，后面的就不看了</li>
 <li>如果条件 1 不成立，则看条件 2，如果条件 2 成立，则执行语句 2，如果不成立，则执行语句 3</li>
 </ul>
-<pre><code>if (条件1) &#123;
- // 条件2为真，执行这里的代码
- // 语句 1....
-&#125; else if (条件2) &#123;
- // 条件1为假，条件2为真，执行这里代码
- // 语句 2....
-&#125; else &#123;
- // 条件1和1都为假，执行这里代码
- // 语句2....
-&#125;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;if (条件1) &#123;
+&gt;  // 条件2为真，执行这里的代码
+&gt;  // 语句 1....
+&gt;&#125; else if (条件2) &#123;
+&gt;  // 条件1为假，条件2为真，执行这里代码
+&gt;  // 语句 2....
+&gt;&#125; else &#123;
+&gt;  // 条件1和1都为假，执行这里代码
+&gt;  // 语句2....
+&gt;&#125;
+</code></pre>
 <p><strong>案例实践 1：根据用户的输入的成绩，判断用户是在那个成绩档次</strong></p>
 <table>
 <thead>
@@ -592,21 +592,19 @@
 <td>不及格</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;script&gt;
- var score = prompt(&quot;请输入你的考试成绩！&quot;);
- if (score &gt;= 90) &#123;
-   alert(&quot;成绩优秀&quot;);
- &#125; else if (score &gt;= 70) &#123;
-   alert(&quot;成绩良好&quot;);
- &#125; else if (score &gt;= 60) &#123;
-   alert(&quot;成绩及一般&quot;);
- &#125; else &#123;
-   alert(&quot;成绩不及格&quot;);
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var score = prompt(&quot;请输入你的考试成绩！&quot;);
+&gt;  if (score &gt;= 90) &#123;
+&gt;    alert(&quot;成绩优秀&quot;);
+&gt;  &#125; else if (score &gt;= 70) &#123;
+&gt;    alert(&quot;成绩良好&quot;);
+&gt;  &#125; else if (score &gt;= 60) &#123;
+&gt;    alert(&quot;成绩及一般&quot;);
+&gt;  &#125; else &#123;
+&gt;    alert(&quot;成绩不及格&quot;);
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>案例实践 2：判断用户输入的内容是否为数字</strong></p>
 <blockquote>
 <p>思路分析：</p>
@@ -623,48 +621,44 @@
 <li>接下来要过滤<code>&#39; &#39;</code>，<code>&#39; &#39;</code>空格 和 数字，可以通过 <code>parseInt()</code>和 <code>isNaN</code> 结合</li>
 <li>剩下的就都是 纯数字字符串了</li>
 </ul>
-<pre><code>&lt;script&gt;
- var num=prompt(&#39;请输入数字！&#39;);
- if(isNaN(Number(num)))&#123; 
-// 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
-     console.log(num+&#39;不是一个数字&#39;);
- &#125;else if (isNaN(parseInt(num)))&#123; 
-// &#39;&#39;空格，会被转成NaN，NaN不是数字，为真，剩下的，就全都是纯数字了
-     console.log(num +&#39;不是一个数字&#39;);
- &#125;else&#123;
-     console.log(num+&#39;是一个纯数字&#39;);
- &#125;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var num=prompt(&#39;请输入数字！&#39;);
+&gt;  if(isNaN(Number(num)))&#123; 
+&gt;// 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
+&gt;      console.log(num+&#39;不是一个数字&#39;);
+&gt;  &#125;else if (isNaN(parseInt(num)))&#123; 
+&gt;// &#39;&#39;空格，会被转成NaN，NaN不是数字，为真，剩下的，就全都是纯数字了
+&gt;      console.log(num +&#39;不是一个数字&#39;);
+&gt;  &#125;else&#123;
+&gt;      console.log(num+&#39;是一个纯数字&#39;);
+&gt;  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
 <p><strong>封装成方法使用：用来判断用户输入的是否是纯数字</strong></p>
-<blockquote>
-<pre><code>function isNumber(num) &#123;
- if (isNaN(+num)) &#123;
-   // 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
-   return false;
- &#125; else if (isNaN(parseInt(num))) &#123;
-   // 识别空格或者没有输入任何值
-   return false;
- &#125; else &#123;
-   return true;
- &#125;
-&#125;
+<pre><code>&gt;function isNumber(num) &#123;
+&gt;  if (isNaN(+num)) &#123;
+&gt;    // 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
+&gt;    return false;
+&gt;  &#125; else if (isNaN(parseInt(num))) &#123;
+&gt;    // 识别空格或者没有输入任何值
+&gt;    return false;
+&gt;  &#125; else &#123;
+&gt;    return true;
+&gt;  &#125;
+&gt;&#125;
 </code></pre>
-</blockquote>
 <ol start="4">
-<li>if、if-else、if-else if 语句的嵌套<blockquote>
-<pre><code>if()&#123;
-// 语句 1
-// 语句中可以嵌套 if()&#123;&#125;else&#123; &#125; 或if()else if()&#123;&#125;等if语句
-&#125;else&#123;
-// 语句 2
-// 语句2中可以嵌套 if()&#123;&#125;else&#123; &#125; 或if()else if()&#123;&#125;等if语句
-&#125;
-</code></pre>
-</blockquote>
-</li>
+<li>if、if-else、if-else if 语句的嵌套</li>
 </ol>
+<pre><code>&gt;if()&#123;
+&gt;// 语句 1
+&gt;// 语句中可以嵌套 if()&#123;&#125;else&#123; &#125; 或if()else if()&#123;&#125;等if语句
+&gt;&#125;else&#123;
+&gt;// 语句 2
+&gt;// 语句2中可以嵌套 if()&#123;&#125;else&#123; &#125; 或if()else if()&#123;&#125;等if语句
+&gt;&#125;
+</code></pre>
 <p><strong>案例实践 1：BMI 肥胖指数计算</strong></p>
 <blockquote>
 <ul>
@@ -700,34 +694,34 @@
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
- // 要求用户输入身高,强制转换为数字
- var height = parseFloat(prompt(&quot;请输入你的身高多少米&quot;));
- // 要求用户输入体重
- var weight = parseFloat(prompt(&quot;请输入你的体重&quot;));
- // 判断输入是否合法
- if (isNaN(height) || isNaN(weight)) &#123;
-   alert(&quot;你的输入有误！&quot;);
- &#125; else &#123;
-   // 计算得到BMI指数
-   var bmi = weight / (height * height);
-
-   // 分档判断
-   if (bmi &lt; 18.5) &#123;
-     alert(&quot;偏瘦&quot;);
-   &#125; else if (bmi &lt; 24) &#123;
-     alert(&quot;正常&quot;);
-   &#125; else if (bmi &lt; 28) &#123;
-     alert(&quot;过胖&quot;);
-   &#125; else if (bmi &lt; 32) &#123;
-     alert(&quot;肥胖&quot;);
-   &#125; else &#123;
-     alert(&quot;非常肥胖&quot;);
-   &#125;
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // 要求用户输入身高,强制转换为数字
+&gt;  var height = parseFloat(prompt(&quot;请输入你的身高多少米&quot;));
+&gt;  // 要求用户输入体重
+&gt;  var weight = parseFloat(prompt(&quot;请输入你的体重&quot;));
+&gt;  // 判断输入是否合法
+&gt;  if (isNaN(height) || isNaN(weight)) &#123;
+&gt;    alert(&quot;你的输入有误！&quot;);
+&gt;  &#125; else &#123;
+&gt;    // 计算得到BMI指数
+&gt;    var bmi = weight / (height * height);
+&gt;
+&gt;    // 分档判断
+&gt;    if (bmi &lt; 18.5) &#123;
+&gt;      alert(&quot;偏瘦&quot;);
+&gt;    &#125; else if (bmi &lt; 24) &#123;
+&gt;      alert(&quot;正常&quot;);
+&gt;    &#125; else if (bmi &lt; 28) &#123;
+&gt;      alert(&quot;过胖&quot;);
+&gt;    &#125; else if (bmi &lt; 32) &#123;
+&gt;      alert(&quot;肥胖&quot;);
+&gt;    &#125; else &#123;
+&gt;      alert(&quot;非常肥胖&quot;);
+&gt;    &#125;
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <ul>
 <li>注意！<strong>不要写成</strong><code>bmi = (weight / height) * height</code>，结果不同，重量除的是身高的平方</li>
@@ -741,34 +735,32 @@
 <li>利用前面封装好的：判断是否为纯数字</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
- var num = prompt(&quot;请用户输入一个数字&quot;);
- if (isNumber(num)) &#123;
-   if (num % 2 === 0) &#123;
-     alert(num + &quot;是一个偶数&quot;);
-   &#125; else &#123;
-     alert(num + &quot;是一个奇数&quot;);
-   &#125;
- &#125; else &#123;
-   alert(&quot;你的输入有误,请重新输入一次&quot;);
- &#125;
-
- // 封装好的，用来判断用户输入的是否是纯数字
- function isNumber(num) &#123;
-   if (isNaN(+num)) &#123;
-     // 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
-     return false;
-   &#125; else if (isNaN(parseInt(num))) &#123;
-     // 识别空格或者没有输入任何值
-     return false;
-   &#125; else &#123;
-     return true;
-   &#125;
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var num = prompt(&quot;请用户输入一个数字&quot;);
+&gt;  if (isNumber(num)) &#123;
+&gt;    if (num % 2 === 0) &#123;
+&gt;      alert(num + &quot;是一个偶数&quot;);
+&gt;    &#125; else &#123;
+&gt;      alert(num + &quot;是一个奇数&quot;);
+&gt;    &#125;
+&gt;  &#125; else &#123;
+&gt;    alert(&quot;你的输入有误,请重新输入一次&quot;);
+&gt;  &#125;
+&gt;
+&gt;  // 封装好的，用来判断用户输入的是否是纯数字
+&gt;  function isNumber(num) &#123;
+&gt;    if (isNaN(+num)) &#123;
+&gt;      // 如果条件成立，则num不是纯数字字符串，但不能过滤&#39;&#39; 空格
+&gt;      return false;
+&gt;    &#125; else if (isNaN(parseInt(num))) &#123;
+&gt;      // 识别空格或者没有输入任何值
+&gt;      return false;
+&gt;    &#125; else &#123;
+&gt;      return true;
+&gt;    &#125;
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>案例实践 3：游乐园门票计算</strong></p>
 <blockquote>
 <ul>
@@ -803,33 +795,33 @@
 <li>右图：先判断年龄，再判断星期几</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
- // 自动获取当前日期
- var date = new Date();
- // 设置日期 var date = new Date(&quot;2022/9/912&quot;);
- // 获取当前星期，0-6分别表示星期日-星期六
- var week = date.getDay();
- // 让用户输入年龄
- var age = Number(prompt(&quot;请输入你的年龄&quot;));
-
- if (week == 0 || week == 6) &#123;
-   // 周末
-   if (age &gt; 12) &#123;
-     alert(&quot;周末门票价格&quot; + 200);
-   &#125; else &#123;
-     alert(&quot;周末门票价格&quot; + 150);
-   &#125;
- &#125; else &#123;
-   // 平日
-   if (age &gt;= 12) &#123;
-     alert(&quot;今天门票价格&quot; + 100);
-   &#125; else &#123;
-     alert(&quot;今天门票价格&quot; + 50);
-   &#125;
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // 自动获取当前日期
+&gt;  var date = new Date();
+&gt;  // 设置日期 var date = new Date(&quot;2022/9/912&quot;);
+&gt;  // 获取当前星期，0-6分别表示星期日-星期六
+&gt;  var week = date.getDay();
+&gt;  // 让用户输入年龄
+&gt;  var age = Number(prompt(&quot;请输入你的年龄&quot;));
+&gt;
+&gt;  if (week == 0 || week == 6) &#123;
+&gt;    // 周末
+&gt;    if (age &gt; 12) &#123;
+&gt;      alert(&quot;周末门票价格&quot; + 200);
+&gt;    &#125; else &#123;
+&gt;      alert(&quot;周末门票价格&quot; + 150);
+&gt;    &#125;
+&gt;  &#125; else &#123;
+&gt;    // 平日
+&gt;    if (age &gt;= 12) &#123;
+&gt;      alert(&quot;今天门票价格&quot; + 100);
+&gt;    &#125; else &#123;
+&gt;      alert(&quot;今天门票价格&quot; + 50);
+&gt;    &#125;
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <ul>
 <li><code>new Date()</code>：获取当前日期</li>
@@ -850,8 +842,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="二、switch语句"><a href="#二、switch语句" class="headerlink" title="二、switch语句"></a>二、switch语句</h3><blockquote>
-<pre><code>switch (表达式或变量) &#123;
+<h3 id="二、switch语句"><a href="#二、switch语句" class="headerlink" title="二、switch语句"></a>二、switch语句</h3><pre><code>switch (表达式或变量) &#123;
   case 值1:
     // 执行语句1....
     break;
@@ -863,7 +854,6 @@
     break;
 &#125;
 </code></pre>
-</blockquote>
 <ol>
 <li>switch 语句基本用法<blockquote>
 <p>swith 后面的表达式或变量会<strong>依次</strong>会与case 后面的值进行<strong>比较</strong>，比较时是<strong>全等比较</strong>，因此<strong>不会</strong>做数据类型转换</p>
@@ -872,22 +862,28 @@
 <li>如果比较结果为<code>false</code>，则继续<strong>往下</strong>比较，如果所有结果都为 false，则最后会执行 default 下面的语句。</li>
 <li>当然 <code>default</code> 也可以省略不写</li>
 </ul>
-<pre><code>&lt;script&gt;
- var a = 1; // a的类型是数字，这里可以尝试把值换成 1,3看下结果
- switch (a) &#123;
-   case &quot;1&quot;: // 1 与 &#39;1&#39; 在全等比较时，返回false 不成立，则继续与下一个case后面值比较
-     alert(&quot;这里是字符串1,匹配失败&quot;);
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code> break;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 1; // a的类型是数字，这里可以尝试把值换成 1,3看下结果
+&gt;  switch (a) &#123;
+&gt;    case &quot;1&quot;: // 1 与 &#39;1&#39; 在全等比较时，返回false 不成立，则继续与下一个case后面值比较
+&gt;      alert(&quot;这里是字符串1,匹配失败&quot;);
+&gt;      break;
+&gt;    case 2: // 1 与 2全等比较，false，继续往下比较
+&gt;      alert(&quot;这里是2,匹配失败&quot;);
+&gt;      break;
+&gt;    case 1: // 1 与 1 全等，则执行这个case后面的语句
+&gt;      alert(&quot;这里是1,匹配成功&quot;); // 在页面弹出弹窗
+&gt;      break;
+&gt;    default:
+&gt;      alert(&quot;找不到相匹配的内容&quot;);
+&gt;      break;
+&gt;  &#125;
+&gt;//以上代码最后执行结果，最后在页面弹出弹窗，弹窗内容为 &#39;这里是 1,匹配成功&#39;
+&gt;&lt;/script&gt;
 </code></pre>
-<p>   case 2: &#x2F;&#x2F; 1 与 2全等比较，false，继续往下比较<br>     alert(“这里是2,匹配失败”);<br>     break;<br>   case 1: &#x2F;&#x2F; 1 与 1 全等，则执行这个case后面的语句<br>     alert(“这里是1,匹配成功”); &#x2F;&#x2F; 在页面弹出弹窗<br>     break;<br>   default:<br>     alert(“找不到相匹配的内容”);<br>     break;<br> }<br>&#x2F;&#x2F;以上代码最后执行结果，最后在页面弹出弹窗，弹窗内容为 ‘这里是 1,匹配成功’<br></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <ul>
@@ -897,124 +893,122 @@
 </blockquote>
 </blockquote>
 <ol start="2">
-<li><p>break 不写会有什么影响</p>
-<blockquote>
+<li>break 不写会有什么影响<blockquote>
 <ul>
 <li>如果不写<code>break</code>，则会在匹配成功之后，后面所有case 都将被视为匹配，<strong>直到遇见break</strong>，才会退出。</li>
 <li>所有在 switch 语句中，程序员必须主动调用break来跳出switch语句体</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
   var a = 1;
   switch (a) &#123;
- case 0: // 全等匹配失败
-   alert(&quot;这里是0,匹配成功&quot;); // 这里不会弹出来
- case 1: // 全等匹配成功，下面代码会执行
-   alert(&quot;这里是1,匹配成功&quot;); // 这里会弹出来
- // 但这个case中没有break，则会将后面所有case都被视为匹配，遇到break才退出
- case 2:
-   alert(&quot;这里是字符串2,匹配成功&quot;); // 这里会弹出来
-   break; // 到这里退出
- default:
-   alert(&quot;找不到相匹配的内容&quot;);
-   break;
+    case 0: // 全等匹配失败
+      alert(&quot;这里是0,匹配成功&quot;); // 这里不会弹出来
+    case 1: // 全等匹配成功，下面代码会执行
+      alert(&quot;这里是1,匹配成功&quot;); // 这里会弹出来
+    // 但这个case中没有break，则会将后面所有case都被视为匹配，遇到break才退出
+    case 2:
+      alert(&quot;这里是字符串2,匹配成功&quot;); // 这里会弹出来
+      break; // 到这里退出
+    default:
+      alert(&quot;找不到相匹配的内容&quot;);
+      break;
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>在上面的代码中，与第二个case匹配成功后，由于没有break会直接执行后续的case，直至遇到break跳出语句体</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>多条 case 共同一个语句体</p>
-<blockquote>
-<pre><code>var a = 1;
- switch (a) &#123;
-   case 1:
-   case 2:
-   case 3:
-     alert(&quot;现在是工作日，记得要早起喽！&quot;);
-</code></pre>
-</blockquote>
-</li>
+<ol start="3">
+<li>多条 case 共同一个语句体</li>
 </ol>
+<pre><code>&gt;var a = 1;
+&gt;  switch (a) &#123;
+&gt;    case 1:
+&gt;    case 2:
+&gt;    case 3:
+&gt;      alert(&quot;现在是工作日，记得要早起喽！&quot;);
+&gt;      break;
+&gt;  &#125;
+</code></pre>
 <blockquote>
-<pre><code> break;
-</code></pre>
-<p> }</p>
-<pre><code>- 由于前两个case都没有语句和break，根据上一点可知，不管switch的值是1、2、3都会执行alert语句，再跳出语句体
-</code></pre>
+<ul>
+<li>由于前两个case都没有语句和break，根据上一点可知，不管switch的值是1、2、3都会执行alert语句，再跳出语句体</li>
+</ul>
 </blockquote>
 <p><strong>if语句形式</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- var week = 0;
- if (week == 1 || week == 2 || week == 3 || week == 4 || week == 5) &#123;
-   alert(&quot;现在是工作日，记得要早起喽！&quot;);
- &#125; else if (week == 0 || week == 6) &#123;
-   alert(&quot;今天是周末，尽情的享受吧&quot;);
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var week = 0;
+&gt;  if (week == 1 || week == 2 || week == 3 || week == 4 || week == 5) &#123;
+&gt;    alert(&quot;现在是工作日，记得要早起喽！&quot;);
+&gt;  &#125; else if (week == 0 || week == 6) &#123;
+&gt;    alert(&quot;今天是周末，尽情的享受吧&quot;);
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>switch 语句</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- // week表时当前星期几
- var week = 4;
- // var week=new Date().getDay();   自动获取当天是星期几的方法
- switch (week) &#123;
-   case 1:
-   case 2:
-   case 3:
-   case 4:
-   case 5:
-     alert(&quot;现在是工作日，记得要早起喽！&quot;);
-     break;
-   case 6:
-   case 0:
-     alert(&quot;今天是周末，尽情的享受吧&quot;);
-     break;
- &#125;
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // week表时当前星期几
+&gt;  var week = 4;
+&gt;  // var week=new Date().getDay();   自动获取当天是星期几的方法
+&gt;  switch (week) &#123;
+&gt;    case 1:
+&gt;    case 2:
+&gt;    case 3:
+&gt;    case 4:
+&gt;    case 5:
+&gt;      alert(&quot;现在是工作日，记得要早起喽！&quot;);
+&gt;      break;
+&gt;    case 6:
+&gt;    case 0:
+&gt;      alert(&quot;今天是周末，尽情的享受吧&quot;);
+&gt;      break;
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>switch 表达式值为布尔值<blockquote>
 <ul>
 <li><code>case</code>的结果也要是布尔值或者为布尔值的表达式<br><strong>判断一个人是否是未成年人，如果满 18，就是成功，否则是未成年。</strong></li>
 </ul>
-<pre><code>&lt;script&gt;
- var a = Number(prompt(&quot;请输入你的年龄！&quot;));
- switch (true) &#123;
-   case a &gt;= 18:
-     alert(&quot;成年人&quot;);
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code> break;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = Number(prompt(&quot;请输入你的年龄！&quot;));
+&gt;  switch (true) &#123;
+&gt;    case a &gt;= 18:
+&gt;      alert(&quot;成年人&quot;);
+&gt;      break;
+&gt;    default:
+&gt;      alert(&quot;未成年&quot;);
+&gt;      break;
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-<p>   default:<br>     alert(“未成年”);<br>     break;<br> }<br></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
-<li>switch 的嵌套<blockquote>
-<pre><code>switch()&#123;
-   case 值1:
-       // 执行语句
-</code></pre>
-</blockquote>
-</li>
+<li>switch 的嵌套</li>
 </ol>
-<blockquote>
-<pre><code>   break;
+<pre><code>&gt;switch()&#123;
+&gt;    case 值1:
+&gt;        // 执行语句
+&gt;        break;
+&gt;    case 值2:
+&gt;        // 执行语句
+&gt;        switch()&#123;
+&gt;            case 值1:
+&gt;                // 执行语句
+&gt;                break;
+&gt;                // .....
+&gt;        &#125;
+&gt;        break;
+&gt;        // ......
+&gt;&#125;
 </code></pre>
-<p>   case 值2:<br>       &#x2F;&#x2F; 执行语句<br>       switch(){<br>           case 值1:<br>               &#x2F;&#x2F; 执行语句<br>               break;<br>               &#x2F;&#x2F; …..<br>       }<br>       break;<br>       &#x2F;&#x2F; ……<br>}</p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="6">
 <li>switch 嵌套案例<br><strong>根据年份和对应的月份，判断月份天数</strong><blockquote>
 <ul>
@@ -1022,33 +1016,50 @@
 <li>4，6，9，11 月，每月 30 天</li>
 <li>当年为闰年 2 月 29 天，其它年份，2 月 28 天</li>
 </ul>
-<pre><code>&lt;script&gt;
- // var year=prompt(&#39;请输入当前年份&#39;)
- // var year=new Date().getFullYear(); 获取当前年份
- var year = 2022;
- // 用户输入月份
- var month = Number(prompt(&quot;请输出当前的月份&quot;));
- // var month=new Date().getMonth()+1; 获取当前月份(new Date().getMonth()返回 0-11这间值,0代表1月)
- switch (month) &#123;
-   case 1:
-   case 3:
-   case 5:
-   case 7:
-   case 8:
-   case 10:
-   case 12:
-     alert(&quot;当月有31天&quot;);
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code> break;
+<pre><code>&gt;&lt;script&gt;
+&gt;  // var year=prompt(&#39;请输入当前年份&#39;)
+&gt;  // var year=new Date().getFullYear(); 获取当前年份
+&gt;  var year = 2022;
+&gt;  // 用户输入月份
+&gt;  var month = Number(prompt(&quot;请输出当前的月份&quot;));
+&gt;  // var month=new Date().getMonth()+1; 获取当前月份(new Date().getMonth()返回 0-11这间值,0代表1月)
+&gt;  switch (month) &#123;
+&gt;    case 1:
+&gt;    case 3:
+&gt;    case 5:
+&gt;    case 7:
+&gt;    case 8:
+&gt;    case 10:
+&gt;    case 12:
+&gt;      alert(&quot;当月有31天&quot;);
+&gt;      break;
+&gt;    case 4:
+&gt;    case 6:
+&gt;    case 9:
+&gt;    case 11:
+&gt;      alert(&quot;当月有30天&quot;);
+&gt;      break;
+&gt;    case 2:
+&gt;      var isRunNian =
+&gt;        (year % 4 == 0 &amp;&amp; year % 100 != 0) ||
+&gt;        (year % 100 == 0 &amp;&amp; year % 400 == 0);
+&gt;      switch (isRunNian) &#123;
+&gt;        case true:
+&gt;          alert(&quot;这个月有29天&quot;);
+&gt;          break;
+&gt;        case false:
+&gt;          alert(&quot;这个月有28天&quot;);
+&gt;          break;
+&gt;      &#125;
+&gt;      break;
+&gt;    default:
+&gt;      alert(&quot;你输入的月份有误！&quot;);
+&gt;  &#125;
+&gt;&lt;/script&gt;
 </code></pre>
-<p>   case 4:<br>   case 6:<br>   case 9:<br>   case 11:<br>     alert(“当月有30天”);<br>     break;<br>   case 2:<br>     var isRunNian &#x3D;<br>       (year % 4 &#x3D;&#x3D; 0 &amp;&amp; year % 100 !&#x3D; 0) ||<br>       (year % 100 &#x3D;&#x3D; 0 &amp;&amp; year % 400 &#x3D;&#x3D; 0);<br>     switch (isRunNian) {<br>       case true:<br>         alert(“这个月有29天”);<br>         break;<br>       case false:<br>         alert(“这个月有28天”);<br>         break;<br>     }<br>     break;<br>   default:<br>     alert(“你输入的月份有误！”);<br> }<br></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="7">
 <li>if 语句和 switch 语句应用场景总结<table>
 <thead>
@@ -1072,15 +1083,13 @@
 <p>如果我们想在页面中，重复执行某个操作时，我们就可以用到 for 循环语句。</p>
 </blockquote>
 <ol>
-<li>for 语句的语法<blockquote>
+<li>for 语句的语法</li>
+</ol>
 <pre><code>// 在控制台输出从0-9的数字
 for (var i = 0; i &lt; 10; i++) &#123;
   console.log(i);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>for 的圆括号中有三个表达式：</strong></p>
 <ul>
@@ -1106,7 +1115,6 @@ for (var i = 0; i &lt; 10; i++) &#123;
 </li>
 </ol>
 <p><strong>案例 1：</strong></p>
-<blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">15</span><span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3,6,9,12,15</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
@@ -1119,9 +1127,7 @@ for (var i = 0; i &lt; 10; i++) &#123;
     再次判断 i&lt;15这个条件，即 18&lt;=15, 不满足条件，退出for循环
 */</span>
 </code></pre>
-</blockquote>
 <p><strong>案例2：</strong></p>
-<blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 6,13</span>
@@ -1132,35 +1138,31 @@ for (var i = 0; i &lt; 10; i++) &#123;
   当 i=16, i&lt;12, 不满足条件，退出循环
 */</span>
 </code></pre>
-</blockquote>
 <p><strong>案例 4：无循环体语句</strong></p>
-<blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 不在循环体中，输出循环体结束时 i 的值</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
 </code></pre>
-</blockquote>
 <p><strong>案例 5：死循环</strong></p>
-<blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// i永远都会小于10 ，所以会进入死循环</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
 <p><strong>案例 6：</strong></p>
-<blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 没有任何输出，一开始就不满足条件</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 在循环体外输出：i=10</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>for 循环案例<blockquote>
 <blockquote>
 <p>打断点：控制台–&gt;source–&gt;点击要选择的行–&gt;空白处右击重新加载–&gt;在watch里输入要监测的变量名–&gt;点击向下箭头就可以看到循环步骤<br><strong>求 1-10 之间所有数字之和</strong></p>
 </blockquote>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 这里一定要赋初始值为0，否则为undefined,在做+加法运算时，转换成NaN，NaN与任何数相加都得NaN
 var sum = 0;
 for (var i = 1; i &lt;= 10; i++) &#123;
@@ -1168,11 +1170,7 @@ for (var i = 1; i &lt;= 10; i++) &#123;
 &#125;
 console.log(sum); // 55
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>字符串的拼接（在页面输入 10 颗星星）</strong></p>
-<blockquote>
 <pre><code>// 一定要赋初值始，并且只能是&#39;&#39;字符符串。
 var str = &quot;&quot;;
 for (var i = 0; i &lt; 10; i++) &#123;
@@ -1180,31 +1178,31 @@ for (var i = 0; i &lt; 10; i++) &#123;
 &#125;
 console.log(str); // ★★★★★★★★★★
 </code></pre>
-</blockquote>
 <ol start="5">
-<li><p>for 循环嵌套</p>
-<blockquote>
+<li>for 循环嵌套<blockquote>
 <p>for 循环中可以嵌套 for 循环</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>for (var i = 0; i &lt; 5; i++) &#123;
   // ...循环体
   for (var j = 0; j &lt; 5; j++) &#123;
- // ...循环体
+    // ...循环体
   &#125;
 &#125;
 </code></pre>
 <p><strong>for 循环嵌套的执行原理</strong></p>
+<blockquote>
 <ul>
 <li>从<strong>最外层</strong> for 循环开始执行，执行到<strong>内部</strong> for 循环时，要把内部 for 循环<strong>执行完</strong></li>
 <li>再<strong>更新最外层</strong>的循环变量，然后判条件是否成立，成立则执行循环体中代码，进入内部循环</li>
 <li>内部循环全部执行完，再更新最外层循还变量……重复上面过程</li>
 </ul>
 </blockquote>
-</li>
-<li><p>for 循环嵌套案例</p>
-</li>
+<ol start="6">
+<li>for 循环嵌套案例</li>
 </ol>
 <p><strong>案例实践 1：打印五行七列的星星</strong></p>
-<blockquote>
 <pre><code>var str = &quot;&quot;;
 // 行
 for (var i = 0; i &lt; 5; i++) &#123;
@@ -1217,12 +1215,12 @@ for (var i = 0; i &lt; 5; i++) &#123;
 console.log(str);
 </code></pre>
 <blockquote>
+<blockquote>
 <p>换行用转义符<code>\n</code></p>
 </blockquote>
 </blockquote>
 <p><strong>案例实践 2：打印 99 乘法表</strong><br><img src="99乘法表.png"></p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   span &#123;
     display: inline-block;
     width: 100px;
@@ -1231,8 +1229,8 @@ console.log(str);
     margin: 5px;
     text-align: center;
   &#125;
-&lt;/style&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;script&gt;
   // 最外层for循环打印对应行数
   for (var i = 1; i &lt;= 9; i++) &#123;
     // 内层for循环，打印对应列数
@@ -1241,9 +1239,8 @@ console.log(str);
     &#125;
     document.write(&quot;&lt;br/&gt;&quot;);
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>document.write();</code>：往body后面追加内容</li>
@@ -1269,8 +1266,7 @@ console.log(str);
 </ul>
 </blockquote>
 <p><strong>等腰三角形</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   // 行
   for (var i = 0; i &lt;= 5; i++) &#123;
     // 列左边空格
@@ -1283,12 +1279,10 @@ console.log(str);
     &#125;
     document.writeln(&quot;&lt;/br&gt;&quot;);
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <p><strong>v字型</strong></p>
-<blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token comment" spellcheck="true">// 图形行</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 列前面空格</span>
@@ -1311,12 +1305,10 @@ console.log(str);
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     document<span class="token punctuation">.</span><span class="token function">writeln</span><span class="token punctuation">(</span><span class="token string">"&lt;/br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-</blockquote>
 <p><strong>X图形</strong></p>
-<blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token comment" spellcheck="true">// 打印 x的上半部分</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// 列前面空格</span>
@@ -1365,9 +1357,8 @@ console.log(str);
     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
     document<span class="token punctuation">.</span><span class="token function">writeln</span><span class="token punctuation">(</span><span class="token string">"&lt;/br>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>总结：</p>
@@ -1407,7 +1398,6 @@ console.log(str);
 <li>在 JS 中，我们使用<strong>累加器</strong>来操作</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>// 创建累加器
 var sum=0;
 // 遍历1到100的每一个数字，每遍历一个数字就要把这个数字加到sum中去
@@ -1417,7 +1407,6 @@ for(var i=1;i&lt;=100;i++)&#123;
 &#125;
 console.log(sum);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>累加器（变量 sum)必须定义在循环外面的前面，不能写在循环体语句里</li>
@@ -1425,6 +1414,7 @@ console.log(sum);
 <li>使用最终累加<strong>结果</strong>时，必须在 for 循环结束后的<strong>外面</strong></li>
 <li>很多 JS 大神喜欢将 sum 这样的变量，书写在 for 循环的括号中</li>
 </ul>
+</blockquote>
 <pre><code>// 循环开始的时候定义sum，sum就是累加器，初始值是0
 // 遍历1到100的每一个数字，每遍历一个数字要把这个数字加到sum中去
 for (var i = 1, sum = 0; i &lt;= 100; i++) &#123;
@@ -1433,7 +1423,6 @@ for (var i = 1, sum = 0; i &lt;= 100; i++) &#123;
 // 输出累加器的值
 console.log(sum);
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>计算 10 的阶乘<blockquote>
 <ul>
@@ -1441,18 +1430,18 @@ console.log(sum);
 <li>自然数 n 的阶乘写作 <code>n!</code></li>
 <li>在 JS 中，我们使用<strong>累乘器</strong>来操作</li>
 </ul>
-<pre><code> // 累乘器,初始值必须是1
- var n = 1;
- for (var i = 10; i &gt;= 1; i--)&#123;
-     // 将每一次的数据 i 要累乘到 n 中去
-     n *= i;
- &#125;
- // 循环结束后使用累乘结果
- console.log(n); // 3628800
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code> // 累乘器,初始值必须是1
+    var n = 1;
+    for (var i = 10; i &gt;= 1; i--)&#123;
+        // 将每一次的数据 i 要累乘到 n 中去
+        n *= i;
+    &#125;
+    // 循环结束后使用累乘结果
+    console.log(n); // 3628800
+</code></pre>
 <blockquote>
 <ul>
 <li>累乘器必须<strong>定义</strong>在循环外部前面</li>
@@ -1466,13 +1455,12 @@ console.log(sum);
 <li>while括号里放的是：使循环继续的条件</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>while (测试条件) &#123;
   // 执行语句，代码块
 &#125;
 </code></pre>
 <img src="while循环.png">
-</blockquote>
+
 <ol>
 <li><p>while 循环注意事项</p>
 <blockquote>
@@ -1493,14 +1481,12 @@ console.log(sum);
 </li>
 </ol>
 <p><strong>应用实践 1：寻找 n^2大于 23450 的最小整数</strong></p>
-<blockquote>
 <pre><code>var n=0;
 while(n*n&lt;=23450)&#123;
   n++;
 &#125;
 console.log(n);
 </code></pre>
-</blockquote>
 <p><strong>应用实践 2：</strong></p>
 <blockquote>
 <p>小兔子拔萝卜，第 1 天拔 1 个，第 2 天拔 2 个，第 3 天拔 3 个 …. 以此类推。请问小兔子多少天能把 500 个萝卜扒光 ？</p>
@@ -1512,7 +1498,6 @@ console.log(n);
 <li>所以我们需要有一个累加器来累加所有天数萝卜之和，当累加器的值&lt;500 时，就一直累加，加到&gt;500 时，就不加了。</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var sum=0;
 var day=1;
 while(sum&lt;=500)&#123;
@@ -1522,16 +1507,17 @@ while(sum&lt;=500)&#123;
 console.log(day-1);
 </code></pre>
 <blockquote>
+<blockquote>
 <p>注意：天数需要减1，因为当sum到500时，day++后才会到判断条件这步</p>
 </blockquote>
 </blockquote>
 <h3 id="六、do-while-循环"><a href="#六、do-while-循环" class="headerlink" title="六、do while 循环"></a>六、do while 循环</h3><img src="do%20while.png">
 
-<blockquote>
 <pre><code>do &#123;
   // 循环体
 &#125; while (循环执行条件);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>while()放的是：使循环继续的条件，当这个条件不满足时，就跳出循环</p>
 </blockquote>
@@ -1567,6 +1553,7 @@ console.log(day-1);
 <p><strong>应用实践 1：</strong></p>
 <blockquote>
 <p>随机生成 2 个 1-10 之内的整数，但是这 2 个数之和要等于 10</p>
+</blockquote>
 <pre><code> do &#123;
     var a = (Math.random() * 10 + 1) &gt;&gt; 0;
     var b = (Math.random() * 10 + 1) &gt;&gt; 0;
@@ -1574,7 +1561,6 @@ console.log(day-1);
       &#125; while (sum != 10);
       console.log(a, b, sum);
 </code></pre>
-</blockquote>
 <p><strong>应用实践 2：</strong></p>
 <blockquote>
 <p>随机移动元素的位置</p>
@@ -1583,13 +1569,13 @@ console.log(day-1);
 <li>要求 a 和 b 的值均在[-10 , 10]区间随机整数</li>
 <li>但 a 和 b，<strong>不能同时</strong>为 0</li>
 </ul>
+</blockquote>
 <pre><code>do &#123;
     var a = (Math.random() * 21 - 10) &gt;&gt; 0;
     var b = (Math.random() * 21 - 10) &gt;&gt; 0;
    &#125; while (a == 0 &amp;&amp; b == 0);
 console.log(a, b);
 </code></pre>
-</blockquote>
 <h3 id="七、循环语句总结"><a href="#七、循环语句总结" class="headerlink" title="七、循环语句总结"></a>七、循环语句总结</h3><table>
 <thead>
 <tr>
@@ -1629,7 +1615,8 @@ console.log(a, b);
 <ul>
 <li>break 在 for 嵌套中，他只会退出他<strong>所在的</strong>那个 for 循环语句，然后<strong>继续执行</strong>当前 for <strong>循环外</strong>的 for 循环体中语句</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
   for (var i = 0; i &lt; 4; i++) &#123;
     for (var j = 0; j &lt; 4; j++) &#123;
       if (j == 3) &#123;
@@ -1642,13 +1629,13 @@ console.log(a, b);
 //i=1,j=0,1-0 j=1,1-1 j=2,1-2 j=3,&quot;j&quot;3
 //……
   &#125;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>break 用在 while 语句中，通常和while(true){}搭配使用</li>
 </ul>
+</blockquote>
 <pre><code>// 寻找最小的满足 n^2 &gt; 23450 的整数n
 // 方法一
 var n = 1;
@@ -1656,38 +1643,42 @@ while (n * n &lt;= 23450) &#123;
   n++;
 &#125;
 console.log(n); //154
+&gt;
+// 方法二
+var n = 1;
+while (true) &#123;
+  if (n * n &gt; 23450) &#123;
+    break;
+  &#125;
+  n++;
+&#125;
+// 输出：154
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 方法二<br>var n &#x3D; 1;<br>while (true) {<br>  if (n * n &gt; 23450) {<br>    break;<br>  }<br>  n++;<br>}<br>&#x2F;&#x2F; 输出：154</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
-<li><p>continue 语句</p>
-<blockquote>
+<li>continue 语句<blockquote>
 <ul>
 <li>continue 用于跳过循环中的<strong>一个迭代</strong> ，并<strong>继续执行</strong>循环中的<strong>下一个</strong>迭代，for 循环更经常使用 continue</li>
 <li>continue 在 <strong>for 嵌套</strong>中，也是跳过<strong>当前循环</strong>中的一个迭代，并继续执行循环中的下一个迭代</li>
 </ul>
-<pre><code>&lt;script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
   for (var i = 0; i &lt; 4; i++) &#123;
- for (var j = 0; j &lt; 4; j++) &#123;
-   if (j == 2) &#123;
-     continue;
-   &#125;
-   console.log(i + &quot;-&quot; + j);
- &#125;
+    for (var j = 0; j &lt; 4; j++) &#123;
+      if (j == 2) &#123;
+        continue;
+      &#125;
+      console.log(i + &quot;-&quot; + j);
+    &#125;
   &#125;
 //i=0 j=0,0-0 j=1,0-1 j=2(停止该次循环) j=3,0-3 
 //i=1 j=0,1-0 j=1,1-1 j=2(停止该次循环) j=3,0-3
 //…… 
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>label 语句</p>
-<blockquote>
+<ol start="3">
+<li>label 语句<blockquote>
 <p>我们上面讲过，不管是 <code>continue</code> 还是 <code>break</code>，他最多能退出的也就是当前的 <code>for</code> 循环，如果我想退出<strong>最外层</strong>的 for 循环，那就可以借助这里的 <code>label</code></p>
 <blockquote>
 <p>在实际开发应用不多，了解即可</p>
@@ -1707,6 +1698,7 @@ console.log(n); //154
 <p><strong>label 标签与 continue 语句结合</strong></p>
 <blockquote>
 <p>表示退出到 label 标记位置，继续从 label 标签标识的 for 循环开始执行下一次循环</p>
+</blockquote>
 <pre><code>// outer就是label标签，用来标识第一个for循环语句，其名字outer可以自定义，不一定是outer
 outer: for (var i = 0; i &lt; 4; i++) &#123;
   for (var j = 0; j &lt; 4; j++) &#123;
@@ -1720,10 +1712,10 @@ outer: for (var i = 0; i &lt; 4; i++) &#123;
 //i=0 j=0,0-0 j=1,0-1 j=2 
 //i=1 j=0,1-0 j=1,1-1 j=2
 </code></pre>
-</blockquote>
 <p><strong>label 标签与 break 语句结合</strong></p>
 <blockquote>
 <p>表示立即退出到 label 标签标识后的 for 循环，<strong>不再执行</strong></p>
+</blockquote>
 <pre><code>// outer就是label标签，其名字可以自定义，不一定是outer
 outer: for (var i = 0; i &lt; 4; i++) &#123;
   for (var j = 0; j &lt; 4; j++) &#123;
@@ -1736,7 +1728,6 @@ outer: for (var i = 0; i &lt; 4; i++) &#123;
 //i=0 j=0,0-0 j=1,0-1 j=2(立即停止)
 &#125;
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>关于break、continue、label语句总结<table>
 <thead>
@@ -1760,7 +1751,6 @@ outer: for (var i = 0; i &lt; 4; i++) &#123;
 </tbody></table>
 </li>
 </ol>
-<blockquote>
 <pre><code>var str = &quot;icoding123&quot;;
 var num = parseInt(str);
 if (num == NaN) &#123;
@@ -1771,10 +1761,10 @@ if (num == NaN) &#123;
 //alert(&quot;icoding123&quot;)
 </code></pre>
 <blockquote>
+<blockquote>
 <p>NaN永远不等于NaN</p>
 </blockquote>
 </blockquote>
-<blockquote>
 <pre><code>var a = 1;
 var b = 0;
 var str1 = &quot;&quot;;
@@ -1796,6 +1786,7 @@ if (a &amp;&amp; !str1 &amp;&amp; !str2) &#123;
 //alert(1);
 //alert(true);
 </code></pre>
+<blockquote>
 <blockquote>
 <p>当+号两边的数都是数值时，做加法运算，否则为”连字符”（字符串的拼接）<br>只有if括号里为true时才会执行</p>
 </blockquote>
@@ -1845,17 +1836,21 @@ if (a &amp;&amp; !str1 &amp;&amp; !str2) &#123;
 <li>第一项是分母是从 <code>2</code> 开始的，每一项分子比分母大 1</li>
 <li>所以在 for 循环，遍历时，只需要遍历分母就好，分母为 i ，分子为 i+1</li>
 </ul>
+</blockquote>
 <pre><code>// 由用户输入数字n,计算 3/2 + 4/3 + 5/4 + ... + (n+1)/n 的结果
+&gt;
+// 用户输入数字n
+var n = Number(prompt(&quot;请输入数字n&quot;));
+&gt;
+// 累加器
+var sum = 0;
+// 遍历分母就可以了，因为分子就是分母加1有关系
+for (var i = 2; i &lt;= n; i++) &#123;
+  sum += (i + 1) / i; // 每一项值 i+1/i
+&#125;
+// 输出累加结果
+alert(sum.toFixed(2)); // 这里要特别注意小数的处理
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 用户输入数字n<br>var n &#x3D; Number(prompt(“请输入数字n”));</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 累加器<br>var sum &#x3D; 0;<br>&#x2F;&#x2F; 遍历分母就可以了，因为分子就是分母加1有关系<br>for (var i &#x3D; 2; i &lt;&#x3D; n; i++) {<br>  sum +&#x3D; (i + 1) &#x2F; i; &#x2F;&#x2F; 每一项值 i+1&#x2F;i<br>}<br>&#x2F;&#x2F; 输出累加结果<br>alert(sum.toFixed(2)); &#x2F;&#x2F; 这里要特别注意小数的处理</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="累乘器"><a href="#累乘器" class="headerlink" title="累乘器"></a>累乘器</h4><blockquote>
 <p>由用户输入数字 n，请计算 n 的阶乘</p>
 </blockquote>
@@ -1867,22 +1862,31 @@ if (a &amp;&amp; !str1 &amp;&amp; !str2) &#123;
 <li>这里需要用到累乘器来计算出每一项的值</li>
 <li>然后利用累加器，把每一项加起来</li>
 </ul>
+</blockquote>
 <pre><code>// 累加器，就是最后的答案
 var sum = 0;
 // 累乘器，用来制作每一项，制作出来的这个项，要往累加器中累加
 var item = 1;
+&gt;
+// 让用户输入n
+var n = Number(prompt(&quot;请输入数字n&quot;));
+&gt;
+// 遍历
+for (var i = 1; i &lt;= n; i++) &#123;
+  // 要先制作项目
+  item *= i / (2 * i + 1);
+  console.log(item);
+  // 把每一项往累加器中累加
+  sum += item;
+&#125;
+&gt;
+// 显示结果
+alert((1 + sum) * 2);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 让用户输入n<br>var n &#x3D; Number(prompt(“请输入数字n”));</p>
 <blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 遍历<br>for (var i &#x3D; 1; i &lt;&#x3D; n; i++) {<br>  &#x2F;&#x2F; 要先制作项目<br>  item *&#x3D; i &#x2F; (2 * i + 1);<br>  console.log(item);<br>  &#x2F;&#x2F; 把每一项往累加器中累加<br>  sum +&#x3D; item;<br>}</p>
 <blockquote>
+<p>算法题最难的点在于找到背后的规律，和相关的一些通用处理算法的技巧。</p>
 </blockquote>
-<p>&#x2F;&#x2F; 显示结果<br>alert((1 + sum) * 2);</p>
-<blockquote>
-<pre><code>&gt;算法题最难的点在于找到背后的规律，和相关的一些通用处理算法的技巧。
-</code></pre>
 </blockquote>
 <h4 id="穷举法"><a href="#穷举法" class="headerlink" title="穷举法"></a>穷举法</h4><blockquote>
 <p>穷举法的基本思想是根据题目的部分条件确定答案的<strong>大致范围</strong>，并在此范围内对所有的情况<strong>逐一验证</strong>，直到全部情况验证完毕。</p>
@@ -1903,6 +1907,7 @@ var item = 1;
 <blockquote>
 <p>计算机不会找规律 和逻辑推理，他最大的优势就是强大的计算能力</p>
 </blockquote>
+</blockquote>
 <pre><code>// 寻找100以内的既能被3整除，也能被5整除的数字
 // 穷举法，从1开始实验
 for (var i = 1; i &lt;= 100; i++) &#123;
@@ -1911,7 +1916,6 @@ for (var i = 1; i &lt;= 100; i++) &#123;
   &#125;
 &#125;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>穷举法应用：寻找约数<blockquote>
 <p><strong>什么是约数</strong><br><code>48的约数 ： 1、2、3、4、6、8、12、16、24、48</code></p>
@@ -1919,38 +1923,38 @@ for (var i = 1; i &lt;= 100; i++) &#123;
 <li>这些数字都是能够被48整除的</li>
 <li>或者说 让48除以这些数字，余数都是0</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 用户输入数字 n
 var n = prompt(&quot;请输入数字&quot;);
 // 穷举法 从1开始验证
 for (var i = 1; i &lt;= n; i++) &#123;
   if (n % i == 0) &#123;
- console.log(i);
+    console.log(i);
   &#125;
 &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <blockquote>
 <p>除去操作符两边的操作数都是字符串这种情况外，其它情况在在作<strong>比较</strong>时(<code>i&lt;=n</code>)，会先自动调用<code>Number()函数</code>，将非数字类型转换为数字 （<strong>隐式转换</strong>） ，然后再进行比较。 所以可以不用写成<code>n = Number(prompt(&quot;请输入数字&quot;))</code>;</p>
 </blockquote>
 </blockquote>
 <ol start="3">
-<li><p>穷举法应用：寻找符合条件的数字</p>
-<blockquote>
+<li>穷举法应用：寻找符合条件的数字<blockquote>
 <p>请问 <code>1~100</code> 中哪个数字除以 3 余 1，除以 4 余 2，除以 5 余 3 ？</p>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 使用穷举法
 for (var i = 1; i &lt;= 100; i++) &#123;
   if (i % 3 == 1 &amp;&amp; i % 4 == 2 &amp;&amp; i % 5 == 3) &#123;
- console.log(i); // 58
+    console.log(i); // 58
   &#125;
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>穷举法应用：求水仙花数</p>
-<blockquote>
+<ol start="4">
+<li>穷举法应用：求水仙花数<blockquote>
 <p>请输入一个三位数，判断这个数是不是水仙花数<br><strong>什么是水仙花数 ？</strong></p>
 <ul>
 <li>如果一个数是水仙花数，那么这个数的个位 3 次方+十位数的 3 次方+百位数的 3 次方&#x3D;这个数本身</li>
@@ -1972,7 +1976,6 @@ for (var i = 1; i &lt;= 100; i++) &#123;
 </li>
 </ol>
 <p><strong>方法1：</strong></p>
-<blockquote>
 <pre><code> var n = Number(prompt(&quot;请输入一个3位数的整数&quot;));
   if (n &gt;= 100 &amp;&amp; n &lt;= 999 &amp;&amp; n.length == 3) &#123;
     var a = parseInt(n / 100);
@@ -1988,11 +1991,11 @@ for (var i = 1; i &lt;= 100; i++) &#123;
   &#125;
 </code></pre>
 <blockquote>
+<blockquote>
 <p>数字长度用n.length检验</p>
 </blockquote>
 </blockquote>
 <p><strong>方法2：</strong></p>
-<blockquote>
 <pre><code> var n = prompt(&quot;请输入一个3位数的整数&quot;);
   if (n &gt;= 100 &amp;&amp; n &lt;= 999 &amp;&amp; n.length == 3) &#123;
     var a = n.charAt(0);
@@ -2007,10 +2010,8 @@ for (var i = 1; i &lt;= 100; i++) &#123;
     alert(&quot;你输入的数字不合法！&quot;);
   &#125;
 </code></pre>
-</blockquote>
 <ol start="5">
-<li><p>穷举法应用：寻找质数(反推)</p>
-<blockquote>
+<li>穷举法应用：寻找质数(反推)<blockquote>
 <p>请寻找 1 ~ 100 的所有质数</p>
 <ul>
 <li>质数：只能被 1 和它本身整除的数字，<strong>最小的质数是 2</strong></li>
@@ -2019,44 +2020,55 @@ for (var i = 1; i &lt;= 100; i++) &#123;
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 穷举法
 outer: for (var i = 2; i &lt;= 100; i++) &#123;
   // 内层循环开始从2开始到小于这个数字的每一个数字都尝试除i,如果能够整除，说明它不是质数，就可以筛选下一个数字了
   for (var j = 2; j &lt; i; j++) &#123;
- if (i % j == 0) &#123;
-   // 说明数字 i不是质数，因为它找到了除1和它自身之外的约数了
-   // continue表示放弃这个数字，开始迭代下个数字，continue它负责的是它所在的最内层的for循环
-   // 要给for循环加上label,然后在continue的后面加上这个label
-   // 这样就表示立即开始迭代外层for循环的下一个数字了，而不是内层for循环
-   continue outer;
- &#125;
+    if (i % j == 0) &#123;
+      // 说明数字 i不是质数，因为它找到了除1和它自身之外的约数了
+      // continue表示放弃这个数字，开始迭代下个数字，continue它负责的是它所在的最内层的for循环
+      // 要给for循环加上label,然后在continue的后面加上这个label
+      // 这样就表示立即开始迭代外层for循环的下一个数字了，而不是内层for循环
+      continue outer;
+    &#125;
   &#125;
   // 能够遇见这条语句的数字i,一定是质数，否则就被continue略过了
   console.log(i);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>穷举法应用：鸡兔同笼</p>
-<blockquote>
+<ol start="6">
+<li>穷举法应用：鸡兔同笼<blockquote>
 <p>“今有雉兔同笼，上有三十五头，下有九十四足，问雉兔各几何 ？”<br><strong>数学方法解题思路：</strong></p>
 <ul>
 <li>鸡和兔子各有一个头：a + b &#x3D; 35</li>
 <li>鸡有 2 只脚，兔子有 4 只脚：2a + 4b &#x3D; 94</li>
 </ul>
-<pre><code>// 鸡兔同笼
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 方法1：<br>&#x2F;&#x2F; 假设小鸡有a只，兔子有b只<br>for (var a &#x3D; 0; a &lt;&#x3D; 35; a++) {<br>  for (var b &#x3D; 0; b &lt;&#x3D; 35; b++) {<br> if (a + b &#x3D;&#x3D; 35 &amp;&amp; 2 * a + 4 * b &#x3D;&#x3D; 94) {<br>   console.log(“小鸡有：” + a + “只，兔子有：” + b + “只。”); &#x2F;&#x2F; 小鸡有：23只，兔子有：12只。<br> }<br>  }<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 方法2：优化算法（减少for循环的次数）<br>for (var a &#x3D; 0; a &lt;&#x3D; 35; a++) {<br>  var b &#x3D; 35 - a;<br>  if (2 * a + 4 * b &#x3D;&#x3D; 94) {<br> console.log(“小鸡有：” + a + “只，兔子有：” + b + “只。”); &#x2F;&#x2F; 小鸡有：23只，兔子有：12只。<br>  }<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 鸡兔同笼
+&gt;
+// 方法1：
+// 假设小鸡有a只，兔子有b只
+for (var a = 0; a &lt;= 35; a++) &#123;
+  for (var b = 0; b &lt;= 35; b++) &#123;
+    if (a + b == 35 &amp;&amp; 2 * a + 4 * b == 94) &#123;
+      console.log(&quot;小鸡有：&quot; + a + &quot;只，兔子有：&quot; + b + &quot;只。&quot;); // 小鸡有：23只，兔子有：12只。
+    &#125;
+  &#125;
+&#125;
+&gt;
+// 方法2：优化算法（减少for循环的次数）
+for (var a = 0; a &lt;= 35; a++) &#123;
+  var b = 35 - a;
+  if (2 * a + 4 * b == 94) &#123;
+    console.log(&quot;小鸡有：&quot; + a + &quot;只，兔子有：&quot; + b + &quot;只。&quot;); // 小鸡有：23只，兔子有：12只。
+  &#125;
+&#125;
+</code></pre>
 <h3 id="十、算法如何学习-？"><a href="#十、算法如何学习-？" class="headerlink" title="十、算法如何学习 ？"></a>十、算法如何学习 ？</h3><blockquote>
 <p>在早期，我们学算法，学数据结构，最重要的是学基本功，只有把基本功学好了，算法的基本功就是算法的复杂度和数据结构。然后</p>
 <ul>

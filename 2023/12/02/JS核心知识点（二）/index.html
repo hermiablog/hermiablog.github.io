@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-02
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10.4k
+                    10.7k
                 </div>
                 
 
@@ -441,7 +441,10 @@
 <h3 id="一、算术运算符"><a href="#一、算术运算符" class="headerlink" title="一、算术运算符"></a>一、算术运算符</h3><blockquote>
 <ul>
 <li>说到算术表达式就离不开算术运算符。</li>
-<li>算术运算符：用于执行两个变量或值的算术操作符。<table>
+<li>算术运算符：用于执行两个变量或值的算术操作符。</li>
+</ul>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>算术运算符</th>
@@ -469,9 +472,6 @@
 <td>取余（取模）</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-</blockquote>
 <ol>
 <li><p>介绍</p>
 <blockquote>
@@ -520,17 +520,17 @@
 <li><strong>任何数</strong>与NaN做算述运算，结果都是NaN,除与字符串拼接外。</li>
 <li><code>+</code>号参于字符串计算，他<strong>不会</strong>做隐式转换,把操作数转换为数字;而是会当成<strong>字符串拼接</strong>来处理。</li>
 </ul>
-<pre><code>&lt;script&gt;
- console.log(4 / &quot;2&quot;); // 2
- console.log(5 % &quot;4&quot;); // 1
- console.log(true + false); // 1
- console.log(2 + null); // 2
- // 任何类型与NaN做运算得到NaN,与字符串拼接除外
- console.log(1 + undefined); // NaN
- console.log(1 + &quot;true&quot;); // &#39;1true&#39;  字符串拼接
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  console.log(4 / &quot;2&quot;); // 2
+&gt;  console.log(5 % &quot;4&quot;); // 1
+&gt;  console.log(true + false); // 1
+&gt;  console.log(2 + null); // 2
+&gt;  // 任何类型与NaN做运算得到NaN,与字符串拼接除外
+&gt;  console.log(1 + undefined); // NaN
+&gt;  console.log(1 + &quot;true&quot;); // &#39;1true&#39;  字符串拼接
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="5">
 <li><p>显示转换</p>
 <blockquote>
@@ -615,39 +615,39 @@
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;script&gt;
- var a, b, c;
- a = b = c = 12 + 2;
- console.log(a, b, c); // 14 14 14
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a, b, c;
+&gt;  a = b = c = 12 + 2;
+&gt;  console.log(a, b, c); // 14 14 14
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="2">
-<li><p>快捷赋值（+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;）</p>
-<blockquote>
+<li>快捷赋值（+&#x3D;、-&#x3D;、*&#x3D;、&#x2F;&#x3D;、%&#x3D;）<blockquote>
 <ul>
 <li>快捷赋值运算符：表示在原数值基础上进一步计算<blockquote>
 <p>快捷赋值操作符仅仅是简写语法，使用它们并不会提升性能</p>
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;script&gt;
- var a = 1;
- a += 5; // 相当于 a = a + 5;
- console.log(a); // 6
- var b = 4;
- b *= 2; // 相当于 b = b * 2
- console.log(b); // 8
- b /= 2; // 相当于 b = b / 2
- console.log(b); // 4
- b %= 2; // 相当于 b = b % 2;
- console.log(b); // 0
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>++ 自增 和 – 自减 运算符</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 1;
+&gt;  a += 5; // 相当于 a = a + 5;
+&gt;  console.log(a); // 6
+&gt;  var b = 4;
+&gt;  b *= 2; // 相当于 b = b * 2
+&gt;  console.log(b); // 8
+&gt;  b /= 2; // 相当于 b = b / 2
+&gt;  console.log(b); // 4
+&gt;  b %= 2; // 相当于 b = b % 2;
+&gt;  console.log(b); // 0
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>++ 自增 和 – 自减 运算符<blockquote>
 <ul>
 <li><code>++</code> 自增：表示在自己的基础上+1</li>
 <li><code>--</code> 自减：表示在自己的基础上-1<blockquote>
@@ -655,33 +655,35 @@
 </blockquote>
 </li>
 </ul>
-<pre><code>&lt;script&gt;
- var a = 1;
- a++; // a++ 相当于 a = a + 1
- console.log(a); // 2
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>++a 和 a++ 的区别</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 1;
+&gt;  a++; // a++ 相当于 a = a + 1
+&gt;  console.log(a); // 2
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>++a 和 a++ 的区别<blockquote>
 <ul>
 <li>++a 是先自增再赋值</li>
 <li>a++ 是先赋值再自增</li>
 </ul>
-<pre><code>&lt;script&gt;
- var b = 3;
- var c = ++b; // 先自增，再赋值，所以b先自增1，得到b=4,然后把4赋值给变量c，所以c的值也是 4
- console.log(c); // 4
- console.log(b); // 4
- console.log(c++); // 4 先赋值，再自增，所以打印是4，c自增后是5
- console.log(++c); // 6 先自增，再赋值，c上面已经是5，再自增就是6，自增后再赋值，所以打印是6
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>–a 和 a–的区别</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var b = 3;
+&gt;  var c = ++b; // 先自增，再赋值，所以b先自增1，得到b=4,然后把4赋值给变量c，所以c的值也是 4
+&gt;  console.log(c); // 4
+&gt;  console.log(b); // 4
+&gt;  console.log(c++); // 4 先赋值，再自增，所以打印是4，c自增后是5
+&gt;  console.log(++c); // 6 先自增，再赋值，c上面已经是5，再自增就是6，自增后再赋值，所以打印是6
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="5">
+<li>–a 和 a–的区别<blockquote>
 <ul>
 <li>与上面同理</li>
 <li><code>--a</code> 是先自减再赋值</li>
@@ -747,27 +749,25 @@
 </ul>
 </blockquote>
 <ol>
-<li><p>操作符两边的数，<strong>不都是</strong>字符串</p>
-<blockquote>
-<pre><code>//  数字与数字作比较，最简单
-1 &gt; 2; // false
-// 数字与非数字作比较
-1 &gt; true; // false  等价于 1&gt;1
-// 字符串与布尔值作比较
-&quot;&quot; &lt;= false; // true  等价于 0&lt;=0
-// null 和 undefined与数字作比较
-null &gt;= 0; // true 等价于 0&gt;=0
-undefined &lt;= 0; // false 等价于 NaN&lt;=0
-// 字符串与null 和undefined作比较
-&quot;&quot; &gt;= null; // true 等价于 0&gt;=0
-&quot;&quot; &lt;= undefined; // false 等价于 0&lt;=NaN
-// null与undefined作比较
-null &gt;= undefined; // false 等价于 0&gt;=NaN
+<li>操作符两边的数，<strong>不都是</strong>字符串</li>
+</ol>
+<pre><code>&gt;//  数字与数字作比较，最简单
+&gt;1 &gt; 2; // false
+&gt;// 数字与非数字作比较
+&gt;1 &gt; true; // false  等价于 1&gt;1
+&gt;// 字符串与布尔值作比较
+&gt;&quot;&quot; &lt;= false; // true  等价于 0&lt;=0
+&gt;// null 和 undefined与数字作比较
+&gt;null &gt;= 0; // true 等价于 0&gt;=0
+&gt;undefined &lt;= 0; // false 等价于 NaN&lt;=0
+&gt;// 字符串与null 和undefined作比较
+&gt;&quot;&quot; &gt;= null; // true 等价于 0&gt;=0
+&gt;&quot;&quot; &lt;= undefined; // false 等价于 0&lt;=NaN
+&gt;// null与undefined作比较
+&gt;null &gt;= undefined; // false 等价于 0&gt;=NaN
 </code></pre>
-</blockquote>
-</li>
-<li><p>字符串与字符串做比较</p>
-<blockquote>
+<ol start="2">
+<li>字符串与字符串做比较<blockquote>
 <ul>
 <li>字符串与字符串作比较时，不会将其转换成数字进行比较，而会分别比较字符串的<code>Unicode</code>编码</li>
 <li>比较字符编码时，是<strong>一位一位</strong>进行比较，如果两位一样，则比校下一位</li>
@@ -782,29 +782,31 @@ null &gt;= undefined; // false 等价于 0&gt;=NaN
 <li><code>a~z</code> 对应 <code>97~122</code></li>
 <li><code>0~9</code> 对应 <code>48~57</code></li>
 </ul>
-<pre><code>// 先把两边的第一位拿出来作比较，即 &#39;a&#39; &lt; &#39;b&#39; ，比较时比较的是Unicode编码，则 97&lt;98，所以结果为 true
-&quot;abc&quot; &lt; &quot;b&quot;; // true;
-
-// 先把两边的第一位拿出来作比较，即 &#39;1&#39; &lt; &#39;5&#39; ，比较时比较的是Unicode编码，则49 &lt; 53 ,所以结果为 true
-&quot;11&quot; &lt; &quot;5&quot;; // true;
-
-// 先把两边的第一位拿出来作比较，如果两位一样，则比较下一位，所以拿第二位来比较，则&#39;b&#39;&lt;&#39;c&#39;，比较时比较的是Unicode编码，则 98 &lt; 99 ,所以结果为 true
-&quot;abc&quot; &lt; &quot;acd&quot;; // true
-</code></pre>
 </blockquote>
+<pre><code>&gt;// 先把两边的第一位拿出来作比较，即 &#39;a&#39; &lt; &#39;b&#39; ，比较时比较的是Unicode编码，则 97&lt;98，所以结果为 true
+&gt;&quot;abc&quot; &lt; &quot;b&quot;; // true;
+&gt;
+&gt;// 先把两边的第一位拿出来作比较，即 &#39;1&#39; &lt; &#39;5&#39; ，比较时比较的是Unicode编码，则49 &lt; 53 ,所以结果为 true
+&gt;&quot;11&quot; &lt; &quot;5&quot;; // true;
+&gt;
+&gt;// 先把两边的第一位拿出来作比较，如果两位一样，则比较下一位，所以拿第二位来比较，则&#39;b&#39;&lt;&#39;c&#39;，比较时比较的是Unicode编码，则 98 &lt; 99 ,所以结果为 true
+&gt;&quot;abc&quot; &lt; &quot;acd&quot;; // true
+</code></pre>
 <h4 id="JS-中没有连比"><a href="#JS-中没有连比" class="headerlink" title="JS 中没有连比"></a>JS 中没有连比</h4><blockquote>
 <p>JS 中是没有连比的功能，我们来看下面的列子</p>
-<pre><code>&lt;script&gt;
- console.log(1 &lt; 3 &lt; 2); // true 但是本质上是错的，3不可能小于 2
- /*
-  *  1&lt;3&lt;2 为什么会得到 true ?
-  *  他是从左往右开始比较，1 &lt; 3 这个表达式返回值为true
-  *  再拿true与2作比较，那 true &lt; 2
-  *  数值与其它类型做比较时，会先将其转换成数字，再比较，true转数字转成 1
-  *  即 1 &lt; 2 吗 ？那肯定小于，所以返回结果就为 true
-  */
-&lt;/script&gt;
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  console.log(1 &lt; 3 &lt; 2); // true 但是本质上是错的，3不可能小于 2
+&gt;  /*
+&gt;   *  1&lt;3&lt;2 为什么会得到 true ?
+&gt;   *  他是从左往右开始比较，1 &lt; 3 这个表达式返回值为true
+&gt;   *  再拿true与2作比较，那 true &lt; 2
+&gt;   *  数值与其它类型做比较时，会先将其转换成数字，再比较，true转数字转成 1
+&gt;   *  即 1 &lt; 2 吗 ？那肯定小于，所以返回结果就为 true
+&gt;   */
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>那如果要判断一个数是不是&gt; 1同时&lt; 4，我们可以用后面学到的&amp;&amp;与操作符和||或操作符来实现</p>
 </blockquote>
@@ -816,12 +818,12 @@ null &gt;= undefined; // false 等价于 0&gt;=NaN
 <li>在比较时同样会做隐式类型转换，非数字类型会自动调用Number()函数，转成数字再比较</li>
 <li>以上规则，只适用于基本数据类型</li>
 </ul>
-<pre><code>1 == true; // true
-0 == &quot;&quot;; // true
-// ‘’ 转成数字是 0   false转成数字是 0 所以0==0 是true
-&quot;&quot; == false; // true
-</code></pre>
 </blockquote>
+<pre><code>&gt;1 == true; // true
+&gt;0 == &quot;&quot;; // true
+&gt;// ‘’ 转成数字是 0   false转成数字是 0 所以0==0 是true
+&gt;&quot;&quot; == false; // true
+</code></pre>
 <blockquote>
 <ul>
 <li>!&#x3D;是用来比较两个值（隐式转换后）是否不相等，如果相等返回 false,如果不相等，返回 true<blockquote>
@@ -829,11 +831,11 @@ null &gt;= undefined; // false 等价于 0&gt;=NaN
 </blockquote>
 </li>
 </ul>
-<pre><code>null == undefined; //true
-&quot;&quot; ==null;//false
-0==null;//false
-</code></pre>
 </blockquote>
+<pre><code>&gt;null == undefined; //true
+&gt;&quot;&quot; ==null;//false
+&gt;0==null;//false
+</code></pre>
 <h4 id="和-1"><a href="#和-1" class="headerlink" title="===和 !=="></a><code>===</code>和<code> !==</code></h4><blockquote>
 <ul>
 <li><code>===</code>用来比较两边的值是否全等，如果全等则为true,不全等则为false。</li>
@@ -841,12 +843,12 @@ null &gt;= undefined; // false 等价于 0&gt;=NaN
 <li><code>===</code>只有操作符两边的数长的<strong>一模一样</strong>，才会是 true，否则就是 false</li>
 <li>注意区分： 而前面讲的<code>==</code>只会比较两个值（隐式转换后）的大小，不会比较类型。</li>
 </ul>
-<pre><code>1 == &quot;1&quot;; // true 只比较值
-1 === &quot;1&quot;; // false  同时比较值和类型
-1 == true; // true 只比较值
-1 === true; // false 同时比较值和类型
-</code></pre>
 </blockquote>
+<pre><code>&gt;1 == &quot;1&quot;; // true 只比较值
+&gt;1 === &quot;1&quot;; // false  同时比较值和类型
+&gt;1 == true; // true 只比较值
+&gt;1 === true; // false 同时比较值和类型
+</code></pre>
 <blockquote>
 <p><strong><code>!==</code> 不全等</strong></p>
 <ul>
@@ -854,17 +856,15 @@ null &gt;= undefined; // false 等价于 0&gt;=NaN
 <li><code>!==</code>的结果，正好是<code>===</code>结果的<strong>反面</strong>，如果<code>===</code>返回结果是true，那！<code>==</code>返回结果就是false</li>
 </ul>
 </blockquote>
-<h4 id="特殊的比较"><a href="#特殊的比较" class="headerlink" title="特殊的比较"></a>特殊的比较</h4><blockquote>
-<pre><code>undefined == null; // true
-undefined === null; // false
-
-NaN == NaN; // false
-NaN === NaN; // false
-
-NaN !== NaN; // true
-NaN != NaN; // true
+<h4 id="特殊的比较"><a href="#特殊的比较" class="headerlink" title="特殊的比较"></a>特殊的比较</h4><pre><code>&gt;undefined == null; // true
+&gt;undefined === null; // false
+&gt;
+&gt;NaN == NaN; // false
+&gt;NaN === NaN; // false
+&gt;
+&gt;NaN !== NaN; // true
+&gt;NaN != NaN; // true
 </code></pre>
-</blockquote>
 <h4 id="区分-、-、-的区别"><a href="#区分-、-、-的区别" class="headerlink" title="区分 &#x3D; 、&#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 的区别"></a>区分 &#x3D; 、&#x3D;&#x3D; 、&#x3D;&#x3D;&#x3D; 的区别</h4><blockquote>
 <ul>
 <li><code>=</code> 是赋值</li>
@@ -903,12 +903,12 @@ NaN != NaN; // true
 </blockquote>
 </li>
 </ul>
-<pre><code>!true; // false
-!3; // false
-!0; // true
-!undefined; // true
-</code></pre>
 </blockquote>
+<pre><code>&gt;!true; // false
+&gt;!3; // false
+&gt;!0; // true
+&gt;!undefined; // true
+</code></pre>
 <blockquote>
 <blockquote>
 <p>总结：将基本数据类型转换为布尔值的 2 种方法</p>
@@ -917,10 +917,10 @@ NaN != NaN; // true
 <li>方法一：调用Boolean()函数来实现</li>
 <li>方法二：在一个数值或变量前加!!(两次取反)操作，也可以实现</li>
 </ul>
-<pre><code>!!3; // true;
-!!undefined; // false
-</code></pre>
 </blockquote>
+<pre><code>&gt;!!3; // true;
+&gt;!!undefined; // false
+</code></pre>
 <h4 id="与操作符"><a href="#与操作符" class="headerlink" title="&amp;&amp;与操作符"></a>&amp;&amp;与操作符</h4><blockquote>
 <ul>
 <li><code>&amp;&amp;</code>与操作符，表示<strong>并且</strong>的意思，可以对<code>&amp;&amp;</code>符号两侧的值进行<strong>与运算</strong>并返回结果</li>
@@ -931,87 +931,89 @@ NaN != NaN; // true
 </ul>
 </blockquote>
 <ol>
-<li><p>&amp;&amp;与的短路计算规则</p>
-<blockquote>
+<li>&amp;&amp;与的短路计算规则<blockquote>
 <ul>
 <li>如果<strong>第一个</strong>操作数转为布尔值是<code>false</code>，则就<strong>不会</strong>看第二个操作数了。返回结果为<strong>第一个</strong>操作数的<strong>返回结果</strong></li>
 <li>如果第一个操作数转为布尔值是<code>true</code>，则<strong>会看</strong>第二个操作数。返回结果为<strong>第二个</strong>操作数的返回结果</li>
 <li>上面提到的”操作数”，可以是一个表达式、值、函数、对象等任何类型</li>
 </ul>
-<pre><code>false &amp;&amp; true; // false
-1 &amp;&amp; 2; // 2  1转换为布尔值是true，所以看第二个操作数，返回值为第二个操作数 2
-0 &amp;&amp; 3; // 0  0转换为布尔值是false，所不看第二个操作数，返回值为第1个操作数 0
-true &amp;&amp; alert(&quot;我能出来喽&quot;); // 页面显示弹窗
-3 - 3 &amp;&amp; 1; // 0  3-3结果为0,转换为布尔值是false,则不看第二个操作数，返回值为第一个操作数，第1个操作数是表达式，所以返回值为第1个表达式的返回值0
-</code></pre>
 </blockquote>
 </li>
-<li><p><strong>测试题</strong></p>
-<blockquote>
+</ol>
+<pre><code>&gt;false &amp;&amp; true; // false
+&gt;1 &amp;&amp; 2; // 2  1转换为布尔值是true，所以看第二个操作数，返回值为第二个操作数 2
+&gt;0 &amp;&amp; 3; // 0  0转换为布尔值是false，所不看第二个操作数，返回值为第1个操作数 0
+&gt;true &amp;&amp; alert(&quot;我能出来喽&quot;); // 页面显示弹窗
+&gt;3 - 3 &amp;&amp; 1; // 0  3-3结果为0,转换为布尔值是false,则不看第二个操作数，返回值为第一个操作数，第1个操作数是表达式，所以返回值为第1个表达式的返回值0
+</code></pre>
+<ol start="2">
+<li><strong>测试题</strong><blockquote>
 <ul>
 <li>以下代码的执行后的结果是多少？</li>
 </ul>
-<pre><code>&lt;script&gt;
- var a = 1,
-   b = 2,
-   c;
- c = a &lt; b &amp;&amp; a++;//a&lt;b:true，所以a++被运行,c=1,a=2
- console.log(c, a);//c=1,a=2
- c = a &gt; b &amp;&amp; --a;//a&gt;b:false=c,--a不会被运行
- console.log(c, a);//c=false,a=2
- a == b &amp;&amp; alert(&quot;a和b相等了&quot;);//a=b=2,true,运行alert
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>如何判断一个数的范围</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 1,
+&gt;    b = 2,
+&gt;    c;
+&gt;  c = a &lt; b &amp;&amp; a++;//a&lt;b:true，所以a++被运行,c=1,a=2
+&gt;  console.log(c, a);//c=1,a=2
+&gt;  c = a &gt; b &amp;&amp; --a;//a&gt;b:false=c,--a不会被运行
+&gt;  console.log(c, a);//c=false,a=2
+&gt;  a == b &amp;&amp; alert(&quot;a和b相等了&quot;);//a=b=2,true,运行alert
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>如何判断一个数的范围</li>
+</ol>
 <pre><code>var a = 10;
 console.log(a &gt; 5 &amp;&amp; a &lt; 12); // true   这个逻辑表达示的含 义是： a&gt;5 同时 a&lt;12 ？
 console.log(a &gt; 5 &amp;&amp; a &lt; 8); // false
 </code></pre>
 <blockquote>
+<blockquote>
 <p>表达式都会有一个返回值，所以我们可以用一个变量来接受表达式的返回值</p>
 </blockquote>
-<pre><code>&lt;script&gt;
- var a = 10;
- var b;
- b = a &gt; 5 &amp;&amp; a &lt; 12;
- console.log(b); // true
- b = a &gt; 5 &amp;&amp; a + 2;
- console.log(b); // 12
-&lt;/script&gt;
-</code></pre>
 </blockquote>
-</li>
-<li><p>如何判断一个值是不是 NaN</p>
-<blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 10;
+&gt;  var b;
+&gt;  b = a &gt; 5 &amp;&amp; a &lt; 12;
+&gt;  console.log(b); // true
+&gt;  b = a &gt; 5 &amp;&amp; a + 2;
+&gt;  console.log(b); // 12
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>如何判断一个值是不是 NaN<blockquote>
 <ul>
 <li>方法1：利用 <strong>NaN是一个不是数字的，但是数字类型</strong>，这个特性来判断</li>
 </ul>
-<pre><code>var a = NaN;
-var _isNaN = isNaN(a) &amp;&amp; typeof a === &quot;number&quot;;
-consloe.log(_isNaN);
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;var a = NaN;
+&gt;var _isNaN = isNaN(a) &amp;&amp; typeof a === &quot;number&quot;;
+&gt;consloe.log(_isNaN);
+</code></pre>
 <blockquote>
 <ul>
 <li>方法2：利用 <strong>NaN自己不等于自已</strong> 这个特性来判断</li>
 </ul>
-<pre><code>&lt;script&gt;
- function _isNaN(n) &#123;
-   if (n !== n) &#123;
-     return true;
-   &#125; else &#123;
-     return false;
-   &#125;
- &#125;
- console.log(_isNaN(NaN)); // true
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  function _isNaN(n) &#123;
+&gt;    if (n !== n) &#123;
+&gt;      return true;
+&gt;    &#125; else &#123;
+&gt;      return false;
+&gt;    &#125;
+&gt;  &#125;
+&gt;  console.log(_isNaN(NaN)); // true
+&gt;&lt;/script&gt;
+</code></pre>
 <h4 id="或-操作符"><a href="#或-操作符" class="headerlink" title="|| 或 操作符"></a><code>||</code> 或 操作符</h4><blockquote>
 <ul>
 <li><code>||</code>或操作符，表示或者的意思，可以对<code>||</code>符号两侧的值进行或运算并返回结果</li>
@@ -1019,47 +1021,47 @@ consloe.log(_isNaN);
 </ul>
 </blockquote>
 <ol>
-<li><p>|| 或的短路计算规则：</p>
-<blockquote>
+<li>|| 或的短路计算规则：<blockquote>
 <ul>
 <li><strong>第一个</strong>操作数转换为布尔值是<code>true</code>,则就<strong>不会</strong>看第二个操作数。返回结果为<strong>第一个</strong>操作数的返回结果，第二个表达式不会被执行</li>
 <li>第一个操作数转换为布尔值是<code>false</code>，则就<strong>会看第二个</strong>操作数。返回结果为<strong>第二个</strong>操作数的返回结果</li>
 <li>上面提到的”操作数”，可以是一个表达式、值、函数、对象等任何类型</li>
 </ul>
-<pre><code>true || false; // true  第1个操作数是true，则不看第2个操作数，将第1个操作数作为结果返回 true
-false || true; // true  第1个操作数是false，则看第二个操作数，将第2个操作数作为结果返回 true
-0 || 3; // 3  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 3
-&quot;&quot; || 1; // 1  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 1
-undefined || NaN; // NaN  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 NaN
-</code></pre>
-</blockquote>
-</li>
-<li><p>测试题</p>
-<blockquote>
-<p>以下代码，输出的结果？</p>
-<pre><code>&lt;script&gt;
- var a = 1,
-   b = 2,
-   c;
- c = a &lt; b || a++;//c=ture,a++不会被执行
- console.log(c); 
- c = a &gt; b || a--;//c=1,a=0,先赋值后自减
- console.log(a, c); 
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;true || false; // true  第1个操作数是true，则不看第2个操作数，将第1个操作数作为结果返回 true
+&gt;false || true; // true  第1个操作数是false，则看第二个操作数，将第2个操作数作为结果返回 true
+&gt;0 || 3; // 3  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 3
+&gt;&quot;&quot; || 1; // 1  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 1
+&gt;undefined || NaN; // NaN  第1个操作数转boolean值是false，则看第2个操作数，将第2个操作数作为结果返回 NaN
+</code></pre>
+<ol start="2">
+<li>测试题<blockquote>
+<p>以下代码，输出的结果？</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 1,
+&gt;    b = 2,
+&gt;    c;
+&gt;  c = a &lt; b || a++;//c=ture,a++不会被执行
+&gt;  console.log(c); 
+&gt;  c = a &gt; b || a--;//c=1,a=0,先赋值后自减
+&gt;  console.log(a, c); 
+&gt;&lt;/script&gt;
+</code></pre>
 <h4 id="逻辑操作符优先级"><a href="#逻辑操作符优先级" class="headerlink" title="逻辑操作符优先级"></a>逻辑操作符优先级</h4><blockquote>
 <p>逻辑操作符优先级是： <code>！非</code> &gt; <code>&amp;&amp; 与</code> &gt; <code>|| 或</code> </p>
 <blockquote>
 <p>自己写代码的时候，建议加括号增强可读性</p>
 </blockquote>
-<pre><code>(1 &amp;&amp; false) || (4 &amp;&amp; 5); //false||5--&gt;5
-(1 &amp;&amp; 2) || (4 &amp;&amp; 5); //2||5--&gt;2
-(1 &amp;&amp; true) || (!&quot;&quot; &amp;&amp; 2);//true||2--&gt;true
-</code></pre>
 </blockquote>
+<pre><code>&gt;(1 &amp;&amp; false) || (4 &amp;&amp; 5); //false||5--&gt;5
+&gt;(1 &amp;&amp; 2) || (4 &amp;&amp; 5); //2||5--&gt;2
+&gt;(1 &amp;&amp; true) || (!&quot;&quot; &amp;&amp; 2);//true||2--&gt;true
+</code></pre>
 <h3 id="五、综合表达式"><a href="#五、综合表达式" class="headerlink" title="五、综合表达式"></a>五、综合表达式</h3><blockquote>
 <ul>
 <li>综合表达式：就是 算术操作符、赋值操作符、关系操作符、逻辑操作符出现在同一个表达式中。</li>
@@ -1095,29 +1097,27 @@ undefined || NaN; // NaN  第1个操作数转boolean值是false，则看第2个�
 </blockquote>
 </li>
 <li><p>测试题<br><strong>测试题1</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- var a = 0,
-   c;
- c = !3 + 4 / 2 &gt; 5 &amp;&amp; ++a;
-//!-&gt;/-&gt;+-&gt; &gt;,即：false+2&gt;5,**注意**此时false自动转换为0,2&gt;5为false,c=false &amp;&amp; ++a,由于左边是false，所以++a不会被执行,c=false,a=0
- console.log(c, a); // false 0
-&lt;/script&gt;
-</code></pre>
-</blockquote>
 </li>
 </ol>
-<p><strong>测试题2</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- var a = 10;
- var b = a++ &amp;&amp; a &lt; 11 || a++;
-//a++先将10赋值给&amp;&amp;,然后自增a=11,即true&amp;&amp;false,--&gt;false||a++,此时a将11赋值给||,所以b=11,然后a自增,a=12
- var c = a + 1 &amp;&amp; a + 2;
-//c=13&amp;&amp;14,c=14
- console.log(b, c, a); // 11  14  12
-&lt;/script&gt;
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 0,
+&gt;    c;
+&gt;  c = !3 + 4 / 2 &gt; 5 &amp;&amp; ++a;
+&gt;//!-&gt;/-&gt;+-&gt; &gt;,即：false+2&gt;5,**注意**此时false自动转换为0,2&gt;5为false,c=false &amp;&amp; ++a,由于左边是false，所以++a不会被执行,c=false,a=0
+&gt;  console.log(c, a); // false 0
+&gt;&lt;/script&gt;
 </code></pre>
+<p><strong>测试题2</strong></p>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var a = 10;
+&gt;  var b = a++ &amp;&amp; a &lt; 11 || a++;
+&gt;//a++先将10赋值给&amp;&amp;,然后自增a=11,即true&amp;&amp;false,--&gt;false||a++,此时a将11赋值给||,所以b=11,然后a自增,a=12
+&gt;  var c = a + 1 &amp;&amp; a + 2;
+&gt;//c=13&amp;&amp;14,c=14
+&gt;  console.log(b, c, a); // 11  14  12
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
 <blockquote>
 <p><code>var b = a++ &amp;&amp; a &lt; 11 || a++;</code>这步的顺序很重要，</p>
 </blockquote>
@@ -1150,14 +1150,14 @@ undefined || NaN; // NaN  第1个操作数转boolean值是false，则看第2个�
 <ul>
 <li>三元运算符，虽然回有返回结果，但我们并不一定要用一个变量来接受，<strong>有些时候</strong>，我们并不关心他的返回值</li>
 </ul>
-<pre><code>var a = 2;
-// 这种情况下，我们更关心，满足条件要做什么事，不满足条件做什么事，并不关心返回结果
-a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
-// 同时这种情况，不管 a&gt;1 是真是假，最终返回结果都是undefined,因为 alert() 方法返回值是undefined
-var b = a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
-console.log(b); // undefined
-</code></pre>
 </blockquote>
+<pre><code>&gt;var a = 2;
+&gt;// 这种情况下，我们更关心，满足条件要做什么事，不满足条件做什么事，并不关心返回结果
+&gt;a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
+&gt;// 同时这种情况，不管 a&gt;1 是真是假，最终返回结果都是undefined,因为 alert() 方法返回值是undefined
+&gt;var b = a &gt; 1 ? alert(a + &quot;大于1&quot;) : alert(a + &quot;小于1&quot;);
+&gt;console.log(b); // undefined
+</code></pre>
 <p><strong>实战案例：补 0 操作</strong></p>
 <blockquote>
 <ul>
@@ -1167,18 +1167,18 @@ console.log(b); // undefined
 </blockquote>
 </li>
 </ul>
-<pre><code>// 完整的补0后效果
-// var date = new Date(&quot;2019/1/3&quot;);
-var date = new Date();
-var year = date.getFullYear(); // 获取完整的年份(4位)
-var month = date.getMonth() + 1; // date.getMonth()获取当前月份(0-11,0代表1月),所以要加1
-var day = date.getDate(); // 获取当前日(1-31)
-month = month &lt; 10 ? &quot;0&quot; + month : month; // 月份小于10，数字前补0
-day = day &lt; 10 ? &quot;0&quot; + day : day; // 日小于10，数字前补0
-var currentDate = year + &quot;年&quot; + month + &quot;月&quot; + day + &quot;日&quot;;
-console.log(currentDate); // 2022年08月17日
-</code></pre>
 </blockquote>
+<pre><code>&gt;// 完整的补0后效果
+&gt;// var date = new Date(&quot;2019/1/3&quot;);
+&gt;var date = new Date();
+&gt;var year = date.getFullYear(); // 获取完整的年份(4位)
+&gt;var month = date.getMonth() + 1; // date.getMonth()获取当前月份(0-11,0代表1月),所以要加1
+&gt;var day = date.getDate(); // 获取当前日(1-31)
+&gt;month = month &lt; 10 ? &quot;0&quot; + month : month; // 月份小于10，数字前补0
+&gt;day = day &lt; 10 ? &quot;0&quot; + day : day; // 日小于10，数字前补0
+&gt;var currentDate = year + &quot;年&quot; + month + &quot;月&quot; + day + &quot;日&quot;;
+&gt;console.log(currentDate); // 2022年08月17日
+</code></pre>
 <h3 id="七、综合案例"><a href="#七、综合案例" class="headerlink" title="七、综合案例"></a>七、综合案例</h3><p><strong>判断当前输入年份，是否是闰年 ?</strong></p>
 <blockquote>
 <p>需求分析：</p>
@@ -1197,12 +1197,12 @@ console.log(currentDate); // 2022年08月17日
 <li>对接收到的值做判断，判断条件就是需求中提到的，两个条件中有一个满足就可，所以选择||操作符</li>
 <li>判断表达式： 左边条件 1 ||右边条件 2</li>
 </ul>
-<pre><code>var y = parseInt(prompt(&quot;请输入年份&quot;));
-var a = (y % 4 == 0 &amp;&amp; y % 100 != 0) || (y % 100 == 0 &amp;&amp; y % 400 == 0);
-a == true ? alert(&quot;是闰年&quot;) : alert(&quot;不是闰年&quot;);
-//   alert(y + &quot;是闰年吗？&quot; + a);
-</code></pre>
 </blockquote>
+<pre><code>&gt;var y = parseInt(prompt(&quot;请输入年份&quot;));
+&gt;var a = (y % 4 == 0 &amp;&amp; y % 100 != 0) || (y % 100 == 0 &amp;&amp; y % 400 == 0);
+&gt;a == true ? alert(&quot;是闰年&quot;) : alert(&quot;不是闰年&quot;);
+&gt;//   alert(y + &quot;是闰年吗？&quot; + a);
+</code></pre>
 <h3 id="八、小结"><a href="#八、小结" class="headerlink" title="八、小结"></a>八、小结</h3><ol>
 <li><p>由于在进行&#x3D;&#x3D;数学运算&#x3D;&#x3D;时，会自动调用Number函数进行隐式转换，所以要注意一些特殊值的转换</p>
 <blockquote>
@@ -1291,11 +1291,9 @@ a == true ? alert(&quot;是闰年&quot;) : alert(&quot;不是闰年&quot;);
 </ul>
 </blockquote>
 <p><strong>验证方法：</strong></p>
-<blockquote>
-<pre><code>var a = 0b11111111111111111111111111111011; // js中2进制数以0b开头
-console.log(a &gt;&gt; 0); // -5
+<pre><code>&gt;var a = 0b11111111111111111111111111111011; // js中2进制数以0b开头
+&gt;console.log(a &gt;&gt; 0); // -5
 </code></pre>
-</blockquote>
 <ol start="4">
 <li><p>如何一眼区分二进制数是正数还是负数</p>
 <blockquote>
@@ -1417,9 +1415,11 @@ console.log(a &gt;&gt; 0); // -5
 <ul>
 <li>我们来看下面这个与&amp;运算的运算过程</li>
 </ul>
-<pre><code>var result = 5 &amp; 3;
-console.log(result); // 1
+</blockquote>
+<pre><code>&gt;var result = 5 &amp; 3;
+&gt;console.log(result); // 1
 </code></pre>
+<blockquote>
 <ul>
 <li>先把 5 和 3 都转换为对应的 32 位<strong>二进制数</strong>，然后再 <strong>1 位 1 位的</strong>比较，最后结果为 1<img src="&运算过程.png"></li>
 </ul>
@@ -1507,19 +1507,19 @@ console.log(result); // 1
 </li>
 </ol>
 <p><strong>| 或运算过程</strong></p>
-<blockquote>
-<pre><code>var result = 5 | 3;
-console.log(result); // 7
+<pre><code>&gt;var result = 5 | 3;
+&gt;console.log(result); // 7
 </code></pre>
+<blockquote>
 <ul>
 <li>先把 5 和 3 都转换为对应的 32 位二进制数，然后再 1 位 1 位的比较<img src="或运算过程.png"></li>
 </ul>
 </blockquote>
 <p><strong>应用：将一个数取整</strong></p>
-<blockquote>
-<pre><code>var num = 5.467;
-console.log(num | 0); // 5
+<pre><code>&gt;var num = 5.467;
+&gt;console.log(num | 0); // 5
 </code></pre>
+<blockquote>
 <ul>
 <li>一个数在<strong>按位或</strong>运算时，会先将其转换为 32 位的<strong>整数</strong>（二进制），这个过程就会把<strong>小数转换为整数</strong></li>
 <li>然后这个整数 <code>| 0</code> 永远得到这个整数。因为 <code>0</code> 和 <code>1</code> 与 <code>0</code> 做<strong>或运算</strong>，都得到<strong>自身</strong>。<img src="取整运算.png">
@@ -1618,10 +1618,10 @@ console.log(num | 0); // 5
 </li>
 </ol>
 <p><strong>运算过程</strong></p>
-<blockquote>
-<pre><code>var result = 5 ^ 3;
-console.log(result); // 6
+<pre><code>&gt;var result = 5 ^ 3;
+&gt;console.log(result); // 6
 </code></pre>
+<blockquote>
 <ul>
 <li>先把 5 和 3 转换为二进制数，再一位一位来运算，如下<img src="异或运算过程.png"></li>
 <li>再用公式转换成十进制&#x3D;6</li>
@@ -1650,21 +1650,21 @@ console.log(result); // 6
 <p><strong>应用：按位异或 ^ （用来交换两个数值变量的值）</strong></p>
 <blockquote>
 <p>经典面试题：变量为数字(整数)，在不增加临时变量时，交换两个变量的值,使用<code>^=</code></p>
-<pre><code>var a = 5;
-var b = 10;
-a ^= b;
-b ^= a;
-a ^= b;
-console.log(a, b); // 10 5
-/*
-* 整个推演过程如下：
-* 1、 a ^ = b 得到 a = a ^ b
-* 2、 b ^ = a 得到 b = b ^ a 在第1步得到a = a ^ b，则推倒出b = b ^ a ^ b=b ^ b ^ a =0 ^ a =a
-* 3、 a ^ = b 得到 a = a ^ b ,在第1步得到a = a^b,第2步得到b = a,则推倒出： a = a ^ b ^ a = b ^ b ^ a = 0 ^ b = b
-*
-*/
-</code></pre>
 </blockquote>
+<pre><code>&gt;var a = 5;
+&gt;var b = 10;
+&gt;a ^= b;
+&gt;b ^= a;
+&gt;a ^= b;
+&gt;console.log(a, b); // 10 5
+&gt;/*
+&gt; * 整个推演过程如下：
+&gt; * 1、 a ^ = b 得到 a = a ^ b
+&gt; * 2、 b ^ = a 得到 b = b ^ a 在第1步得到a = a ^ b，则推倒出b = b ^ a ^ b=b ^ b ^ a =0 ^ a =a
+&gt; * 3、 a ^ = b 得到 a = a ^ b ,在第1步得到a = a^b,第2步得到b = a,则推倒出： a = a ^ b ^ a = b ^ b ^ a = 0 ^ b = b
+&gt; *
+&gt; */
+</code></pre>
 <h4 id="位移操作符-、"><a href="#位移操作符-、" class="headerlink" title="位移操作符(&gt;&gt;、&lt;&lt;、&gt;&gt;&gt;)"></a>位移操作符(<code>&gt;&gt;</code>、<code>&lt;&lt;</code>、<code>&gt;&gt;&gt;</code>)</h4><blockquote>
 <blockquote>
 <p>除了<code>&gt;&gt;&gt;</code>是无符号的，其他位移操作符都是有符号的</p>
@@ -1852,34 +1852,32 @@ console.log(a, b); // 10 5
 <li>加上<code>#</code>号，使用+拼接</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>// rgb颜色随机
-function rgb() &#123;
- var r = Math.floor(Math.random() * 256);
- var g = Math.floor(Math.random() * 256);
- var b = Math.floor(Math.random() * 256);
- var rgb = &quot;(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
- return rgb;
-&#125;
-
-// 十六进制颜色
-var randomHex = function () &#123;
- return (
-   &quot;#&quot; +
-   Math.round(Math.random() * 0xffffff)
-     .toString(16)
-     .padStart(6, &quot;0&quot;)
- );
-&#125;;
-console.log(randomHex());
-
-// 十六进制颜色
-const randomColor = function () &#123;
- return &quot;#&quot; + Math.random().toString(16).substr(2, 6);
-&#125;;
-console.log(randomColor());
+<pre><code>&gt;// rgb颜色随机
+&gt;function rgb() &#123;
+&gt;  var r = Math.floor(Math.random() * 256);
+&gt;  var g = Math.floor(Math.random() * 256);
+&gt;  var b = Math.floor(Math.random() * 256);
+&gt;  var rgb = &quot;(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
+&gt;  return rgb;
+&gt;&#125;
+&gt;
+&gt;// 十六进制颜色
+&gt;var randomHex = function () &#123;
+&gt;  return (
+&gt;    &quot;#&quot; +
+&gt;    Math.round(Math.random() * 0xffffff)
+&gt;      .toString(16)
+&gt;      .padStart(6, &quot;0&quot;)
+&gt;  );
+&gt;&#125;;
+&gt;console.log(randomHex());
+&gt;
+&gt;// 十六进制颜色
+&gt;const randomColor = function () &#123;
+&gt;  return &quot;#&quot; + Math.random().toString(16).substr(2, 6);
+&gt;&#125;;
+&gt;console.log(randomColor());
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>GRB 颜色 转 16 进制颜色</li>
 </ol>
@@ -1942,47 +1940,47 @@ console.log(randomColor());
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>// rgb颜色转 16进制颜色
-function colorRGBToHex(rgb) &#123;
- // rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;]
- var rgbArr = rgb.split(/[^\d]+/);
- // r 移掉丢掉高位   g移掉高位  b 不变
- var color = (rgbArr[1] &lt;&lt; 16) | (rgbArr[2] &lt;&lt; 8) | rgbArr[3];
- // color.toString(16) 的值，有可能不足6位，则需要向前补0
- var _color = color.toString(16); // 转换成16进制
- // padStart(6,&#39;0&#39;); // 不足6位，前面补0
- return &quot;#&quot; + _color.padStart(6, &quot;0&quot;);
-&#125;
-var hexColor = colorRGBToHex(&quot;rgb(2,33,55)&quot;);
-console.log(hexColor); // #022137
+<pre><code>&gt;// rgb颜色转 16进制颜色
+&gt;function colorRGBToHex(rgb) &#123;
+&gt;  // rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;]
+&gt;  var rgbArr = rgb.split(/[^\d]+/);
+&gt;  // r 移掉丢掉高位   g移掉高位  b 不变
+&gt;  var color = (rgbArr[1] &lt;&lt; 16) | (rgbArr[2] &lt;&lt; 8) | rgbArr[3];
+&gt;  // color.toString(16) 的值，有可能不足6位，则需要向前补0
+&gt;  var _color = color.toString(16); // 转换成16进制
+&gt;  // padStart(6,&#39;0&#39;); // 不足6位，前面补0
+&gt;  return &quot;#&quot; + _color.padStart(6, &quot;0&quot;);
+&gt;&#125;
+&gt;var hexColor = colorRGBToHex(&quot;rgb(2,33,55)&quot;);
+&gt;console.log(hexColor); // #022137
 </code></pre>
-</blockquote>
 <blockquote>
 <p>**<code>.split(/[^\d]+/)</code>**，用非数字的值作为分隔符，将rgb值拆出来</p>
-<pre><code>var hexColor =(&quot;rgb(2,33,55)&quot;);
-var rgbArr = rgb.split(/[^\d]+/);
-console.log(rgbArr);
-// rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;,&#39;&#39;]
-console.log(rgbArr[1]);
-//rgbArr[1]=2
-</code></pre>
 </blockquote>
+<pre><code>&gt;var hexColor =(&quot;rgb(2,33,55)&quot;);
+&gt;var rgbArr = rgb.split(/[^\d]+/);
+&gt;console.log(rgbArr);
+&gt;// rgbArr=[&#39;&#39;,&#39;2&#39;,&#39;33&#39;,&#39;55&#39;,&#39;&#39;]
+&gt;console.log(rgbArr[1]);
+&gt;//rgbArr[1]=2
+</code></pre>
 <blockquote>
 <p><strong>toString 方法的三个作用</strong></p>
 <ul>
 <li>将其它类型转换为字符串类型</li>
 <li>检测对象的类型</li>
 </ul>
-<pre><code>Object.prototype.toString.call(arr) === &quot;[object Array]&quot;;
+</blockquote>
+<pre><code>&gt;Object.prototype.toString.call(arr) === &quot;[object Array]&quot;;
 </code></pre>
+<blockquote>
 <ul>
 <li>返回该数字对应进制的字符串</li>
 </ul>
-<pre><code>(10).toString(2); // 10 专为2进制是 &#39;1010&#39;
-(10).toString(16); // 10 转为 16制进是 &#39;a&#39;
-</code></pre>
 </blockquote>
+<pre><code>&gt;(10).toString(2); // 10 专为2进制是 &#39;1010&#39;
+&gt;(10).toString(16); // 10 转为 16制进是 &#39;a&#39;
+</code></pre>
 <ol start="4">
 <li>16 进制转 RGB 颜色<blockquote>
 <p><strong>原理：</strong>本质就是要把对应 16 进制的</p>
@@ -2003,17 +2001,17 @@ console.log(rgbArr[1]);
 <li>右移8位，同时<code>&amp; 0xff</code>，得到<code>g</code>的二进制数，赋值时自动转成 10 进制</li>
 <li><code>&amp;0xff</code>，得到<code>b</code>的二进制数，赋值时自动转成 10 进制<img src="16进制转rgb.jpg"></li>
 </ul>
-<pre><code>// 16进制颜色，转rgb
-function colorHexToRGB(hex) &#123;
- var newHex = hex.replace(&quot;#&quot;, &quot;0x&quot;);
- var r = newHex &gt;&gt; 16;
- var g = (newHex &gt;&gt; 8) &amp; 0xff;
- var b = newHex &amp; 0xff;
- return &quot;rgb(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
-&#125;
-console.log(colorHexToRGB(&quot;#022137&quot;)); // rgb(2,33,55)
-</code></pre>
 </blockquote>
+<pre><code>&gt;// 16进制颜色，转rgb
+&gt;function colorHexToRGB(hex) &#123;
+&gt;  var newHex = hex.replace(&quot;#&quot;, &quot;0x&quot;);
+&gt;  var r = newHex &gt;&gt; 16;
+&gt;  var g = (newHex &gt;&gt; 8) &amp; 0xff;
+&gt;  var b = newHex &amp; 0xff;
+&gt;  return &quot;rgb(&quot; + r + &quot;,&quot; + g + &quot;,&quot; + b + &quot;)&quot;;
+&gt;&#125;
+&gt;console.log(colorHexToRGB(&quot;#022137&quot;)); // rgb(2,33,55)
+</code></pre>
 
                 
             </div>

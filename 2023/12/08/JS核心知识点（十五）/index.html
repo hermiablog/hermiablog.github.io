@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-08
+                    2023-12-18
                 </div>
                 
 
@@ -478,11 +478,11 @@
 </blockquote>
 <h4 id="原型链实现继承的本质"><a href="#原型链实现继承的本质" class="headerlink" title="原型链实现继承的本质"></a>原型链实现继承的本质</h4><blockquote>
 <p>让子类构造函数的<code>prototype</code> ，指向父类的一个<strong>实例</strong></p>
+</blockquote>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 子类 Student 父类 People</span>
 Student<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">People</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 以上原型链方式实现继承，Student 的实例就可以访问 Popele类原型上的所有方法和属性</span>
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>通过前面的学习我们知道，每个构造函数都有一个 <code>prototype</code> 属性，这个属性指向一个对象。</li>
@@ -502,37 +502,53 @@ Student<span class="token punctuation">.</span>prototype <span class="token oper
 </ul>
 </blockquote>
 <ul>
-<li>Student 类 与 People 类 通过原型链实现继承，代码如下<blockquote>
+<li>Student 类 与 People 类 通过原型链实现继承，代码如下</li>
+</ul>
 <pre><code>// 父类  人类
 function People(name, age, sex) &#123;
-this.name = name;
-this.age = age;
-this.sex = sex;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
 &#125;
 People.prototype.sayHello = function () &#123;
-console.log(
-  &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
-);
+  console.log(
+    &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
+  );
 &#125;;
 People.prototype.sleep = function () &#123;
-console.log(this.name + &quot;开始睡觉了zzzzz&quot;);
+  console.log(this.name + &quot;开始睡觉了zzzzz&quot;);
 &#125;;
+&gt;
+// 子类  学生类
+function Student(name, age, sex, scholl, sid) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+  this.scholl = scholl;
+  this.sid = sid;
+&#125;
+&gt;
+// 实现继承   一定要先实现继承，再添加新的方法和属性
+Student.prototype = new People();
+&gt;
+Student.prototype.study = function () &#123;
+  console.log(this.name + &quot;正在学习！&quot;);
+&#125;;
+Student.prototype.exam = function () &#123;
+  console.log(this.name + &quot;正在考试，加油！！&quot;);
+&#125;;
+&gt;
+// 创建父类 实例
+var laoliu = new People(&quot;老刘&quot;, 38, &quot;男&quot;);
+laoliu.sayHello();//我是老刘今年38岁，我是男生
+&gt;
+// 创建子类实例
+var cuihua = new Student(&quot;翠花&quot;, 18, &quot;女&quot;, &quot;雅礼中学&quot;, 20800);
+cuihua.sayHello();//我是翠花今年18岁，我是女生
+cuihua.sleep();//翠花开始睡觉了zzzzz
+cuihua.study();//翠花正在学习！
+cuihua.exam();//翠花正在考试，加油！！
 </code></pre>
-</blockquote>
-&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, sex, scholl, sid) {<br>this.name &#x3D; name;<br>this.age &#x3D; age;<br>this.sex &#x3D; sex;<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F; 实现继承   一定要先实现继承，再添加新的方法和属性<br>Student.prototype &#x3D; new People();<blockquote>
-</blockquote>
-Student.prototype.study &#x3D; function () {<br>console.log(this.name + “正在学习！”);<br>};<br>Student.prototype.exam &#x3D; function () {<br>console.log(this.name + “正在考试，加油！！”);<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 创建父类 实例<br>var laoliu &#x3D; new People(“老刘”, 38, “男”);<br>laoliu.sayHello();&#x2F;&#x2F;我是老刘今年38岁，我是男生<blockquote>
-</blockquote>
-&#x2F;&#x2F; 创建子类实例<br>var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800);<br>cuihua.sayHello();&#x2F;&#x2F;我是翠花今年18岁，我是女生<br>cuihua.sleep();&#x2F;&#x2F;翠花开始睡觉了zzzzz<br>cuihua.study();&#x2F;&#x2F;翠花正在学习！<br>cuihua.exam();&#x2F;&#x2F;翠花正在考试，加油！！<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>一定要先实现继承，再添加新的方法和属性<ul>
@@ -546,22 +562,22 @@ Student.prototype.study &#x3D; function () {<br>console.log(this.name + “正�
 </ul>
 </blockquote>
 <ol start="2">
-<li><p>注意事项 1 - 重写父类方法</p>
-<blockquote>
+<li>注意事项 1 - 重写父类方法<blockquote>
 <ul>
 <li>子类有时候需要覆盖父类的方法，或者增加父类没有的方法。这些方法必须<strong>在原型赋值之后再添加</strong>到原型上去。</li>
 <li>子类覆盖父类上已有的方法，我们称为重写 （override）父类方法</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 以下代码必需写在 Student.prototype = new People(); 之后
 // 也可以重写（override）父类的 sayHello方法
 Student.prototype.sayHello = function () &#123;
   console.log(&quot;大家好，我是&quot; + this.scholl + &quot;学校的学生,我叫&quot; + this.name);
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项 2 - 子类的 <code>constructor</code> 指向问题</p>
-<blockquote>
+<ol start="3">
+<li>注意事项 2 - 子类的 <code>constructor</code> 指向问题<blockquote>
 <p>复习知识点：</p>
 <ul>
 <li>任何函数都有一个<code>prototype</code>属性，<code>prototype</code>属性值是一个<strong>对象</strong>，这个对象有一个<code>constructor</code>属性，指向这个函数本身</li>
@@ -580,6 +596,7 @@ Student.prototype.sayHello = function () &#123;
 <ul>
 <li>因为<code>Student.prototype=new People()</code>使<code>Student</code>类继承<code>People</code>类</li>
 </ul>
+</blockquote>
 <pre><code>Student.prototype=new People();
 new People().constructor===People;
 Student.prototype.consructor===People;
@@ -588,7 +605,6 @@ cuihua.__proto__.constuctor===People;
 因为构造函数构造的实例可以直接访问其构造函数的`prototype`对象身上的属性和方法
 所以：cuihua.constructor===People
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>因此<code>Student.prototype</code>中的<code>constructor</code>属性被重写为指向<code>People</code></li>
@@ -597,20 +613,20 @@ cuihua.__proto__.constuctor===People;
 </ul>
 </blockquote>
 <ol start="4">
-<li><p>注意事项 3 - instanceof</p>
-<blockquote>
+<li>注意事项 3 - instanceof<blockquote>
 <ul>
 <li><code>instanceof</code>操作符确认<strong>实例与构造函数的关系</strong></li>
 <li>如果实例的原型链中出现过对应的构造函数的原型，则实例为对应构造函数的实例</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>cuihua instanceof Student; // true
 cuihua instanceof People; // true
 cuihua instanceof Object; // true
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项 4</p>
-<blockquote>
+<ol start="5">
+<li>注意事项 4<blockquote>
 <p>从继承的角度来看原型链</p>
 <ul>
 <li>任意函数的默认<code>prototype</code>原型都是一个<code>Object</code>的实例</li>
@@ -619,13 +635,15 @@ cuihua instanceof Object; // true
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function People() &#123;&#125;
 People.prototype.__proto__ === Object.prototype; // true
 new People().__proto__.__proto__ === Object.prototype; // true
 </code></pre>
-<img src="继承的角度看原型链.png"></blockquote>
-</li>
-</ol>
+<img src="继承的角度看原型链.png">
+
 <blockquote>
 <ul>
 <li>根据上图可知，任何函数其实都继承于<code>Object</code></li>
@@ -647,7 +665,6 @@ new People().__proto__.__proto__ === Object.prototype; // true
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// 超类 （父类）
 function SuperType() &#123;
   this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;yellow&quot;];
@@ -655,45 +672,47 @@ function SuperType() &#123;
 &#125;
 // 子类
 function subType() &#123;&#125;
+&gt;
+subType.prototype = new SuperType();
+var sub1 = new subType();
+var sub2 = new subType();
+&gt;
+sub1.a = 4; // 修改值，相当于重写属性（遮蔽效应）
+console.log(sub1.a); // 4
+console.log(sub2.a); // 2
+&gt;
+sub1.colors.push(&quot;green&quot;); // 修改数组中值
+console.log(sub1.colors); //  [&#39;red&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;green&#39;]
+console.log(sub2.colors); // [&#39;red&#39;, &#39;blue&#39;, &#39;yellow&#39;, &#39;green&#39;]
 </code></pre>
-</blockquote>
-<p>subType.prototype &#x3D; new SuperType();<br>var sub1 &#x3D; new subType();<br>var sub2 &#x3D; new subType();</p>
-<blockquote>
-</blockquote>
-<p>sub1.a &#x3D; 4; &#x2F;&#x2F; 修改值，相当于重写属性（遮蔽效应）<br>console.log(sub1.a); &#x2F;&#x2F; 4<br>console.log(sub2.a); &#x2F;&#x2F; 2</p>
-<blockquote>
-</blockquote>
-<p>sub1.colors.push(“green”); &#x2F;&#x2F; 修改数组中值<br>console.log(sub1.colors); &#x2F;&#x2F;  [‘red’, ‘blue’, ‘yellow’, ‘green’]<br>console.log(sub2.colors); &#x2F;&#x2F; [‘red’, ‘blue’, ‘yellow’, ‘green’]</p>
-<blockquote>
-<pre><code>&lt;img src=&quot;通过原型链继承的缺点1.png&quot;&gt;
-</code></pre>
-</blockquote>
+<img src="通过原型链继承的缺点1.png">
+
 <ol start="7">
 <li>原型链实现继承的不足之二<blockquote>
 <p>子类在实例化时，不能给父类的构造函数传参。 也就意味着，子类不能应用父类已有的属性，而需要自己重写一份</p>
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>// 父类  人类
 function People(name, age, sex) &#123;
   this.name = name;
   this.age = age;
   this.sex = sex;
 &#125;
+&gt;
+// 子类  学生类
+function Student(name, age, sex, scholl, sid) &#123;
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+&#125;
+&gt;
+// 实现继承   一定要先实现继承，再添加新的方法和属性
+Student.prototype = new People();
+&gt;
+// 创建子类实例
+var cuihua = new Student(&quot;翠花&quot;, 18, &quot;女&quot;, &quot;雅礼中学&quot;, 20800);//
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, sex, scholl, sid) {<br>  this.name &#x3D; name;<br>  this.age &#x3D; age;<br>  this.sex &#x3D; sex;<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 实现继承   一定要先实现继承，再添加新的方法和属性<br>Student.prototype &#x3D; new People();</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 创建子类实例<br>var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800);&#x2F;&#x2F;</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="借用构造函数（经典继承）"><a href="#借用构造函数（经典继承）" class="headerlink" title="借用构造函数（经典继承）"></a>借用构造函数（经典继承）</h3><blockquote>
 <ul>
 <li>为了解决<strong>子类原型中包含引用类型值</strong>所带来问题和<strong>在子类构造函数中不能给父类构造函数传参</strong>的问题</li>
@@ -701,32 +720,36 @@ function People(name, age, sex) &#123;
 </ul>
 </blockquote>
 <ol>
-<li><p>借用构造函数的基本思路</p>
-<blockquote>
+<li>借用构造函数的基本思路<blockquote>
 <ul>
 <li>在子类构造函数内部调用父类的构造函数</li>
 <li>但要注意使用<code>call</code>或<code>apply</code>方法将新创建的对象作为父类构造函数的上下文对象</li>
 <li>子类可以继承父类构造函数中的所有属性并传参</li>
 </ul>
-<pre><code> function People(name, sex, age) &#123;
-this.name = name;
-this.sex = sex;
-this.age = age;
-this.arr = [1, 2, 3];
- &#125;
-</code></pre>
-</blockquote>
-<p> function Student(name, sex, age, school, sid) {<br>&#x2F;&#x2F; 借用构造函数<br>People.call(this, name, sex, age);<br>this.school &#x3D; school;<br>this.sid &#x3D; sid;<br> }</p>
-<blockquote>
-</blockquote>
-<p> var cuihua &#x3D; new Student(“翠花”, “女”, 18, “雅礼中学”, 20230106);<br> cuihua.arr.push(“abc”); &#x2F;&#x2F;子类的实例拥有了父类身上所有方法<br> console.log(cuihua.name); &#x2F;&#x2F;翠花<br> console.log(cuihua.arr); &#x2F;&#x2F; [1, 2, 3, ‘abc’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>借用构造函数实现继承的不足之处</p>
-<blockquote>
+</ol>
+<pre><code> function People(name, sex, age) &#123;
+   this.name = name;
+   this.sex = sex;
+   this.age = age;
+   this.arr = [1, 2, 3];
+ &#125;
+&gt;
+ function Student(name, sex, age, school, sid) &#123;
+   // 借用构造函数
+   People.call(this, name, sex, age);
+   this.school = school;
+   this.sid = sid;
+ &#125;
+&gt;
+ var cuihua = new Student(&quot;翠花&quot;, &quot;女&quot;, 18, &quot;雅礼中学&quot;, 20230106);
+ cuihua.arr.push(&quot;abc&quot;); //子类的实例拥有了父类身上所有方法
+ console.log(cuihua.name); //翠花
+ console.log(cuihua.arr); // [1, 2, 3, &#39;abc&#39;]
+</code></pre>
+<ol start="2">
+<li>借用构造函数实现继承的不足之处<blockquote>
 <ul>
 <li>如果采用借用构造函数的方式实现继承，是<strong>没有办法把父类原型上的方法继承过来</strong>，只能继承父类构造函数中的属性</li>
 <li>如果要把父类上的方法继承过来，那父类的方法就必需定义在构造函数内部，之显然是<strong>不合理</strong>的</li>
@@ -741,8 +764,7 @@ this.arr = [1, 2, 3];
 </ul>
 </blockquote>
 <ol>
-<li><p>组合继承的基本思路</p>
-<blockquote>
+<li>组合继承的基本思路<blockquote>
 <ul>
 <li>使用<strong>原型链</strong>继承来实现继承父类原型上的属性和方法<ul>
 <li>弥补了借用构造函数不能继承父类原型上方法的缺陷</li>
@@ -757,57 +779,76 @@ this.arr = [1, 2, 3];
 </ul>
 </li>
 </ul>
-<pre><code> // 父类  人类
- function People(name, age, sex) &#123;
-this.name = name;
-this.age = age;
-this.sex = sex;
-this.a = [1, 2, 3];
- &#125;
- People.prototype.sayHello = function () &#123;
-console.log(
-  &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
-);
- &#125;;
-</code></pre>
-</blockquote>
-<p> &#x2F;&#x2F; 子类  学生类<br> function Student(name, age, sex, scholl, sid) {<br>&#x2F;&#x2F; 借用构造函数 继承父类构造函数中的属性<br>People.call(this, name, age, sex);<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br> }</p>
-<blockquote>
-</blockquote>
-<p> &#x2F;&#x2F; 借用原型链 继承来实现继承父类原型上的属性和方法<br> Student.prototype &#x3D; new People();</p>
-<blockquote>
-</blockquote>
-<p> Student.prototype.study &#x3D; function () {<br>console.log(this.name + “正在学习！”);<br> };</p>
-<blockquote>
-</blockquote>
-<p> &#x2F;&#x2F; 创建子类实例<br> var cuihua &#x3D; new Student(“翠花”, 18, “女”, “雅礼中学”, 20800); &#x2F;&#x2F;传参<br> var xiaoming &#x3D; new Student(“小明”, 16, “男”, “雅礼中学”, 20990); &#x2F;&#x2F;传参<br> cuihua.sayHello();<br> cuihua.study();<br> console.log(cuihua.a &#x3D;&#x3D;&#x3D; xiaoming.a); &#x2F;&#x2F;false<br> console.log(cuihua.a); &#x2F;&#x2F;[1, 2, 3]<br> cuihua.a.push(12);<br> console.log(cuihua.a); &#x2F;&#x2F;[1, 2, 3,12]<br> console.log(xiaoming.a); &#x2F;&#x2F;[1, 2, 3]不会受到影响</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>组合继承的不足之处</p>
-<blockquote>
+</ol>
+<pre><code> // 父类  人类
+ function People(name, age, sex) &#123;
+   this.name = name;
+   this.age = age;
+   this.sex = sex;
+   this.a = [1, 2, 3];
+ &#125;
+ People.prototype.sayHello = function () &#123;
+   console.log(
+     &quot;我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁，我是&quot; + this.sex + &quot;生&quot;
+   );
+ &#125;;
+&gt;
+ // 子类  学生类
+ function Student(name, age, sex, scholl, sid) &#123;
+   // 借用构造函数 继承父类构造函数中的属性
+   People.call(this, name, age, sex);
+   this.scholl = scholl;
+   this.sid = sid;
+ &#125;
+&gt;
+ // 借用原型链 继承来实现继承父类原型上的属性和方法
+ Student.prototype = new People();
+&gt;
+ Student.prototype.study = function () &#123;
+   console.log(this.name + &quot;正在学习！&quot;);
+ &#125;;
+&gt;
+ // 创建子类实例
+ var cuihua = new Student(&quot;翠花&quot;, 18, &quot;女&quot;, &quot;雅礼中学&quot;, 20800); //传参
+ var xiaoming = new Student(&quot;小明&quot;, 16, &quot;男&quot;, &quot;雅礼中学&quot;, 20990); //传参
+ cuihua.sayHello();
+ cuihua.study();
+ console.log(cuihua.a === xiaoming.a); //false
+ console.log(cuihua.a); //[1, 2, 3]
+ cuihua.a.push(12);
+ console.log(cuihua.a); //[1, 2, 3,12]
+ console.log(xiaoming.a); //[1, 2, 3]不会受到影响
+</code></pre>
+<ol start="2">
+<li>组合继承的不足之处<blockquote>
 <p>组合继承最大的问题就是无论什么情况下，都会调用<strong>两次父（超）类的构造函数</strong></p>
 <ul>
 <li>一次是在创建子类原型的时候，如</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Student.prototype = new People(); // 调用父类构造函数
 </code></pre>
+<blockquote>
 <ul>
 <li>另一次是在子类构造函数的内部，如</li>
 </ul>
+</blockquote>
 <pre><code>People.call(this, name, age, sex); // 调用父类的构造函数
 </code></pre>
+<blockquote>
 <p>子类原型中的<code>constructor</code>被丢失，当访问子类原型中的 <code>constructor</code> 时，其本质是通过原型链查找，最终查找到的是父类的构造函数</p>
+</blockquote>
 <pre><code>Student.prototype.constructor === People; // true
 </code></pre>
+<blockquote>
 <blockquote>
 <p>关于组合继承的不足之处如何解决，我们在后面会讲到</p>
 </blockquote>
 </blockquote>
-</li>
-</ol>
 <h3 id="五、原型式继承"><a href="#五、原型式继承" class="headerlink" title="五、原型式继承"></a>五、原型式继承</h3><blockquote>
 <p><strong>重点强调</strong>：原型式继承是一种不涉及严格意义上构造函数的继承方法</p>
 </blockquote>
@@ -817,58 +858,58 @@ console.log(
 <li>如果你有一个对象，想在它的基础上再创建一个新对象</li>
 <li>现有对象<code>obj1</code>，现在希望再创建一个<code>obj2</code>对象，<code>obj2</code>需要继承<code>obj1</code>实例身上的所有方法和属性</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var obj1 = &#123;
   a: 1,
   b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
   sum: function () &#123;
- console.log(this.a + this.b);
+    console.log(this.a + this.b);
   &#125;,
 &#125;;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li><code>obj2</code>要能继承<code>obj1</code>身上的所有方法和属性，则<code>obj2.__proto__</code>属性需要指向<code>obj1</code></li>
 <li>我们知道<code>obj2.__proto__</code>指向的是<code>obj2</code>的构造函数的<code>prototype</code>，则说明<code>obj2</code>肯定是要用构造函数构造出来。</li>
 <li>因此<code>obj2</code>的构造函数的<code>prototype=obj1</code></li>
 </ul>
+</blockquote>
 <pre><code>function Fn() &#123;&#125;
 Fn.prototype = obj1;
 var obj2 = new Fn();
 </code></pre>
 <img src="原型式继承方法1.png">
-</blockquote>
+
 <blockquote>
 <ul>
 <li>我们可以把上面的代码封装成一个函数，这个函数接受一个参数（原型指向的对象）</li>
 <li>当我们调用这个函数时，就会创建出一个新的对象，同时这个对象的原型指向函数的参数。</li>
 </ul>
+</blockquote>
 <pre><code>function createObject(o) &#123;
   function Fn() &#123;&#125;
   Fn.prototype = o;
   return new Fn();
 &#125;
 </code></pre>
-</blockquote>
 <ul>
-<li>另一个版本(了解即可)<blockquote>
-<pre><code>var obj1 = &#123;
-a: 1,
-b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
-sum: function () &#123;
-  console.log(this.a + this.b);
-&#125;,
-&#125;;
-</code></pre>
-</blockquote>
-var obj2&#x3D;new Object();<br>obj2.<strong>proto</strong>&#x3D;obj1;<blockquote>
-<pre><code>&lt;img src=&quot;原型式继承方法2.png&quot;&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>另一个版本(了解即可)</li>
 </ul>
+<pre><code>var obj1 = &#123;
+  a: 1,
+  b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
+  sum: function () &#123;
+    console.log(this.a + this.b);
+  &#125;,
+&#125;;
+&gt;
+var obj2=new Object();
+obj2.__proto__=obj1;
+</code></pre>
+<img src="原型式继承方法2.png">
+
 <blockquote>
 <p><strong>区别：</strong></p>
 <ul>
@@ -877,25 +918,32 @@ var obj2&#x3D;new Object();<br>obj2.<strong>proto</strong>&#x3D;obj1;<blockquote
 </ul>
 </blockquote>
 <ol start="2">
-<li>原型式继承：完整版代码<blockquote>
+<li>原型式继承：完整版代码</li>
+</ol>
 <pre><code>var obj1 = &#123;
   a: 1,
   b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
   sum: function () &#123;
- console.log(this.a);
- console.log(this.b);
+    console.log(this.a);
+    console.log(this.b);
   &#125;,
 &#125;;
+&gt;
+function createObject(o) &#123;
+  function Fn() &#123;&#125;
+  Fn.prototype = o;
+  return new Fn();
+&#125;
+&gt;
+var obj2 = createObject(obj1); // 以obj1为原型，创建一个新对象
+var obj3 = createObject(obj1);
+obj2.c = 3; // 新对象添加自已的属性
+obj2.a = 4; // 重写原型上属性 a
+console.log(obj2); // &#123;c: 3, a: 4&#125;
+obj2.b.push(&quot;obj2新加&quot;);
+obj2.sum(); // 4  [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;obj2新加&#39;]
+obj1.sum(); // 1 [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;obj2新加&#39;]
 </code></pre>
-</blockquote>
-function createObject(o) {<br>  function Fn() {}<br>  Fn.prototype &#x3D; o;<br>  return new Fn();<br>}<blockquote>
-</blockquote>
-var obj2 &#x3D; createObject(obj1); &#x2F;&#x2F; 以obj1为原型，创建一个新对象<br>var obj3 &#x3D; createObject(obj1);<br>obj2.c &#x3D; 3; &#x2F;&#x2F; 新对象添加自已的属性<br>obj2.a &#x3D; 4; &#x2F;&#x2F; 重写原型上属性 a<br>console.log(obj2); &#x2F;&#x2F; {c: 3, a: 4}<br>obj2.b.push(“obj2新加”);<br>obj2.sum(); &#x2F;&#x2F; 4  [‘A’, ‘B’, ‘C’, ‘obj2新加’]<br>obj1.sum(); &#x2F;&#x2F; 1 [‘A’, ‘B’, ‘C’, ‘obj2新加’]<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p>注意事项</p>
 <ul>
@@ -909,11 +957,11 @@ var obj2 &#x3D; createObject(obj1); &#x2F;&#x2F; 以obj1为原型，创建一个
 <li><code>ECMAScript5</code> 增加了<code>Object.create()</code>方法将原型式继承的概念规范化了</li>
 <li><code>Object.create()</code>方法用于创建一个新对象，使用现有的对象来作为新创建对象的原型（prototype）<br>语法</li>
 </ul>
-<pre><code>Object.create(proto[,propertiesObject]);
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>Object.create(proto[,propertiesObject]);
+</code></pre>
 <blockquote>
 <ul>
 <li><code>proto</code>为新创建对象的原型对象</li>
@@ -923,7 +971,6 @@ var obj2 &#x3D; createObject(obj1); &#x2F;&#x2F; 以obj1为原型，创建一个
 </li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var obj1 = &#123;
   a: 1,
   b: [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;],
@@ -932,35 +979,39 @@ var obj2 &#x3D; createObject(obj1); &#x2F;&#x2F; 以obj1为原型，创建一个
     console.log(this.b);
   &#125;,
 &#125;;
+&gt;
+var obj2 = Object.create(obj1);
+console.log(obj2.a); // 1
+var obj3 = Object.create(obj1, &#123;
+  b: &#123;
+    value: 4,
+  &#125;,
+&#125;);
+console.log(obj3); // &#123;b:4&#125;
+console.log(obj3.b); // 4
 </code></pre>
-</blockquote>
-<p>var obj2 &#x3D; Object.create(obj1);<br>console.log(obj2.a); &#x2F;&#x2F; 1<br>var obj3 &#x3D; Object.create(obj1, {<br>  b: {<br>    value: 4,<br>  },<br>});<br>console.log(obj3); &#x2F;&#x2F; {b:4}<br>console.log(obj3.b); &#x2F;&#x2F; 4</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li>注意事项<blockquote>
 <ul>
 <li><code>Object.create(proto)</code>中的<code>proto</code>，只能是 <code>null</code>或对象类型，否则会抛出<code>TypeError</code>异常</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>Object.create(1); // 报错
 Object.create(new Object(1)); //不报错，但用不了继承的方法
 Object.create(undefined); // 报错
 Object.create(function () &#123;&#125;); // 不报错
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li><code>Object.defineProperties(newObj,propertiesObject)</code>中的第二个参数，不能是<code>null</code>和<code>undefined</code>，字符串，否则会报错。实际上只要这里传的不是一个对象，就没有意义</li>
 </ul>
+</blockquote>
 <pre><code>var obj = &#123;&#125;;
 Object.defineProperties(obj, null); // 报错
 Object.defineProperties(obj, undefined); // 报错
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>手写 Object.create 方法（经典面试题）<blockquote>
 <ul>
@@ -977,24 +1028,23 @@ Object.defineProperties(obj, undefined); // 报错
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>Object._create = function (proto, propertiesObject) &#123;
   // proto只能是null 或 对象
   if (proto !== null &amp;&amp; !(proto instanceof Object))
     throw new TypeError(&quot;proto只能是null或者对象,不能是其它类型&quot;);
+&gt;
+  // 实现原型式继承
+  function Fn() &#123;&#125;
+  Fn.prototype = proto;
+  var obj = new Fn();
+&gt;
+  // 给新对象添加属性，只要当前属性不是对象，就没有意义
+  propertiesObject instanceof Object &amp;&amp;
+    Object.defineProperties(obj, propertiesObject);
+&gt;
+  return obj;
+&#125;;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 实现原型式继承<br>  function Fn() {}<br>  Fn.prototype &#x3D; proto;<br>  var obj &#x3D; new Fn();</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 给新对象添加属性，只要当前属性不是对象，就没有意义<br>  propertiesObject instanceof Object &amp;&amp;<br>    Object.defineProperties(obj, propertiesObject);</p>
-<blockquote>
-</blockquote>
-<p>  return obj;<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
 <li>原型式继承注意事项<blockquote>
 <ul>
@@ -1011,23 +1061,32 @@ Object.defineProperties(obj, undefined); // 报错
 <li>在函数内，用<code>Object.create()</code>方法，创建出以 参数O 为原型的新对象p；并在函数p给内添加新方法，最后返回新对象p</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>// 创建一个对象
 var ball = &#123;
   color: &quot;red&quot;,
   r: 20,
   opacity: 1,
 &#125;;
+&gt;
+// 创建一个函数，实现增强某个对象，实现寄生式继承
+function enHanceObject(o) &#123;
+  // 以o为原型，创建出一个新对象
+  var obj = Object.create(o);
+  // 为新创建的对象添加一些预置的方法，用来增强对象
+  obj.changeColor = function () &#123;
+    this.color = &quot;blue&quot;;
+    console.log(&quot;我已经将颜色变成&quot; + this.color);
+  &#125;;
+  // ....可以为新对象添加更多的预置方法
+  return obj;
+&#125;
+&gt;
+var ball2 = enHanceObject(ball);
+console.log(ball2);
+console.log(ball2.r); //20
+ball2.changeColor(); //我已经将颜色变成blue
+console.log(ball.color); //red
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 创建一个函数，实现增强某个对象，实现寄生式继承<br>function enHanceObject(o) {<br>  &#x2F;&#x2F; 以o为原型，创建出一个新对象<br>  var obj &#x3D; Object.create(o);<br>  &#x2F;&#x2F; 为新创建的对象添加一些预置的方法，用来增强对象<br>  obj.changeColor &#x3D; function () {<br>    this.color &#x3D; “blue”;<br>    console.log(“我已经将颜色变成” + this.color);<br>  };<br>  &#x2F;&#x2F; ….可以为新对象添加更多的预置方法<br>  return obj;<br>}</p>
-<blockquote>
-</blockquote>
-<p>var ball2 &#x3D; enHanceObject(ball);<br>console.log(ball2);<br>console.log(ball2.r); &#x2F;&#x2F;20<br>ball2.changeColor(); &#x2F;&#x2F;我已经将颜色变成blue<br>console.log(ball.color); &#x2F;&#x2F;red</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注：</p>
@@ -1042,24 +1101,28 @@ var ball = &#123;
 <p>在前面学习的组合继承中也存在以下不足之处</p>
 </blockquote>
 <ol>
-<li><p>组合继承不足之处</p>
-<blockquote>
+<li>组合继承不足之处<blockquote>
 <ul>
 <li>组合继承最大的问题就是无论什么情况下，都会<strong>调用两次父（超）类的构造函数</strong>。一次是在创建子类原型的时候 ，另一次是在子类构造函数的内部</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>Student.prototype = new People(); // 创建子类原型时，调用父类构造函数
 People.call(this, name, age, sex); // 在子类的构造函数内部，调用父类的构造函数
 </code></pre>
+<blockquote>
 <ul>
 <li>子类原型中的constructor被丢失，当访问子类原型中的 constructor 时，其本质是通过原型链查找，最终查找到的是父类的构造函数</li>
 </ul>
+</blockquote>
 <pre><code>Student.prototype.constructor === People; // true
 </code></pre>
+<blockquote>
 <p>在接下来学习的寄生式组合继承中，就能解决上面的两大问题</p>
 </blockquote>
-</li>
-<li><p>寄生式组合的基本思路</p>
-<blockquote>
+<ol start="2">
+<li>寄生式组合的基本思路<blockquote>
 <ul>
 <li><strong>借用构造函数实现继承父类属性</strong>： 在子类的构造函数中调用父类的构造函数来实现继承父类属性<ul>
 <li><code>People.call(this, name, age);</code></li>
@@ -1085,31 +1148,45 @@ People.call(this, name, age, sex); // 在子类的构造函数内部，调用父
 <li>寄生式组合继承是如何实现完美继承的<img src="寄生式组合继承的完美性.png"></li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>// 父类  人类
 function People(name, age) &#123;
   this.name = name;
   this.age = age;
 &#125;
+&gt;
+People.prototype.sayHello = function () &#123;
+  console.log(&quot;大家好，我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁了&quot;);
+&#125;;
+&gt;
+// 子类  学生类
+function Student(name, age, scholl, sid) &#123;
+  People.call(this, name, age);
+  this.scholl = scholl;
+  this.sid = sid;
+&#125;
+&gt;
+// 寄生式组合继承
+// 以 People的原型为原型，创建一个新对象
+var prototype = Object.create(People.prototype);
+// 更改prototype中的constructor指向
+prototype.constructor = Student;
+// 将新创建的prototype对象，赋值给Student.prototype
+Student.prototype = prototype;
+&gt;
+// 子类原型上对象上添加新方法
+Student.prototype.exam = function () &#123;
+  console.log(this.name + &quot;正在考试&quot;);
+&#125;;
+&gt;
+var cuihua = new Student(&quot;翠花&quot;, 13, &quot;高新中学&quot;, &quot;A0001&quot;);
+var laoliu = new Student(&quot;老刘&quot;, 20, &quot;北京大学&quot;, &quot;SD0001&quot;);
+console.log(cuihua);
+cuihua.sayHello();
+cuihua.exam();
+console.log(laoliu);
+laoliu.sayHello();
+laoliu.exam();
 </code></pre>
-</blockquote>
-<p>People.prototype.sayHello &#x3D; function () {<br>  console.log(“大家好，我是” + this.name + “今年” + this.age + “岁了”);<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, scholl, sid) {<br>  People.call(this, name, age);<br>  this.scholl &#x3D; scholl;<br>  this.sid &#x3D; sid;<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 寄生式组合继承<br>&#x2F;&#x2F; 以 People的原型为原型，创建一个新对象<br>var prototype &#x3D; Object.create(People.prototype);<br>&#x2F;&#x2F; 更改prototype中的constructor指向<br>prototype.constructor &#x3D; Student;<br>&#x2F;&#x2F; 将新创建的prototype对象，赋值给Student.prototype<br>Student.prototype &#x3D; prototype;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 子类原型上对象上添加新方法<br>Student.prototype.exam &#x3D; function () {<br>  console.log(this.name + “正在考试”);<br>};</p>
-<blockquote>
-</blockquote>
-<p>var cuihua &#x3D; new Student(“翠花”, 13, “高新中学”, “A0001”);<br>var laoliu &#x3D; new Student(“老刘”, 20, “北京大学”, “SD0001”);<br>console.log(cuihua);<br>cuihua.sayHello();<br>cuihua.exam();<br>console.log(laoliu);<br>laoliu.sayHello();<br>laoliu.exam();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>温馨提示：</p>
@@ -1119,12 +1196,13 @@ function People(name, age) &#123;
 </ul>
 </blockquote>
 <ol start="3">
-<li>封装函数 - 寄生式组合继承<blockquote>
-<pre><code>/**
-* 寄生式组合继承
-* subType子类
-* superType 超类（父类）
-*/
+<li>封装函数 - 寄生式组合继承</li>
+</ol>
+<pre><code>&gt;/**
+&gt; * 寄生式组合继承
+&gt; * subType子类
+&gt; * superType 超类（父类）
+&gt; */
 function inheritPrototype(subType, superType) &#123;
   // 以父类的原型为原型，创建一个新对象
   var prototype = Object.create(superType.prototype);
@@ -1134,32 +1212,43 @@ function inheritPrototype(subType, superType) &#123;
   subType.prototype = prototype;
 &#125;
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <ul>
-<li>使用<blockquote>
+<li>使用</li>
+</ul>
 <pre><code>// 父类  人类
 function People(name, age) &#123;
-this.name = name;
-this.age = age;
+  this.name = name;
+  this.age = age;
 &#125;
+&gt;
+People.prototype.sayHello = function () &#123;
+  console.log(&quot;大家好，我是&quot; + this.name + &quot;今年&quot; + this.age + &quot;岁了&quot;);
+&#125;;
+&gt;
+// 子类  学生类
+function Student(name, age, scholl, sid) &#123;
+  People.call(this, name, age);
+  this.scholl = scholl;
+  this.sid = sid;
+&#125;
+&gt;
+// 寄生式组合继承
+inheritPrototype(Student, People);
+&gt;
+// 子类原型上对象上添加新方法
+Student.prototype.exam = function () &#123;
+  console.log(this.name + &quot;正在考试&quot;);
+&#125;;
+&gt;
+var cuihua = new Student(&quot;翠花&quot;, 13, &quot;高新中学&quot;, &quot;A0001&quot;);
+var laoliu = new Student(&quot;老刘&quot;, 20, &quot;北京大学&quot;, &quot;SD0001&quot;);
+console.log(cuihua);
+cuihua.sayHello();
+cuihua.exam();
+console.log(laoliu);
+laoliu.sayHello();
+laoliu.exam();
 </code></pre>
-</blockquote>
-People.prototype.sayHello &#x3D; function () {<br>console.log(“大家好，我是” + this.name + “今年” + this.age + “岁了”);<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 子类  学生类<br>function Student(name, age, scholl, sid) {<br>People.call(this, name, age);<br>this.scholl &#x3D; scholl;<br>this.sid &#x3D; sid;<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F; 寄生式组合继承<br>inheritPrototype(Student, People);<blockquote>
-</blockquote>
-&#x2F;&#x2F; 子类原型上对象上添加新方法<br>Student.prototype.exam &#x3D; function () {<br>console.log(this.name + “正在考试”);<br>};<blockquote>
-</blockquote>
-var cuihua &#x3D; new Student(“翠花”, 13, “高新中学”, “A0001”);<br>var laoliu &#x3D; new Student(“老刘”, 20, “北京大学”, “SD0001”);<br>console.log(cuihua);<br>cuihua.sayHello();<br>cuihua.exam();<br>console.log(laoliu);<br>laoliu.sayHello();<br>laoliu.exam();<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="八、JavaScript-6-种继承方式的实现原理、优缺点总结"><a href="#八、JavaScript-6-种继承方式的实现原理、优缺点总结" class="headerlink" title="八、JavaScript 6 种继承方式的实现原理、优缺点总结"></a>八、JavaScript 6 种继承方式的实现原理、优缺点总结</h3><table>
 <thead>
 <tr>
@@ -1281,88 +1370,85 @@ var cuihua &#x3D; new Student(“翠花”, 13, “高新中学”, “A0001”)
 <ul>
 <li><code>Object</code>构造函数用来构造对象，所有对象都是 <code>Object</code>的实例</li>
 </ul>
-<pre><code>&#123;&#125;.__proto__===Object.prototype; // true
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&#123;&#125;.__proto__===Object.prototype; // true
+</code></pre>
 <blockquote>
 <ul>
 <li><code>Object</code> 的原型也是一个对象，按理来说<code>Object.prototype.___proto__===Object.prototype</code>，但显然是不合理的。实际 <code>Object</code>原型的原型指向原型链的终点，即 <code>null</code></li>
 </ul>
+</blockquote>
 <pre><code>Object.prototype.__proto__ === Object.prototype; // false
 Object.prototype.__proto__ === null; // true;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>Object</code> 构造函数也是函数，所以 <code>Object</code> 也是 <code>Function</code> 构造函数的实例</li>
 </ul>
+</blockquote>
 <pre><code>Object.__proto__ === Function.prototype; // true
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>所以 Object 可以打点调用 Function 原型上的方法</li>
 </ul>
+</blockquote>
 <pre><code>&quot;call&quot; in Object; // true
 &quot;bind&quot; in Object; // true
+&gt;
+Object.call(&#123; a: 1, b: 2 &#125;); // &#123;&#125;
 </code></pre>
-</blockquote>
-<p>Object.call({ a: 1, b: 2 }); &#x2F;&#x2F; {}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>Array 构造函数<blockquote>
 <ul>
 <li><code>Array</code>构造函数，用来构造数组，所有数组都是 <code>Array</code>的实例</li>
 </ul>
-<pre><code>[].__proto__ === Array.prototype; // true
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>[].__proto__ === Array.prototype; // true
+</code></pre>
 <blockquote>
 <ul>
 <li><code>Array.prototype</code>是一个对象，所以<code>Array.prototype</code>也是 <code>Object</code> 的实例</li>
 </ul>
+</blockquote>
 <pre><code>Array.prototype.__proto__ === Object.prototype;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>Object</code>原型的原型为原型链的终点,即<code>null</code></li>
 </ul>
+</blockquote>
 <pre><code>Array.prototype.__proto__.__proto__ === null; // true
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><code>Array</code> 构造函数也是函数，所以<code>Array</code> 也是 <code>Function</code> 构造函数的实例</li>
 </ul>
+</blockquote>
 <pre><code>Array.__proto__ === Function.prototype; // true
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>Function 构造函数<blockquote>
 <ul>
 <li><code>Function</code>构造函数用来构造函数，所有函数都是 <code>Function</code>的实例</li>
 </ul>
-<pre><code>var fn = function () &#123;&#125;;
-fn.__proto__ === Function.prototype; // true
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>var fn = function () &#123;&#125;;
+fn.__proto__ === Function.prototype; // true
+</code></pre>
 <blockquote>
 <ul>
 <li><code>Function</code>构造函数也是一个函数，所以下面这种特殊情况也成立</li>
 </ul>
+</blockquote>
 <pre><code>Function.__proto__ === Function.prototype; // true
 </code></pre>
-</blockquote>
 <h2 id="JS三大包装类-Number、String、Boolean"><a href="#JS三大包装类-Number、String、Boolean" class="headerlink" title="JS三大包装类 Number、String、Boolean"></a>JS三大包装类 Number、String、Boolean</h2><blockquote>
 <ul>
 <li>为了方便操作<strong>原始值</strong>，<code>ECMAScript</code> 提供了<code>Number</code>、<code>String</code>、<code>Boolean</code>这三个特殊的构造函数</li>
@@ -1389,22 +1475,24 @@ fn.__proto__ === Function.prototype; // true
 <td>将布尔值包装成一个布尔对象</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code>// Number 类
 var n = new Number(3);
 console.log(n); // Number &#123;3&#125;
 console.log(typeof n); // object
 console.log(n + 4); // 7
+&gt;
+// String 类
+var str = new String(&quot;abcd&quot;);
+console.log(str); // String &#123;&#39;abcd&#39;&#125;
+console.log(typeof str); // object
+console.log(str + &quot;123&quot;); // abcd123
+&gt;
+// Boolean 类
+var b = new Boolean(true);
+console.log(b); // Boolean &#123;true&#125;
+console.log(typeof b);//object
+console.log(true + 1); // 2
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; String 类<br>var str &#x3D; new String(“abcd”);<br>console.log(str); &#x2F;&#x2F; String {‘abcd’}<br>console.log(typeof str); &#x2F;&#x2F; object<br>console.log(str + “123”); &#x2F;&#x2F; abcd123</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; Boolean 类<br>var b &#x3D; new Boolean(true);<br>console.log(b); &#x2F;&#x2F; Boolean {true}<br>console.log(typeof b);&#x2F;&#x2F;object<br>console.log(true + 1); &#x2F;&#x2F; 2</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="一、包装类核心基础"><a href="#一、包装类核心基础" class="headerlink" title="一、包装类核心基础"></a>一、包装类核心基础</h3><blockquote>
 <ul>
 <li>包装类的<strong>主要目的</strong>：是让基本类型值可以从它们的构造函数的 <code>prototype</code> 上获得方法。</li>
@@ -1412,16 +1500,15 @@ console.log(n + 4); // 7
 </ul>
 </blockquote>
 <p><strong>我们来分析下，下面代码的执行流程</strong></p>
-<blockquote>
 <pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
 var str2 = str1.charAt(2); // 是
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>上面代码中<code>str1</code>是一个原始值，原始值不是一个对象，因此逻辑上不能调用方法。但实际上按预期输出了结果。为什么呢 ？</li>
 <li>实际上代码执行到<code>str1.charAt(2)</code>时，JS 后台进行了很多处理<br><strong>具体处理步骤如下：</strong></li>
 </ul>
+</blockquote>
 <pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
 var str2 = str1.charAt(2);//当执行到这句代码时，会先执行右边，再赋值 
 //在执行str1.charAt(2)时，JS内部会进行：
@@ -1430,7 +1517,6 @@ str.charAt(2)// 2、让新对象调用方法
 str2 = str.charAt(2); //3、将返回的结果赋值给到 str2
 str = null; // 4、销毁创建的实例
 </code></pre>
-</blockquote>
 <ol>
 <li>包装类的生命周期<blockquote>
 <ul>
@@ -1440,18 +1526,16 @@ str = null; // 4、销毁创建的实例
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>var str1 = &quot;我就是我，不一样的小花朵&quot;;
 str1.name = &quot;张三&quot;;
 console.log(str1.name); // undefined
 console.log(typeof str1); // string
+&gt;
+var str2 = new String(&quot;我就是我&quot;);
+str2.name = &quot;清心&quot;;
+console.log(str2.name); // 清心
+console.log(typeof str2); // object
 </code></pre>
-</blockquote>
-<p>var str2 &#x3D; new String(“我就是我”);<br>str2.name &#x3D; “清心”;<br>console.log(str2.name); &#x2F;&#x2F; 清心<br>console.log(typeof str2); &#x2F;&#x2F; object</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>分析 str1 变量</strong></p>
 <ul>
@@ -1463,47 +1547,50 @@ console.log(typeof str1); // string
 </ul>
 </blockquote>
 <ol start="2">
-<li><p>原始值包装对象 - 转为布尔值都是 true</p>
-<blockquote>
+<li>原始值包装对象 - 转为布尔值都是 true<blockquote>
 <p>直接调用 <code>Boolean</code> 函数，可以将其它类型转换为对应的 <code>boolean</code> 值</p>
 <ul>
 <li>基本数据类型的包装对象，转布尔值得到的都是<code>true</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 数字
 console.log(Boolean(0)); // false
 var n1 = new Number(0);
 console.log(Boolean(n1)); // true
 console.log(n1); // Number &#123;0&#125;
+&gt;
+// 布尔值
+var flag = new Boolean(false);
+console.log(Boolean(false)); // false
+console.log(Boolean(flag)); // true
+console.log(flag); // Boolean &#123;false&#125;
+&gt;
+// 字符串
+var str = new String(&quot;&quot;);
+console.log(Boolean(&quot;&quot;));
+console.log(Boolean(str));
+console.log(str);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 布尔值<br>var flag &#x3D; new Boolean(false);<br>console.log(Boolean(false)); &#x2F;&#x2F; false<br>console.log(Boolean(flag)); &#x2F;&#x2F; true<br>console.log(flag); &#x2F;&#x2F; Boolean {false}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 字符串<br>var str &#x3D; new String(“”);<br>console.log(Boolean(“”));<br>console.log(Boolean(str));<br>console.log(str);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>区分直接调用包装类与 new 调用</p>
-<blockquote>
+<ol start="3">
+<li>区分直接调用包装类与 new 调用<blockquote>
 <ul>
 <li><strong>直接调用</strong>包装类函数，主要目的是实现数据类型的转换</li>
 <li>使用**<code>new</code>调用**包装类，是为了把基本数据类型转换为对象类型</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var value = &quot;20&quot;;
 var number = Number(value);//字符串转数字类型
 console.log(number); // 20
 console.log(typeof number); // number
+&gt;
+var obj = new Number(value);
+console.log(obj); // Number &#123;20&#125;
+console.log(typeof obj); // object
 </code></pre>
-</blockquote>
-<p>var obj &#x3D; new Number(value);<br>console.log(obj); &#x2F;&#x2F; Number {20}<br>console.log(typeof obj); &#x2F;&#x2F; object</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="二、Number-包装类"><a href="#二、Number-包装类" class="headerlink" title="二、Number 包装类"></a>二、Number 包装类</h3><blockquote>
 <p>Number 类有很多方法和属性，我们这里挑出最常用的给大家讲解</p>
 </blockquote>
@@ -1548,17 +1635,16 @@ console.log(typeof number); // number
 <li>表示在 <code>JavaScript</code> 中最大的安全整数<code>(maxinum safe integer)``（2^53 - 1）</code></li>
 <li>所谓的安全，是指<strong>能够准确的区分两个不相同的值</strong></li>
 </ul>
-<pre><code>var n = Math.pow(2, 53) - 1;
-console.log(n); // 9007199254740991
-console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 安全系数  以下得到结果为true，显然是不合理的<br>console.log(Number.MAX_SAFE_INTEGER + 1 &#x3D;&#x3D;&#x3D; Number.MAX_SAFE_INTEGER + 2); &#x2F;&#x2F; true<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>var n = Math.pow(2, 53) - 1;
+console.log(n); // 9007199254740991
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+&gt;
+// 安全系数  以下得到结果为true，显然是不合理的
+console.log(Number.MAX_SAFE_INTEGER + 1 === Number.MAX_SAFE_INTEGER + 2); // true
+</code></pre>
 <blockquote>
 <blockquote>
 <p><code>Math.pow(base,exponent)</code>函数返回基数（base）的指数（exponent）次幂</p>
@@ -1574,36 +1660,34 @@ console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>var n = -(Math.pow(2, 53) - 1);
 console.log(n); // -9007199254740991
 console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+&gt;
+//安全系数  以下得到结果为true，显然是不合理的
+console.log(Number.MIN_SAFE_INTEGER - 1 === Number.MIN_SAFE_INTEGER - 2); // true
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;安全系数  以下得到结果为true，显然是不合理的<br>console.log(Number.MIN_SAFE_INTEGER - 1 &#x3D;&#x3D;&#x3D; Number.MIN_SAFE_INTEGER - 2); &#x2F;&#x2F; true</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <p>3、<code>Number.MAX_VALUE</code>与<code>Number.MIN_VALUE</code>属性</p>
 <blockquote>
 <ul>
 <li><code>Number.MAX_VALUE</code>表示<code>JavaScript</code>里所能表示的<strong>最大数值</strong></li>
 <li><code>Number.MIN_VALUE</code>表示在<code>JavaScript</code>中所能表示的<strong>最小的数值</strong></li>
 </ul>
+</blockquote>
 <pre><code>console.log(Number.MAX_VALUE); // 1.7976931348623157e+308
 console.log(Number.MIN_VALUE); // 5e-324
 </code></pre>
-</blockquote>
 <ol start="4">
-<li><p>toFixed 方法</p>
-<blockquote>
+<li>toFixed 方法<blockquote>
 <ul>
 <li>返回结果后的小数部分<strong>保留指定小数位数</strong>，返回结果为一个<strong>字符串</strong></li>
 <li>如果参数为空，则表示不保留小数位</li>
 <li>保留小数位时，会采用四舍五入</li>
 <li>如果小数位不足，则用 0 来补充</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var n = 1.447;
 console.log(n.toFixed()); // 1
 console.log(n.toFixed(1)); // 1.4
@@ -1611,15 +1695,16 @@ console.log(n.toFixed(2)); // 1.45
 console.log(n.toFixed(5)); // 1.44700
 console.log(typeof n.toFixed()); // string
 </code></pre>
-</blockquote>
-</li>
-<li><p>toString 方法</p>
-<blockquote>
+<ol start="5">
+<li>toString 方法<blockquote>
 <ul>
 <li><code>Number</code>类<strong>重写了</strong>原型上继承于<code>Object</code>对象的<code>toString</code>方法</li>
 <li><code>toString()</code>用来将数值类型转换为字符串类型</li>
 <li><code>toString()</code>可以接受一个参数，用来将数字转换成对应进制的字符串</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var n = 16;
 console.log(n.toString()); // 16
 console.log(typeof n.toString()); // string
@@ -1628,24 +1713,22 @@ console.log(n.toString(8)); // 20
 console.log(n.toString(10)); // 16
 console.log(n.toString(16)); // 10
 </code></pre>
-</blockquote>
-</li>
-<li><p>valueOf 方法</p>
-<blockquote>
+<ol start="6">
+<li>valueOf 方法<blockquote>
 <ul>
 <li><code>Number</code>类重写了原型上的<code>valueOf</code>方法</li>
 <li><code>valueOf</code>方法返回被<code>Number</code>对象包装的原始值</li>
 <li>该方法通常是由<code>JavaScript</code>引擎在内部隐式调用的，而不是由用户在代码中显式调用的</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var n = 16;
 var obj = new Number(n);
 console.log(obj); // Number &#123;16&#125;
 console.log(obj.valueOf()); // 16
 console.log(obj + 3); // 19 内部自动调用了valueOf方法
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="三、Boolean-包装类"><a href="#三、Boolean-包装类" class="headerlink" title="三、Boolean 包装类"></a>三、Boolean 包装类</h3><blockquote>
 <p>以下是<code>Boolean</code>包装类原型上的方法</p>
 </blockquote>
@@ -1666,37 +1749,41 @@ console.log(obj + 3); // 19 内部自动调用了valueOf方法
 </tr>
 </tbody></table>
 <ol>
-<li><p>toString 方法</p>
-<blockquote>
+<li>toString 方法<blockquote>
 <ul>
 <li><code>Boolean</code>类<strong>重写了</strong>原型上继承于<code>Object</code>对象的<code>toString</code>方法</li>
 <li>方法返回表示指定的布尔对象的字符串</li>
 <li>当一个<code>Boolean</code>对象作为文本值或进行字符串连接时，<code>JavaScript</code>会自动调用其<code>toString</code>方法</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>console.log(true.toString()); // &#39;true&#39;
 console.log(typeof true.toString()); // string
 console.log(false.toString()); // &#39;false&#39;
 console.log(true + &quot;abc&quot;); // trueabc 内部自动调用了toString()方法
 </code></pre>
-</blockquote>
-</li>
-<li><p>valueOf</p>
-<blockquote>
+<ol start="2">
+<li>valueOf<blockquote>
 <blockquote>
 <p>返回原始值<code>true</code>或<code>false</code></p>
 </blockquote>
-<pre><code>var flag = new Boolean(&quot;12&quot;);
-console.log(flag); // Boolean &#123;true&#125;
-console.log(flag.valueOf()); // true
-</code></pre>
-</blockquote>
-<p>var flag2 &#x3D; new Boolean(0);<br>console.log(flag2); &#x2F;&#x2F; Boolean {false}<br>console.log(flag2.valueOf()); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>&gt;建议永远不要使用 `new Boolean()` 来包装一个布尔值，这里只当做了解
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>var flag = new Boolean(&quot;12&quot;);
+console.log(flag); // Boolean &#123;true&#125;
+console.log(flag.valueOf()); // true
+&gt;
+var flag2 = new Boolean(0);
+console.log(flag2); // Boolean &#123;false&#125;
+console.log(flag2.valueOf()); // false
+</code></pre>
+<blockquote>
+<blockquote>
+<p>建议永远不要使用 <code>new Boolean()</code> 来包装一个布尔值，这里只当做了解</p>
+</blockquote>
+</blockquote>
 <h3 id="四、String-包装类"><a href="#四、String-包装类" class="headerlink" title="四、String 包装类"></a>四、String 包装类</h3><table>
 <thead>
 <tr>
@@ -1759,23 +1846,23 @@ console.log(flag.valueOf()); // true
 <ul>
 <li>返回字符串中指定下标的字符</li>
 </ul>
-<pre><code>str.charAt(index);
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>str.charAt(index);
+</code></pre>
 <blockquote>
 <ul>
 <li><code>index</code>值介于<code>0 ~ 字符串长度-1</code>之间的整数,如果值超出这个范围，返回空字符串</li>
 <li>如果没有传入参数，则默认返回下标为 0 的字符</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;我就是我，不一样的小花朵&quot;;
 console.log(str.charAt()); // 我
 console.log(str.charAt(str.length - 1)); // 朵
 console.log(str.charAt(str.length)); // 超出范围 返回空字符串
 console.log(str.charAt(-1)); // 超出范围 返回空字符串
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>concat<blockquote>
 <ul>
@@ -1786,12 +1873,11 @@ console.log(str.charAt(-1)); // 超出范围 返回空字符串
 </blockquote>
 </li>
 </ul>
-<pre><code>str.concat(str2, [, ...strN]); // [] 里面表示可选，即concat的中的参数 &gt;= 1个
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
+<pre><code>str.concat(str2, [, ...strN]); // [] 里面表示可选，即concat的中的参数 &gt;= 1个
+</code></pre>
 <pre><code>var str = &quot;abc&quot;;
 console.log(str.concat(&quot;c&quot;)); // abcc
 console.log(str.concat(&quot;c&quot;, 4, 5)); // abcc45
@@ -1802,7 +1888,6 @@ console.log(str.concat([])); // abc
 console.log(str.concat(&#123;&#125;)); // abc[object Object]
 console.log(str.concat(&#123; a: 1, b: 2 &#125;)); // abc[object Object]
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <ul>
@@ -1822,23 +1907,23 @@ console.log(str.concat(&#123; a: 1, b: 2 &#125;)); // abc[object Object]
 <li><code>searchString</code>要搜索的子字符串</li>
 <li><code>position</code>从指定位置开始往后查询</li>
 </ul>
-<pre><code>indexOf(searchString);
-indexOf(searchString, position);
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>indexOf(searchString);
+indexOf(searchString, position);
+</code></pre>
 <blockquote>
 <ul>
 <li>如果没有传第二个参数，则默认从 0 的位置开始查找</li>
 <li>给定了第二个参数，会从当前位置开始往后查找，包括当前位置</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;hello world&quot;;
 console.log(str.indexOf(&quot;o&quot;)); // 4
 console.log(str.indexOf(&quot;o&quot;, 7)); // 7
 console.log(str.indexOf(&quot;o&quot;, 8)); // -1
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>如果 <code>position</code> 大于字符串长度(空格也算)，则搜索不到对应字符串，返回结果为 <code>-1</code></li>
@@ -1847,6 +1932,7 @@ console.log(str.indexOf(&quot;o&quot;, 8)); // -1
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;hello world&quot;;
 console.log(str.indexOf(&quot;o&quot;, 11)); // -1
 console.log(str.indexOf(&quot;o&quot;, -4)); // 4
@@ -1855,7 +1941,6 @@ var str = &quot;hello world&quot;;
 console.log(str.indexOf(&quot;W&quot;)); // -1
 console.log(str.indexOf(&quot;w&quot;)); // 6
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>空字符串搜索时会产生以下奇怪的结果，所以在查询时如果查询内容有可能为空，则需要提前判断</p>
@@ -1870,41 +1955,40 @@ console.log(str.indexOf(&quot;w&quot;)); // 6
 </ul>
 </blockquote>
 <ul>
-<li><code>案例应用</code>： 统计某个字母或单词在字符串中出现的次数<blockquote>
-<pre><code>String.prototype.count = function (searchString, position) &#123;
-var n = 0; // 统计字符串出现的次数
-if (position === undefined) position = 0; // 如果没有赋值，默认为0
-if (typeof position !== &quot;number&quot;) &#123;
-  // 如果不是数字类型，则抛出错误
-  throw new TypeError(&quot;position只能是数字类型&quot;);
-&#125;
-// 从当前位置往后查找，并将查询的位置结果返回
-position = this.indexOf(searchString, position);
-while (position !== -1) &#123;
-  n++;
-  position = this.indexOf(searchString, position + 1);
-&#125;
-return n;
-&#125;;
-</code></pre>
-</blockquote>
-var str &#x3D; “on test my love on top bottom test”;<br>console.log(str.count(“on”));<br>console.log(str.count(“o”, 2));<br>console.log(str.count(“test”, -2));<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li><code>案例应用</code>： 统计某个字母或单词在字符串中出现的次数</li>
 </ul>
+<pre><code>String.prototype.count = function (searchString, position) &#123;
+  var n = 0; // 统计字符串出现的次数
+  if (position === undefined) position = 0; // 如果没有赋值，默认为0
+  if (typeof position !== &quot;number&quot;) &#123;
+    // 如果不是数字类型，则抛出错误
+    throw new TypeError(&quot;position只能是数字类型&quot;);
+  &#125;
+  // 从当前位置往后查找，并将查询的位置结果返回
+  position = this.indexOf(searchString, position);
+  while (position !== -1) &#123;
+    n++;
+    position = this.indexOf(searchString, position + 1);
+  &#125;
+  return n;
+&#125;;
+&gt;
+var str = &quot;on test my love on top bottom test&quot;;
+console.log(str.count(&quot;on&quot;));
+console.log(str.count(&quot;o&quot;, 2));
+console.log(str.count(&quot;test&quot;, -2));
+</code></pre>
 <ol start="4">
 <li>slice<blockquote>
 <ul>
 <li>方法提取某个字符串的一部分，并返回一个新的字符串，且不会改动原字符串</li>
 <li>其用法和数组的 slice 方法一样</li>
 </ul>
-<pre><code>str.slice(beginIndex[, endIndex])
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>str.slice(beginIndex[, endIndex])
+</code></pre>
 <blockquote>
 <ul>
 <li><code>beginIndex</code>为查询的起始索引，默认为 <code>0</code></li>
@@ -1912,29 +1996,30 @@ var str &#x3D; “on test my love on top bottom test”;<br>console.log(str.coun
 <li>如果<code>beginIndex</code>和<code>endIndex</code>为负数，表示从后往前数，找到对应位置，再从开始位置向右查询到结束位置。</li>
 <li>从后往前数，下标从<code>-1</code>开始，同时查询字符串包含 <code>beginIndex</code>，但不包换<code>endIndex</code></li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;abcdefc&quot;;
 console.log(str.slice(2, 5)); // cde
 console.log(str.slice(2, -2)); // cde
 console.log(str.slice(-5, -2)); // cde
 console.log(str.slice(-3)); // efc
 </code></pre>
-</blockquote>
 <ol start="5">
 <li>substring<blockquote>
 <ul>
 <li>返回字符串中指定开始索引到结束索引之间的字符串，包含起始索引，不包含结束索引</li>
 </ul>
-<pre><code>str.substring(startIndex[,endIndex])
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>str.substring(startIndex[,endIndex])
+</code></pre>
 <blockquote>
 <ul>
 <li><code>startIndex</code>开始索引，如果小于 0 或为 <code>NaN</code>，则当成 0 处理，大于字符串长度，则当成字符串长度处理</li>
 <li><code>endIndex</code> 结束索引，如果小于 0 或为 NaN，则当成 0 处理，大于字符串长度，则当成字符串长度处理</li>
 <li>特殊之处：如果 <code>startIndex &gt; endIndex</code> ，则执行效果像两个参数调换一样</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;abcdefc&quot;;
 console.log(str.substring(2)); // cdefc
 console.log(str.substring(-2)); // abcdefc
@@ -1943,7 +2028,6 @@ console.log(str.substring(2, -3)); // ab
 console.log(str.substring(2, 5)); //cde
 console.log(str.substring(-2, -3)); //&quot;&quot;
 </code></pre>
-</blockquote>
 <ol start="6">
 <li>trim、trimEnd、trimStart<blockquote>
 <ul>
@@ -1957,28 +2041,26 @@ console.log(str.substring(-2, -3)); //&quot;&quot;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>var str = &quot;   abc   &quot;;
 var newstr = str.trim();
 console.log(str.trim()); // &quot;abc&quot;
 console.log(str.trim().length); // 3
+&gt;
+console.log(str.trimStart()); // &quot;abc   &quot;
+console.log(str.trimStart().length); // 6
+&gt;
+console.log(str.trimEnd()); // &quot;   abc&quot;
+console.log(str.trimEnd().length); // 6
 </code></pre>
-</blockquote>
-<p>console.log(str.trimStart()); &#x2F;&#x2F; “abc   “<br>console.log(str.trimStart().length); &#x2F;&#x2F; 6</p>
-<blockquote>
-</blockquote>
-<p>console.log(str.trimEnd()); &#x2F;&#x2F; “   abc”<br>console.log(str.trimEnd().length); &#x2F;&#x2F; 6</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="7">
-<li><p>toUpperCase 与 toLowerCase</p>
-<blockquote>
+<li>toUpperCase 与 toLowerCase<blockquote>
 <ul>
 <li>toLowerCase：将字符串中字母全部转换为小写</li>
 <li>toUpperCase ： 将字符串中字母全部转换为大写</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = &quot;I love You 是我爱你&quot;;
 console.log(str.toUpperCase());
 console.log(str.toLowerCase());
@@ -1990,27 +2072,21 @@ String.prototype.toUpperCase.call(null);
 String.prototype.toUpperCase.call(undefined);
 image-20221208004420970
 </code></pre>
-</blockquote>
-</li>
-<li><p>valueOf</p>
-<blockquote>
+<ol start="8">
+<li>valueOf<blockquote>
 <ul>
 <li><code>valueOf()</code>返回<code>String</code>对象的原始值</li>
 </ul>
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>var obj = new String(&quot;wang&quot;);
 console.log(obj); // String &#123;&#39;wang&#39;&#125;
 console.log(obj.valueOf()); // wang
+&gt;
+// 字符串拼接时，会自动调用valueOf方法，获取原始值来拼接
+console.log(obj + &quot;abc&quot;);
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 字符串拼接时，会自动调用valueOf方法，获取原始值来拼接<br>console.log(obj + “abc”);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="三个特殊的构造函数的使用"><a href="#三个特殊的构造函数的使用" class="headerlink" title="三个特殊的构造函数的使用"></a>三个特殊的构造函数的使用</h4><blockquote>
 <p><code>ECMAScript</code>提供了<code>Number</code>、<code>String</code>、<code>Boolean</code>这三个特殊的构造函数</p>
 </blockquote>
@@ -2024,10 +2100,12 @@ console.log(obj.valueOf()); // wang
 </li>
 </ol>
 <ul>
-<li><p>new Number()</p>
-<blockquote>
+<li>new Number()<blockquote>
 <ul>
 <li>创建一个 Number 对象,该对象不是一个原始值</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code> var obj = new Number(42);
  console.log(obj); //Number &#123;42&#125;
@@ -2035,37 +2113,35 @@ console.log(obj.valueOf()); // wang
  console.log(obj == 42); //true
  console.log(obj === 42); //false
 </code></pre>
-</blockquote>
-</li>
-<li><p>new Boolean(参数)</p>
-<blockquote>
+<ul>
+<li>new Boolean(参数)<blockquote>
 <ul>
 <li>如果省略该参数或参数值为 <code>0</code>、<code>-0</code>、<code>null</code>、<code>false</code>、<code>NaN</code>、<code>undefined</code>，或空字符串<code>（&quot;&quot;）</code>，则该<strong>对象</strong>具有的初始值为 false。</li>
 <li>所有其他值，包括任何对象，空数组（[]）或字符串 “false”，都会创建一个初始值为 true 的<strong>对象</strong>。</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code> var flag1 = new Boolean(&quot;&quot;);
  console.log(flag1); //Boolean &#123;false&#125;
  console.log(typeof flag1); //object
+&gt;
+ var flag2 = new Boolean(&quot;123&quot;);
+ console.log(flag2); //Boolean &#123;true&#125;
+ console.log(typeof flag2); //object
 </code></pre>
-</blockquote>
-<p> var flag2 &#x3D; new Boolean(“123”);<br> console.log(flag2); &#x2F;&#x2F;Boolean {true}<br> console.log(typeof flag2); &#x2F;&#x2F;object</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>new String()</p>
-<blockquote>
+<ul>
+<li>new String()<blockquote>
 <ul>
 <li>创建字符串对象</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code> var str = new String(&quot;a,b&quot;);
  console.log(str); //String &#123;&#39;a,b&#39;&#125;
  console.log(typeof str); //object
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol>
 <li>当作为一个函数使用时<blockquote>
 <ul>

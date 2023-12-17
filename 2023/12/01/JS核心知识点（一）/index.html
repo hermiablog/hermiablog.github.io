@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-08
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    10k
+                    10.1k
                 </div>
                 
 
@@ -425,7 +425,9 @@
             <div id="articleContent">
                 <span id="more"></span>
 <h2 id="JS简介、核心语法、变量"><a href="#JS简介、核心语法、变量" class="headerlink" title="JS简介、核心语法、变量"></a>JS简介、核心语法、变量</h2><h3 id="一、js简介"><a href="#一、js简介" class="headerlink" title="一、js简介"></a>一、js简介</h3><ol>
-<li>HTML、CSS、JavaScript 三者之间的关系<table>
+<li>HTML、CSS、JavaScript 三者之间的关系</li>
+</ol>
+<table>
 <thead>
 <tr>
 <th>前端三层</th>
@@ -457,8 +459,6 @@
 <td>人的各种行为</td>
 </tr>
 </tbody></table>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>交互效果：比如网站看到的鼠标滑动显示的下拉菜单、轮播图、选项卡等网页特效</li>
@@ -618,12 +618,12 @@
 <ul>
 <li>直接写在标签上，有点类似行内样式，这种写法基本不用，只做了解。</li>
 </ul>
-<pre><code>&lt;div onclick=&quot;alert(&#39;主人，你好&#39;);&quot;&gt;点我&lt;/div&gt;
-&lt;a href=&quot;JavaScript:;&quot;&gt;禁止页面刷新&lt;/a&gt;
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;&lt;div onclick=&quot;alert(&#39;主人，你好&#39;);&quot;&gt;点我&lt;/div&gt;
+&gt;&lt;a href=&quot;JavaScript:;&quot;&gt;禁止页面刷新&lt;/a&gt;
+</code></pre>
 <blockquote>
 <p><strong>内部js</strong></p>
 <ul>
@@ -640,12 +640,12 @@
 <li><code>&lt;script&gt;</code>标签可以写在 head 或 body 标签中</li>
 <li>如果采用了外部 JS 的写法，则<code>&lt;script&gt;</code>标签中，不能再写 JS 代码，写了也不会生效</li>
 </ul>
-<pre><code>&lt;!--错误写法，如果src属性中引入了外部js文件，则&lt;script&gt;标签不能再写js代码--&gt;
-&lt;script src=&quot;js/demo.js&quot;&gt;
- alert(&#39;错误写法，弹窗不会弹出&#39;);
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;!--错误写法，如果src属性中引入了外部js文件，则&lt;script&gt;标签不能再写js代码--&gt;
+&gt;&lt;script src=&quot;js/demo.js&quot;&gt;
+&gt;  alert(&#39;错误写法，弹窗不会弹出&#39;);
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <blockquote>
 <p>注意1：在实际的开发中，我们常用的就是外部 JS 这种写法，因为他有很多优点<br><strong>优点：</strong></p>
@@ -840,69 +840,67 @@
 <li>使用 var 关键字声明变量后，计算机会自动为变量分配<strong>内存空间</strong>，用来存储变量的值</li>
 <li>变量声明后，就可以给变量<strong>赋值</strong>，<code>= </code>等号表示赋值</li>
 </ul>
-<pre><code>var a;
-a=&quot;小米&quot;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;var a;
+&gt;a=&quot;小米&quot;
 </code></pre>
+<blockquote>
 <ul>
 <li>通过变量名就可以访问变量在内存中存储的值。</li>
 <li>赋值后我们就可以使用他了，我们可以在控制台通过输出语句输出变量 a 的值</li>
 </ul>
-<pre><code>console.log(a);
-</code></pre>
 </blockquote>
-</li>
-<li><p>变量的初始化</p>
-<blockquote>
+<pre><code>&gt;console.log(a);
+</code></pre>
+<ol start="4">
+<li>变量的初始化<blockquote>
 <p>我们在<strong>声明</strong>一个变量的<strong>同时</strong>为其<strong>赋值</strong>，称为变量的初始化</p>
-<pre><code>var a=&quot;张三&quot;;
-concole.log(a);
-</code></pre>
-</blockquote>
-</li>
-<li><p>更新变量的值</p>
-<blockquote>
-<ul>
-<li>一个变量被重新赋值后，他之前的值就会被覆盖</li>
-</ul>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 给变量name 重新赋值</span>
-name <span class="token operator">=</span> <span class="token string">"李四"</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-</blockquote>
-</li>
-<li><p>同时声明多个变量<br><strong>先声明后赋值：</strong></p>
-<blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
-x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
-y<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
-z<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>&gt;var a=&quot;张三&quot;;
+&gt;concole.log(a);
+</code></pre>
+<ol start="5">
+<li>更新变量的值<blockquote>
+<ul>
+<li>一个变量被重新赋值后，他之前的值就会被覆盖</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token comment" spellcheck="true">// 给变量name 重新赋值</span>
+<span class="token operator">></span>name <span class="token operator">=</span> <span class="token string">"李四"</span><span class="token punctuation">;</span>
+<span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ol start="6">
+<li>同时声明多个变量<br><strong>先声明后赋值：</strong></li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token keyword">var</span> x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
+<span class="token operator">></span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token operator">></span>y<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token operator">></span>z<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <p><strong>声明的同时赋值</strong></p>
-<blockquote>
-<pre><code>var x=1,
-  y=2,
-  z=3;
-  console.log(x,y,z);
+<pre><code>&gt; var x=1,
+&gt;   y=2,
+&gt;   z=3;
+&gt;   console.log(x,y,z);
 </code></pre>
-</blockquote>
 <p><strong>声明过程可赋值，可不赋值</strong></p>
-<blockquote>
-<pre><code>var x,
-   y = 1,
-   z = 4;
-//在声明之后为x赋值
- x = 2;
- console.log(x, y, z);
+<pre><code>&gt; var x,
+&gt;    y = 1,
+&gt;    z = 4;
+&gt;//在声明之后为x赋值
+&gt;  x = 2;
+&gt;  console.log(x, y, z);
 </code></pre>
-</blockquote>
 <ol start="7">
-<li><p>声明变量的几种特殊情况</p>
-<blockquote>
+<li>声明变量的几种特殊情况<blockquote>
 <ul>
 <li>声明变量，但没有赋值，默认值为<code>undefined</code><blockquote>
 <p>我们后期如果要判断一个变量是否成功赋值，我们就可以通过检测他的值是否是 undefined 来判断</p>
@@ -910,27 +908,30 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </li>
 <li>不声明变量,直接进行赋值</li>
 </ul>
-<pre><code>&lt;script&gt;
- x = 7;
- // 控制台输出得到的结果是 7
- console.log(x);
-&lt;/script&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  x = 7;
+&gt;  // 控制台输出得到的结果是 7
+&gt;  console.log(x);
+&gt;&lt;/script&gt;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>这是 js 的一个语法特性，只需要了解就好，在实际开发中非常<strong>不推荐</strong>这样写。</p>
 </blockquote>
 <ul>
 <li>直接输出一个不存在的变量</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token comment" spellcheck="true">// 控制台**会报错** z is not defined</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
-</li>
-<li><p>变量的命名（标识符）</p>
-<blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token comment" spellcheck="true">// 控制台**会报错** z is not defined</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ol start="8">
+<li>变量的命名（标识符）<blockquote>
 <p>变量的命名必需要遵守一定的规则。</p>
 <ul>
 <li>标识符：在 js 中所有可以由我们自主命名的都可以称为标识符</li>
@@ -1071,19 +1072,23 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ul>
 <li>基本原则是：变量名=属性+类型+对象描述</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// i 提示变量类型为 整型</span>
-iMyStudentCount<span class="token punctuation">;</span>
-</code></pre>
 </blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token comment" spellcheck="true">// i 提示变量类型为 整型</span>
+<span class="token operator">></span>iMyStudentCount<span class="token punctuation">;</span>
+</code></pre>
 <ol start="10">
 <li>字面量<blockquote>
 <p>可以理解为<strong>不可能发生改变</strong>的(固定)值。他就是他的字面意思。</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
- <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"我爱你"</span><span class="token punctuation">;</span>
- <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"优秀"</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</blockquote>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token operator">></span>  <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"我爱你"</span><span class="token punctuation">;</span>
+<span class="token operator">></span>  <span class="token keyword">var</span> A <span class="token operator">=</span> <span class="token string">"优秀"</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
+<blockquote>
 <ul>
 <li>源代码解读<ul>
 <li>上面代码中，1，'我爱你'，'优秀' 就是字面量。</li>
@@ -1093,8 +1098,6 @@ iMyStudentCount<span class="token punctuation">;</span>
 </li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <h3 id="四、综合案例"><a href="#四、综合案例" class="headerlink" title="四、综合案例"></a>四、综合案例</h3><ol>
 <li><p>弹出用户输入的信息 </p>
 <blockquote>
@@ -1189,16 +1192,17 @@ iMyStudentCount<span class="token punctuation">;</span>
 <li>运行完毕之后，变量就确定了数据类型。</li>
 <li>也就是说相同的变量在不同的时刻可以是不同的类型。</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a是 string字符串类型</span>
- a <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 number 数字类型</span>
- a <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 boolean布尔型</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
 </li>
-<li><p>typeof 操作符</p>
-<blockquote>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token string">"小明"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a是 string字符串类型</span>
+<span class="token operator">></span>  a <span class="token operator">=</span> <span class="token number">23</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 number 数字类型</span>
+<span class="token operator">></span>  a <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 此时a就是 boolean布尔型</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ol start="4">
+<li>typeof 操作符<blockquote>
 <p><code>typeof</code> 检测返回值的类型，然后 <code>console.log</code> 把值的类型在控制台输出。</p>
 <ul>
 <li>JS 有很多种数据类型，我们需要有一种手段来确定变量的数据类型，那么<code>typeof</code>运算符就可以做到。</li>
@@ -1210,39 +1214,44 @@ iMyStudentCount<span class="token punctuation">;</span>
 </ul>
 </li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//值类型</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token string">"艾编程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
-<span class="token comment" spellcheck="true">//变量类型</span>
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
-   b <span class="token operator">=</span> <span class="token string">"艾编程"</span><span class="token punctuation">;</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+</blockquote>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token comment" spellcheck="true">//值类型</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token string">"艾编程"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">+</span> <span class="token string">"2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+<span class="token operator">></span><span class="token comment" spellcheck="true">//变量类型</span>
+<span class="token operator">></span> <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+<span class="token operator">></span>    b <span class="token operator">=</span> <span class="token string">"艾编程"</span><span class="token punctuation">;</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// number</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+<span class="token operator">></span>
 </code></pre>
+<blockquote>
 <blockquote>
 <p>注意区分变量和值：变量是不能用' '单引号或"" 双引号包裹的，用<code>&#39;&#39;</code>或<code>“”</code>包裹的是字符串</p>
 </blockquote>
 <ul>
 <li>typeof的<strong>返回值类型</strong>是字符串类型</li>
 </ul>
-<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> 小米 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//string</span>
-<span class="token comment" spellcheck="true">//注意：</span>
-<span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
+<span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> 小米 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//string</span>
+<span class="token operator">></span><span class="token comment" spellcheck="true">//注意：</span>
+<span class="token operator">></span> <span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">typeof</span> obj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// string</span>
 </code></pre>
+<blockquote>
 <ul>
 <li>只要是通过输入框得到的值，typeof类型都是<code>string</code>字符串类型</li>
 </ul>
-<pre><code>&lt;script&gt;
- var age = prompt(&quot;请输入你的年龄&quot;); // 用户输入 18
- console.log(typeof age);
-&lt;/script&gt;
-</code></pre>
 </blockquote>
-</li>
-</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  var age = prompt(&quot;请输入你的年龄&quot;); // 用户输入 18
+&gt;  console.log(typeof age);
+&gt;&lt;/script&gt;
+</code></pre>
 <h3 id="二、5种基本数据类型"><a href="#二、5种基本数据类型" class="headerlink" title="二、5种基本数据类型"></a>二、5种基本数据类型</h3><blockquote>
 <p>在接下的数据类型学习中，我们主要学习Number、String、Boolean、null、undefined 的 5 种基础数据类型<br>关于BigInt和Symbol在后面的 ES6 中，我们再来学习。</p>
 </blockquote>
@@ -1334,28 +1343,28 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>在数学运算中，如果得不到数字的结果，其结果往往是 NaN。</li>
 <li>任何数与 NaN 做运算，都会得到 NaN，<strong>除了</strong>与<strong>字符串</strong>拼接。</li>
 </ul>
-<pre><code>&lt;script&gt;
- console.log(NaN + true + &quot;false&quot;);
-//NaN+true=NaN,NaN+字符串即拼接
-//结果为&quot;NaNfalse&quot;,typeof为string
-//字符串与任何类型拼接，得到的都是字符串类型
-&lt;/script&gt;
-</code></pre>
 </blockquote>
+<pre><code>&gt;&lt;script&gt;
+&gt;  console.log(NaN + true + &quot;false&quot;);
+&gt;//NaN+true=NaN,NaN+字符串即拼接
+&gt;//结果为&quot;NaNfalse&quot;,typeof为string
+&gt;//字符串与任何类型拼接，得到的都是字符串类型
+&gt;&lt;/script&gt;
+</code></pre>
 <blockquote>
 <ul>
 <li>NaN 自己不与自己相等</li>
 </ul>
-<pre class=" language-js"><code class="language-js">script<span class="token operator">></span>
-<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">-</span> <span class="token string">"b"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
-<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
-<span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token string">"1"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//'NaN1'</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">NaN</span> <span class="token operator">==</span> <span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span>script<span class="token operator">></span>
+<span class="token operator">></span> <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">0</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token operator">></span> <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">-</span> <span class="token string">"b"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token operator">></span> <span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// NaN</span>
+<span class="token operator">></span> <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token number">NaN</span> <span class="token operator">+</span> <span class="token string">"1"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//'NaN1'</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">NaN</span> <span class="token operator">==</span> <span class="token number">NaN</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
 <p><strong>isNaN()</strong></p>
 <blockquote>
 <ul>
@@ -1366,11 +1375,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </li>
 <li>如果参数是数值，则返回 false，否则返回 true</li>
 </ul>
-<pre class=" language-js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false  1是一个数字，所以返回false假的</span>
-<span class="token comment" spellcheck="true">//特别注意："1"原本是字符串，但被转换成了数字</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false '1'被转成数字1，所以返回false</span>
-</code></pre>
 </blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false  1是一个数字，所以返回false假的</span>
+<span class="token operator">></span><span class="token comment" spellcheck="true">//特别注意："1"原本是字符串，但被转换成了数字</span>
+<span class="token operator">></span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isNaN</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false '1'被转成数字1，所以返回false</span>
+</code></pre>
 <h4 id="String字符串类型"><a href="#String字符串类型" class="headerlink" title="String字符串类型"></a>String字符串类型</h4><blockquote>
 <ul>
 <li>符串就是 "人类的自然语言"</li>
@@ -1455,14 +1464,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <ul>
 <li>通过 length 属性，可以获取整个字符串的长度</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"我就是我，不一样的花朵"</span><span class="token punctuation">;</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"我就是我，不一样的花朵"</span><span class="token punctuation">;</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 11</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
 <h4 id="Boolean类型"><a href="#Boolean类型" class="headerlink" title="Boolean类型"></a>Boolean类型</h4><blockquote>
 <ul>
 <li>布尔值主要是用来做<strong>逻辑判断</strong></li>
@@ -1501,12 +1510,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>undefined 类型，只有一个值，就是undefined</li>
 <li>当声明一个变量，但是<strong>并不给变量赋值</strong>时，它的值就是<code>undefined</code></li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token keyword">var</span> a<span class="token punctuation">;</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// a的值是undefined</span>
- console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 变量a的类型是 undefined</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token keyword">var</span> a<span class="token punctuation">;</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// a的值是undefined</span>
+<span class="token operator">></span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 变量a的类型是 undefined</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
+<blockquote>
 <blockquote>
 <p>我们经常在调试中或报错中会发现有些值打印是 undefined，就说明这个变量定义了，没有赋值，或赋值不成功。</p>
 </blockquote>
@@ -1556,8 +1567,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </tbody></table>
 </blockquote>
 <ol>
-<li><p>Number 函数</p>
-<blockquote>
+<li>Number 函数<blockquote>
 <p>Number()函数：用来将非数字类型转换成数字。</p>
 <ul>
 <li>''空字符串会转换成数字0</li>
@@ -1567,23 +1577,24 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>Number([]) 结果是 0</li>
 <li>Number({})结果是 NaN</li>
 </ul>
-<pre><code>&lt;script&gt;
-Number(&quot;-12&quot;); // -12
-Number(&quot;2e3&quot;); // 2000
-Number(&quot;0b11&quot;); // 3
-Number(&quot;2021年&quot;); // NaN
-Number(&quot;&quot;); // 0
-Number(&quot; &quot;); // 0
-Number(true); // 1
-Number(false); // 0
-Number(null); // 0
-Number(undefined); // NaN
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>parseInt(函数)</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;Number(&quot;-12&quot;); // -12
+&gt;Number(&quot;2e3&quot;); // 2000
+&gt;Number(&quot;0b11&quot;); // 3
+&gt;Number(&quot;2021年&quot;); // NaN
+&gt;Number(&quot;&quot;); // 0
+&gt;Number(&quot; &quot;); // 0
+&gt;Number(true); // 1
+&gt;Number(false); // 0
+&gt;Number(null); // 0
+&gt;Number(undefined); // NaN
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>parseInt(函数)<blockquote>
 <ul>
 <li>parseInt()函数，主要是将<strong>字符串类型</strong>转换为<strong>整数</strong>数字</li>
 <li><strong>转换规则</strong><ul>
@@ -1595,22 +1606,23 @@ Number(undefined); // NaN
 <li>parseInt() 函数，<strong>不能</strong>识别二进制，八进制，<strong>但是</strong>他可以识别十六进制</li>
 <li>parseInt() 函数，还有第二个参数，可以指定以什么进制数来进行转换parseInt() 函数,指定之后就可以进行转换,但仍然识别不了二、八进制</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14年"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"2.3"</span> <span class="token operator">+</span> <span class="token string">"3.5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//2</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 8</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
-<span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b1001"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//0</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
 </li>
-<li><p>parseFloat(函数)</p>
-<blockquote>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0x14年"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 20</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"2.3"</span> <span class="token operator">+</span> <span class="token string">"3.5"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//2</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 8</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"10"</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+<span class="token operator">></span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token string">"0b1001"</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//0</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ol start="3">
+<li>parseFloat(函数)<blockquote>
 <ul>
 <li>他的转换原则 和 parseInt()函数一样，唯一两点区别在于：<ul>
 <li>parseFloat() 函数，主要是将<strong>字符串类型</strong>转换为<strong>浮点数</strong></li>
@@ -1618,21 +1630,22 @@ Number(undefined); // NaN
 </ul>
 </li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.2.32"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.2</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14元"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"圆周率3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
- <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
 </li>
-<li><p>JS 隐式转换 (+ - * /)</p>
-<blockquote>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.2.32"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.2</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"3.14元"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.14</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"圆周率3.14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// NaN</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0b10"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0110"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 110</span>
+<span class="token operator">></span>  <span class="token function">parseFloat</span><span class="token punctuation">(</span><span class="token string">"0x14"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 0</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ol start="4">
+<li>JS 隐式转换 (+ - * /)<blockquote>
 <ul>
 <li>利用算术运算隐式将其它类型转换为数字</li>
 <li>在单个字符串前面加上 +号，可以将字符串转成数字,多个字符串，是字符串拼接<br><code>typeof +&quot;1&quot;; // number</code></li>
@@ -1670,287 +1683,186 @@ Number(undefined); // NaN
 </blockquote>
 </blockquote>
 <ol>
-<li>String()函数<br><strong>数字转换字符串</strong><blockquote>
-<pre><code>&lt;script&gt;
- String(123); // &#39;123&#39;
- String(2.14); // &#39;2.14&#39;
- String(2e4); // &#39;20000&#39;
- String(0b10); // &#39;2&#39;
- String(NaN); // &#39;NaN&#39;
- String(Infinity); //&#39; Infinity&#39;
-&lt;/script&gt;
+<li>String()函数<br><strong>数字转换字符串</strong></li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+&gt;  String(123); // &#39;123&#39;
+&gt;  String(2.14); // &#39;2.14&#39;
+&gt;  String(2e4); // &#39;20000&#39;
+&gt;  String(0b10); // &#39;2&#39;
+&gt;  String(NaN); // &#39;NaN&#39;
+&gt;  String(Infinity); //&#39; Infinity&#39;
+&gt;&lt;/script&gt;
 &gt;```
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<p><strong>布尔值转换为字符串</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- String(true); // &#39;true&#39;
- String(false); // &#39;false&#39;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-<p><strong>undefined 和 null 转换为字符串</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- String(undefined); // &#39;undefined&#39;
- String(null); // &#39;null&#39;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-<ol start="2">
-<li>toString() 方法<br><strong>数字转换为字符串</strong><blockquote>
-<pre><code>&lt;script&gt;
- (123).toString(); // &#39;123&#39;
- (2e4).toString(); // &#39;20000&#39;
- (0b10).toString(); //&#39;2&#39;;
- NaN.toString(); // &#39;NaN&#39;
- Infinity.toString(); // &#39;Infinity&#39;
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<p><strong>boolean 类型转换为字符串</strong></p>
-<blockquote>
-<pre><code>&lt;script&gt;
- true.toString(); // &#39;true&#39;
- false.toString(); // &#39;false&#39;
-&lt;/script&gt;
+
+**布尔值转换为字符串**
 </code></pre>
 <blockquote>
-<p>null和undefined没有 toString()这个方法</p>
+<script>
+ String(true); // 'true'
+ String(false); // 'false'
+</script>
 </blockquote>
-</blockquote>
-<ol start="3">
-<li><code>+ &#39;&#39;</code> 空字符串<blockquote>
-<p>所有类型与<code>&#39;&#39;</code>空字符串拼接得到的都是字符串类型。</p>
-<pre><code>&lt;script&gt;
- true + &quot;&quot;; // &#39;true&#39;
- false + &quot;&quot;; // &#39;false&#39;
- NaN + &quot;&quot;; // &#39;NaN&#39;
- 0 + &quot;&quot;; // &#39;0&#39;
- 0b10 + &quot;&quot;; // &#39;2&#39;
-&lt;/script&gt;
+<pre><code>
+**undefined 和 null 转换为字符串**
 </code></pre>
-</blockquote>
-</li>
-</ol>
-<h4 id="其他类型转boolean-布尔类型"><a href="#其他类型转boolean-布尔类型" class="headerlink" title="其他类型转boolean 布尔类型"></a>其他类型转boolean 布尔类型</h4><blockquote>
-<p>其它数据类型转换成 Boolean 方法：</p>
-<ul>
-<li>方法一：调用Boolean()函数来实现</li>
-<li>方法二：在一个数值或变量前加!!(两次取反)操作，也可以实现<br><strong>转换原则：</strong></li>
-<li>代表空、否定的值会被转换为false。 如：''、0、NaN、null、undefined</li>
-<li>除了上面列出的 5 个值，其它值字都转换为 true</li>
-</ul>
-</blockquote>
-<p><strong>字符串转换为布尔类型</strong></p>
 <blockquote>
-<pre><code>&lt;script&gt;
- Boolean(&quot;&quot;); // false
- Boolean(&quot; &quot;); // true
- Boolean(&quot;NaN&quot;); // true
- Boolean(&quot;false&quot;); // true
-&lt;/script&gt;
+<script>
+ String(undefined); // 'undefined'
+ String(null); // 'null'
+</script>
+</blockquote>
+<pre><code>
+2. toString() 方法
+**数字转换为字符串**
 </code></pre>
-</blockquote>
-<p><strong>数字类型转换为布尔类型值</strong></p>
 <blockquote>
-<pre><code>&lt;script&gt;
+<script>
+ (123).toString(); // '123'
+ (2e4).toString(); // '20000'
+ (0b10).toString(); //'2';
+ NaN.toString(); // 'NaN'
+ Infinity.toString(); // 'Infinity'
+</script>
+</blockquote>
+<pre><code>
+**boolean 类型转换为字符串**
+</code></pre>
+<blockquote>
+<script>
+ true.toString(); // 'true'
+ false.toString(); // 'false'
+</script>
+</blockquote>
+<pre><code>&gt;&gt;null和undefined没有 toString()这个方法
+
+3. `+ &#39;&#39;` 空字符串
+&gt;所有类型与`&#39;&#39;`空字符串拼接得到的都是字符串类型。
+</code></pre>
+<blockquote>
+<script>
+ true + ""; // 'true'
+ false + ""; // 'false'
+ NaN + ""; // 'NaN'
+ 0 + ""; // '0'
+ 0b10 + ""; // '2'
+</script>
+</blockquote>
+<pre><code>
+#### 其他类型转boolean 布尔类型
+&gt;其它数据类型转换成 Boolean 方法：
+&gt;- 方法一：调用Boolean()函数来实现
+&gt;- 方法二：在一个数值或变量前加!!(两次取反)操作，也可以实现
+&gt;**转换原则：**
+&gt;- 代表空、否定的值会被转换为false。 如：&#39;&#39;、0、NaN、null、undefined
+&gt;- 除了上面列出的 5 个值，其它值字都转换为 true
+
+**字符串转换为布尔类型**
+</code></pre>
+<blockquote>
+<script>
+ Boolean(""); // false
+ Boolean(" "); // true
+ Boolean("NaN"); // true
+ Boolean("false"); // true
+</script>
+</blockquote>
+<pre><code>
+**数字类型转换为布尔类型值**
+</code></pre>
+<blockquote>
+<script>
  Boolean(NaN); // false
  Boolean(0); // false
  Boolean(Infinity); // true
-&lt;/script&gt;
-</code></pre>
+</script>
 </blockquote>
-<p><strong>null 和 undefined 转换为布尔类型值</strong></p>
+<pre><code>
+**null 和 undefined 转换为布尔类型值**
+</code></pre>
 <blockquote>
-<pre><code>&lt;script&gt;
+<script>
  Boolean(null); // false
  Boolean(undefined); // false
-&lt;/script&gt;
+</script>
+</blockquote>
+<pre><code>
+#### 常见的类型转换
+|原始值	|转换为 数字|转换为 字符串|转换为 布尔值|
+|---|---|----|---|
+|false|0|&quot;false&quot;|false|
+|true|1	|&quot;true&quot;	|true|
+|0	|0|&quot;0&quot;|	false|
+|&quot;0&quot;|0	|&quot;0&quot;|true|
+|&#39;&#39;	|0	|&#39;&#39;	|false|
+|&#39; &#39;|0	|&#39; &#39;|true|
+|&quot;30&quot;|30|&quot;30&quot;|true|
+|null|0	|&quot;null&quot;	|false|
+|undefined|NaN|&quot;undefined&quot;|false|
+|NaN|NaN|&quot;NaN&quot;|false|
+|Infinity|Infinity	|&quot;Infinity&quot;|true|
+
+
+### 四、综合案例
+**简单计算器**
+&gt;**需求分析**：
+&gt;- 当用户在浏览器打开页面时，弹出一输入框，要求用户输入数字，用户确认后，再弹出一输入框，再输入一个数字，确认后，最后弹出两次输入的数字之和。
+&gt;**代码实现思路：**
+&gt;- 使用 prompt() 函数弹出输入框，让用户输入两个数字
+&gt;- 对用户输入两个数字进行**加法运算**，而由于用户输入的内容是字符串类型，所以必须**先转为数字类型**，才能做加法运算
+&gt;- 最后用 alert() 显示结果，使用字符串拼接进行语句输出
+&gt;- 程序虽小，却体现了普遍计算机程序的执行步骤：用户输入-&gt;计算机处理 -&gt; 显示结果
+&gt;&gt;注意：
+&gt;&gt;- 通过输入框得到的值都是字符串类型
+&gt;&gt;- 进行加法运算的值必须为**数字类型**
+&gt;&gt;- 减法不用进行类型转换（因为JS支持隐式类型转换）
+
+### 五、扩展知识
+1. Javascript 为何称为弱类型的动态脚本语言
+&gt;- 在前面我们一直说，Javascript 是一种运行在客户端的脚本语言（Script 是脚本的意思）。
+&gt;- 本质上 Javascript 是一种弱类型的动态脚本语言。接下来我们分别来解释下，何为**弱类型**，何为**动态**，何为**脚本语言**。
+&gt;&lt;img src=&quot;语言类型.png&quot;&gt;
+
+2. 何为**动态**语言和**静态**语言
+&gt;- 在声明变量时，**不需要**确定变量类型的语言，称为动态语言。比如：Javascript，Python、Ruby、PHP等
+&gt;- 在声明变量时，需要确定变量类型的语言，称为静态语言。比如 Java、C、C++ 、C# 等
+&gt;- JS 在声明变量声明时，并不需要确定变量的类型，其类型是在代码执行的过程中,由变量对应值的类型来动态决定的。所以 JS 在执行过程中，需要检查数据的类型。
+
+3. 何为**弱**类型语言和**强**类型语言
+&gt;- 支持**隐式类型**转换的语言，称为 弱类型语言
+&gt;   - 弱类型语言：C、C++、Javascript、PHP、VB、Perl
+&gt;- 不支持隐式类型转换的语言，称为 强类型语言
+&gt;   - 强类型语言：C# 、Java 、Ruby、Python
 </code></pre>
-</blockquote>
-<h4 id="常见的类型转换"><a href="#常见的类型转换" class="headerlink" title="常见的类型转换"></a>常见的类型转换</h4><table>
-<thead>
-<tr>
-<th>原始值</th>
-<th>转换为 数字</th>
-<th>转换为 字符串</th>
-<th>转换为 布尔值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>false</td>
-<td>0</td>
-<td>"false"</td>
-<td>false</td>
-</tr>
-<tr>
-<td>true</td>
-<td>1</td>
-<td>"true"</td>
-<td>true</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>"0"</td>
-<td>false</td>
-</tr>
-<tr>
-<td>"0"</td>
-<td>0</td>
-<td>"0"</td>
-<td>true</td>
-</tr>
-<tr>
-<td>''</td>
-<td>0</td>
-<td>''</td>
-<td>false</td>
-</tr>
-<tr>
-<td>' '</td>
-<td>0</td>
-<td>' '</td>
-<td>true</td>
-</tr>
-<tr>
-<td>"30"</td>
-<td>30</td>
-<td>"30"</td>
-<td>true</td>
-</tr>
-<tr>
-<td>null</td>
-<td>0</td>
-<td>"null"</td>
-<td>false</td>
-</tr>
-<tr>
-<td>undefined</td>
-<td>NaN</td>
-<td>"undefined"</td>
-<td>false</td>
-</tr>
-<tr>
-<td>NaN</td>
-<td>NaN</td>
-<td>"NaN"</td>
-<td>false</td>
-</tr>
-<tr>
-<td>Infinity</td>
-<td>Infinity</td>
-<td>"Infinity"</td>
-<td>true</td>
-</tr>
-</tbody></table>
-<h3 id="四、综合案例-1"><a href="#四、综合案例-1" class="headerlink" title="四、综合案例"></a>四、综合案例</h3><p><strong>简单计算器</strong></p>
 <blockquote>
-<p><strong>需求分析</strong>：</p>
-<ul>
-<li>当用户在浏览器打开页面时，弹出一输入框，要求用户输入数字，用户确认后，再弹出一输入框，再输入一个数字，确认后，最后弹出两次输入的数字之和。<br><strong>代码实现思路：</strong></li>
-<li>使用 prompt() 函数弹出输入框，让用户输入两个数字</li>
-<li>对用户输入两个数字进行<strong>加法运算</strong>，而由于用户输入的内容是字符串类型，所以必须<strong>先转为数字类型</strong>，才能做加法运算</li>
-<li>最后用 alert() 显示结果，使用字符串拼接进行语句输出</li>
-<li>程序虽小，却体现了普遍计算机程序的执行步骤：用户输入->计算机处理 -> 显示结果<blockquote>
-<p>注意：</p>
-<ul>
-<li>通过输入框得到的值都是字符串类型</li>
-<li>进行加法运算的值必须为<strong>数字类型</strong></li>
-<li>减法不用进行类型转换（因为JS支持隐式类型转换）</li>
-</ul>
+<p>var a = "4";<br>var b = 1;<br>console.log(a - b); //3</p>
 </blockquote>
-</li>
-</ul>
-</blockquote>
-<h3 id="五、扩展知识"><a href="#五、扩展知识" class="headerlink" title="五、扩展知识"></a>五、扩展知识</h3><ol>
-<li><p>Javascript 为何称为弱类型的动态脚本语言</p>
-<blockquote>
-<ul>
-<li>在前面我们一直说，Javascript 是一种运行在客户端的脚本语言（Script 是脚本的意思）。</li>
-<li>本质上 Javascript 是一种弱类型的动态脚本语言。接下来我们分别来解释下，何为<strong>弱类型</strong>，何为<strong>动态</strong>，何为<strong>脚本语言</strong>。<img src="语言类型.png"></li>
-</ul>
-</blockquote>
-</li>
-<li><p>何为<strong>动态</strong>语言和<strong>静态</strong>语言</p>
-<blockquote>
-<ul>
-<li>在声明变量时，<strong>不需要</strong>确定变量类型的语言，称为动态语言。比如：Javascript，Python、Ruby、PHP等</li>
-<li>在声明变量时，需要确定变量类型的语言，称为静态语言。比如 Java、C、C++ 、C# 等</li>
-<li>JS 在声明变量声明时，并不需要确定变量的类型，其类型是在代码执行的过程中,由变量对应值的类型来动态决定的。所以 JS 在执行过程中，需要检查数据的类型。</li>
-</ul>
-</blockquote>
-</li>
-<li><p>何为<strong>弱</strong>类型语言和<strong>强</strong>类型语言</p>
-<blockquote>
-<ul>
-<li>支持<strong>隐式类型</strong>转换的语言，称为 弱类型语言<ul>
-<li>弱类型语言：C、C++、Javascript、PHP、VB、Perl</li>
-</ul>
-</li>
-<li>不支持隐式类型转换的语言，称为 强类型语言<ul>
-<li>强类型语言：C# 、Java 、Ruby、Python</li>
-</ul>
-</li>
-</ul>
-<pre><code>var a = &quot;4&quot;;
-var b = 1;
-console.log(a - b); //3
+<pre><code>&gt;- 变量a是字符串，b是数字，a-b=&#39;4&#39;-1，在这个过程中会**自动**把字符串&#39;4&#39;转换成数字4，然后再做运算。
+&gt;- 这种在运算过程中会悄悄把数据类型转换的操作，叫**隐式类型转换**。
+
+4. 何为脚本语言
+&gt;- 所谓的脚本语言：是指不需要**提前编译**，而是在运行的过程中边编译，边执行。
+&gt;- 而 JS 本质上就是在运行过程中边编译，边执行的，JS 是由 **JS 解释器（JS 引擎）**来逐行进行解释并执行
+&gt;- 所以 JS 也称为**解释型**语言。
+
+5. 编译型语言 和 解释性语言
+&gt;**编译器和解释器**
+&gt;- 之所以存在编译器和解释器，是因为机器不能直接理解我们所写的代码，所以在执行程序之前，需要将我们所写的代码“翻译”成机器能读懂的机器语言。
+&gt;- 按语言的执行流程，可以把语言划分为编译型语言和解释型语言。
+&gt;**编译型语言**
+&gt;- 在程序**执行之前**，需要经过编译器的编译过程，并且编译之后会直接保留机器能读懂的二进制文件，这样每次运行程序时，都可以直接运行该二进制文件，而不需要再次重新编译了。比如 C/C++、GO 等都是编译型语言。
+&gt;**解释型语言**
+&gt;- 而由解释型语言编写的程序，在每次**运行时**都需要通过解释器对程序进行动态解释和执行。比如 Python、JavaScript 等都属于解释型语言。
+&gt;&gt;- 大部分后端语言，都是编译型语言，也就是要先编译，再执行。而 JS 是解释型语言，一边编译一边执行。
+&gt;&gt;- 编译型是一开始慢，后面快，而解释是刚开始快，但过程中是慢的。
+
+6. 什么是 JavaScript 解释器 ？
+&gt;要理解什么是解释器，就需要我们了解浏览器的两大组成部分：渲染引擎 和 JavaScript 引擎
+&gt;- 渲染引擎：用来解析 **HTML 与 CSS**，俗称内核，比如 chrome 浏览器的 blink，老板本的 webkit
+&gt;- JS 引擎：也称为 **JS 解释器**，用来读取网页中的 **JavaScript 代码**，对其处理后运行。比如 chrome 浏览器的 V8 引擎。
+&gt;&gt;- 浏览器本身并不会执行 JS 代码，而是通过内置 JavaScript 引擎（解释器）来编译和执行 Js 代码。
+&gt;&gt;- JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行。
 </code></pre>
-<ul>
-<li>变量a是字符串，b是数字，a-b='4'-1，在这个过程中会<strong>自动</strong>把字符串'4'转换成数字4，然后再做运算。</li>
-<li>这种在运算过程中会悄悄把数据类型转换的操作，叫<strong>隐式类型转换</strong>。</li>
-</ul>
-</blockquote>
-</li>
-<li><p>何为脚本语言</p>
-<blockquote>
-<ul>
-<li>所谓的脚本语言：是指不需要<strong>提前编译</strong>，而是在运行的过程中边编译，边执行。</li>
-<li>而 JS 本质上就是在运行过程中边编译，边执行的，JS 是由 <strong>JS 解释器（JS 引擎）</strong>来逐行进行解释并执行</li>
-<li>所以 JS 也称为<strong>解释型</strong>语言。</li>
-</ul>
-</blockquote>
-</li>
-<li><p>编译型语言 和 解释性语言</p>
-<blockquote>
-<p><strong>编译器和解释器</strong></p>
-<ul>
-<li>之所以存在编译器和解释器，是因为机器不能直接理解我们所写的代码，所以在执行程序之前，需要将我们所写的代码“翻译”成机器能读懂的机器语言。</li>
-<li>按语言的执行流程，可以把语言划分为编译型语言和解释型语言。<br><strong>编译型语言</strong></li>
-<li>在程序<strong>执行之前</strong>，需要经过编译器的编译过程，并且编译之后会直接保留机器能读懂的二进制文件，这样每次运行程序时，都可以直接运行该二进制文件，而不需要再次重新编译了。比如 C/C++、GO 等都是编译型语言。<br><strong>解释型语言</strong></li>
-<li>而由解释型语言编写的程序，在每次<strong>运行时</strong>都需要通过解释器对程序进行动态解释和执行。比如 Python、JavaScript 等都属于解释型语言。<blockquote>
-<ul>
-<li>大部分后端语言，都是编译型语言，也就是要先编译，再执行。而 JS 是解释型语言，一边编译一边执行。</li>
-<li>编译型是一开始慢，后面快，而解释是刚开始快，但过程中是慢的。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>什么是 JavaScript 解释器 ？</p>
-<blockquote>
-<p>要理解什么是解释器，就需要我们了解浏览器的两大组成部分：渲染引擎 和 JavaScript 引擎</p>
-<ul>
-<li>渲染引擎：用来解析 <strong>HTML 与 CSS</strong>，俗称内核，比如 chrome 浏览器的 blink，老板本的 webkit</li>
-<li>JS 引擎：也称为 <strong>JS 解释器</strong>，用来读取网页中的 <strong>JavaScript 代码</strong>，对其处理后运行。比如 chrome 浏览器的 V8 引擎。<blockquote>
-<ul>
-<li>浏览器本身并不会执行 JS 代码，而是通过内置 JavaScript 引擎（解释器）来编译和执行 Js 代码。</li>
-<li>JS 引擎执行代码时逐行解释每一句源码（转换为机器语言），然后由计算机去执行。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
 
                 
             </div>

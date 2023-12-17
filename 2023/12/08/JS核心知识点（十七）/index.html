@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-08
+                    2023-12-18
                 </div>
                 
 
@@ -443,30 +443,30 @@
 </blockquote>
 </li>
 </ul>
+</blockquote>
 <pre><code>// 需要检查的字符串
 var str1 = &quot;123a456&quot;;
 var str2 = &quot;12345a67&quot;;
+&gt;
+// 字面量形式创建正则表达式
+var reg1 = /\d&#123;5&#125;/; // 配的字符串中需要包含连续的5位数字
+// 构造函数形式
+var reg2 = new RegExp(&quot;\\d&#123;5&#125;&quot;);
+&gt;
+console.log(reg1.test(str1)); // false
+console.log(reg1.test(str2)); // true
+&gt;
+console.log(reg2.test(str1)); // false
+console.log(reg2.test(str2)); // true
+&gt;
+typeof /\d&#123;5&#125;/; // &#39;object&#39;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 字面量形式创建正则表达式<br>var reg1 &#x3D; &#x2F;\d{5}&#x2F;; &#x2F;&#x2F; 配的字符串中需要包含连续的5位数字<br>&#x2F;&#x2F; 构造函数形式<br>var reg2 &#x3D; new RegExp(“\d{5}”);</p>
-<blockquote>
-</blockquote>
-<p>console.log(reg1.test(str1)); &#x2F;&#x2F; false<br>console.log(reg1.test(str2)); &#x2F;&#x2F; true</p>
-<blockquote>
-</blockquote>
-<p>console.log(reg2.test(str1)); &#x2F;&#x2F; false<br>console.log(reg2.test(str2)); &#x2F;&#x2F; true</p>
-<blockquote>
-</blockquote>
-<p>typeof &#x2F;\d{5}&#x2F;; &#x2F;&#x2F; ‘object’</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>能用字面量方式实现，就用字面量方式。如果字面量方式实现起来不方便，则可以考虑用<code>new RegExp</code>实现</li>
 <li>如果正则表达式的规则是可变的，不固定的，可以把正则表达式以字符串形式保存在变量中，然后在<code>new RegExp</code>中引用这个变量。</li>
 </ul>
+</blockquote>
 <pre><code> var str = &quot;uac&quot;;
  var val = &quot;a&quot;; // 字符串是否包含a
  var reg = new RegExp(val);
@@ -475,7 +475,6 @@ var str2 = &quot;12345a67&quot;;
  var reg = new RegExp(val);
  console.log(reg.test(str)); //false
 </code></pre>
-</blockquote>
 <ul>
 <li>正则表达式“按位”描述规则<blockquote>
 <ul>
@@ -484,7 +483,6 @@ var str2 = &quot;12345a67&quot;;
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code> var reg1 = /^A\d\d\dB$/; //必须以A开头，中间三位数字，B结尾
  console.log(reg1.test(&quot;A123B&quot;)); //true
  console.log(reg1.test(&quot;A1234B&quot;)); //false
@@ -492,6 +490,7 @@ var str2 = &quot;12345a67&quot;;
  console.log(reg2.test(&quot;A123&quot;)); //true
  console.log(reg2.test(&quot;A1234&quot;)); //false
 </code></pre>
+<blockquote>
 <blockquote>
 <p>正则在线测试工具：<a target="_blank" rel="noopener" href="https://regexr-cn.com可以用来测试自己写的正则/">https://regexr-cn.com可以用来测试自己写的正则</a></p>
 </blockquote>
@@ -529,6 +528,7 @@ var str2 = &quot;12345a67&quot;;
 <li>单词前后出现<code>（@ . - # $ % &amp; &lt;）</code>等特殊字符，这个单词都可以看作是独立的单词</li>
 <li>如果单词前后出现 数字、字母、<code>_</code>则不会当成独立的单词</li>
 </ul>
+</blockquote>
 <pre><code>// 匹配字符串中的独立的cat单词
 var reg1 = /\bcat\b/g;
 var str = &quot;cat 1cat cats cat. @cat -cat _cat&quot;;
@@ -538,62 +538,55 @@ var res = str.replace(reg1, function (v) &#123;
 &#125;);
 console.log(res); // *cat 1cat cats *cat. @*cat -*cat _cat
 </code></pre>
-</blockquote>
 <ul>
-<li><p>检测字符串是否是 5 位数字</p>
-<blockquote>
+<li>检测字符串是否是 5 位数字</li>
+</ul>
 <pre><code>var str1 = &quot;a12345&quot;;
 var str2 = &quot;12345b&quot;;
 var str3 = &quot;12345&quot;;
+&gt;
+var reg = /^\d&#123;5&#125;$/;
+console.log(reg.test(str1)); // false
+console.log(reg.test(str2)); // false
+console.log(reg.test(str3)); // true
+console.log(reg.test(str4)); // false
 </code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;^\d{5}$&#x2F;;<br>console.log(reg.test(str1)); &#x2F;&#x2F; false<br>console.log(reg.test(str2)); &#x2F;&#x2F; false<br>console.log(reg.test(str3)); &#x2F;&#x2F; true<br>console.log(reg.test(str4)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>检测字符串是否是以 m 开头，中间 5 位数字，以 n 结尾</p>
-<blockquote>
+<ul>
+<li>检测字符串是否是以 m 开头，中间 5 位数字，以 n 结尾</li>
+</ul>
 <pre><code>var str1 = &quot;m12345&quot;;
 var str2 = &quot;m123456n&quot;;
 var str3 = &quot;m12345n&quot;;
+&gt;
+var reg = /^m\d&#123;5&#125;n$/;
+console.log(reg.test(str1)); // false
+console.log(reg.test(str2)); // false
+console.log(reg.test(str3)); // true
 </code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;^m\d{5}n$&#x2F;;<br>console.log(reg.test(str1)); &#x2F;&#x2F; false<br>console.log(reg.test(str2)); &#x2F;&#x2F; false<br>console.log(reg.test(str3)); &#x2F;&#x2F; true</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>将字符串中独立的 cat 前后加上*号</p>
-<blockquote>
+<ul>
+<li>将字符串中独立的 cat 前后加上*号</li>
+</ul>
 <pre><code>var str = &quot;cat scats&quot;;
 var reg = /\bcat\b/g;
 console.log(str.match(reg)); //[&#39;cat&#39;]
 var res=str.replace(reg,&quot;*$&amp;*&quot;);
 console.log(res);//*cat* scats
 </code></pre>
-</blockquote>
-</li>
-<li><p>找出以 icon 开头的单词，不包括 icon</p>
-<blockquote>
+<ul>
+<li>找出以 icon 开头的单词，不包括 icon</li>
+</ul>
 <pre><code>var reg = /\bicon[a-z]+\b/gi;
 var str = &quot;i icons bicon iconasw icons1 icon&quot;;
 console.log(str.match(reg)); // [&#39;icons&#39;, &#39;iconasw&#39;]
 </code></pre>
-</blockquote>
-</li>
-<li><p>把单词中出现的con换成*，但要求con不能出现在单词的开始和结束</p>
-<blockquote>
+<ul>
+<li>把单词中出现的con换成*，但要求con不能出现在单词的开始和结束</li>
+</ul>
 <pre><code>var reg = /\Bcon\B/g;
 var str = &quot;content iconfont bacon&quot;;
 var res = str.replace(reg, &quot;*&quot;);
 console.log(res);//content i*font bacon
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="三、元字符"><a href="#三、元字符" class="headerlink" title="三、元字符"></a>三、元字符</h3><blockquote>
 <ul>
 <li>根据正则表达式语法规则，大部分字符仅能够描述自身，这些字符被称为<strong>普通字符</strong>，如所有的字母、数字等</li>
@@ -638,57 +631,61 @@ console.log(res);//content i*font bacon
 </ul>
 </blockquote>
 <ul>
-<li><p>检测字符串是否满足：<code>123-4567-789</code> 格式</p>
-<blockquote>
+<li>检测字符串是否满足：<code>123-4567-789</code> 格式</li>
+</ul>
 <pre><code>// 正则表达式
 var reg = /^\d\d\d-\d\d\d\d-\d\d\d$/;
 // var reg = /^\d&#123;3&#125;-\d&#123;4&#125;-\d&#123;3&#125;$/;   优化版
+&gt;
+// 测试字符串
+var str1 = &quot;123-9873-980&quot;;
+var str2 = &quot;123-9873-9803&quot;;
+console.log(reg.test(str1)); // true
+console.log(reg.test(str2)); // false
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 测试字符串<br>var str1 &#x3D; “123-9873-980”;<br>var str2 &#x3D; “123-9873-9803”;<br>console.log(reg.test(str1)); &#x2F;&#x2F; true<br>console.log(reg.test(str2)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>检测字符串是否满足<code>xxx-xxxx-xxx</code>格式，其中 x 表示字母、数字、下划线</p>
-<blockquote>
+<ul>
+<li>检测字符串是否满足<code>xxx-xxxx-xxx</code>格式，其中 x 表示字母、数字、下划线</li>
+</ul>
 <pre><code>// 正则表达式
 var reg = /^\w\w\w-\w\w\w\w-\w\w\w$/;
 // var reg = /^\w&#123;3&#125;-\w&#123;4&#125;-\w&#123;3&#125;$/;
+&gt;
+// 测试字符串
+var str1 = &quot;123-a123-bc9&quot;;
+var str2 = &quot;abc-_e13-cde&quot;;
+var str3 = &quot;@bc-_ae13-cde&quot;;
+console.log(reg.test(str1)); // true
+console.log(reg.test(str2)); // true
+console.log(reg.test(str3)); // false
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 测试字符串<br>var str1 &#x3D; “123-a123-bc9”;<br>var str2 &#x3D; “abc-_e13-cde”;<br>var str3 &#x3D; “@bc-_ae13-cde”;<br>console.log(reg.test(str1)); &#x2F;&#x2F; true<br>console.log(reg.test(str2)); &#x2F;&#x2F; true<br>console.log(reg.test(str3)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>检测字符串中是否有空白字符</p>
-<blockquote>
+<ul>
+<li>检测字符串中是否有空白字符</li>
+</ul>
 <pre><code>// 正则表达式
 var reg = /\s/;
+&gt;
+// 测试字符串
+var str1 = &quot;1 bc&quot;;
+var str2 = &quot; ab&quot;;
+var str3 = &quot;se1&quot;;
+console.log(reg.test(str1)); // true
+console.log(reg.test(str2)); // true
+console.log(reg.test(str3)); // false
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 测试字符串<br>var str1 &#x3D; “1 bc”;<br>var str2 &#x3D; “ ab”;<br>var str3 &#x3D; “se1”;<br>console.log(reg.test(str1)); &#x2F;&#x2F; true<br>console.log(reg.test(str2)); &#x2F;&#x2F; true<br>console.log(reg.test(str3)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>检测字符串的开头是否有空白字符</p>
-<blockquote>
+<ul>
+<li>检测字符串的开头是否有空白字符</li>
+</ul>
 <pre><code>// 正则表达式
 var reg = /^\s/;
+&gt;
+// 测试字符串
+var str1 = &quot;1 bc&quot;;
+var str2 = &quot; ab&quot;;
+var str3 = &quot;se1&quot;;
+console.log(reg.test(str1)); // false
+console.log(reg.test(str2)); // true
+console.log(reg.test(str3)); // false
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 测试字符串<br>var str1 &#x3D; “1 bc”;<br>var str2 &#x3D; “ ab”;<br>var str3 &#x3D; “se1”;<br>console.log(reg.test(str1)); &#x2F;&#x2F; false<br>console.log(reg.test(str2)); &#x2F;&#x2F; true<br>console.log(reg.test(str3)); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol>
 <li>注意事项 1：字符转义<blockquote>
 <ul>
@@ -697,71 +694,73 @@ var reg = /^\s/;
 <li><code>.</code>点在正则中是一个特殊字符，表示匹配除换行符之外的任何单个字符</li>
 <li>如果我们想检测字符串是否有<code>.</code>，则需要在其前加<code>\</code>来转义</li>
 </ul>
-<pre><code>// 正则表达式
-var reg1 = /^a\.b$/; // 字符串要有.字符
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 测试字符串<br>var str1 &#x3D; “abc”;<br>var str2 &#x3D; “a.b”;<blockquote>
-</blockquote>
-console.log(reg1.test(str1)); &#x2F;&#x2F; false<br>console.log(reg1.test(str2)); &#x2F;&#x2F; true<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>// 正则表达式
+var reg1 = /^a\.b$/; // 字符串要有.字符
+&gt;
+// 测试字符串
+var str1 = &quot;abc&quot;;
+var str2 = &quot;a.b&quot;;
+&gt;
+console.log(reg1.test(str1)); // false
+console.log(reg1.test(str2)); // true
+</code></pre>
 <blockquote>
 <blockquote>
 <p>不管一个<strong>符号</strong>(字母数字不行)有没有特殊意义，都可以在其之前加上一个<code>\</code>以确保它表达的是这个符号本身</p>
 </blockquote>
 </blockquote>
 <ol start="2">
-<li><p>注意事项 2：字符串中的 \</p>
-<blockquote>
+<li>注意事项 2：字符串中的 \<blockquote>
 <ul>
 <li>字符串中的<code>\</code>是一个转义符，如果想在字符串中正确的输出<code>\</code>，需要在他的前面再添加<code>\</code>转义</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str1 = &quot;a\\b&quot;;
 console.log(str1); // a\b
 </code></pre>
-</blockquote>
-</li>
-<li><p>注意事项 3：new RegExp() 中的 \</p>
-<blockquote>
+<ol start="3">
+<li>注意事项 3：new RegExp() 中的 \<blockquote>
 <ul>
 <li>如果使用<code>new RegExp()</code>写法创建正则表达式，<strong>反斜杠需要多写一个</strong>，原因就是因为字符串中的<code>\</code>本身是一个转义符</li>
 <li>如：<code>/^\d$/</code> 和 <code>new RegExp(&#39;^\\d$&#39;)</code> 是相同的意思</li>
 </ul>
-<pre><code>  var reg1 = /^\d&#123;5&#125;$/; //字符串是5位数字组成
-  var reg2 = new RegExp(&quot;^d&#123;5&#125;$&quot;); // 检测的字符串要是5个d
-  var reg3 = new RegExp(&quot;^\\d&#123;5&#125;$&quot;); // 字符串是5位数字组成
-</code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 测试字符<br>  var str1 &#x3D; “12345”;<br>  console.log(reg1.test(str1)); &#x2F;&#x2F;true;<br>  console.log(reg2.test(str1)); &#x2F;&#x2F;false<br>  console.log(reg2.test(“ddddd”)); &#x2F;&#x2F;true<br>  console.log(reg3.test(str1)); &#x2F;&#x2F;true</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code>  var reg1 = /^\d&#123;5&#125;$/; //字符串是5位数字组成
+  var reg2 = new RegExp(&quot;^d&#123;5&#125;$&quot;); // 检测的字符串要是5个d
+  var reg3 = new RegExp(&quot;^\\d&#123;5&#125;$&quot;); // 字符串是5位数字组成
+&gt;
+  // 测试字符
+  var str1 = &quot;12345&quot;;
+  console.log(reg1.test(str1)); //true;
+  console.log(reg2.test(str1)); //false
+  console.log(reg2.test(&quot;ddddd&quot;)); //true
+  console.log(reg3.test(str1)); //true
+</code></pre>
 <h3 id="四、方括号表示法"><a href="#四、方括号表示法" class="headerlink" title="四、方括号表示法"></a>四、方括号表示法</h3><blockquote>
 <p>在正则表达式语法中，<code>[]</code>方括号表示字符范围，在方括号中可以包含多个字符，表示匹配方括号中出现的<strong>任意一个字符</strong></p>
 </blockquote>
 <ol>
-<li><p>[] 中特殊字符</p>
-<blockquote>
+<li>[] 中特殊字符<blockquote>
 <ul>
 <li>在 <code>[]</code> 方括号中，对于<code>. * ?|/</code> 等这些特殊符号，<strong>没有任何特殊意义</strong>(不需要用<code>\</code>)，只是表示字符本身的意思</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var reg = /^a[123]b$/;
 console.log(reg.test(&quot;a1b&quot;)); // true
 console.log(reg.test(&quot;a3b&quot;)); // true
 console.log(reg.test(&quot;a4b&quot;)); // false
 </code></pre>
-</blockquote>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-中的破折号 -</p>
-<blockquote>
+<ol start="2">
+<li><input disabled="" type="checkbox"> 中的破折号 -<blockquote>
 <p>如果多个字符的编码顺序是连续的，可以仅指定开头和结尾字符，省略中间字符，使用破折号 <code>-</code>来<strong>指定字符范围</strong></p>
 </blockquote>
 </li>
@@ -802,33 +801,32 @@ console.log(reg.test(&quot;a4b&quot;)); // false
 <ul>
 <li>字符串是否是<code>0-5</code>之间的任意一个数字</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /^[0-5]$/;
 console.log(reg.test(&quot;1&quot;)); // true
 console.log(reg.test(&quot;2&quot;)); // true
 console.log(reg.test(&quot;6&quot;)); // false
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>验证字符串是否为 Java 或 java</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /^[Jj]ava$/;
 console.log(reg.test(&quot;java&quot;)); // true
 console.log(reg.test(&quot;Java&quot;)); // true
 console.log(reg.test(&quot;zJava&quot;)); // false
 </code></pre>
-</blockquote>
 <ul>
-<li>验证某字符串是否是 4 位小写字母，且最后一位不能是m<blockquote>
-<pre><code>var reg = /^[a-z]&#123;3&#125;[a-ln-z]$/;
-</code></pre>
-</blockquote>
-console.log(reg.test(“abcf”)); &#x2F;&#x2F; true<br>console.log(reg.test(“1abc”)); &#x2F;&#x2F; false<br>console.log(reg.test(“abcm”)); &#x2F;&#x2F;true<br>console.log(reg.test(“abmc”)); &#x2F;&#x2F;true<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li>验证某字符串是否是 4 位小写字母，且最后一位不能是m</li>
 </ul>
+<pre><code>var reg = /^[a-z]&#123;3&#125;[a-ln-z]$/;
+&gt;
+console.log(reg.test(&quot;abcf&quot;)); // true
+console.log(reg.test(&quot;1abc&quot;)); // false
+console.log(reg.test(&quot;abcm&quot;)); //true
+console.log(reg.test(&quot;abmc&quot;)); //true
+</code></pre>
 <ol start="3">
 <li>取反：[ ] 内添加^前缀<blockquote>
 <ul>
@@ -870,29 +868,27 @@ console.log(reg.test(“abcf”)); &#x2F;&#x2F; true<br>console.log(reg.test(“
 <ul>
 <li>字符串有 3 位字符组成，以小写字母开头，中间 1 位不能是数字，最后一位不能是大写字母</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var reg = /^[a-z][^\d][^A-Z]/;
 console.log(reg.test(&quot;asA&quot;));
 console.log(reg.test(&quot;a.s&quot;));
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <p>4、匹配所有字符</p>
 <blockquote>
 <ul>
 <li><code>[\d\D]</code> 可用来表示所有字符</li>
 <li><code>[\s\S]</code> 可用来表示所有字符</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;12ab./@*&amp;^%#&quot;;
 var bool = /^[\s\S]+$/.test(str);
 console.log(bool);
+&gt;
+var res = str.match(/[\s\S]+/g);
+console.log(res); // [&#39;12ab./@*&amp;^%#&#39;]
 </code></pre>
-</blockquote>
-<p>var res &#x3D; str.match(&#x2F;[\s\S]+&#x2F;g);<br>console.log(res); &#x2F;&#x2F; [‘12ab.&#x2F;@*&amp;^%#’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="五、量词"><a href="#五、量词" class="headerlink" title="五、量词"></a>五、量词</h3><blockquote>
 <p>如果需要重复匹配一些内容时，我们就需要使用到量词，主要包括以下几种</p>
 </blockquote>
@@ -932,41 +928,36 @@ console.log(bool);
 <ul>
 <li>验证字符串是否符合手机号码的规则：<code>11</code> 位数字，并且肯定要以 <code>1</code> 开头，第 2 位不能是 <code>1</code> 和 <code>2</code></li>
 </ul>
+</blockquote>
 <pre><code>var reg = /^[1][^12]\d&#123;9&#125;$/;
 console.log(reg.test(13978903158)); // true
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>判断某个字符串是否是 5 位，要求以大写字母开头，中间任意数字，最后以小写字母结尾</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /^[A-Z][0-9]&#123;3&#125;[a-z]$/;
 console.log(reg.test(&quot;A111z&quot;));// true
 </code></pre>
-</blockquote>
 <ul>
-<li><p>验证用户名是否符合以下规则：4-16位，只能是数字，字母，_下划线，- 减号组成</p>
-<blockquote>
+<li>验证用户名是否符合以下规则：4-16位，只能是数字，字母，_下划线，- 减号组成</li>
+</ul>
 <pre><code>var reg3 = /^[\w-]&#123;4,16&#125;$/;
 console.log(reg.test(&quot;a123s@&quot;)); // false
 </code></pre>
-</blockquote>
-</li>
-<li><p>判断某个字符串是否是以 http 或 https 开头</p>
-<blockquote>
+<ul>
+<li>判断某个字符串是否是以 http 或 https 开头</li>
+</ul>
 <pre><code>var reg = /^https?/;
 console.log(reg.test(&quot;http&quot;)); // true
 </code></pre>
-</blockquote>
-</li>
-<li><p>判断某个字符是否是小数，比如 3.1 43.01</p>
-<blockquote>
+<ul>
+<li>判断某个字符是否是小数，比如 3.1 43.01</li>
+</ul>
 <pre><code>var reg4 = /^[0-9]+\.\d+$/;
 console.log(reg4.test(&quot;1.209&quot;));
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="六、选择符"><a href="#六、选择符" class="headerlink" title="六、选择符"></a>六、选择符</h3><table>
 <thead>
 <tr>
@@ -992,70 +983,62 @@ console.log(reg4.test(&quot;1.209&quot;));
 <ul>
 <li>匹配字符串中只要包含 a 或 b 就可以</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /a|b/;
 console.log(reg.test(&quot;b&quot;)); //true
 console.log(reg.test(&quot;a&quot;)); //true
 console.log(reg.test(&quot;ab&quot;)); //true
 console.log(reg.test(&quot;ba&quot;)); //true
 </code></pre>
-</blockquote>
 <ul>
-<li><p>匹配字符串是否以 a 开始或 b 结尾</p>
-<blockquote>
+<li>匹配字符串是否以 a 开始或 b 结尾</li>
+</ul>
 <pre><code>var reg = /^a|b$/;
 console.log(reg.test(&quot;b&quot;)); //true
 console.log(reg.test(&quot;a&quot;)); //true
 console.log(reg.test(&quot;ab&quot;)); //true
 console.log(reg.test(&quot;ba&quot;)); //false
 </code></pre>
-</blockquote>
-</li>
-<li><p>匹配字符串是否是 a 或 b</p>
-<blockquote>
+<ul>
+<li>匹配字符串是否是 a 或 b</li>
+</ul>
 <pre><code>var reg = /^(a|b)$/; // 相当于只要匹配 /^a$/ 或/^b$/ 就可以
 console.log(reg.test(&quot;a&quot;)); // true
 console.log(reg.test(&quot;b&quot;)); // true
 console.log(reg.test(&quot;a11&quot;)); // false
 console.log(reg.test(&quot;ssb&quot;)); // false
 </code></pre>
-</blockquote>
-</li>
-<li><p>匹配字符串是否为 “current”或 “active”</p>
-<blockquote>
+<ul>
+<li>匹配字符串是否为 “current”或 “active”</li>
+</ul>
 <pre><code>var reg = /^(current|active)$/;
 console.log(reg.test(&quot;current&quot;)); // true
 console.log(reg.test(&quot;active&quot;)); // true
 console.log(reg.test(&quot;actives&quot;)); // false
 </code></pre>
-</blockquote>
-</li>
-<li><p>匹配字符串是否为 hobby 或 hobbies</p>
-<blockquote>
+<ul>
+<li>匹配字符串是否为 hobby 或 hobbies</li>
+</ul>
 <pre><code>var reg = /^hobb(y|ies)$/;
 console.log(reg.test(&quot;hobby&quot;));
 console.log(reg.test(&quot;hobbies&quot;));
 console.log(reg.test(&quot;hobbes&quot;));
 </code></pre>
-</blockquote>
-</li>
-<li><p>检测坐机电话是否是长沙或西安的 长沙区号：0731 、西安区号 029、北京区号 010</p>
-<blockquote>
+<ul>
+<li>检测坐机电话是否是长沙或西安的 长沙区号：0731 、西安区号 029、北京区号 010</li>
+</ul>
 <pre><code>// var reg1 = /^0731|029-\d&#123;7,8&#125;$/; // 错误写法
+&gt;
+var reg2 = /^(0731|029)-\d&#123;7,8&#125;$/; // 正确写法
+console.log(reg1.test(&quot;0731&quot;)); // true
+console.log(reg2.test(&quot;0731&quot;)); // false
+console.log(reg2.test(&quot;0731-1234567&quot;)); // true
 </code></pre>
-</blockquote>
-<p>var reg2 &#x3D; &#x2F;^(0731|029)-\d{7,8}$&#x2F;; &#x2F;&#x2F; 正确写法<br>console.log(reg1.test(“0731”)); &#x2F;&#x2F; true<br>console.log(reg2.test(“0731”)); &#x2F;&#x2F; false<br>console.log(reg2.test(“0731-1234567”)); &#x2F;&#x2F; true</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>零或非零开头的数字</p>
-<blockquote>
+<ul>
+<li>零或非零开头的数字</li>
+</ul>
 <pre><code>var reg =/^(0|[1-9][0-9]*)$/;
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="七、修饰符"><a href="#七、修饰符" class="headerlink" title="七、修饰符"></a>七、修饰符</h3><blockquote>
 <p>修饰符也叫作标志（flags）通过标志，正则表达式可实现高级搜索</p>
 </blockquote>
@@ -1092,67 +1075,73 @@ console.log(reg.test(&quot;hobbes&quot;));
 </tr>
 </tbody></table>
 <ol>
-<li><p>i 标志</p>
-<blockquote>
+<li>i 标志<blockquote>
 <ul>
 <li>检测字符串中是否包括<strong>大小写</strong>字母<code>a</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var reg = /a/i;
 console.log(reg.test(&quot;Abc&quot;)); // true
 console.log(reg.test(&quot;abc&quot;)); // true
 </code></pre>
-</blockquote>
-</li>
-<li><p>g 标志</p>
-<blockquote>
+<ol start="2">
+<li>g 标志<blockquote>
 <ul>
 <li>提取字符串中的数字</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var reg = /\d+/g;
 var str = &quot;1ab23c345&quot;;
 var arr = str.match(reg); // 将匹配成功的内容组成一个新的数组，并将这个数组返回
 console.log(arr); //  [&#39;1&#39;, &#39;23&#39;, &#39;345&#39;]
 </code></pre>
-</blockquote>
-</li>
-<li><p>修鉓符可以组合（叠加使用）</p>
-<blockquote>
+<ol start="3">
+<li>修鉓符可以组合（叠加使用）</li>
+</ol>
 <pre><code>var str = &quot;I Love You 清心&quot;;
 var res1 = str.replace(/[a-z]+/g, &quot;*&quot;); // 将小写字母替换成 *
 console.log(res1); // I L* Y* 清心
 var res2 = str.replace(/[a-z]+/gi, &quot;*&quot;); //将字母（不区分大小）替换成 *
 console.log(res2); // * * * 清心
 </code></pre>
-</blockquote>
-</li>
-<li><p>m 标志</p>
-<blockquote>
+<ol start="4">
+<li>m 标志<blockquote>
 <ul>
 <li>用于将内容视为<strong>多行匹配</strong>，主要针对有 <code>^</code>和 <code>$</code> 修饰的表达式</li>
 <li>m 修饰符的作用是修改<code>^</code>和<code>$</code>在正则表达式中的作用，让它们分别表<strong>行首和行尾</strong>示</li>
 </ul>
-<pre><code>// 提取字符串中##包裹的内容
-var str = `
-     #a1bs##
-     #s@wf#
-     #c09swwf#
-   `;
-</code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;^\s*#([\s\S]+?)#\s*$&#x2F;gm;<br>var result &#x3D; [];<br>var res &#x3D; str.replace(reg, function (v, p1) {<br>  result.push(p1);<br>});<br>console.log(result); &#x2F;&#x2F; [‘a1bs’, ‘s@wf’, ‘c09swwf’]</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 以下方式更简单，但如果当前行超过两个#,就会出错<br>var reg &#x3D; &#x2F;#([\s\S]+?)#&#x2F;g;<br>str.replace(reg, function (v, p1) {<br>  console.log(p1);<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<ul>
-<li>提取第一行中数字前面紧跟随着$或￥的数字（包括小数）<blockquote>
-<pre><code> var reg = /(?:(?&lt;=\$)|(?&lt;=\￥))(\d+(\.\d+)?)/g;
+<pre><code>// 提取字符串中##包裹的内容
 var str = `
+        #a1bs##
+        #s@wf#
+        #c09swwf#
+      `;
+&gt;
+var reg = /^\s*#([\s\S]+?)#\s*$/gm;
+var result = [];
+var res = str.replace(reg, function (v, p1) &#123;
+  result.push(p1);
+&#125;);
+console.log(result); // [&#39;a1bs&#39;, &#39;s@wf&#39;, &#39;c09swwf&#39;]
+&gt;
+// 以下方式更简单，但如果当前行超过两个#,就会出错
+var reg = /#([\s\S]+?)#/g;
+str.replace(reg, function (v, p1) &#123;
+  console.log(p1);
+&#125;);
+</code></pre>
+<ul>
+<li>提取第一行中数字前面紧跟随着$或￥的数字（包括小数）</li>
+</ul>
+<pre><code> var reg = /(?:(?&lt;=\$)|(?&lt;=\￥))(\d+(\.\d+)?)/g;
+  var str = `
  书￥20.00  
  笔$30.00
  本子$52
@@ -1160,34 +1149,34 @@ var str = `
  总费用:50.5元
  `;
  str.replace(reg, function (v, p1) &#123;
- console.log(p1);
+   console.log(p1);
  &#125;);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="5">
-<li><p>s 标志</p>
-<blockquote>
+<li>s 标志<blockquote>
 <ul>
 <li>允许 <code>.</code> 匹配换行符<blockquote>
 <p><code>.</code>：匹配除换行符之外的任何单个字符</p>
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = `ab\n12`;
 var reg = /^ab.12$/s;
 console.log(reg.test(str)); // true
 </code></pre>
-</blockquote>
-</li>
-<li><p>y 标志</p>
-<blockquote>
+<ol start="6">
+<li>y 标志<blockquote>
 <ul>
 <li>执行<code>“粘性（sticky）”</code>搜索，匹配从目标字符串的当前位置开始</li>
 <li>使用<code>g</code>模式匹配，会一直匹配，直到整个字符串都匹配完，而使用<code>y</code>模式后，如果从<code>lastIndex</code>开始匹配不成功，则后面有符合条件的也不匹配了</li>
 <li><code>y</code>与<code>g</code>模式<strong>不能共存</strong>，只能二选一，同时<code>matchAll</code> 不能用 y 模式</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = &quot;123b345ca&quot;;
 var reg = /\d&#123;2&#125;/g;
 console.log(reg.exec(str));
@@ -1196,43 +1185,52 @@ console.log(reg.exec(str));
 console.log(reg.lastIndex); // 6
 console.log(reg.exec(str));
 console.log(reg.lastIndex); // 0
+&gt;
+var reg = /\d&#123;2&#125;/y;
+console.log(reg.exec(str));
+console.log(reg.lastIndex); // 2
+console.log(reg.exec(str)); // null
+console.log(reg.lastIndex); // 0
 </code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;\d{2}&#x2F;y;<br>console.log(reg.exec(str));<br>console.log(reg.lastIndex); &#x2F;&#x2F; 2<br>console.log(reg.exec(str)); &#x2F;&#x2F; null<br>console.log(reg.lastIndex); &#x2F;&#x2F; 0</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>y 模式，主要用来提取要提取的内容是连续出现的，这样提取的效率会很高</li>
 </ul>
+</blockquote>
 <pre><code>var str =
   &quot;相关的学习QQ群:234566,90011933,30211123加入到对应群里可以获得相应的指导。以下是大神QQ群：34222222&quot;;
+&gt;
+var reg = /(\d+),?/y;
+reg.lastIndex = 9;
+var res = reg.exec(str);
+while (res) &#123;
+  console.log(res[1]);
+  res = reg.exec(str);
+&#125;
 </code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;(\d+),?&#x2F;y;<br>reg.lastIndex &#x3D; 9;<br>var res &#x3D; reg.exec(str);<br>while (res) {<br>  console.log(res[1]);<br>  res &#x3D; reg.exec(str);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>结合 match 使用</li>
 <li>要指定<code>lastIndex</code>，不然直接从0开始匹配，如果在0处没找到，就不会再找了</li>
 <li>从<code>lastIndex</code>开始匹配，如果找到了，就返回第一个完整的匹配及相关的捕获组。（与 exec 方法返回结果一样）；</li>
 </ul>
+</blockquote>
 <pre><code>var str =
   &quot;相关的学习QQ群:234566,90011933,30211123加入到对应群里可以获得相应的指导。以下是大神QQ群：34222222&quot;;
+&gt;
+var reg = /(\d+),?/y;
+reg.lastIndex = 9;
+var res1 = str.match(reg);
+var res2 = str.match(reg);
+var res3 = str.match(reg);
+var res4 = str.match(reg);
+console.log(res1);
+console.log(res2);
+console.log(res3);
+console.log(res4);
 </code></pre>
-</blockquote>
-<p>var reg &#x3D; &#x2F;(\d+),?&#x2F;y;<br>reg.lastIndex &#x3D; 9;<br>var res1 &#x3D; str.match(reg);<br>var res2 &#x3D; str.match(reg);<br>var res3 &#x3D; str.match(reg);<br>var res4 &#x3D; str.match(reg);<br>console.log(res1);<br>console.log(res2);<br>console.log(res3);<br>console.log(res4);</p>
-<blockquote>
-<pre><code>&lt;img src=&quot;y标志.png&quot;&gt;
-</code></pre>
-</blockquote>
+<img src="y标志.png">
+
 <ol start="7">
 <li>u 标志<blockquote>
 <ul>
@@ -1267,6 +1265,7 @@ console.log(reg.lastIndex); // 0
 </li>
 <li><code>ASCII</code>码中，一个英文字母（不分大小写）为一个字节，一个中文汉字为两个字节</li>
 </ul>
+</blockquote>
 <pre><code>let str = &quot;𝒳&quot;; // 占两个编码单元
 var reg1 = /^.$/g;
 var reg2 = /^.&#123;2&#125;$/g;
@@ -1275,7 +1274,6 @@ console.log(str.match(reg1)); // null
 console.log(str.match(reg2)); //[&#39;𝒳&#39;]
 console.log(str.match(reg3)); //[&#39;𝒳&#39;]
 </code></pre>
-</blockquote>
 <blockquote>
 <p>每个字符都有属性，但都需要结合 u 模式才有效。如</p>
 <ul>
@@ -1290,6 +1288,7 @@ console.log(str.match(reg3)); //[&#39;𝒳&#39;]
 </li>
 <li>使用方法：</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;￥IBC艾编程电话：12033322,网址:https://www.icodingedu.com,$ &quot;;
 var reg1 = /\p&#123;L&#125;+/gu; //字母和汉字
 var reg2 = /\p&#123;N&#125;+/gu; // 数字
@@ -1304,25 +1303,24 @@ console.log(str.match(reg4));
 console.log(str.match(reg5));
 console.log(str.match(reg6));
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>字符也有<code>unicode</code>文字系统属性<code>Script = 文字系统</code>，下面是使用<code>\p&#123;sc=Han&#125;</code>获取中文字符<code>han</code>为中文系统，其他语言请查看<a target="_blank" rel="noopener" href="http://www.unicode.org/standard/supported.html">http://www.unicode.org/standard/supported.html</a></li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;IBC艾编程官方网址：https://www.icodingedu.com&quot;;
 var reg = /\p&#123;sc=Han&#125;+/gu;
 console.log(str.match(reg)); // [&#39;艾编程官方网址&#39;]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>常用于匹配中文的正则如下</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /[\u4e00-\u9fff]+/g;
 var str = &quot;IBC艾编程官方网址：https://www.icodingedu.com&quot;;
 console.log(str.match(reg)); // [&#39;艾编程官方网址&#39;]
 </code></pre>
-</blockquote>
 <h3 id="八、正则相关方法"><a href="#八、正则相关方法" class="headerlink" title="八、正则相关方法"></a>八、正则相关方法</h3><table>
 <thead>
 <tr>
@@ -1390,7 +1388,6 @@ console.log(str.match(reg)); // [&#39;艾编程官方网址&#39;]
 <p>exec 方法，默认只会输出第一次匹配成功的结果，如果后续还有匹配成功的结果，将不会输出</p>
 </blockquote>
 </blockquote>
-<blockquote>
 <pre><code>var reg = /\d+[a-z]/;
 var str = &quot;ab23c345sa32&quot;;
 var arr = reg.exec(str);
@@ -1398,8 +1395,7 @@ console.log(arr); // 返回结果见下图
 console.log(reg.lastIndex); // 0   下次匹配的起始索引值
 </code></pre>
 <img src="exec方法-不加括号.png">
-</blockquote>
-<blockquote>
+
 <pre><code>var reg = /\d+[a-z]/;
 var str = &quot;ab23c345sa32&quot;;
 var arr = reg.exec(str);
@@ -1407,54 +1403,60 @@ console.log(arr); // 返回结果见下图
 console.log(reg.lastIndex); // 0   下次匹配的起始索引值
 </code></pre>
 <img src="exec方法-加括号.png">
-</blockquote>
-<blockquote>
+
 <pre><code>// 输出匹配成功的数组中的每一项的值
 console.log(arr[0]); // 拿到匹配成功的字符
 console.log(arr[1]); // 捕获组1
 console.log(arr[2]); // 捕获组1
 console.log(arr.index); // 匹配成功的字符串在原数组中的索引
 </code></pre>
-</blockquote>
 <ol start="2">
-<li><p>exec() 方法的逐条遍历</p>
-<blockquote>
+<li>exec() 方法的逐条遍历<blockquote>
 <ul>
 <li>当执行正则的 exec 方法时，如果正则中用g 修饰符，则 <code>RegExp</code> 对象是有状态的，也就是他会将上次成功匹配后的位置记录在他的<code>lastIndex</code>属性中</li>
 <li>利用上面这个特性，我们可以对单个字符串中的多次匹配结果进行逐条的遍历</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var reg = /\d+/g;
 var str = &quot;12ab23c345&quot;;
 var result1 = reg.exec(str);
 console.log(reg.lastIndex); // 2
+&gt;
+var result2 = reg.exec(str);
+console.log(reg.lastIndex); // 6
+&gt;
+var result3 = reg.exec(str);
+console.log(reg.lastIndex); // 10
+&gt;
+var result4 = reg.exec(str);
+console.log(reg.lastIndex); // 0
+&gt;
+console.log(result1, result2, result3, result4);
+//或者利用 while 循环来实现
+&gt;/**
+&gt; * search 将字符串中符合正则的字符组成数组输出
+&gt; * str 要搜索的字符串
+&gt; * reg 匹配的正则表达式
+&gt; */
+function search(str, reg) &#123;
+  var result = [];
+  var data = reg.exec(str);
+  while (data) &#123;
+    result.push(data[0]);
+    data = reg.exec(str);
+  &#125;
+  return result;
+&#125;
+&gt;
+// 应用
+var reg = /\d+/g;
+var str = &quot;12ab23c345&quot;;
+console.log(search(str, reg)); // [&#39;12&#39;, &#39;23&#39;, &#39;345&#39;]
 </code></pre>
-</blockquote>
-<p>var result2 &#x3D; reg.exec(str);<br>console.log(reg.lastIndex); &#x2F;&#x2F; 6</p>
-<blockquote>
-</blockquote>
-<p>var result3 &#x3D; reg.exec(str);<br>console.log(reg.lastIndex); &#x2F;&#x2F; 10</p>
-<blockquote>
-</blockquote>
-<p>var result4 &#x3D; reg.exec(str);<br>console.log(reg.lastIndex); &#x2F;&#x2F; 0</p>
-<blockquote>
-</blockquote>
-<p>console.log(result1, result2, result3, result4);<br>&#x2F;&#x2F;或者利用 while 循环来实现</p>
-<blockquote>
-<p>&#x2F;**</p>
-<ul>
-<li>search 将字符串中符合正则的字符组成数组输出</li>
-<li>str 要搜索的字符串</li>
-<li>reg 匹配的正则表达式<br>*&#x2F;<br>function search(str, reg) {<br>var result &#x3D; [];<br>var data &#x3D; reg.exec(str);<br>while (data) {<br> result.push(data[0]);<br> data &#x3D; reg.exec(str);<br>}<br>return result;<br>}</li>
-</ul>
-</blockquote>
-<p>&#x2F;&#x2F; 应用<br>var reg &#x3D; &#x2F;\d+&#x2F;g;<br>var str &#x3D; “12ab23c345”;<br>console.log(search(str, reg)); &#x2F;&#x2F; [‘12’, ‘23’, ‘345’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>注意事项</p>
-<blockquote>
+<ol start="3">
+<li>注意事项<blockquote>
 <ul>
 <li>如果正则表达式在调用<code>exec</code>方法时，正则使用了<code>g</code>模式，则不要用<strong>同一个正则匹配多个字符串</strong></li>
 <li>如果需要，则要修正<code>lastIndex</code>的值：<code>reg.lastIndex = 0</code></li>
@@ -1463,7 +1465,6 @@ console.log(reg.lastIndex); // 2
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>var reg = /(\d+)([a-z])/g;
 var str1 = &quot;ab23c345sa32&quot;;
 var str2 = &quot;12ac345sa32&quot;;
@@ -1474,7 +1475,6 @@ reg.lastIndex = 0;
 console.log(reg.exec(str2));
 console.log(reg.lastIndex);
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>温馨提示</p>
@@ -1529,22 +1529,24 @@ console.log(reg.lastIndex);
 <ul>
 <li>search 方法检索 love 在字符串中的位置</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;I love you&quot;;
 //   var reg = /love/;
 var reg = &quot;love&quot;;
 console.log(str.search(reg)); //2
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>search 方法检索字符串中 <code>icoding</code> 出现的位置，不分大小写</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;IcodingEdu&quot;;
 var reg1 = /icoding/i;
 var reg2 = &quot;icoding&quot;;
 console.log(str.search(reg1)); //0
 console.log(str.search(reg2)); //-1
 </code></pre>
+<blockquote>
 <ul>
 <li>字符串不能做到不分大小写<blockquote>
 <p>括号里既可以用字符串也可以用正则表达式，但正则表达式更加全能</p>
@@ -1567,22 +1569,22 @@ console.log(str.search(reg2)); //-1
 <ul>
 <li>提取出字符串中所有的 a</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;aabacaaadae&quot;;
 var reg1 = /a+/;
 var reg2 = /a+/g;
 console.log(str.match(reg1)); //[&#39;aa&#39;, index: 0, input: &#39;aabacaaadae&#39;, groups: undefined]
 console.log(str.match(reg2)); //[&quot;aa&quot;,&quot;a&quot;,&quot;aaa&quot;,&quot;a&quot;]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>提取颜色值中的数字</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;rbga(23,3,44,0.1)&quot;;
 var reg = /[\d]&#123;1,3&#125;(\.\d)?/g;
 console.log(str.match(reg)); //[&#39;23&#39;, &#39;3&#39;, &#39;44&#39;, &#39;0.1&#39;]
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>matchAll 方法<blockquote>
 <ul>
@@ -1602,6 +1604,7 @@ console.log(str.match(reg)); //[&#39;23&#39;, &#39;3&#39;, &#39;44&#39;, &#39;0.
 <ul>
 <li>该方法得到的是迭代器，因此需要用<code>for...of</code>拿到里面的值</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;12ab34scw563c&quot;;
 var reg = /\d+[a-z]/g;
 var matches = str.matchAll(reg); //得到的是迭代器
@@ -1612,11 +1615,12 @@ for (var item of matches) &#123;
 &#125;
 </code></pre>
 <img src="matchAll-1.png">
-</blockquote>
+
 <blockquote>
 <ul>
 <li>如果想得到表达式结果的一部分，就给那部分加括号</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;12ab34scw563c&quot;;
 var reg = /(\d+)[a-z]/g;
 var matches = str.matchAll(reg); //得到的是迭代器
@@ -1627,7 +1631,7 @@ for (var item of matches) &#123;
 &#125;
 </code></pre>
 <img src="matchAll-2.png">
-</blockquote>
+
 <ol start="4">
 <li>replace 方法<blockquote>
 <ul>
@@ -1643,18 +1647,20 @@ for (var item of matches) &#123;
 <ul>
 <li>&#x2F;&#x2F;将字符串中的字母全部替换成*</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;abc123fe4swfe56sw342&quot;;
 var reg = /[^0-9]/g;
 console.log(str.replace(reg, &quot;*&quot;)); //***123**4****56**342
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>脏字过滤，将字符串中的所有垃圾，替换成*号</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;垃圾还是垃圾，把垃圾&quot;;
 console.log(str.replace(/垃圾/g, &quot;*&quot;)); //*还是*，把*
 </code></pre>
+<blockquote>
 <blockquote>
 <p>replace 方法与原子组相关的结合，还有第二个参数为函数的情况，后面讲原子组是再细讲解</p>
 </blockquote>
@@ -1665,26 +1671,27 @@ console.log(str.replace(/垃圾/g, &quot;*&quot;)); //*还是*，把*
 <li>使用正则表达式或一个固定的字符串来分隔一个字符串，并将分隔后的子字符串存储到数组中</li>
 <li>返回结果为分隔后的字符串形成的数组</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>str.split([separator[, limit]])
 // separator 分隔符
 // limit  整数，限定返回的分割片段数量`
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>用数字来分隔字符串</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;ab12de34swfe4fe6&quot;;
 var result = str.split(/\d+/);
 console.log(result); // [&#39;ab&#39;, &#39;de&#39;, &#39;swfe&#39;, &#39;fe&#39;, &#39;&#39;]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>用<code>/</code>或<code>-</code>来分隔日期</li>
 </ul>
+</blockquote>
 <pre><code>var str1 = &quot;2022/09/08&quot;;
 var str2 = &quot;2022-07-08&quot;;
 console.log(str1.split(/[\-/]/)); // [&#39;2022&#39;, &#39;09&#39;, &#39;08&#39;]
@@ -1692,7 +1699,6 @@ console.log(str2.split(/[\-/]/)); // [&#39;2022&#39;, &#39;07&#39;, &#39;08&#39
 // 分隔后，我只想要年份和月份
 console.log(str1.split(/[\-/]/, 2)); // [&#39;2022&#39;, &#39;09&#39;]
 </code></pre>
-</blockquote>
 <h3 id="十、原子组"><a href="#十、原子组" class="headerlink" title="十、原子组"></a>十、原子组</h3><blockquote>
 <ul>
 <li>在正则中我们可以利用<code>()</code>对匹配项进行分组，并能记住该匹配项等。</li>
@@ -1746,24 +1752,24 @@ console.log(str1.split(/[\-/]/, 2)); // [&#39;2022&#39;, &#39;09&#39;]
 <ul>
 <li>上一节我们使用<code>[\-/]</code>来匹配<code>-</code>和<code>/</code>，但不能保证前后使用的符号相同</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var dateString1 = &quot;2022-2/08&quot;;
 var reg = /^\d&#123;4&#125;([-/])\d&#123;1,2&#125;([-/])\d&#123;1,2&#125;$/;
 console.log(reg.test(dateString1)); //true
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>在这里，可使用<code>\1</code>替换第二个<code>([-/])</code>，就可确保前后符号一样</li>
 </ul>
+</blockquote>
 <pre><code>var dateString1 = &quot;2022-2/08&quot;;
 var dateString2 = &quot;2022-2-08&quot;;
 var reg = /^\d&#123;4&#125;([-/])\d&#123;1,2&#125;\1\d&#123;1,2&#125;$/;
 console.log(reg.test(dateString1)); //false
 console.log(reg.test(dateString2)); //true
 </code></pre>
-</blockquote>
 <ol start="2">
 <li>替换环节<blockquote>
 <ul>
@@ -1773,25 +1779,21 @@ console.log(reg.test(dateString2)); //true
 </li>
 </ol>
 <ul>
-<li><p>案例： 将日期2022-09-08 倒过来展示08-09-2022</p>
-<blockquote>
+<li>案例： 将日期2022-09-08 倒过来展示08-09-2022</li>
+</ul>
 <pre><code>var dateString = &quot;2022-09-08&quot;;
 var reg = /^(\d&#123;4&#125;)([\-/])(\d&#123;1,2&#125;)\2(\d&#123;1,2&#125;)$/;
 var rep = dateString.replace(reg, &quot;$4$2$3$2$1&quot;);
 console.log(rep); //08-09-2022
 </code></pre>
-</blockquote>
-</li>
-<li><p>案例： 将(010)12398765 更改变010-12398765</p>
-<blockquote>
+<ul>
+<li>案例： 将(010)12398765 更改变010-12398765</li>
+</ul>
 <pre><code>var str = &quot;(010)12398765&quot;;
 var reg = /^\((\d&#123;3,4&#125;)\)(\d&#123;8&#125;)$/g;
 var rep = str.replace(reg, &quot;$1$2&quot;);
 console.log(rep); //01012398765
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li>在正则表达式替换环节，<code>$&amp;</code>表示整个用于匹配的<strong>原字符串</strong></li>
@@ -1805,12 +1807,11 @@ console.log(rep); //01012398765
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<pre><code>&lt;div class=&quot;info&quot;&gt;
+<pre><code>&gt;&lt;div class=&quot;info&quot;&gt;
   艾编程是在大数据人工智能时代高速发展的今天成立的一家以提供各行业商业项目研发解决方案为核心的在线教育学习平台。
-&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var info = document.querySelector(&quot;.info&quot;);
   var inner = info.innerHTML;
   var reg = /艾编程/;
@@ -1818,9 +1819,8 @@ console.log(rep); //01012398765
     reg,
     &quot;&lt;a href=&#39;http://www.icodingedu.com&#39;&gt;$&amp;&lt;/a&gt;&quot;
   );
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意： 在数捕获括号时，从左往右数<code>(</code>括号个数</p>
@@ -1828,6 +1828,7 @@ console.log(rep); //01012398765
 <ul>
 <li>第一个<code>(</code>就代表<code>$1</code></li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;12abs#B@12abs12#B@#B@&quot;;
 var reg = /^((\d+)[a-z]+)((#)([A-Z]@))\1\2\3\4\5$/;
 console.log(reg.test(str));
@@ -1837,7 +1838,6 @@ console.log(reg.test(str));
 // \4   (#)
 // \5  ([A-Z]@)
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>替换环节，第二个参数为函数<blockquote>
 <ul>
@@ -1849,6 +1849,9 @@ console.log(reg.test(str));
 <li>input 为原始匹配的字符串</li>
 <li>groups 捕获组对象（具名捕获组组成的一个对象）</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = &quot;12aw332sewe244sw&quot;;
 var reg = /(?&lt;number&gt;\d+)/g;
 str.replace(reg, function (v, p1, index, s, groups) &#123;
@@ -1856,61 +1859,58 @@ str.replace(reg, function (v, p1, index, s, groups) &#123;
   console.log(groups.number);
 &#125;);
 </code></pre>
-<img src="替换环节.png"></blockquote>
-</li>
-</ol>
+<img src="替换环节.png">
+
 <ul>
 <li>不设捕获组时<blockquote>
 <ul>
 <li><code>str.replace(regexp,function(v,p1,p2,index,input,groups))</code>中的p1就会表示index的值，p2表示inputs的值，以此类推</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var str = &quot;12aw332sewe244sw&quot;;
 var reg = /\d+[a-z]/g;
 str.replace(reg, function (v, p1, index, input, groups) &#123;
-console.log(v, p1, index, input, groups);
+  console.log(v, p1, index, input, groups);
 &#125;);
 //12a 0 12aw332sewe244sw undefined undefined
 //332s 4 12aw332sewe244sw undefined undefined
 //244s 11 12aw332sewe244sw undefined undefined
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="x-非捕获组"><a href="#x-非捕获组" class="headerlink" title="(?:x)非捕获组"></a><code>(?:x)</code>非捕获组</h4><blockquote>
 <ul>
 <li>非捕获组 匹配<code>x</code>但是<strong>不记住匹配项</strong>。这种括号叫作非捕获括号</li>
 <li>使得你能够定义与正则表达式运算符一起使用的子表达式</li>
 </ul>
+</blockquote>
 <pre><code>var str1 = &quot;ucaaauca&quot;;
 var reg1 = /uca+/g; // 表示a出现1次或多次
 var reg2 = /(uca)+/g; // 表示uca整体出现1次或多次
 console.log(str1.match(reg1));
 console.log(str1.match(reg2));
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>如果不想记住<code>()</code>中的匹配项，则可以用<code>?:</code></li>
 </ul>
+</blockquote>
 <pre><code>var str1 = &quot;ucaaauca&quot;;
 var reg1 = /(uca)+/g; // 表示uca整体出现1次或多次
 var reg2 = /(?:uca)+/g; // 表示uca整体出现1次或多次
 str1.replace(reg1, function (v, p1) &#123;
   console.log(p1);
 &#125;);
+&gt;
+str1.replace(reg2, function (v, p1) &#123;
+  console.log(p1); //并没有捕获组内容，打印内容为捕获成功字符串的起始索引
+&#125;);
 </code></pre>
-</blockquote>
-<p>str1.replace(reg2, function (v, p1) {<br>  console.log(p1); &#x2F;&#x2F;并没有捕获组内容，打印内容为捕获成功字符串的起始索引<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="x-具名捕获组"><a href="#x-具名捕获组" class="headerlink" title="(?&lt;name&gt;x)具名捕获组"></a><code>(?&lt;name&gt;x)</code>具名捕获组</h4><blockquote>
 <ul>
 <li>匹配 “x” 并将其存储在返回的匹配项的<code>groups</code>属性中，该属性位于<code>&lt;name&gt;</code>指定的名称下</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var str = &quot;abc123def576&quot;;
 var reg = /[a-z]+(?&lt;number&gt;\d+)/g;
 var number = []; // 用来存放结果数据
@@ -1921,60 +1921,51 @@ while (arr) &#123;
 &#125;
 console.log(number);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li><strong>在正则表达式中，引用具名捕获组</strong>，可以使用<code>\k&lt;name&gt;</code>的写法，当然之前的<code>\n（n 是一个整数）</code>的写法也是可行的</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;a111222&quot;;
 var reg = /[a-z](?&lt;number&gt;1)\k&lt;number&gt;\1/g;
 console.log(str.match(reg)); // a111
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>在 <code>replace</code> 方法中，使用<code>$&lt;name&gt;</code>引用具名组</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;a111222&quot;;
 var reg = /[a-z](?&lt;number&gt;1)\k&lt;number&gt;\1/g;
 console.log(str.replace(reg, &quot;*$&lt;number&gt;*&quot;)); // *1*222
 </code></pre>
-</blockquote>
-<h4 id="表示匹配成功的内容的左边"><a href="#表示匹配成功的内容的左边" class="headerlink" title="&#96;$&#96;&#96;表示匹配成功的内容的左边"></a>&#96;$&#96;&#96;表示匹配成功的内容的<strong>左边</strong></h4><blockquote>
-<pre><code>var str = &quot;abcA123&quot;;
+<h4 id="表示匹配成功的内容的左边"><a href="#表示匹配成功的内容的左边" class="headerlink" title="&#96;$&#96;&#96;表示匹配成功的内容的左边"></a>&#96;$&#96;&#96;表示匹配成功的内容的<strong>左边</strong></h4><pre><code>var str = &quot;abcA123&quot;;
 var reg = /\A/;
 var res = str.replace(reg, &quot;$`&quot;);
 console.log(res); // abcabc123
 </code></pre>
-</blockquote>
-<h4 id="’-表示匹配成功的内容的右边"><a href="#’-表示匹配成功的内容的右边" class="headerlink" title="$’ 表示匹配成功的内容的右边"></a>$’ 表示匹配成功的内容的右边</h4><blockquote>
-<pre><code>var str = &quot;abcA123&quot;;
+<h4 id="’-表示匹配成功的内容的右边"><a href="#’-表示匹配成功的内容的右边" class="headerlink" title="$’ 表示匹配成功的内容的右边"></a>$’ 表示匹配成功的内容的右边</h4><pre><code>var str = &quot;abcA123&quot;;
 var reg = /\A/;
 var res = str.replace(reg, &quot;$&#39;&quot;);
 console.log(res); // abc123123
 </code></pre>
-</blockquote>
 <h3 id="十一、？禁止贪婪"><a href="#十一、？禁止贪婪" class="headerlink" title="十一、？禁止贪婪"></a>十一、<code>？</code>禁止贪婪</h3><blockquote>
 <p><code>？</code>如果紧跟在任何量词<code>\*、 +、? 或&#123;&#125;</code>的后面，将会使量词变为<strong>非贪婪</strong>（匹配尽量少的字符），和缺省使用的贪婪模式（匹配尽可能多的字符）正好相反</p>
 <blockquote>
 <p>匹配尽量少的字符，但并不等于只匹配一个</p>
 </blockquote>
 </blockquote>
-<blockquote>
 <pre><code>var str = &quot;abcddddcdddd&quot;;
 var reg = /cd+?/g;
 var res = str.match(reg);
 console.log(res); // [&#39;cd&#39;, &#39;cd&#39;]
 </code></pre>
-</blockquote>
-<blockquote>
 <pre><code>var str = &quot;abdacd&quot;;
 var reg1 = /\w+d/g;
 var reg2 = /\w+?d/g;
 console.log(str.match(reg1));//[&#39;abdacd&#39;]
 console.log(str.match(reg2));//[&#39;abd&#39;,&#39;acd&#39;]
 </code></pre>
-</blockquote>
 <ul>
 <li><p>拿到捕获组内容的方法</p>
 <blockquote>
@@ -1985,50 +1976,54 @@ console.log(str.match(reg2));//[&#39;abd&#39;,&#39;acd&#39;]
 </blockquote>
 </li>
 <li><p>案例：匹配出 span 标签中的内容</p>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- &lt;span&gt;清心&lt;/span&gt;
- &lt;span&gt;艾编程&lt;/span&gt;
- &lt;span&gt;前端&lt;/span&gt;
-&lt;/div&gt;
-&lt;script&gt;
+</li>
+</ul>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;span&gt;清心&lt;/span&gt;
+&gt;  &lt;span&gt;艾编程&lt;/span&gt;
+&gt;  &lt;span&gt;前端&lt;/span&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
 var box = document.querySelector(&quot;.box&quot;);
 var inner = box.innerHTML;
 var reg = /&lt;span&gt;([\s\S]+?)&lt;\/span&gt;/g;
 var result = [];
+&gt;
+//match方法
+var matches = inner.matchAll(reg);
+for (var item of matches) &#123;
+  result.push(item[1]);
+&#125;
+console.log(result);// [&#39;清心&#39;, &#39;艾编程&#39;, &#39;前端&#39;]
+&gt;
+//exec方法
+var item = reg.exec(inner);
+while (item) &#123;
+  result.push(item[1]);
+  item = reg.exec(inner);
+&#125;
+console.log(result);// [&#39;清心&#39;, &#39;艾编程&#39;, &#39;前端&#39;]
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;match方法<br>var matches &#x3D; inner.matchAll(reg);<br>for (var item of matches) {<br>result.push(item[1]);<br>}<br>console.log(result);&#x2F;&#x2F; [‘清心’, ‘艾编程’, ‘前端’]</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F;exec方法<br>var item &#x3D; reg.exec(inner);<br>while (item) {<br>result.push(item[1]);<br>item &#x3D; reg.exec(inner);<br>}<br>console.log(result);&#x2F;&#x2F; [‘清心’, ‘艾编程’, ‘前端’]</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>案例：匹配对应的标签</p>
-<blockquote>
-<pre><code>&lt;div class=&quot;box&quot;&gt;
- 我秒是我
- &lt;p&gt;艾编程&lt;/p&gt;
- &lt;h3&gt;清心老师&lt;/h3&gt;
- &lt;div&gt;前端内容&lt;/div&gt;
- &lt;p&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-var box = document.querySelector(&quot;.box&quot;);
-var innerHTML = box.innerHTML;
-var reg = /&lt;([a-z]+\d?)&gt;[\s\S]*?&lt;\/\1&gt;/gi;
-var res = innerHTML.match(reg);
-console.log(res);
-&lt;/script&gt;
-</code></pre>
-</blockquote>
-</li>
+<ul>
+<li>案例：匹配对应的标签</li>
 </ul>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  我秒是我
+&gt;  &lt;p&gt;艾编程&lt;/p&gt;
+&gt;  &lt;h3&gt;清心老师&lt;/h3&gt;
+&gt;  &lt;div&gt;前端内容&lt;/div&gt;
+&gt;  &lt;p&gt;&lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  var innerHTML = box.innerHTML;
+  var reg = /&lt;([a-z]+\d?)&gt;[\s\S]*?&lt;\/\1&gt;/gi;
+  var res = innerHTML.match(reg);
+  console.log(res);
+&gt;&lt;/script&gt;
+</code></pre>
 <h3 id="十二、断言匹配"><a href="#十二、断言匹配" class="headerlink" title="十二、断言匹配"></a>十二、断言匹配</h3><table>
 <thead>
 <tr>
@@ -2065,20 +2060,21 @@ console.log(res);
 <ul>
 <li>将字符串中a后面紧跟随c的a替换成*号</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = &quot;abcacaecac&quot;;
 var reg = /a(?=c)/g;
 str = str.replace(reg, &quot;*&quot;);
 console.log(str); // abc*caec*c
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>将字符串中<code>web前端</code>或<code>java</code>后面紧跟随<code>视频</code>的 web 前端和 java 变成红色 （字母不区分大小写）</li>
 </ul>
-<pre><code>&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var str =
     &quot;艾编程教育提供相关Web前端、java教程，相关视频地址：web前端视频，Java视频等&quot;;
@@ -2087,29 +2083,28 @@ console.log(str); // abc*caec*c
   box.innerHTML = str.replace(reg, function (v) &#123;
     return &quot;&lt;span style=&#39;color:red&#39;&gt;&quot; + v + &quot;&lt;/span&gt;&quot;;
   &#125;);
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="2">
-<li><p>理解<code>x(?=y)(?=z)</code>匹配</p>
-<blockquote>
+<li>理解<code>x(?=y)(?=z)</code>匹配<blockquote>
 <ul>
 <li>这是不成立的：<code>x(?=y)(?=z)</code>表示<code>x</code>的后面（右边）要紧跟随着<code>y</code>，同时又要紧跟随着<code>z</code></li>
 <li>只有一种情况下成立：y&#x3D;z时</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var reg = /1(?=a)(?=A)/g; //这种情况肯定是不成立的
 var str = &quot;1aA&quot;;
 console.log(str.match(reg)); // null
+&gt;
+// 添加i标志，也就是对a和A不区分大小写时，也就成立
+var reg = /1(?=a)(?=A)/gi;
+var str = &quot;1a&quot;;
+console.log(str.match(reg)); // [&#39;1&#39;]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 添加i标志，也就是对a和A不区分大小写时，也就成立<br>var reg &#x3D; &#x2F;1(?&#x3D;a)(?&#x3D;A)&#x2F;gi;<br>var str &#x3D; “1a”;<br>console.log(str.match(reg)); &#x2F;&#x2F; [‘1’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>理解<code>x((?=y)|(?=z))</code></p>
-<blockquote>
+<ol start="3">
+<li>理解<code>x((?=y)|(?=z))</code><blockquote>
 <ul>
 <li>如果要表示<code>x</code>的后面（右边）要紧跟随着<code>y</code>或紧跟随着<code>z</code></li>
 </ul>
@@ -2117,15 +2112,13 @@ console.log(str.match(reg)); // null
 </li>
 </ol>
 <ul>
-<li>匹配 a 后面紧跟 1 或紧跟随 2 的 a，替换成 * 号<blockquote>
+<li>匹配 a 后面紧跟 1 或紧跟随 2 的 a，替换成 * 号</li>
+</ul>
 <pre><code>var reg = /a((?=1)|(?=2))/g;
 console.log(&quot;a1ab&quot;.replace(reg, &quot;*&quot;)); // *1ab
 console.log(&quot;a2ac&quot;.replace(reg, &quot;*&quot;)); // *2ac
 console.log(&quot;a3ad&quot;.replace(reg, &quot;*&quot;)); // a3ad
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="4">
 <li>理解 <code>/(?=.*y)(?=.*z)/</code> 匹配<blockquote>
 <ul>
@@ -2135,35 +2128,31 @@ console.log(&quot;a3ad&quot;.replace(reg, &quot;*&quot;)); // a3ad
 </li>
 </ol>
 <ul>
-<li><p>某个字符串中必需出现 艾编程</p>
-<blockquote>
+<li>某个字符串中必需出现 艾编程</li>
+</ul>
 <pre><code>var reg = /艾编程/;
 console.log(reg.test(&quot;艾编程教育&quot;)); //true
 console.log(reg.test(&quot;西安艾编程&quot;)); //true
 console.log(reg.test(&quot;艾编程&quot;)); //true
 </code></pre>
-</blockquote>
-</li>
-<li><p>匹配的字符串中必需包含：艾编程、前端 这两组词</p>
-<blockquote>
+<ul>
+<li>匹配的字符串中必需包含：艾编程、前端 这两组词<blockquote>
 <ul>
 <li>由于不需要跟在谁后面，所以不写x</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>var reg = /(?=.*艾编程)(?=.*前端)/;
 console.log(reg.test(&quot;艾编程有前端课程&quot;));//true
 console.log(&quot;艾编程有前端课程&quot;.match(reg)); //[&quot;&quot;]
+&gt;
+console.log(reg.test(&quot;前端方面的课程艾编程有&quot;));//true
+console.log(&quot;前端方面的课程艾编程有&quot;.match(reg)); //[&quot;&quot;]
+&gt;
+console.log(reg.test(&quot;艾编程有web端&quot;)); //false
+console.log(&quot;艾编程有web端&quot;.match(reg)); //null
 </code></pre>
-</blockquote>
-<p>console.log(reg.test(“前端方面的课程艾编程有”));&#x2F;&#x2F;true<br>console.log(“前端方面的课程艾编程有”.match(reg)); &#x2F;&#x2F;[“”]</p>
-<blockquote>
-</blockquote>
-<p>console.log(reg.test(“艾编程有web端”)); &#x2F;&#x2F;false<br>console.log(“艾编程有web端”.match(reg)); &#x2F;&#x2F;null</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>注意，同时限制长度和所包含内容时</p>
@@ -2173,25 +2162,28 @@ console.log(&quot;艾编程有前端课程&quot;.match(reg)); //[&quot;&quot;]
 </ul>
 </blockquote>
 <ul>
-<li><p>字符串的长度为 8 位，但必需包含：艾编程、前端 这两组词</p>
-<blockquote>
+<li>字符串的长度为 8 位，但必需包含：艾编程、前端 这两组词</li>
+</ul>
 <pre><code>// 某个字符串中必需包含 艾编程、前端
 var reg = /^(?=.*艾编程)(?=.*前端).&#123;8&#125;$/g;
 console.log(reg.test(&quot;艾编程有前端课程&quot;)); // true
 console.log(reg.test(&quot;艾编程有web前端&quot;)); // false
 console.log(reg.test(&quot;艾编程前端&quot;)); // true
+&gt;
+var str1 = &quot;艾编程有前端课程&quot;;
+var str2 = &quot;艾编程有web前端&quot;;
+var str3 = &quot;艾编程前端&quot;;
+console.log(str1.match(reg)); //[&#39;艾编程有前端课程&#39;]
+console.log(str2.match(reg)); // null
+console.log(str3.match(reg)); // null
 </code></pre>
-</blockquote>
-<p>var str1 &#x3D; “艾编程有前端课程”;<br>var str2 &#x3D; “艾编程有web前端”;<br>var str3 &#x3D; “艾编程前端”;<br>console.log(str1.match(reg)); &#x2F;&#x2F;[‘艾编程有前端课程’]<br>console.log(str2.match(reg)); &#x2F;&#x2F; null<br>console.log(str3.match(reg)); &#x2F;&#x2F; null</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>匹配的字符串长度为6-8位的，但必须包含至少一个大写字母、一个小写字母和一个数字，同时不能有空白字符</p>
-<blockquote>
+<ul>
+<li>匹配的字符串长度为6-8位的，但必须包含至少一个大写字母、一个小写字母和一个数字，同时不能有空白字符<blockquote>
 <ul>
 <li><code>\S</code>：匹配任意不是空白符的字符</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)\S&#123;6,8&#125;$/;
 console.log(reg.test(&quot;A123q222&quot;)); // true
@@ -2199,9 +2191,6 @@ console.log(reg.test(&quot;2Wswee222&quot;)); // false
 console.log(reg.test(&quot;sww1A&quot;)); // false
 console.log(reg.test(&quot;sww1A2&quot;)); // true
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id=""><a href="#" class="headerlink" title="(?&lt;&#x3D;y)x"></a>(?&lt;&#x3D;y)x</h4><blockquote>
 <ul>
 <li>后行断言：<code>x</code>的左边紧跟随<code>y</code>时，匹配<code>x</code></li>
@@ -2213,60 +2202,57 @@ console.log(reg.test(&quot;sww1A2&quot;)); // true
 <li>提取 x 前面（左边）紧跟随 xxx 字符的 x</li>
 </ol>
 <ul>
-<li><p>获取数字前面（左边）紧跟随字母的数字</p>
-<blockquote>
+<li>获取数字前面（左边）紧跟随字母的数字</li>
+</ul>
 <pre><code>var str = &quot;a12bc43bc32&quot;;
 var reg = /(?&lt;=\w)\d+/g;
 console.log(str.match(reg)); // [&#39;12&#39;, &#39;43&#39;, &#39;32&#39;]
 </code></pre>
-</blockquote>
-</li>
-<li><p>将 11 位电话号码的后 4 位替换成 ****号</p>
-<blockquote>
+<ul>
+<li>将 11 位电话号码的后 4 位替换成 ****号</li>
+</ul>
 <pre><code>// 将电话号码的后四位改变****
 var tel = &quot;清心电话:12323457612&quot;;
 var reg = /(?&lt;=\d&#123;7&#125;)\d&#123;4&#125;/g;
 var res = tel.replace(reg, &quot;****&quot;);
 console.log(res); // 清心电话:1232345****
 </code></pre>
-</blockquote>
-</li>
-<li><p>将视频的前面是前端的”视频”替换成”视频教程”</p>
-<blockquote>
+<ul>
+<li>将视频的前面是前端的”视频”替换成”视频教程”</li>
+</ul>
 <pre><code>var reg = /(?&lt;=前端)视频/g;
 var str = &quot;艾编程前端视频,java视频&quot;;
 console.log(str.match(reg));
 var res = str.replace(reg, function (v) &#123;
-return v + &quot;教程&quot;;
+  return v + &quot;教程&quot;;
 &#125;);
 console.log(res);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="2">
-<li><p>理解(?&lt;&#x3D;y)(?&lt;&#x3D;z)x 匹配</p>
-<blockquote>
+<li>理解(?&lt;&#x3D;y)(?&lt;&#x3D;z)x 匹配<blockquote>
 <ul>
 <li>这是不成立的：<code>(?&lt;=y)(?&lt;=z)x</code> 表示前面要紧跟着 <code>y</code> 同时又要紧跟随着 <code>z</code></li>
 <li>只有一种情况下成立：y&#x3D;z时</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = &quot;a1&quot;;
 var reg = /(?&lt;=A)(?&lt;=a)1/g; // 表示 1前面要紧跟随着A同时又要紧跟随着a,显然是不可能成立的
 console.log(str.match(reg)); // null
+&gt;
+var str = &quot;a1&quot;;
+var reg = /(?&lt;=A)(?&lt;=a)1/gi; // 添加了i标志，这样A和a不区分大小写，相当于是一样的
+console.log(str.match(reg)); // [&#39;1&#39;]
 </code></pre>
-</blockquote>
-<p>var str &#x3D; “a1”;<br>var reg &#x3D; &#x2F;(?&lt;&#x3D;A)(?&lt;&#x3D;a)1&#x2F;gi; &#x2F;&#x2F; 添加了i标志，这样A和a不区分大小写，相当于是一样的<br>console.log(str.match(reg)); &#x2F;&#x2F; [‘1’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>理解<code>((?=y)|(?=z))x</code></p>
-<blockquote>
+<ol start="3">
+<li>理解<code>((?=y)|(?=z))x</code><blockquote>
 <ul>
 <li>获取字符串中数字(包括小数)前被￥或$跟随的数字</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var str = `
 书￥20.00  
 笔$30.00
@@ -2277,10 +2263,8 @@ console.log(str.match(reg)); // null
 var reg = /((?&lt;=\$)|(?&lt;=￥))(\d+(\.\d)?\d*)/g;
 console.log(str.match(reg));
 </code></pre>
-</blockquote>
-</li>
-<li><p>区分 <code>/(?&lt;=.*y)(?&lt;=.*z)x/</code> 与 <code>/(?&lt;=y.*)(?&lt;=z.*)x/</code></p>
-<blockquote>
+<ol start="4">
+<li>区分 <code>/(?&lt;=.*y)(?&lt;=.*z)x/</code> 与 <code>/(?&lt;=y.*)(?&lt;=z.*)x/</code><blockquote>
 <ul>
 <li><code>/(?&lt;=.*y)(?&lt;=.*z)x/</code>表示<code>x</code>前面<strong>紧跟随</strong>着<code>y</code>同时又要<strong>紧跟随</strong>着 x<blockquote>
 <p>从右往左看，离x最近的是z和y</p>
@@ -2298,80 +2282,74 @@ console.log(str.match(reg));
 <ul>
 <li>第一种情况，只有在y&#x3D;z时才成立</li>
 </ul>
+</blockquote>
 <pre><code>var reg = /(?&lt;=.*a)(?&lt;=.*b)/g;
 var str = &quot;ab&quot;;
 console.log(str.match(reg)); // null
+&gt;
+//\d包含1
+var reg = /(?&lt;=.*\d)(?&lt;=.*1)/g;
+var str = &quot;a1&quot;;
+console.log(str.match(reg)); // [&#39;&#39;]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;\d包含1<br>var reg &#x3D; &#x2F;(?&lt;&#x3D;.*\d)(?&lt;&#x3D;.*1)&#x2F;g;<br>var str &#x3D; “a1”;<br>console.log(str.match(reg)); &#x2F;&#x2F; [‘’]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
-<li>字符串中必需包含 a 和 b<blockquote>
+<li>字符串中必需包含 a 和 b</li>
+</ul>
 <pre><code>var reg = /(?&lt;=a.*)(?&lt;=b.*)/g;
 console.log(&quot;ab&quot;.match(reg)); // [&#39;&#39;]
 console.log(&quot;1ab&quot;.match(reg)); // [&#39;&#39;]
 console.log(&quot;ab1&quot;.match(reg)); // [&#39;&#39;, &#39;&#39;]
+&gt;
+console.log(reg.test(&quot;ab&quot;)); // true
+console.log(reg.test(&quot;1ab&quot;)); // true
+console.log(reg.test(&quot;ab1&quot;)); // true
 </code></pre>
-</blockquote>
-console.log(reg.test(“ab”)); &#x2F;&#x2F; true<br>console.log(reg.test(“1ab”)); &#x2F;&#x2F; true<br>console.log(reg.test(“ab1”)); &#x2F;&#x2F; true<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>注意：同时限制内容和长度时，长度按要求写，并写在最前面(与先行断言相反)</p>
 </blockquote>
 </blockquote>
 <ul>
-<li>检测字符串是否为6-8位，同时必需包含大写 A 和小写 a 和数字<blockquote>
+<li>检测字符串是否为6-8位，同时必需包含大写 A 和小写 a 和数字</li>
+</ul>
 <pre><code>var reg = /^.&#123;6,8&#125;(?&lt;=[A-Z].*)(?&lt;=[a-z].*)(?&lt;=[0-9].*)$/g;
 console.log(&quot;aAwwi9$@&quot;.match(reg));
 console.log(&quot;aAwwi9$@3&quot;.match(reg));
 console.log(&quot;aAww*&amp;&quot;.match(reg));
 console.log(&quot;aAww*1&quot;.match(reg));
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h4 id="x-y-1"><a href="#x-y-1" class="headerlink" title="x(?!y)"></a>x(?!y)</h4><blockquote>
 <ul>
 <li>先行否定断言（也称正向否定查找）：x 右边没有被y紧跟随之时匹配x</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;ab123abc&quot;;
 //后面没有数字的小写字母
 var reg = /[a-z]+(?!\d)/g;
 console.log(str.match(reg)); // [&#39;a&#39;, &#39;abc&#39;]
 </code></pre>
-</blockquote>
 <h4 id="-1"><a href="#-1" class="headerlink" title="(?&lt;!y)x"></a>(?&lt;!y)x</h4><blockquote>
 <ul>
 <li>后行否定断言（也称反向否定查找）： x的左边没有被y紧随时匹配x</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;ab123abc&quot;;
 //前面没有数字的小写字母
 var reg = /(?&lt;!\d)[a-z]+/g;
 console.log(str.match(reg)); // [&#39;ab&#39;, &#39;bc&#39;]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>限定部分长度：同时使用先行否定断言和后行否定断言</li>
 </ul>
 </blockquote>
 <ul>
-<li>中国邮政编码 （中国邮政编码为 6 位数字，第一位不能是 0）<blockquote>
+<li>中国邮政编码 （中国邮政编码为 6 位数字，第一位不能是 0）</li>
+</ul>
 <pre><code>var str = &quot;A区邮政编码：123456  B区邮政编码：129832&quot;;
 var reg = /(?&lt;!\d)[1-9]\d&#123;5&#125;(?!\d)/g;
 console.log(str.match(reg));// [&#39;123456&#39;, &#39;129832&#39;]
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <h3 id="十三、正则表达式应用案例"><a href="#十三、正则表达式应用案例" class="headerlink" title="十三、正则表达式应用案例"></a>十三、正则表达式应用案例</h3><ol>
 <li>批量使用正则完成某个验证<blockquote>
 <ul>
@@ -2381,7 +2359,6 @@ console.log(str.match(reg));// [&#39;123456&#39;, &#39;129832&#39;]
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>//用户名只能是6-8位数字和字母组成，但必需包含一个大写字母
 var str = &quot;abc12S&quot;;
 //   var reg1 = /[a-z0-9]&#123;6,8&#125;/;
@@ -2401,87 +2378,84 @@ if (state) &#123;
   console.log(&quot;字符串不满足要求&quot;);
 &#125;
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>利用数组的 every 方法来实现</li>
 </ul>
+</blockquote>
 <pre><code>var str = &quot;abc1234_s&quot;;
 const regs = [/^[a-z0-9_]&#123;5,10&#125;$/i, /[A-Z]/];
 var state = regs.every(function (item) &#123;
   return item.test(str);
 &#125;);
+&gt;
+console.log(state);
 </code></pre>
-</blockquote>
-<p>console.log(state);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
-<li>用户注册密码验证，项目实践<blockquote>
-<pre><code>&lt;style&gt;
+<li>用户注册密码验证，项目实践</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   body,
   html,
   p &#123;
- margin: 0;
- padding: 0;
+    margin: 0;
+    padding: 0;
   &#125;
   .register &#123;
- width: 300px;
- margin: 100px;
+    width: 300px;
+    margin: 100px;
   &#125;
   .pwd input &#123;
- box-sizing: border-box;
- margin-bottom: 20px;
- width: 100%;
- height: 50px;
- border-radius: 5px;
- outline: none;
- border: 1px solid #666;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #666;
   &#125;
   .pwd input::placeholder &#123;
- font-size: 18px;
- position: relative;
- top: 2px;
- left: 10px;
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    left: 10px;
   &#125;
   .register .tip &#123;
- border: 1px solid #50bdeb;
- border-radius: 10px;
- background-color: #dbecf5;
- padding: 10px;
- color: #666;
+    border: 1px solid #50bdeb;
+    border-radius: 10px;
+    background-color: #dbecf5;
+    padding: 10px;
+    color: #666;
   &#125;
   .tip p &#123;
- padding-left: 30px;
- line-height: 30px;
- background: url(../src/错叉_块.png) no-repeat;
- background-size: 20px;
- background-position: 0px 6px;
+    padding-left: 30px;
+    line-height: 30px;
+    background: url(../src/错叉_块.png) no-repeat;
+    background-size: 20px;
+    background-position: 0px 6px;
   &#125;
   .tip p.right &#123;
- background-image: url(../src/对.png);
- background-size: 25px;
- background-position-y: 3px;
- color: #56c4f3;
+    background-image: url(../src/对.png);
+    background-size: 25px;
+    background-position-y: 3px;
+    color: #56c4f3;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;register&quot;&gt;
- &lt;div class=&quot;pwd&quot;&gt;
-   &lt;input type=&quot;text&quot; class=&quot;password&quot; placeholder=&quot;密码&quot; /&gt;
- &lt;/div&gt;
- &lt;div class=&quot;tip&quot;&gt;
-   &lt;p class=&quot;upper&quot;&gt;至少有一个大写字母&lt;/p&gt;
-   &lt;p class=&quot;lower&quot;&gt;至少有一个小写字母&lt;/p&gt;
-   &lt;p class=&quot;number&quot;&gt;至少有一个数字&lt;/p&gt;
-   &lt;p class=&quot;special&quot;&gt;至少有一个特殊字符&lt;/p&gt;
-   &lt;p class=&quot;blank-space&quot;&gt;不能以空白符开头&lt;/p&gt;
-   &lt;p class=&quot;length&quot;&gt;密码长度8-12之间&lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;register&quot;&gt;
+&gt;  &lt;div class=&quot;pwd&quot;&gt;
+&gt;    &lt;input type=&quot;text&quot; class=&quot;password&quot; placeholder=&quot;密码&quot; /&gt;
+&gt;  &lt;/div&gt;
+&gt;  &lt;div class=&quot;tip&quot;&gt;
+&gt;    &lt;p class=&quot;upper&quot;&gt;至少有一个大写字母&lt;/p&gt;
+&gt;    &lt;p class=&quot;lower&quot;&gt;至少有一个小写字母&lt;/p&gt;
+&gt;    &lt;p class=&quot;number&quot;&gt;至少有一个数字&lt;/p&gt;
+&gt;    &lt;p class=&quot;special&quot;&gt;至少有一个特殊字符&lt;/p&gt;
+&gt;    &lt;p class=&quot;blank-space&quot;&gt;不能以空白符开头&lt;/p&gt;
+&gt;    &lt;p class=&quot;length&quot;&gt;密码长度8-12之间&lt;/p&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var input = document.querySelector(&quot;.password&quot;);
   var upperEl = document.querySelector(&quot;.upper&quot;);
   var lowerEl = document.querySelector(&quot;.lower&quot;);
@@ -2489,13 +2463,54 @@ var state = regs.every(function (item) &#123;
   var specialEl = document.querySelector(&quot;.special&quot;);
   var blankSpaceEl = document.querySelector(&quot;.blank-space&quot;);
   var lengthEl = document.querySelector(&quot;.length&quot;);
+&gt;
+  //绑定keyup事件
+  input.onkeyup = function () &#123;
+    var value = this.value;
+    //至少有一个大写字母
+    var upper = /[A-Z]/;
+    if (upper.test(value)) &#123;
+      upperEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      upperEl.classList.remove(&quot;right&quot;);
+    &#125;
+    //至少有一个小写字母
+    var lower = /[a-z]/;
+    if (lower.test(value)) &#123;
+      lowerEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      lowerEl.classList.remove(&quot;right&quot;);
+    &#125;
+    //至少有一个数字
+    var number = /[0-9]/;
+    if (number.test(value)) &#123;
+      numberEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      numberEl.classList.remove(&quot;right&quot;);
+    &#125;
+    var special = /[-!\.@#\$%&amp;\^\*~]/;
+    if (special.test(value)) &#123;
+      specialEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      specialEl.classList.remove(&quot;right&quot;);
+    &#125;
+    //不能以空白符开头
+    var blankSpace = /^[\S]/;
+    if (blankSpace.test(value)) &#123;
+      blankSpaceEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      blankSpaceEl.classList.remove(&quot;right&quot;);
+    &#125;
+    //密码长度8-12之间
+    var length = /^.&#123;8,12&#125;$/;
+    if (length.test(value)) &#123;
+      lengthEl.classList.add(&quot;right&quot;);
+    &#125; else &#123;
+      lengthEl.classList.remove(&quot;right&quot;);
+    &#125;
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-  &#x2F;&#x2F;绑定keyup事件<br>  input.onkeyup &#x3D; function () {<br> var value &#x3D; this.value;<br> &#x2F;&#x2F;至少有一个大写字母<br> var upper &#x3D; &#x2F;[A-Z]&#x2F;;<br> if (upper.test(value)) {<br>   upperEl.classList.add(“right”);<br> } else {<br>   upperEl.classList.remove(“right”);<br> }<br> &#x2F;&#x2F;至少有一个小写字母<br> var lower &#x3D; &#x2F;[a-z]&#x2F;;<br> if (lower.test(value)) {<br>   lowerEl.classList.add(“right”);<br> } else {<br>   lowerEl.classList.remove(“right”);<br> }<br> &#x2F;&#x2F;至少有一个数字<br> var number &#x3D; &#x2F;[0-9]&#x2F;;<br> if (number.test(value)) {<br>   numberEl.classList.add(“right”);<br> } else {<br>   numberEl.classList.remove(“right”);<br> }<br> var special &#x3D; &#x2F;[-!.@#$%&amp;^*~]&#x2F;;<br> if (special.test(value)) {<br>   specialEl.classList.add(“right”);<br> } else {<br>   specialEl.classList.remove(“right”);<br> }<br> &#x2F;&#x2F;不能以空白符开头<br> var blankSpace &#x3D; &#x2F;^[\S]&#x2F;;<br> if (blankSpace.test(value)) {<br>   blankSpaceEl.classList.add(“right”);<br> } else {<br>   blankSpaceEl.classList.remove(“right”);<br> }<br> &#x2F;&#x2F;密码长度8-12之间<br> var length &#x3D; &#x2F;^.{8,12}$&#x2F;;<br> if (length.test(value)) {<br>   lengthEl.classList.add(“right”);<br> } else {<br>   lengthEl.classList.remove(“right”);<br> }<br>  };<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ol>
 <h3 id="十四、正则相关工具"><a href="#十四、正则相关工具" class="headerlink" title="十四、正则相关工具"></a>十四、正则相关工具</h3><blockquote>
 <ul>
 <li>正则在线测试工具：<a target="_blank" rel="noopener" href="https://regexr-cn.com/">https://regexr-cn.com</a></li>

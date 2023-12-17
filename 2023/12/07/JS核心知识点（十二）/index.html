@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-07
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.2k
+                    11.6k
                 </div>
                 
 
@@ -457,40 +457,44 @@
 </tbody></table>
 </blockquote>
 <ol>
-<li><p>mousewheel 事件</p>
-<blockquote>
+<li>mousewheel 事件<blockquote>
 <ul>
 <li>早期低版本的<code>webkit</code>和<code>Edge</code>支持</li>
 <li>通过<code>e.wheelDelta</code>的值来判断鼠标滚动的方向，值为 120 向上，值为-120 向下</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>box.addEventListener(&quot;wheel&quot;, eventFn, false);
 function eventFn(e) &#123;
   // 负值 向下滚  正值 向上滚
   console.log(e.wheelDelta);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>DOMMouseScroll 事件</p>
-<blockquote>
+<ol start="2">
+<li>DOMMouseScroll 事件<blockquote>
 <ul>
 <li>低版本的<code>Firefox</code>支持</li>
 <li>通过<code>e.detail</code>的值来判断鼠标滚动方向，值为 3，向下滚，值为 -3 向上滚</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>box.addEventListener(&quot;DOMMouseScroll&quot;, eventFn, false);
 function eventFn(e) &#123;
   // 正值 3 向下滚  负值 -3  向上滚
   console.log(e.detail);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>wheel 事件</p>
-<blockquote>
+<ol start="3">
+<li>wheel 事件<blockquote>
 <ul>
 <li>为了统一滚轮事件的标准，各大浏览器的高版本都支持这个事件</li>
 <li>通过 <code>e.deltaY</code> 的值来判断鼠标滚动方向，正值向下，负值向上。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var box = document.querySelector(&quot;.box&quot;);
 box.addEventListener(&quot;wheel&quot;, eventFn, false);
 function eventFn(e) &#123;
@@ -498,10 +502,8 @@ function eventFn(e) &#123;
   console.log(e.deltaY);
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>兼容型处理</p>
-<blockquote>
+<ol start="4">
+<li>兼容型处理<blockquote>
 <ul>
 <li>以下代码封装成<code>wheel.js</code>文件，供后期使用</li>
 </ul>
@@ -509,20 +511,18 @@ function eventFn(e) &#123;
 </li>
 </ol>
 <ul>
-<li>获取浏览器当前支持的版本的鼠标滚轮事件名<blockquote>
+<li>获取浏览器当前支持的版本的鼠标滚轮事件名</li>
+</ul>
 <pre><code> var box = document.querySelector(&quot;.box&quot;);
  // 获取浏览器当前支持的版本的鼠标滚轮事件名
  console.log(&quot;onwheel&quot; in box); //true
  var support =
- &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
-   ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
-   : document.onmousewheel !== undefined
-   ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
-   : &quot;DOMMouseScroll&quot;; // 低版本 firefox
+   &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
+     ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
+     : document.onmousewheel !== undefined
+     ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
+     : &quot;DOMMouseScroll&quot;; // 低版本 firefox
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <ul>
 <li><code>&quot;onwheel&quot; in box</code>：用<code>in</code>检查<code>HTMLElement</code>原型上是否有<code>onwheel</code>这个方法，如果有就用<code>wheel</code>事件</li>
@@ -531,31 +531,27 @@ function eventFn(e) &#123;
 </ul>
 </blockquote>
 <ul>
-<li><p>处理事件对象的属性值</p>
-<blockquote>
+<li>处理事件对象的属性值</li>
+</ul>
 <pre><code>function callback(e) &#123;
-var e = e || window.event;
-e.preventDefault(); // 阻止默认行为
-// 处理低版本火狐,如果有detail值，就给e添加deltaY属性,并统一正负
-e.detail &amp;&amp; (e.deltaY = e.detail * 40);
-// 处理低版本 ie 和  Edge等浏览器,如果有wheelDelta值，就给e添加deltaY属性,并统一正负
-e.wheelDelta &amp;&amp; (e.deltaY = -e.wheelDelta);
-//如果前两个版本都没有，就使用e.deltaY
-if (e.deltaY &gt; 0) &#123;
-    //向下滚
-    //要处理的业务逻辑写在这里
-  &#125; else &#123;
-    //向上滚
-    //要处理的业务逻辑写在这里
-  &#125;
+  var e = e || window.event;
+  e.preventDefault(); // 阻止默认行为
+  // 处理低版本火狐,如果有detail值，就给e添加deltaY属性,并统一正负
+  e.detail &amp;&amp; (e.deltaY = e.detail * 40);
+  // 处理低版本 ie 和  Edge等浏览器,如果有wheelDelta值，就给e添加deltaY属性,并统一正负
+  e.wheelDelta &amp;&amp; (e.deltaY = -e.wheelDelta);
+  //如果前两个版本都没有，就使用e.deltaY
+  if (e.deltaY &gt; 0) &#123;
+      //向下滚
+      //要处理的业务逻辑写在这里
+    &#125; else &#123;
+      //向上滚
+      //要处理的业务逻辑写在这里
+    &#125;
+&gt;
+&#125;
 </code></pre>
-</blockquote>
-<p>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<ul>
 <li><p>优化</p>
 <blockquote>
 <ul>
@@ -565,75 +561,93 @@ if (e.deltaY &gt; 0) &#123;
 </blockquote>
 </li>
 <li><p>封装</p>
-<blockquote>
-<pre><code>/**
-* addWheelListener 兼容不同版板的鼠标滚轮事件
-* element 绑定滚轮事件的元素
-* eventFn 事件处理函数
-* useCapture 在捕获还是冒泡阶段执行
-*/
-window.addWheelListener = function (element, eventFn, useCapture = false) &#123;
-// 获取浏览器当前支持的版本的鼠标滚轮事件名
-var support =
-  &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
-    ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
-    : document.onmousewheel !== undefined
-    ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
-    : &quot;DOMMouseScroll&quot;; // 低版本 firefox
-</code></pre>
-</blockquote>
 </li>
 </ul>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 添加鼠标事件<br>  element.addEventListener(support, callback, useCapture);</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 兼容写法的事件方法<br>  function callback(e) {<br>    var e &#x3D; e || window.event;<br>    e.preventDefault(); &#x2F;&#x2F; 阻止默认行为<br>    &#x2F;&#x2F; 处理低版本火狐<br>    e.detail &amp;&amp; (e.deltaY &#x3D; e.detail * 40);<br>    &#x2F;&#x2F; 处理低版本 ie 和  Edge等浏览器<br>    e.wheelDelta &amp;&amp; (e.deltaY &#x3D; -e.wheelDelta);</p>
-<blockquote>
-</blockquote>
-<pre><code>// 滚动事件要处理的事情，通过e.deltaY来判断滚动的方向，正向下，负向上
-eventFn.apply(this, arguments);//传入this和arguments
+<pre><code>&gt;/**
+&gt; * addWheelListener 兼容不同版板的鼠标滚轮事件
+&gt; * element 绑定滚轮事件的元素
+&gt; * eventFn 事件处理函数
+&gt; * useCapture 在捕获还是冒泡阶段执行
+&gt; */
+window.addWheelListener = function (element, eventFn, useCapture = false) &#123;
+  // 获取浏览器当前支持的版本的鼠标滚轮事件名
+  var support =
+    &quot;onwheel&quot; in document.createElement(&quot;div&quot;)
+      ? &quot;wheel&quot; // 各个厂商的高版本浏览器都支持&quot;wheel&quot;
+      : document.onmousewheel !== undefined
+      ? &quot;mousewheel&quot; // Webkit 和 IE 一定支持&quot;mousewheel&quot;
+      : &quot;DOMMouseScroll&quot;; // 低版本 firefox
+&gt;
+  // 添加鼠标事件
+  element.addEventListener(support, callback, useCapture);
+&gt;
+  // 兼容写法的事件方法
+  function callback(e) &#123;
+    var e = e || window.event;
+    e.preventDefault(); // 阻止默认行为
+    // 处理低版本火狐
+    e.detail &amp;&amp; (e.deltaY = e.detail * 40);
+    // 处理低版本 ie 和  Edge等浏览器
+    e.wheelDelta &amp;&amp; (e.deltaY = -e.wheelDelta);
+&gt;
+    // 滚动事件要处理的事情，通过e.deltaY来判断滚动的方向，正向下，负向上
+    eventFn.apply(this, arguments);//传入this和arguments
+  &#125;
+&#125;;
+  //调用函数
+  function fn(e) &#123;
+    console.log(this);
+    console.log(e);
+    //真正的事件处理函数
+    if (e.deltaY &gt; 0) &#123;
+      //向下滚
+      //要处理的业务逻辑写在这里
+      console.log(&quot;向下&quot;);
+    &#125; else &#123;
+      //向上滚
+      //要处理的业务逻辑写在这里
+      console.log(&quot;向上&quot;);
+    &#125;
+  &#125;
+  addWheelListener(box, fn, false);
 </code></pre>
-<p>  }<br>};<br>  &#x2F;&#x2F;调用函数<br>  function fn(e) {<br>    console.log(this);<br>    console.log(e);<br>    &#x2F;&#x2F;真正的事件处理函数<br>    if (e.deltaY &gt; 0) {<br>      &#x2F;&#x2F;向下滚<br>      &#x2F;&#x2F;要处理的业务逻辑写在这里<br>      console.log(“向下”);<br>    } else {<br>      &#x2F;&#x2F;向上滚<br>      &#x2F;&#x2F;要处理的业务逻辑写在这里<br>      console.log(“向上”);<br>    }<br>  }<br>  addWheelListener(box, fn, false);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
-<li><p>案例 1：滚动实现元素高度变化</p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<li>案例 1：滚动实现元素高度变化</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   html,
   body &#123;
- margin: 0;
- padding: 0;
+    margin: 0;
+    padding: 0;
   &#125;
   .box &#123;
- width: 100px;
- height: 200px;
- background-color: khaki;
- margin: 50px;
+    width: 100px;
+    height: 200px;
+    background-color: khaki;
+    margin: 50px;
   &#125;
-&lt;/style&gt;
-&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
+&gt;
+  function fn(e) &#123;
+    var speed = 10;
+    if (e.deltaY &gt; 0) &#123;
+      //向下滚
+      box.style.height = this.offsetHeight + speed + &quot;px&quot;;
+    &#125; else &#123;
+      //向上滚
+      box.style.height = this.offsetHeight - speed + &quot;px&quot;;
+    &#125;
+  &#125;
+&gt;
+  addWheelListener(box, fn);
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  function fn(e) {<br> var speed &#x3D; 10;<br> if (e.deltaY &gt; 0) {<br>   &#x2F;&#x2F;向下滚<br>   box.style.height &#x3D; this.offsetHeight + speed + “px”;<br> } else {<br>   &#x2F;&#x2F;向上滚<br>   box.style.height &#x3D; this.offsetHeight - speed + “px”;<br> }<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  addWheelListener(box, fn);</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>案例2：全屏垂直滚动轮播</p>
-<blockquote>
+<ol start="6">
+<li>案例2：全屏垂直滚动轮播<blockquote>
 <p>涉及知识点</p>
 <ul>
 <li>鼠标滚轮事件</li>
@@ -646,89 +660,88 @@ eventFn.apply(this, arguments);//传入this和arguments
 </li>
 </ol>
 <ul>
-<li><p>CSS布局代码</p>
-<blockquote>
-<pre><code>&lt;style&gt;
+<li>CSS布局代码</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
  html,
  body &#123;
- margin: 0;
- padding: 0;
- height: 100%;
+   margin: 0;
+   padding: 0;
+   height: 100%;
  &#125;
  .wrap &#123;
- width: 100%;
- height: 500%;
- transform: translate3d(0, 0, 0);
- transition: transform 1s ease;
+   width: 100%;
+   height: 500%;
+   transform: translate3d(0, 0, 0);
+   transition: transform 1s ease;
  &#125;
  .wrap .slide &#123;
- display: flex; /*使文字居中*/
- align-items: center;
- justify-content: center;
- color: #fff;
- font-size: 60px;
- height: 20%;
+   display: flex; /*使文字居中*/
+   align-items: center;
+   justify-content: center;
+   color: #fff;
+   font-size: 60px;
+   height: 20%;
  &#125;
  .wrap .slide:nth-child(1) &#123;
- background-color: khaki;
+   background-color: khaki;
  &#125;
  .wrap .slide:nth-child(2) &#123;
- background-color: skyblue;
+   background-color: skyblue;
  &#125;
  .wrap .slide:nth-child(3) &#123;
- background-color: tomato;
+   background-color: tomato;
  &#125;
  .wrap .slide:nth-child(4) &#123;
- background-color: rgb(154, 236, 197);
+   background-color: rgb(154, 236, 197);
  &#125;
  .wrap .slide:nth-child(5) &#123;
- background-color: rgb(174, 139, 223);
+   background-color: rgb(174, 139, 223);
  &#125;
  /* 分页器 */
  .pagination &#123;
- position: fixed; /*固定在一个位置*/
- right: 20px;
- top: 50%;
- transform: translateY(-50%);
- width: 11px;
- height: 100px;
- display: flex; /*使span居中*/
- flex-direction: column; /*改变方向*/
- justify-content: space-between; /*使span两端对齐*/
+   position: fixed; /*固定在一个位置*/
+   right: 20px;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 11px;
+   height: 100px;
+   display: flex; /*使span居中*/
+   flex-direction: column; /*改变方向*/
+   justify-content: space-between; /*使span两端对齐*/
  &#125;
  .pagination span &#123;
- width: 100%;
- height: 11px;
- background-color: #fff;
- border-radius: 50%;
- cursor: pointer;
+   width: 100%;
+   height: 11px;
+   background-color: #fff;
+   border-radius: 50%;
+   cursor: pointer;
  &#125;
  .pagination span.active &#123;
- background-color: orange;
- box-shadow: 0 0 2px 3px orange;
+   background-color: orange;
+   box-shadow: 0 0 2px 3px orange;
  &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;wrap&quot;&gt;
- &lt;div class=&quot;slide&quot;&gt;第一屏&lt;/div&gt;
- &lt;div class=&quot;slide&quot;&gt;第二屏&lt;/div&gt;
- &lt;div class=&quot;slide&quot;&gt;第三屏&lt;/div&gt;
- &lt;div class=&quot;slide&quot;&gt;第四屏&lt;/div&gt;
- &lt;div class=&quot;slide&quot;&gt;第五屏&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;pagination&quot;&gt;
- &lt;span class=&quot;active&quot;&gt;&lt;/span&gt;
- &lt;span&gt;&lt;/span&gt;
- &lt;span&gt;&lt;/span&gt;
- &lt;span&gt;&lt;/span&gt;
- &lt;span&gt;&lt;/span&gt;
-&lt;/div&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;wrap&quot;&gt;
+&gt;  &lt;div class=&quot;slide&quot;&gt;第一屏&lt;/div&gt;
+&gt;  &lt;div class=&quot;slide&quot;&gt;第二屏&lt;/div&gt;
+&gt;  &lt;div class=&quot;slide&quot;&gt;第三屏&lt;/div&gt;
+&gt;  &lt;div class=&quot;slide&quot;&gt;第四屏&lt;/div&gt;
+&gt;  &lt;div class=&quot;slide&quot;&gt;第五屏&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;pagination&quot;&gt;
+&gt;  &lt;span class=&quot;active&quot;&gt;&lt;/span&gt;
+&gt;  &lt;span&gt;&lt;/span&gt;
+&gt;  &lt;span&gt;&lt;/span&gt;
+&gt;  &lt;span&gt;&lt;/span&gt;
+&gt;  &lt;span&gt;&lt;/span&gt;
+&gt;&lt;/div&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>处理分页器切换效果</p>
-<blockquote>
-<pre><code>&lt;script&gt;
+<ul>
+<li>处理分页器切换效果</li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
  var spans = document.querySelectorAll(&quot;.pagination span&quot;);
  var pagination = document.querySelector(&quot;.pagination&quot;);
  var viewHeight = document.documentElement.clientHeight;
@@ -738,65 +751,62 @@ eventFn.apply(this, arguments);//传入this和arguments
  //给span加下标
  var len = spans.length;
  for (var i = 0; i &lt; len; i++) &#123;
- spans[i].index = i;
+   spans[i].index = i;
  &#125;
  //利用事件委托，切换slide和span
  pagination.onclick = function (e) &#123;
- var target = e.target;
- var tagName = target.tagName.toLowerCase();
- if (tagName !== &quot;span&quot;) return;
- //给span加样式
- spans[prevSpan].classList.remove(&quot;active&quot;);
- currentIndex = target.index;
- spans[currentIndex].classList.add(&quot;active&quot;);
- prevSpan = currentIndex;
- //改变slide
- var translateY = -currentIndex * viewHeight;
- wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+   var target = e.target;
+   var tagName = target.tagName.toLowerCase();
+   if (tagName !== &quot;span&quot;) return;
+   //给span加样式
+   spans[prevSpan].classList.remove(&quot;active&quot;);
+   currentIndex = target.index;
+   spans[currentIndex].classList.add(&quot;active&quot;);
+   prevSpan = currentIndex;
+   //改变slide
+   var translateY = -currentIndex * viewHeight;
+   wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
  &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>滚轮操作切换效果</p>
-<blockquote>
-<pre><code>&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
+<ul>
+<li>滚轮操作切换效果</li>
+</ul>
+<pre><code>&gt;&lt;script src=&quot;./wheel.js&quot;&gt;&lt;/script&gt;
 // 滚轮切换
  function fn(e) &#123;
- if (e.deltaY &gt; 0) &#123;
-   currentIndex++;
-   if (currentIndex === len) &#123;
-     currentIndex = len - 1;
-     return;
-   &#125;
-   //给span加样式
-   spans[prevSpan].classList.remove(&quot;active&quot;);
-   spans[currentIndex].classList.add(&quot;active&quot;);
-   prevSpan = currentIndex;
-   //改变slide
-   var translateY = -currentIndex * viewHeight;
-   wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
- &#125; else &#123;
-   currentIndex--;
-   if (currentIndex &lt; 0) &#123;
-     currentIndex = 0;
-     return;
-   &#125;
-   //给span加样式
-   spans[prevSpan].classList.remove(&quot;active&quot;);
-   spans[currentIndex].classList.add(&quot;active&quot;);
-   prevSpan = currentIndex;
-   //改变slide
-   var translateY = -currentIndex * viewHeight;
-   wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
-&#125;
+   if (e.deltaY &gt; 0) &#123;
+     currentIndex++;
+     if (currentIndex === len) &#123;
+       currentIndex = len - 1;
+       return;
+     &#125;
+     //给span加样式
+     spans[prevSpan].classList.remove(&quot;active&quot;);
+     spans[currentIndex].classList.add(&quot;active&quot;);
+     prevSpan = currentIndex;
+     //改变slide
+     var translateY = -currentIndex * viewHeight;
+     wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+   &#125; else &#123;
+     currentIndex--;
+     if (currentIndex &lt; 0) &#123;
+       currentIndex = 0;
+       return;
+     &#125;
+     //给span加样式
+     spans[prevSpan].classList.remove(&quot;active&quot;);
+     spans[currentIndex].classList.add(&quot;active&quot;);
+     prevSpan = currentIndex;
+     //改变slide
+     var translateY = -currentIndex * viewHeight;
+     wrap.style.transform = &quot;translate3d(0,&quot; + translateY + &quot;px, 0)&quot;;
+  &#125;
  &#125;
  addWheelListener(wrap, fn);
 </code></pre>
-</blockquote>
-</li>
-<li><p>节流操作</p>
-<blockquote>
+<ul>
+<li>节流操作<blockquote>
 <ul>
 <li>方法1：节流函数</li>
 <li>引入节流函数，因为是低频，所以注意要把事件处理函数放定时器外面</li>
@@ -832,7 +842,6 @@ eventFn.apply(this, arguments);//传入this和arguments
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>function to(index) &#123;
   //给span加样式
   currentIndex = index;
@@ -850,45 +859,46 @@ window.addEventListener(&quot;resize&quot;, function () &#123;
   wrap.style.transform = &quot;translate3d(0, &quot; + translateY + &quot;px, 0)&quot;;
 &#125;);
 </code></pre>
-</blockquote>
 <h3 id="二、鼠标按键"><a href="#二、鼠标按键" class="headerlink" title="二、鼠标按键"></a>二、鼠标按键</h3><ol>
-<li><p>禁止右键菜单</p>
-<blockquote>
+<li>禁止右键菜单<blockquote>
 <ul>
 <li><code>contextmenu</code>事件，会在鼠标点击右键或者按下键盘上的菜单键时被触发，用于显示上下文菜单</li>
 <li>如果我们希望在按下右键时，不要显示上下文菜单，我们可以在<code>contextmenu</code>事件中，阻止默认行为。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 在页面任意位置按下右键，都不会显示上下文菜单
 document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
   e.preventDefault();
 &#125;);
+&gt;
+var box = document.querySelector(&quot;.box&quot;);
+// 只在当前元素上按下时，不显示上下文菜单
+box.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
+  e.preventDefault();
+&#125;);
 </code></pre>
-</blockquote>
-<p>var box &#x3D; document.querySelector(“.box”);<br>&#x2F;&#x2F; 只在当前元素上按下时，不显示上下文菜单<br>box.addEventListener(“contextmenu”, function (e) {<br>  e.preventDefault();<br>});</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>禁止选中元素</p>
-<blockquote>
+<ol start="2">
+<li>禁止选中元素<blockquote>
 <ul>
 <li><code>selectstart</code>事件，在用户开始一个新的选择时候触发<blockquote>
 <p>如果不想用户选择内容，可以在事件中阻止默认行为</p>
 </blockquote>
 </li>
 </ul>
-<pre><code>我是一堆测试文字
-&lt;script&gt;
-  document.onselectstart = function (e) &#123;
- e.preventDefault();
-  &#125;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>判断按下的鼠标键</p>
-<blockquote>
+</ol>
+<pre><code>我是一堆测试文字
+&gt;&lt;script&gt;
+  document.onselectstart = function (e) &#123;
+    e.preventDefault();
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>判断按下的鼠标键<blockquote>
 <ul>
 <li><code>MouseEvent.button</code>(e.button)是只读属性，它返回一个值，代表用户按下并触发了事件的鼠标按键。</li>
 <li>常用于在<code>onmouseup</code>事件中，判断用户按下的是鼠标左键 、中键、右键中的那个键<table>
@@ -913,26 +923,27 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 </tbody></table>
 </li>
 </ul>
-<pre><code>&lt;style&gt;
-  .box &#123;
- width: 200px;
- height: 200px;
- background-color: khaki;
-  &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
-  var box = document.querySelector(&quot;.box&quot;);
-  box.onmouseup = function (e) &#123;
- console.log(e.button); // 0 左键  1中键  2右键
-  &#125;;
-&lt;/script&gt;
-</code></pre>
 </blockquote>
 </li>
-<li><p>案例-自定义右键菜单</p>
-<blockquote>
+</ol>
+<pre><code>&gt;&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    background-color: khaki;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var box = document.querySelector(&quot;.box&quot;);
+  box.onmouseup = function (e) &#123;
+    console.log(e.button); // 0 左键  1中键  2右键
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>案例-自定义右键菜单<blockquote>
 <ul>
 <li>禁止出现原本的右键菜单</li>
 <li>自定义新的菜单栏<ul>
@@ -946,179 +957,175 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 </ul>
 </li>
 </ul>
-<pre><code>&lt;style&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   html,
   body,
   ul,
   li &#123;
- margin: 0;
- padding: 0;
+    margin: 0;
+    padding: 0;
   &#125;
   li &#123;
- list-style: none;
+    list-style: none;
   &#125;
   .menu &#123;
- position: absolute;
- left: 100px;
- top: 100px;
- box-shadow: 2px 1px 2px 2px #d7d1d1;
- display: none;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    box-shadow: 2px 1px 2px 2px #d7d1d1;
+    display: none;
   &#125;
   .menu li &#123;
- width: 120px;
- border-bottom: 1px solid #ddd;
- height: 30px;
- line-height: 30px;
- text-indent: 5px;
- cursor: pointer;
- background-color: #fff;
+    width: 120px;
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+    line-height: 30px;
+    text-indent: 5px;
+    cursor: pointer;
+    background-color: #fff;
   &#125;
   .skin &#123;
- position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);
- width: 540px;
- background-color: khaki;
- display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 540px;
+    background-color: khaki;
+    display: none;
   &#125;
   .select-skin li img &#123;
- width: 260px;
- height: 163px;
- float: left;
- margin: 5px;
- cursor: pointer;
+    width: 260px;
+    height: 163px;
+    float: left;
+    margin: 5px;
+    cursor: pointer;
   &#125;
   .clear::after &#123;
- content: &quot;&quot;;
- clear: both;
- display: block;
+    content: &quot;&quot;;
+    clear: both;
+    display: block;
   &#125;
   .skin .close &#123;
- position: absolute;
- top: -15px;
- right: -15px;
- width: 30px;
- height: 30px;
- color: #fff;
- text-align: center;
- line-height: 30px;
- border-radius: 50%;
- background-color: #000;
- cursor: pointer;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background-color: #000;
+    cursor: pointer;
   &#125;
-&lt;/style&gt;
-&lt;ul class=&quot;menu&quot;&gt;
- &lt;li&gt;更换浏览器背景&lt;/li&gt;
- &lt;li&gt;刷新&lt;/li&gt;
- &lt;li&gt;跳转到&lt;/li&gt;
- &lt;li&gt;更换背景颜色&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;skin&quot;&gt;
- &lt;ul class=&quot;select-skin clearfix&quot;&gt;
-   &lt;li&gt;
-     &lt;img
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<blockquote>
-<pre><code>   src=&quot;../src/skin/min1.jpg&quot;
-   alt=&quot;&quot;
-   data-skin=&quot;../src/skin/big1.jpg&quot;
- /&gt;
-</code></pre>
-   </li>
-   <li>
-     <img
-       src="../src/skin/min2.jpg"
-       alt=""
-       data-skin="../src/skin/big2.jpg"
-     />
-   </li>
-   <li>
-     <img
-       src="../src/skin/min3.jpg"
-       alt=""
-       data-skin="../src/skin/big3.jpg"
-     />
-   </li>
-   <li>
-     <img
-       src="../src/skin/min4.jpg"
-       alt=""
-       data-skin="../src/skin/big4.jpg"
-     />
-   </li>
- </ul>
- <div class="close">X</div>
-</div>
-<script>
-  var menu = document.querySelector(".menu");
-  var list = document.querySelectorAll(".menu li");
-  var skin = document.querySelector(".skin");
-  var close = document.querySelector(".skin .close");
-  var imgList = document.querySelectorAll(".skin img");
+&gt;&lt;/style&gt;
+&gt;&lt;ul class=&quot;menu&quot;&gt;
+&gt;  &lt;li&gt;更换浏览器背景&lt;/li&gt;
+&gt;  &lt;li&gt;刷新&lt;/li&gt;
+&gt;  &lt;li&gt;跳转到&lt;/li&gt;
+&gt;  &lt;li&gt;更换背景颜色&lt;/li&gt;
+&gt;&lt;/ul&gt;
+&gt;&lt;div class=&quot;skin&quot;&gt;
+&gt;  &lt;ul class=&quot;select-skin clearfix&quot;&gt;
+&gt;    &lt;li&gt;
+&gt;      &lt;img
+&gt;        src=&quot;../src/skin/min1.jpg&quot;
+&gt;        alt=&quot;&quot;
+&gt;        data-skin=&quot;../src/skin/big1.jpg&quot;
+&gt;      /&gt;
+&gt;    &lt;/li&gt;
+&gt;    &lt;li&gt;
+&gt;      &lt;img
+&gt;        src=&quot;../src/skin/min2.jpg&quot;
+&gt;        alt=&quot;&quot;
+&gt;        data-skin=&quot;../src/skin/big2.jpg&quot;
+&gt;      /&gt;
+&gt;    &lt;/li&gt;
+&gt;    &lt;li&gt;
+&gt;      &lt;img
+&gt;        src=&quot;../src/skin/min3.jpg&quot;
+&gt;        alt=&quot;&quot;
+&gt;        data-skin=&quot;../src/skin/big3.jpg&quot;
+&gt;      /&gt;
+&gt;    &lt;/li&gt;
+&gt;    &lt;li&gt;
+&gt;      &lt;img
+&gt;        src=&quot;../src/skin/min4.jpg&quot;
+&gt;        alt=&quot;&quot;
+&gt;        data-skin=&quot;../src/skin/big4.jpg&quot;
+&gt;      /&gt;
+&gt;    &lt;/li&gt;
+&gt;  &lt;/ul&gt;
+&gt;  &lt;div class=&quot;close&quot;&gt;X&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
+  var menu = document.querySelector(&quot;.menu&quot;);
+  var list = document.querySelectorAll(&quot;.menu li&quot;);
+  var skin = document.querySelector(&quot;.skin&quot;);
+  var close = document.querySelector(&quot;.skin .close&quot;);
+  var imgList = document.querySelectorAll(&quot;.skin img&quot;);
   //禁止原本的右键菜单
-  document.oncontextmenu = function (e) {
+  document.oncontextmenu = function (e) &#123;
     e.preventDefault();
-  };
+  &#125;;
   //鼠标右击菜单出现
-  document.addEventListener("mouseup", function (e) {
-    if (e.button === 2) {
-      menu.style.left = e.pageX + "px";
-      menu.style.top = e.pageY + "px";
-      menu.style.display = "block";
-    }
-  });
+  document.addEventListener(&quot;mouseup&quot;, function (e) &#123;
+    if (e.button === 2) &#123;
+      menu.style.left = e.pageX + &quot;px&quot;;
+      menu.style.top = e.pageY + &quot;px&quot;;
+      menu.style.display = &quot;block&quot;;
+    &#125;
+  &#125;);
   // 在页面任意位置点击，即关闭自定义菜单
-  document.onclick = function () {
-    menu.style.display = "none";
-  };
+  document.onclick = function () &#123;
+    menu.style.display = &quot;none&quot;;
+  &#125;;
   //为菜单选项，添加点击事件，点击后做相关操作,事件委托
   //1.给li加下标
-  for (var i = 0; i < list.length; i++) {
+  for (var i = 0; i &lt; list.length; i++) &#123;
     list[i].index = i;
-  }
+  &#125;
   // 事件委托，右键菜单的点击事件委托给父元素来处理
-  menu.onclick = function (e) {
+  menu.onclick = function (e) &#123;
     var target = e.target;
     var _index = target.index;
-    switch (_index) {
+    switch (_index) &#123;
       case 0:
-        skin.style.display = "block";
+        skin.style.display = &quot;block&quot;;
         break;
       case 1:
-        alert("1");
+        alert(&quot;1&quot;);
         break;
       case 2:
-        alert("2");
+        alert(&quot;2&quot;);
         break;
       case 3:
-        document.body.style.backgroundColor = "skyblue";
+        document.body.style.backgroundColor = &quot;skyblue&quot;;
         break;
-    }
-  };
+    &#125;
+  &#125;;
   // 点击关闭按扭，关闭换肤
-  close.onclick = function () {
-    skin.style.display = "none";
-  };
+  close.onclick = function () &#123;
+    skin.style.display = &quot;none&quot;;
+  &#125;;
   //换肤效果
   var prevImg = imgList[0];
-  prevImg.style.outline = "1px solid red";
-  skin.onclick = function (e) {
+  prevImg.style.outline = &quot;1px solid red&quot;;
+  skin.onclick = function (e) &#123;
     var target = e.target;
     var tagName = target.tagName.toLowerCase();
-    if (tagName !== "img") return;
-    prevImg.style.outline = "";
-    target.style.outline = "1px solid red";
+    if (tagName !== &quot;img&quot;) return;
+    prevImg.style.outline = &quot;&quot;;
+    target.style.outline = &quot;1px solid red&quot;;
     prevImg = target;
     var src = target.dataset.skin;
-    document.body.style.backgroundImage = "url(" + src + ")";
-  };
-</script>
-```
-</blockquote>
+    document.body.style.backgroundImage = &quot;url(&quot; + src + &quot;)&quot;;
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <h3 id="三、HTML5-的拖拽事件"><a href="#三、HTML5-的拖拽事件" class="headerlink" title="三、HTML5 的拖拽事件"></a>三、HTML5 的拖拽事件</h3><blockquote>
 <ul>
 <li>默认情况下，网页中<strong>只有图片和文本</strong>可以拖动。其它元素默认情况下，均不允许被拖动</li>
@@ -1145,17 +1152,15 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 <li>当元素被设置为不可拖拽时，其元素中的文本仍然会被拖动</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
  .box &#123;
    width: 200px;
    height: 200px;
    background-color: khaki;
  &#125;
-&lt;/style&gt;
-&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;我是一堆测试文字&lt;/div&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;我是一堆测试文字&lt;/div&gt;
 </code></pre>
-</blockquote>
 <h4 id="拖拽基础概念"><a href="#拖拽基础概念" class="headerlink" title="拖拽基础概念"></a>拖拽基础概念</h4><blockquote>
 <ul>
 <li>在拖放（drag and drop）操作过程中，分为<strong>拖拽元素</strong>和<strong>目标元素（可放置元素）</strong></li>
@@ -1202,7 +1207,8 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 <li>在dragend中，恢复被拖拽元素为不透明。</li>
 <li>所有<strong>子元素</strong>的拖拽事件，都会<strong>冒泡</strong>到他们的父元素身上，所以在处理拖拽事件时，<strong>可以利用事件委托</strong></li>
 </ul>
-<pre><code>&lt;style&gt;
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
   .box &#123;
     width: 200px;
     height: 200px;
@@ -1213,28 +1219,49 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
     height: 100px;
     background-color: skyblue;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot;&gt;
- &lt;div class=&quot;box2&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot;&gt;
+&gt;  &lt;div class=&quot;box2&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   var box2 = document.querySelector(&quot;.box2&quot;);
+&gt;
+  // 给box2添加对应拖拽事件
+  box2.ondragstart = function (e) &#123;
+    console.log(&quot;box2-start&quot;);
+  &#125;;
+  box2.ondrag = function (e) &#123;
+    console.log(&quot;box2-drag&quot;);
+  &#125;;
+  box2.ondragend = function (e) &#123;
+    console.log(&quot;box2-end&quot;);
+  &#125;;
+&gt;
+  // 以下元素默认不能拖，但事件能被成功触发
+  // 是因为box2元素上对应事件触发后，会冒泡到父元素上
+  box.ondragstart = function (e) &#123;
+    console.log(&quot;box-start&quot;);
+  &#125;;
+  box.ondrag = function (e) &#123;
+    console.log(&quot;box-drag&quot;);
+  &#125;;
+  box.ondragend = function (e) &#123;
+    console.log(&quot;box-end&quot;);
+  &#125;;
+&gt;
+  document.ondragstart = function (e) &#123;
+    console.log(&quot;document-start&quot;);
+  &#125;;
+  document.ondrag = function (e) &#123;
+    console.log(&quot;document-drag&quot;);
+  &#125;;
+  document.ondragend = function (e) &#123;
+    console.log(&quot;document-end&quot;);
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 给box2添加对应拖拽事件<br>  box2.ondragstart &#x3D; function (e) {<br>    console.log(“box2-start”);<br>  };<br>  box2.ondrag &#x3D; function (e) {<br>    console.log(“box2-drag”);<br>  };<br>  box2.ondragend &#x3D; function (e) {<br>    console.log(“box2-end”);<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 以下元素默认不能拖，但事件能被成功触发<br>  &#x2F;&#x2F; 是因为box2元素上对应事件触发后，会冒泡到父元素上<br>  box.ondragstart &#x3D; function (e) {<br>    console.log(“box-start”);<br>  };<br>  box.ondrag &#x3D; function (e) {<br>    console.log(“box-drag”);<br>  };<br>  box.ondragend &#x3D; function (e) {<br>    console.log(“box-end”);<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  document.ondragstart &#x3D; function (e) {<br>    console.log(“document-start”);<br>  };<br>  document.ondrag &#x3D; function (e) {<br>    console.log(“document-drag”);<br>  };<br>  document.ondragend &#x3D; function (e) {<br>    console.log(“document-end”);<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>dragenter、dragover、dragleave 放置元素事件<table>
 <thead>
@@ -1262,7 +1289,8 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 <blockquote>
 <p>同样支持冒泡</p>
 </blockquote>
-<pre><code>&lt;style&gt;
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
     position: absolute;
     left: 10px;
@@ -1284,14 +1312,14 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
     height: 150px;
     background-color: skyblue;
   &#125;
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
- &lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
- &lt;div class=&quot;target-wrap&quot;&gt;
-   &lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
- &lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;/head&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;  &lt;div class=&quot;target-wrap&quot;&gt;
+&gt;    &lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;script&gt;
   // 拖拽元素
   var drag = document.querySelector(&quot;.drag&quot;);
   // 目标元素
@@ -1315,9 +1343,8 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
     console.log(&quot;targetWrap-dragover&quot;);
   &#125;;
   //当box被拖拽到target上时，会同时打印dragover和targetWrap-dragover
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li><p>drop 事件</p>
 <table>
@@ -1339,51 +1366,54 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 <li>在网页中，默认情况下，<strong>唯一有效</strong>的放置目标元素是文本框。但默认<strong>只能放置文本、链接、图片</strong></li>
 <li>页面其它元素默认情况下，是不允许放置。如果把元素拖动到不允许放置的目标上，然后放下，不会触发 <code>drop</code> 事件。</li>
 </ul>
-<pre><code>&lt;style&gt;
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
- width: 100px;
- height: 100px;
- background-color: khaki;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
   &#125;
   .target &#123;
- width: 200px;
- height: 100px;
- border: 2px dashed #ddd;
- position: absolute;
- top: 10px;
- left: 300px;
+    width: 200px;
+    height: 100px;
+    border: 2px dashed #ddd;
+    position: absolute;
+    top: 10px;
+    left: 300px;
   &#125;
   textarea &#123;
- width: 200px;
- height: 100px;
- position: absolute;
- left: 300px;
- top: 150px;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 300px;
+    top: 150px;
   &#125;
-&lt;/style&gt;
-
-&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; width=&quot;100&quot; /&gt;
-我是一段文字
-&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
-&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;textarea name=&quot;&quot; id=&quot;text&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
-&lt;!--普通元素框  --&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; width=&quot;100&quot; /&gt;
+&gt;我是一段文字
+&gt;&lt;a href=&quot;www.baidu.com&quot;&gt;百度&lt;/a&gt;
+&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;textarea name=&quot;&quot; id=&quot;text&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+&gt;&lt;!--普通元素框  --&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;);
   var text = document.getElementById(&quot;text&quot;);
   var target = document.querySelector(&quot;.target&quot;);
+&gt;
+  text.ondrop = function () &#123;
+    console.log(&quot;text - drop&quot;);
+  &#125;;
+  target.ondrop = function () &#123;
+    console.log(&quot;target - drop &quot;);
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  text.ondrop &#x3D; function () {<br> console.log(“text - drop”);<br>  };<br>  target.ondrop &#x3D; function () {<br> console.log(“target - drop “);<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>如何使放置元素触发 <code>drop</code> 事件</p>
-<blockquote>
+<ol start="5">
+<li>如何使放置元素触发 <code>drop</code> 事件<blockquote>
 <ul>
 <li>如果被拖拽元素在进入放置（目标）元素时，其<strong>鼠标状态</strong>显示禁止，则表示禁止该行为，在鼠标松开时，不会触发<code>drop</code>事件。</li>
 <li>因为默认情况，元素是不允许放置的，要使目标元素能够接收到<code>drop</code>事件，需要使目标元素在<code>dragenter</code>和<code>dragover</code>事件中<strong>阻止默认行为</strong>。<blockquote>
@@ -1394,7 +1424,6 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>  //要使放置元素的drop事件能触发，需要在dragover中禁止其默认行为
  target.ondragover = function (e) &#123;
    e.preventDefault();
@@ -1406,7 +1435,6 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
    console.log(&quot;target - drop &quot;);
  &#125;;
 </code></pre>
-</blockquote>
 <ol start="6">
 <li>drop 事件兼容问题<blockquote>
 <p>在 Firefox 浏览器中，drop 放置事件的默认行为如下：</p>
@@ -1418,14 +1446,13 @@ document.addEventListener(&quot;contextmenu&quot;, function (e) &#123;
 </blockquote>
 </li>
 </ul>
-<pre><code>e.preventDefault(); // 阻止默认行为
-e.stopPropagation(); // 阻止事件冒泡
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>e.preventDefault(); // 阻止默认行为
+e.stopPropagation(); // 阻止事件冒泡
+</code></pre>
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
     width: 100px;
     height: 100px;
@@ -1439,14 +1466,14 @@ e.stopPropagation(); // 阻止事件冒泡
     top: 10px;
     left: 220px;
   &#125;
-&lt;/style&gt;
-
-&lt;a href=&quot;http://www.baidu.com&quot;&gt;我是大美人&lt;/a&gt;&lt;br /&gt;
-&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; alt=&quot;&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
-我只是个文字
-&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;a href=&quot;http://www.baidu.com&quot;&gt;我是大美人&lt;/a&gt;&lt;br /&gt;
+&gt;&lt;img src=&quot;https://www.arryblog.com/logo.png&quot; alt=&quot;&quot; width=&quot;100&quot; /&gt;&lt;br /&gt;
+&gt;我只是个文字
+&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;);
   var target = document.querySelector(&quot;.target&quot;);
   // 要使放置元素的drop事件能触发，需要在dragover中禁止其默认行为
@@ -1454,14 +1481,14 @@ e.stopPropagation(); // 阻止事件冒泡
     e.preventDefault();
   &#125;;
   // 放置元素绑定drop事件
+&gt;
+  target.ondrop = function (e) &#123;
+    console.log(&quot;drop&quot;);
+    e.preventDefault(); // 阻止默认行为
+    e.stopPropagation(); // 阻止事件冒泡
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  target.ondrop &#x3D; function (e) {<br>    console.log(“drop”);<br>    e.preventDefault(); &#x2F;&#x2F; 阻止默认行为<br>    e.stopPropagation(); &#x2F;&#x2F; 阻止事件冒泡<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="DataTransfer-对象"><a href="#DataTransfer-对象" class="headerlink" title="DataTransfer 对象"></a>DataTransfer 对象</h4><blockquote>
 <ul>
 <li>在事件对象<code>e</code>上有一个<code>dataTransfer</code>属性，这个属性是一个<code>DataTransfer</code>对象</li>
@@ -1558,8 +1585,7 @@ e.stopPropagation(); // 阻止事件冒泡
 <li>我们期望得到一个指定的行为而不是用户的请求行为时，可以通过 <code>dragenter</code> 和 <code>dragover</code> 事件处理中修改 <code>dropEffect</code>的值。</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
     width: 100px;
     height: 100px;
@@ -1573,28 +1599,37 @@ e.stopPropagation(); // 阻止事件冒泡
     top: 10px;
     left: 220px;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;); // 被拖动元素
   var target = document.querySelector(&quot;.target&quot;); // 目标放置元素
+&gt;
+  // 拖动元素进入目标元素那一刻
+  target.ondragenter = function (e) &#123;
+    // 阻止默认行为，元素才能被放置，才有可能触发drop事件
+    e.preventDefault();
+    // move 允许被拖动元素移动到目标元素上 , 同时光标也会变化
+    e.dataTransfer.dropEffect = &quot;move&quot;;
+  &#125;;
+&gt;
+  target.ondragover = function (e) &#123;
+    // 阻止默认行为，元素才能被放置，才有可能触发drop事件
+    e.preventDefault();
+    // move 允许被拖动元素移动到目标元素上 , 同时光标也会变化
+    e.dataTransfer.dropEffect = &quot;move&quot;;
+    // 被动元素不允许放在这里，不会触发drop事件，光标为禁止样式
+    // e.dataTransfer.dropEffect = &quot;none&quot;;
+  &#125;;
+&gt;
+  target.ondrop = function () &#123;
+    console.log(&quot;drop&quot;);
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 拖动元素进入目标元素那一刻<br>  target.ondragenter &#x3D; function (e) {<br>    &#x2F;&#x2F; 阻止默认行为，元素才能被放置，才有可能触发drop事件<br>    e.preventDefault();<br>    &#x2F;&#x2F; move 允许被拖动元素移动到目标元素上 , 同时光标也会变化<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  target.ondragover &#x3D; function (e) {<br>    &#x2F;&#x2F; 阻止默认行为，元素才能被放置，才有可能触发drop事件<br>    e.preventDefault();<br>    &#x2F;&#x2F; move 允许被拖动元素移动到目标元素上 , 同时光标也会变化<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>    &#x2F;&#x2F; 被动元素不允许放在这里，不会触发drop事件，光标为禁止样式<br>    &#x2F;&#x2F; e.dataTransfer.dropEffect &#x3D; “none”;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  target.ondrop &#x3D; function () {<br>    console.log(“drop”);<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>effectAllowed 属性<blockquote>
 <p><code>effectAllowed</code>属性：表示<strong>被拖动元素</strong>是否允许 <code>dropEffect</code>中设置的行为</p>
@@ -1656,7 +1691,8 @@ e.stopPropagation(); // 阻止事件冒泡
 <li>如果<code>effectAllowed</code>的值，不是在<code>dropEffect</code>允许的范围，则不会触发<code>drop</code>事件；同时拖动元素进入目标元素时，鼠标样式为<strong>禁止样式</strong></li>
 <li>在进入目标元素前，鼠标为<code>effectAllowed</code>设置的样式，进入后，鼠标为<code>dropEffect</code>设置的样式&#x2F;禁止样式</li>
 </ul>
-<pre><code>&lt;style&gt;
+</blockquote>
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
     width: 100px;
     height: 100px;
@@ -1670,11 +1706,11 @@ e.stopPropagation(); // 阻止事件冒泡
     left: 200px;
     top: 10px;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;);
   var target = document.querySelector(&quot;.target&quot;);
   drag.ondragstart = function (e) &#123;
@@ -1694,9 +1730,8 @@ e.stopPropagation(); // 阻止事件冒泡
   target.ondrop = function (e) &#123;
     console.log(&quot;drop&quot;);
   &#125;;
-&lt;/script&gt;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>setData 、getData 方法<table>
 <thead>
@@ -1718,9 +1753,11 @@ e.stopPropagation(); // 阻止事件冒泡
 </ol>
 <blockquote>
 <p>语法</p>
+</blockquote>
 <pre><code>e.dataTransfer.setData(format, data); // 保存数据
 e.dataTransfer.getData(format); // 取出数据
 </code></pre>
+<blockquote>
 <ul>
 <li><code>data</code>表示要存入的数据</li>
 <li><code>format</code>表示存入的数据类型，常见的支持类型如下：<blockquote>
@@ -1767,8 +1804,7 @@ e.dataTransfer.getData(format); // 取出数据
 <li>如果没有在<code>drop</code>事件处理函数中取得这些数据，随后 <code>dataTransfer</code>对象被销毁，数据也就丢失了。</li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   .drag &#123;
     width: 100px;
     height: 100px;
@@ -1782,11 +1818,11 @@ e.dataTransfer.getData(format); // 取出数据
     left: 200px;
     top: 10px;
   &#125;
-&lt;/style&gt;
-&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;);
   var target = document.querySelector(&quot;.target&quot;);
   drag.ondragstart = function (e) &#123;
@@ -1795,55 +1831,66 @@ e.dataTransfer.getData(format); // 取出数据
     // e.dataTransfer.setData(&quot;url&quot;, e.target.id);
     this.style.opacity = &quot;0.3&quot;;
   &#125;;
+&gt;
+  target.ondragover = function (e) &#123;
+    //允许放置行为
+    e.preventDefault();
+  &#125;;
+&gt;
+  target.ondrop = function (e) &#123;
+    var id = e.dataTransfer.getData(&quot;text&quot;);
+    // var id = e.dataTransfer.getData(&quot;url&quot;);
+    // console.log(id);
+    var dragElement = document.getElementById(id);
+    target.appendChild(dragElement);
+    drag.style.opacity = &quot;1&quot;;
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  target.ondragover &#x3D; function (e) {<br>    &#x2F;&#x2F;允许放置行为<br>    e.preventDefault();<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  target.ondrop &#x3D; function (e) {<br>    var id &#x3D; e.dataTransfer.getData(“text”);<br>    &#x2F;&#x2F; var id &#x3D; e.dataTransfer.getData(“url”);<br>    &#x2F;&#x2F; console.log(id);<br>    var dragElement &#x3D; document.getElementById(id);<br>    target.appendChild(dragElement);<br>    drag.style.opacity &#x3D; “1”;<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="5">
-<li><p>clearData</p>
-<blockquote>
+<li>clearData<blockquote>
 <ul>
 <li><code>clearData()</code>方法删除给定类型的拖动操作的<code>drag data</code>，如果给定类型的数据不存在，则此方法不执行任何操作</li>
 <li>如果不带参数，默认清空所有setData方式添加的数据</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 清空对应类型数据  如果不带参数，默认清空所有setData方式添加的数据
 e.dataTransfer.clearData([format]);
 </code></pre>
-</blockquote>
-</li>
-<li><p>setDragImage</p>
-<blockquote>
+<ol start="6">
+<li>setDragImage<blockquote>
 <ul>
 <li><code>setDragImage</code>可以自定义一个<code>img</code>类型，用来设置拖放过程中的鼠标下面的图标</li>
 <li>在<code>dragstart</code>里创建图片元素</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>setDragImage(element, x, y);
 </code></pre>
+<blockquote>
 <ul>
 <li><code>element</code>拖拽时鼠标下面的图片，必需是一个元素节点</li>
 <li>x表示：图标距离鼠标指针的 x 轴方向的偏移量</li>
 <li>y表示：图标距离鼠标指针 y 轴方向的偏移量</li>
 </ul>
-<pre><code>&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
-&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;drag&quot; draggable=&quot;true&quot; id=&quot;J_drag&quot;&gt;&lt;/div&gt;
+&gt;&lt;div class=&quot;target&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var drag = document.querySelector(&quot;.drag&quot;);
   var target = document.querySelector(&quot;.target&quot;);
+&gt;
+  drag.ondragstart = function (e) &#123;
+    //创建图片元素
+    var img = document.createElement(&quot;img&quot;);
+    img.src = &quot;../src/skin/min1.jpg&quot;;
+    e.dataTransfer.setDragImage(img, 100, 100); // 设置自定义图拖拽图像
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  drag.ondragstart &#x3D; function (e) {<br> &#x2F;&#x2F;创建图片元素<br> var img &#x3D; document.createElement(“img”);<br> img.src &#x3D; “..&#x2F;src&#x2F;skin&#x2F;min1.jpg”;<br> e.dataTransfer.setDragImage(img, 100, 100); &#x2F;&#x2F; 设置自定义图拖拽图像<br>  };</p>
-<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
-</blockquote>
-</li>
-</ol>
 <h3 id="四、HTML5-拖拽综合应用案例"><a href="#四、HTML5-拖拽综合应用案例" class="headerlink" title="四、HTML5 拖拽综合应用案例"></a>四、HTML5 拖拽综合应用案例</h3><blockquote>
 <p>结合本章节所学内容进行综合实践应用。</p>
 </blockquote>
@@ -1858,84 +1905,78 @@ e.dataTransfer.clearData([format]);
 </li>
 </ol>
 <ul>
-<li>CSS布局<blockquote>
-<pre><code>&lt;style&gt;
-html,
-body,
-ul,
-li &#123;
-  margin: 0;
-  padding: 0;
-&#125;
-li &#123;
-  list-style: none;
-&#125;
-.container &#123;
-  display: flex;
-  justify-content: space-around;
-  width: 600px;
-  margin: 50px;
-&#125;
-.container h3 &#123;
-  text-align: center;
-&#125;
-.drag-wrap,
-.target-wrap &#123;
-  width: 200px;
-  height: 280px;
-&#125;
-.drag-wrap &#123;
-  border: 1px solid #ddd;
-&#125;
-.target-wrap &#123;
-  border: 2px dashed #ddd;
-&#125;
-.drag-wrap li,
-.target-wrap li &#123;
-  height: 40px;
-  margin: 5px;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  line-height: 40px;
-  cursor: pointer;
-&#125;
-.drag-wrap li:hover,
-.target-wrap li:hover &#123;
-  background-color: khaki;
-&#125;
-.drag-wrap li &#123;
-  background-color: #ddd;
-&#125;
-.target-wrap li &#123;
-  background-color: lightcoral;
-&#125;
-&lt;/style&gt;
-&lt;div class=&quot;container&quot;&gt;
- &lt;div class=&quot;select-fruit&quot;&gt;
-   &lt;h3&gt;选择你喜欢的水果&lt;/h3&gt;
-   &lt;ul class=&quot;drag-wrap&quot;&gt;
-     &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
-</code></pre>
-</blockquote>
-</li>
+<li>CSS布局</li>
 </ul>
-<blockquote>
-<pre><code> &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;水蜜桃&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;荔枝&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
+<pre><code>&gt;&lt;style&gt;
+  html,
+  body,
+  ul,
+  li &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  li &#123;
+    list-style: none;
+  &#125;
+  .container &#123;
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    margin: 50px;
+  &#125;
+  .container h3 &#123;
+    text-align: center;
+  &#125;
+  .drag-wrap,
+  .target-wrap &#123;
+    width: 200px;
+    height: 280px;
+  &#125;
+  .drag-wrap &#123;
+    border: 1px solid #ddd;
+  &#125;
+  .target-wrap &#123;
+    border: 2px dashed #ddd;
+  &#125;
+  .drag-wrap li,
+  .target-wrap li &#123;
+    height: 40px;
+    margin: 5px;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    line-height: 40px;
+    cursor: pointer;
+  &#125;
+  .drag-wrap li:hover,
+  .target-wrap li:hover &#123;
+    background-color: khaki;
+  &#125;
+  .drag-wrap li &#123;
+    background-color: #ddd;
+  &#125;
+  .target-wrap li &#123;
+    background-color: lightcoral;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;div class=&quot;container&quot;&gt;
+&gt;  &lt;div class=&quot;select-fruit&quot;&gt;
+&gt;    &lt;h3&gt;选择你喜欢的水果&lt;/h3&gt;
+&gt;    &lt;ul class=&quot;drag-wrap&quot;&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;水蜜桃&lt;/li&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;荔枝&lt;/li&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
+&gt;      &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
+&gt;    &lt;/ul&gt;
+&gt;  &lt;/div&gt;
+&gt;  &lt;div class=&quot;like-fruit&quot;&gt;
+&gt;    &lt;h3&gt;你最喜欢的水果是&lt;/h3&gt;
+&gt;    &lt;ul class=&quot;target-wrap&quot;&gt;&lt;/ul&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/div&gt;
 </code></pre>
-   </ul>
- </div>
- <div class="like-fruit">
-   <h3>你最喜欢的水果是</h3>
-   <ul class="target-wrap"></ul>
- </div>
-</div>
-```
-</blockquote>
 <ul>
 <li>JS实现<blockquote>
 <ul>
@@ -1944,31 +1985,53 @@ li &#123;
 <li>所有拖动元素要处理的事情，全部委托给他到们的父容器来处理。</li>
 <li>声明一个元素来记录当前被拖动的元素，放置到目标区域时，将该元素插入页面中</li>
 </ul>
-<pre><code>&lt;script&gt;
-var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
-var targetWrap = document.querySelector(&quot;.target-wrap&quot;);
-var dragElement = null; //记录当前被拖动的元素
-//从左往右：
-//拖拽元素
-dragWrap.ondragstart = dragStartHandle;
-dragWrap.ondragend = dragEndHandle;
-//放置元素
-targetWrap.ondragover = dragOver;
-targetWrap.ondrop = dropHandle;
-//从右往左：
-//拖拽元素
-targetWrap.ondragstart = dragStartHandle;
-targetWrap.ondragend = dragEndHandle;
-//放置元素
-dragWrap.ondragover = dragOver;
-dragWrap.ondrop = dropHandle;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F;处理拖拽元素<br>function dragStartHandle(e) {<br>  var target &#x3D; e.target;<br>  target.style.opacity &#x3D; “0.5”;<br>  dragElement &#x3D; target;<br>  e.dataTransfer.effctAllowed &#x3D; “move”;<br>}<br>function dragEndHandle(e) {<br>  var target &#x3D; e.target;<br>  target.style.opacity &#x3D; “1”; &#x2F;&#x2F;恢复透明度<br>}<br>&#x2F;&#x2F;处理放置元素<br>function dragOver(e) {<br>  e.preventDefault(); &#x2F;&#x2F;禁止默认行为<br>  e.dataTransfer.dropEffect &#x3D; “move”;<br>}<br>function dropHandle(e) {<br>  this.appendChild(dragElement);<br>  dragElement.style.opacity &#x3D; “1”; &#x2F;&#x2F;恢复透明度<br>}<br>document.ondragover &#x3D; function (e) {<br>  e.preventDefault();<br>};<blockquote>
-<p></script><br>&#96;&#96;&#96;</p>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;&lt;script&gt;
+  var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
+  var targetWrap = document.querySelector(&quot;.target-wrap&quot;);
+  var dragElement = null; //记录当前被拖动的元素
+  //从左往右：
+  //拖拽元素
+  dragWrap.ondragstart = dragStartHandle;
+  dragWrap.ondragend = dragEndHandle;
+  //放置元素
+  targetWrap.ondragover = dragOver;
+  targetWrap.ondrop = dropHandle;
+  //从右往左：
+  //拖拽元素
+  targetWrap.ondragstart = dragStartHandle;
+  targetWrap.ondragend = dragEndHandle;
+  //放置元素
+  dragWrap.ondragover = dragOver;
+  dragWrap.ondrop = dropHandle;
+&gt;
+  //处理拖拽元素
+  function dragStartHandle(e) &#123;
+    var target = e.target;
+    target.style.opacity = &quot;0.5&quot;;
+    dragElement = target;
+    e.dataTransfer.effctAllowed = &quot;move&quot;;
+  &#125;
+  function dragEndHandle(e) &#123;
+    var target = e.target;
+    target.style.opacity = &quot;1&quot;; //恢复透明度
+  &#125;
+  //处理放置元素
+  function dragOver(e) &#123;
+    e.preventDefault(); //禁止默认行为
+    e.dataTransfer.dropEffect = &quot;move&quot;;
+  &#125;
+  function dropHandle(e) &#123;
+    this.appendChild(dragElement);
+    dragElement.style.opacity = &quot;1&quot;; //恢复透明度
+  &#125;
+  document.ondragover = function (e) &#123;
+    e.preventDefault();
+  &#125;;
+&gt;&lt;/script&gt;
+</code></pre>
 <ol start="2">
 <li>页面中随意拖拽<blockquote>
 <ul>
@@ -1987,8 +2050,7 @@ dragWrap.ondrop = dropHandle;
 </blockquote>
 </li>
 </ol>
-<blockquote>
-<pre><code>&lt;style&gt;
+<pre><code>&gt;&lt;style&gt;
   html,
   body &#123;
     margin: 0;
@@ -2002,10 +2064,10 @@ dragWrap.ondrop = dropHandle;
     height: 200px;
     background-color: khaki;
   &#125;
-&lt;/style&gt;
-
-&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
-&lt;script&gt;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;box&quot; draggable=&quot;true&quot;&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   var box = document.querySelector(&quot;.box&quot;);
   document.ondragover = function (e) &#123;
     e.preventDefault();
@@ -2014,14 +2076,23 @@ dragWrap.ondrop = dropHandle;
   var offsetTop;
   var _clientX;
   var _clientY;
+&gt;
+  box.ondragstart = function (e) &#123;
+    _clientX = e.clientX;
+    _clientY = e.clientY;
+    offsetLeft = this.offsetLeft;
+    offsetTop = this.offsetTop;
+  &#125;; //213 171 100 100
+  box.ondrag = function (e) &#123;
+    var clientX = e.clientX;
+    var clientY = e.clientY;
+    var left = clientX - _clientX + offsetLeft;
+    var top = clientY - _clientY + offsetTop;
+    this.style.left = left + &quot;px&quot;;
+    this.style.top = top + &quot;px&quot;;
+  &#125;;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<p>  box.ondragstart &#x3D; function (e) {<br>    _clientX &#x3D; e.clientX;<br>    _clientY &#x3D; e.clientY;<br>    offsetLeft &#x3D; this.offsetLeft;<br>    offsetTop &#x3D; this.offsetTop;<br>  }; &#x2F;&#x2F;213 171 100 100<br>  box.ondrag &#x3D; function (e) {<br>    var clientX &#x3D; e.clientX;<br>    var clientY &#x3D; e.clientY;<br>    var left &#x3D; clientX - _clientX + offsetLeft;<br>    var top &#x3D; clientY - _clientY + offsetTop;<br>    this.style.left &#x3D; left + “px”;<br>    this.style.top &#x3D; top + “px”;<br>  };</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>拖拽排序<blockquote>
 <p>核心知识</p>
@@ -2036,57 +2107,55 @@ dragWrap.ondrop = dropHandle;
 </li>
 </ol>
 <ul>
-<li><p>CSS布局</p>
-<blockquote>
-<pre><code>&lt;style&gt;
-html,
-body,
-ul,
-li &#123;
-  margin: 0;
-  padding: 0;
-&#125;
-li &#123;
-  list-style: none;
-&#125;
-.drag-wrap &#123;
-  position: relative;
-  width: 200px;
-  height: 280px;
-  padding: 10px;
-  margin: 50px;
-  border: 1px solid #ddd;
-&#125;
-.drag-wrap .drag-item &#123;
-  width: 200px;
-  height: 50px;
-  background-color: #ddd;
-  margin: 5px auto;
-  text-align: center;
-  line-height: 50px;
-  cursor: pointer;
-&#125;
-.drag-wrap .draging &#123;
-  background-color: khaki;
-&#125;
-.stand &#123;
-  width: 200px;
-  height: 50px;
-  margin: 5px auto;
-&#125;
-&lt;/style&gt;
-&lt;ul class=&quot;drag-wrap&quot;&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
- &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;火龙果&lt;/li&gt;
-&lt;/ul&gt;
+<li>CSS布局</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  html,
+  body,
+  ul,
+  li &#123;
+    margin: 0;
+    padding: 0;
+  &#125;
+  li &#123;
+    list-style: none;
+  &#125;
+  .drag-wrap &#123;
+    position: relative;
+    width: 200px;
+    height: 280px;
+    padding: 10px;
+    margin: 50px;
+    border: 1px solid #ddd;
+  &#125;
+  .drag-wrap .drag-item &#123;
+    width: 200px;
+    height: 50px;
+    background-color: #ddd;
+    margin: 5px auto;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+  &#125;
+  .drag-wrap .draging &#123;
+    background-color: khaki;
+  &#125;
+  .stand &#123;
+    width: 200px;
+    height: 50px;
+    margin: 5px auto;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;ul class=&quot;drag-wrap&quot;&gt;
+&gt;  &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;苹果&lt;/li&gt;
+&gt;  &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;香蕉&lt;/li&gt;
+&gt;  &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;梨子&lt;/li&gt;
+&gt;  &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;葡萄&lt;/li&gt;
+&gt;  &lt;li class=&quot;drag-item&quot; draggable=&quot;true&quot;&gt;火龙果&lt;/li&gt;
+&gt;&lt;/ul&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>JS 实现原理<br><strong>第一步：实现鼠标按下开始拖动时要处理的事情</strong></p>
-<blockquote>
+<ul>
+<li>JS 实现原理<br><strong>第一步：实现鼠标按下开始拖动时要处理的事情</strong><blockquote>
 <ul>
 <li>1、为了后面 drag 事件中能获取到当前拖动的元素，还需要<strong>把拖动元素保存到全局变量</strong>中</li>
 <li>2、把拖动元素的<strong>背景色</strong>设置为黄色</li>
@@ -2097,25 +2166,41 @@ li &#123;
 </blockquote>
 </li>
 </ul>
-<pre><code>var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
-var standElement = null;
-var dragElement = null;
-var dragLeft;
-var dragTop;
-var pageX;
-var pageY;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;刚开始拖动时，需要处理的事件<br>dragWrap.ondragstart &#x3D; function (e) {<br>  var target &#x3D; e.target;<br>  &#x2F;&#x2F;1.元素背景变色<br>  target.classList.add(“draging”);<br>  &#x2F;&#x2F;2.把拖拽元素设置成为绝对定位元素，设置left、top、margin<br>  dragLeft &#x3D; target.offsetLeft;<br>  dragTop &#x3D; target.offsetTop;<br>  dragElement &#x3D; target;<br>  target.style.display &#x3D; “none”;<br>  target.style.position &#x3D; “absolute”;<br>  target.style.left &#x3D; dragLeft + “px”;<br>  target.style.top &#x3D; dragTop + “px”;<br>  target.style.margin &#x3D; “0 auto”;<br>  target.style.display &#x3D; “block”;<br>  &#x2F;&#x2F;3.创建站位元素<br>  standElement &#x3D; document.createElement(“div”);<br>  standElement.classList.add(“stand”);<br>  this.insertBefore(standElement, target);</p>
-<blockquote>
-</blockquote>
-<p>  pageX &#x3D; e.pageX;<br>  pageY &#x3D; e.pageY;<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>  var dragWrap = document.querySelector(&quot;.drag-wrap&quot;);
+  var standElement = null;
+  var dragElement = null;
+  var dragLeft;
+  var dragTop;
+  var pageX;
+  var pageY;
+&gt;
+  //刚开始拖动时，需要处理的事件
+  dragWrap.ondragstart = function (e) &#123;
+    var target = e.target;
+    //1.元素背景变色
+    target.classList.add(&quot;draging&quot;);
+    //2.把拖拽元素设置成为绝对定位元素，设置left、top、margin
+    dragLeft = target.offsetLeft;
+    dragTop = target.offsetTop;
+    dragElement = target;
+    target.style.display = &quot;none&quot;;
+    target.style.position = &quot;absolute&quot;;
+    target.style.left = dragLeft + &quot;px&quot;;
+    target.style.top = dragTop + &quot;px&quot;;
+    target.style.margin = &quot;0 auto&quot;;
+    target.style.display = &quot;block&quot;;
+    //3.创建站位元素
+    standElement = document.createElement(&quot;div&quot;);
+    standElement.classList.add(&quot;stand&quot;);
+    this.insertBefore(standElement, target);
+&gt;
+    pageX = e.pageX;
+    pageY = e.pageY;
+  &#125;;
+</code></pre>
 <p><strong>第二步：拖动过程中要处理的事情</strong></p>
 <blockquote>
 <ul>
@@ -2132,6 +2217,7 @@ var pageY;
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>//元素被拖动过程中，应处理的事
 dragWrap.ondrag = function (e) &#123;
   var _pageX = e.pageX;
@@ -2160,13 +2246,39 @@ dragWrap.ondrag = function (e) &#123;
     nearSibling.insertAdjacentElement(&quot;afterend&quot;, standElement);
   &#125;
 &#125;;
+&gt;
+//函数：找到符合要求的兄弟元素
+function findSibling(dragEle) &#123;
+  //条件:1.不包含占位元素
+  //2.拖动元素底部与浏览器的距离&gt;= 兄弟元素垂直中心点与浏览器顶部的距离
+  //获取拖拽元素到浏览器顶部的距离
+  var rect = dragEle.getBoundingClientRect();
+  var rectBottom = rect.bottom;
+  // 获取拖动元素的所有兄弟元素
+  var siBlings = dragEle.parentNode.children;
+  //将类数组转成数组
+  siBlings = Array.prototype.slice.call(siBlings, 0);
+  //首先过滤掉占位元素
+  siBlings = siBlings.filter(function (item) &#123;
+    return item !== standElement;
+  &#125;);
+  var result = null; //用来保存找到了满足条件兄弟元素
+  for (var i = 0; i &lt; siBlings.length; i++) &#123;
+    //排除自身
+    if (siBlings[i] === dragEle) continue; //跳过当次
+    var rect1 = siBlings[i].getBoundingClientRect();
+    // 获取每个元素中心与浏览器顶部的距离
+    var center = rect1.y + siBlings[i].offsetHeight / 2;
+    // 找到离自己最近的满足 rectBottom&gt;center的兄弟元素
+    if (rectBottom &gt; center) &#123;
+      result = siBlings[i];
+    &#125; else &#123;
+      return result;
+    &#125;
+  &#125;
+  return result;
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;函数：找到符合要求的兄弟元素<br>function findSibling(dragEle) {<br>  &#x2F;&#x2F;条件:1.不包含占位元素<br>  &#x2F;&#x2F;2.拖动元素底部与浏览器的距离&gt;&#x3D; 兄弟元素垂直中心点与浏览器顶部的距离<br>  &#x2F;&#x2F;获取拖拽元素到浏览器顶部的距离<br>  var rect &#x3D; dragEle.getBoundingClientRect();<br>  var rectBottom &#x3D; rect.bottom;<br>  &#x2F;&#x2F; 获取拖动元素的所有兄弟元素<br>  var siBlings &#x3D; dragEle.parentNode.children;<br>  &#x2F;&#x2F;将类数组转成数组<br>  siBlings &#x3D; Array.prototype.slice.call(siBlings, 0);<br>  &#x2F;&#x2F;首先过滤掉占位元素<br>  siBlings &#x3D; siBlings.filter(function (item) {<br>    return item !&#x3D;&#x3D; standElement;<br>  });<br>  var result &#x3D; null; &#x2F;&#x2F;用来保存找到了满足条件兄弟元素<br>  for (var i &#x3D; 0; i &lt; siBlings.length; i++) {<br>    &#x2F;&#x2F;排除自身<br>    if (siBlings[i] &#x3D;&#x3D;&#x3D; dragEle) continue; &#x2F;&#x2F;跳过当次<br>    var rect1 &#x3D; siBlings[i].getBoundingClientRect();<br>    &#x2F;&#x2F; 获取每个元素中心与浏览器顶部的距离<br>    var center &#x3D; rect1.y + siBlings[i].offsetHeight &#x2F; 2;<br>    &#x2F;&#x2F; 找到离自己最近的满足 rectBottom&gt;center的兄弟元素<br>    if (rectBottom &gt; center) {<br>      result &#x3D; siBlings[i];<br>    } else {<br>      return result;<br>    }<br>  }<br>  return result;<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意：</p>
@@ -2174,11 +2286,11 @@ dragWrap.ondrag = function (e) &#123;
 <ul>
 <li>整个<code>drag</code>操作过程的样式要生效，必需要设置父容器为允许放置行为，即在<code>dragover</code>中取消默认行为</li>
 </ul>
+</blockquote>
 <pre><code>dragWrap.ondragover = function (e) &#123;
   e.preventDefault();
 &#125;;
 </code></pre>
-</blockquote>
 <p><strong>第三步：拖动结束要处理的事情</strong></p>
 <blockquote>
 <ul>
@@ -2188,6 +2300,7 @@ dragWrap.ondrag = function (e) &#123;
 <li>将占位元素从页面中移除</li>
 <li>如果存在前一个背景变红的兄弟元素，将红色背景去掉，使页面最后无红色背景元素</li>
 </ul>
+</blockquote>
 <pre><code> //拖拽结束时，应该处理的事
  dragWrap.ondragend = function (e) &#123;
    var target = e.target;
@@ -2204,10 +2317,8 @@ dragWrap.ondrag = function (e) &#123;
    prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor = &quot;&quot;);
  &#125;;
 </code></pre>
-</blockquote>
 <p><strong>完整源码</strong></p>
-<blockquote>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token keyword">var</span> dragWrap <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".drag-wrap"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> dragLeft<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动元素的初始left值</span>
   <span class="token keyword">var</span> dragTop<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动元素的初始top值</span>
@@ -2216,26 +2327,115 @@ dragWrap.ondrag = function (e) &#123;
   <span class="token keyword">var</span> standElement <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 用来保存占位元素</span>
   <span class="token keyword">var</span> dragElement <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 记录被拖动的元素</span>
   <span class="token keyword">var</span> prevNearSibling <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//保存前一个最近的兄弟元素</span>
+<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">//刚开始拖动时，需要处理的事件</span>
+  dragWrap<span class="token punctuation">.</span>ondragstart <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> target <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    dragElement <span class="token operator">=</span> target<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//记录被拖动的元素</span>
+    <span class="token comment" spellcheck="true">//1.元素背景变色</span>
+    target<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"draging"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//2.把拖拽元素设置成为绝对定位元素，设置left、top、margin</span>
+    dragLeft <span class="token operator">=</span> target<span class="token punctuation">.</span>offsetLeft<span class="token punctuation">;</span>
+    dragTop <span class="token operator">=</span> target<span class="token punctuation">.</span>offsetTop<span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">"none"</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">"absolute"</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> dragLeft <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> dragTop <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>margin <span class="token operator">=</span> <span class="token string">"0 auto"</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>display <span class="token operator">=</span> <span class="token string">"block"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//3.创建站位元素,将其插入当前拖动元素的后面</span>
+    standElement <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">"div"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    standElement<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"stand"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    dragElement<span class="token punctuation">.</span><span class="token function">insertAdjacentElement</span><span class="token punctuation">(</span><span class="token string">"afterend"</span><span class="token punctuation">,</span> standElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//4.记录鼠标按下开始拖动时，鼠标与浏览器左边和顶部的距离</span>
+    pageX <span class="token operator">=</span> e<span class="token punctuation">.</span>pageX<span class="token punctuation">;</span>
+    pageY <span class="token operator">=</span> e<span class="token punctuation">.</span>pageY<span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">//元素被拖动过程中，应处理的事</span>
+  dragWrap<span class="token punctuation">.</span>ondrag <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 获取鼠标与浏览器左边和上边距离</span>
+    <span class="token keyword">var</span> _pageX <span class="token operator">=</span> e<span class="token punctuation">.</span>pageX<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> _pageY <span class="token operator">=</span> e<span class="token punctuation">.</span>pageY<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//改变元素的位置，动态赋值</span>
+    <span class="token keyword">var</span> left <span class="token operator">=</span> _pageX <span class="token operator">-</span> pageX <span class="token operator">+</span> dragLeft<span class="token punctuation">;</span>
+    <span class="token keyword">var</span> top <span class="token operator">=</span> _pageY <span class="token operator">-</span> pageY <span class="token operator">+</span> dragTop<span class="token punctuation">;</span>
+    dragElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> left <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
+    dragElement<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> top <span class="token operator">+</span> <span class="token string">"px"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//找到符合要求的兄弟元素，</span>
+    <span class="token comment" spellcheck="true">//改变它的背景色，并将占位元素插入当前兄弟元素的后面。</span>
+    <span class="token keyword">var</span> nearSibling <span class="token operator">=</span> <span class="token function">findSibling</span><span class="token punctuation">(</span>dragElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//如果nearSibling=null,说明当前拖动元素在第一个子元素的最前面</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>nearSibling<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 将占位元素插入到父元素的第一个子元素的前面</span>
+      dragWrap<span class="token punctuation">.</span><span class="token function">prepend</span><span class="token punctuation">(</span>standElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//如果存在最近的兄弟元素</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nearSibling<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//将前一个颜色恢复</span>
+      prevNearSibling <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>prevNearSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//改变它的背景色</span>
+      nearSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">"red"</span><span class="token punctuation">;</span>
+      prevNearSibling <span class="token operator">=</span> nearSibling<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//将占位元素插入到兄弟元素的后面</span>
+      nearSibling<span class="token punctuation">.</span><span class="token function">insertAdjacentElement</span><span class="token punctuation">(</span><span class="token string">"afterend"</span><span class="token punctuation">,</span> standElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">//拖拽结束时，应该处理的事</span>
+  dragWrap<span class="token punctuation">.</span>ondragend <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> target <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//1.拖拽元素恢复颜色</span>
+    target<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"draging"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//2.把拖动的元素还原，去掉绝对定位和margin</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    target<span class="token punctuation">.</span>style<span class="token punctuation">.</span>margin <span class="token operator">=</span> <span class="token string">"5px auto"</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//3.将拖动元素放入占位元素所在位置（前或后）</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>dragElement<span class="token punctuation">,</span> standElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//4.删除站位节点</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>standElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//如果存在前一个背景变红的兄弟元素，将红色背景去掉</span>
+    prevNearSibling <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>prevNearSibling<span class="token punctuation">.</span>style<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">></span>
+  dragWrap<span class="token punctuation">.</span>ondragover <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    e<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//允许放置</span>
+    e<span class="token punctuation">.</span>dataTransfer<span class="token punctuation">.</span>dropEffect <span class="token operator">=</span> <span class="token string">"move"</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">//找到符合要求的兄弟元素</span>
+  <span class="token keyword">function</span> <span class="token function">findSibling</span><span class="token punctuation">(</span>dragEle<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//条件:1.不包含占位元素</span>
+    <span class="token comment" spellcheck="true">//2.拖动元素底部与浏览器的距离>= 兄弟元素垂直中心点与浏览器顶部的距离</span>
+    <span class="token comment" spellcheck="true">//获取拖拽元素到浏览器顶部的距离</span>
+    <span class="token keyword">var</span> rect <span class="token operator">=</span> dragEle<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> rectBottom <span class="token operator">=</span> rect<span class="token punctuation">.</span>bottom<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 获取拖动元素的所有兄弟元素</span>
+    <span class="token keyword">var</span> siBlings <span class="token operator">=</span> dragEle<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span>children<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//将类数组转成数组</span>
+    siBlings <span class="token operator">=</span> Array<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>slice<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>siBlings<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//首先过滤掉占位元素</span>
+    siBlings <span class="token operator">=</span> siBlings<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> item <span class="token operator">!==</span> standElement<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//用来保存找到了满足条件兄弟元素</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> siBlings<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//排除自身</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>siBlings<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> dragEle<span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//跳过当次</span>
+      <span class="token keyword">var</span> rect1 <span class="token operator">=</span> siBlings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 获取每个元素中心与浏览器顶部的距离</span>
+      <span class="token keyword">var</span> center <span class="token operator">=</span> rect1<span class="token punctuation">.</span>y <span class="token operator">+</span> siBlings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>offsetHeight <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">// 找到离自己最近的满足 rectBottom>center的兄弟元素</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>rectBottom <span class="token operator">></span> center<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        result <span class="token operator">=</span> siBlings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F;刚开始拖动时，需要处理的事件<br>  dragWrap.ondragstart &#x3D; function (e) {<br>    var target &#x3D; e.target;<br>    dragElement &#x3D; target; &#x2F;&#x2F;记录被拖动的元素<br>    &#x2F;&#x2F;1.元素背景变色<br>    target.classList.add(“draging”);<br>    &#x2F;&#x2F;2.把拖拽元素设置成为绝对定位元素，设置left、top、margin<br>    dragLeft &#x3D; target.offsetLeft;<br>    dragTop &#x3D; target.offsetTop;<br>    target.style.display &#x3D; “none”;<br>    target.style.position &#x3D; “absolute”;<br>    target.style.left &#x3D; dragLeft + “px”;<br>    target.style.top &#x3D; dragTop + “px”;<br>    target.style.margin &#x3D; “0 auto”;<br>    target.style.display &#x3D; “block”;<br>    &#x2F;&#x2F;3.创建站位元素,将其插入当前拖动元素的后面<br>    standElement &#x3D; document.createElement(“div”);<br>    standElement.classList.add(“stand”);<br>    dragElement.insertAdjacentElement(“afterend”, standElement);<br>    &#x2F;&#x2F;4.记录鼠标按下开始拖动时，鼠标与浏览器左边和顶部的距离<br>    pageX &#x3D; e.pageX;<br>    pageY &#x3D; e.pageY;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;元素被拖动过程中，应处理的事<br>  dragWrap.ondrag &#x3D; function (e) {<br>    &#x2F;&#x2F; 获取鼠标与浏览器左边和上边距离<br>    var _pageX &#x3D; e.pageX;<br>    var _pageY &#x3D; e.pageY;<br>    &#x2F;&#x2F;改变元素的位置，动态赋值<br>    var left &#x3D; _pageX - pageX + dragLeft;<br>    var top &#x3D; _pageY - pageY + dragTop;<br>    dragElement.style.left &#x3D; left + “px”;<br>    dragElement.style.top &#x3D; top + “px”;<br>    &#x2F;&#x2F;找到符合要求的兄弟元素，<br>    &#x2F;&#x2F;改变它的背景色，并将占位元素插入当前兄弟元素的后面。<br>    var nearSibling &#x3D; findSibling(dragElement);<br>    &#x2F;&#x2F;如果nearSibling&#x3D;null,说明当前拖动元素在第一个子元素的最前面<br>    if (!nearSibling) {<br>      &#x2F;&#x2F; 将占位元素插入到父元素的第一个子元素的前面<br>      dragWrap.prepend(standElement);<br>    }<br>    &#x2F;&#x2F;如果存在最近的兄弟元素<br>    if (nearSibling) {<br>      &#x2F;&#x2F;将前一个颜色恢复<br>      prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor &#x3D; “”);<br>      &#x2F;&#x2F;改变它的背景色<br>      nearSibling.style.backgroundColor &#x3D; “red”;<br>      prevNearSibling &#x3D; nearSibling;<br>      &#x2F;&#x2F;将占位元素插入到兄弟元素的后面<br>      nearSibling.insertAdjacentElement(“afterend”, standElement);<br>    }<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;拖拽结束时，应该处理的事<br>  dragWrap.ondragend &#x3D; function (e) {<br>    var target &#x3D; e.target;<br>    &#x2F;&#x2F;1.拖拽元素恢复颜色<br>    target.classList.remove(“draging”);<br>    &#x2F;&#x2F;2.把拖动的元素还原，去掉绝对定位和margin<br>    target.style.position &#x3D; “”;<br>    target.style.margin &#x3D; “5px auto”;<br>    &#x2F;&#x2F;3.将拖动元素放入占位元素所在位置（前或后）<br>    this.insertBefore(dragElement, standElement);<br>    &#x2F;&#x2F;4.删除站位节点<br>    this.removeChild(standElement);<br>    &#x2F;&#x2F;如果存在前一个背景变红的兄弟元素，将红色背景去掉<br>    prevNearSibling &amp;&amp; (prevNearSibling.style.backgroundColor &#x3D; “”);<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  dragWrap.ondragover &#x3D; function (e) {<br>    e.preventDefault(); &#x2F;&#x2F;允许放置<br>    e.dataTransfer.dropEffect &#x3D; “move”;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F;找到符合要求的兄弟元素<br>  function findSibling(dragEle) {<br>    &#x2F;&#x2F;条件:1.不包含占位元素<br>    &#x2F;&#x2F;2.拖动元素底部与浏览器的距离&gt;&#x3D; 兄弟元素垂直中心点与浏览器顶部的距离<br>    &#x2F;&#x2F;获取拖拽元素到浏览器顶部的距离<br>    var rect &#x3D; dragEle.getBoundingClientRect();<br>    var rectBottom &#x3D; rect.bottom;<br>    &#x2F;&#x2F; 获取拖动元素的所有兄弟元素<br>    var siBlings &#x3D; dragEle.parentNode.children;<br>    &#x2F;&#x2F;将类数组转成数组<br>    siBlings &#x3D; Array.prototype.slice.call(siBlings, 0);<br>    &#x2F;&#x2F;首先过滤掉占位元素<br>    siBlings &#x3D; siBlings.filter(function (item) {<br>      return item !&#x3D;&#x3D; standElement;<br>    });<br>    var result &#x3D; null; &#x2F;&#x2F;用来保存找到了满足条件兄弟元素<br>    for (var i &#x3D; 0; i &lt; siBlings.length; i++) {<br>      &#x2F;&#x2F;排除自身<br>      if (siBlings[i] &#x3D;&#x3D;&#x3D; dragEle) continue; &#x2F;&#x2F;跳过当次<br>      var rect1 &#x3D; siBlings[i].getBoundingClientRect();<br>      &#x2F;&#x2F; 获取每个元素中心与浏览器顶部的距离<br>      var center &#x3D; rect1.y + siBlings[i].offsetHeight &#x2F; 2;<br>      &#x2F;&#x2F; 找到离自己最近的满足 rectBottom&gt;center的兄弟元素<br>      if (rectBottom &gt; center) {<br>        result &#x3D; siBlings[i];<br>      } else {<br>        return result;<br>      }<br>    }<br>    return result;<br>  }</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 
                 
             </div>

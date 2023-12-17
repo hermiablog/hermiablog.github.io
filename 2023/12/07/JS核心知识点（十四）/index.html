@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-07
+                    2023-12-18
                 </div>
                 
 
@@ -489,7 +489,6 @@
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>  // 定义对象
   var obj = &#123;
     name: &quot;张三&quot;,
@@ -523,7 +522,6 @@
   var a1 = Object.getOwnPropertyDescriptor(obj, &quot;age&quot;);
   console.log(a1); //&#123;value: 44, writable: false, enumerable: false, configurable: false&#125;
 </code></pre>
-</blockquote>
 <ol start="2">
 <li><p>Object.getOwnPropertyDescriptor</p>
 <blockquote>
@@ -585,20 +583,35 @@
 <li>一般用访问器属性获取&#x2F;修改的属性 与 对象被定义时设置的名称不一样，在定义时会被设置成”私有变量”，我们约定用<code>_</code>开头的方式命名(依旧可以打点访问)，因为在ES5中无法设置私有变量，只能这么做</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var obj = &#123;
     name: &quot;张三&quot;,
     age: 23,
     _sex: &quot;女&quot;,
     identity: &quot;女士&quot;,
   &#125;;
+&gt;
+  Object.defineProperty(obj, &quot;sex&quot;, &#123;
+    //获取属性
+    get: function () &#123;
+      return this._sex;
+    &#125;,
+    //设置属性
+    set: function (value) &#123;
+      this._sex = value;
+      if (value === &quot;女&quot;) &#123;
+        this.identity = &quot;女士&quot;;
+      &#125; else &#123;
+        this.identity = &quot;先生&quot;;
+      &#125;
+    &#125;,
+  &#125;);
+  //获取属性
+  console.log(obj.sex); //女
+  //重新设置属性
+  obj.sex = &quot;男&quot;;
+  console.log(obj.sex); //男
+  console.log(obj.identity); //先生
 </code></pre>
-</blockquote>
-<p>  Object.defineProperty(obj, “sex”, {<br>    &#x2F;&#x2F;获取属性<br>    get: function () {<br>      return this._sex;<br>    },<br>    &#x2F;&#x2F;设置属性<br>    set: function (value) {<br>      this._sex &#x3D; value;<br>      if (value &#x3D;&#x3D;&#x3D; “女”) {<br>        this.identity &#x3D; “女士”;<br>      } else {<br>        this.identity &#x3D; “先生”;<br>      }<br>    },<br>  });<br>  &#x2F;&#x2F;获取属性<br>  console.log(obj.sex); &#x2F;&#x2F;女<br>  &#x2F;&#x2F;重新设置属性<br>  obj.sex &#x3D; “男”;<br>  console.log(obj.sex); &#x2F;&#x2F;男<br>  console.log(obj.identity); &#x2F;&#x2F;先生</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ul>
 <li><p>访问器属性的典型<strong>应用场景</strong>：</p>
 <blockquote>
@@ -628,6 +641,7 @@
 <li><code>obj</code> 需要定义和修改属性的对象</li>
 <li><code>props</code> 用来修改对应属性的描述符对象</li>
 </ul>
+</blockquote>
 <pre><code> var obj = &#123;
    _sex: &quot;女&quot;,
  &#125;;
@@ -653,7 +667,6 @@
  obj.sex = &quot;男&quot;;
  console.log(obj.sex); //男
 </code></pre>
-</blockquote>
 <h4 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h4><blockquote>
 <p><code>JavaScript</code>中有没有可能让<code>(a === 1 &amp;&amp; a === 2 &amp;&amp; a === 3)</code>返回<code>true</code> ？</p>
 <ul>
@@ -661,6 +674,7 @@
 <li>如果我们在<strong>读取</strong>一个变量的值时，能<strong>修改</strong>这个变量对应的值，那不就有解了吗 ?</li>
 <li>我们可以把变量 a 当成 <code>window</code> 对象的属性，同时 a 还是一个访问器属性，那我们就可以在他的 <code>get</code> 方法中来修改他的值。</li>
 </ul>
+</blockquote>
 <pre><code>  var _a = 0;
   Object.defineProperty(window, &quot;a&quot;, &#123;
     get: function () &#123;
@@ -671,6 +685,7 @@
     console.log(&quot;true&quot;);
   &#125;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>通过上面这个面试题给了我们一个启发</p>
 </blockquote>
@@ -683,6 +698,7 @@
 <ul>
 <li>除了可以保存赋值记录，还可以查询某次的记录、总值</li>
 </ul>
+</blockquote>
 <pre><code> var obj = &#123;
    _num: 0,
    _historyValue: [],
@@ -721,7 +737,6 @@
  console.log(obj.go(1)); //45
  console.log(obj.sum());//100
 </code></pre>
-</blockquote>
 <h4 id="案例应用2：数据驱动页面更新（单向）"><a href="#案例应用2：数据驱动页面更新（单向）" class="headerlink" title="案例应用2：数据驱动页面更新（单向）"></a>案例应用2：数据驱动页面更新（单向）</h4><blockquote>
 <p>Vue 中有两种数据绑定方式</p>
 <ul>
@@ -734,12 +749,13 @@
 <li>以下案例简单实现了数据的单向绑定，关于双向绑定后面的案例中会讲到</li>
 <li>效果：当data中的数据发生更新数据，则页面数据就发生相应的变化</li>
 </ul>
-<pre><code>&lt;div class=&quot;goods&quot;&gt;
- &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
- &lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;main-img&quot; /&gt;
- &lt;p&gt;价格：&lt;span class=&quot;price&quot;&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;script&gt;
+</blockquote>
+<pre><code>&gt;&lt;div class=&quot;goods&quot;&gt;
+&gt;  &lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+&gt;  &lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;main-img&quot; /&gt;
+&gt;  &lt;p&gt;价格：&lt;span class=&quot;price&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&gt;&lt;/div&gt;
+&gt;&lt;script&gt;
   function update() &#123;
     var obj = &#123;&#125;;
     //这三个元素相当于私有变量，外面访问不到
@@ -755,45 +771,46 @@
     oTitle.innerText = title;
     oImg.src = mainImg;
     oPrice.innerText = price;
+&gt;
+    var data = Object.defineProperties(obj, &#123;
+      title: &#123;
+        get: function () &#123;
+          return title;
+        &#125;,
+        set: function (value) &#123;
+          title = value;
+          oTitle.innerText = value;
+        &#125;,
+      &#125;,
+      mainImg: &#123;
+        get: function () &#123;
+          return mainImg;
+        &#125;,
+        set: function (value) &#123;
+          mainImg = value;
+          oImg.src = value;
+        &#125;,
+      &#125;,
+      price: &#123;
+        get: function () &#123;
+          return price;
+        &#125;,
+        set: function (value) &#123;
+          price = value;
+          oPrice.innerText = value &gt; 0 ? value : &quot;免费&quot;;
+        &#125;,
+      &#125;,
+    &#125;);
+    return data; //将obj对象返回
+  &#125;
+  var date = update(); //调用函数，得到obj对象
+  //更新数据，当date中的数据发生更新数据，则页面数据就发生相应的变化
+  date.title = &quot;Web前端高级工程师系统课-星辰班&quot;;
+  date.mainImg =
+    &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg&quot;;
+  date.price = 300;
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>var data = Object.defineProperties(obj, &#123;
-  title: &#123;
-    get: function () &#123;
-      return title;
-    &#125;,
-    set: function (value) &#123;
-      title = value;
-      oTitle.innerText = value;
-    &#125;,
-  &#125;,
-  mainImg: &#123;
-    get: function () &#123;
-      return mainImg;
-    &#125;,
-    set: function (value) &#123;
-      mainImg = value;
-      oImg.src = value;
-    &#125;,
-  &#125;,
-  price: &#123;
-    get: function () &#123;
-      return price;
-    &#125;,
-    set: function (value) &#123;
-      price = value;
-      oPrice.innerText = value &gt; 0 ? value : &quot;免费&quot;;
-    &#125;,
-  &#125;,
-&#125;);
-return data; //将obj对象返回
-</code></pre>
-<p>  }<br>  var date &#x3D; update(); &#x2F;&#x2F;调用函数，得到obj对象<br>  &#x2F;&#x2F;更新数据，当date中的数据发生更新数据，则页面数据就发生相应的变化<br>  date.title &#x3D; “Web前端高级工程师系统课-星辰班”;<br>  date.mainImg &#x3D;<br>    “<a target="_blank" rel="noopener" href="https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg">https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f40bcf290736.jpg</a>“;<br>  date.price &#x3D; 300;</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="二、区分公有、静态、私有属性"><a href="#二、区分公有、静态、私有属性" class="headerlink" title="二、区分公有、静态、私有属性"></a>二、区分公有、静态、私有属性</h3><h4 id="JS-公有属性和公有方法"><a href="#JS-公有属性和公有方法" class="headerlink" title="JS 公有属性和公有方法"></a>JS 公有属性和公有方法</h4><blockquote>
 <ul>
 <li>公有属性：所有构造函数的实例都可以访问的属性，在构造函数内部通过 <code>this.属性名</code> 定义的。</li>
@@ -810,21 +827,26 @@ return data; //将obj对象返回
 <li>另一种方式就是在构造函数的原型上定义，所有实例都是共用原型上的同一个方法，更推荐这种方式</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>function Person(name, age) &#123;
   // 公有属性 实例属性
   this.name = name;
   this.age = age;
+
+  // 公有方法（一般不会这样写）
+  this.toSleep = function () &#123;
+    console.log(&quot;我正在睡觉&quot;);
+  &#125;;
+&#125;
+// 公有方法 实例方法
+Person.prototype.sayHello = function () &#123;
+  console.log(&quot;大家好，我是&quot; + this.name);
+&#125;;
+&gt;
+var p1 = new Person(&quot;张三&quot;, 32);
+console.log(p1.name);
+console.log(p1.age);
+p1.sayHello();
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 公有方法（一般不会这样写）<br>  this.toSleep &#x3D; function () {<br>    console.log(“我正在睡觉”);<br>  };<br>}<br>&#x2F;&#x2F; 公有方法 实例方法<br>Person.prototype.sayHello &#x3D; function () {<br>  console.log(“大家好，我是” + this.name);<br>};</p>
-<blockquote>
-</blockquote>
-<p>var p1 &#x3D; new Person(“张三”, 32);<br>console.log(p1.name);<br>console.log(p1.age);<br>p1.sayHello();</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="JS-静态属性和静态方法"><a href="#JS-静态属性和静态方法" class="headerlink" title="JS 静态属性和静态方法"></a>JS 静态属性和静态方法</h4><blockquote>
 <ul>
 <li>静态属性：只有类（构造函数）本身能访问的属性，通过<code>类名.属性名</code>来定义</li>
@@ -832,20 +854,17 @@ return data; //将obj对象返回
 <li>访问的时候也是通过<code>类名.属性名/方法名</code>的方式</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>function Person() &#123;&#125;
 // 静态属性
 Person.length = 0;
 Person.children = function () &#123;
   console.log(&quot;静态方法&quot;);
 &#125;;
+&gt;
+var p = new Person();
+console.log(p.length); // 不能访问
+console.log(Person.length); // 能访问
 </code></pre>
-</blockquote>
-<p>var p &#x3D; new Person();<br>console.log(p.length); &#x2F;&#x2F; 不能访问<br>console.log(Person.length); &#x2F;&#x2F; 能访问</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="JS-私有属性、私有方法和特权方法"><a href="#JS-私有属性、私有方法和特权方法" class="headerlink" title="JS 私有属性、私有方法和特权方法"></a>JS 私有属性、私有方法和特权方法</h4><blockquote>
 <ul>
 <li>私有属性：只能在构造函数<strong>内部</strong>才能访问的属性，如果外部要访问必须<strong>通过指定的方法</strong>来访问和修改</li>
@@ -868,26 +887,33 @@ Person.children = function () &#123;
 <li>行业约定规范，私有属性和方法在命名时以<code>_</code>下划线开头</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>function Price() &#123;
   // 私有属性
   var _price = 0;
+&gt;
+  // 私有方法  用来对属性price做相关操作
+  function _computed() &#123;
+    return _price &gt; 0 ? &quot;￥&quot; + _price : &quot;免费&quot;;
+  &#125;
+&gt;
+  // 特权方法  获取属性计算后的值
+  this.getPrice = function () &#123;
+    return _computed();
+  &#125;;
+&gt;
+  // 特权方法
+  this.setPrice = function (value) &#123;
+    if (typeof value !== &quot;number&quot;) throw new TypeError(&quot;传入一个数字&quot;);
+    _price = value;
+  &#125;;
+&#125;
+&gt;
+var p = new Price();
+p.setPrice(200.05);
+console.log(p.getPrice()); // ￥200.05
+p.setPrice(-90); //
+console.log(p.getPrice()); // 免费
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 私有方法  用来对属性price做相关操作<br>  function _computed() {<br>    return _price &gt; 0 ? “￥” + _price : “免费”;<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 特权方法  获取属性计算后的值<br>  this.getPrice &#x3D; function () {<br>    return _computed();<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 特权方法<br>  this.setPrice &#x3D; function (value) {<br>    if (typeof value !&#x3D;&#x3D; “number”) throw new TypeError(“传入一个数字”);<br>    _price &#x3D; value;<br>  };<br>}</p>
-<blockquote>
-</blockquote>
-<p>var p &#x3D; new Price();<br>p.setPrice(200.05);<br>console.log(p.getPrice()); &#x2F;&#x2F; ￥200.05<br>p.setPrice(-90); &#x2F;&#x2F;<br>console.log(p.getPrice()); &#x2F;&#x2F; 免费</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h4 id="混合模式"><a href="#混合模式" class="headerlink" title="混合模式"></a>混合模式</h4><blockquote>
 <ul>
 <li>将所有实例都操作的<strong>特权方法</strong>定义在构造函数的<strong>原型链</strong>上</li>
@@ -902,6 +928,7 @@ Person.children = function () &#123;
 <li>定义在原型链上的是公有方法,它只能通过<code>this.</code>的方式访问构造函数里的<strong>公有属性&#x2F;方法</strong>，<strong>不能访问到私有的</strong></li>
 <li>因此要用<strong>立即执行函数+闭包</strong>的方式才能实现混合模式</li>
 </ul>
+</blockquote>
 <pre><code> var GetNum = (function () &#123;
    var _num = 4;
    function GetNum() &#123;&#125;
@@ -913,13 +940,13 @@ Person.children = function () &#123;
    &#125;;
    return GetNum;
  &#125;)();
+&gt;
+ var n1 = new GetNum();
+ console.log(n1);
+ console.log(n1.get());//4
+ n1.set(555);
+ console.log(n1.get());//555
 </code></pre>
-</blockquote>
-<p> var n1 &#x3D; new GetNum();<br> console.log(n1);<br> console.log(n1.get());&#x2F;&#x2F;4<br> n1.set(555);<br> console.log(n1.get());&#x2F;&#x2F;555</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <p><strong>案例应用</strong></p>
 <ul>
@@ -969,7 +996,6 @@ Person.children = function () &#123;
 <td>保存孩子的姓名</td>
 </tr>
 </tbody></table>
-<blockquote>
 <pre><code> var Father = (function () &#123;
    //私有属性
    var _money = 0;
@@ -1003,13 +1029,13 @@ Person.children = function () &#123;
  &#125;
  // 原型式继承
  Child.prototype = Object.create(Father.prototype);
+&gt;
+ var child1 = new Child();
+ Father.save(2000); //父亲存了2000元
+ Father.take(200); //父亲取走200元
+ Father.view(); //目前账户还有1800元
+ child1.take(100); //张三取走100元
 </code></pre>
-</blockquote>
-<p> var child1 &#x3D; new Child();<br> Father.save(2000); &#x2F;&#x2F;父亲存了2000元<br> Father.take(200); &#x2F;&#x2F;父亲取走200元<br> Father.view(); &#x2F;&#x2F;目前账户还有1800元<br> child1.take(100); &#x2F;&#x2F;张三取走100元</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>注意： 以上情况，所有实例本质上操作的是同一个变量<code>_money</code></p>
@@ -1073,95 +1099,102 @@ Person.children = function () &#123;
 </li>
 </ol>
 <ul>
-<li><p>x,y属性由鼠标的位置决定，所以当<code>onmousemove</code>事件触发时，创建实例</p>
-</li>
-<li><p><code>speedx、speedy</code>：不能同时等于0，用<code>do...while</code>语句</p>
-<blockquote>
-<pre><code>/**
-* Ball 创建一个球类
-* @param x坐标  默认值 0
-* @param y坐标  默认值 0
-* @param r小球半径 默认 20
-*/
+<li>x,y属性由鼠标的位置决定，所以当<code>onmousemove</code>事件触发时，创建实例</li>
+<li><code>speedx、speedy</code>：不能同时等于0，用<code>do...while</code>语句</li>
+</ul>
+<pre><code>&gt;/**
+&gt; * Ball 创建一个球类
+&gt; * @param x坐标  默认值 0
+&gt; * @param y坐标  默认值 0
+&gt; * @param r小球半径 默认 20
+&gt; */
 function Ball(x = 0, y = 0, r = 20) &#123;
-this.x = x; // x坐标
-this.y = y; // y坐标
-this.r = r; // 小球半径
-// 随机生成一个小球颜色
-this.color = (function () &#123;
-  var color = [
-    &quot;red&quot;,
-    &quot;pink&quot;,
-    &quot;skyblue&quot;,
-    &quot;orange&quot;,
-    &quot;tomato&quot;,
-    &quot;khaki&quot;,
-    &quot;greenyellow&quot;,
-  ];
-  var index = (Math.random() * color.length) &gt;&gt; 0;
-  return color[index];
-&#125;)();
-this.opacity = 1; // 小球透明度
-// 小球运动速度，speedX和speedY的取值范围 [-10,10]，但不能同时为0
-do &#123;
-  this.speedX = Math.floor(Math.random() * 21) - 10;
-  this.speedY = Math.floor(Math.random() * 21) - 10;
-&#125; while (this.speedX === 0 &amp;&amp; this.speedY === 0);
+  this.x = x; // x坐标
+  this.y = y; // y坐标
+  this.r = r; // 小球半径
+  // 随机生成一个小球颜色
+  this.color = (function () &#123;
+    var color = [
+      &quot;red&quot;,
+      &quot;pink&quot;,
+      &quot;skyblue&quot;,
+      &quot;orange&quot;,
+      &quot;tomato&quot;,
+      &quot;khaki&quot;,
+      &quot;greenyellow&quot;,
+    ];
+    var index = (Math.random() * color.length) &gt;&gt; 0;
+    return color[index];
+  &#125;)();
+  this.opacity = 1; // 小球透明度
+  // 小球运动速度，speedX和speedY的取值范围 [-10,10]，但不能同时为0
+  do &#123;
+    this.speedX = Math.floor(Math.random() * 21) - 10;
+    this.speedY = Math.floor(Math.random() * 21) - 10;
+  &#125; while (this.speedX === 0 &amp;&amp; this.speedY === 0);
+&gt;
+  // 在new Ball(),内部会自动调用this.init()初始化小球，在页面显示，其 实现代码看下一步
+  this.init();
+&#125;
+&gt;
+// 鼠标在页面滑动时，会创建实例化的小球
+document.onmousemove = function (e) &#123;
+  var pageX = e.pageX;
+  var pageY = e.pageY;
+  new Ball(pageX, pageY);
+&#125;;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 在new Ball(),内部会自动调用this.init()初始化小球，在页面显示，其 实现代码看下一步<br>this.init();<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 鼠标在页面滑动时，会创建实例化的小球<br>document.onmousemove &#x3D; function (e) {<br>var pageX &#x3D; e.pageX;<br>var pageY &#x3D; e.pageY;<br>new Ball(pageX, pageY);<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p><code>init</code>方法</p>
-<blockquote>
+<ul>
+<li><code>init</code>方法<blockquote>
 <ul>
 <li>要在定义实例属性的最后调用该方法；创建实例的时候就会自动调用,实现在页面插入一个真实的小球；</li>
 <li>创建DOM后，要将DOM设置成<strong>绝对定位</strong></li>
 <li>为了鼠标出现在小球中心，小球的宽等于<code>x-小球的半径</code>，高同理</li>
 </ul>
-<pre><code>Ball.prototype.init = function () &#123;
-this.dom = document.createElement(&quot;div&quot;); // 创建dom结构
-this.dom.style.position = &quot;absolute&quot;;
-this.dom.style.left = this.x - this.r + &quot;px&quot;;
-this.dom.style.top = this.y - this.r + &quot;px&quot;;
-this.dom.style.width = 2 * this.r + &quot;px&quot;;
-this.dom.style.height = 2 * this.r + &quot;px&quot;;
-this.dom.style.borderRadius = &quot;50%&quot;;
-this.dom.style.backgroundColor = this.color;
-// 添加到页面
-document.body.appendChild(this.dom);
-&#125;;
-</code></pre>
 </blockquote>
 </li>
-<li><p><code>update</code>方法</p>
-<blockquote>
+</ul>
+<pre><code>Ball.prototype.init = function () &#123;
+  this.dom = document.createElement(&quot;div&quot;); // 创建dom结构
+  this.dom.style.position = &quot;absolute&quot;;
+  this.dom.style.left = this.x - this.r + &quot;px&quot;;
+  this.dom.style.top = this.y - this.r + &quot;px&quot;;
+  this.dom.style.width = 2 * this.r + &quot;px&quot;;
+  this.dom.style.height = 2 * this.r + &quot;px&quot;;
+  this.dom.style.borderRadius = &quot;50%&quot;;
+  this.dom.style.backgroundColor = this.color;
+  // 添加到页面
+  document.body.appendChild(this.dom);
+&#125;;
+</code></pre>
+<ul>
+<li><code>update</code>方法<blockquote>
 <ul>
 <li>放在定时器内，每间隔一段时间就调用</li>
 <li>更新小球的属性值(x,y,r,opacity)，并将这些值再次更新到DOM中</li>
 <li>监控小球的透明度，一旦透明度为0，就把他从DOM和数组中删除</li>
 </ul>
-<pre><code>Ball.prototype.update = function () &#123;
-this.x += this.speedX; // 更新x坐标
-this.y += this.speedY; // 更新y坐标
-this.r += 0.3; // 更新半径
-this.opacity -= 0.01;
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 更新的属性更新到真实DOM上<br>this.dom.style.display &#x3D; “none”;<br>this.dom.style.width &#x3D; this.r * 2 + “px”;<br>this.dom.style.height &#x3D; this.r * 2 + “px”;<br>this.dom.style.left &#x3D; this.x - this.r + “px”;<br>this.dom.style.top &#x3D; this.y - this.r + “px”;<br>this.dom.style.opacity &#x3D; this.opacity;<br>this.dom.style.display &#x3D; “block”;<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p>那如何监控鼠标在滑动过程中被创建出来的一堆小球，然后让他们不停的<strong>运动</strong>呢 ？</p>
-<blockquote>
+</ul>
+<pre><code>Ball.prototype.update = function () &#123;
+  this.x += this.speedX; // 更新x坐标
+  this.y += this.speedY; // 更新y坐标
+  this.r += 0.3; // 更新半径
+  this.opacity -= 0.01;
+&gt;
+  // 更新的属性更新到真实DOM上
+  this.dom.style.display = &quot;none&quot;;
+  this.dom.style.width = this.r * 2 + &quot;px&quot;;
+  this.dom.style.height = this.r * 2 + &quot;px&quot;;
+  this.dom.style.left = this.x - this.r + &quot;px&quot;;
+  this.dom.style.top = this.y - this.r + &quot;px&quot;;
+  this.dom.style.opacity = this.opacity;
+  this.dom.style.display = &quot;block&quot;;
+&#125;;
+</code></pre>
+<ul>
+<li>那如何监控鼠标在滑动过程中被创建出来的一堆小球，然后让他们不停的<strong>运动</strong>呢 ？<blockquote>
 <ul>
 <li>我们需要在球类上创建一个<strong>私有属性</strong><code>_ballArr = []</code>，用来保存鼠标移动时创建出来的实例化小球。每实例化一个小球，就把这个实例化的小球对象添加到<code>_ballArr</code>数组中</li>
 <li>还需要创建一个静态方法<code>ballArr</code>用来获取所有实例化的小球。这样我们就能拿到所有实例化的小球，对他们进行操作。<table>
@@ -1182,23 +1215,23 @@ this.opacity -= 0.01;
 </tbody></table>
 </li>
 </ul>
-<pre><code>var _ballArr=[]; // 类的私有属性
-// 静态方法
-Ball.getBalls = function () &#123;
-  return ballArr;
-&#125;;
-</code></pre>
-</blockquote>
-<p>function Ball(x &#x3D; 0, y &#x3D; 0, r &#x3D; 20){<br>&#x2F;&#x2F; ……<br>&#x2F;&#x2F; …..以下代码放在 this.init() 后面</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 每次创建的实例对象，添加到数组 _ballArrl中<br>_ballArr.push(this);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>var _ballArr=[]; // 类的私有属性
+// 静态方法
+Ball.getBalls = function () &#123;
+    return ballArr;
+&#125;;
+&gt;
+function Ball(x = 0, y = 0, r = 20)&#123;
+  // ......
+  // .....以下代码放在 this.init() 后面
+&gt;
+  // 每次创建的实例对象，添加到数组 _ballArrl中
+  _ballArr.push(this);
+&#125;
+</code></pre>
 <blockquote>
 <p>拿到实例化小球后，如何让小球运动起来 ？</p>
 <ul>
@@ -1206,7 +1239,6 @@ Ball.getBalls = function () &#123;
 <li>同时还要判断如果小球的透明度为 <code>0</code>，则需要将小球从<code>_ballArr</code>数组和 <code>DOM</code> 中删除，确保垃圾能及时被回收，不至于小球多了造成页面卡顿,这段代码写在<code>update</code>方法的最后</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>var timer = setInterval(function () &#123;
   var balls = Ball.getBalls();
   // 更新小球
@@ -1214,83 +1246,110 @@ Ball.getBalls = function () &#123;
     balls[i].update();
   &#125;
 &#125;, 20);
+&gt;
+// 以下代码添加到update方法的最后面
+// 如果小球的透明度小于等于0,则将其从数组和DOM中删除
+if (this.opacity &lt;= 0) &#123;
+  for (var i = 0; i &lt; _ballArr.length; i++) &#123;
+    if (_ballArr[i] === this) &#123;
+      _ballArr.splice(i, 1); // 从数组中删除
+      document.body.removeChild(this.dom); // 从DOM中删除
+      break;
+    &#125;
+  &#125;
+&#125;
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 以下代码添加到update方法的最后面<br>&#x2F;&#x2F; 如果小球的透明度小于等于0,则将其从数组和DOM中删除<br>if (this.opacity &lt;&#x3D; 0) {<br>  for (var i &#x3D; 0; i &lt; _ballArr.length; i++) {<br>    if (_ballArr[i] &#x3D;&#x3D;&#x3D; this) {<br>      _ballArr.splice(i, 1); &#x2F;&#x2F; 从数组中删除<br>      document.body.removeChild(this.dom); &#x2F;&#x2F; 从DOM中删除<br>      break;<br>    }<br>  }<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>完整源码<blockquote>
 <ul>
 <li>为了防止变量造成全局污染，则利用闭包，将所有代码封装在立即执行函数中，然后将 <code>Ball</code> 类作为返回值返回</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code> //构造函数
  var Ball = (function () &#123;
   var _ballArr = [];
   function Ball(x = 0, y = 0, r = 20) &#123;
- //公有属性
- this.x = x;
- this.y = y;
- this.r = r;
- this.opacity = 1;
- this.color = (function () &#123;
-   var colorArr = [&quot;red&quot;, &quot;skyblue&quot;, &quot;pink&quot;, &quot;tomato&quot;, &quot;yellow&quot;];
-   var index = (Math.random() * colorArr.length) &gt;&gt; 0;
-   return colorArr[index];
- &#125;)();
- do &#123;
-   this.speedx = (Math.random() * 21 - 10) &gt;&gt; 0;
-   this.speedy = (Math.random() * 21 - 10) &gt;&gt; 0;
- &#125; while (this.speedx == 0 &amp;&amp; this.speedy == 0);
- _ballArr.push(this); //将创建的实例放入数组中
- //初始化小球
- this.init();
+    //公有属性
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.opacity = 1;
+    this.color = (function () &#123;
+      var colorArr = [&quot;red&quot;, &quot;skyblue&quot;, &quot;pink&quot;, &quot;tomato&quot;, &quot;yellow&quot;];
+      var index = (Math.random() * colorArr.length) &gt;&gt; 0;
+      return colorArr[index];
+    &#125;)();
+    do &#123;
+      this.speedx = (Math.random() * 21 - 10) &gt;&gt; 0;
+      this.speedy = (Math.random() * 21 - 10) &gt;&gt; 0;
+    &#125; while (this.speedx == 0 &amp;&amp; this.speedy == 0);
+    _ballArr.push(this); //将创建的实例放入数组中
+    //初始化小球
+    this.init();
   &#125;
   //静态方法
   Ball.ballArr = function () &#123;
- return _ballArr;
+    return _ballArr;
   &#125;;
   //公有方法：初始化
   Ball.prototype.init = function () &#123;
- this.dom = document.createElement(&quot;div&quot;);
- //球在鼠标中心出现
- this.dom.style.position = &quot;absolute&quot;;
- this.dom.style.left = this.x - this.r / 2 + &quot;px&quot;;
- this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
- this.dom.style.width = this.r * 2 + &quot;px&quot;;
- this.dom.style.height = this.r * 2 + &quot;px&quot;;
- this.dom.style.borderRadius = &quot;50%&quot;;
- this.dom.style.opacity = this.opacity;
- this.dom.style.backgroundColor = this.color;
- //插入页面
- document.body.appendChild(this.dom);
+    this.dom = document.createElement(&quot;div&quot;);
+    //球在鼠标中心出现
+    this.dom.style.position = &quot;absolute&quot;;
+    this.dom.style.left = this.x - this.r / 2 + &quot;px&quot;;
+    this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
+    this.dom.style.width = this.r * 2 + &quot;px&quot;;
+    this.dom.style.height = this.r * 2 + &quot;px&quot;;
+    this.dom.style.borderRadius = &quot;50%&quot;;
+    this.dom.style.opacity = this.opacity;
+    this.dom.style.backgroundColor = this.color;
+    //插入页面
+    document.body.appendChild(this.dom);
   &#125;;
   //公有方法：运动函数
   Ball.prototype.update = function () &#123;
- this.x += this.speedx;
- this.y += this.speedy;
- this.r += 0.3;
- this.opacity -= 0.01;         
+    this.x += this.speedx;
+    this.y += this.speedy;
+    this.r += 0.3;
+    this.opacity -= 0.01;         
   //将更新后的属性 更新到真实的DOM上
- this.dom.style.display = &quot;none&quot;;
- this.dom.style.left = this.x + &quot;px&quot;;
- this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
- this.dom.style.width = this.r * 2 + &quot;px&quot;;
- this.dom.style.height = this.r * 2 + &quot;px&quot;;
- this.dom.style.opacity = this.opacity;
- this.dom.style.display = &quot;block&quot;;
+    this.dom.style.display = &quot;none&quot;;
+    this.dom.style.left = this.x + &quot;px&quot;;
+    this.dom.style.top = this.y - this.r / 2 + &quot;px&quot;;
+    this.dom.style.width = this.r * 2 + &quot;px&quot;;
+    this.dom.style.height = this.r * 2 + &quot;px&quot;;
+    this.dom.style.opacity = this.opacity;
+    this.dom.style.display = &quot;block&quot;;
+&gt;
+    //删除dom、数组中的实例
+    if (this.opacity &lt;= 0) &#123;
+      // 找到小球实例在数组中的位置，然后将他从数组中删除
+      var index = _ballArr.indexOf(this);
+      _ballArr.splice(index, 1);
+      // 从dom中删除
+      document.body.removeChild(this.dom);
+    &#125;
+  &#125;;
+  return Ball;
+&#125;)();
+&gt;
+ //定时器
+ var timer = setInterval(function () &#123;
+   var balls = Ball.ballArr();
+   for (var i = 0; i &lt; balls.length; i++) &#123;
+     balls[i].update();
+   &#125;
+ &#125;, 20);
+ //鼠标事件
+ document.onmousemove = function (e) &#123;
+   var target = e.target;
+   var _x = e.pageX;
+   var _y = e.pageY;
+   new Ball(_x, _y);
+ &#125;;
 </code></pre>
-</blockquote>
- &#x2F;&#x2F;删除dom、数组中的实例<br> if (this.opacity &lt;&#x3D; 0) {<br>   &#x2F;&#x2F; 找到小球实例在数组中的位置，然后将他从数组中删除<br>   var index &#x3D; _ballArr.indexOf(this);<br>   _ballArr.splice(index, 1);<br>   &#x2F;&#x2F; 从dom中删除<br>   document.body.removeChild(this.dom);<br> }<br>  };<br>  return Ball;<br>})();<blockquote>
-</blockquote>
- &#x2F;&#x2F;定时器<br> var timer &#x3D; setInterval(function () {<br>var balls &#x3D; Ball.ballArr();<br>for (var i &#x3D; 0; i &lt; balls.length; i++) {<br>  balls[i].update();<br>}<br> }, 20);<br> &#x2F;&#x2F;鼠标事件<br> document.onmousemove &#x3D; function (e) {<br>var target &#x3D; e.target;<br>var _x &#x3D; e.pageX;<br>var _y &#x3D; e.pageY;<br>new Ball(_x, _y);<br> };<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="三、JS-实现栈与队列"><a href="#三、JS-实现栈与队列" class="headerlink" title="三、JS 实现栈与队列"></a>三、JS 实现栈与队列</h3><ol>
 <li>什么是栈<blockquote>
 <p>栈是一种先进后出的数据结构，是一种逻辑结构，一种抽像出来的理论模型</p>
@@ -1382,85 +1441,197 @@ Ball.getBalls = function () &#123;
 </ul>
 </blockquote>
 <ul>
-<li>基础版代码<blockquote>
-<pre><code>/**
-* Stack 栈
-* size 栈的大小（长度）
-*/
-function Stack(size = 100) &#123;
-this._stack = []; // 私有属性，栈容器
-this.size = size; // 返回栈的大小（长度）,可更改
-&#125;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 判断栈是否满,满返回true,否则false<br>Stack.prototype.isFull &#x3D; function () {<br>return this._stack.length &gt;&#x3D; this.size ? true : false;<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 判断栈是否为空,为空返回true,否则false<br>Stack.prototype.isEmpty &#x3D; function () {<br>return this._stack.length &lt;&#x3D; 0 ? true : false;<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 入栈<br>Stack.prototype.push &#x3D; function (value) {<br>if (this.isFull()) {<br>  throw new Error(“栈满，不能再填加元素”);<br>} else {<br>  this._stack.push(value);<br>  return true; &#x2F;&#x2F; 返回true，表示入栈成功<br>}<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 出栈<br>Stack.prototype.pop &#x3D; function () {<br>if (this.isEmpty()) {<br>  throw new Error(“栈空，没有元素可以出栈”);<br>} else {<br>  return this._stack.pop(); &#x2F;&#x2F; 返回出栈元素<br>}<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 取出栈顶元素<br>Stack.prototype.getTop &#x3D; function () {<br>return this._stack[this._stack.length - 1];<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 查看栈中元素<br>Stack.prototype.view &#x3D; function () {<br>console.log(“当前栈中的元素有”);<br>this._stack.forEach(function (item) {<br>  console.log(item);<br>});<br>};<blockquote>
-</blockquote>
-&#x2F;&#x2F; 清空栈<br>Stack.prototype.clear &#x3D; function () {<br>this._stack &#x3D; [];<br>return true; &#x2F;&#x2F; 清空栈成功<br>};<blockquote>
-</blockquote>
-var stack &#x3D; new Stack(4);<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(1)); &#x2F;&#x2F; true<br>console.log(stack.push(2)); &#x2F;&#x2F; true<br>console.log(stack.push(3)); &#x2F;&#x2F; true<br>console.log(stack.push(4)); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F;  [1, 2, 3, 4]<br>&#x2F;&#x2F; 出栈<br>console.log(stack.pop()); &#x2F;&#x2F; 4<br>console.log(stack.pop()); &#x2F;&#x2F; 3<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; [1, 2]<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; false<br>&#x2F;&#x2F; 清空栈<br>console.log(stack.clear()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 判断栈是否为空<br>console.log(stack.isEmpty()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; []<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
+<li>基础版代码</li>
 </ul>
+<pre><code>&gt;/**
+&gt; * Stack 栈
+&gt; * size 栈的大小（长度）
+&gt; */
+function Stack(size = 100) &#123;
+  this._stack = []; // 私有属性，栈容器
+  this.size = size; // 返回栈的大小（长度）,可更改
+&#125;
+&gt;
+// 判断栈是否满,满返回true,否则false
+Stack.prototype.isFull = function () &#123;
+  return this._stack.length &gt;= this.size ? true : false;
+&#125;;
+&gt;
+// 判断栈是否为空,为空返回true,否则false
+Stack.prototype.isEmpty = function () &#123;
+  return this._stack.length &lt;= 0 ? true : false;
+&#125;;
+&gt;
+// 入栈
+Stack.prototype.push = function (value) &#123;
+  if (this.isFull()) &#123;
+    throw new Error(&quot;栈满，不能再填加元素&quot;);
+  &#125; else &#123;
+    this._stack.push(value);
+    return true; // 返回true，表示入栈成功
+  &#125;
+&#125;;
+&gt;
+// 出栈
+Stack.prototype.pop = function () &#123;
+  if (this.isEmpty()) &#123;
+    throw new Error(&quot;栈空，没有元素可以出栈&quot;);
+  &#125; else &#123;
+    return this._stack.pop(); // 返回出栈元素
+  &#125;
+&#125;;
+&gt;
+// 取出栈顶元素
+Stack.prototype.getTop = function () &#123;
+  return this._stack[this._stack.length - 1];
+&#125;;
+&gt;
+// 查看栈中元素
+Stack.prototype.view = function () &#123;
+  console.log(&quot;当前栈中的元素有&quot;);
+  this._stack.forEach(function (item) &#123;
+    console.log(item);
+  &#125;);
+&#125;;
+&gt;
+// 清空栈
+Stack.prototype.clear = function () &#123;
+  this._stack = [];
+  return true; // 清空栈成功
+&#125;;
+&gt;
+var stack = new Stack(4);
+// 入栈
+console.log(stack.push(1)); // true
+console.log(stack.push(2)); // true
+console.log(stack.push(3)); // true
+console.log(stack.push(4)); // true
+// 查看栈是否满
+console.log(stack.isFull()); // true
+// 查看栈元素
+console.log(stack.view()); //  [1, 2, 3, 4]
+// 出栈
+console.log(stack.pop()); // 4
+console.log(stack.pop()); // 3
+// 查看栈元素
+console.log(stack.view()); // [1, 2]
+// 查看栈是否满
+console.log(stack.isFull()); // false
+// 清空栈
+console.log(stack.clear()); // true
+// 判断栈是否为空
+console.log(stack.isEmpty()); // true
+// 查看栈元素
+console.log(stack.view()); // []
+</code></pre>
 <ol start="3">
-<li><p>JS 实现栈结构 - 优化版</p>
-<blockquote>
+<li>JS 实现栈结构 - 优化版<blockquote>
 <p>以上版本，最终用户本质上还是可以通过 <code>stack._stack</code>的方式操作数组</p>
 <ul>
 <li>我们可以把私有属性的名字，改成<code>Symbol</code>类型，这样用户就真正没有办法访问到该属性了</li>
 </ul>
-<pre><code>var Stack = (function () &#123;
-/**
-* Stack 栈
-* size 栈的大小（长度）
-*/
-  var _stack = Symbol(&quot;_stack&quot;); // 生成唯一标识符
-  function Stack(size = 100) &#123;
- this[_stack] = []; //  私有属性，栈容器
- var _size = size; // 返回栈的大小（长度）,可更改
-</code></pre>
-</blockquote>
-<p> Object.defineProperty(this, “size”, {<br>   get: function () {<br> return _size;<br>   },<br>   &#x2F;&#x2F; 当对size进行操作时，需要对数组做相关操作<br>   set: function (value) {<br> if (value &lt; _size) {<br>   this[_stack] &#x3D; this[_stack].slice(0, value);<br>   _size &#x3D; value;<br> }<br>   },<br> });<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 判断栈是否满,满返回true,否则false<br>  Stack.prototype.isFull &#x3D; function () {<br> return this[_stack].length &#x3D;&#x3D;&#x3D; this._size ? true : false;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 判断栈是否为空,为空返回true,否则false<br>  Stack.prototype.isEmpty &#x3D; function () {<br> return this[_stack].length &#x3D;&#x3D;&#x3D; 0 ? true : false;<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 入栈<br>  Stack.prototype.push &#x3D; function (value) {<br> if (this.isFull()) {<br>   throw new Error(“栈满，不能再填加元素”);<br> } else {<br>   this[_stack].push(value);<br>   return true; &#x2F;&#x2F; 返回true，表示入栈成功<br> }<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 出栈<br>  Stack.prototype.pop &#x3D; function () {<br> if (this.isEmpty()) {<br>   throw new Error(“栈空，没有元素可以出栈”);<br> } else {<br>   return this[_stack].pop(); &#x2F;&#x2F; 返回出栈元素<br> }<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 取出栈顶元素<br>  Stack.prototype.getTop &#x3D; function () {<br> return this[_stack][this[_stack].length - 1];<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 查看栈中元素<br>  Stack.prototype.view &#x3D; function () {<br> console.log(“当前栈中的元素有”);<br> this[_stack].forEach(function (item) {<br>   console.log(item);<br> });<br>  };</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 清空栈<br>  Stack.prototype.clear &#x3D; function () {<br> this[_stack] &#x3D; [];<br> return true; &#x2F;&#x2F; 清空栈成功<br>  };<br>  return Stack;<br>})();</p>
-<blockquote>
-</blockquote>
-<p>var stack &#x3D; new Stack();<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(1)); &#x2F;&#x2F; true<br>console.log(stack.push(2)); &#x2F;&#x2F; true<br>console.log(stack.push(3)); &#x2F;&#x2F; true<br>console.log(stack.push(4)); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F;  [1, 2, 3, 4]<br>&#x2F;&#x2F; 出栈<br>console.log(stack.pop()); &#x2F;&#x2F; 4<br>console.log(stack.pop()); &#x2F;&#x2F; 3<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; [1, 2]<br>&#x2F;&#x2F; 查看栈是否满<br>console.log(stack.isFull()); &#x2F;&#x2F; false<br>&#x2F;&#x2F; 清空栈<br>console.log(stack.clear()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 判断栈是否为空<br>console.log(stack.isEmpty()); &#x2F;&#x2F; true<br>&#x2F;&#x2F; 查看栈元素<br>console.log(stack.view()); &#x2F;&#x2F; []</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
+</ol>
+<pre><code>var Stack = (function () &#123;
+&gt;/**
+&gt; * Stack 栈
+&gt; * size 栈的大小（长度）
+&gt; */
+  var _stack = Symbol(&quot;_stack&quot;); // 生成唯一标识符
+  function Stack(size = 100) &#123;
+    this[_stack] = []; //  私有属性，栈容器
+    var _size = size; // 返回栈的大小（长度）,可更改
+&gt;
+    Object.defineProperty(this, &quot;size&quot;, &#123;
+      get: function () &#123;
+        return _size;
+      &#125;,
+      // 当对size进行操作时，需要对数组做相关操作
+      set: function (value) &#123;
+        if (value &lt; _size) &#123;
+          this[_stack] = this[_stack].slice(0, value);
+          _size = value;
+        &#125;
+      &#125;,
+    &#125;);
+  &#125;
+&gt;
+  // 判断栈是否满,满返回true,否则false
+  Stack.prototype.isFull = function () &#123;
+    return this[_stack].length === this._size ? true : false;
+  &#125;;
+&gt;
+  // 判断栈是否为空,为空返回true,否则false
+  Stack.prototype.isEmpty = function () &#123;
+    return this[_stack].length === 0 ? true : false;
+  &#125;;
+&gt;
+  // 入栈
+  Stack.prototype.push = function (value) &#123;
+    if (this.isFull()) &#123;
+      throw new Error(&quot;栈满，不能再填加元素&quot;);
+    &#125; else &#123;
+      this[_stack].push(value);
+      return true; // 返回true，表示入栈成功
+    &#125;
+  &#125;;
+&gt;
+  // 出栈
+  Stack.prototype.pop = function () &#123;
+    if (this.isEmpty()) &#123;
+      throw new Error(&quot;栈空，没有元素可以出栈&quot;);
+    &#125; else &#123;
+      return this[_stack].pop(); // 返回出栈元素
+    &#125;
+  &#125;;
+&gt;
+  // 取出栈顶元素
+  Stack.prototype.getTop = function () &#123;
+    return this[_stack][this[_stack].length - 1];
+  &#125;;
+&gt;
+  // 查看栈中元素
+  Stack.prototype.view = function () &#123;
+    console.log(&quot;当前栈中的元素有&quot;);
+    this[_stack].forEach(function (item) &#123;
+      console.log(item);
+    &#125;);
+  &#125;;
+&gt;
+  // 清空栈
+  Stack.prototype.clear = function () &#123;
+    this[_stack] = [];
+    return true; // 清空栈成功
+  &#125;;
+  return Stack;
+&#125;)();
+&gt;
+var stack = new Stack();
+// 入栈
+console.log(stack.push(1)); // true
+console.log(stack.push(2)); // true
+console.log(stack.push(3)); // true
+console.log(stack.push(4)); // true
+// 查看栈是否满
+console.log(stack.isFull()); // true
+// 查看栈元素
+console.log(stack.view()); //  [1, 2, 3, 4]
+// 出栈
+console.log(stack.pop()); // 4
+console.log(stack.pop()); // 3
+// 查看栈元素
+console.log(stack.view()); // [1, 2]
+// 查看栈是否满
+console.log(stack.isFull()); // false
+// 清空栈
+console.log(stack.clear()); // true
+// 判断栈是否为空
+console.log(stack.isEmpty()); // true
+// 查看栈元素
+console.log(stack.view()); // []
+</code></pre>
+<ol start="4">
 <li><p>什么是队列</p>
 <blockquote>
 <p>现在我们来学习一种新的数据结构队列</p>
@@ -1533,8 +1704,7 @@ var stack &#x3D; new Stack(4);<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(
 <td>队列的大小（长度）</td>
 </tr>
 </tbody></table>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   var Queue = (function () &#123;
     var _queue = Symbol(&quot;queue&quot;); // 创建唯一标识符
     function Queue(size) &#123;
@@ -1549,59 +1719,51 @@ var stack &#x3D; new Stack(4);<br>&#x2F;&#x2F; 入栈<br>console.log(stack.push(
     Queue.prototype.isEmpty = function () &#123;
       return this[_queue].length === 0 ? true : false;
     &#125;;
-</code></pre>
-</blockquote>
-<pre><code>// 入队
-Queue.prototype.enQueue = function (value) &#123;
-  if (this.isFull()) &#123;
-    throw new Error(&quot;队列已满，不能现入队&quot;);
-  &#125; else &#123;
-    this[_queue].push(value);
-    return true; //表示入队成功
-  &#125;
-&#125;;
+&gt;
+    // 入队
+    Queue.prototype.enQueue = function (value) &#123;
+      if (this.isFull()) &#123;
+        throw new Error(&quot;队列已满，不能现入队&quot;);
+      &#125; else &#123;
+        this[_queue].push(value);
+        return true; //表示入队成功
+      &#125;
+    &#125;;
+&gt;
+    // 出队
+    Queue.prototype.deQueue = function () &#123;
+      if (this.isEmpty()) &#123;
+        throw new Error(&quot;队列已为空，没有元素可出队&quot;);
+      &#125; else &#123;
+        return this[_queue].shift(); // 返回出队元素
+      &#125;
+    &#125;;
+&gt;
+    // 取出队头元素
+    Queue.prototype.getFront = function () &#123;
+      return this[_queue][0]; // 返回值为undefined表示当前队列已空
+    &#125;;
+&gt;
+    // 查看队列中元素
+    Queue.prototype.view = function () &#123;
+      this[_queue].forEach(function (item) &#123;
+        console.log(item);
+      &#125;);
+    &#125;;
+&gt;
+    // 清空队列
+    Queue.prototype.clear = function () &#123;
+      this[_queue] = [];
+      return true; // true清空队列成功
+    &#125;;
+    return Queue;
+  &#125;)();
+&gt;&lt;/script&gt;
 </code></pre>
 <blockquote>
-</blockquote>
-<pre><code>// 出队
-Queue.prototype.deQueue = function () &#123;
-  if (this.isEmpty()) &#123;
-    throw new Error(&quot;队列已为空，没有元素可出队&quot;);
-  &#125; else &#123;
-    return this[_queue].shift(); // 返回出队元素
-  &#125;
-&#125;;
-</code></pre>
 <blockquote>
+<p>上述代码与模拟栈类似，只是出栈方式不同</p>
 </blockquote>
-<pre><code>// 取出队头元素
-Queue.prototype.getFront = function () &#123;
-  return this[_queue][0]; // 返回值为undefined表示当前队列已空
-&#125;;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 查看队列中元素
-Queue.prototype.view = function () &#123;
-  this[_queue].forEach(function (item) &#123;
-    console.log(item);
-  &#125;);
-&#125;;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 清空队列
-Queue.prototype.clear = function () &#123;
-  this[_queue] = [];
-  return true; // true清空队列成功
-&#125;;
-return Queue;
-</code></pre>
-<p>  })();</p>
-<blockquote>
-<p></script></p>
-<pre><code>&gt;上述代码与模拟栈类似，只是出栈方式不同
-</code></pre>
 </blockquote>
 <blockquote>
 <p><strong>上述版本缺点</strong></p>
@@ -1700,8 +1862,7 @@ return Queue;
 </li>
 </ul>
 </blockquote>
-<blockquote>
-<pre><code>&lt;script&gt;
+<pre><code>&gt;&lt;script&gt;
   var Queue = (function () &#123;
     var _queue = Symbol(&quot;queue&quot;);
     var _front = Symbol(&quot;front&quot;);
@@ -1722,76 +1883,65 @@ return Queue;
         &#125;,
       &#125;);
     &#125;
+&gt;
+    // 队是否为空
+    Queue.prototype.isFull = function () &#123;
+      //   队满的条件
+      return (this[_rear] + 1) % this[_queue].length === this[_front];
+    &#125;;
+    // 队是否为空
+    Queue.prototype.isEmpty = function () &#123;
+      return this[_front] === this[_rear];
+    &#125;;
+    // 入队
+    Queue.prototype.enQueue = function (value) &#123;
+      //入队前要判断当前队列是否已满,如果已满,则啥也不做,抛出错误提示
+      if (this.isFull()) throw new Error(&quot;当前队列已满,不能再入队&quot;);
+&gt;
+      // 先在当前位置入队元素,然后指向右移动
+      this[_queue][this[_rear]] = value;
+      // 判断当前是不是在数组的最后面,最后一位就回到0
+      this[_rear] = (this[_rear] + 1) % this[_queue].length;
+      return true;
+    &#125;;
+    // 出队
+    Queue.prototype.deQueue = function () &#123;
+      // 出队前要判断当前队列是否为空
+      if (this.isEmpty()) throw new Error(&quot;当前队列已空,没有元素可出队&quot;);
+      // 只存要出队的元素
+      var deQueueValue = this[_queue][this[_front]];
+      // 出队不是真的把这个元素从数组中删除,而是把指针移动到下一位
+      // 为了能看到效果,我们把出队的元素的位置值设置为null
+      this[_queue][this[_front]] = null;
+      // 判断出对的指针是否指向了数组的最后面,如果是,则出队后指向0
+      this[_front] = (this[_front] + 1) % this[_queue].length;
+&gt;
+      return deQueueValue;
+    &#125;;
+&gt;
+    // 队头元素
+    Queue.prototype.getTop = function () &#123;
+      // 返回出队的元素,如果为null表示当前队列为空
+      return this[_queue][this[_front]];
+    &#125;;
+    // 查看队列元素
+    Queue.prototype.view = function () &#123;
+      var result = this[_queue].filter(function (item) &#123;
+        return item !== null;
+      &#125;);
+      return result;
+    &#125;;
+    // 清空队列
+    Queue.prototype.clear = function () &#123;
+      // 清空队列,就是重新初始化队列
+      this[_queue] = new Array(this.size + 1);
+      this[_front] = this[_rear] = 0;
+      return true;
+    &#125;;
+    return Queue;
+  &#125;)();
+&gt;&lt;/script&gt;
 </code></pre>
-</blockquote>
-<pre><code>// 队是否为空
-Queue.prototype.isFull = function () &#123;
-  //   队满的条件
-  return (this[_rear] + 1) % this[_queue].length === this[_front];
-&#125;;
-// 队是否为空
-Queue.prototype.isEmpty = function () &#123;
-  return this[_front] === this[_rear];
-&#125;;
-// 入队
-Queue.prototype.enQueue = function (value) &#123;
-  //入队前要判断当前队列是否已满,如果已满,则啥也不做,抛出错误提示
-  if (this.isFull()) throw new Error(&quot;当前队列已满,不能再入队&quot;);
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>  // 先在当前位置入队元素,然后指向右移动
-  this[_queue][this[_rear]] = value;
-  // 判断当前是不是在数组的最后面,最后一位就回到0
-  this[_rear] = (this[_rear] + 1) % this[_queue].length;
-  return true;
-&#125;;
-// 出队
-Queue.prototype.deQueue = function () &#123;
-  // 出队前要判断当前队列是否为空
-  if (this.isEmpty()) throw new Error(&quot;当前队列已空,没有元素可出队&quot;);
-  // 只存要出队的元素
-  var deQueueValue = this[_queue][this[_front]];
-  // 出队不是真的把这个元素从数组中删除,而是把指针移动到下一位
-  // 为了能看到效果,我们把出队的元素的位置值设置为null
-  this[_queue][this[_front]] = null;
-  // 判断出对的指针是否指向了数组的最后面,如果是,则出队后指向0
-  this[_front] = (this[_front] + 1) % this[_queue].length;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>  return deQueueValue;
-&#125;;
-</code></pre>
-<blockquote>
-</blockquote>
-<pre><code>// 队头元素
-Queue.prototype.getTop = function () &#123;
-  // 返回出队的元素,如果为null表示当前队列为空
-  return this[_queue][this[_front]];
-&#125;;
-// 查看队列元素
-Queue.prototype.view = function () &#123;
-  var result = this[_queue].filter(function (item) &#123;
-    return item !== null;
-  &#125;);
-  return result;
-&#125;;
-// 清空队列
-Queue.prototype.clear = function () &#123;
-  // 清空队列,就是重新初始化队列
-  this[_queue] = new Array(this.size + 1);
-  this[_front] = this[_rear] = 0;
-  return true;
-&#125;;
-return Queue;
-</code></pre>
-<p>  })();</p>
-<blockquote>
-<p></script></p>
-<pre><code>
-</code></pre>
-</blockquote>
 
                 
             </div>

@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-04
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    13.5k
+                    13.4k
                 </div>
                 
 
@@ -437,18 +437,19 @@
 <li>比如1-10，10-20，20-30 等</li>
 <li>按照之前的学习，我们只能根据初始值和范围写for循环，而且每计算一次，就要写一次 for 循环</li>
 </ul>
+</blockquote>
 <pre><code>var sum = 0;
 for (var i = 1; i &lt;= 10; i++) &#123;
   sum += i;
 &#125;
 console.log(sum); // 55
+&gt;
+var sum = 0;
+for (var i = 10; i &lt;= 20; i++) &#123;
+  sum += i;
+&#125;
+console.log(sum); // 165
 </code></pre>
-</blockquote>
-<p>var sum &#x3D; 0;<br>for (var i &#x3D; 10; i &lt;&#x3D; 20; i++) {<br>  sum +&#x3D; i;<br>}<br>console.log(sum); &#x2F;&#x2F; 165</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>有了函数之后，我们就可以实现输入起始的两个数，自动就出来我们想要的结果</p>
@@ -461,47 +462,46 @@ console.log(sum); // 55
 </ul>
 </blockquote>
 <ol>
-<li><p>方式1：以<strong>函数声明</strong>的方式-创建一个函数</p>
-<blockquote>
+<li>方式1：以<strong>函数声明</strong>的方式-创建一个函数<blockquote>
 <ul>
 <li>使用<code>function</code>关键字声明函数，必需全部<strong>小写</strong>，function是 “功能” 的意思</li>
 <li>函数名必须符合<strong>JS标识符命名规则</strong></li>
 <li>( ) 圆括号中是<strong>形参列表</strong>，即使没有形参，也必须书写圆括号</li>
 <li>{ } 大括号里是<strong>函数体语句</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 声明函数
 function 函数名() &#123;
   // 函数体语句
 &#125;
+&gt;
+function hello() &#123;
+  console.log(&quot;大家好！&quot;);
+&#125;
 </code></pre>
-</blockquote>
-<p>function hello() {<br>  console.log(“大家好！”);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>方式2：以函数<strong>表达式</strong>的方式创建一个函数</p>
-<blockquote>
+<ol start="2">
+<li>方式2：以函数<strong>表达式</strong>的方式创建一个函数<blockquote>
 <ul>
 <li><code>function()&#123; &#125;</code>是一个<strong>匿名函数</strong>，即<strong>没有函数名</strong>的函数。</li>
 <li>但是我们最后要使用这个函数，所以我们把这个匿名函数赋值给了一个<strong>变量</strong></li>
 <li>后面我们通过这个变量来调用这个函数</li>
 <li>匿名函数，经常以<strong>回调函数</strong>的形式出现</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var 变量 = function () &#123;
   // 函数体语句
 &#125;;
+&gt;
+var hello = function () &#123;
+  console.log(&quot;大家好！&quot;);
+&#125;;
 </code></pre>
-</blockquote>
-<p>var hello &#x3D; function () {<br>  console.log(“大家好！”);<br>};</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>函数的调用</p>
-<blockquote>
+<ol start="3">
+<li>函数的调用<blockquote>
 <ul>
 <li>调用函数非常简单，只需在<strong>函数名字&#x2F;变量名后书写圆括号对</strong>即可</li>
 <li>所谓函数的调用，就是执行函数体内的所有语句。<blockquote>
@@ -516,6 +516,7 @@ function 函数名() &#123;
 <ul>
 <li>通过方式1声明的函数：</li>
 </ul>
+</blockquote>
 <pre><code>function hello() &#123;
   console.log(&quot;大家好！&quot;);
 &#125;
@@ -524,9 +525,11 @@ hello();
 hello();
 hello();
 </code></pre>
+<blockquote>
 <ul>
 <li>通过方式2声明的函数：</li>
 </ul>
+</blockquote>
 <pre><code>var hello = function () &#123;
   console.log(&quot;大家好！&quot;);
 &#125;;
@@ -534,20 +537,19 @@ hello();
 // 函数定义一次，可以多次调用
 hello();
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>函数类型判断<blockquote>
 <ul>
 <li>利用 typeof 来检测函数类型，得到 function</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function fn() &#123;&#125;
 typeof fn;
 console.log(typeof fn); // &#39;function&#39;
 console.log(typeof fn === &quot;function&quot;);//true
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="三、函数的参数"><a href="#三、函数的参数" class="headerlink" title="三、函数的参数"></a>三、函数的参数</h3><ol>
 <li>函数参数分类<table>
 <thead>
@@ -572,23 +574,25 @@ console.log(typeof fn === &quot;function&quot;);//true
 <li>在函数的()中可以指定<code>&gt;=0</code>个参数，参数可以是<strong>任意类型</strong></li>
 <li>多个参数之间用<code>,逗号</code>隔开</li>
 </ul>
+</blockquote>
 <pre><code>// 函数声明，这里的a,b被称为形参
 function sum(a, b) &#123;
   console.log(a + b);
 &#125;
+&gt;
+// 调用函数
+sum(1, 2); // 这里的 1，2 被称为 实参
+sum(2, 3); // 这里的 2，3 被称为 实参
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 调用函数<br>sum(1, 2); &#x2F;&#x2F; 这里的 1，2 被称为 实参<br>sum(2, 3); &#x2F;&#x2F; 这里的 2，3 被称为 实参</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>形参与实参的关系<blockquote>
 <ul>
 <li>在函数调用时，<strong>实参</strong>会将其值，<strong>赋值</strong>给到函数声明时对应的<strong>形参</strong>。</li>
 <li>实参与形参在赋值时，是<strong>一一对应</strong>的顺序，所以顺序不要弄错<br><strong>我们以下面这个代码的执行过程来作为讲解</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 函数声明，这里的a,b被称为 形参
 function sum(a, b) &#123;
   console.log(a + b);
@@ -596,22 +600,19 @@ function sum(a, b) &#123;
 // 调用函数，
 sum(1, 2); // 这里的 1，2被称为 实参
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>代码从上往下执行</li>
 <li>遇到<code>sum(1,2)</code>被调用，相当于就要<strong>开始执行</strong>sum函数。</li>
 <li>在执行代码前，还有一个<strong>预解析</strong>的过程，这个时候，会根据形参个数，来创建对应的变量，<strong>接收</strong>传过来的实参的值。相当于如下代码：</li>
 </ul>
+</blockquote>
 <pre><code>function sum() &#123;
   var a = 1;
   var b = 2;
   console.log(a + b);//3
 &#125;
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>实参与形参个数不同时<br><strong>情况1：当实参个数 &gt; 形参个数时</strong><blockquote>
 <ul>
@@ -627,18 +628,21 @@ sum(1, 2); // 这里的 1，2被称为 实参
 <li>会引发报错，最终得不到想要的结果</li>
 <li>因为如果对应的形参没有接受到对应实参的值，则默认值是<code>undefined</code></li>
 </ul>
+</blockquote>
 <pre><code>// a,b,c 是形参
 function sum(a, b, c) &#123;
   // 这里的c没有接受任何值，则默认值是undefined，undefined 进行任何运算结果都是 NaN
   var sum = a + b + c;
   console.log(sum);
 &#125;
+&gt;
+// 2,5 是实参
+sum(2, 5); // NaN
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 2,5 是实参<br>sum(2, 5); &#x2F;&#x2F; NaN</p>
 <blockquote>
-<pre><code>&gt;在实际开发中，实参和形参尽量相同，否则会引发报错或 NaN
-</code></pre>
+<blockquote>
+<p>在实际开发中，实参和形参尽量相同，否则会引发报错或 NaN</p>
+</blockquote>
 </blockquote>
 <p><strong>总结：形参和实参</strong></p>
 <table>
@@ -677,7 +681,6 @@ function sum(a, b, c) &#123;
 </ul>
 </blockquote>
 <p><strong>方式1：</strong></p>
-<blockquote>
 <pre><code>function sum(a=0,b) &#123;
     console.log(a + b);
 &#125;
@@ -687,6 +690,7 @@ sum(1, 2); // 3 传入2个实参，则a=1,b=2,即a+b=3
 sum(,2); // 报错
 </code></pre>
 <blockquote>
+<blockquote>
 <ul>
 <li>注意形参与实参在接受值时，是一一对应关系</li>
 <li>绝对不要这样写：<code>sum(,2);</code></li>
@@ -694,7 +698,6 @@ sum(,2); // 报错
 </blockquote>
 </blockquote>
 <p><strong>方式2：</strong></p>
-<blockquote>
 <pre><code>// 形参a，b同时赋初始值
 function sum(a, b) &#123;
   // a,b 如果没有值，则默认为undefined，undefined转boolean是false
@@ -703,6 +706,7 @@ function sum(a, b) &#123;
   console.log(a + b);
 &#125;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>形参，在函数内部<strong>不需要</strong>用 <code>var</code> 声明，直接使用就可以</p>
 <ul>
@@ -741,7 +745,6 @@ function sum(a, b) &#123;
 </li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>function sum(a, b) &#123;
   // 如果a是数字，则返回a，否则返回0
   a = typeof a === &quot;number&quot; &amp;&amp; !isNaN(a) ? a : 0;
@@ -765,7 +768,6 @@ sum(-1, 5); // 14
 sum(); // 0
 sum(&quot;-1&quot;, 0); // 0
 </code></pre>
-</blockquote>
 <p><strong>总结：判断是否为纯数字</strong></p>
 <blockquote>
 <p>方法1：</p>
@@ -786,29 +788,29 @@ sum(&quot;-1&quot;, 0); // 0
 </ul>
 </blockquote>
 <ol start="6">
-<li><p>案例2:写一个函数，该函数对用户输入的用户名进行验证</p>
-<blockquote>
+<li>案例2:写一个函数，该函数对用户输入的用户名进行验证<blockquote>
 <ul>
 <li>当用户输入的用户名&lt;4 位数时，弹出提示“用户名不能小于 4 位数”</li>
 <li>当用户输入的用户名&gt;&#x3D;4 位并且&lt;&#x3D;8 位时，弹出提示”用户名格式正确”</li>
 <li>当用户输入的用户名&gt;8 位数时，弹出提示“用户名不能大于 8 位数”</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function userMatch(username) &#123;
   if (username.length &lt; 4) &#123;
- alert(&quot;用户名不能小于4位&quot;);
+    alert(&quot;用户名不能小于4位&quot;);
   &#125; else if (username.length &lt;= 8) &#123;
- alert(&quot;用户名格式正确&quot;);
+    alert(&quot;用户名格式正确&quot;);
   &#125; else &#123;
- alert(&quot;用户名不能大于8位&quot;);
+    alert(&quot;用户名不能大于8位&quot;);
   &#125;
 &#125;
 var username = prompt(&quot;请输入用户名&quot;);
 userMatch(username);
 </code></pre>
-</blockquote>
-</li>
-<li><p><code>arguments</code> 实参列表</p>
-<blockquote>
+<ol start="7">
+<li><code>arguments</code> 实参列表<blockquote>
 <p>如果我们在函数声明时，<strong>不确定</strong>我们到底要几个<strong>形参数</strong>，而希望在函数调用时，传递几个实参，就接受几个实参。这个时候 <code>arguments</code> 就派上用场了。</p>
 <ul>
 <li>arguments实际上是当前函数的一个<strong>内置对象</strong>，函数调用时创建</li>
@@ -829,6 +831,7 @@ userMatch(username);
 <blockquote>
 <p>不管用户传入多少个实际参数，永远能够计算他们的和</p>
 </blockquote>
+</blockquote>
 <pre><code>function sum() &#123;
   var sum = 0;
   for (var i = 0; i &lt; arguments.length; i++) &#123;
@@ -836,19 +839,20 @@ userMatch(username);
   &#125;
   console.log(&quot;所有参数的和是：&quot; + sum);
 &#125;
+&gt;
+sum(11, 22, 33, 44, 55); // 165
+sum(66); // 66
+sum(-3, 9); // 6
 </code></pre>
-</blockquote>
-<p>sum(11, 22, 33, 44, 55); &#x2F;&#x2F; 165<br>sum(66); &#x2F;&#x2F; 66<br>sum(-3, 9); &#x2F;&#x2F; 6</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="8">
 <li>arguments 的注意事项<blockquote>
 <ul>
 <li>函数内<code>arguments</code>表示它接收到的<strong>实参</strong>列表</li>
 <li><code>arguments</code>对象的值<strong>不反映</strong>参数的<strong>默认值</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function sum(a = 1, b = 2) &#123;
   console.log(arguments);//[3,5, callee:(...) ,Symbol(Symbol.iterator): ƒ]
   console.log(arguments[0]);//3
@@ -857,9 +861,6 @@ userMatch(username);
 sum(3, 5);
 sum();
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>参数的作用</strong></p>
 <blockquote>
 <ul>
@@ -885,6 +886,9 @@ sum();
 </blockquote>
 </li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function fn() &#123;
   var isArr = Array.isArray(arguments);
   console.log(isArr); // false  不是数组
@@ -893,9 +897,6 @@ sum();
 &#125;
 fn();
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>类数组转换为数组的几种方法：</strong></p>
 <blockquote>
 <blockquote>
@@ -904,6 +905,7 @@ fn();
 <ul>
 <li>for 循环遍历</li>
 </ul>
+</blockquote>
 <pre><code>// for循环遍历
 function fn() &#123;
   var arr = [];
@@ -918,6 +920,7 @@ function fn() &#123;
 fn(1, 2, 3);
 </code></pre>
 <blockquote>
+<blockquote>
 <p>注意，并不是直接把类数组转换成数组，而是定义一个新数组，将类数组的元素取出来放入新数组中，操作新数组</p>
 </blockquote>
 </blockquote>
@@ -925,6 +928,7 @@ fn(1, 2, 3);
 <ul>
 <li>使用数组的 <code>slice() </code>和 <code>concat() </code>方法</li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   // 本质是把arguments中元素遍历后放到一个新数组中，换成后将新数组返回。
   var arr = Array.prototype.slice.call(arguments);
@@ -935,12 +939,12 @@ fn(1, 2, 3);
 &#125;
 fn(1, 2, 3);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>Array.from：该静态方法从可迭代或类数组对象创建一个新的浅拷贝的数组实例。</li>
 <li>Array.apply</li>
 </ul>
+</blockquote>
 <pre><code>// 创建一个类数组对象
 var obj = &#123;
   length: 2,
@@ -952,7 +956,6 @@ var arr = Array.apply(null, obj);
 arr.push(&quot;A&quot;);
 console.log(arr);
 </code></pre>
-</blockquote>
 <p><strong>常见的类数组有</strong></p>
 <blockquote>
 <ul>
@@ -972,21 +975,24 @@ console.log(arr);
 <li><code>fn(1,2)</code> 得到 <code>1+2=3</code></li>
 <li><code>fn(1,2,3)</code> 得到 <code>1+2+3=6</code></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
   <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 拼接字符串</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-sum <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//累加器</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  str <span class="token operator">=</span> <span class="token string">"0+"</span> <span class="token operator">+</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">//只有一个数时</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  str <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"+"</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">//非末尾数时</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  str <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">//最后一位数，不需要带+号</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    sum <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//累加器</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      str <span class="token operator">=</span> <span class="token string">"0+"</span> <span class="token operator">+</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//只有一个数时</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> arguments<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      str <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">"+"</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//非末尾数时</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      str <span class="token operator">+</span><span class="token operator">=</span> arguments<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//最后一位数，不需要带+号</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
@@ -994,36 +1000,34 @@ sum <span class="token operator">+</span><span class="token operator">=</span> a
 <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1+2=3</span>
 <span class="token function">sum</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1+2+4=7</span>
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="四、函数返回值"><a href="#四、函数返回值" class="headerlink" title="四、函数返回值"></a>四、函数返回值</h3><blockquote>
 <ul>
 <li>函数体内可以使用<code>return</code>关键字来返回<strong>函数的返回值</strong></li>
 <li><code>return</code>可以返回<strong>任意类型的值</strong>，即函数返回值可以是任意类型，但只能返回一个值</li>
 <li><code>return</code>后面的值，就是函数调用执行后的返回值</li>
 </ul>
+</blockquote>
 <pre><code>function sum(a, b) &#123;
   return a + b;
 &#125;
 var result = sum(1, 3);
 console.log(result); // 4
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>return 后面只能返回 1 个值，如果多个值，则以最后一个为准</li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   return 1, &quot;A&quot;, [1, 2, 3];
 &#125;
 console.log(fn()); // [1, 2, 3]
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>函数里没有<code>return</code> 或 <code>return ;</code> ，则函数的返回值是<code>undefined</code>;</li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   console.log(&quot;没有返回值&quot;);
 &#125;
@@ -1031,7 +1035,6 @@ console.log(fn());
 //没有返回值
 //undefined
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>函数的返回值，可以被一个变量接收，这个变量可以参与后续的使用<blockquote>
@@ -1054,6 +1057,7 @@ console.log(fn());
 <blockquote>
 <p>只有第一个<code>console.log(result);</code>会被执行</p>
 </blockquote>
+</blockquote>
 <pre><code>function sum(a, b) &#123;
     console.log(&quot;return前内容&quot;);
     return a + b;
@@ -1064,10 +1068,10 @@ console.log(fn());
   //return前内容
   //4
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>遇到return 立即退出函数体</p>
+</blockquote>
 </blockquote>
 <pre><code>function max(a, b) &#123;
   if (a &gt; b) return a;
@@ -1076,48 +1080,48 @@ console.log(fn());
 console.log(max(12, 5)); // 12
 console.log(max(5, 6)); // 6
 </code></pre>
-</blockquote>
 <ol start="2">
-<li><p>return 与 if 的结合</p>
-<blockquote>
+<li>return 与 if 的结合<blockquote>
 <ul>
 <li>结合if语句的时候，如果if语句体中<strong>只有一条</strong>语句，不需要写<code>&#123; &#125;</code><br><strong>题目：请编写一个函数，判断一个数字是否是偶数</strong></li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function checkEven(n) &#123;
   // if(n % 2 == 0)&#123;
   //   return true;
   // &#125;
   // return false;
+&gt;
+  // 单行语句，也可以省略&#123;&#125; ,在实际工作中类似写法很常见
+  if (n % 2 == 0) return true;
+  return false;
+&#125;
+&gt;
+var result = checkEven(5);
+console.log(result); // false
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 单行语句，也可以省略{} ,在实际工作中类似写法很常见<br>  if (n % 2 &#x3D;&#x3D; 0) return true;<br>  return false;<br>}</p>
-<blockquote>
-</blockquote>
-<p>var result &#x3D; checkEven(5);<br>console.log(result); &#x2F;&#x2F; false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>return 与循环语句结合</p>
-<blockquote>
+<ol start="3">
+<li>return 与循环语句结合<blockquote>
 <ul>
 <li>return 可以在函数体中与 <code>if</code> 语句，<code>循环语句</code>结合使用<br><strong>题目：</strong></li>
 <li>找出数组<code>[200,500,900,1200,1500]</code>中比600大的第一个值出现的位置，并将其返回。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var arr = [200, 500, 900, 1200, 1500];
   function firstIndex(n) &#123;
-   for (var i = 0; i &lt; arr.length; i++) &#123;
-     if (arr[i] &gt;= n) return i;
-   &#125;
- &#125;
+      for (var i = 0; i &lt; arr.length; i++) &#123;
+        if (arr[i] &gt;= n) return i;
+      &#125;
+    &#125;
   var _index = firstIndex(600);
   console.log(_index);
 </code></pre>
-</blockquote>
-</li>
-<li><p>return、break、continue 三者区别</p>
-<table>
+<ol start="4">
+<li>return、break、continue 三者区别<table>
 <thead>
 <tr>
 <th>关键字</th>
@@ -1143,6 +1147,7 @@ console.log(max(5, 6)); // 6
 <ul>
 <li>break 退出当前 for 循环</li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   for (var i = 0; i &lt; 10; i++) &#123;
     if (i == 3) &#123;
@@ -1158,11 +1163,11 @@ fn();
 //2
 //break,continue退出时，我会出来
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>continue 跳出本次循环，继续执行下一次循环</li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   for (var i = 0; i &lt; 10; i++) &#123;
     if (i == 3) &#123;
@@ -1176,11 +1181,11 @@ fn();
 //0 1 2 4 5 6 7 8 9
 //break,continue退出时，我会出来
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>return 不仅能退出循环，<strong>退出函数体</strong></li>
 </ul>
+</blockquote>
 <pre><code>function fn() &#123;
   for (var i = 0; i &lt; 10; i++) &#123;
     if (i == 3) &#123;
@@ -1193,7 +1198,6 @@ fn();
 fn();
 //0 1 2
 </code></pre>
-</blockquote>
 <h3 id="五、函数作为参数"><a href="#五、函数作为参数" class="headerlink" title="五、函数作为参数"></a>五、函数作为参数</h3><ol>
 <li>函数做为参数的应用<blockquote>
 <ul>
@@ -1204,42 +1208,35 @@ fn();
 </li>
 </ol>
 <ul>
-<li><p>函数fn2作为函数fn的参数，函数fn2不带参数时</p>
-<blockquote>
+<li>函数fn2作为函数fn的参数，函数fn2不带参数时</li>
+</ul>
 <pre><code>// 声明一个函数，其参数a也是一个参数
 function fn(a) &#123;
-a(); // 内部执行函数a
+  a(); // 内部执行函数a
 &#125;
 // 声明一个函数
 function fn2() &#123;
-console.log(&quot;我是在fn的内部被调用&quot;);
+  console.log(&quot;我是在fn的内部被调用&quot;);
 &#125;
 // 调用fn函数，把函数fn2作为fn函数的参数
 fn(fn2);
 </code></pre>
-</blockquote>
-</li>
-<li><p>函数fn2 作为函数fn的参数，函数fn2带参数时（非常重要，一定要掌握）</p>
-<blockquote>
+<ul>
+<li>函数fn2 作为函数fn的参数，函数fn2带参数时（非常重要，一定要掌握）</li>
+</ul>
 <pre><code>// 声明一个函数，其参数a是一个函数
 function fn(a) &#123;
-a(2, 4); // 调用函数
+  a(2, 4); // 调用函数
 &#125;
 // 声明一个函数
 function fn2(a, b) &#123;
-console.log(a + b);
+  console.log(a + b);
 &#125;
 // 调用fn函数，把函数fn2作为fn函数的参数
 fn(fn2); // 6
+&gt;
+// fn(fn2(2,4));   错误的用法
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; fn(fn2(2,4));   错误的用法</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>初学常见错误</p>
@@ -1254,18 +1251,18 @@ fn(fn2); // 6
 <li>手写一个函数，返回数组中最大值或最小值</li>
 </ol>
 <ul>
-<li><p>写一个函数，返回数组中最大值</p>
-<blockquote>
+<li>写一个函数，返回数组中最大值</li>
+</ul>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//声明函数find(arr)</span>
  <span class="token keyword">function</span> <span class="token function">find1</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token keyword">var</span> max <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">//max &lt; arr[i]</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>max <span class="token operator">-</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-     max <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">var</span> max <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">//max &lt; arr[i]</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>max <span class="token operator">-</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+       max <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
- <span class="token keyword">return</span> max<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//遍历之后返回最大值</span>
+   <span class="token keyword">return</span> max<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//遍历之后返回最大值</span>
  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
  <span class="token comment" spellcheck="true">//声明数组</span>
  <span class="token keyword">var</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">39</span><span class="token punctuation">,</span> <span class="token number">58</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1273,27 +1270,23 @@ fn(fn2); // 6
  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">find1</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
-</li>
-<li><p>写一个函数，返回数组中最小值</p>
-<blockquote>
+<ul>
+<li>写一个函数，返回数组中最小值</li>
+</ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">find2</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token keyword">var</span> min <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
- <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-   <span class="token comment" spellcheck="true">// min > arr[i]</span>
-   <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> min <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-     min <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">var</span> min <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     <span class="token comment" spellcheck="true">// min > arr[i]</span>
+     <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> min <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+       min <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+     <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
- <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
- <span class="token keyword">return</span> min<span class="token punctuation">;</span>
+   <span class="token keyword">return</span> min<span class="token punctuation">;</span>
  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
  <span class="token keyword">var</span> arr1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">39</span><span class="token punctuation">,</span> <span class="token number">58</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">find2</span><span class="token punctuation">(</span>arr1<span class="token punctuation">)</span><span class="token punctuation">;</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <blockquote>
 <blockquote>
 <p>我们对比以上两个函数会发现：</p>
@@ -1308,31 +1301,31 @@ fn(fn2); // 6
 <ul>
 <li>用不同函数作为参数</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function minmax(arr, fn) &#123;
- var value = arr[0];
- for (var i = 1; i &lt; arr.length; i++) &#123;
-   // fn1:max-arr[i] &lt; 0,a-b&lt;0
-   // fn2:arr[i]-min &lt; 0,b-a&lt;0
-   if (fn(value, arr[i]) &lt; 0) &#123;
-     value = arr[i];
+   var value = arr[0];
+   for (var i = 1; i &lt; arr.length; i++) &#123;
+     // fn1:max-arr[i] &lt; 0,a-b&lt;0
+     // fn2:arr[i]-min &lt; 0,b-a&lt;0
+     if (fn(value, arr[i]) &lt; 0) &#123;
+       value = arr[i];
+     &#125;
    &#125;
- &#125;
- return value;
+   return value;
  &#125;
  var arr = [1, 4, 5, 6, 2, 40, 39, 58];
  function fn1(a, b) &#123;
- return a - b;
+   return a - b;
  &#125;
  function fn2(a, b) &#123;
- return b - a;
+   return b - a;
  &#125;
  var max = minmax(arr, fn1);
  var min = minmax(arr, fn2);
  console.log(max, min);
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="3">
 <li>手写一个 filter 函数<blockquote>
 <ul>
@@ -1344,6 +1337,7 @@ fn(fn2); // 6
 <blockquote>
 <blockquote>
 <p>返回<strong>大于10</strong>的元素</p>
+</blockquote>
 </blockquote>
 <pre class=" language-js"><code class="language-js"> <span class="token keyword">function</span> <span class="token function">filter1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
    <span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1360,10 +1354,10 @@ fn(fn2); // 6
  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">filter1</span><span class="token punctuation">(</span>arr1<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>返回<strong>小于10</strong>的值</p>
+</blockquote>
 </blockquote>
 <pre class=" language-js"><code class="language-js"> <span class="token keyword">function</span> <span class="token function">filter2</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
    <span class="token keyword">var</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -1380,10 +1374,10 @@ fn(fn2); // 6
  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">filter2</span><span class="token punctuation">(</span>arr1<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
 <blockquote>
 <blockquote>
 <p>封装成方法：</p>
+</blockquote>
 </blockquote>
 <pre><code>function filter(arr, fn) &#123;
    var arr2 = [];
@@ -1415,7 +1409,6 @@ fn(fn2); // 6
  var moreMin = filter(arr1, fn2);
  console.log(moreMin);
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>函数作为参数的常见 API<blockquote>
 <ul>
@@ -1436,36 +1429,43 @@ fn(fn2); // 6
 <ul>
 <li>以下是数组中常见的方法，其参数是一个函数</li>
 </ul>
+</blockquote>
 <pre><code>// 排序函数
 sort(function(a,b)&#123;
     return a-b;
 &#125;)
+&gt;
+// 返回数组中满足条件的元素组成一个新数组（过滤数组中不满足条件的）
+filter(function(element, index, array) &#123;
+    return element &gt;10;
+&#125;
+&gt;
+// 返回满足条件的 第一个元素
+find(function(element) &#123;
+    return element &gt;10;
+&#125;)
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 返回数组中满足条件的元素组成一个新数组（过滤数组中不满足条件的）<br>filter(function(element, index, array) {<br>    return element &gt;10;<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 返回满足条件的 第一个元素<br>find(function(element) {<br>    return element &gt;10;<br>})</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-<blockquote>
 <pre><code>// 定义数组
 var arr = [1, 3, 34, 5, 20, 68, 56];
+&gt;
+// 返回数组中所有大于10的元素组成的新数组
+var result = arr.filter(function (value) &#123;
+  return value &gt; 10;
+&#125;);
+console.log(result); // [34, 20, 68, 56]
+&gt;
+// 返回数组中第一个大于10的元素
+var result2 = arr.find(function (value) &#123;
+  return value &gt; 10;
+&#125;);
+console.log(result2); // 34
+&gt;
+// 数组升序排序
+arr.sort(function (a, b) &#123;
+  return a - b; // a-b 升序  b-a 降序
+&#125;);
+console.log(arr); //  [1, 3, 5, 20, 34, 56, 68]
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 返回数组中所有大于10的元素组成的新数组<br>var result &#x3D; arr.filter(function (value) {<br>  return value &gt; 10;<br>});<br>console.log(result); &#x2F;&#x2F; [34, 20, 68, 56]</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 返回数组中第一个大于10的元素<br>var result2 &#x3D; arr.find(function (value) {<br>  return value &gt; 10;<br>});<br>console.log(result2); &#x2F;&#x2F; 34</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 数组升序排序<br>arr.sort(function (a, b) {<br>  return a - b; &#x2F;&#x2F; a-b 升序  b-a 降序<br>});<br>console.log(arr); &#x2F;&#x2F;  [1, 3, 5, 20, 34, 56, 68]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <p><strong>强烈建议</strong></p>
 <blockquote>
 <ul>
@@ -1486,26 +1486,29 @@ var arr = [1, 3, 34, 5, 20, 68, 56];
 <li>直接编写在<code>&lt;script&gt;</code>标签中的<code>JS</code>代码<strong>或</strong>单独的<code>JS</code> 文件中代码，都是在全局作用域</li>
 <li>声明在全局作用域中的变量为<strong>全局变量</strong></li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
+</blockquote>
+</li>
+</ol>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
   <span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
   <span class="token keyword">function</span> <span class="token function">fn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
   <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 </code></pre>
+<blockquote>
 <ul>
 <li>a是全局变量，fn和fn2是全局变量也称全局函数</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <p><strong>函数作用域：</strong></p>
 <blockquote>
 <ul>
 <li>函数作用域，也称为局部作用域，所有写在<strong>函数内部</strong>的代码，就是在函数作用域中。</li>
 <li>声明在函数作用域中的变量为<strong>局部变量</strong></li>
 </ul>
+</blockquote>
 <pre><code>var a = 2;
   function fn() &#123;&#125;
   function fn2() &#123;
@@ -1515,6 +1518,7 @@ var arr = [1, 3, 34, 5, 20, 68, 56];
     &#125;
   &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>fn2函数体中的变量 b，函数fn3 都是在函数作用域中</li>
 </ul>
@@ -1530,6 +1534,9 @@ var arr = [1, 3, 34, 5, 20, 68, 56];
 <ul>
 <li>在<strong>全局</strong>作用域中，是<strong>没有办法</strong>访问到<strong>函数</strong>作用域中的变量（局部变量）（除闭包外）</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>var a = 2; // 全局作用域中
 function fn() &#123;
   var b = 3; // 函数作用域中
@@ -1537,13 +1544,11 @@ function fn() &#123;
 // 全局作用域是不能访问函数作用域中变量
 console.log(b); // Uncaught ReferenceError: b is not defined
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <ul>
 <li>在<strong>函数</strong>作用域中，是<strong>可以</strong>访问全局作用域中的变量（全局变量）</li>
 </ul>
+</blockquote>
 <pre><code>var a = 2; // 全局作用域
 function fn() &#123;
   var b = 3; // 函数作用域
@@ -1551,7 +1556,6 @@ function fn() &#123;
 &#125;
 fn();
 </code></pre>
-</blockquote>
 <ol start="3">
 <li>作用域链<blockquote>
 <ul>
@@ -1562,75 +1566,73 @@ fn();
 </li>
 </ol>
 <ul>
-<li><p><strong>作用域链查找规则</strong></p>
-<blockquote>
+<li><strong>作用域链查找规则</strong><blockquote>
 <ul>
 <li>在函数作用域中，操作一个变量时，会由当前函数作用域向外层作用域寻找变量</li>
 <li>如果在<strong>当前作用域</strong>中能找到，就直接使用</li>
 <li>如果找不到就向<strong>上一层</strong>作用域中寻找，找到就直接使用</li>
 <li>如果一直找到<strong>全局作用域</strong>中依然找不到，则会报错。</li>
 </ul>
-<pre><code>var a = 1;
-function fn() &#123;
-var b = 2;
-console.log(a); // 1
-function fn2() &#123;
-  var c = 3;
-  console.log(b); // 2
-  console.log(c); // 3
-&#125;
-fn2();
-&#125;
-fn();
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 代码从上往下执行，当fn()被执行后，就会执行fn函数体中的代码，当执行到console.log(a)时，在当前函数作用域中，没有变量a，其就会往fn函数的外层作用域，即全局作用域中去查找，找到a&#x3D;1,然后在控制台打印1<br>&#x2F;&#x2F; 接着执行fn2(),当执行到console.log(b)，他会先在当前作用域中找，找不到，则往外层作用域中找，最后在fn函数作用域中找到，b&#x3D;2,直接使用值，在控制台输出2<br>&#x2F;&#x2F; 接着执行console.log(c),首先在当前作用域找，找到了c&#x3D;3，则直接在控制台输出3</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p><strong>遮蔽效应</strong></p>
-<blockquote>
+</ul>
+<pre><code>var a = 1;
+function fn() &#123;
+  var b = 2;
+  console.log(a); // 1
+  function fn2() &#123;
+    var c = 3;
+    console.log(b); // 2
+    console.log(c); // 3
+  &#125;
+  fn2();
+&#125;
+fn();
+&gt;
+// 代码从上往下执行，当fn()被执行后，就会执行fn函数体中的代码，当执行到console.log(a)时，在当前函数作用域中，没有变量a，其就会往fn函数的外层作用域，即全局作用域中去查找，找到a=1,然后在控制台打印1
+// 接着执行fn2(),当执行到console.log(b)，他会先在当前作用域中找，找不到，则往外层作用域中找，最后在fn函数作用域中找到，b=2,直接使用值，在控制台输出2
+// 接着执行console.log(c),首先在当前作用域找，找到了c=3，则直接在控制台输出3
+</code></pre>
+<ul>
+<li><strong>遮蔽效应</strong><blockquote>
 <ul>
 <li>所谓的遮蔽效应是指，如果函数中定义了和全局同名的变量，则<strong>函数内</strong>的变量会将全局的变量“遮蔽”</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var a = 2;
 function fn() &#123;
-var a = 3;
-console.log(a); // 3
+  var a = 3;
+  console.log(a); // 3
 &#125;
 fn();
 </code></pre>
-</blockquote>
-</li>
-<li><p><strong>形参也是局部变量</strong></p>
-<blockquote>
+<ul>
+<li><strong>形参也是局部变量</strong></li>
+</ul>
 <pre><code>var a = 12;
-function fn(a) &#123;
-  //形参相当于 var a;
-  console.log(a); // 8
-&#125;
-fn(8);
-console.log(a); // 12
+  function fn(a) &#123;
+    //形参相当于 var a;
+    console.log(a); // 8
+  &#125;
+  fn(8);
+  console.log(a); // 12
 </code></pre>
-</blockquote>
-</li>
-<li><p><strong>特殊的全局变量</strong></p>
-<blockquote>
+<ul>
+<li><strong>特殊的全局变量</strong><blockquote>
 <ul>
 <li><strong>非严格模式</strong>下,在函数里没有用 <code>var</code> 关键字声明的变量，是<strong>全局变量</strong> (但严格模式下会报错)</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function fn() &#123;
-a = 4;
+  a = 4;
 &#125;
 fn(); // 函数调用后，a全局变量会被创建
 console.log(a, window.a); // 4 4
 </code></pre>
-</blockquote>
-</li>
-</ul>
-<blockquote>
 <pre><code>function fn() &#123;
   &quot;use strict&quot;;
   a = 4;
@@ -1638,7 +1640,6 @@ console.log(a, window.a); // 4 4
 fn(); 
 console.log(a, window.a); // ncaught ReferenceError: a is not defined
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>严格模式<blockquote>
 <p>在 ES5 中增加了严格模式概念，在严格模式下，之前的一些不规范的写法在这种模式下会被处理掉，甚至会直接抛出错误。<br><strong>为什么使用严格模式 ？</strong></p>
@@ -1652,36 +1653,38 @@ console.log(a, window.a); // ncaught ReferenceError: a is not defined
 </li>
 </ol>
 <ul>
-<li><p>对<strong>整个</strong> JS 代码开启严格模式:</p>
-<blockquote>
+<li>对<strong>整个</strong> JS 代码开启严格模式:<blockquote>
 <ul>
 <li>在所有 JS 代码的<strong>最前面</strong>加上”use strict”</li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token comment" spellcheck="true">// 'use strict ' 是一个预处理执令，告诉JS引擎启用严格模式</span>
-<span class="token string">"use strict"</span><span class="token punctuation">;</span>
-a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 在严格模式下，定义变量必需用var关键词</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught ReferenceError: a is not defined</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
 </blockquote>
 </li>
-<li><p><strong>单独指定</strong>一个函数在严格模式下执行</p>
-<blockquote>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token operator">></span><span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token comment" spellcheck="true">// 'use strict ' 是一个预处理执令，告诉JS引擎启用严格模式</span>
+  <span class="token string">"use strict"</span><span class="token punctuation">;</span>
+  a <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 在严格模式下，定义变量必需用var关键词</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught ReferenceError: a is not defined</span>
+<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<ul>
+<li><strong>单独指定</strong>一个函数在严格模式下执行<blockquote>
 <ul>
 <li>只需要把”use strict”放在函数体的最前面。函数体中的代码就需要遵顺严格模式</li>
 </ul>
-<pre><code>c = 4;
-console.log(c); // 4
-</code></pre>
-</blockquote>
-<p>function b() {<br>“use strict”; &#x2F;&#x2F; 严格模式只能函数体内有效<br>a &#x3D; 4;<br>console.log(a); &#x2F;&#x2F; Uncaught ReferenceError: a is not defined<br>}<br>b();</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>c = 4;
+console.log(c); // 4
+&gt;
+function b() &#123;
+  &quot;use strict&quot;; // 严格模式只能函数体内有效
+  a = 4;
+  console.log(a); // Uncaught ReferenceError: a is not defined
+&#125;
+b();
+</code></pre>
 <ol start="5">
 <li><p>在严格模式下：</p>
 <blockquote>
@@ -1708,48 +1711,46 @@ console.log(c); // 4
 </blockquote>
 </li>
 </ul>
-<pre><code> var a = 3;
- var b = 4;
- function fn(a) &#123;
-function fn2(b) &#123;
-  fn3(b); //fn3(4)=4
-  fn3(); //undefined
-&#125;
-function fn3(b) &#123;
-  console.log(b); //4
-&#125;
-fn2(b); //b=4
- &#125;
- fn(a); //a=3
-</code></pre>
-</blockquote>
-</li>
-<li><p>测试题</p>
-<blockquote>
-<pre><code> var a = 3;
- var b = 4;
- function fn(a) &#123;
-function fn2(b) &#123;
-  var b = 2;
-  console.log(a); //3
-  fn3(b); //b=2
-  fn3(); //undefined
-  fn4();
-&#125;
-function fn3(b) &#123;
-  console.log(b); //2
-&#125;
-function fn4() &#123;
-  console.log(b); //4
-&#125;
-fn2(b); //b=4
- &#125;
- fn(a); //a=3
-</code></pre>
 </blockquote>
 </li>
 </ol>
-<blockquote>
+<pre><code> var a = 3;
+ var b = 4;
+ function fn(a) &#123;
+   function fn2(b) &#123;
+     fn3(b); //fn3(4)=4
+     fn3(); //undefined
+   &#125;
+   function fn3(b) &#123;
+     console.log(b); //4
+   &#125;
+   fn2(b); //b=4
+ &#125;
+ fn(a); //a=3
+</code></pre>
+<ol start="7">
+<li>测试题</li>
+</ol>
+<pre><code> var a = 3;
+ var b = 4;
+ function fn(a) &#123;
+   function fn2(b) &#123;
+     var b = 2;
+     console.log(a); //3
+     fn3(b); //b=2
+     fn3(); //undefined
+     fn4();
+   &#125;
+   function fn3(b) &#123;
+     console.log(b); //2
+   &#125;
+   function fn4() &#123;
+     console.log(b); //4
+   &#125;
+   fn2(b); //b=4
+ &#125;
+ fn(a); //a=3
+</code></pre>
 <pre><code> var a = 1;
  var b = 3;
  var c = 2;
@@ -1767,25 +1768,22 @@ fn2(b); //b=4
  &#125;
  fn(a);//a=1
 </code></pre>
-</blockquote>
 <h3 id="七、变量提升与函数声明提升"><a href="#七、变量提升与函数声明提升" class="headerlink" title="七、变量提升与函数声明提升"></a>七、变量提升与函数声明提升</h3><blockquote>
 <p>以下关于变量和函数提升，我们并不涉及底层执行原理，底层执行原理在对象讲完后再讲。</p>
 </blockquote>
 <ul>
-<li>在讲解变量提升与函数声明提升前，我们先来看下面这一段代码<blockquote>
+<li>在讲解变量提升与函数声明提升前，我们先来看下面这一段代码</li>
+</ul>
 <pre><code>console.log(a); // undefined
 fn(); // undefined
 var a = 2;
 console.log(a); // 2
 function fn() &#123;
-console.log(a);
+  console.log(a);
 &#125;
 fn(); // 2
 console.log(c);//报错
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <p><strong>我们都知道</strong></p>
 <blockquote>
 <ul>
@@ -1829,23 +1827,30 @@ console.log(c);//报错
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>console.log(a);
 b();
 var a = 2;
 function b() &#123;
   console.log(&quot;要注意我喽！&quot;);
 &#125;
+&gt;
+// 上面代码，会先把带var声明的变量和用function声明的函数，提升到当前作用域的最前面
+// 提升后代码其形式如下：
+var a;
+function b() &#123;
+  console.log(&quot;要注意我喽！&quot;);
+&#125;
+console.log(a);
+b();
+a = 2;
+&gt;
+// 提升后，其代码执行流程如下：
+// - 代码从上往下执行
+// - 执行到第1行，a的默认值是undefined
+// - 执行到第2行，是函数声明，啥也不做，往下继续执行
+// - 执行到第5行，打印a,，结果是undefined
+// - 执行到第6行，调用函数，函数体中打印  **”要注意我喽！“**
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码，会先把带var声明的变量和用function声明的函数，提升到当前作用域的最前面<br>&#x2F;&#x2F; 提升后代码其形式如下：<br>var a;<br>function b() {<br>  console.log(“要注意我喽！”);<br>}<br>console.log(a);<br>b();<br>a &#x3D; 2;</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 提升后，其代码执行流程如下：<br>&#x2F;&#x2F; - 代码从上往下执行<br>&#x2F;&#x2F; - 执行到第1行，a的默认值是undefined<br>&#x2F;&#x2F; - 执行到第2行，是函数声明，啥也不做，往下继续执行<br>&#x2F;&#x2F; - 执行到第5行，打印a,，结果是undefined<br>&#x2F;&#x2F; - 执行到第6行，调用函数，函数体中打印  <strong>”要注意我喽！“</strong></p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="2">
 <li>函数提升，区分函数声明与函数表达式<blockquote>
 <ul>
@@ -1855,7 +1860,6 @@ function b() &#123;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>console.log(a);
 console.log(b);
 b();
@@ -1866,16 +1870,26 @@ var a = function () &#123;
 function b() &#123;
   console.log(&quot;我在b函数中&quot;);
 &#125;
+&gt;
+// 首先把var和function声明的函数，提升到当前作用域最前面，提升后代码如下：
+var a;
+function b() &#123;
+  console.log(&quot;我在b函数中&quot;);
+&#125;
+console.log(a);
+console.log(b);
+b();
+a();
+a = function () &#123;
+  console.log(&quot;我在a函数中&quot;);
+&#125;;
+&gt;
+// 提升后代码，代码从上往下执行
+// 执行到console.log(a); 在控制台输出 undefined,因为此时a声明了，但没有赋值,默认值为undefined
+// 执行到console.log(b); 在控制台输出整个 b的函数声明
+// 执行到 b() ，调用函数,在控制台输出  &quot;我在b函数中&quot;
+// 执行到a()，因为些时a还是undefined，所以没有办法调用，即报错
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 首先把var和function声明的函数，提升到当前作用域最前面，提升后代码如下：<br>var a;<br>function b() {<br>  console.log(“我在b函数中”);<br>}<br>console.log(a);<br>console.log(b);<br>b();<br>a();<br>a &#x3D; function () {<br>  console.log(“我在a函数中”);<br>};</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 提升后代码，代码从上往下执行<br>&#x2F;&#x2F; 执行到console.log(a); 在控制台输出 undefined,因为此时a声明了，但没有赋值,默认值为undefined<br>&#x2F;&#x2F; 执行到console.log(b); 在控制台输出整个 b的函数声明<br>&#x2F;&#x2F; 执行到 b() ，调用函数,在控制台输出  “我在b函数中”<br>&#x2F;&#x2F; 执行到a()，因为些时a还是undefined，所以没有办法调用，即报错</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>函数提升优先级<strong>高于</strong>变量提升<blockquote>
 <p><strong>在同一作用域下</strong></p>
@@ -1887,7 +1901,6 @@ function b() &#123;
 </li>
 </ol>
 <p><strong>同名的函数</strong></p>
-<blockquote>
 <pre><code>a(); // 2
 function a() &#123;
   console.log(&quot;1&quot;);
@@ -1904,9 +1917,7 @@ function a() &#123;
 a();
 a();
 </code></pre>
-</blockquote>
 <p><strong>同名的变量和函数</strong></p>
-<blockquote>
 <pre><code>console.log(a);
 a();
 function a() &#123;
@@ -1916,16 +1927,31 @@ var a = 3;
 console.log(a);
 a = 4;
 console.log(a);
+&gt;
+// 上面代码在执行前，变量和函数声明提升后代码如下：
+function a() &#123;
+  console.log(&quot;a中&quot;);
+&#125;
+console.log(a);
+a();
+a = 3;
+console.log(a);
+a = 4;
+console.log(a);
+// - 代码从上往下执行
+// - 执行到console.log(a)时，打印函数a
+// - 执行到a()时，调用函数，执行函数体中代码，输出 &#39;a中&#39;
+// - a=3，给a重赋值，console.log(a)  打印出 3
+// - a=4,给a重新赋值，console.log(a),打印出4
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 上面代码在执行前，变量和函数声明提升后代码如下：<br>function a() {<br>  console.log(“a中”);<br>}<br>console.log(a);<br>a();<br>a &#x3D; 3;<br>console.log(a);<br>a &#x3D; 4;<br>console.log(a);<br>&#x2F;&#x2F; - 代码从上往下执行<br>&#x2F;&#x2F; - 执行到console.log(a)时，打印函数a<br>&#x2F;&#x2F; - 执行到a()时，调用函数，执行函数体中代码，输出 ‘a中’<br>&#x2F;&#x2F; - a&#x3D;3，给a重赋值，console.log(a)  打印出 3<br>&#x2F;&#x2F; - a&#x3D;4,给a重新赋值，console.log(a),打印出4</p>
 <blockquote>
-<pre><code>&gt;注意第一个`console.log(a);`打印出的是函数
-</code></pre>
+<blockquote>
+<p>注意第一个<code>console.log(a);</code>打印出的是函数</p>
+</blockquote>
 </blockquote>
 <ol start="4">
-<li><p>测试题1</p>
-<blockquote>
+<li>测试题1</li>
+</ol>
 <pre><code>console.log(a);
 a();
 function a() &#123;
@@ -1937,16 +1963,26 @@ function a() &#123;
 &#125;
 var b = a;
 console.log(b);
+&gt;
+//预编译后：
+function a() &#123;
+  console.log(&quot;a2&quot;);
+&#125;
+var b;
+console.log(a);//函数a
+a();//&quot;a2&quot;
+var a = 2;
+b = a;
+console.log(b);//b=a=2
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;预编译后：<br>function a() {<br>  console.log(“a2”);<br>}<br>var b;<br>console.log(a);&#x2F;&#x2F;函数a<br>a();&#x2F;&#x2F;“a2”<br>var a &#x3D; 2;<br>b &#x3D; a;<br>console.log(b);&#x2F;&#x2F;b&#x3D;a&#x3D;2</p>
 <blockquote>
-<pre><code>&gt;注意`var a=2;`由于优先级低，所以不会被预编译(并不代表他不会被执行)，但是，当执行到它时，会覆盖前面的a，此时a就由函数变成了基本数据类型。
-</code></pre>
-</blockquote>
-</li>
-<li><p>测试题2</p>
 <blockquote>
+<p>注意<code>var a=2;</code>由于优先级低，所以不会被预编译(并不代表他不会被执行)，但是，当执行到它时，会覆盖前面的a，此时a就由函数变成了基本数据类型。</p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>测试题2</li>
+</ol>
 <pre><code>console.log(a);
 a();
 function a() &#123;
@@ -1961,8 +1997,8 @@ var a = function () &#123;
   console.log(&quot;a3&quot;);
 &#125;;
 console.log(a);
-
-预编译后：
+&gt;
+&gt;预编译后：
 function a() &#123;
   console.log(&quot;a2&quot;);
 &#125;
@@ -1975,9 +2011,6 @@ var a = function () &#123;
 &#125;;//覆盖a
 console.log(a);//函数a
 </code></pre>
-</blockquote>
-</li>
-</ol>
 <h3 id="八、算法的核心理论"><a href="#八、算法的核心理论" class="headerlink" title="八、算法的核心理论"></a>八、算法的核心理论</h3><blockquote>
 <p>算法有好有坏，判断算法好的重要标准就是算法的复杂度。</p>
 </blockquote>
@@ -2050,22 +2083,23 @@ console.log(a);//函数a
 </tr>
 </tbody></table>
 <ul>
-<li><p><strong>O(1)级别-时间复杂度</strong></p>
-<blockquote>
+<li><strong>O(1)级别-时间复杂度</strong><blockquote>
 <ul>
 <li>只要是我们<strong>能够识别</strong>出来的一个计算量，同时和输入量<strong>无关</strong>，那他复杂度就是<code>O(1)</code></li>
 <li>比如，不管输入量是多少，执行次数都是<strong>固定的</strong> 1 次或 1000 次或 10000 万，都属于<code>O(1)</code>级别</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>var arr = [1, 2, 3, 4]; 
 // arr可以是 arr=[1,2,3,4,5,6,7,8,.....1000] 等
 function fn(arr) &#123;
-console.log(arr[0]);
+  console.log(arr[0]);
 &#125;
 // 时间复杂度 O(1)级别
 // 不管arr 数组长度是多少，我的计算量都是1次，是可数的，不受输入量影响
 </code></pre>
-</blockquote>
-</li>
+<ul>
 <li><p><strong>O(logn) 级别-时间复杂度</strong></p>
 <blockquote>
 <ul>
@@ -2094,26 +2128,26 @@ console.log(arr[0]);
 </ul>
 </blockquote>
 <ul>
-<li><p>O(n)级别-时间复杂度</p>
-<blockquote>
+<li>O(n)级别-时间复杂度<blockquote>
 <ul>
 <li>执行次数和输入量（数据量）是 <strong>“一样”</strong> 的，这里的一样，并不是说完全相等，是指同等级别增加</li>
 <li>比如：输入量是 n，计算量是 1n,2n,100n，那都属于这个等级</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 时间复杂度 O(n)级别
 function fn(arr) &#123;
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  console.log(arr[i]);
-  console.log(arr[i] + 10);
-&#125;
+  for (var i = 0; i &lt; arr.length; i++) &#123;
+    console.log(arr[i]);
+    console.log(arr[i] + 10);
+  &#125;
 &#125;
 // 执行次数受 输入量的影响，同时是同等级别增加
 // 如果arr数组长度为10，执行20次，长度为100，执行200次，长度为10000，执行20000次
 </code></pre>
-</blockquote>
-</li>
-<li><p>O(n*logn)级别-时间复杂度</p>
-<blockquote>
+<ul>
+<li>O(n*logn)级别-时间复杂度<blockquote>
 <ul>
 <li>执行次数 &#x3D; 数据量 * 数据量的对数 &#x3D; n * logn</li>
 <li>这种级别的时间复杂度，通常<ul>
@@ -2123,45 +2157,51 @@ for (var i = 0; i &lt; arr.length; i++) &#123;
 </li>
 <li>我们后面算法中讲到的快速排序，其时间复杂度就是<code>O(n*logn)</code>级别，因为代码过于复杂，目前不做演示，后面学到再说</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 以下代码没有任何实际的意义，只是用来简单理解O(n*logn)的时间复杂度
 var arr = [1, 2, 3, 4, 5, 6, 7, 8];
 for (var i = 0; i &lt; arr.length; i++) &#123;
-for (j = i; j &gt; 1; j /= 2) &#123;
-  console.log(&quot;二分&quot;);
-&#125;
+  for (j = i; j &gt; 1; j /= 2) &#123;
+    console.log(&quot;二分&quot;);
+  &#125;
 &#125;
 </code></pre>
+<blockquote>
 <blockquote>
 <p>算法的时间复杂度，达到 <code>O(n*logn)</code>这个级别，只能算 ok，能接受，但肯定不是最优的</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>O(n<sup>2</sup>)级别-时间复杂度</p>
-<blockquote>
+<ul>
+<li>O(n<sup>2</sup>)级别-时间复杂度<blockquote>
 <ul>
 <li>执行次数（计算量）是输入量的平方</li>
 <li>输入量是 10，执行 100 次，输入 100，执行 10000 次</li>
 <li>常见的双层嵌套 for 循环，就是这个级别的时间复杂度</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 时间复杂度 O(n^2)级别  n^2表示n的平方
 // 执行次数是输入量的平方
 // 如果n=10，则执行100次，如果n=100，则执行10000次
 function fn(n) &#123;
-for (var i = 0; i &lt; n; i++) &#123;
-  for (var j = 0; j &lt; n; j++) &#123;
-    console.log(i + &quot;-&quot; + j);
+  for (var i = 0; i &lt; n; i++) &#123;
+    for (var j = 0; j &lt; n; j++) &#123;
+      console.log(i + &quot;-&quot; + j);
+    &#125;
   &#125;
-&#125;
 &#125;
 fn(10);
 </code></pre>
 <blockquote>
+<blockquote>
 <p>算法时间复杂度，达到 O(n<sup>2</sup>)级别，几乎是没有办法用的，因为输入量越大，计算量暴增</p>
 </blockquote>
 </blockquote>
-</li>
-<li><p>总结</p>
-<blockquote>
+<ul>
+<li>总结<blockquote>
 <ul>
 <li>当 n 的取值足够大时，其算法耗时时间从小到大依次为：<ul>
 <li>O(1) &lt; O(logn) &lt; O(n) &lt; O(n*logn) &lt; O(n<sup>2</sup>)</li>
@@ -2215,66 +2255,69 @@ fn(10);
 </tr>
 </tbody></table>
 <ul>
-<li><p>O(1)级别-空间复杂度</p>
-<blockquote>
+<li>O(1)级别-空间复杂度<blockquote>
 <ul>
 <li>输入量增大，并不会影响<strong>需要的</strong>空间</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>// 空间复杂度为 O(1)
 // 输入量增大，并不会影响所需要的空间，不管arr多大，则变量a,b对应空间相对稳定
 function fn(arr) &#123;
-var a = arr[1];
-var b = arr[2];
+  var a = arr[1];
+  var b = arr[2];
 &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>并不是说<code>arr</code>长度的增加，所需要的内存不会增加</li>
 <li>而是说函数体里声明的a、b变量所需要的空间不会随输入量的增大而增加</li>
 </ul>
 </blockquote>
-</li>
-<li><p>O(n)级别- 空间复杂度</p>
-<blockquote>
+<ul>
+<li>O(n)级别- 空间复杂度<blockquote>
 <ul>
 <li>输入量增大，所需要的内存空间与输入量成正比</li>
 <li>比如：常见的数组拷贝(深克隆)，输入的数组变大，那拷贝到对应的数组也就会变大</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>// 空间复杂度为O(n)
 // 数组arr的输入量变大，其对应 arr2占用的内存也就相应变大, 这里假设arr中存的都是基本数据类型
 function deepClone(arr) &#123;
-// ......
-var arr2 = []; //  占用的内存空间
-for (var i = 0; i &lt; arr.length; i++) &#123;
-  arr2.push(arr[i]);
-&#125;
+  // ......
+  var arr2 = []; //  占用的内存空间
+  for (var i = 0; i &lt; arr.length; i++) &#123;
+    arr2.push(arr[i]);
+  &#125;
 &#125;
 </code></pre>
-</blockquote>
-</li>
-<li><p>O(n<sup>2</sup>)级别- 空间复杂度</p>
-<blockquote>
+<ul>
+<li>O(n<sup>2</sup>)级别- 空间复杂度<blockquote>
 <ul>
 <li>输入量增大，其所需要的内存空间为原来的平方</li>
 <li>比如：常见的二维数组生成</li>
 </ul>
-<pre><code>// 空间复杂度 O(n2)
-// 当输入n为2时，所需要的空间为原来的4倍，当输入为7时，所需空间为原来的49倍
-function fn(n) &#123;
-var arr = [];
-for (var i = 0; i &lt; n; i++) &#123;
-  var arr2 = [];
-  for (var j = 0; j &lt; n; j++) &#123;
-    arr2[j] = j;
-    arr[i] = arr2;
-  &#125;
-&#125;
-console.log(arr);
-&#125;
-fn(7);
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 空间复杂度 O(n2)
+// 当输入n为2时，所需要的空间为原来的4倍，当输入为7时，所需空间为原来的49倍
+function fn(n) &#123;
+  var arr = [];
+  for (var i = 0; i &lt; n; i++) &#123;
+    var arr2 = [];
+    for (var j = 0; j &lt; n; j++) &#123;
+      arr2[j] = j;
+      arr[i] = arr2;
+    &#125;
+  &#125;
+  console.log(arr);
+&#125;
+fn(7);
+</code></pre>
 <ol start="4">
 <li>空间与时间的取舍<blockquote>
 <ul>
@@ -2306,24 +2349,25 @@ fn(7);
 <li>5！表示 5 的阶乘 5 的阶乘&#x3D;<code>5*4*3*2*1</code>; 4 的阶乘&#x3D;<code>4*3*2*1</code>; 3 的阶乘&#x3D;<code>3*2*1</code>;</li>
 <li>转换思路： <code>5!=5*4!</code> <code>4!=4*3!</code> <code>3!=3*2!</code> <code>2!=2*1!</code> <code>1!=1</code><img src="递归-阶乘.png"></li>
 </ul>
-<pre><code>// 书写一个函数，这个函数内部自己会调用自己，从而形成递归
-// 函数的功能是计算n的阶乘，n的阶乘是 n*(n-1)的阶乘
-// n! = n * (n-1)!
-function factorial(n) &#123;
-// 递归的出口，当n=1时，返回1
-if (n == 1) return 1;
-// 如果询问的不是1的阶乘，就返回 n * (n-1)
-return n * factorial(n - 1);
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 三目运算符<br>&#x2F;&#x2F; return n &#x3D;&#x3D; 1 ? 1 : n * factorial(n - 1);<br>}<blockquote>
-</blockquote>
-var result &#x3D; factorial(5); &#x2F;&#x2F; 调用函数<br>console.log(result); &#x2F;&#x2F; 输出结果<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>&gt;// 书写一个函数，这个函数内部自己会调用自己，从而形成递归
+// 函数的功能是计算n的阶乘，n的阶乘是 n*(n-1)的阶乘
+// n! = n * (n-1)!
+function factorial(n) &#123;
+  // 递归的出口，当n=1时，返回1
+  if (n == 1) return 1;
+  // 如果询问的不是1的阶乘，就返回 n * (n-1)
+  return n * factorial(n - 1);
+&gt;
+  // 三目运算符
+  // return n == 1 ? 1 : n * factorial(n - 1);
+&#125;
+&gt;
+var result = factorial(5); // 调用函数
+console.log(result); // 输出结果
+</code></pre>
 <blockquote>
 <blockquote>
 <p>使用递归需要满足两个条件：</p>
@@ -2360,20 +2404,25 @@ var result &#x3D; factorial(5); &#x2F;&#x2F; 调用函数<br>console.log(result)
 </ul>
 </li>
 </ul>
-<pre><code>// 这个函数的功能是返回斐波那契数列中下标为n的那项的值
-function fibonacci(n) &#123;
-// 数列的第1项和第2的项值是1
-if (n === 1 || n === 2) return 1;
-</code></pre>
-</blockquote>
-&#x2F;&#x2F; 斐波那契数列的本质特征就是每一项，等于前面两项的和<br>return fibonacci(n - 1) + fibonacci(n - 2);<br>}<blockquote>
-</blockquote>
-&#x2F;&#x2F;  求出n项的斐波那契数列<br>var result &#x3D; “”; &#x2F;&#x2F; 用来拼接每一项的值<br>for (var i &#x3D; 1; i &lt;&#x3D; 10; i++) {<br>result +&#x3D; fibonacci(i) + “,”;<br>}<br>console.log(result);<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 这个函数的功能是返回斐波那契数列中下标为n的那项的值
+function fibonacci(n) &#123;
+  // 数列的第1项和第2的项值是1
+  if (n === 1 || n === 2) return 1;
+&gt;
+  // 斐波那契数列的本质特征就是每一项，等于前面两项的和
+  return fibonacci(n - 1) + fibonacci(n - 2);
+&#125;
+&gt;
+  //  求出n项的斐波那契数列
+var result = &quot;&quot;; // 用来拼接每一项的值
+for (var i = 1; i &lt;= 10; i++) &#123;
+  result += fibonacci(i) + &quot;,&quot;;
+&#125;
+console.log(result);
+</code></pre>
 <blockquote>
 <ul>
 <li>然而，这种做法的时间复杂度为2<sup>n</sup>，只要把值稍微改大点，电脑直接就崩溃了：<br><strong>递归版 - 时间复杂度</strong></li>
@@ -2390,23 +2439,29 @@ if (n === 1 || n === 2) return 1;
 </blockquote>
 </li>
 </ul>
-<pre><code>// 1,1,2,3,5,8,13,21
-function fibnocci(n) &#123;
-var n1 = 1;
-var n2 = 1;
-var item; // 临时存储每一项值
-var str = &quot;&quot;; // 拼接字符串
-if (n == 1) str = &quot;1&quot;;
-if (n == 2) str = &quot;1,1&quot;;
-if (n &gt;= 3) str = &quot;1,1&quot;;
-</code></pre>
-</blockquote>
-for (var i &#x3D; 3; i &lt;&#x3D; n; i++) {<br>  item &#x3D; n1 + n2; &#x2F;&#x2F; 计算得到当前项<br>  n1 &#x3D; n2; &#x2F;&#x2F; n1向右移<br>  n2 &#x3D; item; &#x2F;&#x2F; n2 向右移<br>  str +&#x3D; “,” + item; &#x2F;&#x2F; 拼接得到的 斐波那契数列<br>}<br>return str;<br>}<br>console.log(fibnocci(15)); &#x2F;&#x2F; 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
 </ul>
+<pre><code>// 1,1,2,3,5,8,13,21
+function fibnocci(n) &#123;
+  var n1 = 1;
+  var n2 = 1;
+  var item; // 临时存储每一项值
+  var str = &quot;&quot;; // 拼接字符串
+  if (n == 1) str = &quot;1&quot;;
+  if (n == 2) str = &quot;1,1&quot;;
+  if (n &gt;= 3) str = &quot;1,1&quot;;
+&gt;
+  for (var i = 3; i &lt;= n; i++) &#123;
+    item = n1 + n2; // 计算得到当前项
+    n1 = n2; // n1向右移
+    n2 = item; // n2 向右移
+    str += &quot;,&quot; + item; // 拼接得到的 斐波那契数列
+  &#125;
+  return str;
+&#125;
+console.log(fibnocci(15)); // 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610
+</code></pre>
 <blockquote>
 <ul>
 <li><strong>双指针版</strong></li>
@@ -2421,30 +2476,33 @@ for (var i &#x3D; 3; i &lt;&#x3D; n; i++) {<br>  item &#x3D; n1 + n2; &#x2F;&#x2
 <li>用户希望在调用函数时，传入一个数组，然后就克隆一个和传入数组一模一样的数组出来。</li>
 <li>这两个数组只是长得一样，但是两个完全独立的数组，互不干扰。即两个数组指向堆内存中的不同地址。</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>// 深克隆数组
 function deepClone(arr) &#123;
   if (!Array.isArray(arr)) return;
   var result = []; // 克隆成功后的结果数组
   for (var i = 0; i &lt; arr.length; i++) &#123;
- // 判断，如果是基本数据类型，则直接push到数组中
- // 不是数组就如何，是数组如何
- if (Array.isArray(arr[i])) &#123;
-   // 如果是数组,返回的数组是不是要push到上一个数组中去
-   result.push(deepClone(arr[i]));
- &#125; else &#123;
-   result.push(arr[i]);
- &#125;
+    // 判断，如果是基本数据类型，则直接push到数组中
+    // 不是数组就如何，是数组如何
+    if (Array.isArray(arr[i])) &#123;
+      // 如果是数组,返回的数组是不是要push到上一个数组中去
+      result.push(deepClone(arr[i]));
+    &#125; else &#123;
+      result.push(arr[i]);
+    &#125;
   &#125;
   return result;
 &#125;
+&gt;
+var arr = [1, 2, 3, [&quot;A&quot;, &quot;B&quot;, [&quot;我&quot;, &quot;和&quot;, &quot;你&quot;]]];
+var arr2 = deepClone(arr); // 克隆数组
+console.log(arr2 === arr);
+arr2[3][2][0] = 1; // 更改数组中元素
+console.log(arr);
+console.log(arr2);
 </code></pre>
-</blockquote>
-var arr &#x3D; [1, 2, 3, [“A”, “B”, [“我”, “和”, “你”]]];<br>var arr2 &#x3D; deepClone(arr); &#x2F;&#x2F; 克隆数组<br>console.log(arr2 &#x3D;&#x3D;&#x3D; arr);<br>arr2[3][2][0] &#x3D; 1; &#x2F;&#x2F; 更改数组中元素<br>console.log(arr);<br>console.log(arr2);<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ol>
 <p><strong>数组克隆 - 递归算法复杂度</strong></p>
 <blockquote>
 <ul>

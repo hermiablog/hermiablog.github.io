@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-05
+                    2023-12-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.4k
+                    7.3k
                 </div>
                 
 
@@ -430,24 +430,22 @@
 </ul>
 </blockquote>
 <ul>
-<li><p>我们首先来看下 JS 中数组的 flat 方法</p>
-<blockquote>
+<li>我们首先来看下 JS 中数组的 flat 方法<blockquote>
 <ul>
 <li><code>arr.flat(层数)</code></li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <pre><code>var arr = [0, 1, 2, [3, [4, 5], 6], 7, 8, 9];
 var arr1 = arr.flat(); // 默认将数组展平1层
 console.log(arr1); //  [0, 1, 2, 3, [4, 5], 6, 7, 8, 9]
+&gt;
+var arr2 = arr.flat(2); // 将数组展平2层
+console.log(arr2); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 </code></pre>
-</blockquote>
-<p>var arr2 &#x3D; arr.flat(2); &#x2F;&#x2F; 将数组展平2层<br>console.log(arr2); &#x2F;&#x2F; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>手写<code>flat</code>方法源码</p>
-<blockquote>
+<ul>
+<li>手写<code>flat</code>方法源码<blockquote>
 <ul>
 <li>可以用for循环，也可以用forEach</li>
 <li>由于嵌套了两个函数，所以在第一层一定要<strong>自己调用</strong>第二层的函数</li>
@@ -456,7 +454,6 @@ console.log(arr1); //  [0, 1, 2, 3, [4, 5], 6, 7, 8, 9]
 </blockquote>
 </li>
 </ul>
-<blockquote>
 <pre><code>function flat(arr, n) &#123;
 var newArr = [];
 //for循环遍历
@@ -481,13 +478,35 @@ function fn(arr, n) &#123;
     &#125;
   &#125;
 &#125;
+&gt;
+//forEach方法
+function fn(arr) &#123;
+  //for循环遍历数组的每一个元素
+  arr.forEach(function (el) &#123;
+    if (Array.isArray(el)) &#123;
+      //用n控制层数，一层代表进入一次本if语句
+      if (n &lt;= 0) &#123;
+        //层数用完,直接把该数组塞进新数组
+        newArr.push(el);
+      &#125; else &#123;
+        //有次数，每进来一次就展开一层，进一次减一次
+        n--; //n-1后会直接成为后面fn的实参
+        fn(el, n);
+        n++; //为了不影响同一层级数组的展开次数
+      &#125;
+    &#125; else &#123;
+      //如果不是数组，则加入新数组
+      newArr.push(el);
+    &#125;
+  &#125;);
+&#125;
+//自己调用fn函数
+fn(arr, n);
+return newArr;
+&#125;
+var arr = [0, 1, 2, [3, [4, 5], 6], 7, [8, [ [9], 10]]] ;
+console.log(flat(arr, 1));
 </code></pre>
-</blockquote>
-<p>&#x2F;&#x2F;forEach方法<br>function fn(arr) {<br>  &#x2F;&#x2F;for循环遍历数组的每一个元素<br>  arr.forEach(function (el) {<br>    if (Array.isArray(el)) {<br>      &#x2F;&#x2F;用n控制层数，一层代表进入一次本if语句<br>      if (n &lt;&#x3D; 0) {<br>        &#x2F;&#x2F;层数用完,直接把该数组塞进新数组<br>        newArr.push(el);<br>      } else {<br>        &#x2F;&#x2F;有次数，每进来一次就展开一层，进一次减一次<br>        n–; &#x2F;&#x2F;n-1后会直接成为后面fn的实参<br>        fn(el, n);<br>        n++; &#x2F;&#x2F;为了不影响同一层级数组的展开次数<br>      }<br>    } else {<br>      &#x2F;&#x2F;如果不是数组，则加入新数组<br>      newArr.push(el);<br>    }<br>  });<br>}<br>&#x2F;&#x2F;自己调用fn函数<br>fn(arr, n);<br>return newArr;<br>}<br>var arr &#x3D; [0, 1, 2, [3, [4, 5], 6], 7, [8, [ [9], 10]]] ;<br>console.log(flat(arr, 1));</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <h3 id="二、将一个数组旋转-k-步"><a href="#二、将一个数组旋转-k-步" class="headerlink" title="二、将一个数组旋转 k 步"></a>二、将一个数组旋转 k 步</h3><blockquote>
 <ul>
 <li>将数组<code>[1, 3, 5, 7, 9, 11, 13]</code>旋转 K 步</li>
@@ -509,64 +528,64 @@ function fn(arr, n) &#123;
 </li>
 </ol>
 <ul>
-<li><p>方法1：去尾插头</p>
-<blockquote>
+<li>方法1：去尾插头<blockquote>
 <ul>
 <li>每旋转一步，就把最后一个元素<strong>删除</strong>并<strong>调到最前面</strong></li>
 <li>删除最后一个元素：<code>.pop</code></li>
 <li>把元素填充到最前面<code>.unshift</code></li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+</blockquote>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">  <span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//检验输入值</span>
 <span class="token comment" spellcheck="true">//arr是否为数组</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//i &lt; k 有隐式转换，所以不用检测k是否为数字</span>
 <span class="token comment" spellcheck="true">//判断如果数组长度为0，或k不存在，则直接返回原数组</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//考虑k为负数、小数、k的长度大于数组长度的情况</span>
-k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//for循环</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> item <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+  k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//for循环</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> item <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">.</span><span class="token function">unshift</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
-</li>
-<li><p>方法2：拆分数组，然后拼接</p>
-<blockquote>
+<ul>
+<li>方法2：拆分数组，然后拼接<blockquote>
 <ul>
 <li>要旋转k步，就把倒数k个元素组成数组，调到最前面</li>
 <li>把最后k个元素组成数组：<code>.slice</code></li>
 <li>把剩余元素组成一个数组：<code>.slice</code></li>
 <li>数组拼接：<code>.concat</code></li>
 </ul>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+</blockquote>
+</li>
+</ul>
+<pre class=" language-js"><code class="language-js">  <span class="token keyword">function</span> <span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//检验输入值</span>
 <span class="token comment" spellcheck="true">//arr是否为数组</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Array<span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//i &lt; k 有隐式转换，所以不用检测k是否为数字</span>
 <span class="token comment" spellcheck="true">//判断如果数组长度为0，或k不存在，则直接返回原数组</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token operator">!</span>k<span class="token punctuation">)</span> <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//考虑k为负数、小数、k的长度大于数组长度的情况</span>
-k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  k <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>k <span class="token operator">%</span> arr<span class="token punctuation">.</span>length <span class="token operator">></span><span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//取出倒数k个元素</span>
-<span class="token keyword">var</span> item1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> item1 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token operator">-</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//取出剩余元素</span>
-<span class="token keyword">var</span> item2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> item2 <span class="token operator">=</span> arr<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> arr<span class="token punctuation">.</span>length <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">//组成新数组</span>
-<span class="token keyword">return</span> item1<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>item2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> item1<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>item2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">rotate1</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="3">
 <li>复杂度分析<blockquote>
 <ul>
@@ -592,23 +611,20 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>性能测试</li>
 </ol>
 <ul>
-<li><p>测试得出结果的时长</p>
-<blockquote>
+<li>测试得出结果的时长</li>
+</ul>
 <pre><code>// 输入量要比较大
 var arr = [];
 for (var i = 0; i &lt; 100 * 1000; i++) &#123;
-arr.push(i);
+  arr.push(i);
 &#125;
+&gt;
+console.time(&quot;rotate&quot;);
+rotateArr(arr, 4000);
+console.timeEnd(&quot;rotate&quot;);
 </code></pre>
-</blockquote>
-<p>console.time(“rotate”);<br>rotateArr(arr, 4000);<br>console.timeEnd(“rotate”);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>对比结果</p>
-<blockquote>
+<ul>
+<li>对比结果<blockquote>
 <ul>
 <li>随着数据规模量变大和旋转次数的增多，方法2的耗时变化不大，但方法1的耗时巨增。</li>
 <li>在前端领域是重时间轻空间的，所以我们肯定首先思路 1</li>
@@ -663,28 +679,32 @@ arr.push(i);
 </ul>
 </blockquote>
 <ul>
-<li><p>数组演示入栈和出栈</p>
-<blockquote>
+<li>数组演示入栈和出栈<blockquote>
 <ul>
 <li>如果我们把<strong>数组想象成一个栈结构</strong>，最左边是栈底，最先放入元素，最右边是栈顶</li>
 <li>入栈：相当于 <code>push</code> 元素时，从左往右放入元素</li>
 <li>出栈：相当于 <code>pop</code> 删除数据，从最右边的第一个元素开始删</li>
 </ul>
-<pre><code>// 声明一个空数组，用来当成栈
-var arr = [];
-</code></pre>
-</blockquote>
-<p>&#x2F;&#x2F; 向数组中添加元素<br>for (var i &#x3D; 0; i &lt; 6; i++) {<br>arr.push(i); &#x2F;&#x2F; 入栈<br>console.log(arr);<br>}</p>
-<blockquote>
-</blockquote>
-<p>&#x2F;&#x2F; 取出数组中的元素<br>for (var i &#x3D; 0; i &lt; 6; i++) {<br>arr.pop(); &#x2F;&#x2F; 出栈<br>console.log(arr);<br>}</p>
-<blockquote>
-<pre><code>
-</code></pre>
 </blockquote>
 </li>
-<li><p><strong>栈和数组的关系</strong></p>
-<blockquote>
+</ul>
+<pre><code>// 声明一个空数组，用来当成栈
+var arr = [];
+&gt;
+// 向数组中添加元素
+for (var i = 0; i &lt; 6; i++) &#123;
+  arr.push(i); // 入栈
+  console.log(arr);
+&#125;
+&gt;
+// 取出数组中的元素
+for (var i = 0; i &lt; 6; i++) &#123;
+  arr.pop(); // 出栈
+  console.log(arr);
+&#125;
+</code></pre>
+<ul>
+<li><strong>栈和数组的关系</strong><blockquote>
 <ul>
 <li><strong>本质上</strong>栈和数组完全不是一个层面上的东西，是不能拿 来做比较的</li>
 <li>栈：是一种<strong>逻辑结构</strong>，是一种<strong>理论模型</strong>，他是抽象出来的一种结构。</li>
@@ -721,52 +741,51 @@ var arr = [];
 <li>代码实现</li>
 </ol>
 <ul>
-<li><p>粗糙版</p>
-<blockquote>
+<li>粗糙版</li>
+</ul>
 <pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">matchStr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//先转为字符串</span>
-str <span class="token operator">=</span> str <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 如果长度为0，则直接返回true</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//定义新数组</span>
-<span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//for循环,遍历字符串的每个元素</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">//遇到左括号就存入/压栈</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">||</span> 
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">||</span> 
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"("</span><span class="token punctuation">)</span> 
-    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
-  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span> <span class="token operator">||</span> 
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span> <span class="token operator">||</span> 
-    str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span> 
-    <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      <span class="token keyword">var</span> arrTop <span class="token operator">=</span> arr<span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>
-        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
-        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
-        <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"("</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span>
-        <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
-        <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
- <span class="token comment" spellcheck="true">// 如果不匹配，直接返回false，也就意示着整个字符串括号不匹配</span>
- <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-            <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//先转为字符串</span>
+  str <span class="token operator">=</span> str <span class="token operator">+</span> <span class="token string">""</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 如果长度为0，则直接返回true</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//定义新数组</span>
+  <span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//for循环,遍历字符串的每个元素</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//遇到左括号就存入/压栈</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">||</span> 
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">||</span> 
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"("</span><span class="token punctuation">)</span> 
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>str<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span> <span class="token operator">||</span> 
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span> <span class="token operator">||</span> 
+      str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span> 
+      <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> arrTop <span class="token operator">=</span> arr<span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>
+          <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"&amp;#123;"</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"&amp;#125;"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+          <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"["</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">"]"</span><span class="token punctuation">)</span> <span class="token operator">||</span>
+          <span class="token punctuation">(</span>arrTop <span class="token operator">==</span> <span class="token string">"("</span> <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">")"</span><span class="token punctuation">)</span>
+          <span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>arr<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> 
+          <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+   <span class="token comment" spellcheck="true">// 如果不匹配，直接返回false，也就意示着整个字符串括号不匹配</span>
+   <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+              <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token keyword">return</span> arr<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">></span>
+ <span class="token keyword">var</span> str <span class="token operator">=</span> <span class="token string">"a&amp;#123;(b&amp;#123;c[1,2,3]&amp;#125;)&amp;#125;"</span><span class="token punctuation">;</span>
+ <span class="token keyword">var</span> str1 <span class="token operator">=</span> <span class="token string">"a&amp;#123;(b&amp;#123;c[1,2,(3)&amp;#125;]"</span><span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">matchStr</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">matchStr</span><span class="token punctuation">(</span>str1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//false</span>
 </code></pre>
-</blockquote>
-<p> var str &#x3D; “a{(b{c[1,2,3]})}”;<br> var str1 &#x3D; “a{(b{c[1,2,(3)}]”;<br> console.log(matchStr(str)); &#x2F;&#x2F;true<br> console.log(matchStr(str1)); &#x2F;&#x2F;false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-<li><p>完善版</p>
-<blockquote>
+<ul>
+<li>完善版</li>
+</ul>
 <pre><code>function matchStr1(str) &#123;
 //先转为字符串
 str = str + &quot;&quot;;
@@ -780,37 +799,34 @@ var leftSymbols = &quot;&#123;[(&quot;;
 var rightSymbols = &quot;)]&#125;&quot;;
 //for循环,遍历字符串的每个元素
 for (var i = 0; i &lt; str.length; i++) &#123;
-//遇到左括号就存入/压栈
-if (leftSymbols.includes(str[i])) &#123;
-  arr.push(str[i]);
-&#125; else if (rightSymbols.includes(str[i])) &#123;
-  var arrTop = arr[arr.length - 1];
-  if (isMatch(arrTop, str[i])) &#123;
-    arr.pop();
-  &#125; else &#123;
-    return false;
+  //遇到左括号就存入/压栈
+  if (leftSymbols.includes(str[i])) &#123;
+    arr.push(str[i]);
+  &#125; else if (rightSymbols.includes(str[i])) &#123;
+    var arrTop = arr[arr.length - 1];
+    if (isMatch(arrTop, str[i])) &#123;
+      arr.pop();
+    &#125; else &#123;
+      return false;
+    &#125;
   &#125;
-&#125;
  &#125;
 // 如果arr长度为0，说明全部匹配成功，返回true，不匹配就返回false
 return arr.length === 0;
 &#125;
 // 检测栈顶元素与当前右括号元素是否匹配
 function isMatch(left, right) &#123;
-if (left === &quot;&#123;&quot; &amp;&amp; right === &quot;&#125;&quot;) return true;
-if (left === &quot;[&quot; &amp;&amp; right === &quot;]&quot;) return true;
-if (left === &quot;(&quot; &amp;&amp; right === &quot;)&quot;) return true;
-return false;
+  if (left === &quot;&#123;&quot; &amp;&amp; right === &quot;&#125;&quot;) return true;
+  if (left === &quot;[&quot; &amp;&amp; right === &quot;]&quot;) return true;
+  if (left === &quot;(&quot; &amp;&amp; right === &quot;)&quot;) return true;
+  return false;
 &#125;
+&gt;
+var str = &quot;&#123;[]&#125;&quot;;
+console.log(matchStr1(str)); //true
+var str1 = &quot;a&#123;(b&#123;c[1,2,(3)&#125;]&quot;;
+console.log(matchStr1(str1)); //false
 </code></pre>
-</blockquote>
-<p>var str &#x3D; “{[]}”;<br>console.log(matchStr1(str)); &#x2F;&#x2F;true<br>var str1 &#x3D; “a{(b{c[1,2,(3)}]”;<br>console.log(matchStr1(str1)); &#x2F;&#x2F;false</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="5">
 <li>算法复杂度分析<blockquote>
 <ul>
@@ -860,7 +876,6 @@ return false;
 </blockquote>
 </li>
 </ol>
-<blockquote>
 <pre><code>function findNumber(arr, n) &#123;
   var result = []; // 用来存入符合要求的元素
   //检查数组
@@ -887,7 +902,6 @@ return false;
 var arr = [1, 3, 5, 7, 10, 13, 15, 20, 22, 25];
 console.log(findNumber(arr, 20));
 </code></pre>
-</blockquote>
 <ol start="4">
 <li>方法二：双指针</li>
 </ol>
@@ -913,37 +927,37 @@ console.log(findNumber(arr, 20));
 </li>
 <li>当 <code>i = j</code> 时，两者重合，就没有查找的必要，所以当<code>i &lt; j</code>时，一直查找</li>
 </ul>
+</blockquote>
+</li>
+</ul>
 <pre><code>function findNumber(arr, n) &#123;
-var result = []; // 用来存入符合要求的元素
-//检查数组
-if (!Array.isArray(arr)) return result;
-//检查数组
-if (isNaN(n)) return result;
-len = arr.length - 1;
-var i = 0;
-var j = len;
-while (i &lt; j) &#123;
-  if (arr[i] + arr[j] &gt; n) &#123;
-    j--;
-  &#125; else if (arr[i] + arr[j] &lt; n) &#123;
-    i++;
-  &#125; else &#123;
-    var obj = &#123;&#125;;
-    obj.a = arr[i];
-    obj.b = arr[j];
-    result.push(obj);
-    i++;
-    j--;
+  var result = []; // 用来存入符合要求的元素
+  //检查数组
+  if (!Array.isArray(arr)) return result;
+  //检查数组
+  if (isNaN(n)) return result;
+  len = arr.length - 1;
+  var i = 0;
+  var j = len;
+  while (i &lt; j) &#123;
+    if (arr[i] + arr[j] &gt; n) &#123;
+      j--;
+    &#125; else if (arr[i] + arr[j] &lt; n) &#123;
+      i++;
+    &#125; else &#123;
+      var obj = &#123;&#125;;
+      obj.a = arr[i];
+      obj.b = arr[j];
+      result.push(obj);
+      i++;
+      j--;
+    &#125;
   &#125;
-&#125;
-return result;
+  return result;
 &#125;
 var arr = [1, 3, 5, 7, 10, 13, 15, 20, 22, 25];
 console.log(findNumber(arr, 20));
 </code></pre>
-</blockquote>
-</li>
-</ul>
 <ol start="5">
 <li>算法复杂度分析</li>
 </ol>
@@ -1031,11 +1045,13 @@ console.log(findNumber(arr, 20));
 </ul>
 </blockquote>
 <ol start="4">
-<li><p>二分法 + while 循环代码实现</p>
-<blockquote>
+<li>二分法 + while 循环代码实现<blockquote>
 <ul>
 <li>上面要重复循环做相同的事，但是我们<strong>并不能确定具体的循环次数</strong>，所以这里我们不用 for 循环，选用<strong>while 循环</strong>，只要<code>startIndex &lt;= endIndex</code>，就可以一直循环下</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>//如果没找到就返回-1
 function findIndex(arr, num) &#123;
   //检测数组
@@ -1046,28 +1062,29 @@ function findIndex(arr, num) &#123;
   var startIndex = 0;
   var endIndex = len - 1;
   while (startIndex &lt;= endIndex) &#123;
- var midIndex = ((startIndex + endIndex) / 2) &gt;&gt; 0;
- var midvalue = arr[midIndex];
- if (num &gt; midvalue) &#123;
-   startIndex = midIndex + 1;
- &#125; else if (num &lt; midvalue) &#123;
-   endIndex = midIndex - 1;
- &#125; else &#123;
-   return midIndex;
- &#125;
+    var midIndex = ((startIndex + endIndex) / 2) &gt;&gt; 0;
+    var midvalue = arr[midIndex];
+    if (num &gt; midvalue) &#123;
+      startIndex = midIndex + 1;
+    &#125; else if (num &lt; midvalue) &#123;
+      endIndex = midIndex - 1;
+    &#125; else &#123;
+      return midIndex;
+    &#125;
   &#125;
   return -1;
 &#125;
 var arr = [1, 3, 4, 5, 7, 8, 9, 12, 15, 18, 30, 32, 45];
 console.log(findIndex(arr, 15));
 </code></pre>
-</blockquote>
-</li>
-<li><p>二分 + 递归实现</p>
-<blockquote>
+<ol start="5">
+<li>二分 + 递归实现<blockquote>
 <blockquote>
 <p>这里还要考虑传过来的参数 <code>startIndex</code>和<code>endIndex</code>的类型处理，参考手写的slice方法来处理，（在面向对象原型和原型链那里），两者代码实现上一模一样</p>
 </blockquote>
+</blockquote>
+</li>
+</ol>
 <pre><code>function findIndex(arr, num, startIndex, endIndex) &#123;
  //检测数组
  if (!Array.isArray(arr)) return -1;
@@ -1080,21 +1097,19 @@ console.log(findIndex(arr, 15));
  var midIndex = ((startIndex + endIndex) / 2) &gt;&gt; 0;
  var midValue = arr[midIndex];
  if (num &gt; midValue) &#123;
-return findIndex(arr, num, midIndex + 1, endIndex);
+   return findIndex(arr, num, midIndex + 1, endIndex);
  &#125; else if (num &lt; midValue) &#123;
- return findIndex(arr, num, startIndex, midIndex - 1);
+    return findIndex(arr, num, startIndex, midIndex - 1);
   &#125; else &#123;
- return midIndex;
+    return midIndex;
   &#125;
 &#125;
 var arr = [1, 3, 4, 5, 7, 8, 9, 12, 15, 18, 30, 32, 45];
 var result = findIndex(arr, 9, 0, 15);
 console.log(result);
 </code></pre>
-</blockquote>
-</li>
-<li><p>算法复杂度分析</p>
-<blockquote>
+<ol start="6">
+<li>算法复杂度分析<blockquote>
 <ul>
 <li>二分法+while 和 二分+递归 的时间复杂度都是<code>O(logn)</code>，空间复杂度都是<code>O(1)</code>级别</li>
 <li>但循环要比递归在<strong>性能上</strong>更好，因为递归在内部会一直调用函数，所以会更消耗性能。</li>
@@ -1152,6 +1167,7 @@ console.log(result);
 <li>最后一次比较，如果<strong>最后的字符</strong>是多个连续相同字符，那比较结果相等时，也是要<strong>更新数据</strong>的</li>
 <li>如果字符串中只有一个字符时，其第一次比较也就是最后一次比较，两都也是相等，也要更新数据</li>
 </ul>
+</blockquote>
 <pre><code>function findContinuousChar(str) &#123;
   // 不管传入的是啥，统一转成字符串
   str = str + &quot;&quot;;
@@ -1187,13 +1203,11 @@ console.log(result);
   &#125;
   return obj;
 &#125;
+
+var str = &quot;aaabbccddaaaaaffffdddd&quot;;
+var obj = findContinuousChar(str);
+console.log(obj);
 </code></pre>
-</blockquote>
-<p>var str &#x3D; “aaabbccddaaaaaffffdddd”;<br>var obj &#x3D; findContinuousChar(str);<br>console.log(obj);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="3">
 <li>方法二：for 循环 + 双指针<blockquote>
 <ul>
@@ -1202,30 +1216,53 @@ console.log(result);
 <li>定义变量 obj &#x3D; {char:’’,len&#x3D;0} 来记录连续出现次数最多的字符及次数</li>
 <li>我们定义两个变量，i 和 j，相当两个指针，最开始两个字符串指向同一个元素</li>
 </ul>
+</blockquote>
+</li>
+</ol>
 <pre><code>function findContinuousChar(str) &#123;
   // 用来存储出现连续次数最多的字符及次数
   var obj = &#123;
- char: &quot;&quot;,
- len: 0,
+    char: &quot;&quot;,
+    len: 0,
   &#125;;
   str = str + &quot;&quot;; // 不管输入的是否是字符串，统一转成字符串
   var len = str.length; // 字符串长度
   if (len === 0) return obj;
-</code></pre>
-</blockquote>
-</li>
-</ol>
-<p>  &#x2F;&#x2F; 定义两个变量，用来做为两个指针，指定元素</p>
-<p>  var i &#x3D; 0;<br>  var j &#x3D; 0;<br>  var count &#x3D; 0; &#x2F;&#x2F; 临时记录当前连续字符出现的次数<br>  for (; i &lt; len; i++) {<br>    if (str[i] &#x3D;&#x3D;&#x3D; str[j]) {<br>      count++;<br>    }<br>    &#x2F;&#x2F; 这里移动的是i，所以要拿i来做判断<br>    if (str[i] !&#x3D;&#x3D; str[j] || i &#x3D;&#x3D;&#x3D; len - 1) {<br>      &#x2F;&#x2F; 等于的情况没有处理，则不会进到这里面来<br>      if (obj.len &lt; count) {<br>        obj.len &#x3D; count;<br>        obj.char &#x3D; str[j]; &#x2F;&#x2F; 这里是str[j],不要写成str[i]了<br>      }<br>      count &#x3D; 0; &#x2F;&#x2F; 重置count的值<br>      j &#x3D; i; &#x2F;&#x2F; 更新j的值，开始下一个字符统计</p>
-<pre><code>  if (i &lt; len - 1) &#123;
-    i--; // 这里的i--不能放在上面的if中，否则某种情况下会死循环
+
+  // 定义两个变量，用来做为两个指针，指定元素
+
+  var i = 0;
+  var j = 0;
+  var count = 0; // 临时记录当前连续字符出现的次数
+  for (; i &lt; len; i++) &#123;
+    if (str[i] === str[j]) &#123;
+      count++;
+    &#125;
+    // 这里移动的是i，所以要拿i来做判断
+    if (str[i] !== str[j] || i === len - 1) &#123;
+      // 等于的情况没有处理，则不会进到这里面来
+      if (obj.len &lt; count) &#123;
+        obj.len = count;
+        obj.char = str[j]; // 这里是str[j],不要写成str[i]了
+      &#125;
+      count = 0; // 重置count的值
+      j = i; // 更新j的值，开始下一个字符统计
+
+      if (i &lt; len - 1) &#123;
+        i--; // 这里的i--不能放在上面的if中，否则某种情况下会死循环
+      &#125;
+    &#125;
   &#125;
+  return obj;
 &#125;
+var str = &quot;12345566&quot;;
+var obj = findContinuousChar(str);
+console.log(obj);
 </code></pre>
-<p>  }<br>  return obj;<br>}<br>var str &#x3D; “12345566”;<br>var obj &#x3D; findContinuousChar(str);<br>console.log(obj);</p>
 <blockquote>
-<pre><code>&gt;双指针常用于解决嵌套循环
-</code></pre>
+<blockquote>
+<p>双指针常用于解决嵌套循环</p>
+</blockquote>
 </blockquote>
 <ol start="4">
 <li>算法复杂度分析<blockquote>
@@ -1281,80 +1318,81 @@ console.log(result);
 <ul>
 <li>slice(start,end)查找元素，返回的是包含所查元素的新数组</li>
 </ul>
-<pre><code> function quickArr(arr) &#123;
-//检查数组
-if (!Array.isArray(arr)) return;
-if (arr.length &lt;= 1) return arr;
-//检查长度
-var len = arr.length;
-var midIndex = (len / 2) &gt;&gt; 0;
-// var midValue=arr[midIndex];
-var midValue = arr.slice(midIndex, midIndex + 1)[0]; //slice返回的是一个包含查询元素的数组
-var leftArr = [];
-var midArr = [];
-var rightArr = [];
-if (leftArr.length == 1) return leftArr;
-if (rightArr.length == 1) return rightArr;
-for (var i = 0; i &lt; len; i++) &#123;
-  if (i == midIndex) continue;
-  if (arr[i] &lt; midValue) &#123;
-    leftArr.push(arr[i]);
-  &#125;
-  if (arr[i] === midValue) &#123;
-    midArr.push(arr[i]);
-  &#125;
-  if (arr[i] &gt; midValue) &#123;
-    rightArr.push(arr[i]);
-  &#125;
-&#125;
-return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
- &#125;
- var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
- var result = quickArr(arr);
- console.log(result);
-</code></pre>
-</blockquote>
-</li>
-<li><p>方法二：利用递归 + splice()法</p>
-<blockquote>
-<ul>
-<li>splice(index, deleteCount);删除元素，被删除的元素组成一个数组，被返回</li>
-</ul>
-<pre><code> function quickArr(arr) &#123;
-//检查数组
-if (!Array.isArray(arr)) return;
-if (arr.length &lt;= 1) return arr;
-//检查长度
-var len = arr.length;
-var midIndex = (len / 2) &gt;&gt; 0;
-// var midValue=arr[midIndex];
-var midValue = arr.splice(midIndex, 1)[0]; 
-//slice返回的是一个包含查询元素的数组
-var leftArr = [];
-var midArr = [];
-var rightArr = [];
-if (leftArr.length == 1) return leftArr;
-if (rightArr.length == 1) return rightArr;
-for (var i = 0; i &lt; len; i++) &#123;
-  if (arr[i] &lt; midValue) &#123;
-    leftArr.push(arr[i]);
-  &#125;
-  if (arr[i] === midValue) &#123;
-    midArr.push(arr[i]);
-  &#125;
-  if (arr[i] &gt; midValue) &#123;
-    rightArr.push(arr[i]);
-  &#125;
-&#125;
-return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
- &#125;
- var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
- var result = quickArr(arr);
- console.log(result);
-</code></pre>
 </blockquote>
 </li>
 </ol>
+<pre><code> function quickArr(arr) &#123;
+   //检查数组
+   if (!Array.isArray(arr)) return;
+   if (arr.length &lt;= 1) return arr;
+   //检查长度
+   var len = arr.length;
+   var midIndex = (len / 2) &gt;&gt; 0;
+   // var midValue=arr[midIndex];
+   var midValue = arr.slice(midIndex, midIndex + 1)[0]; //slice返回的是一个包含查询元素的数组
+   var leftArr = [];
+   var midArr = [];
+   var rightArr = [];
+   if (leftArr.length == 1) return leftArr;
+   if (rightArr.length == 1) return rightArr;
+   for (var i = 0; i &lt; len; i++) &#123;
+     if (i == midIndex) continue;
+     if (arr[i] &lt; midValue) &#123;
+       leftArr.push(arr[i]);
+     &#125;
+     if (arr[i] === midValue) &#123;
+       midArr.push(arr[i]);
+     &#125;
+     if (arr[i] &gt; midValue) &#123;
+       rightArr.push(arr[i]);
+     &#125;
+   &#125;
+   return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
+ &#125;
+ var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+ var result = quickArr(arr);
+ console.log(result);
+</code></pre>
+<ol start="5">
+<li>方法二：利用递归 + splice()法<blockquote>
+<ul>
+<li>splice(index, deleteCount);删除元素，被删除的元素组成一个数组，被返回</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code> function quickArr(arr) &#123;
+   //检查数组
+   if (!Array.isArray(arr)) return;
+   if (arr.length &lt;= 1) return arr;
+   //检查长度
+   var len = arr.length;
+   var midIndex = (len / 2) &gt;&gt; 0;
+   // var midValue=arr[midIndex];
+   var midValue = arr.splice(midIndex, 1)[0]; 
+   //slice返回的是一个包含查询元素的数组
+   var leftArr = [];
+   var midArr = [];
+   var rightArr = [];
+   if (leftArr.length == 1) return leftArr;
+   if (rightArr.length == 1) return rightArr;
+   for (var i = 0; i &lt; len; i++) &#123;
+     if (arr[i] &lt; midValue) &#123;
+       leftArr.push(arr[i]);
+     &#125;
+     if (arr[i] === midValue) &#123;
+       midArr.push(arr[i]);
+     &#125;
+     if (arr[i] &gt; midValue) &#123;
+       rightArr.push(arr[i]);
+     &#125;
+   &#125;
+   return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
+ &#125;
+ var arr = [1, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+ var result = quickArr(arr);
+ console.log(result);
+</code></pre>
 <blockquote>
 <blockquote>
 <p>方法1和方法2的区别：</p>
@@ -1390,7 +1428,6 @@ return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
 <li>递归出口：startIndex&gt;&#x3D;endIndex</li>
 </ul>
 </blockquote>
-<blockquote>
 <pre><code>function quickArr(arr, startIndex, endIndex) &#123;
  if (startIndex == null) startIndex = 0;
  if (endIndex == null) endIndex = arr.length - 1;
@@ -1426,37 +1463,58 @@ return quickArr(leftArr).concat(midArr, midValue, quickArr(rightArr));
  quickArr(arr);
  console.log(arr);
 </code></pre>
-</blockquote>
 <blockquote>
 <ul>
 <li>另一种写法：</li>
 </ul>
+</blockquote>
 <pre><code>function quickSort(arr, startIndex, endIndex) &#123;
   if (startIndex &gt;= endIndex) &#123;
     return;
   &#125;
+&gt;
+  // 第一轮排序，得到基准元素
+  var pivotIndex = partition(arr, startIndex, endIndex);
+  // 根据基准元素，排序左边
+  quickSort(arr, startIndex, pivotIndex - 1);
+  // 根据基准元素，排序右边
+  quickSort(arr, pivotIndex + 1, endIndex);
+&#125;
+&gt;
+  function partition(arr, startIndex, endIndex) &#123;
+  // 获取基准元素
+  var pivot = arr[startIndex];
+  var left = startIndex;
+  var right = endIndex;
+&gt;
+  // 不相等时
+  while (left != right) &#123;
+    // 右指针向左移动
+    while (left &lt; right &amp;&amp; arr[right] &gt; pivot) &#123;
+      right--;
+    &#125;
+    // 左指针向右移
+    while (left &lt; right &amp;&amp; arr[left] &lt;= pivot) &#123;
+      left++;
+    &#125;
+    // 交换两者的位置
+    if (left &lt; right) &#123;
+      var temp = arr[left];
+      arr[left] = arr[right];
+      arr[right] = temp;
+    &#125;
+  &#125;
+&gt;
+  // 相等时
+  arr[startIndex] = arr[left];
+  arr[left] = pivot;
+&gt;
+  return left;
+&#125;
+&gt;
+var arr = [10, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];
+quickSort(arr, 0, 12);
 </code></pre>
-</blockquote>
-<p>  &#x2F;&#x2F; 第一轮排序，得到基准元素<br>  var pivotIndex &#x3D; partition(arr, startIndex, endIndex);<br>  &#x2F;&#x2F; 根据基准元素，排序左边<br>  quickSort(arr, startIndex, pivotIndex - 1);<br>  &#x2F;&#x2F; 根据基准元素，排序右边<br>  quickSort(arr, pivotIndex + 1, endIndex);<br>}</p>
-<blockquote>
-</blockquote>
-<p>  function partition(arr, startIndex, endIndex) {<br>  &#x2F;&#x2F; 获取基准元素<br>  var pivot &#x3D; arr[startIndex];<br>  var left &#x3D; startIndex;<br>  var right &#x3D; endIndex;</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 不相等时<br>  while (left !&#x3D; right) {<br>    &#x2F;&#x2F; 右指针向左移动<br>    while (left &lt; right &amp;&amp; arr[right] &gt; pivot) {<br>      right–;<br>    }<br>    &#x2F;&#x2F; 左指针向右移<br>    while (left &lt; right &amp;&amp; arr[left] &lt;&#x3D; pivot) {<br>      left++;<br>    }<br>    &#x2F;&#x2F; 交换两者的位置<br>    if (left &lt; right) {<br>      var temp &#x3D; arr[left];<br>      arr[left] &#x3D; arr[right];<br>      arr[right] &#x3D; temp;<br>    }<br>  }</p>
-<blockquote>
-</blockquote>
-<p>  &#x2F;&#x2F; 相等时<br>  arr[startIndex] &#x3D; arr[left];<br>  arr[left] &#x3D; pivot;</p>
-<blockquote>
-</blockquote>
-<p>  return left;<br>}</p>
-<blockquote>
-</blockquote>
-<p>var arr &#x3D; [10, 33, 43, 5, 76, 8, 9, 12, 15, 18, 30, 32, 45];<br>quickSort(arr, 0, 12);</p>
-<blockquote>
-<pre><code>
-</code></pre>
-</blockquote>
 <ol start="7">
 <li>算法复杂度分析<blockquote>
 <ul>
