@@ -489,7 +489,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12"]
+            data: ["2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01"]
         },
         yAxis: {
             type: 'value',
@@ -499,7 +499,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,10,26],
+                data: [0,0,0,0,0,0,0,0,0,0,10,26,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -541,7 +541,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"hexo","value":1},{"name":"技术","value":34}],
+                data: [{"name":"技术","value":34},{"name":"hexo","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -565,7 +565,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["JS","CSS","hexo blog","HTML","applet","基础知识","Flex Grid","响应式开发","移动端","app"]
+                data: ["JS","CSS","HTML","Flex Grid","applet","hexo blog","响应式开发","移动端","app","基础知识"]
             }
         ],
         yAxis: [
@@ -691,10 +691,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/hexo-blog/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo blog</span>
-            </a>
-            
             
             
             <a href="/tags/HTML/">
@@ -702,6 +698,16 @@
             </a>
             
             
+            
+            <a href="/tags/Flex-Grid/">
+                <span class="chip center-align waves-effect waves-light chip-default">Flex Grid</span>
+            </a>
+            
+            
+            
+            <a href="/tags/JS/">
+                <span class="chip center-align waves-effect waves-light chip-default">JS</span>
+            </a>
             
             
             
@@ -711,14 +717,8 @@
             
             
             
-            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                <span class="chip center-align waves-effect waves-light chip-default">基础知识</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Flex-Grid/">
-                <span class="chip center-align waves-effect waves-light chip-default">Flex Grid</span>
+            <a href="/tags/hexo-blog/">
+                <span class="chip center-align waves-effect waves-light chip-default">hexo blog</span>
             </a>
             
             
@@ -735,14 +735,14 @@
             
             
             
-            <a href="/tags/JS/">
-                <span class="chip center-align waves-effect waves-light chip-default">JS</span>
+            <a href="/tags/app/">
+                <span class="chip center-align waves-effect waves-light chip-default">app</span>
             </a>
             
             
             
-            <a href="/tags/app/">
-                <span class="chip center-align waves-effect waves-light chip-default">app</span>
+            <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <span class="chip center-align waves-effect waves-light chip-default">基础知识</span>
             </a>
             
             
@@ -826,7 +826,9 @@
   >
     <div class="col s12 m8 l8 copy-right">
       Copyright&nbsp;&copy; 
-      <span id="year">2023</span>
+      <span id="year"
+        >2023-2024</span
+      >
       
       <span id="year">2023</span>
       <a href="/about" target="_blank"
