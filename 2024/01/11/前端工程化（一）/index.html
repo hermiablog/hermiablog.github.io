@@ -1,0 +1,2846 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端工程化（一）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端工程化（一） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端工程化（一）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+                                <span class="chip bg-color">工程化</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    15.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、常见的-DOS-命令"><a href="#一、常见的-DOS-命令" class="headerlink" title="一、常见的 DOS 命令"></a>一、常见的 DOS 命令</h3><blockquote>
+<p><code>DOS</code>（Disk Operating System）磁盘操作系统，是早期个人计算机上的一类操作系统，和我们现在常用的<code>Windows</code>系统是一个意思。</p>
+<p>在<code>Windows</code>系统还没有出来之前，那时候电脑的主流系统就是<code>DOS</code>，只能通过黑窗口来操作电脑。</p>
+<p>虽然现在的电脑主流使用的都是<code>Windows</code>系统，但在<code>Windows</code>系统中一直保留有<code>DOS</code>系统！作为程序员，有些时候我们需要通过<code>DOS</code>命令来执行一些操作，所以我们还是需要对<code>DOS</code>命令做相关了解。</p>
+</blockquote>
+<ol>
+<li>如何进入 DOS 系统</li>
+</ol>
+<ul>
+<li>在 Window 系统中，按<strong>键盘上的<code>win</code>+R 键</strong>，可以打开运行窗口，在窗口中输入 cmd，然后回车，就会弹出一个黑窗口(这就是 DOS 系统的主界面)，我们就可以在黑窗口中通过 DOS 命令来执行相关操作。</li>
+<li>或把鼠标移到电脑右下角**<code>win</code>这个图标**上，点击后，输入 cmd 然后按回车，就会弹出一个黑窗口…</li>
+<li>可以直接在打开的<strong>文件夹路径</strong>，直接输入 cmd，然后回车，这里进入到的黑窗口显示的路径为当前文件夹所在的路径。</li>
+</ul>
+<ol start="2">
+<li>常见的 DOS 命令</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dir</td>
+<td>列出当前目录下的所有文件</td>
+</tr>
+<tr>
+<td>cd</td>
+<td><code>cd \</code> 退回到根目录；<code>cd test</code> 表示进入到<code>test</code>子目录；<code>cd ..</code>返回到上一层目录</td>
+</tr>
+<tr>
+<td>c:</td>
+<td>改变当前盘符命令，切换到 c 盘</td>
+</tr>
+<tr>
+<td>md</td>
+<td>在当前目录下新建一个文件夹</td>
+</tr>
+<tr>
+<td>rd</td>
+<td><code>rd test</code>表示 删除当前目录下的 test 文件夹（前提是当前目录为空，不为空不能删除）</td>
+</tr>
+<tr>
+<td>tree</td>
+<td>显示当前目录下的目录结构（只显示文件夹名，不包含文件名）</td>
+</tr>
+<tr>
+<td>cls</td>
+<td>清屏幕命令，清除屏幕上的所有显示，光标置于屏幕左上角</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>特殊命令</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向上箭头<code>↑</code>和向下箭头<code>↓</code></td>
+<td>回看上一次执行的命令，可以一直按到第一次&#x2F;最后一次输入命令</td>
+</tr>
+<tr>
+<td><code>Ctrl + c</code>快捷键</td>
+<td>中断操作</td>
+</tr>
+<tr>
+<td>tab 键</td>
+<td>自动补全文件名（会根据书写的字母来匹配当前目录的文件），如果有多个相同前缀的文件名，可以按<code>tab</code>切换</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li>环境变量<blockquote>
+<p>当我们想要通过 <code>DOS</code> 命令来打开<code>demo</code>文件夹中的<code>hello.txt</code>文件时，我们只需要进入到当前目录，然后在路径后面输入<code>hello.txt</code>就可以打开这个文件了。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>C:\Users\EDY\Desktop\demo&gt; hello.txt
+</code></pre>
+<ul>
+<li>但如果我们想在<strong>任意的目录下</strong>，输入<code>hello.txt</code>时，都能打开<code>demo</code>目录下的<code>hello.txt</code>文件，那要如何做到呢？这就需要配置环境变量了。</li>
+</ul>
+<p><strong>环境变量</strong>：一般是指在操作系统中用来指定操作系统运行环境的一些参数。你可以简单理解为 window 系统中的变量，用来保存文件夹位置等信息。</p>
+<p><strong>配置环境变量</strong></p>
+<ul>
+<li>第一步：复制<code>hello.txt</code>文件所在的绝对路径</li>
+<li>第二步：在电脑桌面我的电脑上右击—属性—高级系统—环境变量—–&gt; 用户变量（每个变量都有特定的用处）我们主要来看 <code>Path</code> 变量，双击 <code>Path</code> 变量，在弹出的新窗口中把<code>hello.txt</code>文件所在的绝对路径保存在在这里。</li>
+<li>配置好环境变量，需要把黑窗口关闭，<strong>重新打开</strong>才会生效。之后不管我们在哪个目录下输入<code>hello.txt</code>，都可以打开<code>hello.txt</code>文件。</li>
+</ul>
+<blockquote>
+<p><strong>总结：</strong><br>当我们在命令行窗口打开一个文件或调用一个程序时，系统会首先在当前目录下寻找，如果找到就直接打开，如果没找到，则会<strong>依次到环境变量的 path 路径中寻找</strong>，如果找到就直接打开，如果没找到，最后就会报错。</p>
+<ul>
+<li>其查找方式和我们 JS 中变量查找的规则类似。</li>
+</ul>
+<p><strong>什么情况下需要配环境变量</strong></p>
+<ul>
+<li>如果我们需要一个命令能在任意位置都可以生效，就可以配置对应的环境变量。</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li><p>Windows、Linux、Mac 它们都使用什么命令</p>
+<blockquote>
+<ul>
+<li>DOS 命令是基于<code>Windows</code>操作系统的命令行工具，它提供了一系列命令，可以用于执行各种操作，例如文件管理、系统配置、网络设置等等。</li>
+<li>在 <code>Mac </code>操作系统中，命令行工具是基于<code>Unix</code>操作系统的，因此使用的命令是 Unix 命令。Mac 上的命令行工具被称为终端（Terminal），通过它可以使用诸如 ls、cd、cp、rm 等命令。</li>
+<li>在 Linux 操作系统中，命令行工具也是基于<code>Unix</code>操作系统的，因此同样使用的是 Unix 命令。Linux 上的命令行工具可以通过终端（Terminal）或控制台（Console）来访问，可以使用诸如 ls、cd、cp、rm 等命令。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>DOS 命令 与 Mac 和 Linux 的命令有什么区别</p>
+</li>
+</ol>
+<ul>
+<li>主要区别如下</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>DOS</th>
+<th>Mac和Linux</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件路径</td>
+<td>使用反斜杠<code>\</code>分隔</td>
+<td>使用正斜杠<code>/</code>分隔</td>
+</tr>
+<tr>
+<td>命令名称</td>
+<td>dir</td>
+<td>ls</td>
+</tr>
+<tr>
+<td>命令参数</td>
+<td>以斜杠<code>/</code>开头</td>
+<td>以破折号<code>-</code>或双破折号开头</td>
+</tr>
+<tr>
+<td>环境变量</td>
+<td>使用<code>%变量名%</code>表示</td>
+<td>使用<code>$</code>变量名表示</td>
+</tr>
+<tr>
+<td>文件权限</td>
+<td>无此概念</td>
+<td>使用所有者和权限控制</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong></p>
+<ul>
+<li>这只是一些基本区别的简单概述，实际上每个系统都有大量的命令和特定的功能，因此这些区别只是一些常见的差异</li>
+</ul>
+<h3 id="二、Node-相关知识"><a href="#二、Node-相关知识" class="headerlink" title="二、Node 相关知识"></a>二、Node 相关知识</h3><h4 id="什么是-Node"><a href="#什么是-Node" class="headerlink" title="什么是 Node"></a>什么是 Node</h4><ul>
+<li>Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行时环境。</li>
+<li>Node.js 为 JavaScript 提供了在服务端运行的环境，使得 JavaScript 也能开发服务端的程序，前后端统一语言，统一模型的梦想得以实现</li>
+</ul>
+<blockquote>
+<p>Node.js 2009 年诞生，2015 到 2016 左右在中国就火起来了，Node 火了之后带来了连锁反应。2016 年前后，以 webpack 为代表的 Node.js 工作流工具 使前端开发的开发形式产生了翻天覆地的变化。并且，随着 Vue &#x2F; React 的诞生，使前端开发进入了框架时代。</p>
+<p>在今天，可以说前端开发 “上天入地，无所不能”：PC 端 web 开发、移动 web 开发、APP 开发、小程序开发、服务端开发等等都能搞定。</p>
+</blockquote>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>我们日常听到 Node.js 时，要注意区分他到底说的是 <strong>平台</strong> 还是 <strong>Node.js 语言</strong>，因此我们讲 Node.js 有两个层面的含义：</p>
+</blockquote>
+<ul>
+<li>Node.js 是个平台或工具，即在 Node.js 平台上安装模块或包，类似于前端在浏览器上安装插件一样</li>
+<li><code>Node.js 语言 = 后端 JavaScript = ECMAScript + IO + File + ... </code>等服务端的操作</li>
+</ul>
+<h4 id="Node-的基本使用"><a href="#Node-的基本使用" class="headerlink" title="Node 的基本使用"></a>Node 的基本使用</h4><blockquote>
+<p>在没有 Node.js 之前，JS 是没有办法单独运行的，只能插入到 html 页面，在浏览器中运行。</p>
+<p>现在有了 Node.js，我们可以通过 node 命令在 node 平台上直接运行 JS 文件了。</p>
+</blockquote>
+<p><strong>案例演示</strong></p>
+<ul>
+<li>在demo文件夹下，新建<code>test.js</code>文件，内容如下</li>
+</ul>
+<pre><code>console.log(&quot;test&quot;);
+</code></pre>
+<ul>
+<li><p>在当前目录下打开 <code>VScode</code> 命令终端，然后输入以下命令，<code>test.js</code>就被执行，并在终端输出了<code>test</code></p>
+<img src="node的基本使用.png">
+</li>
+<li><p>node 后面为需要执行的 JS 文件，前提是<strong>路径</strong>要写对，否则会报错，找不到对应模块；</p>
+</li>
+<li><p>只输入文件名时，只能在当前文件所在目录下加载，否则找不到文件就会报错</p>
+</li>
+</ul>
+<h4 id="Node-中模块系统"><a href="#Node-中模块系统" class="headerlink" title="Node 中模块系统"></a>Node 中模块系统</h4><blockquote>
+<p>在<code>ES6</code>中我们学习过<code>Module</code>模块系统，在<code>Module</code>中使用<code>export</code>和<code>export default</code>来为模块指定输出的接口，利用 <code>import</code> 来导入（加载）模块。</p>
+<p>我们知道，模块系统是为了解决模块化过程中产生的一系列的问题。那什么是模块化，模块化有什么好处，又会产生什么问，模块系统是如何解决这些问题的 ？<br>我们一起来复习下</p>
+</blockquote>
+<p><strong>什么是模块化</strong></p>
+<ul>
+<li>所谓的模块化就是把一个大的文件，拆分成许多个独立的相互依赖的小文件，这些小的文件我们就称为一个一个的模块。这些小的模块按一定的规则组合起来就能完成某个具体的功能。</li>
+</ul>
+<p><strong>模块化的好处</strong></p>
+<ul>
+<li>提高代码的复用性</li>
+<li>可以提高代码的可维护性</li>
+<li>可以实现按需加载</li>
+</ul>
+<p><strong>模块化产生的三个问题：</strong></p>
+<ul>
+<li>JS 模块化的问题（如何让一个 JS 文件就是一个模块，有自己独立的作用域）</li>
+<li>变量命名冲突问题</li>
+<li>管理模块间的加载顺序问题</li>
+</ul>
+<blockquote>
+<p>模块系统，就是为了解决模块化过程中产生的问题，如上面提到的 3 个问题。那<strong>Node 中的模块系统</strong>是如何解决模块化产生的问题，就是我们接下来要学习的。</p>
+</blockquote>
+<ul>
+<li>Node 的模块系统，与 ES6 中的 Module 模块基本思想是一样，但语法和用法不一样。</li>
+<li><a target="_blank" rel="noopener" href="https://www.nodeapp.cn/">Node.js 中文网站（非官方）</a></li>
+</ul>
+<ol>
+<li>模块的分类<blockquote>
+<p>Node.js 中根据模块的来源，将模块分为 3 大类，分别是：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>内置模块（Node.js官方提供的模块，如<code>fs、path、http</code>）</li>
+<li>自定义模块（用户自已在创建的<code>.js</code>文件）</li>
+<li>第三方模块（由第三方开发出来的模块（排除 node 官方和用户自定义），使用前需要先下载</li>
+</ul>
+<ol start="2">
+<li>模块的加载<blockquote>
+<p><code>Node.js</code>中使用<code>require()</code>方法来加载一个模块，不过对于不同类别的模块加载时，路径的书写不太一样</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>加载内置模块，直接在require中书写模块的名字就好</li>
+</ul>
+<pre><code>const fs = require(&quot;fs&quot;);
+</code></pre>
+<ul>
+<li>加载自定义模块，需要写好对应的路径，JS文件的后缀名也可以省略不写</li>
+</ul>
+<pre><code>const myCoustom = require(&quot;./myCoustom.js&quot;);
+//或 const myCoustom=require(&quot;./myCoustom&quot;);
+</code></pre>
+<ul>
+<li>加载第三方模块，需要用npm下载对应模块，然后才能用requier导入，导入时只需要写对应的名字就好</li>
+</ul>
+<pre><code>const axios = require(&quot;axios&quot;);
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li><code>require()</code>方法在加载模块后，会将模块中的代码执行一遍，多次导入相同的模块，<strong>只会执行一次</strong></li>
+<li>关于 module 相关的内容可<a target="_blank" rel="noopener" href="https://www.nodeapp.cn/modules.html#modules_exports_shortcut">查阅文档</a></li>
+</ul>
+<ol start="3">
+<li><p>模块作用域</p>
+<blockquote>
+<p>在自定义模块中的变量和方法等，<strong>只能在当前模块内被访问</strong>，模块外是没有办法访问的，我们把这种访问的限制，叫做<strong>模块的作用域</strong></p>
+<ul>
+<li>模块的作用域解决了全局变量污染的问题<img src="模块作用域.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>module 对象-共享模块成员</p>
+<blockquote>
+<p>Node.js 中每个<code>.js</code>自定义模块中都有一个<code>module</code>对象，它里面存储了当前模块相关的信息，通过<code>module.exports</code> 这个属性（这个属性值是一个对象）将模块内的成员共享出去，供外界使用。</p>
+<ul>
+<li>在利用<code>require()</code>方法导入自定义模块时，得到的就是 <code>module.exports</code>所指向的对象。<img src="module对象.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>exports 对象 - 共享模块成员</p>
+</li>
+</ol>
+<ul>
+<li>当我们通过<code>module.exports.username</code>共享成员时，可以简写成<code>exports.username</code>，<code>exports</code>相当于这种情况下的一个<strong>快捷键</strong>。</li>
+<li><code>exports</code>在模块被执行前被赋予<code>module.exports</code>的值，也就是在模块被执行前，<code>exports</code>和<code>module.exports</code>指向**同一个对象<code>&#123;&#125;</code>**。</li>
+</ul>
+<blockquote>
+<p>但最终模块对外共享的结果，还是以<code>module.exports</code>指向的对象为准</p>
+</blockquote>
+<p><strong>判断以下模块最终共享的结果：</strong><br>情况一：</p>
+<pre><code>module.exports = &#123;
+  a: 1,
+  b: 2,
+&#125;;
+exports.c = 3;
+
+// 最终输出结果： &#123; a: 1, b: 2 &#125;
+</code></pre>
+<ul>
+<li>在模块被执行前，<code>exports</code>和<code>module.exports</code>都指向同一个对象<code>&#123;&#125;</code></li>
+<li>执行<code>module.exports=&#123;a: 1,b: 2,&#125;</code>，<code>module.exports</code>指向了一个新对象</li>
+<li><code>exports.c = 3;</code>给<code>&#123;&#125;</code>添加了新属性<code>c</code>，因此：<code>exports</code>指向<code>&#123; c : 3&#125;</code></li>
+<li>但是！最终模块对外共享的结果，还是以<code>module.exports</code>指向的对象为准，所以最终输出结果：<code>&#123;a: 1,b: 2,&#125;</code></li>
+</ul>
+<p>情况二：</p>
+<pre><code>module.exports = &#123;
+  a: 1,
+  b: 2,
+&#125;;
+exports = &#123;
+  c: 3,
+&#125;;
+// 最终输出结果： &#123; a: 1, b: 2 &#125;
+</code></pre>
+<ul>
+<li>在模块被执行前，<code>exports</code>和<code>module.exports</code>都指向同一个对象<code>&#123;&#125;</code></li>
+<li>执行<code>module.exports=&#123;a: 1,b: 2,&#125;</code>，<code>module.exports</code>指向了一个新对象</li>
+<li><code>exports</code>也指向了一个新对象<code>&#123; c : 3&#125;</code></li>
+<li>但是！最终模块对外共享的结果，还是以<code>module.exports</code>指向的对象为准，所以最终输出结果：<code>&#123;a: 1,b: 2,&#125;</code></li>
+</ul>
+<p>情况三</p>
+<pre><code>exports.c = 3;
+module.exports.a = 1;
+module.exports.b = 2;
+
+// 最终输出结果： &#123; c: 3, a: 1, b: 2 &#125;
+</code></pre>
+<ul>
+<li>在模块被执行前，<code>exports</code>和<code>module.exports</code>都指向同一个对象<code>&#123;&#125;</code></li>
+<li>执行<code>exports.c = 3;</code>，它给<code>&#123;&#125;</code>新增一个属性<code>c</code>，因此<code>exports</code>指向<code>&#123; c : 3 &#125;</code></li>
+<li>执行后两行代码，<code>module.exports</code>给对象<code>&#123; c : 3 &#125;</code>又新增了新属性<code>a,b</code>，因此<code>module.exports</code>指向<code>&#123; c:3 , a:1 , b:2&#125;</code></li>
+<li>因为<code>exports</code>和<code>module.exports</code>都是通过打点的方式新增属性，所以没有改变指向，一直都指向同一个对象，后面的操作都只是在这个对象上添加新的属性。</li>
+</ul>
+<p>情况四</p>
+<pre><code>exports = &#123;
+  c: 3,
+&#125;;
+module.exports = exports;
+module.exports.a = 1;
+module.exports.b = 2;
+
+// 最终输出结果： &#123; c: 3, a: 1, b: 2 &#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>在模块被执行前，<code>exports</code>和<code>module.exports</code>都指向同一个对象<code>&#123;&#125;</code></li>
+<li><code>exports</code>指向了新对象<code>&#123;  c : 3 &#125;</code></li>
+<li><code>module.exports = exports;</code>使得<code>module.exports</code>也指向了<code>exports</code>的新对象<code>&#123;  c : 3 &#125;</code></li>
+<li>后面两行代码都是在给新对象添加属性<code>a,b</code></li>
+<li>最终模块对外共享的结果，还是以<code>module.exports</code>指向的对象为准，所以最终输出结果：<code>&#123; c: 3, a: 1, b: 2 &#125;</code></li>
+</ul>
+</blockquote>
+<ol start="6">
+<li><code>Node.js</code>中模块化规范<blockquote>
+<p><code>Node.js</code>中遵循了<code>CommonJS</code>模块化规范（不过与 <code>CommonJS</code>还存在细微差别，这里不做讲解），其规范如下：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>每个模块都有一个 module 变量，这个变量代表当前模块</li>
+<li>module 变量是一个<strong>对象</strong>，它有一个 <code>exports</code> 属性，用来对外共享成员</li>
+<li>利用 <code>require()</code> 方法加载模块，加载的就是 <code>module.exports</code> 导出的值</li>
+</ul>
+<h4 id="fs-文件模块"><a href="#fs-文件模块" class="headerlink" title="fs 文件模块"></a>fs 文件模块</h4><blockquote>
+<p><code>fs</code>模块，为<code>Node.js</code>中提供的操作文件系统的模块，我们这里简单学习下<code>fs</code>模块的<code>readFile()</code>与<code>readFileSync()</code>方法</p>
+</blockquote>
+<pre><code>fs.readFile(path, options, callback); // 异步读取
+fs.readFileSync(path, options); // 同步读取
+</code></pre>
+<ul>
+<li><code>path</code> 文件名</li>
+<li><code>options</code>参数，可以用来指字符编码，比如<code>&quot;utf8&quot;</code></li>
+<li><code>callback</code>回调函数，文件读取响应结果后要调的，回调函数有两个参数<code>err</code>和<code>data</code>，<code>err</code>表示失败的对象，<code>data</code>成为读取的结果</li>
+</ul>
+<ol>
+<li>基本使用</li>
+</ol>
+<ul>
+<li><p>在同一目录<code>D:\web\gitwork\Engineering\practice\Node&gt;</code>下，新建<code>index.js</code>和<code>hello.txt</code>文件</p>
+</li>
+<li><p><code>hello.txt</code>文件内容如下</p>
+</li>
+</ul>
+<pre><code>大家好
+</code></pre>
+<ul>
+<li><code>index.js</code>文件内容如下</li>
+</ul>
+<pre><code>const fs = require(&quot;fs&quot;);
+// 同步读取hello.txt文件中内容
+const txt = fs.readFileSync(&quot;./hello.txt&quot;, &quot;utf8&quot;);
+console.log(txt);
+
+// 异步读取hello.txt文件中内容
+const txt2 = fs.readFile(&quot;./hello.txt&quot;, &quot;utf8&quot;, (err, data) =&gt; &#123;
+  if (err) &#123;
+    throw new Error(&quot;文件读取失败&quot;);
+  &#125; else &#123;
+    console.log(data);
+  &#125;
+&#125;);
+</code></pre>
+<ul>
+<li>当在目录<code>...\Node</code>下执行<code>node index.js</code>命令时，在控制台能正常输出结果：”大家好”   “大家好”</li>
+<li>当在目录<code>...\practice</code>下执行<code>node .\Node\path.js</code>命令时，<strong>抛出错误</strong>。这里为什么呢 ？</li>
+</ul>
+<blockquote>
+<p>因为<code>node</code>命令在执行时，他会在<code>\practice\hello.txt</code>这个路径中找<code>hello.txt</code>文件，那肯定是找不到了。所以在 <code>node</code>中使用<code>./</code>来表示相对路径是非常危险的。</p>
+<ul>
+<li>不过用<code>require(&#39;./index.js&#39;)</code>方式来导入模块时，<strong>不需要</strong>特别处理，内部处理过了</li>
+</ul>
+</blockquote>
+<ul>
+<li>那如何保证<strong>在不同的目录下</strong>执行<code>index.js</code>文件，都能正常的找到文件呢？接下来我们就学习 <code>node</code> 中的<code>path</code>模块和<code>__dirname</code>全局变量，来解决这个问题。</li>
+</ul>
+<h4 id="path-路径模块"><a href="#path-路径模块" class="headerlink" title="path 路径模块"></a>path 路径模块</h4><blockquote>
+<p><code>path</code>模块是<code>Node.js</code>内置模块，该模块提供了一些工具函数，用于处理文件与目录的路径。</p>
+</blockquote>
+<ul>
+<li><p>我们主要学习 <code>path</code> 模块提供的<code>resolve()</code>方法</p>
+</li>
+<li><p>该方法用于把一个路径或路径片段的序列，<strong>从右往左</strong>处理成一个<strong>绝对路径</strong></p>
+</li>
+<li><p>如果处理完给定的路径片段还未生成一个绝对路径，则<strong>当前工作目录</strong>会被用上</p>
+</li>
+<li><p>语法</p>
+</li>
+</ul>
+<pre><code>path.resolve(path1,path2,path3....); // 从右往左将三个路径拼接成一个绝对路径
+</code></pre>
+<ul>
+<li>基本使用</li>
+</ul>
+<pre><code>// 在使用path模块前，需要先使用require()方法将其导入
+const path = require(&quot;path&quot;);
+const url = path.resolve(&quot;foo&quot;, &quot;bar&quot;);
+console.log(url);
+</code></pre>
+<blockquote>
+<p><strong>代码解析</strong></p>
+</blockquote>
+<ul>
+<li><code>index.js</code>文件所在目录<code>D:\web\gitwork\Engineering\practice\Node&gt;</code></li>
+<li>如果我在目录<code>D:\web\gitwork\Engineering\practice\Node&gt;</code>下执行<code>node index.js</code>，在控制台打印的结果是：<code>D:\web\gitwork\Engineering\practice\Node\foo\bar</code></li>
+<li>如果我在目录<code>D:\web\gitwork\Engineering\practice&gt;</code>下执行<code>node .\Node\index.js</code>，在控制台打印的结果：<code>D:\web\gitwork\Engineering\practice\foo\bar</code></li>
+</ul>
+<blockquote>
+<p>经过两次打印的结果我们可以得出，当我们的路径片段未能生成一个绝对路径时，<code>path.resolve()</code>方法<strong>自动帮我们补全的</strong>绝对路径是在当前路径前加上<strong>工作目录</strong>，而非文件所在目录。</p>
+<p>如果我们希望<strong>不管在哪个目录下</strong>执行对应的 JS 文件，最后都能得到当前 <code>JS</code> 文件所在的绝对路径，那要如何处理呢 ？这就需要用到 <code>Node.js</code> 中的全局变量<code>__dirname</code></p>
+<blockquote>
+<p>path 模块的更多方法<a target="_blank" rel="noopener" href="https://www.nodeapp.cn/path.html">可参考文档</a></p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li>全局变量<code>__dirname</code><blockquote>
+<p><code>__dirname</code>为<code>Node.js</code>的一个全局变量，表示<strong>当前文件的路径</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们通常把这个变量与<code>path.resolve()</code>方法结合使用，用来指定当前文件所在的绝对路径。</li>
+</ul>
+<blockquote>
+<p><strong>语法：</strong></p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+const url = path.resolve(__dirname, &quot;&quot;);
+console.log(url);
+</code></pre>
+<blockquote>
+<p><strong>以上代码解析</strong></p>
+</blockquote>
+<ul>
+<li><p><code>index.js</code>文件所在目录<code>D:\web\gitwork\Engineering\practice\Node&gt;</code></p>
+</li>
+<li><p>如果我目录<code>D:\web\gitwork\Engineering\practice\Node&gt;</code>下执行<code>node index.js</code>，在控制台打印的结果是：<code>D:\web\gitwork\Engineering\practice\Node&gt;</code></p>
+</li>
+<li><p>如果我在目录<code>D:\web\gitwork\Engineering\practice&gt;</code>下执行<code>node .\demo\index.js</code>，在控制台打印的结果还是： <code>D:\web\gitwork\Engineering\practice\Node&gt;</code></p>
+</li>
+<li><p>可见：不管在什么目录下执行<code>index.js</code>文件，最后<code>url</code>得到的路径都是<strong>当前文件所在的绝对路径</strong></p>
+</li>
+<li><p>解决最开始的文件路径错误的问题</p>
+</li>
+</ul>
+<pre><code>const fs = require(&quot;fs&quot;);
+const path = require(&quot;path&quot;);
+// 同步读取hello.txt文件中内容
+const txt = fs.readFileSync(path.resolve(__dirname, &quot;./hello.txt&quot;), &quot;utf8&quot;);
+console.log(txt);
+
+// 异步读取hello.txt文件中内容
+const txt2 = fs.readFile(
+  path.resolve(__dirname, &quot;./hello.txt&quot;),
+  &quot;utf8&quot;,
+  (err, data) =&gt; &#123;
+    if (err) &#123;
+      throw new Error(&quot;文件读取失败&quot;);
+    &#125; else &#123;
+      console.log(data);
+    &#125;
+  &#125;
+);
+</code></pre>
+<h3 id="三、npm"><a href="#三、npm" class="headerlink" title="三、npm"></a>三、npm</h3><h4 id="什么是-npm"><a href="#什么是-npm" class="headerlink" title="什么是 npm"></a>什么是 npm</h4><blockquote>
+<p>NPM 的全称是<code>Node Package Manager</code>，是一个 Node.js 的包管理工具。</p>
+</blockquote>
+<blockquote>
+<p><strong>那什么是包呢 ？</strong><br>在我们开发 Node 项目的时候，需要用到很多第三方的模块（和开发者自定义的模块，而是由其它人或团队开发出来，免费供所有人使用的一些模块），这些第三方的模块也称为包。</p>
+</blockquote>
+<pre><code>// axios就是一个第三方模块（包），我们在使用前，需要先通过npm来下载对应的包，否则就会报错。
+const axios = require(&quot;axios&quot;);
+</code></pre>
+<p><strong>为什么需要包呢 ？</strong></p>
+<blockquote>
+<p>通过 JS 的学习，我们知道一门语言本身，他提供的只是一个底层的 API，而我们在使用这些底层的 API 开发项目时，效率很低，所以在实际的业务开发中，经常需要在底层 API 的基础上做一层封装。</p>
+<p>比如我们前面讲到的<code>XMLHttpRequest</code>对象，利用他来发送 Ajax 请求时，每次都要书写大量重复的代码，所以就有人针对这个对象做了相关的封装，封装了 Axios 这个包。那后面我们发送 Ajax 请求，就可以直接使用第三方的模块 Axios 来实现，极大的提高了开发的效率。</p>
+</blockquote>
+<p><strong>需要的包从哪里下载呢 ？</strong></p>
+<blockquote>
+<p>国外有一家叫<code>npm,Inc.</code>的公司，这家公司旗下有一个非常著名的<strong>网站</strong>：<code>&quot;https://www.npmjs.com/&quot;</code>，是全球最大的包共享平台，你可以在这个平台上搜索你想要的任何包，了解这些包的功能和使用方法。</p>
+<p>同时<code>npm,Inc.</code>的公司还提供了一个地址为<code>https://registry.npmjs.org</code>的<strong>服务器</strong>，来对外共享所有的包，我们可以通过这个服务器来下载自己想要的包</p>
+</blockquote>
+<p><strong>那如何下载需要的包呢</strong></p>
+<blockquote>
+<p><code>npm,Inc.</code>提供了一个包管理工具，也就是我们前面提到的npm，我们可以通过这个工具，就可以从<code>https://registry.npmjs.org</code>服务器上，把需要包下载到本地来使用。</p>
+<p>当我们安装 <code>Node</code> 时，<code>npm</code> 这个工具也被一起安装到了我们的电脑上面。检测是否安装成功，在命令终端执行以下命令</p>
+</blockquote>
+<pre><code>//检测 node 是否安装及版本，正常显示版本号说明已经安装相应的版本
+node -v
+//检测 npm 是否安装及版本，正常显示版本号说明已经安装相应的版本
+npm -v
+</code></pre>
+<h4 id="npm-的作用"><a href="#npm-的作用" class="headerlink" title="npm 的作用"></a>npm 的作用</h4><blockquote>
+<p>我们知道 npm 是<code>Node.js</code>的包管理工具，那他具体能帮我们做什么呢 ？他可以帮我们做以下事情</p>
+</blockquote>
+<ul>
+<li>帮我们从<code>https://registry.npmjs.org</code>服务器上下载需要的包</li>
+<li>在我们开发项目时，帮我们管理下载好的包</li>
+<li>把我们开发的项目（包）上传到服务器<code>https://registry.npmjs.org</code>上供别人免费使用</li>
+</ul>
+<blockquote>
+<p>那在我们开发一个项目时，npm 是如何帮助我们做好下载和管理我们的包呢 ？我们从新创建一个项目开始说起。</p>
+</blockquote>
+<ul>
+<li>至于如何把我们开发的包上传到 npm 服务器上，后面作为单独的模块来讲解</li>
+</ul>
+<h4 id="npm-的初体验"><a href="#npm-的初体验" class="headerlink" title="npm 的初体验"></a>npm 的初体验</h4><blockquote>
+<p>在我们创建一个新项目时，我们首先会在当前项目的根目录创建一个<code>package.json</code>文件，这个文件用来描述项目及项目所依赖的模块信息。即 帮我们管理项目中的依赖包的，让我们远离了依赖地狱。比如：</p>
+<ul>
+<li>当前项目的名称、版本号、描述等（我们自己开发的项目，也是一个包，也可以供别人使用，npm 也需要帮我们管理）</li>
+<li>项目中都用到了哪些包</li>
+<li>哪些包是在开发期间会用到的</li>
+<li>哪些包是在开发和生产（项目上线）都会用到<br>当然，我们不需要手动来创建<code>package.json</code>文件</li>
+</ul>
+</blockquote>
+<ol>
+<li>创建 <code>package.json</code> 文件<blockquote>
+<p>我们只需要在当前项目录下，在<code>VsCode</code>终端执行<code>npm init</code>命令，然后按命令提示，输入对应的项目名称，之后就一直回车就行，直到命令结束，最后就会自动在当前目录创建好<code>package.json</code>文件。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 执行以下命令，会在当前项目中，创建一个package.json文件
+npm init
+// 如果想调过中间所有步骤，全部采用默认值，可以使用
+npm init -y
+</code></pre>
+<ul>
+<li>以下是生成好的<code>package.json</code>文件，关于这个文件配置项的说明，后面会讲到</li>
+</ul>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;qinxin&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+&#125;
+</code></pre>
+<ol start="2">
+<li>npm 下载（安装）包<blockquote>
+<ul>
+<li>在当前目录的命令终端，执行以下命令可以下载需要的包</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 下载对应的包
+npm install 包名
+
+// 下载对应的包，i 是上面 install 的简写
+npm i  包名
+
+//如果需要下载指定版本的包，则在包后面带上对应的版本号 版本号格式 @x.x.x
+npm i 包名@5.1.2
+
+// 如果需要一次性安装多个包，每个包之间用空格隔开
+npm i 包名  包名  包名
+</code></pre>
+<blockquote>
+<ul>
+<li>在当前目录下，安装 axios 包</li>
+</ul>
+</blockquote>
+<pre><code>//下载最新版本的axios
+npm install axios
+// 下载最新版本的axios，上面方法的简写
+npm i axios
+// 安装指定版本，版本号为 1.3.3
+npm i axios@1.3.3
+
+// 一次安装2个包
+npm i  jquery axios
+
+// 查看axios共有多少个版本
+npm view axios versions
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>当我们下载好对应包后，在当前目录下多出了<code>node_modules</code>文件夹和<code>package-lock.json</code>文件，同时<code>package.json</code>中多出了一个<code>dependencies</code>属性</li>
+</ul>
+<p><strong>node_modules 文件夹</strong></p>
+<ul>
+<li>所有安装到项目中的包，都放在了这个文件夹中。<code>require()</code>导入第三方包时，就是从这个目录中查找并加载包。</li>
+</ul>
+<p><strong>package-lock.json 文件</strong></p>
+<ul>
+<li>它记录了<code>node_modules</code>目录下所有模块（包）的名称、版本号、下载地址、及这个模块又依赖了哪些依赖</li>
+<li><code>package-lock.json</code>的作用：锁定安装时的包的版本号及包的依赖的版本号，以保证其他所有人在使用<code>npm install</code>时下载的依赖包都是一致的。锁定版本号，防止自动升级新版本。</li>
+</ul>
+<p><strong><code>package.json</code> 与 <code>package-lock.json</code>的区别</strong></p>
+<ul>
+<li>npm5 以前，没有 <code>package-lock.json</code> 这个文件。<code>package.json</code>只能锁定模块的大版本号（版本号的第一位），不能锁定后面的小版本，所以你每次重新<code>npm install</code>时候拉取的都是该大版本下面最新的版本。</li>
+<li>一般我们为了项目的稳定性考虑我们不能随意升级依赖包，如果换包导致兼容性 <code>bug</code> 出现很难排查，这样很容易出现问题</li>
+<li><code>npm5</code> 以后，新增了<code>package-lock.json</code>这个文件，它用来锁定所有模块的版本号，包括主模块和所有依赖子模块。</li>
+<li>当你执行<code>npm install</code>的时候，<code>node</code>从<code>package.json</code>文件读取模块名称，从<code>package-lock.json</code>文件中获取版本号，然后进行下载或者更新。</li>
+</ul>
+<ol start="3">
+<li>指定包的依赖<blockquote>
+<p>在开发项目时，我们会用到很多包，有些包只需要在开发环境中使用，项目上线后就不再需要了，而有些包在开发和项目上线后都需要用到。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>所以我们把包分为：开发依赖包和生产（核心）依赖包</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>包分类</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发依赖包</td>
+<td>只在项目开发期间会用到，比如后面学到的 <code>webpack</code> 打包工具，他只是用来对项目做打包构建的，项目打包构建好后，上线部署肯定就用不到<code>webpack</code>包了。所以<code>webpack</code>为开发依赖包</td>
+</tr>
+<tr>
+<td>生产（核心）依赖包</td>
+<td>在项目开发和上线都需要用到，比如前面说的<code>axios</code>包，他在项目中是用来发送请求的，不管是上线还是开发阶段都需要用到。如果上线把这个包去掉了，项目就会出错。所以<code>axios</code>就是生产（核心）依赖包。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>在<code>package.json</code>中，有如下两个属性，用来记录包的类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dependencies</td>
+<td>记录生产（核心）依赖包，项目在打包上线时，会把对应的包打包进去</td>
+</tr>
+<tr>
+<td>devDependencies</td>
+<td>记录开发依赖包，项目打包上线时，不会把对应的包打包进去</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>注：</strong></p>
+</blockquote>
+<ul>
+<li><p>在安装包时，如果不指定包的依赖环境，<strong>默认指定为生产依赖包</strong>。如果想要在安装包时，指定包的依赖环境，可用以下命令</p>
+</li>
+<li><p>将包指定为开发依赖</p>
+</li>
+</ul>
+<pre><code>npm i 包名 --save-dev   # 将安装的包指定为开发依赖包
+npm i 包名 -D  # -D相当于是--save-dev的缩写，将安装的包指定为开发依赖包
+
+// 以下写法也可以
+npm i --save-dev 包名
+npm i -D 包名
+
+// 安装webpack webpack-cli 为开发依赖
+npm i webpack webpack-cli -D
+</code></pre>
+<ul>
+<li>安装成功后，就会在<code>package.json</code>文件的<code>devDependencies</code>属性中添加如下两个属性</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;webpack&quot;: &quot;^5.76.1&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;,
+</code></pre>
+<ul>
+<li>将包指定为生产依赖</li>
+</ul>
+<pre><code>npm i 包  # 不指定依赖环境，默认安装到生产环境
+npm i 包 --save  #将安装的包指定为生产依赖
+// 以下写法也可以
+npm i --save 包
+&gt;
+// 安装axios包到生产环境
+npm i axios;
+// 或
+npm i axios --save
+</code></pre>
+<ul>
+<li>安装成功后，就会在package.json文件的dependencies属性中添加如下属性</li>
+</ul>
+<pre><code>&quot;dependencies&quot;: &#123;
+    &quot;axios&quot;: &quot;^1.3.4&quot;
+&#125;
+</code></pre>
+<p><strong>温馨提示</strong></p>
+<ul>
+<li>我们在安装对应的包时，可以参考包的说明，包的说明中会给出包安装的命令，通过命令可以知道当前包是需要安装在生产还是开发环境。</li>
+</ul>
+<ol start="4">
+<li>npm 删除(卸载)包<blockquote>
+<p>在当前目录命令终端，执行以下命令可以删除下载好的包</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm uninstall 包  # 删除本地包，不考虑版本，不考虑依赖环境
+
+// 删除axios包
+npm uninstall axios
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>包删除成功后，对应<code>package.json</code>和<code>package-lock.json</code>文件中包相关的信息全部都会被移除。</li>
+</ul>
+<ol start="5">
+<li>package.json 文件配置说明<blockquote>
+<p>以下是关于<code>package.json</code>文件的相关配置项说明</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  // 项目名称，不能以&quot;.&quot;和&quot;_&quot;开头，不能包含大写字母，因为当软件包在npm上发布时，会基于此属性获取自己的URL，同时名称作为参数被传入require(&quot;&quot;)，用来导入模块，所以尽量简短、语义化
+  &quot;name&quot;: &quot;hermia&quot;,
+  // 该项目的版本号，它是一个字符串。每次项目改动后，即将发布时，都要同步的去更改项目的版本号。版本号的格式为： 主版本号.次版本号.修订号   =&gt; 5.1.0
+  // 通常情况下，修改主版号是做了大的功能的改动
+  // 修改次版本号是新增了新功能，
+  // 修改修订号就是修复了一些bug
+  // 查看包的版本信息  npm view  包名  version =&gt;查看最新版本
+  // npm view 包名 versions  =&gt;查看所有版本
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  // 项目的描述，可以让其它开发者在npm的搜索中发现我们的项目包，搜索对应包时对应的描述
+  &quot;description&quot;: &quot;&quot;,
+  // 用来指定加载的入口文件，在浏览器和Node环境中都可以使用。如果我们将项目发布为npm包，那么当使用require导入npm包时，返回的就是main字段列出的文件的module.exports属性。如果不指定该字段，默认是项目根目录下的index.js，如果没找到，就会报错。
+  &quot;main&quot;: &quot;index.js&quot;,
+  // 脚本配置  scripts是package.json中内置的脚本入口，是key-value键值对配置。
+  // 可以通过npm run 来执行的命令。  npm run dev
+  // 还可以通过与 pre 和 post 完成前置和后续操作
+  &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  // 项目作者 它的值是你在https://npmjs.org网站的有效账户名
+  &quot;author&quot;: &quot;&quot;,
+  // 指定软件的开源协议，开源协议表述了其他人获得代码后拥有的权利，可以对代码进行何种操作，何种操作又是被禁止的
+  &quot;license&quot;: &quot;ISC&quot;,
+  // devDependencies 开发阶段需要的依赖包
+  &quot;devDependencies&quot;: &#123;
+    &quot;webpack&quot;: &quot;^5.76.1&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;,
+  // dependencies 表示项目的生产和开发环境中都需要依赖的包
+  &quot;dependencies&quot;: &#123;
+    &quot;axios&quot;: &quot;^1.3.4&quot;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注意：”scripts”脚本</p>
+</blockquote>
+<ul>
+<li>脚本配置<code>scripts</code>是<code>package.json</code>中内置的脚本入口，是<code>key-value</code>键值对配置。</li>
+<li>可以通过<code>npm run 键名</code> 来执行键值里面的命令。如：<code>npm run dev</code></li>
+</ul>
+<ol start="6">
+<li><code>package.json</code> 文件作用<blockquote>
+<p>通过前面的学习，我们知道<code>package.json</code>文件用来描述项目及项目所依赖的模块信息。即 帮我们管理项目中的依赖包的，让我们远离了依赖地狱。</p>
+<p>如果我们想把自己开发的项目分享给别人，<strong>不需要</strong>把 <code>node_modules</code> 这个文件分享过去，这个文件夹中的文件体积庞大，下载和上传都是极为不方便，而且会特别慢。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们只需要<strong>把其它的文件发送给对方</strong>，对方拿到文件后，只需要在当前项目的根目录下，执行以下命令</li>
+</ul>
+<pre><code>npm i  
+//自动根据package.json中的信息来下载项目所需要的所有依赖包。
+</code></pre>
+<ul>
+<li>就会自动根据<code>package.json</code>和<code>package-lock.json</code>文件中的信息来下载项目所需要的所有依赖包</li>
+</ul>
+<h4 id="解决-npm-下包速度慢问题"><a href="#解决-npm-下包速度慢问题" class="headerlink" title="解决 npm 下包速度慢问题"></a>解决 npm 下包速度慢问题</h4><blockquote>
+<p>当我们使用 npm 下载包的时候，默认是从国外的<code>https://registry.npmjs.org</code>服务器进行下载，所以下载的速度会很慢。</p>
+<ul>
+<li>那国内是如何解决下载速度慢的问题，这就要提到<strong>淘宝</strong>的 <code>npm</code> 镜像服务器 和 <code>nrm</code>。</li>
+</ul>
+</blockquote>
+<ol>
+<li>淘宝的 NPM 镜像服务器<blockquote>
+<p>镜像（Mirroring）：是一种文件存储形式，一个磁盘上的数据在另一个磁盘上存在一个完全相同的副本即为镜像。</p>
+<p>淘宝在国内搭建了一个 <code>https://registry.npmmirror.com/</code>服务器（也就是 NPM 镜像服务器），专门用来把国外<code>https://registry.npmjs.org</code> 服务器上的包同步到国内的服务器。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>这样国内需要对应的包，就可以直接在国内的服务器上来下载了，极大的提高了下包的速度。<img src="淘宝镜像npm.png"></li>
+</ul>
+<p><strong>提示：</strong></p>
+<blockquote>
+<p>淘宝官方通知：<code>https://npm.taobao.org</code> 和 <code>https://registry.npm.taobao.org</code> 将在 2022 年 6 月 30 日正式下线和停止 DNS 解析。域名切换规则：</p>
+<ul>
+<li><code>https://npm.taobao.org</code> &#x3D;&gt; <code>https://npmmirror.com</code></li>
+<li><code>https://registry.npm.taobao.org</code> &#x3D;&gt; <code>https://registry.npmmirror.com</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>查看当前正在使用的 npm 镜像源</li>
+</ul>
+<pre><code>npm config get registry
+</code></pre>
+<ul>
+<li>切换 npm 镜像源</li>
+</ul>
+<pre><code>npm config  set registry  https://registry.npmmirror.com
+</code></pre>
+<ul>
+<li>镜像源地址只需设置一次即可</li>
+<li><code>npm</code> 的镜像源切换为<code>https://registry.npmmirror.com</code>后，我们使用 <code>npm</code> 命令来下载包，就相当于是直接国内的这个服务器上来下载包，速度会很快速。</li>
+</ul>
+<ol start="2">
+<li>nrm 源管理器<blockquote>
+<p>npm 有很多镜像源服务器,而<code>nrm</code>（npm registry manager）是 npm 的<strong>镜像源管理工具</strong>，允许你快速地在 npm 源间切换。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>全局安装 nrm</li>
+</ul>
+<pre><code>//通过npm，将nrm安装为全局可用的工具，即不管在任何目录下，都可以使用nrm命令
+npm i nrm -g
+</code></pre>
+<ul>
+<li>安装好 nrm 后，查看所有可用的镜像源</li>
+</ul>
+<pre><code>//查看所有可用的镜像源
+nrm ls  
+</code></pre>
+<ul>
+<li>将当前源切换为对应的 taobao 源</li>
+</ul>
+<pre><code>nrm use taobao
+</code></pre>
+<ul>
+<li>我们可以通过以下命令来查看我们的源是否切换成功</li>
+</ul>
+<pre><code>npm config get registry
+</code></pre>
+<h3 id="四、开发自己-npm-包"><a href="#四、开发自己-npm-包" class="headerlink" title="四、开发自己 npm 包"></a>四、开发自己 npm 包</h3><blockquote>
+<p>接下来我们尝试开发一个简单的包，然后上传到 npm 平台上去。让大家了解 npm 在整个过程中的应用。</p>
+</blockquote>
+<ul>
+<li>一个完整的包，至少有以下三个文件</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>package.json</td>
+<td>用来描述项目和管理项目所依赖的模块信息</td>
+</tr>
+<tr>
+<td>index.js</td>
+<td>用来指定加载的入口文件，如果我们将项目发布为 npm 包，那么当使用 require 导入 npm 包时，返回的就是<code>package.json</code>文件中 main 字段列出的文件的<code>module.exports</code>属性。如果不指定该字段，默认是项目根目录下的<code>index.js</code>，如果没找到，就会报错。</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>包的说明文档，描述包的作用和包的使用教程</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>接下来我们就按以下步骤来开发自己的</p>
+</blockquote>
+<ul>
+<li>创建项目文件夹，用来存放项目用到的所有文件</li>
+<li>初始化项目需要的 package.json 文件</li>
+<li>创建index.js文件，包的入口文件</li>
+<li>撰写 README.md 说明文档</li>
+</ul>
+<ol>
+<li><p>创建项目文件夹</p>
+<blockquote>
+<p>在创建项目文件夹前，先要想好自己包（项目）的名字，同时在 npm 官网<code>https://www.npmjs.com/</code>上查询有没有对应的包名。</p>
+<ul>
+<li>如果没有这个包名就能用，如果有，那就要更换，因为<strong>不能出现同名的包</strong>。<br>在本地新建一个<code>hermia</code>文件夹（项目名），所以项目需要用到的文件都保存在当前目录中</li>
+</ul>
+</blockquote>
+</li>
+<li><p>初始化 <code>package.json</code> 文件</p>
+<blockquote>
+<p>当项目<code>hermia</code>文件夹下，利用 <code>npm init -y</code> 命令初始化<code>package.json</code>文件</p>
+<ul>
+<li>得到如下 <code>package.json</code> 文件</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;icoding-max&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+&#125;
+</code></pre>
+<ul>
+<li>完善 <code>package.json</code> 文件中的描述、关键字、作者</li>
+</ul>
+<ol start="3">
+<li>创建 index.js 文件<blockquote>
+<p>在当前目录下创建<code>index.js</code>文件，作为项目的加载入口文件。在文件中编写<code>max</code>和<code>min</code>两个函数，这两个函数用来实现两个数中的最大值和最小值，并将其作为模块接口导出。</p>
+<ul>
+<li>具体代码如下</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 求两个值中的最大值
+function max(a, b) &#123;
+  return a &gt; b ? a : b;
+&#125;
+// 求两个值中的最小值
+function min(a, b) &#123;
+  return a &gt; b ? b : a;
+&#125;
+
+// 将两个方法作为模块对外输出的接口
+module.exports = &#123;
+  max,
+  min,
+&#125;;
+</code></pre>
+<ol start="4">
+<li><p>撰写 README.md 说明文档</p>
+<blockquote>
+<p><code>README.md</code> 包的使用说明文档，以 <code>markdown</code> 的格式来书写，方便阅读。<code>READEM.md</code> 文件中具体写什么内容，没有强制要求，开发者尽可能清晰的把包的功能，安装、用法，注意事项等描述清楚即可。</p>
+<ul>
+<li>以下是我为本包做的一个简单的说明文档<img src="README.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>上传包到 npm 平台</p>
+<blockquote>
+<p>要将自己开发的包上传到 npm 平台，经历以下几步：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在 npm 平台，注册 npm 账号<ul>
+<li>访问 <code>https://www.npmjs.com/</code>网站，点击右上角的sign up按扭，进入用户注册界面。</li>
+<li>填写账号相关的信息</li>
+</ul>
+</li>
+<li>登录 npm 账号<ul>
+<li>npm 账号注册完成后，在<strong>命令终端</strong>切换到当前项目的根目录，并执行<code>npm login</code>命令，开始登录，根据提示，分别输入 用户名、密码，一次性密码等操作，最后就会登录成功。<blockquote>
+<p><strong>温馨提示</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>在运行 <code>npm login</code> 命令前，必须要先把 <code>npm</code> 的镜像切换为 <code>npm</code> 官方的服务器<code>https://registry.npmjs.org</code>，否则登录不进去。</li>
+<li>如果不清楚是否成功，可以执行<code>npm profile get</code>命令，查看账户简介</li>
+</ul>
+<pre><code>// icoding-max为项目文件夹
+PS C:\Users\EDY\Desktop\demo\icoding-max&gt; npm login
+PS C:\Users\EDY\Desktop\demo\icoding-max&gt; npm profile get 
+</code></pre>
+<ul>
+<li>发布包到 npm 上<ul>
+<li>在当前项目的根目录下，执行<code>npm publish</code>命令，即可将包发布到 npm 上。</li>
+</ul>
+</li>
+</ul>
+<pre><code>// icoding-max为项目文件夹
+C:\Users\EDY\Desktop\demo\icoding-max&gt; npm publish
+// 如果希望发布的包对外不公开，则可以使用下面命令
+npm publish --access public
+</code></pre>
+<blockquote>
+<p>发布成功后</p>
+<ul>
+<li>在 npm 官网<code>https://www.npmjs.com/</code>右上角，点击我的头像，选择<code>Packages</code>菜单进入，就可以看到自己发布的包</li>
+</ul>
+</blockquote>
+<ul>
+<li>删除发布的包<blockquote>
+<p>在终端登录 npm 账号后，可以运行以下命令，将对应的包从 npm 平台上删除</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>npm unpublish 包名 --force # 从npm平台上删除自己发布的对应包
+
+// 删除刚才发布的包，-f 是 --force 的简写
+npm unpublish icoding-max -f
+</code></pre>
+<p><strong>温馨提示：</strong></p>
+<ul>
+<li><code>npm unpublish</code>命令只能删除 <code>72</code> 小时以内发布的包</li>
+<li><code>npm unpublish</code>删除的包，在 <code>24</code> 小时内不允许重复发布</li>
+<li>所以在发布包时，要再三检查，有没有错误。</li>
+</ul>
+<h3 id="五、npm-常用命令和使用技巧"><a href="#五、npm-常用命令和使用技巧" class="headerlink" title="五、npm 常用命令和使用技巧"></a>五、npm 常用命令和使用技巧</h3><ul>
+<li>检测是否安装及版本</li>
+</ul>
+<pre><code>npm -v # 显示版本号说明已经安装相应的版本
+</code></pre>
+<ul>
+<li>生成 package.json 文件<ul>
+<li><code>package.json</code>用来描述项目中用到的模块和其他信息</li>
+</ul>
+</li>
+</ul>
+<pre><code>npm init # 初始化生成package.json
+</code></pre>
+<ul>
+<li>安装模块</li>
+</ul>
+<pre><code>npm install # 安装package.json定义好的模块，简写 npm i
+
+// 安装包指定模块
+npm i &lt;ModuleName&gt;
+
+// 全局安装
+npm i &lt;ModuleName&gt; -g
+
+// 安装包的同时，将信息写入到package.json中的 dependencies 配置中
+npm i &lt;ModuleName&gt; --save/P
+
+// 安装包的同时，将信息写入到package.json中的 devDependencies 配置中
+npm i &lt;ModuleName&gt; --save-dev/D
+
+// 安装多模块
+npm i &lt;ModuleName1&gt; &lt;ModuleName2&gt;
+
+// 安装方式参数：
+-save # 简写-S，加入到生产依赖中
+-save-dev # 简写-D，加入到开发依赖中
+-g # 全局安装 将安装包放在 /usr/local 下或者你 node 的安装目录
+</code></pre>
+<ul>
+<li>查看命令</li>
+</ul>
+<pre><code>// 查看所有全局安装的包
+npm ls -g
+
+// 查看本地项目中安装的包
+npm ls
+
+// 查看包的 package.json文件
+npm view &lt;ModuleName&gt;
+
+// 查看包的依赖关系
+npm view &lt;ModuleName&gt; dependencies
+
+// 查看包的源文件地址
+npm view &lt;ModuleName&gt; repository.url
+
+// 查看包所依赖的node版本
+npm view &lt;ModuleName&gt; engines
+
+// 查看帮助
+npm help
+</code></pre>
+<ul>
+<li>更新模块</li>
+</ul>
+<pre><code>// 更新本地模块
+npm update &lt;ModuleName&gt;
+
+// 更新全局模块
+npm update -g &lt;ModuleName&gt; # 更新全局软件包。
+npm update -g # 更新所有的全局软件包。
+npm outdated -g --depth=0 # 找出需要更新的包。
+</code></pre>
+<ul>
+<li>卸载模块</li>
+</ul>
+<pre><code>// 卸载本地模块
+npm uninstall &lt;ModuleName&gt;
+
+// 卸载全局模块
+npm uninstall -g &lt;ModuleName&gt; # 卸载全局软件包。
+</code></pre>
+<ul>
+<li>清空缓存</li>
+</ul>
+<pre><code>// 清空npm缓存
+npm cache clear
+</code></pre>
+<p>使用淘宝镜像源</p>
+<ul>
+<li><p>npm 默认的镜像源下载速度很慢，通常切换国内淘宝镜像源，下载速度更快</p>
+</li>
+<li><p>查看当前正在使用的 npm 镜像源</p>
+</li>
+</ul>
+<pre><code>npm config get registry
+</code></pre>
+<ul>
+<li>临时使用 npm 镜像源（仅使用一次淘宝镜像源地址）</li>
+</ul>
+<pre><code>npm --registry https://registry.npmmirror.com install &lt;ModuleName&gt;
+</code></pre>
+<ul>
+<li>切换 npm 镜像源</li>
+</ul>
+<pre><code>npm config set registry https://registry.npmmirror.com
+</code></pre>
+<ul>
+<li>其他</li>
+</ul>
+<pre><code>// 更改包内容后进行重建
+npm rebuild &lt;ModuleName&gt;
+
+// 检查包是否已经过时，此命令会列出所有已经过时的包，可以及时进行包的更新
+npm outdated
+
+// 访问npm的json文件，此命令将会打开一个网页
+npm help json
+
+// 发布一个包的时候，需要检验某个包名是否存在
+npm search &lt;ModuleName&gt;
+
+// 撤销自己发布过的某个版本代码
+npm unpublish &lt;package&gt; &lt;version&gt;
+</code></pre>
+<p>npm 使用技巧</p>
+<ul>
+<li>多次安装不成功尝试先清除缓存</li>
+</ul>
+<pre><code>npm cache clean -f
+</code></pre>
+<ul>
+<li>查看已安装的依赖包版本号</li>
+</ul>
+<pre><code>npm ls &lt;ModuleName&gt;
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>用此方法才能准确的知道项目使用的版本号，查看 <code>package.json</code> 时，有“^” 符号表示大于此版本</li>
+</ul>
+</blockquote>
+<p>nrm 的作用与使用</p>
+<blockquote>
+<ul>
+<li>nrm（npm registry manager）是 npm 的镜像源管理工具</li>
+<li>有时候国外资源太慢，使用这个就可以快速地在 npm 源间切换</li>
+</ul>
+</blockquote>
+<ul>
+<li>nrm 的安装</li>
+</ul>
+<pre><code>npm install -g nrm
+</code></pre>
+<ul>
+<li>nrm 命令</li>
+</ul>
+<pre><code>nrm ls　#查看可用的源（有*号的表示当前所使用的源,以下&lt;registry&gt;表示源的名称）
+nrm use &lt;registry&gt; # 将npm下载源切换成指定的源
+nrm add &lt;registry&gt; &lt;url&gt; # 添加源，url为源的路径
+nrm del &lt;registry&gt; # 删除源
+nrm test &lt;registry&gt; # 测试源的响应时间，可以作为使用哪个源的参考
+
+nrm help　# 查看nrm帮助
+nrm home &lt;registry&gt;　# 跳转到指定源的官网
+</code></pre>
+<ul>
+<li>nrm 使用<blockquote>
+<p>如果在你的网络不太理想或者受到其他网络限制导致不能使用 npm 原本的源进行下载时，nrm 就非常有用了，你只需要：</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>nrm ls # 查看可用的源
+nrm use &lt;registry&gt;　# 切换到指定源
+</code></pre>
+<h3 id="六、Babel-简介与基本使用"><a href="#六、Babel-简介与基本使用" class="headerlink" title="六、Babel 简介与基本使用"></a>六、Babel 简介与基本使用</h3><blockquote>
+<p>深入浅出 Babel 是什么，Babel 的使用方式，使用 Babel 编译 ES6 代码前后的结果 等</p>
+</blockquote>
+<h4 id="什么是-Babel"><a href="#什么是-Babel" class="headerlink" title="什么是 Babel"></a>什么是 Babel</h4><blockquote>
+<p>Babel 是一个<code>JavaScript</code>编译器，用来将 ES6 的代码转换成 ES6 之前（ES5 或 ES3）的代码</p>
+<p>说的直白一点，Babel 就是将新版本的代码（ES6）转换成浏览器可以兼容的 ES5 或 ES3 版本的代码，这样我们就可以放心大胆的使用 ES6 ，而不担心兼容性问题了</p>
+<p>关于 ES6 之后的代，其兼容性问题就交给<code>Babel</code>来处理了，<code>Babel</code>可以说是ES6的好兄弟 ！</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://babeljs.io/">Babel 的官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.babeljs.cn/">Babel 中文网站（非官方）</a></li>
+<li><a target="_blank" rel="noopener" href="https://babeljs.io/repl">Babel 的在线编译网址</a></li>
+</ul>
+<h4 id="使用-Babel-在线编译器转码"><a href="#使用-Babel-在线编译器转码" class="headerlink" title="使用 Babel 在线编译器转码"></a>使用 Babel 在线编译器转码</h4><blockquote>
+<p>接下来我们编写了一段简单的 ES6 代码，然后利用 Babel 的在线编译工具来编译，具体如下</p>
+<ul>
+<li>注意编译器左边的勾选项<img src="bable设置.png"></li>
+</ul>
+</blockquote>
+<ol>
+<li>编译前后代码对比解析</li>
+</ol>
+<ul>
+<li>编译前 ES6 代码如下</li>
+</ul>
+<pre><code>let username = &quot;icoding&quot;;
+const sex = &quot;male&quot;;
+
+const add = (x, y) =&gt; x + y;
+
+new Promise((resolve, reject) =&gt; &#123;
+  resolve(&quot;成功 ！&quot;);
+&#125;).then((value) =&gt; &#123;
+  console.log(value);
+&#125;);
+
+const obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<ul>
+<li>利用 Babel 在线编译后的代码如下</li>
+</ul>
+<pre><code>var username = &quot;icoding&quot;;
+var sex = &quot;male&quot;;
+var add = function add(x, y) &#123;
+  return x + y;
+&#125;;
+new Promise(function (resolve, reject) &#123;
+  resolve(&quot;成功 ！&quot;);
+&#125;).then(function (value) &#123;
+  console.log(value);
+&#125;);
+var obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<p><strong>编译解析：</strong></p>
+<ul>
+<li>Babel 转码后，let 和 const 转换成了 var，箭头函数转换成了普通函数。</li>
+<li>但<code>Promise</code>、<code>Object.assign()</code>编译后，<strong>并没有做任何的修改，还是原样输出了</strong></li>
+</ul>
+<p><strong>原因是：</strong></p>
+<ul>
+<li>Babel 只能编译 ES6 的<strong>大部分语法</strong>（如：let、const、class、()&#x3D;&gt;箭头函数这些类似新增的语法），<strong>但对于 ES6 新增的 API</strong>（如：<code>Set、Map、Promise、Array.from()、Object.assign()</code>）本身默认是没有办法通过 Babel 编译来转换成 ES5 之前的语法的。<blockquote>
+<ul>
+<li>因为语法的转换很简单，直接替换就完事。但像 Promise 等这些新增的全局对象，并没有办法直接替换，除非再实现一份，否则是无法转换的。</li>
+<li>所以要解决 ES6 新增的 API，我们只能人为的去实现这些 API 方法，说的直白一点就是在当前代码中通过 ES5 版本的 JS 来手动实现<code>Promise、Set、Map</code>等方法。当然这些方法不需要我们自己去写，官方帮我们实现了，我们只需要引入第三方对应的 JS 模块就可以了</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>引入 polyfill<blockquote>
+<p>能过前面的学习，我们知道 Babel 只能编译 ES6 的大部分语法，对 ES6 新的 API 本身是没有办法转的。所以我们需要通过引入<strong>第三方模块</strong>来解决代码（目标环境-浏览器）中缺失的 API。</p>
+<p><code>polyfill</code>翻译为中文为”垫片”，所谓的”垫片“,是指<strong>垫平不同浏览器之间差异的东西</strong>。比如我们上面提到的，在低版本浏览器中不支持 ES6 的大部分语法，所以<code>polyfill</code>提供了 ES6 中新增的所有 API。通过在我们的项目中引入<code>polyfill</code>就可以补全浏览器缺失的 API。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在<code>bootcdn</code>网站上，搜索<code>babel</code>官方提供的<code>polyfill</code>，搜索名字为<code>babel-polyfill</code>，具体如下</li>
+<li>代码经过 Babel 转码后，我们再在项目中，手动引入<code>polyfill.min.js</code>文件，如下</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/babel-polyfill/7.12.1/polyfill.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var username = &quot;icoding&quot;;
+  var sex = &quot;male&quot;;
+  var add = function add(x, y) &#123;
+    return x + y;
+  &#125;;
+  new Promise(function (resolve, reject) &#123;
+    resolve(&quot;成功 ！&quot;);
+  &#125;).then(function (value) &#123;
+    console.log(value);
+  &#125;);
+  var obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+  console.log(obj);
+&lt;/script&gt;
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>为了测试效果，可以安装低版本的浏览器来测试，以下是<code>firefox</code>浏览器所有版本的下载地址</li>
+<li>下载是<code>firefox32</code>版来测试，在<code>firefox32.0</code>版中，是不支持<code>Object.assign()</code>方法的，这个方法从<code>firefox34.0</code>版开始支持。</li>
+<li>以上代码在没有引入<code>polyfill</code>前，在<code>firefox32 </code>中没有会抛出错误<code>TypeError: Object.assign is not a function</code>,引入后，则正常输出结果。</li>
+</ul>
+<p><strong>在实际的项目开发中</strong></p>
+<ul>
+<li>我们肯定不会手动的在编译好的代码中来引入<code>polyfill</code>，因为这种方式会把当前代码中没有用到的 ES6API 全都加载进来了，这样项目的<strong>体积就太大了</strong>。我们希望能实现按需加载（也就是只加载当前项目中用到的 ES6 API）<blockquote>
+<ul>
+<li>后面我们会结合<code>Webpack</code>来实现<strong>按需引入</strong></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="Babel-的安装与使用"><a href="#Babel-的安装与使用" class="headerlink" title="Babel 的安装与使用"></a>Babel 的安装与使用</h4><blockquote>
+<p>上面使用 Babel 的在线编译是为了让大家能快速的了解 Babel，在实际开发中，我们肯定不会利用在线编译来转码，而是通过安装 Babel 来实现转码。</p>
+<p>Babel 有哪些使用方式，在官网中即可查看 <code>https://babeljs.io/setup</code></p>
+<p>习惯性通过官网查看学习，毕竟最新的使用方式也会实时更新和升级（避免现在学习了，未来又会有新的变化）</p>
+</blockquote>
+<ul>
+<li><p>这里我们先来学习使用Babel的<code>CLI</code>命令行工具来实现转码，具体如下</p>
+<img src="babel安装与使用.png">
+</li>
+<li><p>Babel 的使用方式非常多,我们常见的会使用 CLI 命令行工具 或 在 Webpack 中使用。</p>
+</li>
+<li><p>当我们点击任意使用方式，即可跳转至 对应的使用步骤，按步骤操作即可</p>
+</li>
+</ul>
+<ol>
+<li>Babel 的安装</li>
+</ol>
+<ul>
+<li>首先新建项目目录文件夹，所有<code>Babel</code>都是安装在当前项目下</li>
+<li>则在项目目录下执行<code>npm init -y</code> 初始化项目（生成<code>package.json</code>文件）</li>
+<li>执行下面命令，安装<code>Babel</code>相关的两个包，安装成<strong>开发依赖</strong></li>
+</ul>
+<pre><code>// 我们可以通过运行以下命令在本地安装 Babel CLI
+// 注：以下命令会默认安装最新版本的 babel
+// @babel/core Babel 的所有核心功能都在这里
+// @babel/cli 是Babel命令行转码工具，如果我们想在通过命令进行Babel转码，就需要安装它，如:在终端通过命令 npx babel...或 npm run bulid  来实现转码
+npm install --save-dev @babel/core @babel/cli
+</code></pre>
+<p><strong>在实际开发中</strong></p>
+<ul>
+<li>不会每次都使用最新版本，毕竟是第三方的包，我们无法控制。如果官方升级，有可能语法也会变化，就会导致项目报错而无法运行，这也是非常常见的情况。</li>
+</ul>
+<blockquote>
+<p>安装成功后，会在<code>package.json</code>文件中的<code>devDependencies</code>属性中，添加如下两个字段</p>
+</blockquote>
+<pre><code> &quot;devDependencies&quot;: &#123;
+      // 提供了 CLI 命令，用来执行 babel 相关命令
+    &quot;@babel/cli&quot;: &quot;^7.21.0&quot;,
+      // babel 的核心包，用来发号施令调度用的，不做具体的事情，具体怎么做交给其他包来完成
+    &quot;@babel/core&quot;: &quot;^7.21.3&quot;
+  &#125;
+</code></pre>
+<ul>
+<li>可以在安装前，执行<code>npm view @babel/core versions</code>来查其所有版本</li>
+<li>Babel 相关的包安装好之后，接下来创建项目目录和需要转码的 JS 代码，然后利用 Babel 命令来转码。</li>
+</ul>
+<ol start="2">
+<li>创建目录和对应的 ES6 代码</li>
+</ol>
+<ul>
+<li>转码前，在当前目录下新建<code>src</code>目录，然后在<code>src</code>目录下新建<code>main.js</code>文件</li>
+<li>把需要转码的代码放在<code>main.js</code>文件中</li>
+<li>代码如下</li>
+</ul>
+<pre><code>let username = &quot;icoding&quot;;
+const sex = &quot;male&quot;;
+
+const add = (x, y) =&gt; x + y;
+
+new Promise((resolve, reject) =&gt; &#123;
+  resolve(&quot;成功 ！&quot;);
+&#125;).then((value) =&gt; &#123;
+  console.log(value);
+&#125;);
+
+const obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<ol start="3">
+<li>在<code>package.json</code>文件中添加执行的<code>babel</code>命令</li>
+</ol>
+<ul>
+<li>接下来，在<code>package.json</code>文件的<code>scripts</code>属性中，新增<code>&quot;build&quot;: &quot;babel src -d dist&quot;</code></li>
+</ul>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;,
+    &quot;build&quot;: &quot;babel src -d dist&quot;
+  &#125;
+</code></pre>
+<p><strong>scripts 属性解析</strong></p>
+<ul>
+<li><code>scripts</code>属性用于存放通过<code>npm run</code>命令来执行的命令</li>
+<li>通过在命令行中输入<code>npm run build</code> 就相当于是执行后面的<code>babel src -d dist</code>，那你可能会想，那我直接把<code>babel src -d dist</code>命令在终端执行，为什么会报错呢？这个问题，我们放在后面来给大家讲。</li>
+<li>test用于测试使用，可以删除，也可以保留。</li>
+</ul>
+<p><strong>“build”: “babel src -d dist” 命令解读</strong></p>
+<ul>
+<li>build：构建创建的意思，这个名字可以自己取，主要用于 <code>npm run build</code>时来执行后面的<code>babel src -d dist</code>命令</li>
+<li>babel：表示编译执行的是<code>babel</code>命令</li>
+<li>src：表示将 src 目录下的所有 JS 文件进行编译（用于存放需要编译的 ES6 文件），也可以指定单独的某个 JS 文，如：<code>babel src/main.js -d dist</code></li>
+<li>-d：表示输出，-d 是<code>--out-dir</code>的缩写，表示输出目录的意思</li>
+<li>dist：表示编译后的文件输出到<code>dist</code>目录下，这个文件夹的名字可以自定义</li>
+</ul>
+<blockquote>
+<p>当我们执行上面的命令后，在当前目录下生成了 <code>dist</code> 目录，同时在目录中有<code>main.js</code>文件</p>
+</blockquote>
+<ul>
+<li>打开<code>main.js</code>文件，就会发现以上编译后的代码，只是将格式调整了下，又原文输出了 ！本质上没有发生任何变化。</li>
+</ul>
+<p><strong>转码失败原因</strong></p>
+<ul>
+<li>原因是，<strong>缺少了 Babel 的配置文件</strong>，我们要能实现 ES6 编译成兼容 ES5 或 ES3 的代码，需要在 Babel 的配置文件中配置相关信息（指定编译规则），告诉 Babel 把 ES6 编译成兼容 ES5 还是 ES3 的代码。</li>
+<li>如果我们不指定具体将 ES6 的代码编译成兼容 ES5 的，还是 ES3 等，那 Babel 也不知道要如何转，所以他就会原样输出我们的代码。</li>
+</ul>
+<ol start="4">
+<li>创建 Babel 配置文件 <code>babel.config.json</code></li>
+</ol>
+<ul>
+<li>Babel 的配置文件是执行 Babel 时默认在当前目录下搜寻的文件，主要有<code>.babelrc、.babelrc.js、babel.config.json、package.json</code>。它们的配置项都是相同的，作用也是一样的的，只需要选择其中一种即可。</li>
+<li>接下来我们在根目录中创建一个<code>babel.config.json</code>配置文件并启用一些<strong>预设</strong>。我们可以使用<code>env</code>预设，该预设为 <code>ES2015+</code>启用转换（<strong>本质：</strong>如何将所有 ES6 转换成 ES5，具体转换规则的方法都在这个包里）。<blockquote>
+<p>具体配置如下：</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&#123;
+  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]
+&#125;
+</code></pre>
+<p><strong>关于预设的理解</strong></p>
+<blockquote>
+<p>预设可以理解为<strong>一组插件的集合</strong>，我们想要把 ES6 代码转换成 ES5 或 ES3 的代码，需要用到的插件非常多，而预设相当于是把这些需要用到的插件放到了一个包里，我们只需要安装这个包，然后利用这个包里的插件来帮我们实现对应的转码工作。</p>
+</blockquote>
+<blockquote>
+<p>在<code>Babel 6</code>时期，有年代预设，比如</p>
+</blockquote>
+<ul>
+<li>babel-preset-es2015 ES2015 标准中的语法转换器预设</li>
+<li>babel-preset-es2016 ES2016 标准中的语法转换器预设</li>
+<li>babel-preset-es2017 ES2017 标准中的语法转换器预设</li>
+<li>…….</li>
+</ul>
+<blockquote>
+<p>但现在没有年代预设了，而是把所有预设打包到一起为<code>@balel/preset-env</code>中，至后新增的语法需要转换，对应的插件也会更新到这个包中，所以我们现在只需要配置这一个预设就可以。</p>
+</blockquote>
+<ul>
+<li>配置后，我们还需要安装<code>@babel/preset-env</code>包，执行以下命令即可</li>
+</ul>
+<pre><code>// @babel/preset-env 包只是告诉babel我们如何把ES6转成ES5，转码后，项目上线并不需要这个包，所以安装成开发依赖
+npm install @babel/preset-env --save-dev
+</code></pre>
+<ul>
+<li>安装完成后，可在<code>package.json</code>文件中查看<code>@babel/preset-env</code>的配置依赖信息，如下</li>
+</ul>
+<pre><code> &quot;devDependencies&quot;: &#123;
+     // 提供了 CLI 命令，用来执行 babel 相关命令
+    &quot;@babel/cli&quot;: &quot;^7.21.0&quot;,
+     // babel 的核心包，用来发号施令调度用的，不做具体的事情，具体怎么做交给其他包来完成
+    &quot;@babel/core&quot;: &quot;^7.21.3&quot;,
+     // 这个包提供了ES6转ES5的语法转换规则，用来告诉 babel 具体该如何将ES6转ES5
+    &quot;@babel/preset-env&quot;: &quot;^7.20.2&quot;
+  &#125;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>你可能会想，明明每次 Babel 转码都需要安装三个包，为什么还要把他们拆分，然后分别安装呢 ？</p>
+</blockquote>
+<ul>
+<li>其实这就是模块化开发思想，这样模块化拆分，每一个包的分工都会非常的明确，需要什么就用什么（避免用不到的都统统引入项目，造成资源的浪费）</li>
+</ul>
+<ol start="5">
+<li>再次执行编译命令<blockquote>
+<p>以上配置好后，我们接下来再次执行以下命令来编译</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm run build
+</code></pre>
+<ul>
+<li>这一次终于成功了，恭喜你，你已经学会了如何使用 Babel 来实现转码。不过上面 ES6 新增的 API 目前还是实现不了，只能通过手动引入Polyfill来补全。</li>
+<li>等我们后面学到Webpack时，我们就可以通过Webpack来实现按需引入空缺的 API。</li>
+</ul>
+<h4 id="总结：Babel-转码流程"><a href="#总结：Babel-转码流程" class="headerlink" title="总结：Babel 转码流程"></a>总结：Babel 转码流程</h4><blockquote>
+<p>我们利用 Babel 来转码，需要经过以下 7 个步骤</p>
+</blockquote>
+<ul>
+<li>①、创建项目的根目录，如 icoding 新建文件夹</li>
+<li>②、在根目录，利用<code>npm init -y</code>来初始化项目，会自动创建<code>package.json</code>文件</li>
+<li>③、在根目录创建<code>src</code>文件夹， 把需要转码的<code>JS</code>文件(<code>main.js</code>)放在<code>src</code>文件夹下（目录名可以自定义）</li>
+<li>④、执行以下命令，一次安装 Babel 需要的包，安装成开发依赖</li>
+</ul>
+<pre><code>npm install --save-dev @babel/core @babel/cli @babel/preset-env
+</code></pre>
+<ul>
+<li>⑤、在根目录下创建<code>babel.config.json</code>配置文件，配置以下信息</li>
+</ul>
+<pre><code>&#123;
+  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]
+&#125;
+</code></pre>
+<ul>
+<li>⑥、在<code>package.json</code>中添加执行 <code>babel</code> 的命令，这样我们就可以通过<code>npm run build</code>命令来执行 <code>babel</code> 命令完成转码</li>
+</ul>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;build&quot;: &quot;babel src -d dist&quot;
+  &#125;
+</code></pre>
+<ul>
+<li>⑦、最后在当前目录终端执行以下命令，完成转码</li>
+</ul>
+<pre><code>npm run build
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>不过 Babel 只能编译 ES6 的大部分语法，但对于 ES6 新增的 API 是没有办法转的。我们只能通过引入 polyfill 来补全缺失的 API，这样我们的项目就可以在不同版本的浏览器上运行，而不用担心兼容性问题。</p>
+<p>不过手动引入 polyfill 会造成我们的 JS 文件过大，因为我们可能只用了部分的 ES6 新特性，但我们把所有缺失的新特性都添加进来了。</p>
+<ul>
+<li>这个问题，我们后面学了 Webpack 再来解决。</li>
+</ul>
+</blockquote>
+<h3 id="七、其它扩展"><a href="#七、其它扩展" class="headerlink" title="七、其它扩展"></a>七、其它扩展</h3><h4 id="npm-run-build-背后到底做了什么-？"><a href="#npm-run-build-背后到底做了什么-？" class="headerlink" title="npm run build 背后到底做了什么 ？"></a><code>npm run build</code> 背后到底做了什么 ？</h4><blockquote>
+<p>在<code>package.json</code>中通过配置以下信息，就可以通过<code>npm run build</code>命令来执行 babel 了。</p>
+</blockquote>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;build&quot;: &quot;babel src -d dist&quot;
+  &#125;
+</code></pre>
+<p>我们说<code>npm run build</code>就相当于是执行了<code>babel src -d dist</code>，那为什么我们直接在命令终端输出<code>babel src -d dist</code>命令<strong>会报错</strong>呢 ？</p>
+<p><strong>原因在于</strong></p>
+<blockquote>
+<p>当我们执行<code>npm run build</code>时, 他会默认找到<code>node_modules/.bin/</code>下的 <code>babel</code>，也就是<code>node_modules/.bin/babel</code> ,打开这个文件，文件内容如下</p>
+</blockquote>
+<pre><code>#!/bin/sh
+basedir=$(dirname &quot;$(echo &quot;$0&quot; | sed -e &#39;s,\\,/,g&#39;)&quot;)
+case `uname` in
+    *CYGWIN*|*MINGW*|*MSYS*) basedir=`cygpath -w &quot;$basedir&quot;`;;
+esac
+if [ -x &quot;$basedir/node&quot; ]; then
+  exec &quot;$basedir/node&quot;  &quot;$basedir/../@babel/cli/bin/babel.js&quot; &quot;$@&quot;
+else
+  exec node  &quot;$basedir/../@babel/cli/bin/babel.js&quot; &quot;$@&quot;
+fi
+</code></pre>
+<p>上面的 babel 文件中，相当于执行了以下命令</p>
+<pre><code>  node  C:/Users/EDY/Desktop/test/icoding/node_modules/@babel/cli/bin/babel.js  src -d dist
+// 我们在命令行执行上面命令，也可以实现同样的转码效果
+// 在当前目录下，上面命令可以简写成如下
+ node .\node_modules\@babel\cli\bin\babel.js src -d dist
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li>我们把命令配置在<code>package.json</code>中，这样在每次执行相同命令时，就可以达到减化输入的命令。</li>
+</ul>
+<h4 id="npx-命令"><a href="#npx-命令" class="headerlink" title="npx 命令"></a><code>npx</code> 命令</h4><blockquote>
+<p><code>npx</code>是新版的<code>Node.js</code>里附带的命令，我们也可能通过在当前目录的命令终端执行以下代码，来实现转码。</p>
+</blockquote>
+<ul>
+<li>安装npx</li>
+</ul>
+<pre><code>npm i -g npx
+</code></pre>
+<ul>
+<li><code>npx</code>的功能和<code>npm</code>类似，他在运行时，也会默认找到<code>node_modules/.bin/</code>下面<code>babel</code>来执行</li>
+</ul>
+<pre><code>npx babel src -d dist
+</code></pre>
+<ul>
+<li>这里我们来补充一种写法</li>
+</ul>
+<pre><code>//将当前目录下的src目录中的main.js文件转码后，在当前目录下生成转码成功后bundle.js文件
+npx babel .\src\main.js -o bundle.js
+&gt;
+#-o 右侧是编译后js的存放位置，不过不会自动创建文件，需要手动把文件夹新建好
+npx babel .\src\main.js -o .\dist\bundle.js
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/">https://hermiablog.com/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+                                    <span class="chip bg-color">工程化</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="前端工程化（二）">
+                        
+                        <span class="card-title">前端工程化（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Webpack5核心基础、预处理器、插件、兼容性处理、开发环境配置、生产环境优化
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/12/24/vue3%E5%85%A8%E5%AE%B6%E6%A1%B6-Ts-vant-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E8%B4%AD%E7%89%A9%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/41.jpg" class="responsive-img" alt="vue3全家桶+Ts+vant 前后端分离购物商城项目介绍">
+                        
+                        <span class="card-title">vue3全家桶+Ts+vant 前后端分离购物商城项目介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            项目介绍及搭建过程
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            hermia
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/app/">
+                        <span class="chip bg-color">app</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

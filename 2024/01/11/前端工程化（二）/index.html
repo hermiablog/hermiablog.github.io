@@ -1,0 +1,5741 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="前端工程化（二）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>前端工程化（二） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/38.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">前端工程化（二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    32.7k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、Webpack5-基础入门"><a href="#一、Webpack5-基础入门" class="headerlink" title="一、Webpack5 基础入门"></a>一、Webpack5 基础入门</h3><img src="webpack总结-1.png">
+
+<h4 id="Webpack-是什么"><a href="#Webpack-是什么" class="headerlink" title="Webpack 是什么"></a>Webpack 是什么</h4><blockquote>
+<p>本质上，Webpack是一个用于现代JavaScript应用程序的 <strong>静态模块打包工具</strong>，当 Webpack 处理应用程序时，它会在内部从一个或多个入口点构建一个<strong>依赖图</strong>（dependency graph），然后将你项目中所需的每一个模块组合成一个或多个 bundles（包），它们均为静态资源，用于展示你的内容。</p>
+</blockquote>
+<ul>
+<li>详细查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/concepts/">Webpack5 中文文档教程</a></li>
+<li>模块：是 Webpack 可以处理的最小单位，一切文件都可以当成一个模块，比如 JS、CSS、图片、图标字体等</li>
+<li>静态：通俗点说，就是开发过程中存在于本地的 JS、CSS、图标字体等文件就是静态的模块，当然最终都要上传到服务器。</li>
+</ul>
+<blockquote>
+<p>在开发过程中有些资源你是放在本地，使用相对地址来引用，有些是放在服务器，需要通过远程地址（绝对地址）来引用。这些存在本地的就是静态的，而那些需要从远程服务器获取的就是<strong>动态</strong>的。</p>
+<ul>
+<li>所以你可以理解为，使用<strong>相对路径</strong>来引用的资源，可以看作是静态的模块。</li>
+</ul>
+</blockquote>
+<pre><code>//静态的
+&lt;img src=&quot;./logo.png&quot; /&gt;
+//动态的
+&lt;img src=&quot;https://www.xxx.com/images/logo.png&quot; /&gt;
+</code></pre>
+<ul>
+<li>对于动态的内容，webpack 是没有办法处理的。</li>
+</ul>
+<p><strong>打包</strong></p>
+<blockquote>
+<p>打包简单理解就是将多个模块组合成一个模块。当然这多个模块之间有一定的依赖关系，根据他们的依赖关系来组合成一个模块。</p>
+</blockquote>
+<ul>
+<li>src目录下有 3 个 JS 文件，分别是为<code>index.js、a.js、b.js</code></li>
+</ul>
+<pre><code>// index.js 模块
+import &#123;name,age&#125; from &#39;./a.js&#39;
+function()
+console.log(name,age)
+
+// a.js 模块
+import &#123;age&#125; from &quot;./b.js&quot;
+const name=&quot;icoding&quot;;
+export &#123;name,age&#125;
+
+// b.js内容
+export const age=33
+</code></pre>
+<ul>
+<li>如果我们以<code>a.js</code>作为打包的入口文件，最终打包后会生成一个新的 JS 文件，这个新的 JS 文件我们称为出口文件，内容如下</li>
+</ul>
+<pre><code>(() =&gt; &#123;
+  &quot;use strict&quot;;
+  console.log(&quot;icoding&quot;, 33);
+&#125;)();
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>当然，webpack 在打包时，可以是多入口的，可以将<code>index.js</code>和<code>a.js</code>都作为打包的入口，这个时候对应的也会生成两个新的 JS 文件，这两个新的 JS 文件我们称为 出口文件</li>
+</ul>
+<h4 id="Webpack-初体验"><a href="#Webpack-初体验" class="headerlink" title="Webpack 初体验"></a>Webpack 初体验</h4><blockquote>
+<p>接下来我们就利用 Webpack 来完成我们上面所说的打包工作。这里我们重点关注打包的整个流程，关于更多的细节，后面会单独来讲。<br><strong>打包具体流程如下：</strong></p>
+<ul>
+<li>创建项目目录，并初始化 npm 的package.json文件</li>
+<li>准备好需要打包的 JS 文件(index.js、a.js、b.js)</li>
+<li>安装 webpack 需要的包</li>
+<li>执行打包命令，完成打包。</li>
+</ul>
+<p>以上打包流程可以参考<code>webpack</code><a target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/getting-started">官网指南</a>，主要考虑后续升级有可能会有部分细节与现在讲的不太一样。</p>
+<ul>
+<li>所以大家后期还是要以官方提供的指南为主。</li>
+</ul>
+</blockquote>
+<ol>
+<li>创建项目，并初始化 npm<blockquote>
+<p>首先创建项目目录文件夹<code>icoding</code>，然后进入当前目录，在当前目录初始化<code>npm</code></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>#第一步：创建icoding文件夹，作为项目的目录文件夹
+md icoding
+
+#第二步：进入icoding文件夹目录
+cd icoding
+
+#第三步：初始化npm，生成package.json文件
+npm init -y
+</code></pre>
+<blockquote>
+<ul>
+<li>完成以上命令后，会在当前目录创建<code>icoding</code>文件夹，并在 <code>icoding</code>文件夹生成了<code>package.json</code>文件</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>准备好需要打包的 JS 文件<blockquote>
+<p>接下来，我们将在icoding文件夹下，分别新<code>src</code>文件夹和<code>dist</code>文件夹</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>md src
+md dist
+</code></pre>
+<blockquote>
+<ul>
+<li>src 文件夹：用于存放源代码（需要打包的文件），我们把把<code>index.js，a.js，b.js</code>放到这个目录下</li>
+<li>dist 文件夹：用于存放打包后的代码，利用 <code>webpack</code> 打包生成后的文件会添加到这个目录下</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>index.js、a.js、b.js</code> 的内容如下</li>
+</ul>
+<pre><code>// index.js 模块
+import &#123; name, age &#125; from &quot;./a.js&quot;;
+console.log(name, age);
+
+// a.js 模块
+import &#123; age &#125; from &quot;./b.js&quot;;
+const name = &quot;icoding&quot;;
+export &#123; name, age &#125;;
+
+// b.js内容
+export const age = 33;
+</code></pre>
+<ol start="3">
+<li>安装 webpack 需要的包</li>
+</ol>
+<ul>
+<li>执行以下命令，<strong>本地安装</strong>Webpack 所需要的包，添加到开发依赖</li>
+</ul>
+<pre><code>#webpack 是webpack的核心包
+#webpack-cli 是命令行运行webpack所需要的包
+#--save-dev 安装为开发依赖，因为webpack只是用来帮我们打包文件，项目上线是不需要用到他
+#以下安装并没有指定版本，安装最新的长期支持版本
+npm install webpack webpack-cli --save-dev
+
+#以下是全局安装，不过我们一般会选择本地安装（主要考虑不同的项目对webpack版本的依赖不同）
+npm install webpack webpack-cli -D -g
+</code></pre>
+<ul>
+<li>安装后在package.json中添加了如下字段</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;webpack&quot;: &quot;^5.76.2&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="4">
+<li>执行 webpack 命令打包<blockquote>
+<ul>
+<li>在当前目录下执行以下命令，完成打包工作</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>npx webpack
+</code></pre>
+<ul>
+<li>打包后在<code>dist</code>目录下，生成了<code>main.js</code>文件，文件内容如下：</li>
+</ul>
+<pre><code>(() =&gt; &#123;
+  &quot;use strict&quot;;
+  console.log(&quot;icoding&quot;, 33);
+&#125;)();
+</code></pre>
+<p><strong>解析：</strong></p>
+<blockquote>
+<ul>
+<li>当我们执行<code>npx webpack</code>时，<strong>默认</strong>会把当前目录下的<code>src/index.js</code>文件作为打包的<strong>入口文件</strong>，打包后默认生成<code>main.js</code>出口文件，并输出到<code>dist</code>目录。</li>
+</ul>
+</blockquote>
+<ol start="5">
+<li>npm scripts<blockquote>
+<p>我们也可以在<code>package.json</code>中，配置以下信息，然后执行<code>npm run webpack</code>来完成打包工作</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;webpack&quot;:&quot;webpack&quot;
+  &#125;,
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>如果我们想要指定打包的入口和出口，我们需要通过<code>Webpack</code>的配置文件来配置。</li>
+</ul>
+</blockquote>
+<ol start="6">
+<li>Webpack 配置文件<blockquote>
+<p>如果不配置，Webpack 怎么知道</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>你想用 Webpack 来打包哪些文件呢？</li>
+<li>打包后的文件要放在哪里呢？</li>
+<li>打包过程中需要做哪些处理？ 比如打包时要不要把代码压缩下，需不需要把 ES6 转换成 ES5 等此类的操作。都需要在配置文件中说明。</li>
+</ul>
+<blockquote>
+<p>配置文件的名称为 <code>webpack.config.js</code> （在当前项目的根目录下自己新建）。</p>
+</blockquote>
+<ul>
+<li>配置文件也是一个模块，后面我们需要将配置的内容<strong>导出去</strong>，供外部使用。</li>
+</ul>
+<p><strong>需要注意的是</strong></p>
+<ul>
+<li>咱们这里的模块导出就不要使用 ES6 的模块了，咱们这里的 Webpack 是要在 <code>Node</code> 平台上运行的，所以我们需要使用 Node 中导入模块的方法。</li>
+</ul>
+<pre><code>// 不需要导出的内容，就写在这里就行
+
+// 导出模块
+module.exports = &#123;&#125;;
+</code></pre>
+<ul>
+<li>接下来，通过 Webpack 的配置文件来指定打包的入口和出口。<blockquote>
+<p>现在我们在项目的根目录下新建<code>webpack.config.js</code>文件，配置以下信息</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>// webpack是基于node的，所以这里可以使用node.js语法
+// path模块为node中的内置模块，用来解决路径问题
+const path = require(&quot;path&quot;);
+// 模块导出
+module.exports = &#123;
+  // 指定打包的入口文件，单入口
+  entry: &quot;./src/index.js&quot;,
+
+  // 指定打包的出口
+  output: &#123;
+    // 打包后文件存放的目录，__dirname为node的全局变量，
+    // 为当前文件所在的绝对路径 C:\Users\EDY\Desktop\test\icoding
+    // path.resolve()用来将两个参数拼接成当一个完整的路径
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    // 打包后文件的名字
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>以上配置中的</strong></p>
+<ul>
+<li><p><code>entry</code>表示打包的入口文件，Webpack 打包时，会以这个文件作为入口，根据他的关系依赖图，来完成打包。</p>
+</li>
+<li><p><code>output</code>表示打包后资源的出口配置项，他是一个对象，对象中的</p>
+</li>
+<li><p><code>path</code>表示打包后资源的输出路径，他是一个绝对值</p>
+</li>
+<li><p><code>filename</code>表示打包后输出的出口文件名</p>
+</li>
+<li><p><code>filename</code>中的值与path中的值拼接后，得到一个完整的绝对地址，告诉<code>Webpack</code>，打包后输出的出口文件名和位置。</p>
+</li>
+<li><p>然后运行<code>npx webpack</code>完成打包，在 dist 目录中生成了<code>bundle.js</code>文件。</p>
+<blockquote>
+<ul>
+<li>文件内容如下：</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>(() =&gt; &#123;
+  &quot;use strict&quot;;
+  console.log(&quot;icoding&quot;, 33);
+&#125;)();
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>在我们执行<code>npx webpack</code>命令的时候，<code>Webpack</code> 会自动寻找 <code>Webpack</code> 的配置文件并使用配置信息进行打包，<strong>如果找不到该文件就会使用默认配置打包</strong>。</li>
+</ul>
+</blockquote>
+<h4 id="总结：Webpack-打包流程"><a href="#总结：Webpack-打包流程" class="headerlink" title="总结：Webpack 打包流程"></a>总结：Webpack 打包流程</h4><blockquote>
+<p>Webpack 打包具体流程如下：</p>
+<ul>
+<li>创建项目目录，并在当前目录下初始化 npm（创建<code>package.json</code>）</li>
+<li>准备好打包的入口文件和出口目录 （在当前目录下创建 src 文件夹和 dist 文件夹，把需要打包的 JS 文件放入 src 目录）</li>
+<li>执行<code>npm i webpack webpack-cli -D</code>命令，本地安装 Webpack，并添加到开发依赖</li>
+<li>在当前目录下新建<code>webpack.config.js</code>文件，配置打包的入口和出口</li>
+<li>最后执行<code>npx webpack</code>完成打包工作，或在<code>package.json</code>中添加以下配置，然后在命令终端执行<code>npm run webpack</code>完成打包工作</li>
+</ul>
+</blockquote>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;webpack&quot;:&quot;webpack&quot;,
+
+ // 也可以在打包时，指定webpack的配置文件
+ // &quot;webpack&quot;:&quot;webpack --config 指定的配置文件&quot;
+ //  &quot;webpack&quot;: &quot;webpack --config webpack.config.js&quot;
+&#125;,
+</code></pre>
+<h4 id="4、mode-配置项"><a href="#4、mode-配置项" class="headerlink" title="4、mode 配置项"></a>4、mode 配置项</h4><blockquote>
+<p>在 Webpack 打包时，我们可以通过 mode 配置选项，告诉 Webpack 使用相应模式来打包。</p>
+<ul>
+<li>点击 查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/mode">官方文档</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>mode 属性有三个值：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>production</td>
+<td>默认值，表示给生产环境打包</td>
+</tr>
+<tr>
+<td>development</td>
+<td>表示给开发环境打包</td>
+</tr>
+<tr>
+<td>none</td>
+<td>表示不使用任何的默认优化选项</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>在不同的模式下打包，<code>Webpack</code> 会做不同的优化处理，例如：<code>production </code>模式下会对打包后的代码<strong>进行压缩</strong>。而 <code>none</code> 模式表示对打包后的代码不做任何的处理。</p>
+<p>想要在 <code>Webpack</code> 打包时，根据对应的模式来打包，需要先将 <code>mode</code> 属性设置为对应值。</p>
+</blockquote>
+<p>设置方式有两种：</p>
+<ul>
+<li>方式一：在<code>webpack.config.js</code>文件的配置对象上添加<code>mode</code>选项</li>
+</ul>
+<pre><code>module.exports = &#123;
+  mode: &quot;development&quot;, // 打包模式，还可以是 production  或 none
+&#125;;
+</code></pre>
+<ul>
+<li>方式二：从<code>CLI</code>（命令行）参数中传递</li>
+</ul>
+<pre><code>npx webpack --mode=development
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>如果没有设置对应的<code>mode</code>选项，则默认使用<code>production</code>模式打包。如果以上两种方式同时设置，则<strong>优先</strong>以<code>CLI</code> 命令行参数中传递的模式为主。</li>
+</ul>
+<blockquote>
+<p>根据 mode 变量更改打包行为</p>
+<ul>
+<li>如果想根据<code>CLI</code>命令行参数中的 mode 值来改变打包的行为，则需要将<code>webpack.config.js</code>中的配置导出为<strong>函数</strong>，而不是对象。</li>
+<li>具体如下：</li>
+</ul>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+// 配置对象
+const config = &#123;
+  entry: &quot;./src/a.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+
+// argv 表示命令行传过来的参数对象（参数以键值分别为argv对象的属性和值）
+// env 用来接受环境变量
+module.exports = (env, argv) =&gt; &#123;
+  console.log(env);
+  console.log(argv);
+  if (argv.mode === &quot;development&quot;) &#123;
+    // 更多配置，可以在这里更改config对象中属性的值实现
+    console.log(&quot;开发模式打包&quot;);
+    // 开发模式下把打包入口改为a.js
+    config.entry = &quot;./src/a.js&quot;;
+  &#125;
+
+  if (argv.mode === &quot;production&quot;) &#123;
+    // 更多配置，可以在这里更改config对象中属性的值实现
+    console.log(&quot;生产模式打包&quot;);
+    config.entry = &quot;./src/b.js&quot;;
+  &#125;
+  return config;
+&#125;;
+</code></pre>
+<p><strong>配置解析</strong></p>
+<blockquote>
+<ul>
+<li>如果执行命令时传入的<code>--mode=development</code>则为开发模式打包，打包入口文件为<code>./src/a.js</code></li>
+<li>如果执行命令时传入的<code>--mode=production</code>则为生产模式打包，打包入口文件为<code>./src/b.js</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>当我们在命令行执行<code>npx webpack --mode=development --env global=local</code>时，表示以开发模式打包，打包入口为<code>./src/a.js</code>文件，箭头函数中的<code> env</code> 与 <code>argv</code> 对应的值如下</p>
+</blockquote>
+<pre><code>// evn对应的对象
+&#123; WEBPACK_BUNDLE: true, WEBPACK_BUILD: true, global: &#39;local&#39; &#125;
+
+// argv对应的对象
+&#123;
+  mode: &#39;development&#39;,
+  env: &#123; WEBPACK_BUNDLE: true, WEBPACK_BUILD: true, global: &#39;local&#39; &#125;
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>注：<a target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/environment-variables/">环境变量</a></li>
+</ul>
+</blockquote>
+<h3 id="二、Webpack-的入口（entry）配置"><a href="#二、Webpack-的入口（entry）配置" class="headerlink" title="二、Webpack 的入口（entry）配置"></a>二、Webpack 的入口（entry）配置</h3><blockquote>
+<p>前面我们已经学习了简单的 Webpack 资源入口与出口的配置，接下来我们将深入学习 Webpack 的资源入口 entry 的配置。</p>
+<ul>
+<li>我们以下面这个<code>Webpack</code>配置文件来展开讲解</li>
+</ul>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  mode: &quot;none&quot;,
+&#125;;
+</code></pre>
+<ul>
+<li>上面配置表示从当前根目录下的<code>./src/index.js</code>文件开始打包，打包后生成的<code>bundle.js</code>文件放在根目录下的<code>dist</code>文件夹下。</li>
+<li>上面的<code>entry</code>表示打包入口，我们看到他是一个相对路径。实际上上面配置还省略了一个配置参数<code>context</code>，<code>Webpack</code>官方称为基础目录。</li>
+</ul>
+<h4 id="context-基础目录"><a href="#context-基础目录" class="headerlink" title="context 基础目录"></a>context 基础目录</h4><blockquote>
+<ul>
+<li><code>context</code>表示入口的基础目录，他的值是一个字符串，表示一个绝对路径，表示资源入口<code>entry</code>是以哪个目录为起点的。</li>
+<li>在实际开发中，通常不会设置<code>context</code>,不设置时，<strong>他的默认值为当前工作目录的绝对路径</strong>。因为我们打包时，都是在当前工作目录下开始打包的，所以默认值并不会造成地址出错。</li>
+<li><code>context</code>的值与entry的值<strong>拼接</strong>起来，就是 Webpack 的打包入口文件了</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下配置表示从工程目录的<code>src</code>文件夹下的<code>index.js</code>文件开始打包</li>
+</ul>
+<pre><code>// 导入path模块
+const path = require(&quot;path&quot;);
+module.exports = &#123;
+  // 以下可以理解为context的默认值（当前工程目录的绝对路径），所以也可以省略不写
+  context: path.resolve(__dirname, &quot;&quot;),
+  entry: &quot;./src/index.js&quot;,
+&#125;;
+</code></pre>
+<blockquote>
+<ul>
+<li>打包后，默认生成打包后的出口文件<code>main.js</code>，保存在当前目录的<code>dist</code>目录下，如果当前目录下没有<code>dist</code>目录，则会自动创建<code>dist</code>目录</li>
+</ul>
+</blockquote>
+<h4 id="入口-entry"><a href="#入口-entry" class="headerlink" title="入口 entry"></a>入口 entry</h4><blockquote>
+<ul>
+<li>entry 表示 Webpack 资源入口文件，也就是打包的入口文件，入口文件的路径需要用<strong>相对路径</strong>来表示。</li>
+<li>entry 的值可以是一个字符串，也可是<strong>数组、对象、函数、描述符</strong>形式。当然不同的形式也有不同的含义，接下来我们就来 一 一展开讲解。</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>入口 entry 的值是字符串</p>
+<blockquote>
+<p>入口 entry 是字符串形式，我们前面使用过了，表示的就是打包的入口 JS 文件，所以就不再重复讲解。</p>
+</blockquote>
+</li>
+<li><p>入口 entry 的值是数组</p>
+<blockquote>
+<p>如果 entry 的值是一个数组，那数组中的<strong>最后一个文件</strong>为资源的入口文件，数组的其余文件会被<strong>预先构建</strong>到入口文件中。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>基本用法</p>
+</blockquote>
+<ul>
+<li>在当前目录下的src文件目录下有三个文件，分别为<code>a.js，b.js，index.js</code>，文件内容如下</li>
+</ul>
+<pre><code>// a.js
+console.log(&quot;a.js中内容&quot;);
+
+// b.js
+console.log(&quot;b.js中内容&quot;);
+
+// index.js
+console.log(&quot;index.js中内容&quot;);
+</code></pre>
+<ul>
+<li>以下是 webpack 的配置文件，下面配置相当于在<code>index.js</code>文件中先用<code>import</code>导入<code>a.js</code>与<code>b.js</code>，然后再把<code>index.js</code>文件作为入口文件打包</li>
+</ul>
+<pre><code>// webpack.config.js
+const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: [&quot;./src/a.js&quot;, &quot;./src/b.js&quot;, &quot;./src/index.js&quot;],
+&#125;;
+</code></pre>
+<ul>
+<li>上面，如同以下写法</li>
+</ul>
+<pre><code>// index.js
+import &quot;./a.js&quot;;
+import &quot;./b.js&quot;;
+console.log(&quot;index.js中内容&quot;);
+
+// webpack.config.js
+const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+&#125;;
+</code></pre>
+<ul>
+<li>打包后，默认会生成出口文件<code>main.js</code>，并保存在当前目录的<code>dist</code>目录下。</li>
+<li>如果当前目录下没有<code>dist</code>目录，则会自动创建<code>dist</code>目录</li>
+</ul>
+<ol start="3">
+<li>入口<code>entry</code>的值是对象</li>
+</ol>
+<ul>
+<li>如果一个项目有多个入口，我们通常把<code>entry</code>的值设置为一个对象，表示<strong>多入口配置</strong>。</li>
+<li>对象有多少个属性，就表示有多少个入口。</li>
+<li>打包后，<strong>对象的属性名</strong>会作为生成后对应的出口文件的名称。</li>
+<li>前面我们讲的字符串和数组形式的值，都是属于单入口，打包后只会生成一个 JS 文件。而多入口打包后会生成多个 JS 文件。</li>
+</ul>
+<blockquote>
+<p>基本用法</p>
+</blockquote>
+<ul>
+<li>在当前目录下的<code>src文</code>件目录下有三个文件，分别为<code>a.js，b.js，index.js，login.js</code></li>
+<li>以下是 Webpack 的配置文件，表示多入口打包，entry 对应的对象有多少个属性，就有多少个入口</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &#123;
+    app: [&quot;./src/a.js&quot;, &quot;./src/b.js&quot;, &quot;./src/index.js&quot;],
+    login: &quot;./src/login.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p><strong>上面配置，表示有两个入口</strong></p>
+</blockquote>
+<ul>
+<li>第一个入口是<code>./src/index.js</code>文件，打包前会先将<code>a.js</code>与<code>b.js</code>预先构建到index.js中</li>
+<li>第二个入口是<code>./src/login.js</code>文件。<blockquote>
+<p>打包后，对象的属性名会作为生成后对应的出口文件的名称。</p>
+</blockquote>
+</li>
+<li><code>entry</code>中<code>app</code>属性对应的入口文件打包后生成的出口文件名为<code>app.js</code></li>
+<li><code>entry</code>中<code>login</code>属性对应的入口文件打包后生成的出口文件名为<code>login.js</code></li>
+<li>所以以上配置打包后会，默认在当前目录的<code>dist</code>目录中生成两个出口文件，分别为<code>app.js</code>和<code>login.js</code></li>
+</ul>
+<ol start="4">
+<li>入口 entry 值是函数</li>
+</ol>
+<ul>
+<li>entry 的值是一个函数，则 Webpack 的入口entry的值最终为这个函数的<strong>返回值</strong>。</li>
+<li>函数的返回值可以是<strong>字符串、数组、对象</strong>。</li>
+<li>当我们在设置 entry 的值时，<strong>如果需要处理一些额外的逻辑</strong>，就可以把entry值设为函数<blockquote>
+<p>基本用法</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  // 函数的返回值作为 entry的值
+  entry() &#123;
+    return &#123;
+      app: &quot;./src/index.js&quot;,
+      login: &quot;./src/login.js&quot;,
+    &#125;;
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>以上写法等同于以下写法</p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &#123;
+    app: &quot;./src/index.js&quot;,
+    login: &quot;./src/login.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>关于 entry 入口是描述符形式，相对有些复杂，入门阶段暂时不需要了解</li>
+</ul>
+<ol start="5">
+<li>Webpack 入口总结<blockquote>
+<p>Webpack 的入口，表示 Webpack 从那个 JS 文件开始打包。Webpack 打包时，通过context和entry这两个参数的值找到需要打包的入口文件。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>context</code>是一个基础目录，他的值是一个字符串，表示一个绝对路径（默认值为前工程目录的绝对路径），表示资源入口 entry 是以那个目录为起点的。</li>
+<li><code>entry</code>是一个相对路径，它的值与context的值拼接起来，就是Webpack打包的入口文件了。</li>
+</ul>
+<p><strong>单入口与多入口</strong></p>
+<ul>
+<li>Webpack 的的打包入口，可以是单一入口，也可以是多入口，可以通过 entry 的值来设置。</li>
+</ul>
+<p><strong>entry 的值的不同形式</strong></p>
+<table>
+<thead>
+<tr>
+<th>entry 的值类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串</td>
+<td>表示单入口打包，打包后，默认生成main.js文件，保存在当前目录的dist目录</td>
+</tr>
+<tr>
+<td>数组</td>
+<td>表示单入口打包，数组的最后一个文件为打包的入口文件，在打包前会先把数组的其余文件预先加载到入口文件中；打包后，默认生成<code>main.js</code>文件，保存在当前目录的dist目录</td>
+</tr>
+<tr>
+<td>对象</td>
+<td>如果是多入口打包，可以将值设为对象类型。对象的每个属性对应一个入口。打包后，默认情况下，对象的属性名会是出口文件名，最后这些出口文件统一保存在当前目录的dist目录</td>
+</tr>
+<tr>
+<td>函数</td>
+<td>如果入口文件的设置涉及到一些逻辑处理，可以把值设为函数。函数的返回值可以是字符串、数组、对象中的任意一种形式。最后打包的结果与上面三种形式单独写的效果是一致的。</td>
+</tr>
+</tbody></table>
+<h3 id="三、Webpack-的出口（output）配置"><a href="#三、Webpack-的出口（output）配置" class="headerlink" title="三、Webpack 的出口（output）配置"></a>三、Webpack 的出口（output）配置</h3><blockquote>
+<p>前面我们在学习 Webpack 的入口配置时，并没有设置对应的出口配置，而是采用的默认值。接下来我们就来深入学习 Webpack 的出口（output）配置。</p>
+<ul>
+<li>我们以下面这个 Webpack 配置文件来展开讲解。</li>
+</ul>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  mode: &quot;none&quot;,
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>以上配置文件告诉<code>Webpack</code>，以当前目录下的<code>src/index.js</code>作为打包的入口文件，打包后，生成<code>bundle.js</code>文件，并将该文件保存在当前目录下的<code>dist</code>目录中</p>
+<ul>
+<li>以上配置文件中的<code>output</code>就是资源的出口配置项。<code>output</code>是一个对象，他身上有以下几个重要的属性，也是我们接下来学习的重心。</li>
+</ul>
+</blockquote>
+<p><strong>output 对象的属性</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>path</td>
+<td>资源打包后的输出位置</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>表示打包后生成的出口文件名，可以是一个文件名，也可以是一个相对地址</td>
+</tr>
+<tr>
+<td>publicPath</td>
+<td>表示打包后生成的资源的访问路径</td>
+</tr>
+<tr>
+<td>chunkFilename</td>
+<td>用来设置入口文件打包过程中生成的其它的模块名</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>output 对象身上的更多属性，参考<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/output/#outputpath">官方文档</a></li>
+</ul>
+</blockquote>
+<h4 id="output-path"><a href="#output-path" class="headerlink" title="output.path"></a>output.path</h4><blockquote>
+<p><code>output.path</code>：表示资源打包后的输出位置，该位置需要一个绝对路径。</p>
+</blockquote>
+<ul>
+<li>如果不设置，默认值为当前目录下的dist目录。</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    // 以下值相当于是path的默认值，如果输出地址与默认地址一样，也可以省略不写
+    // path:path.resolve(__dirname,&quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="output-filename"><a href="#output-filename" class="headerlink" title="output.filename"></a>output.filename</h4><ul>
+<li><code>output.filename</code>：表示打包后生成的出口文件名。</li>
+<li><code>filename</code>的值可以是一个<strong>文件名</strong>，如：<code>bundle.js</code>,也可以是一个<strong>相对地址</strong>，如：<code>&quot;./js/bundle.js&quot;</code>。</li>
+<li>这些出口文件最终会被保存到<code>output.path</code>选项指定的目录下。<blockquote>
+<p>单入口打包写法</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name].js&quot;,
+    //或者自己取名
+    // filename: &quot;bundle.js&quot;
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>配置解析：</strong></p>
+<ul>
+<li>第一种写法<code>filename:&quot;[name].js&quot;</code>中的<code>name</code>的值是默认值<code>main</code></li>
+<li>以上配置表示以当前目录下的<code>./src/index.js</code>文件作为打包入口文件，打包后生成<code>main.js</code>文件，保存在当前目录的<code>dist</code>目录下。</li>
+</ul>
+<blockquote>
+<p>如果针对的是多入口打包，我们需要为每一个出口文件设置一个唯一的名称，可以使用以下写法</p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &#123;
+    app: &quot;./src/index.js&quot;,
+    login: &quot;./src/login.js&quot;,
+  &#125;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name].js&quot;,
+    // 也支持以下写法：
+    //  filename:&quot;[name]/index.js&quot;
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>配置解析</strong></p>
+<blockquote>
+<ul>
+<li>上面配置项<code>filename:&quot;[name].js</code>“ 中的方括号<code>[]</code>代表<strong>占位符</strong>，里面的<code>name</code>表示特定的动态值，与<code>entry</code>对象中的属性名一一对应，用来表示打包生成后出口的文件名。</li>
+<li><strong>第一种写法</strong>表示有两个打包入口，打包后，对应生成两个出口文件，分别为<code>app.js</code>和<code>login.js</code>，最终这两个文件会保存在当前目录的<code>dist</code>目录下。</li>
+<li>第二种写法<code>filename:&quot;[name]/index.js&quot;</code>，在文件打包后，文件名都是<code>index.js</code>，他们会被分别保存在<code>dist</code>目录下的<code>app</code>和<code>login</code>文件夹中</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>温馨提示</strong></p>
+</blockquote>
+<ul>
+<li>上面<code>Wepack</code>配置中，<code>filename</code>值中的方括号<code>[]</code>中的特定动态值除了<code>name，还有id、hash、fullhash、chunkhash、contenthash</code>，分别表示不同的动态值，他们有什么区别，后面我们单独来介绍</li>
+</ul>
+<h4 id="output-publicPath"><a href="#output-publicPath" class="headerlink" title="output.publicPath"></a>output.publicPath</h4><blockquote>
+<p><code>output.publicPath</code>表示的是资源的<strong>访问路径</strong>。<br><strong>注意区分：output.path 与 output.publicPath</strong></p>
+</blockquote>
+<ul>
+<li><code>output.path</code>表示的打包后的<strong>资源输出位置</strong>，也就是资源存放在磁盘中的位置。</li>
+<li>资源存放在磁盘后，如果我们想要<strong>通过浏览器来访问该资源</strong>，这时候就需要指定该资源的访问路径，这个访问路径就是用<code>output.publicPath</code>来指定。</li>
+</ul>
+<blockquote>
+<p>在实际的开发中，我们通常需要设置<code>output.publicPath</code>的值。他的值可以是<strong>函数</strong>与<strong>字符串</strong>两种形式，通常我们使用字符串形式的值，所以我们这里也只讲字符串类型的值。</p>
+<p><code>output.publicPath</code>可以设置成以下几种类型的值</p>
+<ul>
+<li>具体参考<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/output/#outputpublicpath">官方文档</a></li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“auto”</td>
+<td>默认值，表示资源调用者与被调用者在同一目录下</td>
+</tr>
+<tr>
+<td><strong>相对 URL</strong> 地址(relative URL)</td>
+<td>对于当前浏览的 HTML 页面解析</td>
+</tr>
+<tr>
+<td><strong>相对于服务器</strong> URL（Server-relative URL）</td>
+<td>值以“&#x2F;“开头，表示访问的资源以当前页面的服务器地址根目录作为基础路径</td>
+</tr>
+<tr>
+<td><strong>绝对 URL</strong>（absolute URL）</td>
+<td>值以”http”协议开始，代表一个 HTTP 协议的绝对地址</td>
+</tr>
+<tr>
+<td><strong>相对于协议</strong>的 URL（protocol-relative URL）</td>
+<td>相对 HTTP 协议地址，以<code>//</code> 开头</td>
+</tr>
+</tbody></table>
+<ol>
+<li>publicPath 值为”auto“<blockquote>
+<p><code>output.publicPath</code>的默认值为”auto”,表示资源调用者与被调用者在<strong>同一目录下</strong><br><strong>案例演示</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在项目根目录下，执行<code>npm init -y</code>初始化 <code>package.json</code> 文件</li>
+<li>在项目根目录下，安装 webpack</li>
+</ul>
+<blockquote>
+<p><code>src</code>文件夹,中有<code>a.js</code>和<code>index.js</code>两个文件，文件内容如下：</p>
+</blockquote>
+<pre><code>// a.js
+console.log(&quot;a.js中内容&quot;)
+
+// index.js
+import (&#39;./a.js&#39;);
+console.log(&quot;index.js&quot;)
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>配置文件，内容如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+
+// 以 src/index.js 为打包入口文件，打包后生成bundle.js文件，文件保存在当前目录的dist目录下，当前没有dist目录，在打包后会自动创建
+</code></pre>
+<ul>
+<li><code>index.html</code>文件内容如下</li>
+</ul>
+<pre><code>&lt;body&gt;
+  &lt;!-- 导入打包后dist目录下的bundle.js文件--&gt;
+  &lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><strong>分析打包后结果</strong></p>
+<ul>
+<li>打包后，在根目录的<code>dist</code>目录中多了两个<code>JS</code>文件：<code>bundle.js</code>与<code>85.bundle.js</code></li>
+<li><code>bundle.js</code>是入口<code>./src/index.js</code>文件打包后生成的<code>output.filename</code>指定的输出文件。</li>
+<li><code>85.bundle.js</code>是<code>./src/index.js</code>文件中通过<code>import (&#39;./a.js&#39;)</code>加载的异步资源文件，被单独打包成了<code>85.bundle.js</code>文件。</li>
+<li>最后，我们在通过<code>VSCode</code>在浏览器中打开<code>index.html</code>文件，在控制台输出以下结果</li>
+</ul>
+<pre><code>index.js
+a.js中内容
+</code></pre>
+<ul>
+<li>我们切换到控制台的<code>NetWork</code>选项，如下图<img src="autoUrl-network.png"></li>
+</ul>
+<p><strong>注：</strong></p>
+<ul>
+<li>可以看到<code>bundle.js</code> 与 <code>85.bundle.js</code>在同一访问目录下。这是因为<code>output:publicPath</code>的默认值是<code>auto</code>，<code>Webpack</code>自行决定其访问路径，<strong>默认</strong>（资源调用者与被调用者在同一目录下）。</li>
+<li>在<code>index.html</code>页面加<code>bundle.js</code>，在解析<code>bundle.js</code>时，发起请求加载<code>85.bundle.js</code>文件。这里<strong>资源调用者</strong>是<code>bundle.js</code>，<strong>被调用者</strong>是<code>85.bundle.js</code></li>
+</ul>
+<ol start="2">
+<li>publicPath 值为”相对 URL”<blockquote>
+<p>当<code>output.publicPath</code>的值以<code>&quot;./&quot;、”./js&quot;、“../&quot;</code>等开头，表示的是相对<code>URL</code>，其相对于当前浏览的<code>HTML</code>页面解析。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>接下来，我们通过案例来演示<code>publicPath</code>值为相对 URL（relative URL）时的情况</li>
+</ul>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>在上面案例的基础上，我们把配置文件中设置<code>publicPath</code>的值改为<code>./js/</code>，具体如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    publicPath: &quot;./js/&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>重新执行<code>npx webpack</code>打包，发现项目的目录和刚才的一样，并没有任何改变，不过这一次，我们在浏览器中打开<code>index.html</code>文件时，控制台抛出了 <code>404</code> 错误</li>
+<li>我们切换到控制台的<code>NetWork</code>选项，如下图<img src="相对url-network.png"></li>
+</ul>
+<p><strong>注：</strong></p>
+<ul>
+<li>观察上图，<code>index.html</code>页面的地址为<code>http://127.0.0.1:5500/index.html</code>，而<code>85.bundle.js</code>文件的访问地址是<strong>相对于<code>index.html</code>页面</strong>，所以其访问地址为<code>http://127.0.0.1:5500/js/85.bundle.js</code>因为我们项目中没有<code>js</code>这个文件夹，所以找不到对应的文件。</li>
+</ul>
+<ol start="3">
+<li>相对于服务器 URL（Server-relative URL）<blockquote>
+<p>当<code>output.publicPath</code>的值以<code>“/&quot;</code>开头，表示访问的资源以当前页面的<strong>服务器地址根目录</strong>作为基础路径。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<p>在上面案例的基础上，把<code>output.publicPath</code>的值，改成<code>&quot;/&quot;</code>开头，代码如下：</p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    publicPath: &quot;/&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>重新执行<code>npx webpack</code>打包，打包后在浏览器中打开<code>index.html</code>页面。发现控制报了 404 错误。</li>
+<li>切换到控制台的<code>NetWork</code>选项，如下图</li>
+</ul>
+<p><strong>注：</strong></p>
+<ul>
+<li>观察上图，<code>index.html</code>页面的访问地址是<code>http://127.0.0.1:5500/index.html</code>，<code>85.bundle.js</code>文件地址是相对于 <code>index.html</code>页面，所以访问地址为<code>http://127.0.0.1:5500/85.bundle.js</code>。因为当前项目根目录下没有该文件，所发抛出 <code>404</code> 错误。<blockquote>
+<ul>
+<li>当我们把<code>85.bundle.js</code>文件从<code>dist</code>文件夹下剪切到根目录下时，刷新<code>http://127.0.0.1:5500/index.html</code>页面时，报错消失了，控制台正确输出了内容。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="4">
+<li>绝对 URL（absolute URL）<blockquote>
+<p>当<code>output.publicPath</code>的值是以 <code>HTTP</code> 协议名开始的地址，我们称为绝对 URL。web中常见的协议名有<code>HTTP</code>和<code>HTTPS</code><br>如果我们<strong>静态资源</strong>是分布在<strong>两台服务器</strong>上，这个时候我们就需要把<code>output.publicPath</code>的值设置为以<code>HTTP</code>协议开头的绝对地址。</p>
+<p>这样做的目的是加快资源的下载速度，因为浏览器只能为每一个域名维护了<code>6</code>个<code>TCP</code>连接，也就一次性最多支持 <code>6</code> 个并发请求。</p>
+<p>如果资源放在多个服务器上，比如 3 个，那相当于我一次性可以并行发送 18 个请求来获取资源。相当于之前只有一个帮你干活，现在有 3 个人，你说快吗 ？</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>在上面案例的基础上，把<code>output.publicPath</code>的值，改成以 <code>http</code> 协议开头的绝对地址，代码如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    publicPath: &quot;https://web.arryblog.com/&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>重新执行npx webpack打包，打包后在浏览器中打开index.html页面。发现控制报了 404 错误。</li>
+<li>切换到控制台的NetWork选项，如下图<img src="绝对url-network.png"></li>
+</ul>
+<p><strong>注：</strong></p>
+<ul>
+<li>观察上图，我们发现，<code>85.bundle.js</code>文件的访问地址为<code>https://web.arryblog.com/85.bundle.js</code>。因为服务器上没有这个文件，所以抛出 404 错误。接下来我把打包好的<code>85.bundle.js</code>文件上传到服务器根目录下，重新刷新页面，报错消失了，资源被正常加载了。</li>
+</ul>
+<ol start="5">
+<li>相对于协议的 URL（protocol-relative URL）<blockquote>
+<p>在 web 端相对于协议的 URL，通常指的是相对于HTTP协议地址以<code>//</code>开头的地址。与绝对的 HTTP 协议地址相比，它省略了前面的<code>https:或http:</code>。</p>
+<p>通常情况下，我们的网站可以同时以 http 或 https 两种协议来访问。在使用相对于协议的 URL 时，浏览器会<strong>将当前页面使用的协议名称</strong>与<strong>相对协议地址</strong>拼接得到完整的地址。得到的完整地址就是http或https开头的绝对地址。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<p>在上面案例的基础上，把<code>output.publicPath</code>的值，改成相对于协议的 <code>URL </code>地址，代码如下：</p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    publicPath: &quot;//web.arryblog.com/&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>重新执行npx webpack打包，打包后在浏览器中打开<code>index.html</code>页面，控制台能正常输出结果。</li>
+<li>切换到控制台的NetWork选项，如下图<img src="相对协议-network.png"></li>
+</ul>
+<p><strong>注：</strong></p>
+<ul>
+<li>观察上图，我们发现<code>85.bundle.js</code>文件的访问地址前面自动中上与<code>index.html</code>页面相同的<code>http</code>协议名。</li>
+</ul>
+<ol start="6">
+<li>output.publicPath 配置总结<blockquote>
+<p><code>output.publicPath</code>可以设置成以下 5 种类型的值</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 默认值 auto，可以省略，表示调用者与被调用者在同一目录下
+publicPath: &quot;auto&quot;;
+
+// 相对URL，相对于当前浏览器访问的HTML页面
+publicPath: &quot;./js&quot;;
+
+// 相对服务器URL，相当于当前浏览器访问的HTML页面所在的服务器地址的根目录
+publicPath: &quot;/dist&quot;;
+
+// 绝对URL
+publicPath: &quot;http://web.arryblog.com/&quot;;
+
+// 相对于协议的URL浏览器会自动将访问的HTML页面的协议添加到以下地址前，拼接成一个完整的绝对地址
+publicPath: &quot;//web.arryblog.com/&quot;;
+</code></pre>
+<h4 id="output-chunkFilename"><a href="#output-chunkFilename" class="headerlink" title="output.chunkFilename"></a>output.chunkFilename</h4><blockquote>
+<p><code>output.chunkFilename</code>是用来表示打包后生成的文件名，不过他与<code>filename</code>是有区别的。</p>
+</blockquote>
+<ul>
+<li><p><code>filename</code>表示入口文件打包后生成的对应的出口文件的文件名，而<code>output.chunkFilename</code>表示的是入口文件打包过程中生成的<strong>其它的模块名</strong>。</p>
+</li>
+<li><p>比如前面例子中，<code>index.js</code>文件里有<code>import(&#39;./a.js&#39;)</code>，其中<code>a.js</code>就被单独打包成了<code>85.bundle.js</code>，这个名称就是默认的<code>output.chunkFilename</code></p>
+</li>
+<li><p><code>ouput.chunkFilename</code>的值也支持占位符，可以设置成如下：</p>
+</li>
+</ul>
+<pre><code>output.chunkFilename = &quot;[id].js&quot;;
+// [] 表示占位符 id为随机生成的数字
+</code></pre>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>在上面案例的基础上，在<code>output</code>对象上添加<code>chunkFilename</code>属性，具体代码如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    publicPath: &quot;auto&quot;,
+    chunkFilename: &quot;[id].js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>在当前目录下执行<code>npx webpack</code>打包后，在当前目录的<code>dist</code>文件夹下会生成<code>bundle.js</code>和<code>85.js</code></li>
+<li>其中<code>85.js</code>就是<code>index.js</code>中通过<code>import (&#39;./a.js&#39;)</code>引入的<code>a.js</code>文件被单独打包后形成的。他的名称就是通过<code>chunkFilename</code>属性来设置的。</li>
+</ul>
+<h4 id="has、fullhash、chunkhash、contenthash-的区别"><a href="#has、fullhash、chunkhash、contenthash-的区别" class="headerlink" title="has、fullhash、chunkhash、contenthash 的区别"></a>has、fullhash、chunkhash、contenthash 的区别</h4><blockquote>
+<p>在前面学习<code>output.filename</code>属性的配置和刚学习的<code>output.chunkFilename</code>属性配置时，我们提到了下面这种写法</p>
+</blockquote>
+<pre><code>output.filename = &quot;[name].js&quot;;
+output.chunkFilename: &quot;[id].js&quot;;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>我们知道<code>[]</code>方括号表示一个占位符，<code>name</code>和<code>id</code>表示一个特定的动态值。</li>
+<li>其实，占位符中还有<code>hash、fullhash、chunkhash、contenthash</code>值，这些值都是根据文件内生成的<strong>唯一的</strong><code>hash</code> 值。<br>这些值主要与浏览器的缓存行为有关。所以我们先来了解下浏览器的缓存</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>浏览器缓存</p>
+<blockquote>
+<p>当浏览器访问一个 HTML 页面时，HTML 页面会加载 JS、CSS 和图片等外部资源，这需要花费一定的加载时间。</p>
+<p>如果页面上有些外部资源<strong>长时间并没有什么变化</strong>，比如：Logo 图片，CSS 文件。那我们就可以在发送第一次请求后，把这部分资源存储在本地的磁盘上，这就是<strong>缓存</strong>。</p>
+<ul>
+<li>下次我们再打开这个网页时，就<strong>不需要再发送请求</strong>到服务端获取这部分资源，而是可以直接在本地的磁盘取回缓存的 Logo 图片和 CSS 文件。这样大大的提高了网站资源的加载速度。</li>
+</ul>
+<p>浏览器如何知道该资源是从本地磁盘中取，还是从网络服务器请求下载呢 ？</p>
+<ul>
+<li>这需要服务端在响应头中添加<code>Cache-Control</code>字段来设置。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><code>Cache-Control</code> 响应头</p>
+<blockquote>
+<p><code>Cache-Control</code>的常用值有以下几个，用来设置资源的可缓存性</p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>public</td>
+<td>资源经过的任意方（如：客户端、代理服务器）都可以缓存</td>
+</tr>
+<tr>
+<td>private</td>
+<td>只有发起请求的浏览器（用户端）可以缓存</td>
+</tr>
+<tr>
+<td>no-cache</td>
+<td>可以缓存，但每次使用前必需要发请求到服务端验证是否可以</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td>不缓存请求和响应的任何内容</td>
+</tr>
+<tr>
+<td>max-age</td>
+<td>整数，单位是毫秒，表示缓存的过期时间</td>
+</tr>
+</tbody></table>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<p>接下来我们通过搭建node服务，来给大家演示下缓存</p>
+<ul>
+<li>新建<code>icoding</code>文件夹，在当前文件夹下有两个文件，分别为<code>index.html</code>和<code>server.js</code></li>
+<li><code>index.html</code>文件夹内容如下，在访问 <code>index.html</code> 页面时，会发起请求加载 <code>JS</code> 文件</li>
+</ul>
+</blockquote>
+<pre><code>&lt;body&gt;
+  index.html页面内容
+  &lt;script src=&quot;http://127.0.0.1:8887/js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>server.js</code>文件内容如下</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+const fs = require(&quot;fs&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    const url = request.url;
+    if (url === &quot;/&quot;) &#123;
+      // 返回html页面
+      const html = fs.readFileSync(&quot;./index.html&quot;);
+      response.writeHead(200, &#123;
+        &quot;Content-Type&quot;: &quot;text/html;charset=utf-8&quot;,
+      &#125;);
+      response.end(html);
+    &#125; else if (url === &quot;/js&quot;) &#123;
+      // 返回js代码
+      response.writeHead(200, &#123;
+        &quot;Content-Type&quot;: &quot;text/html;charset=utf-8&quot;,
+        // ---------------------------
+        &quot;Cache-Control&quot;: &quot;no-cache&quot;,
+        // ---------------------------
+      &#125;);
+      response.end(&#39;console.log(&quot;hello world&quot;)&#39;);
+    &#125;
+  &#125;)
+  .listen(8887);
+
+console.log(&quot;Server running at http://127.0.0.1:8887&quot;);
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p><code>server.js</code>代码，用于创建两个服务，分别为<code>http://127.0.0.1:8887/</code>和<code>http://127.0.0.1:8887/js</code></p>
+<p>当访问<code>http://127.0.0.1:8887/</code>地址时，返回<code>index.html</code>页面，并在这个页面中发起请求加载<code>http://127.0.0.1:8887/js</code>下的<code>js</code>内容。</p>
+<ul>
+<li>接下来，我们可以通过修改上面代码中的<code>Cache-Control</code>的值，来查看对应的缓存效果。</li>
+</ul>
+</blockquote>
+<ul>
+<li>会刷新页面<blockquote>
+<ul>
+<li>当没有设置<code>Cache-Control</code>响应头或其值为<code>&quot;no-store&quot;</code>，表示不缓存。</li>
+<li>当值为<code>&quot;no-cache&quot;</code>或<code>&quot;no-cache,max-age=200&quot;</code>时，每次刷新页面，都会向服务器发送请求来验证<strong>是否能使用缓存中内容</strong>,所以每次更新响应的内容，页面都会及时响应。</li>
+</ul>
+</blockquote>
+</li>
+<li>不会刷新页面<blockquote>
+<ul>
+<li>当值为<code>&quot;public,max-age=200&quot;</code>或<code>&quot;max-age=200&quot;</code>或<code>&quot;private,max-age=200&quot;</code>时，页面输出<code>&quot;hello world&quot;</code>，然后更新响应的内容为<code>&quot;hello world 123&quot;</code>，重启服务器，不管如何刷新页面，控制台始终输出<code>&quot;hello world&quot;</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li><p>缓存未过期，如何更新内容</p>
+<blockquote>
+<p>通过上面的学习我们知道，使用缓存的优势很明显。当用户再访问页面时，不用再向服务器发请求获取内容，而是直接从本地电脑的磁盘中读取内容，极大的提高了网站的加载速度。</p>
+<p>但问题也就随之而来，我们可以把缓存的过期时间设置为几天，几个月甚至几年，使该资源能长时间缓存在本地磁盘中。但是，如果我们的资源内容变化了，不想从本地缓存中读取该资源了，那我们又该如何办呢 ？</p>
+<p><strong>唯一的办法就是给文件重新取一个名字</strong>，这样当我们再次访问该资源的时候，因为文件的名字变了，浏览器的缓存中没有缓存该名字的文件，则就会向服务器发请求来重新获取。</p>
+<p>所以缓存文件中的内容一但发生变化，我们就需要重新给文件取一个名字，<strong>那我们如何保证每次变动后产生的名字是唯一的，不和之前的发生重名呢？</strong>这就引出了我们要讲的 <code>hash</code>知识。</p>
+</blockquote>
+</li>
+<li><p>Webpack 与 hash 算法</p>
+<blockquote>
+<p>在使用 Webpack 的时候，Webpack 会根据<strong>所有文件内容</strong>计算出一个特殊的字符串。只要文件的内容有变化，Webpack 就会计算出一个新的特殊字符串，并保证是<strong>唯一的</strong></p>
+<p>Webpack 根据文件内容计算出特殊字符串的时候，使用的算法就是 hash 算法，这个特殊的字符串一般叫作 hash 值。</p>
+<p>我们一般取计算出的特殊字符串的<strong>前 8 位</strong>作为文件名的一部分，因为 hash 算法计算的这个特殊字符串的前 8 位基本可以保证唯一性了。所以 <code>filename</code> 的值常设置为<code>[name][fullhash:8].js</code></p>
+</blockquote>
+</li>
+<li><p>Webpack 中 <code>hash、fullhash、chunkhash、contenthash</code> 的区别</p>
+<blockquote>
+<p>Webpack 通过对文件内容进行 hash 计算来获得 hash 值，那 hash、fullhash、chunkhash、contenthash 有什么区别 ？<br><strong>见下表</strong></p>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>hash 值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hash</td>
+<td>根据打包中<strong>所有文件</strong>计算出的 hash 值</td>
+</tr>
+<tr>
+<td>fullhash</td>
+<td>webpack5 提出的，它用来<strong>替代</strong>之前的 hash</td>
+</tr>
+<tr>
+<td>chunkhash</td>
+<td>根据打包的**当前模块(JS)**计算出来的 hash 值</td>
+</tr>
+<tr>
+<td>contenthash</td>
+<td>他与<code>chunkhash</code>很像，不过他主要用于计算 <code>CSS</code>文件的 hash 值</td>
+</tr>
+</tbody></table>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<ul>
+<li>我们还是用之前的案例代码，把<code>webpack.config.js</code>配置文件的内容更改为如下：</li>
+</ul>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &#123;
+    app: &quot;./src/index.js&quot;,
+    login: &quot;./src/login.js&quot;,
+  &#125;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name][fullhash:8].js&quot;,
+    chunkFilename: &quot;[chunkhash:8].js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>在当前目录执行npx webpack打包后，在dist目录下生成以下文件<br><img src="hash值区别.png"></p>
+</blockquote>
+<p><strong>观察以上图，我们发现</strong></p>
+<blockquote>
+<ul>
+<li><code>app3152888d.js</code>与<code>login3152888d.js</code>的 hash 值是一样的，都是<code>3152888d</code>。因为<code>fullhash</code>的值是通过<strong>所有打包文件</strong>计算也来的，所以是一样的</li>
+<li><code>5aa23035.js</code> 与<code>f2229a8d.js</code>的 hash 值是不一样的，因为<code>chunkhash</code>的值是通过<strong>当前打包的 JS 文件</strong>内容计算出来的。 <code>5aa23035.js</code>是<code>b.js</code>打包后生成的，<code>f2229a8d.js</code>是<code>a.js</code>文件打包后生成的，两者的内容不一样，所以计算得出的<code>hash</code> 值也不一样</li>
+</ul>
+</blockquote>
+<h3 id="四、Webpack-预处理器-loader"><a href="#四、Webpack-预处理器-loader" class="headerlink" title="四、Webpack 预处理器 loader"></a>四、Webpack 预处理器 loader</h3><h4 id="什么是-loader"><a href="#什么是-loader" class="headerlink" title="什么是 loader"></a>什么是 loader</h4><blockquote>
+<p>loader 被翻译成中文为“加载器”,不过我们一般称之为预处理器，或直接称为他为<code>loader</code>。</p>
+<p>我们之前说 Webpack 是静态模块打包器，他可以处理 JS、CSS、图片等之类的文件，<strong>但其实 Webpack 本身只是用来处理 JS 和 JSON 文件</strong>。</p>
+<p>如果要让 Webpack 能够去处理其它类型的文件，如：CSS、图片等些模块，就需要借助<code>loader</code>帮忙。</p>
+<p><strong>loader 的作用就是让 Webpack 能够去处理那些非 JS 和 JSON 文件的模块</strong></p>
+<p>各种各样的 loader 可以让我们去处理各种不同类型的文件，你想处理什么类型的模块，你就加载对应的 loader 来处理就好。</p>
+</blockquote>
+<blockquote>
+<p>接下来我们先借助<code>babel-loader</code>预处理器来学习 loader 是<strong>如何配置的</strong>，然后再学习另外两个重要的 loader，他们分别是：css-loader和style-loader。</p>
+<ul>
+<li>大家在学习时，重点关注如何在 Webpack 中配置相关的 loader，因为 Webpack 中的 loader 非常多，我们了解了如何配置 loader，以后需要用到的相关 loader，查看对应 loader 的文档说明就好。</li>
+<li>不过上面提到的三个 loader 在我们实际开发中也常用，所以他们具体如何配置也是要掌握的。</li>
+</ul>
+</blockquote>
+<h4 id="babel-loader-预处理器"><a href="#babel-loader-预处理器" class="headerlink" title="babel-loader 预处理器"></a>babel-loader 预处理器</h4><blockquote>
+<p>Webpack 他本身<strong>只是对 JS 做了打包，并没有处理他的兼容问题</strong>。也就是 Webpack 在打包过程中并没将 ES6 代码转成兼容低版本浏览器的 ES5 或 ES3 代码。</p>
+<p>如果需要在打包过程中对 JS 实现转码，就需要借助 <code>Babel</code> 来实现。先用 Babel 对 JS 代码转码，然后再将转码后的代码交给 WebPack 去打包。</p>
+<p>不过 Babel 和 Webpack 是两个相互独立的工具，为了让两个相互独立的工具能互通起来，他们之间就需要有一个<strong>接口</strong>，这里的接口就叫着<code>babel-loader</code>。有了babel-loader，咱们的 Webpack 就可以与 Babel 互通了，也就是说可以在 Webpack 中使用 Babel 了。</p>
+<ul>
+<li>接下来我们就在 Webpack 中尝试使用 Babel 来编译我们的代码。</li>
+</ul>
+</blockquote>
+<ol>
+<li><strong>安装</strong> babel-loader<blockquote>
+<ul>
+<li>在使用 bable-loader 前，需要先安装相应的 npm 包，即：<code>babel-loader</code> 包</li>
+<li>最终是使用 Babel 来实现转码，所以还需要安装 Babel 相关包，即：<code>@babel/core</code></li>
+<li>转码过程中 Babel 如何知道把 ES6 的代码转换 ES5 还是 ES3 等 ？就需要选择对应的 Babel 预设来进行转码，所以还需要安装<code>@babel/preset-env</code>包。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>使用以下命令一次性安装以上三个包</li>
+</ul>
+<pre><code>npm install --save-dev babel-loader @babel/core  @babel/preset-env
+</code></pre>
+<blockquote>
+<p><strong>注：</strong></p>
+</blockquote>
+<ul>
+<li><p>我们是在 Webpack 中使用 Babel，所以并<strong>不需要</strong>安装<code>@babel/cli</code>包，但一定要记得先安装 Webpack 相关的包 ！！</p>
+</li>
+<li><p>安装后，<code>package.json</code> 文件中<code>devDependencies</code>属性值如下</p>
+</li>
+</ul>
+<pre><code> &quot;devDependencies&quot;: &#123;
+    &quot;@babel/core&quot;: &quot;^7.21.3&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.20.2&quot;,
+    &quot;babel-loader&quot;: &quot;^9.1.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="2">
+<li>Webpack 中 babel-loader 的<strong>配置</strong><blockquote>
+<p>接下来，我们在 Webpack 中如何使用 Babel 来实现转码，就需要借助 babel-loader，所以我们需要在 Webpack 的配置文件配置 babel-loader，告诉 Webpack。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>webpack.config.js</code>配置文件如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.js$/,
+        exclude: /node_modules/,
+        // 只对 src 目录下的js文件进行处理
+        //include: /src/,
+        use: &#123;
+          loader: &quot;babel-loader&quot;,
+          options: &#123;
+            presets: [&quot;@babel/preset-env&quot;],
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>以上配置文件解析</strong></p>
+<ul>
+<li><p><code>module</code>：module 模块的意思，表示该配置项是用来对模块进行解析与处理。webpack 打包前，需要对模块做相关的处理，就会按 module 中的配置来。所有有关预处理器的配置，都是在配置项 module 下配置。</p>
+</li>
+<li><p><code>rules</code>：是一个数组，数组中的每一项是一个 JS 对象，表示一类预处理器。比如：有专门处理 JS 的预处器 balbel-loader，也有专门处理 CSS 的预处理器（css-loader，style-loader）等。</p>
+</li>
+<li><p><code>test</code>：是一个正则表达式或正则表达式数组，模块文件名与正则表达式相匹配的，会被 use 属性里的 loader 属性中对应的预处理器处理。上面<code>/\.js$/</code>表示匹配所有以<code>.js</code> 结尾的文件。</p>
+</li>
+<li><p><code>exclude</code>：翻译成中文为“排除”的意思，排除指定目录下的模块。他的值可以是字符串或正则表达式，字符串必需是绝对地址。上面<code>/node_modules/</code>表示排除<code>node_modules</code>文件夹文件，不被 babel-loader 预处理器处理。</p>
+</li>
+<li><p><code>include</code>：翻译成中文为“包含”的意思，表示只处理当前目录下与正则表达式匹配的文件。</p>
+</li>
+<li><p>如果 <code>exclude</code> 与 <code>include</code> 同时存在，Webpack 会<strong>优先</strong>使用 <code>exclude</code> 的配置。</p>
+</li>
+<li><p><code>use</code> ：表示要使用的预处理器，值可以是字符串、对象或数组。如果该处理器有些额外的配置参数，那 use 的需要设置为对象。如上面配置</p>
+</li>
+<li><p><code>loader</code>:预处理器的名称</p>
+</li>
+<li><p><code>options</code>：用来设置预处理器需要额外配置的参数</p>
+<blockquote>
+<p>以上配置成功后，在当前目录<code>npx webpack</code>命令后，Webpack 就会在当前目录下寻找所有以<code>.js</code>结尾的文件，并排除<code>node_module</code>文件中的所有<code>JS</code>文件,然后把这些文件先交给<code>bable-loader</code>预处理器来处理，实现转码。最后将转码后的入口文件打包后输出</p>
+</blockquote>
+</li>
+<li><p><code>index.js</code>文件</p>
+</li>
+</ul>
+<pre><code>let username = &quot;icoding&quot;;
+const sex = &quot;male&quot;;
+
+const add = (x, y) =&gt; x + y;
+
+new Promise((resolve, reject) =&gt; &#123;
+  resolve(&quot;成功 ！&quot;);
+&#125;).then((value) =&gt; &#123;
+  console.log(value);
+&#125;);
+
+const obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<ul>
+<li>利用 Webpack 打包后生成的<code>bundle.js</code>文件如下</li>
+</ul>
+<pre><code>(() =&gt; &#123;
+  // webpackBootstrap
+  var __webpack_exports__ = &#123;&#125;;
+  var username = &quot;icoding&quot;;
+  var sex = &quot;male&quot;;
+  var add = function add(x, y) &#123;
+    return x + y;
+  &#125;;
+  new Promise(function (resolve, reject) &#123;
+    resolve(&quot;成功 ！&quot;);
+  &#125;).then(function (value) &#123;
+    console.log(value);
+  &#125;);
+  var obj = Object.assign(
+    &#123;
+      a: 1,
+    &#125;,
+    &#123;
+      b: 4,
+    &#125;
+  );
+  console.log(obj);
+&#125;)();
+</code></pre>
+<blockquote>
+<p><strong>注：</strong></p>
+</blockquote>
+<ul>
+<li>打包后输出的的<code>bundle.js</code>成功实现了转码，不过里面的 <code>API</code> 还是不能转！关于 <code>API</code> 如何处理，后面再讲，这里主要讲 loader。</li>
+</ul>
+<ol start="3">
+<li>babel-loader 如何<strong>提速</strong><blockquote>
+<p>在上面的<code>webpack.config.js</code>中，我们通过<code>exclude</code>和<code>include</code>配置项，来确保转码时<strong>尽可能少</strong>的文件来提高转码的速度。</p>
+<p>我们还可以通过使用<code>cacheDirectory</code>选项，设置<code>cacheDirectory:true</code>来<strong>开启缓存</strong>。在初始打包后再次打包，如果 JS 文件<strong>未发生变化</strong>，可以直接使用初次打包后的缓存文件，这样避免了二次转码，可以有效提高打包速度。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>module: &#123;
+  rules: [
+    &#123;
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: &#123;
+        loader: &quot;babel-loader&quot;,
+        options: &#123;
+          presets: [&quot;@babel/preset-env&quot;],
+          // 开启缓存
+          cacheDirectory: true,
+        &#125;,
+      &#125;,
+    &#125;,
+  ];
+&#125;
+</code></pre>
+<ul>
+<li>注：<code>babel-loader</code>缓存的文件默认保存在<code>node_modules/.cache/babel-loader</code>目录下</li>
+</ul>
+<ol start="4">
+<li>Babel 配置较复杂情况处理<blockquote>
+<p>在上面的配置中，Babel 相关的配置直接配置在<code>webpack.config.js</code>的 <code>module-&gt; rules -&gt; use -&gt; options</code> 下面。如果 Babel 的<strong>配置较复杂</strong>的情况下，我们可以直接在当前工程目录下单独新建一个 <code>Bable</code> 的配置文件，如：<code>babel.config.json</code></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>以下是<code>babel.config.json</code>文件内容</li>
+</ul>
+<pre><code>&#123;
+  &quot;presets&quot;: [&quot;@babel/preset-env&quot;]
+&#125;
+</code></pre>
+<blockquote>
+<p>Babel 的相关配置直接配置在了<code>babel.config.json</code>文件中，则<code>webpack.config.js</code>中对应的配置信息就可以<strong>删除</strong>了。删除后，<code>webpack.config.js</code>文件的内容如下：</p>
+</blockquote>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: &#123;
+          loader: &quot;babel-loader&quot;,
+          options: &#123;
+            // 不能写在babel.config.json，会抛出错误
+            cacheDirectory: true,
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ol start="5">
+<li>总结 loader 及使用流程<blockquote>
+<p>默认 Webpack 只能处理 JS 和 JSON 文件，对于其它类型的文件需要借除 <code>loader</code> 预处理器来帮忙。</p>
+<p>loader 的作用就是让 Webpack 能够去处理那些非 JS 和 JSON 文件的模块。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>loader 的使用流程</strong></p>
+<ul>
+<li>安装 loader 需要的相关包</li>
+<li>在<code>webpack.config.js</code>文件的<code>module</code>选项中配置<code>loader</code>，具体格式如下</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // loader相关模块在module选项中中
+  module: &#123;
+    // rules的值是一个数组，数组中的每一项是一个JS对象，表示一类预处理器
+    rules: [
+      // 第一个预处理器相关配置
+      &#123;
+        // 是一个正则表达式或正则表达式数组，模块文件名与正则表达式相匹配的，会被use属性里的loader属性中对应的预处理器处理
+        test: /正则/,
+        // 排除该文件夹的文件，不需要处理
+        exclude: /文件夹名或目录/,
+        // 只处理该文件夹下符合条件的文件
+        include: /文件夹名或目录/,
+        // 表示要使用的预处理器，值可以是字符串、对象或数组
+        use: &#123;
+          // loader的名称
+          loader: &quot;loader名称&quot;,
+          // 预处理器需要额外配置的参数
+          options: &#123;
+            //
+          &#125;,
+        &#125;,
+      &#125;,
+      &#123;
+        // 第二个预处理器相关配置
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<h3 id="五、处理-CSS-的-loader"><a href="#五、处理-CSS-的-loader" class="headerlink" title="五、处理 CSS 的 loader"></a>五、处理 CSS 的 loader</h3><blockquote>
+<p>以下会讲解<code>css-loader、style-loader、sass-loader</code> 来处理 CSS 文件</p>
+</blockquote>
+<h4 id="css-loader-与-style-loader-预处理器"><a href="#css-loader-与-style-loader-预处理器" class="headerlink" title="css-loader 与 style-loader 预处理器"></a>css-loader 与 style-loader 预处理器</h4><blockquote>
+<p>前面我们说过，Webpack 本身只能处理 JS 和 JSON 类型的文件，对于 CSS 类型的文件自然是处理不了的。</p>
+<p>如果我们在 JS 中使用<code>import(&quot;./basic.css&quot;)</code>函数来加载 CSS 文件，默认情况下 <code>Webpack</code> 打包会失败，在命令行抛出错误。</p>
+<p>而 <code>css-loader</code> 就是用来解析 css 文件，同时会将解析后的 CSS 文件以字符串的形式<strong>打包到 <code>JS</code> 文件中</strong>。不过，此时的 CSS 样式<strong>并不会生效</strong>，因为需要把 CSS 文件插入到 HTML 文件中才会生效。</p>
+<p>所以我们还需要借助<code>style-loader</code>来帮忙，他可以<strong>把 JS 里面的样式代码插入到 HTML 文件中</strong>。他的原理很简单，就是动态生成 style 标签，然后将 CSS 内容添加到 style 标签中，然后将 style 标签插入到 HTML 页面。<br><strong>代码演示</strong></p>
+</blockquote>
+<ul>
+<li>项目目录结构</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ basic.css
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.js</code>文件中内容</li>
+</ul>
+<pre><code>import &quot;./basic.css&quot;;
+console.log(&#39;index.js&#39;)
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>文件内容如下</li>
+</ul>
+<pre><code>const path=require(&quot;path&quot;);
+module.exports=&#123;
+    mode:&quot;none&quot;,
+    entry:&quot;./src/index.js&quot;,
+    output:&#123;
+        path:path.resolve(__dirname,&quot;dist&quot;),
+        filename:&quot;bundle.js&quot;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>basic.css</code>文件内容</li>
+</ul>
+<pre><code>body &#123;
+  background-color: red;
+&#125;
+</code></pre>
+<blockquote>
+<p><strong>注：</strong><br>以上配置好了后，在当前目录下执行<code>npx webpack</code>执行打包命令时，控制台报错：<br><code>You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file.</code><br>上面英文的意思是：你需要一个合适的 loader 来处理这类文件，目前没有配置任何加载器来处理该文件</p>
+</blockquote>
+<ol>
+<li>安装 css-loader 与 style-loader</li>
+</ol>
+<ul>
+<li>执行以下命令，安装 <code>css-loader</code> 和 <code>style-loader</code> 的包</li>
+</ul>
+<pre><code>npm install --save-dev style-loader  css-loader
+</code></pre>
+<ul>
+<li>安装成功后，<code>package.json</code>文件<code>devDependencies</code>字段的信息如下:</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;css-loader&quot;: &quot;^6.7.3&quot;,
+    &quot;style-loader&quot;: &quot;^3.3.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="2">
+<li>Webpack 中<strong>配置</strong> css-loader 与 style-loader<blockquote>
+<p>以下是配置好的<code>webpack.config.js</code>文件</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        // 表示将匹配到的css文件先交给css-loader处理,然后
+        // 将处理后的内容再交给style-loader来处理。
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>最后在当前目录执行<code>npx webpack</code>命令打包，打包后的目录结构如下：</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ dist
+│  └─ bundle.js  // index.js打包后的出口文件
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ basic.css
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>在<code>index.html</code>页面中引入<code>bundle.js</code><blockquote>
+<ul>
+<li>最后在浏览器中浏览<code>index.html</code>页面，页面的背景变成了红色。在当前面右击—检查，在 <code>Elements</code> 选项中可以看到生成的 <code>style</code> 标签</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="css-loader-对-css-中图片的处理"><a href="#css-loader-对-css-中图片的处理" class="headerlink" title="css-loader 对 css 中图片的处理"></a>css-loader 对 css 中图片的处理</h4><blockquote>
+<p><code>css-loader</code>在处理 CSS 样式时，会处理 CSS 中通过<code>url()</code>方式引入的资源。</p>
+<ul>
+<li>接下来我们通过代码来演示下</li>
+</ul>
+</blockquote>
+<ul>
+<li>在<code>src</code>文件夹新建<code>images</code>文件夹，将图片&#x2F;音频&#x2F;视频放入该文件夹，目录结构：</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ css
+│  │  └─ basic.css
+│  ├─ images
+│  │  ├─ 18.mp4
+│  │  └─ course.jpg
+│  └─ js
+│     └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>我们把<code>basic.css</code>文件的内容更新为如下：</li>
+</ul>
+<pre><code>/*basic.css 文件内容*/
+body &#123;
+  background-color: red;
+  background: url(&quot;../images/course.jpg&quot;);
+  /* background: url(&quot;../images/18.mp4&quot;); */
+&#125;
+</code></pre>
+<ul>
+<li><code>index.js</code>文件内容如下</li>
+</ul>
+<pre><code>import &quot;../css/basic.css&quot;;
+console.log(&quot;index.js&quot;);
+</code></pre>
+<ul>
+<li><code>package.json</code> 内容如下</li>
+</ul>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;icoding&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;devDependencies&quot;: &#123;
+    &quot;css-loader&quot;: &quot;^6.7.3&quot;,
+    &quot;style-loader&quot;: &quot;^3.3.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>接下来，我们更改配置文件如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;./js/bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        // use: [&quot;style-loader&quot;, &quot;css-loader&quot;],
+        // 或写成下面这样
+        use: [
+          &quot;style-loader&quot;,
+          &#123;
+            loader: &quot;css-loader&quot;,
+            options: &#123;
+              url: true, // true表示图片url方式引入的资源，false表示不处理
+            &#125;,
+          &#125;,
+        ],
+        //
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>执行<code>npx webpack</code>打包后，生成的目录结构变为：</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ dist
+│  ├─ 2715c2f1ee2c4063d887.jpg
+│  └─ js
+│     └─ bundle.js
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ css
+│  │  └─ basic.css
+│  ├─ images
+│  │  ├─ 18.mp4
+│  │  └─ course.jpg
+│  └─ js
+│     └─ index.js
+└─ webpack.config.js
+</code></pre>
+<blockquote>
+<p><strong>注：</strong><br>观察以上目录，我们发现图片被<strong>成功处理并复制</strong>到了当前<code>dist</code>的根目录下。</p>
+<p>但我们在实际开发中不会用<code>css-loader</code>来处理<code>css</code>中的图片，而是选择后面的<code>file-loader</code>和<code>url-loader</code>来处理。因为 <code>file-loader</code> 可以处理导入的<strong>各种类型的文件</strong>，而 <code>css-loader</code> 只能处理 css 中的<strong>图片</strong>等资源，并且在后期与<code>file-loader</code>在处理图片时<strong>发生冲突</strong>。</p>
+<ul>
+<li>以上我们安装的<code>css-loader@6.7.3</code> 版本，也就是 <code>css-loader</code> 的第 6 个版本才有处理图片等资源的能力，对于 6 以下的版本是没有处理图片功能的。如：<code>css-loader@5.0.2</code>版本，所以在后续使用<code>file-loader</code>时，一般会使用第5个版本的<code>css-loader</code></li>
+</ul>
+</blockquote>
+<h4 id="sass-loader-预处理器"><a href="#sass-loader-预处理器" class="headerlink" title="sass-loader 预处理器"></a>sass-loader 预处理器</h4><blockquote>
+<p>在实际的开发中，我们通常会用 <code>Sass </code>或 <code>less</code> 来书写样式文件，但是<strong>浏览器本身是不认识 Sass 的</strong>，我们还是需要将 Sass 转换成最终浏览器能够识别的 CSS 文件。这就需要用到 <code>sass-loader</code> 来帮我们处理。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.sass.hk/">Sass 的官网</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>以下是一段 Sass 书写的样式</li>
+</ul>
+<pre><code>.box &#123;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  p &#123;
+    background-color: #ddd;
+    span &#123;
+      color: red;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>上面 Sass 转换成 CSS 如下</li>
+</ul>
+<pre><code>.box &#123;
+  display: flex;
+  width: 100px;
+  height: 100px;
+&#125;
+&gt;
+.box p &#123;
+  background-color: #ddd;
+&#125;
+.box p span &#123;
+  color: red;
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>我们后面讲 Vue 项目时就会采用 Sass 来书写样式，所以我们主要介绍 Sass 如何处理。</li>
+</ul>
+</blockquote>
+<ul>
+<li>创建基础的项目结构</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ index.html
+├─ package-lock.json
+├─ package.json
+└─ src
+   ├─ css
+   │  └─ basic.scss
+   └─ index.js
+</code></pre>
+<ul>
+<li><code>basic.scss</code> 文件内容如下</li>
+</ul>
+<pre><code>.box &#123;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  p &#123;
+    background-color: #ddd;
+    span &#123;
+      color: red;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>index.js</code> 内容如下</li>
+</ul>
+<pre><code>import &quot;./css/basic.scss&quot;;
+</code></pre>
+<ul>
+<li><code>index.html</code> 页面内容如下</li>
+</ul>
+<pre><code>&gt;&lt;script src=&quot;./dist/bundle.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div class=&quot;box&quot;&gt;
+&gt;    &lt;p&gt;成功编译了&lt;span&gt;scss&lt;/span&gt;文件&lt;/p&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ol>
+<li>sass-loader 的使用<blockquote>
+<p>首先我们需要安装<code>sass-loader</code>所需要的 npm 包，sass-loader 底层依赖 <code>Node Sass</code> 或 <code>Dart Sass</code> 进行处理，它们对应的 npm 包分别为 <code>node-sass</code> 和 <code>sass</code>。 这里推荐安装 <code>sass</code> 包</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>执行以下命令，安装 <code>sass</code> 包</li>
+</ul>
+<pre><code>npm install sass-loader sass  --save-dev
+</code></pre>
+<ul>
+<li>sass 转成 css 后，还需要用 <code>css-loader</code> 和 <code>style-loader</code>来处理，所以也需要安装</li>
+</ul>
+<pre><code>npm install css-loader style-loader --save-dev
+</code></pre>
+<ul>
+<li>安装成功后<code>package.json</code>文件中<code>devDependencies</code>字段信息如下</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;css-loader&quot;: &quot;^6.7.3&quot;,
+    &quot;style-loader&quot;: &quot;^3.3.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li>接下来配置<code>webpack.config.js</code>文件，内容如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;./bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.(s[ac]ss|css)$/i,
+        // 从右往左调用对应的loader来处理,先用sass-loader将sass处理成css，再将用css-loader来处理css，最后用style-loader将css插入到style标签中，并添加到html页面
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;sass-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>最后执行<code>npx webpack</code>打包，打包后在浏览器打开<code>index.html</code>页面<blockquote>
+<ul>
+<li><code>sass</code> 被成功的处理成了 <code>css</code>，在配合 <code>css-loader</code> 与 <code>style-loader</code> 最终添加到了 <code>html</code> 页面</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="六、Webpack-插件-plugins"><a href="#六、Webpack-插件-plugins" class="headerlink" title="六、Webpack 插件 plugins"></a>六、Webpack 插件 plugins</h3><h4 id="什么是-plugins"><a href="#什么是-plugins" class="headerlink" title="什么是 plugins"></a>什么是 plugins</h4><blockquote>
+<p>plugins 翻译过来就是 <strong>“插件”</strong> 的意思，我们很难去描述 Webpack 插件他是干什么的。如果站在<strong>更底层</strong>的角度来理解，Webpack 插件是在 Webpack 编译的某些阶段，通过调用 Webpack 对外暴露的 API 来扩展 Webpack 的能力。</p>
+<p>对于上面这句话，暂时不理解没关系，当我们学到如何开发 Webpack 插件时，你自然就能理解上面这句话了。</p>
+<p>在这里，我们只要把他和 loader 做区分就好。<code>loader</code> 是用来<strong>解析模块</strong>的，让 Webpack 可以去处理非 JS 和 JSON 类型的其它文件模块。而<strong>插件</strong>可以让 Webpack 执行范围更广的任务。</p>
+<p>Webpack 的插件非常多，我们可以具体的插件具体来分析。那 Webpack 具体有那些插件，分别有什么用？</p>
+<p>大家可以参考<a target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/">官方提供的</a>当然还有很多官网没有提供的，大家可以通过搜索引擎自行搜索，还可以在<code>npm</code>上下载</p>
+<p>接下来我们选择 3 款插件，来帮助大家学习如何在 Webpack 使用插件，本质上就是学习如何在 Webpack 中配置我们的插件。掌握了方法后，具体的插件如何配置，大家只需要根据对应插件的说明文档来就好。所以再多的插件，大家也不用担心不会用的问题。</p>
+</blockquote>
+<h4 id="clean-webpack-plugin-插件"><a href="#clean-webpack-plugin-插件" class="headerlink" title="clean-webpack-plugin 插件"></a>clean-webpack-plugin 插件</h4><blockquote>
+<p><code>clean-webpack-plugin</code>插件是一个清除文件插件。每次使用 Webpack 打包后，都会在<code>output.path</code>指定的目录下生成很多打包后的出口文件（资源），当我们再次打包的时候，我们就需要手动的先<strong>将原来的打包后的文件给清空</strong>。</p>
+<p>而<code>clean-webpack-plugin</code>插件就是帮我们做这件事的，有了他，我们每次打包后，会在生成新的出口文件（资源前），先将原来的文件给删除掉。</p>
+</blockquote>
+<ol>
+<li>clean-webpack-plugin 插件的安装</li>
+</ol>
+<ul>
+<li>在使用clean-webpack-plugin插件前，我们需要先通过以下命令，安装插件所需要的包</li>
+</ul>
+<pre><code>npm install --save-dev clean-webpack-plugin
+</code></pre>
+<ul>
+<li>安装后package.json文件中devDependencies字段内容如下</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="2">
+<li>clean-webpack-plugin 插件的使用<blockquote>
+<p>所谓的使用插件，就是如何在 Webpack 中来<strong>配置插件信息</strong>。所有 Webpack 需要用到的插件都需要配置在<code>webpack.config.js</code>文件的<code>plugins</code>选项中</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>当前项目的<code>webpack.config.js</code>文件中的配置信息，如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+// 在使用插件前，需要先导入插件模块
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+&gt;
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name]_[chunkhash:8].js&quot;,
+  &#125;,
+  // 配置插件，目前只使用了一个插件
+  plugins: [new CleanWebpackPlugin()],
+&#125;;
+</code></pre>
+<p><strong>配置说明</strong></p>
+<blockquote>
+<ul>
+<li>在使用插件前，先需要导入对应的插件，以下表示加载对应的插件模块</li>
+</ul>
+</blockquote>
+<pre><code>const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+</code></pre>
+<blockquote>
+<ul>
+<li>接下来我们需要告诉 Webpack，使用那些插件来扩展对应功能。将需要使用的插件在plugins选项中来配置。</li>
+<li>plugins 的值是一个<strong>数组</strong>，数组中的每个成员表示一个插件，这里的成员<strong>都是通过 new 关键字创建的实例对象</strong>。</li>
+<li>如果插件有相关的参数，则直接将一个对象<strong>作为插件的构造函数的参数</strong>传入就好。上面没有传入对应的参数，则表示启用默认配置。该插件默认使用<code>output.path</code>目录作为需要清空的目录。<br><code>clean-webpack-plugin</code>插件更多配置，<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/clean-webpack-plugin">查询文档</a></li>
+</ul>
+</blockquote>
+<ul>
+<li><code>index.js</code></li>
+</ul>
+<pre><code>console.log(&quot;index.js&quot;);
+</code></pre>
+<ol start="3">
+<li>执行 Webpack 打包<blockquote>
+<p>完成以上配置后，我们在当前工作目录下执行npx webpack打包</p>
+<ul>
+<li>如果<code>index.js</code>里引用了<code>css</code>文件，则需要相应的<code>loader</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="html-webpack-plugin-插件"><a href="#html-webpack-plugin-插件" class="headerlink" title="html-webpack-plugin 插件"></a>html-webpack-plugin 插件</h4><blockquote>
+<p><code>html-webpack-plugin</code>插件可以<strong>自动创建 HTML 文件</strong>，并且会<strong>自动</strong>将打包后的 JS、CSS 等资源<strong>引入到创建的 HTML 文件中</strong>。当然，也<strong>可以使用指定的 HTML 模板</strong>，因为自动创建的 HTML 模块功能有限。</p>
+<p>在这之前，我们需要手动将打包后的 JS、CSS 等文件引入到 HTML 页面中来使用。</p>
+</blockquote>
+<ol>
+<li>html-webpack-plugin 插件的安装<blockquote>
+<p>接下来我们就在上面的项目基础上，来使用<code>html-webpack-plugin</code>插件</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在使用<code>html-webpack-plugin</code>插件前，我们需要使用以下命令来安装插件对应的包</li>
+</ul>
+<pre><code>npm install --save-dev html-webpack-plugin
+</code></pre>
+<ul>
+<li>安装后<code>package.json</code>文件中<code>devDependencies</code>字段内容如下</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+&#125;
+</code></pre>
+<ul>
+<li>当前项目中还使用了前面讲到的 clean-webpack-plugin插件</li>
+</ul>
+<ol start="2">
+<li>html-webpack-plugin 插件的使用<blockquote>
+<p>插件安装成功后，接下来需要在<code>webpack.config.js</code>文件的<code>plugins</code>选项中添加相关配置来使用该插件。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const path = require(&quot;path&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+// 导入插件模块
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name]_[chunkhash:8].js&quot;,
+  &#125;,
+  plugins: [
+    // 清除文件插件
+    new CleanWebpackPlugin(),
+    // 自动创建一个空的HTML文件，并在页面中引用打包后的JS文件
+    new HtmlWebpackPlugin(),
+  ],
+&#125;;
+</code></pre>
+<p><strong>配置说明</strong></p>
+<ul>
+<li>以下代码为，导入<code>html-webpack-plugin</code>插件对应的模块</li>
+</ul>
+<pre><code>const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+</code></pre>
+<ul>
+<li>在 plugins 选项中，配置插件，告诉 Webpack 可以使用该插件来完成相关功能</li>
+</ul>
+<pre><code>plugins: [
+  // 该插件会自动创建一个空的HTML文件，并在页面中引用打包后的JS文件
+  new HtmlWebpackPlugin(),
+];
+</code></pre>
+<ol start="3">
+<li>执行 Webpack 打包<blockquote>
+<p>按以上配置好之后，接下来在当前目录下执行npx webpack 完成打包</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>打包后的目录结构如下</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ dist  // 在dist目录下生成了html和js文件
+│  ├─ index.html
+│  └─ main_7b90bcf6.js
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ src
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>打包后，<code>dist</code>目录下的<code>index.html</code>是插件自动帮我们创建的，页面代码如下：</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;Webpack App&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+    &lt;script defer src=&quot;main_7b90bcf6.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>观察以上代码，我们可以看到，<code>html</code> 页面中自动插入了我们打包后生成的<code>main_7b90bcf6.js</code></li>
+</ul>
+</blockquote>
+<ol start="4">
+<li>自定义模板<blockquote>
+<p>在实际开发中，我们希望能以指定的 html 页面来做为模板，生成新的 html 页面。也就是<strong>指定插件以某个 html 文件为模板</strong>，生成新的 html 文件，并把打包后的 JS 文件添加到该 html 页面中。</p>
+<p>要实现以上功能，我们只需要在<code>webpack.config.js</code>文件中，做相关的配置就好，修改<code>webpack.config.js</code>中 <code>plugins</code> 选项内容如下：</p>
+</blockquote>
+</li>
+</ol>
+<pre><code> plugins:[
+        // 清除文件插件
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin(&#123;
+            // 指定生成的html文件以当前目录下的index.html文件为模板
+            template:&quot;./index.html&quot;,
+        &#125;)
+    ]
+</code></pre>
+<ul>
+<li>当前目录下的<code>index.html</code>文件内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    我是根目录下的index.html文件
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>打包生成后，<code>dist</code>目录下生成了<code>index.html</code>和<code>main_7b90bcf6.js</code>文件，其中<code>index.html</code>文件的内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script defer src=&quot;main_7b90bcf6.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    我是根目录下的index.html文件
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>生成后的 html 文件是以根目录下的<code>index.html</code>为模板生成的，同时还把打包后的 JS 文件自动添加到了<code>index.html</code>页面中。</li>
+</ul>
+<ol start="5">
+<li>html-webpack-plugin 的参数<blockquote>
+<p>html-webpack-plugin插件，<strong>不仅支持单入口打包，也支持多入口打包</strong>。可以同时生成多个 html 文件，并把对应的 JS、CSS 等资源引用到指定的 html 文件中。<br><strong>案例演示</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们根据以下目录结构来创建对应的文件</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ index.html
+│  ├─ index.js
+│  ├─ search.html
+│  └─ search.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.html</code> 内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    网站首页
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li><code>search.html</code> 内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    网站搜索页
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>package.json 内容如下</li>
+</ul>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;icoding&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: &#123;
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>当前项目的<code>webpack.config.js</code>文件内容如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &#123;
+    index: &quot;./src/index.js&quot;,
+    search: &quot;./src/search.js&quot;,
+  &#125;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name]_[chunkhash:8].js&quot;,
+  &#125;,
+  plugins: [
+    // 清除文件插件
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      filename: &quot;index.html&quot;,
+      chunks: [&quot;index&quot;],
+      minify: &#123;
+        // 删除index.html中的空格
+        collapseWhitespace: true,
+        // 删除index.html中的注释
+        removeComments: true,
+      &#125;,
+    &#125;),
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/search.html&quot;,
+      filename: &quot;search.html&quot;,
+      chunks: [&quot;search&quot;],
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<blockquote>
+<p><code>new HtmlWebpackPlugin()</code>插件的参数说明</p>
+</blockquote>
+<ul>
+<li><p><code>template</code>：指定生成的 HTML 的模块文件，最终以这里指定的文件为模板，生成最终的 HTML 文件</p>
+</li>
+<li><p><code>filename</code>：最终生成的 HTML 文件的名称</p>
+</li>
+<li><p><code>chunks</code>：指定当前 HTML 文件引入那个入口文件打包后生成的出口文件</p>
+</li>
+<li><p><code>minify</code>：用来指定打包后文件是否做相关体积压缩的处理。如果值为 true，则按默认配置压缩 HTML 代码，也可以向上面一样，设置为一个对象，指定相关的压缩处理。</p>
+</li>
+<li><p>更多参数，<a target="_blank" rel="noopener" href="https://github.com/jantimon/html-webpack-plugin#options">查阅文档</a></p>
+</li>
+<li><p>打包后生成的目录结构</p>
+</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ dist
+│  ├─ index.html
+│  ├─ index_433c545f.js
+│  ├─ search.html
+│  └─ search_26a2e76a.js
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ index.html
+│  ├─ index.js
+│  ├─ search.html
+│  └─ search.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>生成后<code>index.html</code>的内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script defer=&quot;defer&quot; src=&quot;index_433c545f.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    网站首页
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>打包后生成的search.html的内容如下</li>
+</ul>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script defer src=&quot;search_26a2e76a.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    网站搜索页
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4 id="mini-css-extract-plugin-插件"><a href="#mini-css-extract-plugin-插件" class="headerlink" title="mini-css-extract-plugin 插件"></a>mini-css-extract-plugin 插件</h4><blockquote>
+<p>在前面学习<code>css-loader</code>与<code>style-loader</code>时，我们并不能将 CSS 内容单独提取到一个 CSS 文件中，而<code>mini-css-extract-plugin</code>插件就是用来作这件事的。<strong>他会将 CSS 提取到单独的 CSS 文件中，为每个包含 CSS 的 JS 文件创建一个 CSS 文件</strong>。</p>
+<p>所以他一般需要与<code>css-loader</code>一起配合使用</p>
+</blockquote>
+<ul>
+<li><code>css-loader</code>负责解析 CSS 模块，会将解析后的 CSS 文件以字符串的形式打包到 JS 文件中</li>
+<li>而<code>mini-css-extract-plugin</code>负责将 JS 中的 CSS 提取到单独的 CSS 文件中。<blockquote>
+<p>本插件基于 webpack v5 的新特性构建，并且需要 <code>webpack 5</code>才能正常工作<br><strong>演示案例</strong></p>
+</blockquote>
+</li>
+<li>接下来我们创建项目来演示下，以下是项目的目录结构</li>
+</ul>
+<pre><code>// 项目目录结构
+icoding
+├─ node_modules
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ basic.css
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.html</code> 页面代码</li>
+</ul>
+<pre><code>&gt;&lt;!--省略了部分，只留下了重要信息--&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div id=&quot;box&quot;&gt;&lt;/div&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>basic.css</code> 文件内容</li>
+</ul>
+<pre><code>body &#123;
+  background-color: red;
+&#125;
+</code></pre>
+<ul>
+<li><code>index.js</code> 文件内容</li>
+</ul>
+<pre><code>import(&quot;./basic.css&quot;);
+console.log(&quot;index.js&quot;);
+</code></pre>
+<ul>
+<li>安装 <code>webpack、clean-webpack-plugin、html-webpack-plugin</code> 插件</li>
+</ul>
+<pre><code>npm i webpack webpack-cli clean-webpack-plugin  html-webpack-plugin -D
+</code></pre>
+<ol>
+<li>安装 mini-css-extract-plugin 和 css-loader 插件</li>
+</ol>
+<ul>
+<li>项目创建好后，接下来执行以下命令安装<code>mini-css-extract-plugin</code>和<code>css-loader</code>插件对应的包</li>
+</ul>
+<pre><code>npm install --save-dev mini-css-extract-plugin css-loader
+</code></pre>
+<ul>
+<li>安装后<code>package.json</code>中<code>devDependencies</code>的信息如下</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;css-loader&quot;: &quot;^6.7.3&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;mini-css-extract-plugin&quot;: &quot;^2.7.5&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="2">
+<li>插件配置<blockquote>
+<p>安装好对应插件后，接下来就可以通过修改 Webpack 配置，来使用这个两个插件</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>webpack.config.js</code>的内容如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+    chunkFilename: &quot;[name]_[chunkhash:8].js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new MiniCssExtractPlugin(&#123;
+      filename: &quot;basic_[contenthash:8].css&quot;,
+      // 找到 id 为 box 的元素，在它之后插入新的 &lt;link&gt; 元素
+      insert: &quot;#box&quot;,
+      // 把指定的属性和值附加到 &lt;link&gt; 元素上
+      attributes: &#123;
+        id: &quot;target&quot;,
+        &quot;data-target&quot;: &quot;example&quot;,
+      &#125;,
+    &#125;),
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./index.html&quot;,
+    &#125;),
+    new CleanWebpackPlugin(),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>MiniCssExtractPlugin 插件的配置说明<blockquote>
+<ul>
+<li><code>filename</code>: 抽离出来的 CSS 文件名，也可以是保存路径,如果想让该css文件单独放在<code>dist</code>文件夹下的一个目录，可以：<code>filename: &quot;./css/[name]_[contenthash:8].css&quot;</code>，会自动创建<code>css</code>文件夹，注意：该路径是以<code>output.path</code>指定的路径为起点</li>
+<li><code>insert</code>: 值是一个 css 选择器字符串，用来指定生成的 CSS 的<code>&lt;link&gt;</code>标签插入的位置，<code>&lt;link&gt;</code>标签会插入到此选择器选中的元素后面</li>
+<li><code>attributes</code>：值是一个对象，指定相关属性和值，添加到<code>&lt;link&gt;</code>标签上<br>更多配置，查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/plugins/mini-css-extract-plugin/">官方文档</a><blockquote>
+<p>由于安装了<code>css-loader</code>，所以还要配置它</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li>执行 Webpack 打包</li>
+</ol>
+<ul>
+<li>在当前目录下执行<code>npx webpac</code>执行打包，打包后，生成的目录结构如下<img src="MiniCssExtractPlugin目录.png"></li>
+</ul>
+<blockquote>
+<ul>
+<li>观察以上图，我们可以看到<code>index.js</code>中通过<code>import(&quot;./basic.css&quot;)</code>加载的 <code>CSS</code> 样式，打包后单独生成了<code>1.basic_4a73e62e</code>文件。</li>
+<li>接下来，在浏览器中预览 <code>dist</code> 目录下的 <code>index.html</code> 文件，发现页面背景变红，css生效<img src="MiniCssExtractPlugin效果.png"></li>
+</ul>
+</blockquote>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>观察以上图，我们可以看到 <code>css</code> 被当作单独的文件，通过 <code>link </code>标签引入到 <code>html</code> 页面中。</li>
+<li>同时<code>&lt;link&gt;</code>标签被插入到<code>&quot;body .box&quot;</code>元素后面。还有<code>&lt;link&gt;</code>标签上添加了 <code>id</code> 与 <code>data-target</code> 属性</li>
+</ul>
+</blockquote>
+<h3 id="七、Webpack-处理图片、音视频资源"><a href="#七、Webpack-处理图片、音视频资源" class="headerlink" title="七、Webpack 处理图片、音视频资源"></a>七、Webpack 处理图片、音视频资源</h3><h4 id="file-loader-预处理器"><a href="#file-loader-预处理器" class="headerlink" title="file-loader 预处理器"></a>file-loader 预处理器</h4><blockquote>
+<p>file-loader 是一个<strong>文件资源预处理器</strong>，他在 Webpack 中的作用是：处理文件导入语句<strong>并替换成它的访问地址</strong>，同时把文件输出到相应位置。</p>
+<p>其中导入语句包括 JS 的<code>import ...from &quot;...&quot; </code>和 CSS 样式中的<code>url()</code></p>
+</blockquote>
+<ol>
+<li><code>file-loader</code> 处理 JS 中引入的图片<blockquote>
+<p>接下来我们要在<code>load-img.js</code>文件中通过<code>import ... from &quot;...&quot;</code>语句来导入一张图片，然后把这张图片插入到打包后的<code>search.html</code>页面中的<code>#main</code>元素中。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>项目的相关信息如下：</strong></p>
+<ul>
+<li><code>package.json</code>中字段信息如下</li>
+</ul>
+<pre><code> &quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li><code>search.html</code>文件内容如下</li>
+</ul>
+<pre><code>&lt;body&gt;
+  &lt;div id=&quot;main&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>load-img.js</code>文件内容如下</li>
+</ul>
+<pre><code>import img from &quot;../images/logo.png&quot;;
+let imgEl = new Image();
+imgEl.src = img;
+// 页面加载完成，再将图片插入页面中
+window.onload = function () &#123;
+  document.getElementById(&quot;main&quot;).appendChild(imgEl);
+&#125;;
+</code></pre>
+<p><strong>安装 file-loader</strong></p>
+<ul>
+<li>执行以下命令，安装 <code>file-loader</code> 所需要的包</li>
+</ul>
+<pre><code>npm install file-loader@6.2.0 --save-dev
+</code></pre>
+<p><strong>配置 webpack.config.js</strong></p>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/search.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;js/bundle.js&quot;,
+    chunkFilename: &quot;./js/[name].js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        /* 被file-loader处理的文件后缀名 */
+        test: /\.(png|jpe?g|gif)$/i,
+        use: &#123;
+          /* loader的名称 */
+          loader: &quot;file-loader&quot;,
+          /* loader的参数设置 */
+          options: &#123;
+            /* 打包后生成的图片名称，[ext] 图片后缀名与原来一样*/
+            name: &quot;[name].[contenthash:8].[ext]&quot;,
+            /* 打包后生成的图片输出目录，相对于output.path而言*/
+            outputPath: &quot;./images/&quot;,
+            /* 
+            publicPath默认以output.publicPath作为访问资源的地址
+            图片在网页中的预览地址，相对于被调用者而言*/
+            publicPath: &quot;./images/&quot;,
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/search.html&quot;,
+      filename: &quot;search.html&quot;,//决定最终生成的 HTML 文件的名称
+    &#125;),
+    new CleanWebpackPlugin(),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>以上配置好后，在当前目录下执行<code>npx webpack</code>打包，打包后生成的目录结构如下</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ dist
+│  ├─ images
+│  │  └─ logo.ad0f1f9b.png
+│  ├─ search.html
+│  └─ js
+│     └─ bundle.js
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ images
+│  │  └─ logo.png
+│  ├─ search.html
+│  └─ js
+│     └─ load-img.js
+└─ webpack.config.js
+</code></pre>
+<blockquote>
+<p>观察以上结构，打包后的图片保存在 <code>dist/images</code> 目录下，<code>js</code> 保存在 <code>dist/js</code> 目录下，<code>search.html</code>页面在 <code>dist</code> 目录下。</p>
+</blockquote>
+<ol start="2">
+<li><code>file-loader</code> 处理 CSS 中的图片<blockquote>
+<p>我们在上面案例的基础上</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>在 images 文件夹下新加了一张图片</p>
+</li>
+<li><p>在src&#x2F;js目录下添加index.js</p>
+</li>
+<li><p>在src&#x2F;css目录下添加basic.css文件</p>
+</li>
+<li><p>然后在index.js文件中引入basic.css样式文件</p>
+</li>
+<li><p><code>index.js</code>文件内容</p>
+</li>
+</ul>
+<pre><code>import &quot;../css/basic.css&quot;;
+</code></pre>
+<ul>
+<li><code>basic.css</code>内容</li>
+</ul>
+<pre><code>body &#123;
+  background: url(&quot;../images/course.jpg&quot;);
+  /* background: url(&quot;../images/18.mp4&quot;); */
+&#125;
+</code></pre>
+<ul>
+<li>当前项目目录结构如下</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ css
+│  │  └─ basic.css  // 新增
+│  ├─ images
+│  │  ├─ 18.mp4  // 新增
+│  │  ├─ course.jpg  // 新增
+│  │  └─ logo.png
+│  ├─ index.html
+│  └─ js
+│     ├─ index.js  // 新增
+│     └─ load-img.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>安装包<blockquote>
+<ul>
+<li>执行以下命令安装处理 css 需要的包</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>npm i css-loader@5.2.7 mini-css-extract-plugin@2.7.5 -D
+</code></pre>
+<blockquote>
+<p>注意我们安装的<code>css-loader</code>是<code>5</code>版本的，而不是 6 版本的</p>
+</blockquote>
+<ul>
+<li>修改<code>webpack.config.js</code>配置文件，如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &#123;
+    img: &quot;./src/js/load-img.js&quot;,
+    index: &quot;./src/js/index.js&quot;,
+  &#125;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;js/[name][chunkhash:8].js&quot;,
+    chunkFilename: &quot;./js/[name].js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.(png|jpe?g|gif|mp4)$/i,
+        use: &#123;
+          loader: &quot;file-loader&quot;,
+          options: &#123;
+            name: &quot;[name].[contenthash:8].[ext]&quot;,
+            outputPath: &quot;./images/&quot;,
+            // publicPath:&#39;./images/&#39;
+          &#125;,
+        &#125;,
+      &#125;,
+      &#123;
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+    &#125;),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(&#123;
+      filename: &quot;./css/basic_[contenthash:8].css&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ol start="3">
+<li>file-loader 总结<blockquote>
+<ul>
+<li>file-loader 不仅可以处理图片，还可以处理视频、音频等媒体资源。</li>
+<li>它的实现原理就是在打包时根据资源的地址，把这些资源复制一份到打包后的指定目录，然后重新取个名字，并替换资源的访问路径。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="url-loader-预处理器"><a href="#url-loader-预处理器" class="headerlink" title="url-loader 预处理器"></a>url-loader 预处理器</h4><blockquote>
+<p><code>url-loader</code>可以看作是<code>file-loader</code>的<strong>增强版</strong>，他除了支持file-loader的所有功能外，还可以将图片转换成 <code>Base64</code> 编码格式的 <code>DataURL</code>，并将其作为模块来引入到打包后的代码中，以减少 <code>HTTP</code> 请求的数量。</p>
+<p><code>url-loader</code> 可以通过配置相关的参数，限定<strong>小于</strong>多少 <code>KB</code> 的图片才处理成 Base64 编码格式的 DataURL，<strong>大于</strong>这个限制的按 <code>file-loader</code> 的方式来处理。</p>
+</blockquote>
+<ul>
+<li>正常情况下，<code>html</code> 中引入图片的代码如下：</li>
+</ul>
+<pre><code>&lt;img src=&quot;./images/go.png&quot; /&gt;
+</code></pre>
+<ul>
+<li>如果将 <code>go.png</code> 转换成 <code>Base64</code> 编码格式，<code>html</code> 中引入的图片代码就是一长串代码</li>
+</ul>
+<ol>
+<li><code>url-loader</code> 的安装与使用<blockquote>
+<p>我们在上面<code>file-loader</code>案例的基础上来操作。<code>file-loader</code> 案例中<code>logo.png</code>图片大小为<code>9.8KB</code>，而<code>courser.jpg</code>图片大小为<code>20KB</code>。</p>
+<p>因为<code>url-loader</code>本身需要依赖<code>file-loader</code>的，所以我们在安装 <code>url-loader</code> 时，<strong>也需要同时安装 file-loader</strong>。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>执行以下命令，安装 url-loader 包（file-loader 上面案例中安装过）</li>
+</ul>
+<pre><code>npm install url-loader@4.1.1 --save-dev
+</code></pre>
+<ul>
+<li>安装后，我们修改<code>webpack.config.js</code>配置文件如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &#123;
+    img: &quot;./src/js/load-img.js&quot;,
+    index: &quot;./src/js/index.js&quot;,
+  &#125;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;js/[name][chunkhash:8].js&quot;,
+    chunkFilename: &quot;./js/[name].js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;],
+      &#125;,
+      &#123;
+        // 根据正则表达式来匹配要处理的文件类型
+        test: /\.(png|jpe?g|gif)$/i,
+        use: &#123;
+          // 处理的loader名
+          loader: &quot;url-loader&quot;,
+          // 参数设置
+          options: &#123;
+            // 当图片的大小小于10kb时，会将其转成Base64编码格式的DataURL
+            limit: 10240, // 10240=1024*10 相当于10k大小
+            name: &quot;[name].[ext]&quot;, // 图片的名字
+            // 图片的输出目录，相对于output.path而言
+            outputPath: &quot;./mages/&quot;,
+            // 图片的预览地址，相对于被调用者与ouput.publicPath机制一样
+            publicPath: &quot;/dist/images/&quot;,
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+    &#125;),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin(&#123;
+      filename: &quot;./css/basic_[contenthash:8].css&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>以上配置好后，在当前目录执行<code>npx webpack</code>打包，生成如果的<code>dist</code>目录结构如下</li>
+</ul>
+<pre><code>dist
+  ├─ css
+  │  └─ basic_1beaad77.css
+  ├─ images
+  │  └─ course.jpg
+  ├─ index.html
+  └─ js
+     ├─ img1509d649.js
+     └─ index59c407b4.js
+</code></pre>
+<ul>
+<li><p>观察上面结构，我们发现只有<code>course.jpg</code>被成功复制到了<code>images</code>文件夹中，<strong>logo.png没有出现</strong>。接下来我们在浏览器中访问<code>index.html</code>页面，查看源代码，如下</p>
+<img src="url-loader.png">
+</li>
+<li><p>因为logo.png的小于10KB，所以被成功处理成Base64位的。</p>
+</li>
+</ul>
+<h4 id="html-withimg-loader-预处理器"><a href="#html-withimg-loader-预处理器" class="headerlink" title="html-withimg-loader 预处理器"></a>html-withimg-loader 预处理器</h4><blockquote>
+<p>html 中直接使用 <code>img</code> 标签 src 加载图片的话，因为没有被依赖，图片将不会被打包。</p>
+<p><code>html-withimg-loader</code>预处理器，主要就是用来处理 html 文件中的通过 img 标签引入的图片。<br>不过他主要是用来<strong>解析html 文件</strong>，里面的图片最终还是交给我们前面提到的<code>file-loader</code>来处理。</p>
+</blockquote>
+<ol>
+<li>我们先来创建项目</li>
+</ol>
+<ul>
+<li><code>index.html</code>文件内容如下</li>
+</ul>
+<pre><code>&lt;body&gt;
+  &lt;img src=&quot;./images/logo.png&quot; alt=&quot;&quot; /&gt;
+  &lt;img src=&quot;./images/course.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>js/index.js</code>文件内容如下</li>
+</ul>
+<pre><code>console.log(&quot;index.js&quot;);
+</code></pre>
+<ul>
+<li><code>package.json</code>中部分信息如下</li>
+</ul>
+<pre><code> &quot;devDependencies&quot;: &#123;
+    &quot;file-loader&quot;: &quot;^6.2.0&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;html-withimg-loader&quot;: &quot;^0.1.16&quot;,
+    &quot;url-loader&quot;: &quot;^4.1.1&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ol start="2">
+<li>html-withimg-loader 的使用</li>
+</ol>
+<ul>
+<li>执行以下命令，安装html-withimg-loader对应的包</li>
+</ul>
+<pre><code>npm install html-withimg-loader --save-dev
+</code></pre>
+<ul>
+<li>然后在 <code>webpack</code> 的<code>module.rules</code>选中添加如下配置</li>
+</ul>
+<pre><code>module: &#123;
+  rules: [
+    // ....
+    &#123;
+      test: /\.(htm|html)$/i,
+      loader: &quot;html-withimg-loader&quot;,
+    &#125;,
+  ];
+&#125;
+</code></pre>
+<ul>
+<li>最后<code>webpack.config.js</code>文件内容如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;./js/bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        // 根据正则表达式来匹配要处理的文件类型
+        test: /\.(png|jpe?g|gif)$/i,
+        use: &#123;
+          // 处理的loader名
+          loader: &quot;url-loader&quot;,
+          // 参数设置
+          options: &#123;
+            // 当图片的大小小于10kb时，会将其转成Base64编码格式的DataURL
+            limit: 10240, // 10240=1024*10 相当于10k大小
+            name: &quot;[name].[ext]&quot;, // 图片的名字
+            // 图片的输出目录，相对于output.path而言
+            outputPath: &quot;./images/&quot;,
+            // 图片的预览地址，相对于被调用者与ouput.publicPath机制一样
+            publicPath: &quot;/dist/images/&quot;,
+          &#125;,
+        &#125;,
+      &#125;,
+      &#123;
+        test: /\.(htm|html)$/i,
+        loader: &quot;html-withimg-loader&quot;,
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      chunks: &quot;[name]&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>然后，执行<code>npx webpack</code>打包，就可以看到 html 文件中的图片被成功处理了。<strong>但是发现处理后的地址不对</strong>，如下：</li>
+</ul>
+<pre><code>&lt;img src=&#123;&quot;default&quot;:&quot;/dist/images/logo.png&quot;&#125; alt=&quot;&quot; /&gt; &lt;img
+src=&#123;&quot;default&quot;:&quot;/dist/images/course.jpg&quot;&#125; alt=&quot;&quot; /&gt;
+</code></pre>
+<ul>
+<li>是因为file-loader或url-loader在处理这个地址时，采用的是 <strong><code>ES6</code> 的模块导入</strong>的，所以我们需要在他们的配置中，添加<code>rules.use.options.esModule:false</code>配置，具体如下：</li>
+</ul>
+<pre><code>rules:[&#123;	// 根据正则表达式来匹配要处理的文件类型
+    test: /\.(png|jpe?g|gif)$/i,
+        use: &#123;
+            // 处理的loader名
+            loader: &#39;url-loader&#39;,
+                // 参数设置
+                options: &#123;
+                    esModule:false,
+                    // ......
+
+                &#125;
+        &#125;
+&#125;],
+</code></pre>
+<ul>
+<li>接下来，再执行<code>npx webpack</code>打包，打包后再浏览器端打开 html 文件，就可以正常看到图片被成功加载。</li>
+</ul>
+<h4 id="Asset-Modules-资源模块"><a href="#Asset-Modules-资源模块" class="headerlink" title="Asset Modules 资源模块"></a>Asset Modules 资源模块</h4><blockquote>
+<p><code>Asset Modules</code> 翻译成中文为 <strong>“资源模块”</strong> 的意思，他是 <code>Webpack5</code> 内置的模块类型，它允许 Webpack 处理资源文件（字体，图标等）而无需配置额外 <code>loader</code>。相当于 <code>Webpack5</code>已经<strong>内置</strong>前面提到的<code>file-loader</code>与<code>url-loader</code>对图片、字体等这一类型文件的处理能力。</p>
+<p>我们只需要在 Webpack 的<code>module.rules</code>配置选项中配置相关的信息，就可以完成对图片，字体等这一类型文件的处理。</p>
+<p>Asset Modules 是 Webpack 的<strong>未来</strong>，随着 Asset Modules 功能的不断完善，未来我们将不会再使用之前提到的<code>file-loader、url-loader</code>等对文件资源处理的 loader，而完全用 <code>Asset Modules</code> 来取代。但目前还不完善，但我们需要学习和了解它。</p>
+</blockquote>
+<ol>
+<li>Asset Modules 配置<blockquote>
+<p>Asset Modules 的相关配置,查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/guides/asset-modules/">官方资料</a></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>以下为<code>Asset Modules</code>在<code>Webpack</code>中的几个重要配置</li>
+</ul>
+<pre><code>rules: [
+  &#123;
+    test: /\.(jpe?g|png|gif)$/i,
+    type: &quot;asset&quot;,
+    generator: &#123;
+      filename: &quot;images/[hash][ext]&quot;,
+    &#125;,
+    parser: &#123;
+      dataUrlCondition: &#123;
+        maxSize: 10 * 1024,
+      &#125;,
+    &#125;,
+  &#125;,
+];
+</code></pre>
+<p><strong>以上配置说明：</strong></p>
+<ul>
+<li><code>test</code>：需要被以下规则处理的符合条件的文件。上面<code>/\.(jpe?g|png|gif)$/i</code>表示匹配所有以<code>jpg、jpeg、png、gif</code>结尾的图片。</li>
+<li><code>type</code>：采用那种方式来处理 <code>test</code> 中匹配到的资源模块，他的值有很多，这里主要讲解与图片相关的 3 种类型，详细查<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/module/#ruletype">阅资料</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>asset&#x2F;resource</td>
+<td>这种类型用来替换之前file-loader的操作。它处理文件导入地址并将其替换成访问地址，同时把文件输出到相应位，</td>
+</tr>
+<tr>
+<td>asset&#x2F;inline</td>
+<td>这种类型用来替换之前url-loader的操作。它处理文件导入地址并将其替换成 Base64 编码格式的 DataURL 地址。</td>
+</tr>
+<tr>
+<td>asset</td>
+<td>在单独导出文件和生成 DataURL 间自动选择。用来替换之前通过url-loader，并配置资源体积来实现的功能。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>generator.filename</code>用来设置文件的名称。默认文件名格式是：<code>[hash][ext][query]</code>。也可以通过<code>output.assetModuleFilename</code>来设置，如：</li>
+</ul>
+<pre><code>output: &#123;
+  // ...
+  assetModuleFilename: &#39;images/[hash][ext][query]&#39;
+ &#125;,
+</code></pre>
+<ul>
+<li><p><code>generator.filename</code>与<code>output.assetModuleFilename</code>功能相同，并且<strong>仅适用于</strong> <code>asset</code> 和 <code>asset/resource</code> 模块类型</p>
+</li>
+<li><p><code>parser.dataUrlCondition.maxSize</code>用来设置文件的大小，Webpack 会<strong>根据这个大小来决定打包的图片资源是以文件输出还是替换成 <code>Base64</code> 编码格式的 <code>DataURL</code></strong></p>
+</li>
+</ul>
+<ol>
+<li>接下来，我们通过案例来演示下</li>
+</ol>
+<ul>
+<li><code>js/index.js</code>文件内容</li>
+</ul>
+<pre><code>import &quot;../css/basic.css&quot;;
+console.log(&quot;index.js&quot;);
+css/basic.css文件内容
+&gt;/*basic.css 文件内容*/
+.box1 &#123;
+  width: 100px;
+  height: 100px;
+  background: url(&quot;../images/course.jpg&quot;);
+  background-size: contain;
+&#125;
+&gt;
+.box2 &#123;
+  width: 100px;
+  height: 100px;
+  background: url(&quot;../images/logo.png&quot;);
+  background-size: contain;
+&#125;
+</code></pre>
+<ul>
+<li><code>index.html</code> 文件内容</li>
+</ul>
+<pre><code>&lt;body&gt;
+  &lt;div class=&quot;box1&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box2&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>images</code>文件夹中的图片<code>course.jpg</code>为20KB,<code>logo.png</code>为8.7KB</li>
+<li>以下是本项目的<code>package.json</code>文件的部分内容</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;css-loader&quot;: &quot;^5.2.7&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;mini-css-extract-plugin&quot;: &quot;^2.7.5&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li>以下是<code>webpack.config.js</code>配置文件内容</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/js/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;./js/bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;],
+      &#125;,
+      &#123;
+        test: /\.(jpe?g|png|gif)$/i,
+        type: &quot;asset&quot;,
+        generator: &#123;
+          filename: &quot;images/[hash][ext]&quot;,
+        &#125;,
+        parser: &#123;
+          dataUrlCondition: &#123;
+            maxSize: 10 * 1024, // 10KB  1KNB=1024B（字节）
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new MiniCssExtractPlugin(&#123;
+      filename: &quot;./css/[name].[contenthash].css&quot;,
+    &#125;),
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      chunks: &quot;[name]&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>执行<code>npx webpack</code>打包<blockquote>
+<ul>
+<li>最终<code>logo.png</code>转成了 <code>Base64</code> 的 <code>DataURL</code>，<code>course.jpg</code>被复制到<code>dist/images/</code>目录下</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="八、CSS-样式兼容型处理"><a href="#八、CSS-样式兼容型处理" class="headerlink" title="八、CSS 样式兼容型处理"></a>八、CSS 样式兼容型处理</h3><ol>
+<li>PostCSS<blockquote>
+<p><code>PostCSS</code> 是一个允许使用 JS 插件转换样式的工具。 这些插件可以检查（lint）你的 CSS，支持 <code>CSS Variables</code> 和 <code>Mixins</code>， 编译尚未被浏览器广泛支持的先进的 CSS 语法，内联图片，以及其它很多优秀的功能。</p>
+<p>我们在书写 CSS 样式时，为了考虑<strong>不同浏览器的兼容问题</strong>，很多时候需要对 CSS 样式<strong>添加浏览器厂商私有前缀</strong>。而 postCSS 就是帮我们做这件事的。这样我们在书写 CSS 样式时，就不用担心没有添加浏览器厂商私有前缀而造成兼容问题。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/postcss/postcss/blob/main/docs/README-cn.md">PostCSS 中文文档</a></p>
+</li>
+<li><p>比如：我们书写了下面这样一段 css 样式</p>
+</li>
+</ul>
+<pre><code>.box &#123;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+&#125;
+</code></pre>
+<ul>
+<li>经过 <code>postcss</code> 处理后，就会自动帮我们加上浏览器的前缀，处理后 css 如下</li>
+</ul>
+<pre><code>.box &#123;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+&#125;
+</code></pre>
+<ol start="2">
+<li>postcss-loader 的使用<blockquote>
+<p>要使用 PostCSS 这个工具来给样式添加不同浏览器的前缀，需要安装<code>postcss-loader、postcss</code>两个包</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>执行以下命令，安装所需要的包</li>
+</ul>
+<pre><code>npm install --save-dev postcss-loader@7.1.0 postcss@8.4.21
+</code></pre>
+<ul>
+<li>安装后，我们修改下<code>webpac.config.js</code>文件，内容如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;./bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.(s[ac]ss|css)$/i,
+        use: [&quot;style-loader&quot;, &quot;css-loader&quot;, &quot;postcss-loader&quot;, &quot;sass-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>然后在当前根目录执行<code>npx wepack</code>执行打包，打包后发现生成的 CSS 样式中的并没有任何变化。</li>
+<li>是因为我们还需要借助<code>autoprefixer</code>插件，告诉 postcss，我们需要把 CSS 处理成兼容哪些浏览器版本的 CSS。</li>
+</ul>
+<ol start="2">
+<li>安装 autoprefixer 插件</li>
+</ol>
+<ul>
+<li>接下来，执行以下命令安装插件</li>
+</ul>
+<pre><code>npm i autoprefixer@10.4.14 --save-dev
+</code></pre>
+<ul>
+<li>安装成功后，在当前根目录下，新建 <code>postcss</code> 的配置文件<code>postcss.config.js</code>，添加以下配置</li>
+</ul>
+<pre><code>const autoprefixer = require(&quot;autoprefixer&quot;);
+module.exports = &#123;
+  plugins: [
+    autoprefixer(&#123;
+      browsers: [&quot;cover 99.5%&quot;],
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>或把<code>autoprefixer</code>插件中的<strong>参数去掉</strong>，直接在<code>package.json</code>中来配置浏览器信息,添加<code>&quot;browserslist&quot;</code>字段，具体如下：</li>
+</ul>
+<pre><code>&#123;
+  &quot;devDependencies&quot;: &#123;&#125;,
+  &quot;browserslist&quot;: [&quot;cover 99.5%&quot;]
+&#125;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>还有其它方式，关于浏览器相关配置，[可查阅文档](<a target="_blank" rel="noopener" href="https://github.com/browserslist/browserslist#queries">opens new window</a>)</p>
+</blockquote>
+<ul>
+<li>最后在当前工作目录执行<code>npx webpack</code>打包</li>
+</ul>
+<h3 id="九、处理-JS-中的兼容问题"><a href="#九、处理-JS-中的兼容问题" class="headerlink" title="九、处理 JS 中的兼容问题"></a>九、处理 JS 中的兼容问题</h3><blockquote>
+<p>前面我们学习过 Babel，利用 Babel 将 ES6 的代码转找成 ES5 或 ES3 的代码，但是我们是将所有 ES6 的语法部分全部转换成了 ES5 或 ES3，<strong>并没有指定按目标环境来转换</strong>。比如：只考虑<code>firefox 版本&gt;50</code>的浏览器中缺失的那部分<code>ES6</code>语法才转换等。</p>
+<p>同时，我们之前利用 Babel 只能转换 ES6 的语法，<strong>对于缺失的 API</strong>，我们只能通过引入 <code>polyfill</code> 来实现，<strong>并不能实现按指定目标环境</strong>来引入缺失的 API。</p>
+<ul>
+<li>以上这两个核心问题，就是接下来我们要重点解决的。</li>
+</ul>
+<p>我们先回顾前面讲过的内容，比如：</p>
+<ul>
+<li>Babel 的配置文件</li>
+<li>Babel 的预设包</li>
+<li>Babel 官方的 polyfill</li>
+<li>利用 webpack 与 bable-loader 来实现 Babel 转码<br>然后，我们再来学习如何利用 Babel 实现按需转码（即：按指定的目标环境来转码）</li>
+</ul>
+</blockquote>
+<h4 id="Babel-的配置文件"><a href="#Babel-的配置文件" class="headerlink" title="Babel 的配置文件"></a>Babel 的配置文件</h4><blockquote>
+<p>前面我们已经了解过 Babel,并且也使用过 Babel 的配置文件，这里我们对于 Babel 的配置文件做相关补充。</p>
+<ul>
+<li>详细资料<a target="_blank" rel="noopener" href="https://babeljs.io/docs/configurationc">参考官方</a></li>
+</ul>
+<p><code>Babel</code>的配置文件支持很多种格式，比如<code>babelr.json</code>、<code>babel.config.json</code>、<code>babel.config.js</code>、<code>.babelrc.js</code>。当然我们也可以在<code>package.json</code>来配置 Babel。</p>
+<ul>
+<li>接下来我们挑几个我们常用的说下<blockquote>
+<p>以下所有配置文件中的<code>&quot;presets&quot;</code>中用来配置 Babel 预设，<code>&quot;plugins&quot;</code>中用来配置插件</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><code>babel.config.json</code>文件<blockquote>
+<p>在当前项目的根目录下创建<code>babel.config.json</code>文件，其配置格式</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;presets&quot;: [...],
+  &quot;plugins&quot;: [...]
+&#125;
+</code></pre>
+<ol start="2">
+<li><code>babel.config.js</code>文件<blockquote>
+<p>在当前项目的根目录下创建<code>babel.config.js</code>文件，其配置格式</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>module.exports=&#123;
+    presets: [...],
+    plugins: [...]
+&#125;
+</code></pre>
+<ol start="3">
+<li><code>package.json</code>文件<blockquote>
+<p>在<code>package.json</code>文件中配置格式如下</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;my-package&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;babel&quot;: &#123;
+    &quot;presets&quot;: [ ... ],
+    &quot;plugins&quot;: [ ... ],
+  &#125;
+&#125;
+</code></pre>
+<h4 id="Babel-中的预设"><a href="#Babel-中的预设" class="headerlink" title="Babel 中的预设"></a>Babel 中的预设</h4><blockquote>
+<p>在前面我提到过 Babel 中预设，我们说预设就是<strong>一组 Babel 插件的集合</strong>，我们想把 ES6 的语法转换成 ES5 或 ES3 需要用到对应的插件来帮我们转，而这些相关的插件非常多，所以我们就把他们统一到一个包中，这个包就是<code>@babel/preset-env</code>预设。</p>
+<ul>
+<li><code>@babel/preset-env</code> 预设的<a target="_blank" rel="noopener" href="https://babeljs.io/docs/babel-preset-env">相关配置文档</a><br>所以我们需要将 ES6 的语法转换成 ES5 或 ES3 语法，只需要在 Babel 的配置文件中配置这个预设就可以了。</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下是<code>babel.config.js</code>配置文件内容：</li>
+</ul>
+<pre><code>module.exports = &#123;
+  presets: [&quot;@babel/preset-env&quot;],
+&#125;;
+</code></pre>
+<ul>
+<li>如果在<code>package.json</code>中配置如下：</li>
+</ul>
+<pre><code>&quot;babel&quot;: &#123;
+    &quot;presets&quot;: [ &quot;@babel/preset-env&quot; ]
+  &#125;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>但是我们说，<code>@babel/preset-env</code>预设只能帮我转换 JS 中的语法，但对于 API 本身是没有办法转的，所以我们需要借助 <code>polyfill</code> 来帮我们实现。</p>
+</blockquote>
+<h4 id="Babel-官方的-polyfill"><a href="#Babel-官方的-polyfill" class="headerlink" title="Babel 官方的 polyfill"></a>Babel 官方的 polyfill</h4><blockquote>
+<p>在 <code>Bable7.4.0</code> 以前，Babel 官方提供的<code>polyfill</code>包名为<code>@babel/polyfill</code>,但现在官方已经把这个包给<strong>弃用</strong>了。<code>@babel/polyfill</code>包本身是<code>regenerator-runtime</code> 和 <code>core-js</code>这两个包组成的。</p>
+<ul>
+<li>因为 <code>core-js</code> 这个包的版本已经更新到 <code>3.x.x.x</code> 版本，而<code>@babel/polyfill</code>里的 <code>core-js</code> 已经锁死为 <code>2.x.x.x</code> 版本的。</li>
+</ul>
+<p>所以官方推荐我们在开发中，<strong>独立安装</strong><code>core-js</code>和 <code>regenerator-runtime</code>包,并在你的 JS 中独立加载他们。</p>
+<ul>
+<li><code>core-js</code>为核心包，几乎所有 API 接口的实现都在这个包里。</li>
+<li><code>regenerator-runtime</code>是对编译&#x2F;转译<code>async</code>函数的运行时支持（它可能还有其他用途,但这是主要用途）。<br><a target="_blank" rel="noopener" href="https://babeljs.io/docs/babel-polyfill">官方文档参考</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>执行以下命令安装 polyfill 对应的包</li>
+</ul>
+<pre><code>npm i core-js@3.24.1  regenerator-runtime@0.13.11
+</code></pre>
+<ul>
+<li>安装好后，我们只需要通过<code>import</code>语句在需要的 JS 文件中，通过以下句语来引用这两个包就好</li>
+</ul>
+<pre><code>import &quot;core-js/stable&quot;;
+import &quot;regenerator-runtime/runtime&quot;;
+</code></pre>
+<h4 id="webpack-与-babel-loader-实现转码"><a href="#webpack-与-babel-loader-实现转码" class="headerlink" title="webpack 与 babel-loader 实现转码"></a>webpack 与 babel-loader 实现转码</h4><blockquote>
+<p>接下来，我们结合 Webpack 在项目利用 Babel 来给 JS 文件进行<strong>转码后再打包</strong>。</p>
+</blockquote>
+<ul>
+<li><code>index.js</code>文件内容如下：</li>
+</ul>
+<pre><code>import &quot;core-js/stable&quot;;
+import &quot;regenerator-runtime/runtime&quot;;
+
+const obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<ul>
+<li><code>index.html</code>文件内容如下：</li>
+</ul>
+<pre><code>&gt;&lt;body&gt;
+&gt;  &lt;script src=&quot;../dist/bundle.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>文件配置内容如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: &#123;
+          loader: &quot;babel-loader&quot;,
+          /* 预设可以直接设置在这里，也可以在`package.json`或bable的配置文件中
+                options:&#123;
+                    &quot;presets&quot;: [
+                        &quot;@babel/preset-env&quot;
+                    ]
+                &#125;
+                */
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li><code>babel.config.js</code>文件内容如下：</li>
+</ul>
+<pre><code>module.exports=&#123;
+    presets: [&quot;@babel/preset-env&quot;]
+&#125;
+
+// 我们也可以把`bable`的配置设置在`package.json`中，如下
+ &quot;babel&quot;: &#123;
+    &quot;presets&quot;: [
+      &quot;@babel/preset-env&quot;
+    ]
+  &#125;
+</code></pre>
+<ul>
+<li><code>package.json</code>文件核心内容如下</li>
+</ul>
+<pre><code>&quot;devDependencies&quot;: &#123;
+    &quot;@babel/core&quot;: &quot;^7.21.3&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.20.2&quot;,
+    &quot;babel-loader&quot;: &quot;^9.1.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;,
+  &quot;dependencies&quot;: &#123;
+    &quot;core-js&quot;: &quot;^3.24.1&quot;,
+    &quot;regenerator-runtime&quot;: &quot;^0.13.11&quot;
+  &#125;,
+</code></pre>
+<ul>
+<li>接下来在当前工作目录执行<code>npx webpack</code>完成打包工作，然后在<code>firefox 32</code>版本的浏览器中来浏览，发现控制台正确打印出以下结果：</li>
+</ul>
+<pre><code>Object &#123; a: 1, b: 4 &#125;
+</code></pre>
+<ul>
+<li><code>Object.assign()</code>方法，在大于<code>&gt;=34</code>版本的 <code>firefox</code> 中才被支持</li>
+</ul>
+<h4 id="实现-Babel-按需转码"><a href="#实现-Babel-按需转码" class="headerlink" title="实现 Babel 按需转码"></a>实现 Babel 按需转码</h4><blockquote>
+<p>当我们在 Babel 中使用了<code>@babel/preset-env</code>预设时，我们可以为这个预设<strong>配置相关的参数</strong>，通过这些参数我们可以<strong>设置只针对目标环境不支持的语法</strong>进行语法转换。</p>
+<p>同时也可以与 <code>polyfill</code> 结合，<strong>只针对目标环境不支持的特性API进行部分引用</strong>，这样我们就不用把完整的 <code>polyfill</code> 全部引入到最终的文件。</p>
+</blockquote>
+<ul>
+<li>以下是<code>@babel/preset-env</code>预设的部分重要参数，也是我们着重要掌握的参数。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>targets</code></td>
+<td>这个参数用来设置 Babel 转码的<strong>目标环境</strong>，也就是指定我们转码后的代码需要兼容那些版本的浏览器。他与前面讲到的<code>browserslist</code>功能一样，设置也是一样。</td>
+</tr>
+<tr>
+<td><code>useBuiltIns</code></td>
+<td>这个参数的作用主要是根据<code>targets</code>中的设置（目标环境），找出需要的<code>polyfill</code>进行部分引入。</td>
+</tr>
+<tr>
+<td><code>corejs</code></td>
+<td>指定 Babel 转码时使用的 <code>core-js</code> 的版本，默认设置为 <code>2.x.x.x</code> 版本。不过建议使用 3.x.x 版本。 这个值只在 <code>useBuiltIns</code> 的值是<code>entry</code>与<code>usage</code>时才生效。注意：如果不指定，默认为 <code>2.x.x</code>，则对应的 <code>polyfill</code> 为<code>@babel/polyfill</code>。如果为 <code>3.x.x</code> 版本，则需要手动安装<code>@core-js@3.x.x</code>的包。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参数设置<blockquote>
+<ul>
+<li>当<code>@babel/preset-env</code>预设需要设置参数时，预设就不<strong>能以字符串形式</strong>直接放在数组中，而是<strong>应该再包裹一层数组</strong>，数组的第一项是该预设的名称字符串，数组的第二项是一个对象，该预设的参数就是添加在这个对象中。具体参考以下格式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// babel.config.js
+module.exports = &#123;
+  presets: [
+    [&quot;@babel/preset-env&quot;],
+    &#123;
+      // 预设参数设置在这里
+    &#125;,
+  ],
+&#125;;
+</code></pre>
+<ol>
+<li>targets 参数<blockquote>
+<p>这个参数用来设置 Babel 转码的目标环境，也就是指定我们转码后的代码需要兼容哪些版本的浏览器。他与前面讲到的<code>browserslist</code>功能一样，设置也是一样。</p>
+<p>也就是说，我们可以通过<code>@babel/preset-env</code>预设的<code>targets</code>参数来指定 <code>Babel</code> 转码的目标环境，也可以在<code>package.json</code>中通过<code>browserslist</code>字段来设置。</p>
+<ul>
+<li><p>如果我们在<code>@babel/preset-env</code>预设中设置了<code>targets</code>参数，那<code>Babel</code>转码时就会<strong>以这里指定的为主</strong>。</p>
+</li>
+<li><p>如果这里没有指定，就会使用<code>package.json</code>中<code>browserslist</code>中的配置。如果<code>package.json</code>中也没有配置,那默认就会将所有 <code>ES6</code> 语法转换成 <code>ES5</code> 语法。</p>
+</li>
+<li><p><code>@babel/preset-env</code>预设的<code>targets</code>参数，只能实现语法按指定目标环境来转码，并不能实现 API 转换。</p>
+</li>
+</ul>
+<p>targets 参数的值可是字符串，数组、对象都可以。</p>
+<ul>
+<li>targets 参数设置<a target="_blank" rel="noopener" href="https://babeljs.io/docs/options#targets">参考文档</a></li>
+<li>关于浏览器<a target="_blank" rel="noopener" href="https://github.com/browserslist/browserslist">兼容性列表查询</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>我们以上一个项目为基础，修改<code>index.js</code>文件内容如下</li>
+</ul>
+<pre><code>// async 函数 在firefox 第52版本才开始支持
+async function fn() &#123;
+  console.log(1);
+&#125;
+fn();
+</code></pre>
+<ul>
+<li>以下为当前项目的<code>babel.config.js</code>的配置文件内容</li>
+</ul>
+<pre><code>module.exports = &#123;
+  presets: [
+    [
+      &quot;@babel/preset-env&quot;,
+      &#123;
+        // 只考虑firefox版本大于53的浏览器
+        targets: &quot;Firefox &gt; 53&quot;,
+      &#125;,
+    ],
+  ],
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<p>接下来在当前目录下执行<code>npx webpack</code>打包，打包后，在<code>firefox32</code>版的浏览器中打开<code>index.html</code>页面，发现控制台<strong>抛出错误</strong>。因为当前浏览器并不支持<code>async</code>函数，而我们打包时指定转换的<code>Firefox&gt;53</code>版本，也就是不考虑 <code>53</code> 及以下版本的兼容型的处理。</p>
+<p>如果我们把配置改为<code>targets:&quot;Firefox &gt; 30&quot;</code>，然后再次打包，打包后刷新浏览器，在控制台成功输出 <code>1</code></p>
+<p>当然，我们为了考虑和 <code>CSS</code> 指定相同的目标环境，我们一般会不会在这里设置 <code>targets</code> 属性，而是在<code>package.json</code>中，通过属性来指定。</p>
+</blockquote>
+<ol start="2">
+<li>useBuiltIns 参数<blockquote>
+<p>这个参数的作用主要是根据上面提到的<code>targets</code>参数中的设置或<code>package.json</code>中的<code>browserslist</code>设置，找出需要的 <code>polyfill</code>进行部分引入。</p>
+<ul>
+<li>他有三个值，3 个值及具体作用如下表</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>false</td>
+<td>表示引入<strong>全部</strong>的 polyfill，即(core-js 和 regenerator-runtime)包中的所有代码</td>
+</tr>
+<tr>
+<td>entry</td>
+<td>会根据targets配置的目标环境 或browserslist中的配置，找出缺失的 API，然后从 polyfill 中<strong>只引入缺失部分</strong>的 API 代码。</td>
+</tr>
+<tr>
+<td>usage</td>
+<td>他和 entry 一样，会根据目标环境引入缺失的 API，还会考虑使用的 ES6 特性 API 在目标环境中缺失问题。<strong>如果项目中使用的某些 API 在目标环境中缺失</strong>，他也会把这部分 API 给引入进来</td>
+</tr>
+</tbody></table>
+<p><strong>注意事项</strong></p>
+<blockquote>
+<p><code>useBuiltIns</code>参数虽然是作为<code>@babel/preset-env</code>预设的参数，但是他<strong>主要是解决 <code>JS</code> 中 <code>API</code> 的兼容问题</strong>。</p>
+<p>所以我们要让配置生效，一定要下载<code>@bable/polyfill</code>包或手动下载<code>core-js@3.x.x</code>和<code>regenerator-runtime/runtime</code>包，并且还需要在对应的 <code>JS </code>中通过 <code>import</code> 来引用他们。</p>
+</blockquote>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>接下来我们在之前的项目基础上，修改<code>index.js</code>文件内容如下</li>
+</ul>
+<pre><code>import &quot;core-js/stable&quot;;
+import &quot;regenerator-runtime/runtime&quot;;
+&gt;
+// 只在firefox&gt;=92的浏览器中生效
+const example = &#123;&#125;;
+// 对象自身是否有指定的属性
+const bool = Object.hasOwn(example, &quot;prop&quot;);
+console.log(&quot;值为&quot;, bool);
+&gt;
+// 只在firefox&gt;=34的浏览器中生效
+const obj = Object.assign(&#123; a: 1 &#125;, &#123; b: 4 &#125;);
+console.log(obj);
+</code></pre>
+<ul>
+<li>修改<code>babel.config.js</code>配置文件内容如下</li>
+</ul>
+<pre><code>module.exports = &#123;
+  presets: [
+    [
+      &quot;@babel/preset-env&quot;,
+      &#123;
+        // 只考虑firefox版本大于35的浏览器
+        targets: &quot;Firefox &gt; 35&quot;,
+        useBuiltIns: &quot;entry&quot;,
+        // 这里不指定corejs的版本，默认采用core-js@2.x.x版本，而本案例中安装的是3版，所以要指定，否则打包后会与预期的效果不一样。
+        corejs: &quot;3.24.1&quot;,
+      &#125;,
+    ],
+  ],
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>接下来，我们在当前目录下执行<code>npx webpck</code>打包，打包后在浏览器中访问<code>index.html</code>页面。同时我们在控制台执行<code>[1,2,[3,[4],5]].flat(3)</code>代码，最终被成功执行。<blockquote>
+<p>数组的 <code>flat</code> 方法在<code>firefox&gt;=63</code>版本的浏览器中，才原生支持，所以也被成功处理了兼容型。</p>
+</blockquote>
+</li>
+<li>接下来，我们把<code>useBuiltIns</code>的值改为<code>&quot;usage&quot;</code>，再次打包，然后刷新浏览器。同时我们在控制台执行<code>[1,2,[3,[4],5]].flat(3)</code>代码，最终被成功执行。</li>
+</ul>
+<p>通过控制台输出的结果，我相信你已经能够区分<code>entry</code>与<code>usage</code>的区别了。所以简单一点，<code>entry</code>会根据给定的目标环境来引入缺失的<code>API</code>，而<code>usage</code>除了会考虑目标环境中缺失的 <code>API</code>，还会考虑项目中<strong>实际使用</strong>的 API 是否在目标环境中缺失，如果缺失，也会引入这部分 API。</p>
+</blockquote>
+<ol start="3">
+<li><code>corejs</code> 参数<blockquote>
+<p>通过上面的学习，我们应该知道 <code>corejs</code> 参数的作用了。他主要用来指定 <code>Babel</code> 转码时使用的 <code>core-js</code> 的版本。默认不设置时，值为 <code>2.x.x </code>版本，这时候我们需要安装的 <code>polyfill</code> 为<code>@babel/polyfill</code></p>
+<p>如果设置值为 <code>3.x.x</code> 版本，则需要手动安装<code>core-js@3.x.x</code>和<code>regenerator-runtime</code>两个包。</p>
+<ul>
+<li>这个值只在 useBuiltIns 的值是entry与usage时才生效。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>本章重点掌握 loader 与 plugins 是如何配置的。在 Web 前端领域里，我们只需要掌握以下几个方向的 loader 和插件<br>处理 JS 需要用到的 loader 与插件</p>
+<ul>
+<li>babel-loader</li>
+</ul>
+<p>处理 CSS 需要用到的 loader 与插件</p>
+<ul>
+<li>css-loader 与 style-loader</li>
+<li>sass-loader</li>
+<li>min-css-extract-plugin 插件</li>
+</ul>
+<p>处理图片需要用到的 loader</p>
+<ul>
+<li>file-loader 与 url-loader</li>
+<li>html-withimg-loader</li>
+<li>Asset Modules 资源模块</li>
+</ul>
+<p>处理 html 文件需要用到的插件</p>
+<ul>
+<li>html-webpack-plugin</li>
+</ul>
+<p>webpack 开发环境下用到的工具插件<br>clean-webpack-plugin</p>
+<p>Web 前端 CSS 与 JS 兼容处理</p>
+<ul>
+<li>掌握通过使用<code>postcss-loader</code>预处理器与<code>autoprefixer</code>插件来解决 CSS 兼容问题</li>
+<li>掌握如何利用 <code>Babel</code> 来处理 <code>JS</code> 中的兼容问题（其中包括语法和 <code>API</code> 的兼容）</li>
+</ul>
+</blockquote>
+<h3 id="十、Webpack5-开发环境配置"><a href="#十、Webpack5-开发环境配置" class="headerlink" title="十、Webpack5 开发环境配置"></a>十、Webpack5 开发环境配置</h3><blockquote>
+<p>学习开发环境的配置主要目的是为了给开发人员在开发项目时有一个更好的体验。</p>
+<p>本章节我们讲解的开发环境配置有：文件监听与 <code>webpack-dev-server</code> 工具、模块热替换、<code>source map</code>。</p>
+<ul>
+<li>每一项配置的具体功能如下表：</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文件监听</td>
+<td>Webpack提供了开启文件监听模式的功能后，当我们修改保存项目代码时，会自动进行重新构建，而不需要再次执行npx webpack命令</td>
+</tr>
+<tr>
+<td>webpack-dev-server 工具</td>
+<td>当安装并启用</td>
+</tr>
+<tr>
+<td>模块热替换</td>
+<td>可以在不刷新浏览器页面情况下，做到局部刷新，只刷新修改过的模块部分的内容，实现实时预览。</td>
+</tr>
+<tr>
+<td>source map</td>
+<td>通过 Webpack 打包后生成的代码与我们的源码完全不一致，可读性很差。当我们需要对这些代码进行调试时，就很麻烦。而 source map 可以帮我们把打包后的代码与源码作一一映射，快速找到问题。</td>
+</tr>
+</tbody></table>
+<h4 id="文件监听"><a href="#文件监听" class="headerlink" title="文件监听"></a>文件监听</h4><blockquote>
+<p><code>Webpack</code>提供了开启文件监听模式的功能后，当我们修改保存项目代码时，会<strong>自动进行重新构建</strong>，而不需要再次执行<code>npx webpack</code>命令</p>
+<p>开启文件监听模式最简单的方法就是在执行<code>npx webpack</code>打包的时候，在后面带上<code>--watch</code>这个参数。</p>
+</blockquote>
+<pre><code>npx webpack --watch
+</code></pre>
+<blockquote>
+<ul>
+<li>接下来，我们通过一个案例了解监听模式的具体功能</li>
+</ul>
+</blockquote>
+<ul>
+<li>项目目录结构</li>
+</ul>
+<pre><code>icod
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.js</code>文件内容</li>
+</ul>
+<pre><code>const username = &quot;icoding&quot;;
+console.log(username);
+package.json中devDependencies字段信息如下：
+&quot;devDependencies&quot;: &#123;
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>文件内容如下</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ol>
+<li>在命令行开启文件监听模式<blockquote>
+<p>项目创建好后，我们在当前目录下执行以下命令开始打包</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npx webpack --watch
+</code></pre>
+<ul>
+<li>以上命令就相当于开启了 Webpack 的文件监听模式，<strong>同时</strong>完成了打包工作。在 <code>dist</code> 目录下生成了<code>bundle.js</code>文件</li>
+<li>仔细观察命令行窗口，会发现<code>Webpack</code>的构建信息与以往不同。<strong>该命令行构建程序并没有自动退出</strong>，而且这个时候不能再执行其它命令。</li>
+<li>接下来，我们把<code>index.js</code>文件里<code>username</code>变量的值由<code>icoding</code>改成code，然后保存进行观察。观察命令行，发现 <code>Webpack</code> 自动进行了重新构建，命令行窗口提示了新的构建信息<blockquote>
+<ul>
+<li>这时候我们再查看<code>bundle.js</code>文件，发现里面变量<code>username</code>的值也变成了code</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>在 Wepack 配置文件中开启文件监听模式<blockquote>
+<p><code>Webpack</code>开启文件监听模式的方式，除了上面的命令行模式外，还可以在<code>Webpack</code>的配置文件里开启。具体设置如下：</p>
+<ul>
+<li>点击 <a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/watch/#watch">查阅官方文档</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  // 开启文件监听模式
+  watch: true,
+&#125;;
+</code></pre>
+<blockquote>
+<p><strong>注：</strong></p>
+<ul>
+<li>不过我们很少在配置文件里配置，因为在实际的开发中，我们并不会选择这种方式来开启文件监听模式，而是会采用接下来进的<code>webpack-dev-server</code>工具</li>
+</ul>
+</blockquote>
+<h4 id="DevServer-工具"><a href="#DevServer-工具" class="headerlink" title="DevServer 工具"></a>DevServer 工具</h4><blockquote>
+<p><code>webpack-dev-server</code>是 Webpack 官方提供的一个 Webpack 服务工具，一般也称它为<code>DevServer</code>。</p>
+<p>当安装并启用<code>webpack-dev-server</code>后，它会<strong>自动</strong>帮我们执行<code>npx webpack</code>打包命令完成<strong>打包</strong>工作，同时还会开启Webpack的<strong>文件监听模式</strong>。最终通过<strong>开启一个本地服务器</strong>来加载构建完成的资源文件，它还有<strong>代理请求</strong>等功能。</p>
+<ul>
+<li>具体的安装和使用（配置）教程 可查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/dev-server/">官方文档</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>DevServer 的使用</li>
+</ol>
+<ul>
+<li>首先我们需要执行以下命令，安装<code>webpack-dev-server</code>包</li>
+</ul>
+<pre><code>npm install --save-dev webpack-dev-server
+</code></pre>
+<ul>
+<li>接下来，我们在前一个项目的基础上，在<code>src</code>文件夹下面新建<code>index.html</code>页面，页面内容如下：</li>
+</ul>
+<pre><code>&lt;body&gt;
+  网站首页
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li>然后修改<code>webpack.config.js</code>配置文件内容如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  // watch:true
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      filename: &quot;index.html&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>记得还要安装<code>html-webpack-plugin</code>插件。</li>
+<li>然后，我们在当前目录下执行以下命令</li>
+</ul>
+<pre><code>npx webpack serve
+</code></pre>
+<ul>
+<li><p>以上命令执行后，它会自动帮我们执行<code>npx webpack</code>打包，同时开启了 <code>Webpack</code> 的文件监听模式。同时开启一个本地服务器来加载构建完成的资源文件。</p>
+</li>
+<li><p>观察命令行终端信息，提示信息如下：（截取了部分内容）</p>
+<img src="devserver.png">
+</li>
+<li><p>我们在浏览器中打开<code>http://localhost:8080/</code>地址，可以正确的访问到<code>index.html</code>页面，具体如下截图:</p>
+<img src="Dev-localhost.png"></li>
+</ul>
+<p><strong>注意事项</strong></p>
+<blockquote>
+<ul>
+<li>我们并没有在根目录下看见dist目录，是因为<code>webpack-dev-server</code><strong>在编译之后不会写入到任何输出文件</strong></li>
+<li>而是将<code>bundle</code>文件保留在<strong>内存</strong>中，然后将它们 <code>serve</code> 到 <code>server</code> 中，就好像它们是挂载在 <code>server</code> 根路径上的真实文件一样。</li>
+<li>当我们访问<code>http://localhost:8080/</code>地址，默认访问的是<code>output.path</code>指定目录下的<code>index.html</code>文件</li>
+<li>如果修改<code>index.html</code>页面的内容，保存后，发现浏览器中访问的<code>index.html</code>页面内容并<strong>没有变化</strong></li>
+<li>如果修改<code>index.js</code>页面的内容，保存后，这时<code>bundle.js</code>和浏览器中访问的<code>index.html</code>页面内容也更新为<strong>最新内容</strong>了。<blockquote>
+<p>只有打包入口文件相关的依赖文件中的内容被更改后，才会自动开启重新打包。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li>DevServer 的常用参数<blockquote>
+<p>DevServer 除了上述默认行为，它还支持自定义参数，通过配置相关参数，可以改变其行为。</p>
+<ul>
+<li>常用的参数有以下：</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>open</td>
+<td>是否自动在浏览器中打开服务,true 为自动打开</td>
+</tr>
+<tr>
+<td>port</td>
+<td>指定 Web 服务运行的端口号</td>
+</tr>
+<tr>
+<td>compress</td>
+<td>可设定是否为静态资源开启 Gzip 压缩。</td>
+</tr>
+<tr>
+<td>static</td>
+<td>用于设置静态文件的目录</td>
+</tr>
+<tr>
+<td>hot</td>
+<td>开启模块热替换功能，后面单独来讲</td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>接下来，我们通过代码来演示下。我们在上面项目的基础上，在当前目录下新建<code>public</code>文件夹，然后在<code>public</code>文件夹下新建<code>index.html</code>页面。</li>
+</ul>
+</blockquote>
+<ul>
+<li>最后项目的目录结构如下：</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ index.html
+├─ src
+│  ├─ index.html
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>接下来，我们更改<code>webpack.config.js</code>文件中的配置如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  // watch:true
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      filename: &quot;index.html&quot;,
+    &#125;),
+  ],
+  devServer: &#123;
+    // 自动打开浏览器
+    open: true,
+    // 服务的端口号
+    port: 8809,
+    // 为静态资源开启Gzip压缩
+    compress: true,
+    // 静态资源访问路径,必需在当前磁盘上存在对应的目录
+    static: &#123;
+      // 告诉服务器从哪里提供内容,只有在你希望提供静态文件时才需要这样做
+      directory: path.resolve(__dirname, &quot;public&quot;),
+      // 告诉服务器在哪个 URL 上提供 static.directory 的内容
+      // 比如：通过http://localhost:8809/assets/可以访问当前目录下public文件夹中内容
+      publicPath: &quot;/assets&quot;,
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>最后在当前目录下执行<code>npx webpack serve</code>命令，会<strong>新开</strong>一个浏览器窗口打开<code>output.path</code>目录下的<code>index.html</code>文件，访问地址是：<code>http://localhost:8809</code></li>
+<li>如果想要访问当前目录下的<code>public</code>文件夹中的内容，可以能过 <code>http://localhost:8809/assets/</code> 地址访问，该地址默认访问的是<code>public</code>下面的<code>index.html</code>文件，如果需要访问该目录下其它资源，手动修改访问题到该资源就好。</li>
+</ul>
+<p><strong>温馨提示：</strong></p>
+<ul>
+<li>只有在你希望提供<strong>静态文件</strong>时才需要配置<code>static</code>配置。</li>
+<li>如果我们只想访问打包后生成的资源，不用做任何路径相关配置，因为这些打包的资源在内存中，并且访问地址会默认映射到该内存地址访问打包后的资源。</li>
+</ul>
+<ol start="3">
+<li>模块热替换<blockquote>
+<p>在上面我们使用<code>webpack-dev-server</code>实现了当内容更新后，会<strong>自动刷新整个页面</strong>的功能，从而做到了实时预览代码修改后的效果。</p>
+<p><code>Webpack</code>还有一种更高级的方式来做到实时预览，那就是模块热替换。这种技术不需要重新刷新整个页面，而只是通过<strong>重新加载修改过的模块</strong>来实现实时预览。该技术称为模块热更新，英文名称是<code>Hot Module Replacement</code>，简称<code>HMR</code>。</p>
+<p>在 Webpack5 中，我们只需要在<code>devServer</code>配置中，添加<code>hot</code>选项，将他的值设为 <code>true</code>，就可以开启模块热更新功能。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>具体如下：</li>
+</ul>
+<pre><code>devServer: &#123;
+  // ....
+  // 开启模块热更新
+  hot: true;
+&#125;
+</code></pre>
+<ul>
+<li>不过，在前端项目里，开启模块热替换功能后，我们还需要在使用模块热替换功能的模块中,<strong>添加以下代码来触发模块的自更新</strong>。</li>
+</ul>
+<pre><code>// module.hot 为HotModuleReplacementPlugin插件暴露的接口，是一个对象
+// 在webpack5之前，需要安装HotModuleReplacementPlugin插件，在webpack5中只要开启模块热替换，就会自动加载这个插件
+// 以下代码表示，只有在开启了模块热替换，才执行accept方法，否则不执行
+if (module.hot) &#123;
+  module.hot.accept(); // 触发自身更新
+&#125;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>关于模块热替换相关的配置 查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/api/hot-module-replacement">官方文档</a></li>
+</ul>
+</blockquote>
+<p><strong>使用模块热替换</strong></p>
+<blockquote>
+<ul>
+<li>接下来，我们通过一个案例来演示。</li>
+</ul>
+</blockquote>
+<ul>
+<li>我们在上一个项目的基础上，更新<code>index.js</code>文件的内容如下：</li>
+</ul>
+<pre><code>import &#123; password &#125; from &quot;./login.js&quot;;
+const username = &quot;icoding&quot;;
+console.log(username);
+console.log(password);
+</code></pre>
+<ul>
+<li>同时在src目录下新建<code>login.js</code>文件，内容如下：</li>
+</ul>
+<pre><code>export const password = 123456;
+console.log(password);
+// 只有在启用了模块热替换功能，再执行下面方法触发热替换
+if (module.hot) &#123;
+  module.hot.accept(); // 触发当前模块自身热更新
+&#125;
+</code></pre>
+<ul>
+<li>最后，当前项目的目录结构如下</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ public
+│  └─ index.html
+├─ src
+│  ├─ index.html
+│  ├─ index.js
+│  └─ login.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li>最后，我们在当前目录执行<code>npx webpack serve</code>命令后，会在浏览器窗口自动打开<code>index.html</code>页面。查看当前页的控制台，可以看到输出的内容</li>
+<li>如果更新<code>login.js</code>内容，就会发现浏览器，只更新了当前更新模块的部分内容</li>
+<li>如果更新<code>index.js</code>内容，就会发现浏览器整个页面刷新了，因为没有启用模块热替换功能</li>
+</ul>
+<h4 id="source-map"><a href="#source-map" class="headerlink" title="source map"></a>source map</h4><blockquote>
+<p>利用 Webpack 编译打包后的代码，<strong>会添加很多与原始代码无关的代码</strong>。如果我们的原始代码一旦有错，在调试的时候就很难找到错误，<strong>因为我们是在打包后的代码上进行调试的</strong>。</p>
+<p>要想在浏览器里能直接看到打包前的原始代码，在原始代码上进行调试，这就需要用到<code>source map</code></p>
+</blockquote>
+<ol>
+<li>使用 source map</li>
+</ol>
+<ul>
+<li>我们在上面代码的基础上，修改<code>index.js</code>中的代码如下：</li>
+</ul>
+<pre><code>import &#123; password &#125; from &quot;./login.js&quot;;
+const username = &quot;code&quot;;
+debugger; // 设置断点
+console.log(s);
+console.log(username);
+console.log(password);
+</code></pre>
+<ul>
+<li>要使用<code>source map</code>只需要在<code>Webpack</code>的配置文件中。<blockquote>
+<ul>
+<li>添加以下配置即可：</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // ....
+  devtool: &quot;source-map&quot;,
+&#125;;
+</code></pre>
+<ul>
+<li>接下来，在当前根目录下，执行<code>npx webpack</code>命令再重新打包，打包成功后，刷新 <code>index.html</code> 页面，观察<code>Sources</code>面板，如下图：<img src="source-map.png"></li>
+</ul>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>观察上图，我们发现多了一个<code>index.js</code>文件，也就是打包前的原始代码。</li>
+<li>并且在调试时，可以直接在<code>index.js</code>文件上打断点调试，非常方便</li>
+</ul>
+</blockquote>
+<ol>
+<li>devtool 的值<blockquote>
+<p>因为 <code>devtool</code> 后面的值非常多，所以我们在实际开发中，具体应该选择使用那个值，建议大家参考官方给推荐的，每一种值为什么被推荐，官方给出了明确说明。 详细 查阅<a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/devtool/#devtool">官方文档</a></p>
+<ul>
+<li>以下是我从官网简单摘录，关于第一种环境下的推荐的 devtool 值。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>推荐</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发环境下使用的值</td>
+<td>eval、eval-source-map、eval-cheap-source-map、eval-cheap-module-source-map</td>
+</tr>
+<tr>
+<td>生产环境下使用的值</td>
+<td>none、source-map、hidden-source-map、nosources-source-map（注意看每一种值后面对应的警告信息，<strong>一定不要</strong>让用户能访问到 <code>source-map</code> 文件，会暴露源码，很不安全）</td>
+</tr>
+<tr>
+<td>针对一些特定场景使用的值</td>
+<td>inline-source-map、cheap-source-map、cheap-module-source-map、inline-cheap-module-source-map</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>生产环境下，一般是不会选择source-map的，所以更推荐大家使用 none</p>
+</blockquote>
+<h3 id="十一、Webpack-生产环境优化"><a href="#十一、Webpack-生产环境优化" class="headerlink" title="十一、Webpack 生产环境优化"></a>十一、Webpack 生产环境优化</h3><h4 id="摇树优化-Tree-Shaking"><a href="#摇树优化-Tree-Shaking" class="headerlink" title="摇树优化 Tree Shaking"></a>摇树优化 Tree Shaking</h4><blockquote>
+<p>在实际开发中，我们通常会用到一些<strong>第三方</strong>的工具函数，如果没有经过任何特殊处理的话，打包时会引入整个包。但实际开发中我们可能只用到了里面极小部分的功能（API），这样将整个工具函数的代码都打包进来，体积就太大了。</p>
+<p>有没有什么办法，<strong>只帮我们引入在我们的代码中用到的那部分代码</strong>呢 ？有，那就是我们接下来讲到的<code>Tree Shaking</code>。</p>
+<p><code>Tree Sharking</code>可以帮我们检测模块中没有用到的那块代码，并在 Webpack 打包时将没有使用到的代码块移除，减小打包后的资源体积。它的名字也非常形象，通过摇晃树，把树上干枯无用的叶子摇掉。</p>
+<p>Webpack5 中<strong>内置</strong>了这个功能，在生产环境打包时，Webpack 会<strong>自动开启</strong><code>Tree Shaking</code>功能，将没有用到的那部分代码给删除。</p>
+</blockquote>
+<p><strong>我们创建一个简单的项目来演示下</strong></p>
+<ul>
+<li>当前项目目录结构如下</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.js</code>文件的代码如下</li>
+</ul>
+<pre><code>function max(a, b) &#123;
+  return a &gt; b ? a : b;
+&#125;
+function min(a, b) &#123;
+  return a &gt; b ? b : a;
+&#125;
+console.log(1);
+package.json文件内容如下：
+ &quot;devDependencies&quot;: &#123;
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;,
+  &#125;
+webpack.config.js文件内容如下：
+const path = require(&quot;path&quot;);
+module.exports = &#123;
+  mode: &quot;production&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>接下来，在当前根目录下执行<code>npx webpack</code>打包，打包后生成的<code>bundle.js</code>文件内容如下：</li>
+</ul>
+<pre><code>console.log(1);
+</code></pre>
+<ul>
+<li>观察以上代码，我们可以得出，没有用到的min和max函数，都被删除了。</li>
+</ul>
+<h4 id="资源压缩"><a href="#资源压缩" class="headerlink" title="资源压缩"></a>资源压缩</h4><blockquote>
+<p>资源压缩的主要目的是减小文件体积，以提升页面加载速度或降低带宽消耗等。资源压缩通常发生在<strong>生产环境打包的最后一个环节</strong>，开发环境打包是不需要进行资源压缩处理的。</p>
+<p>资源压缩主要是对 HTML、JS、CSS 文件、图片进行压缩，通常的做法就是整个文件或大段的代码压缩成一行，比如：去掉空格，空行，删除注释，把较长的变量名替换成较短的变量名等。</p>
+<p>图片这类<strong>静态资源</strong>，一般在项目上线后会交由服务端来处理，不需要我们处理。</p>
+<ul>
+<li>接下来，我们创建一个简单的项目来演示下</li>
+</ul>
+</blockquote>
+<ul>
+<li>项目结构如下：</li>
+</ul>
+<pre><code>icoding
+├─ node_modules
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ basic.css
+│  ├─ index.html
+│  └─ index.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.html</code>文件核心内容如下:</li>
+</ul>
+<pre><code>&lt;body&gt;
+  网站首页
+&lt;/body&gt;
+</code></pre>
+<ul>
+<li><code>index.js</code>文件内容如下：</li>
+</ul>
+<pre><code>import &quot;./basic.css&quot;;
+
+const username = &quot;icoding&quot;;
+const password = 123456;
+function login(username, password) &#123;
+  if (username === &quot;icoding&quot; &amp;&amp; password === 123456) &#123;
+    console.log(&quot;登录成功&quot;);
+  &#125; else &#123;
+    console.log(&quot;登录失败&quot;);
+  &#125;
+&#125;
+login(username, password);
+</code></pre>
+<ul>
+<li><code>basic.css</code>文件内容如下：</li>
+</ul>
+<pre><code>.box1 &#123;
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+  border: 20px solid khaki;
+  font-size: 20px;
+  padding: 20px;
+  margin: 20px;
+&#125;
+&gt;
+.box2 &#123;
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+  border: 20px solid khaki;
+  font-size: 20px;
+  padding: 20px;
+&#125;
+</code></pre>
+<ul>
+<li><code>package.json</code> 文件的核心内容如下：</li>
+</ul>
+<pre><code> &quot;devDependencies&quot;: &#123;
+    &quot;css-loader&quot;: &quot;^6.7.3&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.0&quot;,
+    &quot;mini-css-extract-plugin&quot;: &quot;^2.7.5&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^4.13.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>文件内容如下：</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+const MiniCssExtractPlugin = require(&quot;mini-css-extract-plugin&quot;);
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;bundle.js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, &quot;css-loader&quot;],
+      &#125;,
+    ],
+  &#125;,
+  plugins: [
+    new HtmlWebpackPlugin(&#123;
+      template: &quot;./src/index.html&quot;,
+      filename: &quot;index.html&quot;,
+    &#125;),
+    new MiniCssExtractPlugin(),
+  ],
+&#125;;
+</code></pre>
+<ol>
+<li>JS 压缩<blockquote>
+<p>在 Webpack5 中，当我们开启生产环境打包时，JS 代码会自动做压缩处理，并不需要做任何配置。是因为，在安装 Webpack5 时，会<strong>自动</strong>安装<code>terser-webpack-plugin</code>插件，同时在生产环境下打包时，Webpack5 会<strong>自动</strong>使用这个插件来对 JS 做压缩处理。</p>
+</blockquote>
+</li>
+</ol>
+<p><strong>如果我们不想在生产环境打包时</strong>，对 JS 做压缩处理</p>
+<blockquote>
+<ul>
+<li>我们只需要<code>webpack.config.js</code>文件中添加如下配置，就可以。</li>
+</ul>
+</blockquote>
+<pre><code>module.exports = &#123;
+  // 相关的优化配置，在这里配置
+  optimization: &#123;
+    // 不使用插件压缩代码
+    // 默认值为true，表示使用terser-webpack-plugin 插件来对JS代码压缩。
+    minimize: false,
+  &#125;,
+&#125;;
+</code></pre>
+<ol start="2">
+<li>CSS 压缩<blockquote>
+<p>默认配置下，Webpack5 在生产环境打包下，并不会对 CSS 做压缩处理。</p>
+<p>我们需要借助<strong>第三方插件</strong>：<code>css-minimizer-webpack-plugin</code>来帮我们对 CSS 做压缩处理。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>首先，我们需要执行以下命令，安装<code>css-minimizer-webpack-plugin</code>插件需要的包</li>
+</ul>
+<pre><code>npm install css-minimizer-webpack-plugin --save-dev
+</code></pre>
+<ul>
+<li>接下来，只要按以下步骤修改<code>webpack.config.js</code>文件，来完成相关插件配置就可以<blockquote>
+<ul>
+<li>使用<code>require</code>方法，来加载插件</li>
+<li>在<code>optimization</code>选项中通过<code>minimize</code>和<code>minimizer</code>属性，告诉 Webpack 需要使用<code>minimizer</code>中的插件来压缩代码。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // ....
+  optimization: &#123;
+    // 使用插件压缩代码
+    minimize: true,
+    // 提供一个或多个压缩插件，来对打包后的文件作相关压缩，不过会覆盖默认的插件
+    // 也就是，这样设置后，CSS代码确实压缩，但是JS代码确没有被压缩了
+    minimizer: [new CssMinimizerPlugin()],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>当我们在当前目录执行<code>npx webpack</code>来打包时，打包后的 css 代码确实压缩，压缩后代码如下：</li>
+</ul>
+<pre><code>/* css压缩后 */
+.box1 &#123;
+  margin: 20px;
+&#125;
+.box1,
+.box2 &#123;
+  background-color: skyblue;
+  border: 20px solid khaki;
+  font-size: 20px;
+  height: 100px;
+  padding: 20px;
+  width: 100px;
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>但是 JS 代码却没有被压缩了。是因为<code>minimizer:[new CssMinimizerPlugin()]</code>设置，<strong>覆盖了默认的 JS 压缩插件</strong>。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如果想要 JS 和 CSS 都能被压缩，则需要在<code>minimizer</code>对应数组中添加 JS 压缩插件。官方说明文档中提到，可以在 <code>optimization.minimizer</code> 中可以使用 <code>&#39;...&#39;</code> 来访问默认值（JS 压缩插件）。</li>
+</ul>
+</blockquote>
+<ul>
+<li>接下来我们把<code>webpack.config.js</code>配置文件中<code>optimization</code>项的内容，修改如下：</li>
+</ul>
+<pre><code>module.exports = &#123;
+  optimization: &#123;
+    minimize: true,
+    // ...表示，webpack5自带的JS压缩插件
+    minimizer: [new CssMinimizerPlugin(), &quot;...&quot;],
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>最后，我们再在当前目录下执行npx webpack打包，打包后的 JS 与 CSS 都做了压缩处理。</li>
+</ul>
+<ol start="3">
+<li>HTML 压缩<blockquote>
+<p>还记得，在前面学习<code>html-webpack-plugin</code>插件时，在这个插件中通过配置<code>minify</code>参数，就可以控制打包后的 <code>HTML</code> 代码是否需要做压缩处理。</p>
+<p>如果<code>minify</code>的值为<code>false</code>表示不对打包后的 HTML 压缩，<code>true</code>表示做压缩处理。他的默认值就是 <code>true</code>，所以如果要做压缩处理，也可以不用写这个配置。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>plugins:[new HtmlWebpackPlugin(&#123;
+        template:&quot;./src/index.html&quot;,
+        filename:&quot;index.html&quot;,
+        // minify的值为false表示不对打包后的HTML压缩，true表示压缩
+        // 默认值就是true，所以如果要做压缩处理，也可以不用写这个配置
+        minify:true
+    &#125;),new MiniCssExtractPlugin() ],
+</code></pre>
+<h4 id="缩小查找范围"><a href="#缩小查找范围" class="headerlink" title="缩小查找范围"></a>缩小查找范围</h4><blockquote>
+<p>在 Webpack 打包时，我们可以通过以下几个方面来<strong>减少打包所需要的时间</strong></p>
+<ul>
+<li>排除那些不需要被预处理器解析的模块</li>
+<li>帮助 Webpack 快速找到需要的模块</li>
+<li>帮助 Webpack 识别不带后缀名的文件<br>接下来，我们就从上面三个方向来讲解一些常见的缩小查找范围的方法</li>
+</ul>
+</blockquote>
+<ol>
+<li>配置预处理器的 exclude 与 include<blockquote>
+<p>在使用预处理器解析模块的时候，可以通过配置 exclude 和 include 来减少需要处理的模块。</p>
+<ul>
+<li><code>exclude</code>：排除不需要使用当前预处理器来处理的文件夹目录</li>
+<li><code>include</code>：指定当前预处理器只对哪些目录中匹配的文件做预处理</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>当exclude与include<strong>同时指定</strong>时，以<code>exclude</code>的设置为主</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // ....
+  module: &#123;
+    rules: [
+      // 预处理器
+      &#123;
+        test: /\.js$/,
+        exclude: /node_modules/,
+        include: /src/,
+        use: &#123;
+          loader: &quot;babel-loader&quot;,
+        &#125;,
+      &#125;,
+    ],
+  &#125;,
+&#125;;
+</code></pre>
+<ol start="2">
+<li><code>module.noParse</code><blockquote>
+<p>在实际开发中，我们有可能用到<strong>第三方模块</strong>，这些模块本身没有依赖任何的第三方模块（内部使用<code>import</code>或<code>require</code>关键字），所以<strong>不需要再用相关的预处理器来解析</strong>。</p>
+<p><code>module.noParse</code>：可以让 webpack <strong>忽略</strong>对部分没有采用模块化的文件的递归解析和处理，以提高构建性能</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>modlue.noParse</code>的值可以是字符串，正则表达式和数组。具体设置如下：</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // ....
+  module: &#123;
+    noParse: /login/, // login.js文件不需要解析，其内部没有使用第三方模块
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>我们来看下面这个例子</strong></p>
+<ul>
+<li>项目目录结构</li>
+</ul>
+<pre><code>icode
+├─ node_modules
+├─ babel.config.json
+├─ package-lock.json
+├─ package.json
+├─ src
+│  ├─ index.js
+│  ├─ login.js
+│  └─ search.js
+└─ webpack.config.js
+</code></pre>
+<ul>
+<li><code>index.js</code> 文件</li>
+</ul>
+<pre><code>import &quot;./login&quot;;
+const a = 1;
+const b = 2;
+console.log(a, b);
+</code></pre>
+<ul>
+<li><code>login.js</code>文件</li>
+</ul>
+<pre><code>import &quot;./search&quot;;
+&gt;
+const username = &quot;icoding&quot;;
+const password = 123456;
+console.log(username, password);
+</code></pre>
+<ul>
+<li><code>search.js</code>文件</li>
+</ul>
+<pre><code>const n = 1;
+const m = 2;
+console.log(1, 2);
+package.json文件内容
+ &quot;devDependencies&quot;: &#123;
+    &quot;@babel/core&quot;: &quot;^7.21.3&quot;,
+    &quot;@babel/preset-env&quot;: &quot;^7.20.2&quot;,
+    &quot;babel-loader&quot;: &quot;^9.1.2&quot;,
+    &quot;webpack&quot;: &quot;^5.76.3&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.0.1&quot;
+  &#125;
+</code></pre>
+<ul>
+<li><code>webpack.config.js</code>文件内容</li>
+</ul>
+<pre><code>const path = require(&quot;path&quot;);
+
+module.exports = &#123;
+  mode: &quot;none&quot;,
+  entry: &quot;./src/index.js&quot;,
+  output: &#123;
+    path: path.resolve(__dirname, &quot;dist&quot;),
+    filename: &quot;[name].js&quot;,
+  &#125;,
+  module: &#123;
+    rules: [
+      &#123;
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: &#123;
+          loader: &quot;babel-loader&quot;,
+          options: &#123;
+            presets: [&quot;@babel/preset-env&quot;],
+          &#125;,
+        &#125;,
+      &#125;,
+    ],
+    // login文件中，不需要再递归解析
+    noParse: /login/,
+  &#125;,
+&#125;;
+</code></pre>
+<p><strong>注：</strong></p>
+<ul>
+<li>最后在当前目录执行<code>npx webpack</code>命令打包，发现在打包后的<code>main.js</code>文件中，还保留了<code>import &#39;./search&#39;</code>语句，说明打包时，并<strong>没有</strong>对<code>login.js</code>文件进行递归解析。</li>
+<li>当然，这样打包后的内容肯定是有问题的，所以我们要指定某个文件不需要被解析的<strong>前提</strong>是，这些文件内部没有使用<code>import</code>或<code>require</code>这样的语句。</li>
+</ul>
+<ol start="3">
+<li><code>resolve.modules</code></li>
+</ol>
+<ul>
+<li><code>resolve.modules</code>用来配置 Webpack 如何搜寻第三方模块的路径。</li>
+<li><code>resolve.modules</code>的值可以是相对路径，也可以是绝对路径，他的默认值是[‘node_modules’]这是一个相对路径。<blockquote>
+<p>当我们使用 <code>import</code> 等语句来加载第三方模块时，如下：</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>import axios from &#39;axios&#39;
+</code></pre>
+<ul>
+<li>上面代码表示，Webpack 在打包时，<strong>默认</strong>会在当前目录的<code>./node_modules</code>下搜索 <code>axios</code> 模块</li>
+<li>如果没有找到，则会到<strong>上一级目录</strong><code>../node_modules</code>下找</li>
+<li>如果还没找到，则会再去<code>../../node_modules</code>下找，以此类推，直到找到为止。如果找不到，最后就会抛出错误。</li>
+</ul>
+<blockquote>
+<p>我们的第三方模块都是保存在项目根目录的<code>node_modules</code>下，因此<strong>没有必要</strong>一级一级向上找。主要考虑的时，当我们的地址写错时，一层一层向上找，最后找不到再抛出错误，浪费了大量的时间。所以，<strong>我们可以指定第三方模块的搜索地址为绝对地址</strong>，就是我们当前项目目录下的<code>node_modules</code>文件夹中找，找不到就直接抛错，</p>
+</blockquote>
+<ul>
+<li>以下是<code>resolve.modules</code>的配置</li>
+</ul>
+<pre><code>module.exports = &#123;
+  // ...
+  resolve: &#123;
+    modules: [path.resolve(__dirname, &quot;node_modules&quot;)],
+  &#125;,
+&#125;;
+</code></pre>
+<ol start="4">
+<li><code>resolve.extensions</code><blockquote>
+<p>在我们引入（导入）自定义模块时，我们通常会采用以下简写形式</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>import &#123; username &#125; from &quot;./login&quot;;
+</code></pre>
+<ul>
+<li>以上代码并没有指定 login 文件的后缀名是以<code>.js</code>还是.<code>json</code>等其它格式。那 Webpack 是如何知道这个文件最后是以.js结尾的后缀名呢？</li>
+<li><code>resolve.extensions</code>就是 Webpack 识别不带后缀名文件的关键。他的默认值是：<code>[&#39;.js&#39;, &#39;.json&#39;, &#39;.wasm&#39;]</code>。</li>
+</ul>
+<blockquote>
+<p>Webpack 在解析到这些不带后缀名的文件后，会按数组<code>[&#39;.js&#39;, &#39;.json&#39;, &#39;.wasm&#39;]</code>中的元素<strong>从头到尾的顺序</strong>尝试找到对应的文件，如果找到了，后面的格式就不匹配了，如果没找到一直往后匹配，直到找到为止。如果都匹配完还没找到就会抛出错误。</p>
+</blockquote>
+<ul>
+<li>如果<code>resolve.extensions</code>指定的数组中的项越多，那 Webpack 尝试搜寻的次数就越多，这会影响 Webpack 的解析速度。所以我们可以根据我们的实际项目来合理的配置<code>resolve.extensions</code>的值。</li>
+</ul>
+<p><strong>配置的规则：</strong></p>
+<ul>
+<li><p>出现频率高的放在最前，以免能最快找到对应文件</p>
+</li>
+<li><p>没有用到的后缀名，不要出现，这样在找不到对应文件后，会尽快抛出错误。</p>
+<blockquote>
+<p>如果很在乎这些解析时间，那最好是在导入语句中带上后缀名。</p>
+</blockquote>
+</li>
+<li><p>配置代码如下：</p>
+</li>
+</ul>
+<pre><code>module.exports = &#123;
+  //...
+  resolve: &#123;
+    extensions: [&quot;.js&quot;, &quot;.css&quot;, &quot;.json&quot;],
+  &#125;,
+&#125;;
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/">https://hermiablog.com/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/38.jpg" class="responsive-img" alt="前端工程化（二）">
+                        
+                        <span class="card-title">前端工程化（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Webpack5核心基础、预处理器、插件、兼容性处理、开发环境配置、生产环境优化
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/11/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/37.jpg" class="responsive-img" alt="前端工程化（一）">
+                        
+                        <span class="card-title">前端工程化（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            常见的 DOS 命令，Node.js、npm、Babel相关知识
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/">
+                        <span class="chip bg-color">工程化</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

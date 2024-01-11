@@ -399,14 +399,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-11-30
+                    2024-01-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.4k
                 </div>
                 
 
@@ -432,9 +432,7 @@
 <li>响应式布局开发出来的网站，在移动、ipad、PC 端都能有好的体验，能兼容不同的屏幕尺寸</li>
 </ul>
 </blockquote>
-<h3 id="二、媒体查询的语法"><a href="#二、媒体查询的语法" class="headerlink" title="二、媒体查询的语法"></a>二、媒体查询的语法</h3><ol>
-<li><p>什么是媒体查询</p>
-<blockquote>
+<h3 id="二、媒体查询的语法"><a href="#二、媒体查询的语法" class="headerlink" title="二、媒体查询的语法"></a>二、媒体查询的语法</h3><h4 id="什么是媒体查询"><a href="#什么是媒体查询" class="headerlink" title="什么是媒体查询"></a>什么是媒体查询</h4><blockquote>
 <ul>
 <li>我们知道，一套 CSS 样式是很难适应不同大小的屏幕，所以我们需要针对不同的屏幕尺寸来书写不同的样式，这样我们写出来的页面就能在不同大小的屏幕上都正常显示。</li>
 <li>媒体查询就是用来解决这个问题的，他能帮助我们检测不同屏幕的尺寸，然后针对不同屏幕尺寸，显示不同的样式。</li>
@@ -446,30 +444,31 @@
 </ul>
 </li>
 </ul>
+</blockquote>
 <pre><code>&lt;style&gt;
   /*
   @media 媒体类型 逻辑操作符 (媒体特性) &#123;
   ...css样式....;
 &#125;
- @media 是关键字：媒体查询
- screen 媒体类型：屏幕设备
- and 逻辑运算符：与 (多个条件同时满足)
- min-width 媒体特性：设备宽&gt;=400px
+    @media 是关键字：媒体查询
+    screen 媒体类型：屏幕设备
+    and 逻辑运算符：与 (多个条件同时满足)
+    min-width 媒体特性：设备宽&gt;=400px
 以下整个媒体查询代码的含义：网页是在屏幕设备上显示，同时屏幕设备的宽&gt;=400px时，背景颜色变为红色。
- */
+    */
   @media screen and (min-width: 400px) &#123;
- body &#123;
-   background-color: red;
- &#125;
+    body &#123;
+      background-color: red;
+    &#125;
   &#125;
 &lt;/style&gt;
 </code></pre>
-</blockquote>
-</li>
-<li><p>媒体类型</p>
-<blockquote>
+<h4 id="媒体类型"><a href="#媒体类型" class="headerlink" title="媒体类型"></a>媒体类型</h4><blockquote>
 <ul>
-<li>媒体类型(Media types) 就是用来描述设备的一般类别，设备类别主要分为以下 4 种<table>
+<li>媒体类型(Media types) 就是用来描述设备的一般类别，设备类别主要分为以下 4 种</li>
+</ul>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>媒体类型</th>
@@ -492,34 +491,32 @@
 <td>speech</td>
 <td>适用于语音合成器</td>
 </tr>
-<tr>
-<td>如果媒体查询语句，只指定媒体类型，可以简写成如下:</td>
-<td></td>
-</tr>
-<tr>
-<td><code>@media 媒体类型 ｛ .... css样式..... ｝;</code></td>
-<td></td>
-</tr>
 </tbody></table>
-</li>
-</ul>
+<blockquote>
+<p>如果媒体查询语句，只指定媒体类型，可以简写成如下:</p>
 </blockquote>
-</li>
-</ol>
+<ul>
+<li><code>@media 媒体类型 ｛ .... css样式..... ｝;</code></li>
+</ul>
 <blockquote>
 <p>要看到<strong>打印模式</strong>下效果，按以下步骤操作即可</p>
+</blockquote>
 <ul>
 <li>涉及到颜色一定要记得选彩色</li>
-<li>在浏览器中右击 -&gt; 打印（点击进入） -&gt; 更多设置（点击）&gt;- <strong>背景图形</strong>（勾选上）<img src="打印模式.png"></li>
+<li>在浏览器中右击 -&gt; 打印（点击进入） -&gt; 更多设置（点击）- <strong>背景图形</strong>（勾选上）<img src="打印模式.png"></li>
 </ul>
-</blockquote>
-<ol>
-<li>媒体特性<blockquote>
+<h4 id="媒体特性"><a href="#媒体特性" class="headerlink" title="媒体特性"></a>媒体特性</h4><blockquote>
 <ul>
 <li>媒体特性（Media features）描述了 user agent、输出设备，或是浏览环境的具体特征。</li>
 <li>媒体特性表达式是完全可选的</li>
 <li>它负责测试这些特性或特征是否存在、值为多少。</li>
-<li><strong>每条</strong>媒体特性表达式都必须用 括号（） 括起来。<br><strong>常用的媒体特性</strong><table>
+<li><strong>每条</strong>媒体特性表达式都必须用 括号<code>()</code> 括起来。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>常用的媒体特性</strong></p>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>媒体特性</th>
@@ -563,16 +560,12 @@
 <td></td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>写法</strong></p>
 <ul>
 <li>如果只指定媒体特性，写法如下：</li>
 </ul>
+</blockquote>
 <pre><code>@media （媒体特性） &#123;
   ...css样式...;
 &#125;
@@ -584,40 +577,38 @@
   .... css样式....;
 &#125;
 </code></pre>
+<blockquote>
 <ul>
 <li>多个媒体特性中间也要有<strong>逻辑操运算符</strong></li>
 </ul>
+</blockquote>
 <pre><code>@media 媒体类型 逻辑操运算符 （ 媒体特性） 逻辑操作符 （媒体特性） &#123;
   .... css样式....;
 &#125;
 </code></pre>
-</blockquote>
-<ol start="4">
-<li>逻辑运算符<blockquote>
+<h4 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h4><blockquote>
 <ul>
 <li>逻辑运算符（logical operators） not,and和only可用于联合构造复杂的媒体查询</li>
-<li>您还可以通过用 ,（逗号） 分隔多个媒体查询，将它们组合为一个规则。</li>
+<li>您还可以通过用<code>,</code>（逗号）分隔多个媒体查询，将它们组合为一个规则。</li>
 </ul>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>and 运算符</strong></p>
+</blockquote>
 <ul>
 <li><code>and</code>操作符用于将多个媒体查询规则组合成单条媒体查询</li>
 <li>当每个查询规则都为真时，则该条媒体查询为真</li>
 <li>媒体类型为<code>all</code>时，不需要写<code>and</code></li>
 </ul>
-</blockquote>
 <blockquote>
 <p><strong>逗号逻辑运算符</strong></p>
+</blockquote>
 <ul>
 <li>逗号用于将多个媒体查询合并为一个规则</li>
 <li>每个逗号前为一个<strong>独立</strong>的查询规则，逗号后为一个<strong>独立</strong>的查询规则</li>
 <li>逗号分隔的每一个独立的查询规则中，只要有一个为true，则整个 media 语句返回true。</li>
-<li>换句话说,逗号类似于js中的逻辑或or运算符</li>
+<li>换句话说,逗号类似于js中的 逻辑或、or运算符</li>
 </ul>
-</blockquote>
 <blockquote>
 <p><strong>not运算符</strong></p>
 <ul>
@@ -627,21 +618,22 @@
 <li><code>not</code>只能用来否定整个媒体查询</li>
 <li>如果出现在以逗号分隔的查询列表中，它将仅否定应用了该查询的特定查询，因此，它不会应用于以逗号分隔的媒体查询列表中的每个媒体查询</li>
 </ul>
+</blockquote>
 <pre><code>@media not screen and (min-width: 1000px), screen and (orientation: landscape) &#123;
   body &#123;
     background-color: red;
   &#125;
 &#125;
 </code></pre>
-<blockquote>
-<p><code>not</code>只否定了<code>not screen and (min-width: 1000px)</code>，并不会否定逗号后面的<br>注意：<code>not</code>写在媒体类型之前，但是媒体类型和媒体特性中间必须写逻辑运算符</p>
-</blockquote>
-</blockquote>
+<ul>
+<li><code>not</code>只否定了<code>not screen and (min-width: 1000px)</code>，并不会否定逗号后面的</li>
+<li>注意：<code>not</code>写在媒体类型之前，但是媒体类型和媒体特性中间必须写逻辑运算符</li>
+</ul>
 <blockquote>
 <p><strong>only 运算符</strong></p>
 <ul>
 <li>only 关键字，主要是为了兼容一些老版本的浏览器时，防止出错而加上的。</li>
-<li>因旧版本的浏览器会将 screen and (max-width: 500px)简单地解释为screen，忽略查询的其余部分，并将其样式应用于所有屏幕</li>
+<li>因旧版本的浏览器会将 <code>screen and (max-width: 500px)</code>简单地解释为<code>screen</code>，忽略查询的其余部分，并将其样式应用于所有屏幕</li>
 <li>加上 only 后，就会正常的解释</li>
 </ul>
 </blockquote>
@@ -651,11 +643,13 @@
 <li>那这些不同的屏幕尺寸，就称为响应式断点(阈值)</li>
 </ul>
 </blockquote>
-<ol>
-<li>响应式断电(阈值)的设定<blockquote>
+<h4 id="响应式断点-阈值-的设定"><a href="#响应式断点-阈值-的设定" class="headerlink" title="响应式断点(阈值)的设定"></a>响应式断点(阈值)的设定</h4><blockquote>
 <ul>
 <li>在实际的开发中，响应式断点是由公司根据项目来定的。</li>
-<li>不过行业也会有一个标准的参考断点（Breakpoint），这里我们以 Bootstrap 框架内部的断点来给大家做讲解<table>
+<li>不过行业也会有一个标准的参考断点（Breakpoint），这里我们以 Bootstrap 框架内部的断点来给大家做讲解</li>
+</ul>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>屏幕大小</th>
@@ -665,7 +659,7 @@
 </thead>
 <tbody><tr>
 <td>超小屏Extra small</td>
-<td>-</td>
+<td>-xs</td>
 <td>&lt;576px</td>
 </tr>
 <tr>
@@ -694,18 +688,10 @@
 <td>&gt;1400px</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<blockquote>
 <ul>
 <li>断点并不是完全固定，按上面的要求值来的。而是根据我们所写的项目，在对屏幕做调整时，如果觉得当前效果不符合我们的需求，需要通过设置新的断点来调整，就可以在此添加相应的断点。</li>
 <li>以上断点是 Bootstrap 框架内部的断点，我们可以用来作为我们开发的标准来参考。</li>
 </ul>
-</blockquote>
-<blockquote>
 <pre class=" language-css"><code class="language-css">&lt;style>
   <span class="token comment" spellcheck="true">/* 当屏幕宽小于576px时，以下代码生效 */</span>
   body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
@@ -728,13 +714,9 @@
 <ul>
 <li>因为 css 选择器的权重相同时，写在后面的会覆盖写在前面的。所以不用书写具体的屏幕范围，不过要注意代码书写的位置</li>
 </ul>
-</blockquote>
-<ol start="2">
-<li>媒体查询的代码书写位置<blockquote>
+<h4 id="媒体查询的代码书写位置"><a href="#媒体查询的代码书写位置" class="headerlink" title="媒体查询的代码书写位置"></a>媒体查询的代码书写位置</h4><blockquote>
 <p><strong>媒体查询的代码可以写在 style 标签中</strong></p>
 </blockquote>
-</li>
-</ol>
 <blockquote>
 <p><strong>可以写在单独的 CSS 文件中,通过 link 标签引入</strong></p>
 <ul>
@@ -748,59 +730,50 @@
 <li>通过 link 来引用，在 media 中来设置对应断点</li>
 <li>在满足媒体查询条件时，对应的css文件生效</li>
 </ul>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;a.css&quot; media=&quot;screen and (min-width:600px)&quot; /&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;b.css&quot; media=&quot;screen and (min-width:1000px)&quot; /&gt;
-/* a.css文件内容 */
-body &#123;
-  background-color: skyblue;
-&#125;
-/* b.css文件内内容 */
-body &#123;
-  background-color: red;
-&#125;
-</code></pre>
 </blockquote>
+<pre class=" language-css"><code class="language-css">&lt;link rel=<span class="token string">"stylesheet"</span> href=<span class="token string">"a.css"</span> media=<span class="token string">"screen and (min-width:600px)"</span> />
+&lt;link rel=<span class="token string">"stylesheet"</span> href=<span class="token string">"b.css"</span> media=<span class="token string">"screen and (min-width:1000px)"</span> />
+<span class="token comment" spellcheck="true">/* a.css文件内容 */</span>
+body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/* b.css文件内内容 */</span>
+body &amp;<span class="token hexcode">#123</span><span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> red<span class="token punctuation">;</span>
+&amp;<span class="token hexcode">#125</span><span class="token punctuation">;</span>
+</code></pre>
 <h3 id="四、响应式两种适配方案"><a href="#四、响应式两种适配方案" class="headerlink" title="四、响应式两种适配方案"></a>四、响应式两种适配方案</h3><blockquote>
 <p>在实际的响应式开发中，我们会有两种通用的适配方案</p>
+</blockquote>
 <ul>
 <li>PC 端优先（先考虑 PC 端，最后再考虑移动端）</li>
 <li>移动端优先（先考虑移动端，最后再考虑 PC 端）</li>
 </ul>
-</blockquote>
-<ol>
-<li><p>PC端优先</p>
-<blockquote>
-<ul>
+<h4 id="PC端优先"><a href="#PC端优先" class="headerlink" title="PC端优先"></a>PC端优先</h4><ul>
 <li>从大尺寸开始写，先大后小</li>
 <li>用<code>max-width</code></li>
 </ul>
-</blockquote>
-</li>
-<li><p>移动端优先</p>
-<blockquote>
-<ul>
+<h4 id="移动端优先"><a href="#移动端优先" class="headerlink" title="移动端优先"></a>移动端优先</h4><ul>
 <li>从小尺寸开始，先小后大</li>
 <li>用<code>min-width</code></li>
 </ul>
-</blockquote>
-</li>
-</ol>
 <h3 id="五、响应式栅格系统"><a href="#五、响应式栅格系统" class="headerlink" title="五、响应式栅格系统"></a>五、响应式栅格系统</h3><blockquote>
 <p><strong>在实际开发中</strong></p>
+</blockquote>
 <ul>
 <li>要完美的实现响应式系统或网站的开发，就需要利用响应式栅格系统来帮助我们实现。</li>
 <li>BootStrap 框架实现响应式布局的本质就是他的响应式栅格系统。</li>
-<li>响应式栅格系统是：栅格布局和响应断点+响应式适配方案 3 者结合实现的一套响应式解决方案</li>
+<li>响应式栅格系统是：栅格布局+响应断点+响应式适配方案 3 者结合实现的一套响应式解决方案</li>
 </ul>
-</blockquote>
-<ol>
-<li><p>栅格布局</p>
-<blockquote>
+<h4 id="栅格布局"><a href="#栅格布局" class="headerlink" title="栅格布局"></a>栅格布局</h4><blockquote>
 <ul>
 <li>所谓的栅格布局，你可以简单理解为，要把一个页面或容器（如 div），分成多少份</li>
 <li>然后设置其页面或容器中子元素占对应的份数</li>
 <li>通常一个页面或容器会被分成：12 份，16 份，24 份</li>
-<li>如果将网页（100%）分成 12 份，那对应不同份数所占的比例如下:<table>
+<li>如果将网页（100%）分成 12 份，那对应不同份数所占的比例如下:</li>
+</ul>
+</blockquote>
+<table>
 <thead>
 <tr>
 <th>份数</th>
@@ -856,16 +829,13 @@ body &#123;
 <td>100%</td>
 </tr>
 </tbody></table>
-</li>
+<h4 id="栅格系统实现响应式布局"><a href="#栅格系统实现响应式布局" class="headerlink" title="栅格系统实现响应式布局"></a>栅格系统实现响应式布局</h4><blockquote>
+<p>我们说响应式栅格系统是：栅格布局+响应断点+响应式适配方案3者结合实现的一套响应式解决方案<br>&#x3D; 接下来我们来学习，如何利用前面学到的栅格布局，响应断点，响应式适配方案实现响应式布局。</p>
+<ul>
+<li>我们可以按以下 5 个步骤来操作</li>
 </ul>
 </blockquote>
-</li>
-<li><p>栅格系统实现响应式布局</p>
-<blockquote>
 <ul>
-<li>我们说响应式栅格系统是：栅格布局+响应断点+响应式适配方案3者结合实现的一套响应式解决方案</li>
-<li>接下来我们来学习，如何利用前面学到的栅格布局，响应断点，响应式适配方案实现响应式布局。</li>
-<li>我们可以按以下 5 个步骤来操作<ul>
 <li>你打算将页面分成多少份 ？</li>
 <li>确定响应断点有哪些 ？</li>
 <li>确定响应式适配方案。PC端优先还是移动端优先？</li>
@@ -875,16 +845,14 @@ body &#123;
 </blockquote>
 </li>
 </ul>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
 <h3 id="五、响应式后台管理系统项目开发"><a href="#五、响应式后台管理系统项目开发" class="headerlink" title="五、响应式后台管理系统项目开发"></a>五、响应式后台管理系统项目开发</h3><blockquote>
 <p><strong>确定栅格系统样式（media.css 样式）</strong></p>
 <ul>
 <li>将页面分成 12 份，确定栅格布局不同份数所点比例</li>
-<li>确定项目对应的断点<ul>
+<li>确定项目对应的断点</li>
+</ul>
+</blockquote>
+<ul>
 <li>当视口宽大于 1400px 时，以正常效果显示</li>
 <li>当视口宽 &lt;&#x3D; 1400px 时，左侧菜单缩放到 75px</li>
 <li>当视口宽 &lt;&#x3D; 1300px 时，左侧菜单隐藏</li>
@@ -892,12 +860,69 @@ body &#123;
 <li>当视口宽 &lt;&#x3D; 992px 时，第二行的一行 2 列变 1 列，最下面的一行 3 列变成 1 行 2 列和 1 行 1 列</li>
 <li>当视口宽 &lt;&#x3D; 768px 时，全部一行一列显示 ，同时上面的导航变成点击下拉菜单形式</li>
 </ul>
-</li>
-<li>确定适配方案，以 PC 端优先</li>
-</ul>
+<blockquote>
+<p>最终确定 <code>media.css</code> 文件的代码如下</p>
 </blockquote>
+<ul>
+<li>确定适配方案，以 PC 端优先，因此从大尺寸开始写，先大后小</li>
+</ul>
+<pre><code>/* 大于1400px时，样式写在这里 */
+.col-xxlg-1 &#123;
+  width: 8.33333333%;
+&#125;
+/* 此处省略了 .col-xxlg-2 到 .col-xxlg-11 样式，自己补充 */
+.col-xxlg-12 &#123;
+  width: 100%;
+&#125;
+
+/* 小于等于1400px的样式写在这里 */
+@media screen and (max-width: 1400px) &#123;
+  .col-xlg-1 &#123;
+    width: 8.33333333%;
+  &#125;
+  /* 此处省略了 .col-xlg-2 到 .col-xlg-11 样式，自己补充 */
+  .col-xlg-12 &#123;
+    width: 100%;
+  &#125;
+&#125;
+
+@media screen and (max-width: 1300px) &#123;
+  /*  ..... .... */
+&#125;
+/* 屏幕宽&gt;992px，同时&lt;=1200px时，样式写在这里 */
+@media screen and (max-width: 1200px) &#123;
+  .col-lg-1 &#123;
+    width: 8.33333333%;
+  &#125;
+  /* 此处省略了 .col-lg-2 到 .col-lg-11 样式，自己补充 */
+  .col-lg-12 &#123;
+    width: 100%;
+  &#125;
+&#125;
+/* 屏幕宽&gt;768px，同时&lt;=992px时，样式写在这里 */
+@media screen and (max-width: 992px) &#123;
+  .col-md-1 &#123;
+    width: 8.33333333%;
+  &#125;
+  /* 此处省略了 .col-md-2 到 .col-md-11 样式，自己补充 */
+  .col-md-12 &#123;
+    width: 100%;
+  &#125;
+&#125;
+/* 屏幕宽&gt;576px，同时&lt;=768px时，样式写在这里 */
+@media screen and (max-width: 768px) &#123;
+  .col-sm-1 &#123;
+    width: 8.33333333%;
+  &#125;
+  /* 此处省略了 .col-sm-2 到 .col-sm-11 样式，自己补充 */
+  .col-sm-12 &#123;
+    width: 100%;
+  &#125;
+&#125;
+</code></pre>
 <blockquote>
 <p><strong>注意</strong></p>
+</blockquote>
 <ul>
 <li>要用怪异盒模型</li>
 <li>echarts图表实现响应式缩放,在引用图表的<code>script</code>标签后面加上</li>
@@ -906,7 +931,6 @@ body &#123;
   mychart1.resize();
 &#125;);
 </code></pre>
-</blockquote>
 
                 
             </div>
@@ -933,7 +957,7 @@ body &#123;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://121.37.201.108/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">http://121.37.201.108/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/</a>
+                    <a href="https://hermiablog.com/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/">https://hermiablog.com/2023/11/30/%E5%A4%9A%E7%BB%88%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%BC%80%E5%8F%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
