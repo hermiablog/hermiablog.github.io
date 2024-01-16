@@ -399,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-12-07
+                    2024-01-16
                 </div>
                 
 
@@ -626,38 +626,40 @@ hexo c
 hexo g
 hexo d
 </code></pre>
-<h4 id="如果你使用的是多仓库"><a href="#如果你使用的是多仓库" class="headerlink" title="如果你使用的是多仓库"></a>如果你使用的是多仓库</h4><ul>
-<li>如果你出现<code>Please tell me who you are</code>报错</li>
-<li>如果你和我一样使用多仓库，那么：<blockquote>
-<ul>
-<li>首先不要设置全局git用户名&#x2F;邮箱</li>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
+<li>新建文章 hexo new post 标题</li>
+<li>部署</li>
 </ul>
+<pre><code>#清理之前的生成
+hexo c
+# 生成静态网站
+hexo g
+#开启本地服务 ctrl+c 停止
+hexo s
+#上传到github
+hexo d
+</code></pre>
+<h4 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h4><ul>
+<li>首先，自定义域名需要花钱买，华为云&#x2F;腾讯云&#x2F;阿里云都可以</li>
+<li>购买之后需要解析域名<blockquote>
+<p>github绑定</p>
 </blockquote>
 </li>
-</ul>
-<pre><code># 删除全局设置
-git config --global --unset user.name
-git config --global --unset user.email
-</code></pre>
-<blockquote>
-<ul>
-<li>打开博客文件夹，点击<code>.deploy_git</code>文件夹–&gt;点击窗口上的查看–&gt;显示隐藏目录</li>
-<li>此时就会出现git的隐藏目录<code>.git</code></li>
-<li>进去之后，打开<code>config</code>配置文件，添加以下内容，注意空格</li>
-</ul>
+<li>打开github仓库–&gt;点击setting–&gt;找到pages–&gt;拉到Custom domain处，填写你购买的域名，进行绑定</li>
+<li>此时项目根目录会自动生成CNAME文件，如果没有的话自己创建一个，文档内容为你的域名<blockquote>
+<p>DNS配置</p>
 </blockquote>
-<pre><code>[user]
-email = your email 
-name = your name
-</code></pre>
-<h3 id="高配版：自定义域名-HTTPS加密协议-自定义主题"><a href="#高配版：自定义域名-HTTPS加密协议-自定义主题" class="headerlink" title="高配版：自定义域名+HTTPS加密协议+自定义主题"></a>高配版：自定义域名+HTTPS加密协议+自定义主题</h3><h4 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h4><ul>
-<li>首先，自定义域名需要花钱买，华为云&#x2F;腾讯云&#x2F;阿里云都可以</li>
-<li>购买之后需要解析域名</li>
-<li>打开github仓库–&gt;点击setting–&gt;找到pages–&gt;拉到Custom domain处，填写你购买的域名</li>
-<li>此时项目根目录会自动生成CNAME文件</li>
+</li>
+<li>进入华为云控制台，打开云解析服务DNS</li>
+<li>在域名解析集中添加一条<ul>
+<li>记录类型为CNAME</li>
+<li>记录值为博客的github仓库名，我的是hermiablog.github.io</li>
 </ul>
-<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><h4 id="git——多仓库配置"><a href="#git——多仓库配置" class="headerlink" title="git——多仓库配置"></a>git——多仓库配置</h4><blockquote>
-<p>!!!首先 多仓库配置 绝对不要把用户名及邮箱设置为全局</p>
+</li>
+<li>等待一段时间就可以使用域名访问了<img src="绑定自定义域名"></li>
+</ul>
+<h3 id="github的使用"><a href="#github的使用" class="headerlink" title="github的使用"></a>github的使用</h3><h4 id="git——仓库配置"><a href="#git——仓库配置" class="headerlink" title="git——仓库配置"></a>git——仓库配置</h4><blockquote>
+<p>!!!首先 如果有仓库的用户名及邮箱不一样 就不要把它设置为全局</p>
 </blockquote>
 <ul>
 <li>git安装后，点击文件夹–&gt;右击 git bash here打开</li>
@@ -695,11 +697,6 @@ id_rsa.pub
 </code></pre>
 <ul>
 <li>其中id_rsa为私钥，id_rsa.pub为公钥</li>
-<li>因为有两个仓库，所有有两份，因此需要在<code>.ssh</code>文件夹中分开命名<ul>
-<li>gitee仓库的密钥：id_rsa_gitee和id._rsa_gitee.pub</li>
-<li>github仓库的密钥：id_rsa_github和id._rsa_github.pub</li>
-</ul>
-</li>
 <li>将自定义路径的私钥添加到ssh秘钥搜索列表中</li>
 </ul>
 <pre><code>//连接认证agent（身份验证代理）
@@ -727,115 +724,158 @@ ssh -T git@github.com
 </ul>
 <pre><code>git remote add origin 远程仓库地址(HTTP/SSH)
 </code></pre>
-<h4 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h4><ul>
-<li>在本地新建README文件</li>
+<h4 id="将本地代码推送到github"><a href="#将本地代码推送到github" class="headerlink" title="将本地代码推送到github"></a>将本地代码推送到github</h4><ul>
+<li>可以将已经做好的项目推送到远程</li>
+<li>也可以解决git clone会嵌套一个文件夹的问题<blockquote>
+<p>本地</p>
+</blockquote>
+</li>
+<li>新建空文件夹</li>
+<li>右击使用Git Bash打开文件夹，git init初始化仓库</li>
+<li>配置用户名和邮箱</li>
 </ul>
-<pre><code>touch README.md
+<pre><code>git config  user.name &quot;你的名字（一定要是英文的）&quot;
+git config  user.email &quot;你的邮箱&quot;
 </code></pre>
 <ul>
-<li><p>git add README.md命令，将刚刚新建的文件添加到暂存区中</p>
-</li>
-<li><p>git status命令来检测当前git仓库的状态</p>
-</li>
-<li><p>git commit -m “XXX”命令，将暂存区中的更改保存到版本库中，并对本次的更改添加注释</p>
-</li>
-<li><p>git status命令来检测当前git仓库的状态</p>
-</li>
-<li><p>git log，查看你的版本库</p>
-</li>
-<li><p>将本地的master分支改名为main：<code>git branch -m master main</code>；将github仓库下载到本地时，第一次提交要用<code>git push -u origin main</code>，前提是本地要有main分支</p>
-</li>
-<li><p>创建新分支：git branch 分支名</p>
-</li>
-<li><p>查看所有分支：git branch</p>
-</li>
-<li><p>切换分支：git checkout 分支名</p>
-</li>
-<li><p>push到远程仓库上面：git push origin 分支名</p>
-</li>
-<li><p>git branch -r 查看远程分支</p>
-</li>
-<li><p>git branch -a 查看本地仓库和远程分支（a是all的简写）</p>
-</li>
+<li>创建SSH密钥对</li>
 </ul>
+<pre><code>ssh-keygen -t rsa -C 邮箱名
+// 如果不需要设置密码，可以直接按Enter键
+</code></pre>
+<ul>
+<li>之后就会在用户主目录下的.ssh文件夹中生成以下两个文件：<br>id_rsa、id_rsa.pub；其中id_rsa为私钥，id_rsa.pub为公钥</li>
+<li>打开id_rsa.pub，复制内容，将公钥内容粘贴到自己github&#x2F;Gitee的设置中</li>
+<li>将自定义路径的私钥添加到ssh秘钥搜索列表中</li>
+</ul>
+<pre><code>//连接认证agent（身份验证代理）
+ssh-agent bash
+//修改私钥路径
+ssh-add ~/.ssh/id_rsa
+</code></pre>
+<ul>
+<li>测试本机能否与github&#x2F;gitee使用ssh通信</li>
+</ul>
+<pre><code>ssh -T git@github.com
+//ssh返回 “……successfully ……”，这表示可以与远程愉快的通信了
+</code></pre>
+<ul>
+<li>修改本地仓库主分支的命名</li>
+</ul>
+<pre><code>git branch -m master main
+</code></pre>
+<ul>
+<li>本地仓库与GitHub远程仓库进行关联</li>
+</ul>
+<pre><code>git remote add origin 远程仓库地址(HTTP/SSH)
+</code></pre>
+<ul>
+<li>将远程仓库拉取到本地(可以创建一个README文档，有内容可以看到变化)</li>
+</ul>
+<pre><code>git pull origin main
+</code></pre>
+<ul>
+<li>将项目文件复制到本地仓库(node_module除外)</li>
+<li>将项目文件推送到远程</li>
+</ul>
+<pre><code>git add .
+git commit -m &quot;&quot;
+git push origin main
+</code></pre>
+<h4 id="git基本操作"><a href="#git基本操作" class="headerlink" title="git基本操作"></a>git基本操作</h4><ul>
+<li>将所有文件添加到暂存区中</li>
+</ul>
+<pre><code>git add .
+</code></pre>
+<ul>
+<li>检测当前git仓库的状态</li>
+</ul>
+<pre><code>git status
+</code></pre>
+<ul>
+<li>将暂存区中的更改保存到版本库中，并对本次的更改添加注释</li>
+</ul>
+<pre><code>git commit -m &quot;XXX&quot;
+</code></pre>
+<ul>
+<li>命令来检测当前git仓库的状态</li>
+</ul>
+<pre><code>git status
+</code></pre>
+<ul>
+<li>查看日志</li>
+</ul>
+<pre><code>git log
+</code></pre>
+<ul>
+<li>创建新分支</li>
+</ul>
+<pre><code>git branch 分支名
+</code></pre>
+<ul>
+<li>查看所有分支</li>
+</ul>
+<pre><code>git branch
+</code></pre>
+<ul>
+<li>切换分支</li>
+</ul>
+<pre><code>git checkout 分支名
+或
+git switch 分支名
+</code></pre>
+<ul>
+<li>push到远程仓库上</li>
+</ul>
+<pre><code>git push origin 分支名
+</code></pre>
 <blockquote>
-<p>在分支上新建文件</p>
+<p>将文件提交到分支上</p>
 </blockquote>
 <ul>
-<li>切换到需要提交的分支上面 git checkout hexo</li>
-<li>在hexo分支上新建文件 touch blogDesc.md</li>
-<li>修改文档 vim blogDesc.md</li>
-<li>编辑 i </li>
-<li>保存 esc :wq</li>
-<li>提交到分支上面<ul>
-<li>git add 文件名&#x2F;.()</li>
-<li>git commit -m “描述”</li>
-<li>git push -u origin hexo</li>
+<li>切换到需要提交的分支上面</li>
 </ul>
-</li>
-<li>切换到主分支上面<ul>
-<li>git checkout master</li>
+<pre><code>git checkout 分支名
+</code></pre>
+<ul>
+<li>提交到分支上面</li>
 </ul>
-</li>
-<li>将本地分支和合并到本地主分支上<ul>
-<li>git merge hexo</li>
+<pre><code>git add 文件名/.
+git commit -m &quot;描述&quot;
+git push origin 分支名
+</code></pre>
+<ul>
+<li>切换到主分支</li>
 </ul>
-</li>
-<li>远程到仓库<ul>
-<li>git pull origin main</li>
+<pre><code>git checkout main
+</code></pre>
+<ul>
+<li>将本地分支和合并到本地主分支上</li>
 </ul>
-</li>
+<pre><code>git merge 分支名
+</code></pre>
+<ul>
+<li>推动到远程仓库</li>
 </ul>
+<pre><code>git pull origin main
+</code></pre>
 <blockquote>
 <p>删除分支</p>
 </blockquote>
 <ul>
-<li>查看所有的分支<ul>
-<li>git branch -a</li>
+<li>查看所有的分支</li>
 </ul>
-</li>
-<li>删除远程分支<ul>
-<li>git push origin –delete hello</li>
-</ul>
-</li>
-<li>删除本地分支<ul>
-<li>git branch -D hello</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>远程分支操作</p>
-</blockquote>
-<ul>
-<li>从远程仓库中,把对应的远程分支下载到本地仓库中,保持本地分支和远程分支名称相同</li>
-</ul>
-<pre><code>#从远程仓库中,把对应的远程分支下载到本地仓库中,并把下载的本地分支进行重命名
-git checkout -b 本地分支的名称 远程仓库名称/远程分支名称
+<pre><code>git branch -a
 </code></pre>
 <ul>
-<li>将本地分支推送到远程仓库</li>
+<li>删除远程分支</li>
 </ul>
-<pre><code># -u 表示把本地分支和远程分支进行关联,只在第一次推送的时候需要带-u参数
-git push -u 远程仓库的名称 本地分支的名称:远程分支的名称
+<pre><code>git push origin --delete 分支名
 </code></pre>
 <ul>
-<li>拉取远程分支的最新代码</li>
+<li>删除本地分支</li>
 </ul>
-<pre><code>#从远程仓库,拉取当前分支最新的代码,保持当前分支的代码和远程分支代码一致
-git pull
-</code></pre>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ul>
-<li>新建文章 hexo new post 标题</li>
-<li>部署</li>
-</ul>
-<pre><code>#清理之前的生成
-hexo c
-# 生成静态网站
-hexo g
-#开启本地服务 ctrl+c 停止
-hexo s
-#上传到github
-hexo d
+<pre><code>git branch -D 分支名
 </code></pre>
 
                 
