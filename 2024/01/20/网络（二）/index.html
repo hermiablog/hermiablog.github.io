@@ -1,0 +1,4463 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="网络（二）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>网络（二） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/40.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">网络（二）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">网络</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-20
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-20
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    22.5k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、JSON-数据"><a href="#一、JSON-数据" class="headerlink" title="一、JSON 数据"></a>一、<code>JSON</code> 数据</h3><ol>
+<li><p><code>JSON</code> 是什么 ？</p>
+<blockquote>
+<p><code>JSON</code>全称是<code>JavaScript Object Notation</code> ，即：<code>JavaScript</code> 对象表示法</p>
+<ul>
+<li><code>JSON</code>是 <code>Ajax</code> 发送和接收数据的一种格式</li>
+<li><code>JSON</code>是一种轻量级的数据交换格式，常用来做前后端数据交互，其为<strong>字符串类型</strong>。</li>
+<li><code>JSON</code>是一种语法，用来<strong>序列化</strong>对象、数组、数值、字符串、布尔值和 <code>null</code>，但不能是<code>undefined</code>。</li>
+</ul>
+<p>以下我们之前了解过的，都属于一种数据的格式</p>
+<ul>
+<li><code>XML</code></li>
+<li><code>username=icoding&amp;sex=male&amp;age=19</code></li>
+<li><code>JSON</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>序列化 与 反序列化</p>
+<blockquote>
+<ul>
+<li><strong>序列化</strong>： 将对象转、数组、字符串、布尔值、null 转换成 JSON 字符串</li>
+<li><strong>反序列化（解析）</strong>： 将 JSON 字符串转换为对象、数组、字符串、布尔值、null</li>
+</ul>
+<p><strong>为什么要序列化 ？</strong></p>
+<ul>
+<li>其实序列化最终的目的是为了对象可以<strong>跨平台存储和进行网络传输</strong>。而我们进行跨平台存储和网络传输的方式就是<code>IO</code>，而我们的 <code>IO</code> 支持的数据格式就是<strong>字节数组</strong>。</li>
+<li>因为我们单方面的只把对象转成字节数组还不行，因为没有规则的字节数组我们是没办法把对象的本来面目还原回来的，所以我们必须在把对象转成字节数组的时候就制定一种规则（序列化），那么我们从 <code>IO</code> 流里面读出数据的时候再以这种规则把对象还原回来 （反序列化）。</li>
+</ul>
+<p>如果我们要把一栋房子从一个地方运输到另一个地方去，<strong>序列化</strong>就是我把房子拆成一个个的砖块放到车子里，然后留下一张房子原来结构的图纸，<strong>反序列化</strong>就是我们把房子运输到了目的地以后，根据图纸把一块块砖头还原成房子原来面目的过程</p>
+<p>你可以理解为 JSON 是一种<strong>特殊的字符串</strong>。其特殊性在于，字符串中的内容为对象或数组，但JSON中的对象与 JS 的对象有些不一样。比如：JSON 字符串中的对象，他的属性名必需用双号号包裹，而 JS 对象中的属性名不用。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>以下是常见的 JSON 格式数据(<code>data.json</code>文件内容)</li>
+</ul>
+<pre><code>&#123;
+  &quot;status&quot;: 0,
+  &quot;data&quot;: &#123;
+    &quot;id&quot;: &quot;230000201401123540&quot;,
+    &quot;username&quot;: &quot;艾编程&quot;,
+    &quot;password&quot;: &quot;123456&quot;,
+    &quot;email&quot;: &quot;g.tkybf@lfsqxivjr.de&quot;,
+    &quot;phone&quot;: 123456,
+    &quot;role&quot;: 0,
+    &quot;createTime&quot;: &quot;2030-07-31 17:17:38&quot;,
+    &quot;updateTime&quot;: &quot;2035-06-30 16:12:53&quot;
+  &#125;
+&#125;
+&gt;或
+&#123;
+  &quot;code&quot;: 200,
+  &quot;data&quot;: [
+    &#123;
+      &quot;word&quot;: &quot;javascript&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;java&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;json&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;python&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;c/c++&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;node.js&quot;
+    &#125;,
+    &#123;
+      &quot;word&quot;: &quot;php&quot;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<ol start="3">
+<li><p>为什么需要 JSON</p>
+<blockquote>
+<p><strong>前后端通信过程中需要交换数据</strong>，如果将前端 JS 的数据（对象、数组 等）直接传给后端，后端是无法解析的；后端直接传给前端的数据也是无法解析的，因为他们互相都不认识，因此就需要一种能够进行前后端通信的统一的数据格式作为<strong>中转</strong>。</p>
+<p>而 JSON 有 <code>3</code> 种形式，每种形式的写法都和 JS 中的数据类型很像，可以很轻松的和 JS 中的数据类型互相转换，同时后端也认识这种 JSON 类型的数据，也有对应解析 JSON 的方式，所以在前后端通信中，用 JSON 来做为传输的数据格式是非常棒的。</p>
+<ul>
+<li>前端将 JS 的数据（对象，数组等）转换成 JSON 的格式发送到后端，后端拿到对应的数据后，用对应的方法来解析 JSON，然后做相关处理。<blockquote>
+<p><code>JS（前端）-&gt; JSON -&gt; Java/Python/GO/PHP/Node.js（后端）</code></p>
+</blockquote>
+</li>
+<li>后端向前端发送数据时，发送的也是 JSON 格式的数据，前端拿到对应的数据后，也有对应的方法来解析 JSON，然后做相关处理。<blockquote>
+<p><code>Java/Python/GO/PHP/Node.js（后端）-&gt; JSON -&gt; JS（前端）</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JSON 的 3 种形式</p>
+<blockquote>
+<p>JSON 有 3 种形式：简单值形式、对象形式、数组形式</p>
+<ul>
+<li>JSON 数据文件的后缀名是：<code>.json</code></li>
+<li>JSON 中是<strong>不能写注释</strong>的</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p>JSON 简单值形式</p>
+<blockquote>
+<ul>
+<li>JSON 的简单值形式就对应着 JS 中的<strong>基础数据类型</strong></li>
+<li>数字、字符串、布尔值、null<br><strong>注意事项</strong></li>
+<li>JSON 中没有<code>undefined</code>值，字符串类型的<code>&quot;undefined&quot;</code>是可以的</li>
+<li>JSON 中的字符串必须使用<strong>双引号</strong>，单引号会报错<br><strong>应用实践</strong><br>新建 后缀名为<code>.json</code> 文件，文件中写入 JSON 简单值形式：数字、字符串、布尔值、null，进行体验和测试</li>
+</ul>
+</blockquote>
+</li>
+<li><p>JSON 对象形式</p>
+<blockquote>
+<p>JSON 的对象形式就是对应着 JS 中的对象，但与 JS 中的对象存在以下不同点</p>
+<ul>
+<li>JSON 中对象的<strong>属性名必须用双引号</strong>，属性值如果是<strong>字符串</strong>也必须用双引号</li>
+<li>JSON 对象的属性值不能是<code>undefined</code>,字符串类型的<code>&quot;undefined&quot;</code>是可以的<br>新建<code>data.json</code>文件，内容如下</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&#123;
+  &quot;username&quot;: &quot;艾编程&quot;,
+  &quot;sex&quot;: &quot;male&quot;,
+  &quot;age&quot;: 20,
+  &quot;hobby&quot;: [&quot;篮球&quot;, &quot;乒乓球&quot;, &quot;足球&quot;, &quot;书法&quot;],
+  &quot;family&quot;: &#123;
+    &quot;father&quot;: &quot;icoding&quot;,
+    &quot;mother&quot;: &quot;美美&quot;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>以下 JS 变量中保存的字符串符合 JSON 格式的有</li>
+</ul>
+</blockquote>
+<pre><code>let strJson1 = &#39;&#123;&quot;name&quot;:1,&quot;age&quot;:32&#125;&#39;; // 正确的JSON字符串
+let strJson2 = `&#123;&quot;name&quot;:1,&quot;age&quot;:32&#125;`; // 正确的JSON字符串
+let strJson3 = &quot;&#123;&#39;name&#39;:1,&#39;age&#39;:32&#125;&quot;; // 错误的JSON字符串
+let strJson4 = `&#123;&#39;name&#39;:1,&#39;age&#39;:32&#125;`; // 错误的JSON字符串
+</code></pre>
+<blockquote>
+<ul>
+<li>注意模板字符串，可以在html文件里用，不能写在JSON文件里</li>
+</ul>
+</blockquote>
+<ul>
+<li>JSON 数组形式<blockquote>
+<p>JSON 的数组形式就对应着 JS 中的数组，但也有如下<strong>区别</strong>：</p>
+<ul>
+<li>数组中的字符串必须用双引号</li>
+<li>如果数组中的成员有<strong>对象类型</strong>，则需要满足<code>JSON</code>对象的格式要求。</li>
+<li>不支持<code>undefined</code>类型,字符串类型的<code>&quot;undefined&quot;</code>是可以的</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>新建<code>data.json</code>文件，内容如下，表示简单的 JSON 数组</li>
+</ul>
+</blockquote>
+<pre><code>[1, &quot;icoding&quot;, null];
+</code></pre>
+<blockquote>
+<ul>
+<li>新建<code>user.json</code>文件，内容如下，表示相对复杂些的 JSON 数组</li>
+</ul>
+</blockquote>
+<pre><code>[
+  &#123;
+    &quot;id&quot;: 1,
+    &quot;username&quot;: &quot;艾编程&quot;,
+    &quot;phone&quot;: &quot;123456&quot;,
+    &quot;email&quot;: &quot;123@gmail.com&quot;,
+  &#125;,
+  &#123;
+    &quot;id&quot;: 2,
+    &quot;username&quot;: &quot;小可爱&quot;,
+    &quot;phone&quot;: &quot;18912368918&quot;,
+    &quot;email&quot;: &quot;666@gmail.com&quot;,
+  &#125;,
+  &#123;
+    &quot;id&quot;: 3,
+    &quot;username&quot;: &quot;星辰大海&quot;,
+    &quot;phone&quot;: &quot;18966668888&quot;,
+    &quot;email&quot;: &quot;888@gmail.com&quot;,
+  &#125;,
+];
+</code></pre>
+<blockquote>
+<ul>
+<li>以下 JS 变量中保存的字符串符合 JSON 格式的有</li>
+</ul>
+</blockquote>
+<pre><code>let arrStr1 = &quot;[1,2,3,4]&quot;; // 正确
+let arrStr2 = &#39;[&#123;&quot;name&quot;:&quot;清心&quot;&#125;,3,4,5]&#39;; // 正确
+let arrStr3 = &#39;  [9.1,&quot;A&quot;,[1,3],undefined]&#39;; // 错误
+let arrStr4 = &quot;[&#123;&#39;name&#39;:清心&#39;&#125;,3,4,5]&quot;; // 错误
+</code></pre>
+<ul>
+<li>总结：<code>JSON</code>数据的注意事项<blockquote>
+<p><code>JSON</code>数据一般是保存在<code>.json</code>的文件中，当然其写法一定要是合法的JSON字符串，否则解析会报错。<strong>合法即以下规则</strong>：</p>
+<ul>
+<li><code>JSON</code>中没有<code>undefined</code>值,字符串类型的<code>&quot;undefined&quot;</code>是可以的</li>
+<li><code>JSON</code>中的字符串必须使用双引号</li>
+<li><code>JSON</code>中对象的属性名必须用双引号，属性值如果是字符串也必须用双引号</li>
+<li><code>JSON</code>中是不能注释的</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>JSON 的常用方法<blockquote>
+<p>JSON 对象包含以下两个方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>JSON.stringify()</code></td>
+<td>可以将 JS 的基本数据类型、对象或者数组转换成<code>JSON</code>格式的字符串</td>
+</tr>
+<tr>
+<td><code>JSON.parse()</code></td>
+<td>可以将<code>JSON</code>格式的字符串解析成 JS 中的对应值</td>
+</tr>
+</tbody></table>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>注：</strong><br>除了上面两个方法，<code>JSON</code>这个对象本身并没有其他作用，也不能被调用或者作为构造函数调用。</p>
+</blockquote>
+<ul>
+<li>对象与 JSON 字符串之间相互转换</li>
+</ul>
+<pre><code>const obj = &#123;
+  username: &quot;清心&quot;,
+  age: 33,
+&#125;;
+// 将对象转换为字符串 （对象序列化）
+const strJson = JSON.stringify(obj);
+console.log(strJson);//&#123;&quot;username&quot;:&quot;清心&quot;,&quot;age&quot;:33&#125;
+console.log(typeof strJson);//string
+&gt;
+// 将JSON字符串转换为对象，字符串解析
+const obj2 = JSON.parse(strJson);
+console.log(obj2);//&#123;username: &#39;清心&#39;, age: 33&#125;
+console.log(typeof obj2);//object
+</code></pre>
+<ul>
+<li>数组与 JSON 字符串之间相互转换</li>
+</ul>
+<pre><code>let arrStr = &#39;[&#123;&quot;name&quot;:&quot;清心&quot;&#125;,3,4,5]&#39;; // 正确
+const arr = JSON.parse(arrStr);
+console.log(arr);
+// 将数组转成JSON字符串
+const jsonStr = JSON.stringify(arr);
+console.log(jsonStr);
+</code></pre>
+<h3 id="二、原生-Ajax"><a href="#二、原生-Ajax" class="headerlink" title="二、原生 Ajax"></a>二、原生 Ajax</h3><h4 id="Ajax-是什么"><a href="#Ajax-是什么" class="headerlink" title="Ajax 是什么"></a>Ajax 是什么</h4><blockquote>
+<p>Ajax 是 <code>Asynchronous Javascript And XML</code>（异步 JavaScript 和 XML）的简写</p>
+<ul>
+<li>Ajax 中的异步：可以异步地向服务器发送请求，在等待响应的过程中，不会阻塞当前页面，浏览器可以做自己的事情。直到成功获取响应后，浏览器才开始处理响应数据。</li>
+<li>XML（可扩展标记语言）是前后端数据通信时传输数据的一种格式（早年用的多，现在都用<code>JSON</code>了）</li>
+<li>查看博客网站地图的 xml 文件，可了解语法结构 <code>https://www.arryblog.com/sitemap.xml</code></li>
+<li>XML 现在已经很少使用了，当下比较常用的是<code>JSON</code><blockquote>
+<p><code>Ajax</code> 其实就是浏览器与服务器之间的一种异步通信方式。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="Ajax主要作用"><a href="#Ajax主要作用" class="headerlink" title="Ajax主要作用"></a><code>Ajax</code>主要作用</h4><blockquote>
+<p><code>Ajax</code>最吸引人的就是它的“异步”特性，也就是说它可以在<strong>不重新刷新页面的情况下</strong>与服务器通信，交换数据，或更新页面。</p>
+<ul>
+<li>你可以使用<code>Ajax</code>最主要的两个特性做下列事：<ul>
+<li>在不重新加载页面的情况下发送请求给服务器。</li>
+<li>接受并使用从服务器发来的数据。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p><strong>应用场景如下</strong></p>
+<blockquote>
+<p>以下只是列举出一些简单的常见应用，让大家对<code>Ajax</code>有个初步的了解，<code>Ajax</code>能做的事情非常多，后面我们在项目中主要就是使手<code>Ajax</code>来实现前后端通信。</p>
+</blockquote>
+<ul>
+<li>注册用户名或手机号检测，一般都会使用<code>Ajax</code>异步交互<blockquote>
+<ul>
+<li>用户名检测时会提示 “名称已被占用”</li>
+<li>本质的过程是使用 Ajax 向后端发送请求，将用户名一起发送到后端，后端获取到数据后会和数据库中的数据进行比对，查看是否存在该用户名，如果存在就会响应给前端已存在，前端就会给出对应的用户提示信息。如果响应给前端为不存在，就继续注册就好。</li>
+</ul>
+</blockquote>
+</li>
+<li>搜索提示，自动补全<blockquote>
+<ul>
+<li>同样使用了 Ajax 向后端发送请求，后端会进行一些列的操作，最终将响应回来的数据给到前端，最后展示出来</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="搭建-Ajax-开发环境"><a href="#搭建-Ajax-开发环境" class="headerlink" title="搭建 Ajax 开发环境"></a>搭建 Ajax 开发环境</h4><blockquote>
+<p><code>Ajax</code> 需要服务器环境</p>
+<ul>
+<li>在非服务器环境下（如本地文件直接打开的形式），浏览器无法正常使用 <code>Ajax</code></li>
+<li>搭建服务访问就意味着浏览器地址栏访问一定是以 <code>http</code> 或 <code>https</code> 开头的，才可以正常使用 <code>Ajax</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>使用 VSCode 搭建 Ajax 开发环境<blockquote>
+<p>使用 VSCode 开发，建议使用<code>Live Server</code>插件，它会给我们提供一个本地的服务器环境。使用注意事项如下：</p>
+<ul>
+<li>需在当前文件的目录中打开 VSCode ，<code>Live Server</code>插件才能生效。</li>
+<li>在 VSCode 中，打开需要运行的文件，右键选择 <code>&quot;Open with Live Server&quot;</code> 即可启动本地服务器来运行对应的文件</li>
+<li>也可以使用快捷键 <code>Ctrl + shift + p</code> 在弹窗的命令行窗口中输入<code>Live Server</code>会自动补全 选择 <code>Open with Live Server</code> 即可，下次再打开其他文件时，会默认出现在第一个。直接使用快捷键 <code>Ctrl + shift + p</code> 再回车 即可运行。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>当然，VSCode 中的 Live Server 也不是强制一定要用这个</p>
+<ul>
+<li>Windows 可用 phpStudy</li>
+<li>Mac 可用 MAMP</li>
+<li>Windows 和 Mac 上也可直接用 Nginx<br>为了开发方便，我们选择使用 Live Server 足以，其他知道即可。</li>
+</ul>
+</blockquote>
+<h4 id="Ajax-的基本用法"><a href="#Ajax-的基本用法" class="headerlink" title="Ajax 的基本用法"></a>Ajax 的基本用法</h4><ul>
+<li><p><code>XMLHttpRequest</code></p>
+<blockquote>
+<p>我们要使用<code>Ajax</code>，<strong>但</strong>浏览器是没有直接提供类似 Ajax 这样对象的。因此</p>
+<ul>
+<li><code>Ajax</code>想要实现浏览器与服务器之间的异步通信，就需要依靠 <code>XMLHttpRequest</code>，它是一个<strong>构造函数</strong>。</li>
+<li>因为早期前后端通信的数据格式是 XML，所以<code>XMLHttpRequest</code>构造函数的命名中带有 <code>XML</code>，<strong>但本质上</strong><code>XMLHttpRequest</code>在实现前后端通信时，并没有和具体的某种数据格式绑定。</li>
+<li>不过我们现在前后端通信，主要使用的还是 JSON 格式的数据</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Ajax 的使用步骤</p>
+</li>
+</ul>
+<ol>
+<li>第一步：创建 xhr 对象</li>
+</ol>
+<pre><code>const xhr = new XMLHttpRequest();
+</code></pre>
+<ol start="2">
+<li>第二步：调用用<code>open()</code>方法，准备发送</li>
+</ol>
+<pre><code>xhr.open(method, url, boolean);
+//例：xhr.open(
+  &quot;get&quot;,
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;
+);
+</code></pre>
+<blockquote>
+<ul>
+<li>调用 open方法并不是真正的发送请求，只是做好发送请求的准备工作<br>pen方法的<strong>三个参数</strong></li>
+<li>method：表示HTTP请求的方法，如：<code>GET、POST、PUT、DELETE</code></li>
+<li>url: 请求的url地址（本地或远程服务器都可以）</li>
+<li>boolean: 是一个可选的布尔值，表示是否异步执行操作，默认为true。true表示是异步，false表示同步，但从来不会使用ajax来同步加载</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>第三步：调用<code>send()</code>方法，正式发送请求</li>
+</ol>
+<pre><code>xhr.send(body);
+</code></pre>
+<blockquote>
+<ul>
+<li><code>body</code>:是一个可选参数，用于你想发送给服务器的任何内容，主要用于发送<code>POST</code>请求时，发送<strong>请求体</strong>数据。如果采用的是GET请求，其参数写和不写一样，因为写了也不会被处理</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>目前常用的几种发送数据形式有以下三种</li>
+</ul>
+</blockquote>
+<pre><code>xhr.send(&#39;123&#39;) //  字符串
+xhr.send(&quot;username=icoding&amp;key=1242&quot;);  // 参数字符串
+xhr.send(&#39;&#123;&quot;username&quot;:&quot;icoding&quot;,&quot;key&quot;:1254&#125;&#39;); // JSON格式
+xhr.send(new FormData()); // 发送表单数据
+</code></pre>
+<blockquote>
+<blockquote>
+<p><code>send()</code>方法中发送数据的格式前后端要协商好，这样后端在接受到参数时就知道以什么格式来解析。</p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>第四步：通过监听<code>readystatechange()</code>事件，来处理服务器响应</li>
+</ol>
+<pre><code>xhr.onreadystatechange = function () &#123;
+  // ...
+&#125;;
+//也可以采用 addEventListener 方式来监听事件
+xhr.addEventListener(&quot;readystatechange&quot;, () =&gt; &#123;&#125;, false);
+</code></pre>
+<blockquote>
+<p>当获取到响应后，会触发 xhr 对象的<code>readystatechange</code>事件，可以在该事件中对响应进行处理</p>
+<ul>
+<li><code>onreadystatechange()</code>见名知意，即：<strong>状态改变时</strong>触发事件,所以我们需要判断当前Ajax的状态。</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li><code>xhr.readyState</code>属性记录了整个通信过程中的状态，它的值从 0 ~ 4，一共 5 个状态<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>UNSENT</td>
+<td>代理被创建，但尚未调用<code>open()</code>方法。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED</td>
+<td><code>open()</code>方法已经被调用。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED</td>
+<td><code>send()</code>方法已经被调用，并且头部和状态已经可获得。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING</td>
+<td>下载中，<code>responseText</code>属性已经包含部分数据。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE</td>
+<td>下载操作已完成。</td>
+</tr>
+<tr>
+<td>每次状态发生改变，都会触发<code>readystatechange</code>事件</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+<pre><code>xhr.onreadystatechange = function () &#123;
+  // readyState 不等于 4，未完成，数据还没有准备好，就没必要继续执行，直接返回null就好
+  if (xhr.readyState !== 4) return;
+  // readyState 等于 4，表示完成，并已经接收到全部响应数据
+  if((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304 ) &#123;
+      // 请求被发送后，从服务器端返回文本。
+      console.log(xhr.responseText);
+      // 查看返回值的类型
+      console.log(typeof xhr.responseText);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>使用 Ajax 完成前后端通信<blockquote>
+<p>通过以上四个步骤完成 Ajax 前后端通信，不过我们一般会把<code>xhr.onreadystatechange</code>事件写<code>在xhr.open()</code>和<code>xhr.send()</code>代码<strong>前面</strong>，保证请求发出去后的状态一定能被事件监听到。</p>
+<ul>
+<li>完整代码</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 第一步：创建xhr对象
+const xhr = new XMLHttpRequest();
+// 第四步：通过监听`readystatechange()`事件，来处理服务器响应
+xhr.onreadystatechange = function () &#123;
+  // readyState 不等于 4，未完成，数据还没有准备好，就没必要继续执行，直接返回null就好
+  if (xhr.readyState !== 4) return;
+  // readyState 等于 4，表示完成，并已经接收到全部响应数据
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    // 请求被发送后，从服务器端返回文本。
+    console.log(xhr.responseText);
+    // 查看返回值的类型
+    console.log(typeof xhr.responseText);
+  &#125;
+&#125;;
+// 第二步：调用用open()方法，准备发送
+xhr.open(
+  &quot;get&quot;,
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;,
+  true
+);
+// 第三步：调用send()方法，正式发送请求
+xhr.send();
+</code></pre>
+<h4 id="Ajax-发送-GET-请求"><a href="#Ajax-发送-GET-请求" class="headerlink" title="Ajax 发送 GET 请求"></a>Ajax 发送 GET 请求</h4><blockquote>
+<p>前面了解了 Ajax 是如何发送请求的，接下来深入了解 发送 GET 请求时，如何携带数据 和 数据编码</p>
+<ul>
+<li>GET 请求不能通过请求体携带数据，但可以通过<strong>请求头</strong>携带</li>
+<li>URL 地址中<strong>问号后边</strong>即为携带的数据，<code>&amp;</code>符号来分隔多个名值对</li>
+</ul>
+</blockquote>
+<pre><code>const url = &quot;http://www.xxx.com/test?keyword=json&amp;type=1&amp;sort=1&quot;;
+// url地址？号的字符串就是GET请求体携带的数据 keyword=json&amp;type=1&amp;sort=1
+</code></pre>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<ul>
+<li>根据参数 num 来决定返回几条用户信息</li>
+<li>使用<code>fast mock</code>来模拟接口：<code>https://www.fastmock.site/#/</code></li>
+</ul>
+</blockquote>
+<ol>
+<li>接口设置<blockquote>
+<ul>
+<li>接口地址的结尾是：项目接口基础路径+接口地址url</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url = &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user&quot;;
+</code></pre>
+<img src="fastmock-项目基础路径.png">
+<img src="Ajax发送GET请求.png">
+
+<blockquote>
+<p>右边是服务端返回的<code>JSON</code>数据</p>
+<ul>
+<li><code>data</code>里面的函数接收两个参数，<code>_req和Mock</code> 注意：这两个变量名不能改动</li>
+<li><code>fastmock</code>用<code>query</code>查询参数，如<code>/user?id=1</code> 获取方式为<code>_req.query.id</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>预览：<img src="预览get请求.png"></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>发送请求<blockquote>
+<ul>
+<li><code>get</code>通过请求头携带数据，URL地址中<strong>问号后边</strong>即为携带的数据；所以我们把<code>num</code>写在地址后面，让请求头传到服务端，服务端根据不同的<code>num</code>，返回对应的数据</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user?num=3&quot;;
+//第一步 创建xhr对象
+const xhr = new XMLHttpRequest();
+//第四步 通过监听事件，来处理服务器响应
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if (xhr.status === 200) &#123;
+    console.log(xhr.responseText);
+    console.log(typeof xhr.responseText);
+  &#125;
+&#125;;
+//第二步 调用open方法，准备发送
+xhr.open(&quot;get&quot;, url);
+//第三步 调用send方法，正式发送请求
+xhr.send();
+</code></pre>
+<img src="console-get.png">
+<img src="network-get.png">
+>- 注：要在浏览器中看到 Ajax 的请求，一定要选中上面的Fetch/XHR 选项
+
+<h4 id="Ajax-发送-POST-请求"><a href="#Ajax-发送-POST-请求" class="headerlink" title="Ajax 发送 POST 请求"></a>Ajax 发送 POST 请求</h4><blockquote>
+<ul>
+<li>POST 请求主要通过<strong>请求体</strong>携带数据，同量也可以在请求头携带（不过实际开发不这样用）</li>
+<li>请求体数据作为<code>send()</code>方法的参数（一般是字符串），被传送到服务器端。</li>
+</ul>
+<p>Ajax 发送 POST 请求，请求体携带的数据格式通常为以下两种，但不管那一种，都需要和后端沟通好，这样后端就能以对应的格式来解析数据</p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>格式</th>
+<th>fastmock 接受数据形式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>application&#x2F;x-www-form-urlencoded</td>
+<td>“username&#x3D;admin&amp;password&#x3D;123456”</td>
+<td>_req.body.username</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JSON.stringify({username:”admin”,password:”123456”})</td>
+<td>_req.body.username</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<ul>
+<li>和<code>get</code>方法不同的是：<code>post</code>方法用请求体携带数据，因此：<ul>
+<li>要在请求头中，设置数据格式</li>
+<li>用<code>send()</code>方法，发送请求体数据</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>接口设置</p>
+<blockquote>
+<ul>
+<li>新增接口：<img src="Ajax发送post请求.png">
+右边是服务端返回的`JSON`数据</li>
+<li><code>data</code>里面的函数接收两个参数，<code>_req和Mock</code> 注意：这两个变量名不能改动</li>
+<li><code>fastmock</code>获取body请求体数据：<code>_req.body.id</code></li>
+<li>接口地址：直接复制，不用添加内容<br>预览：<img src="预览post请求.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>发送<code>application/x-www-form-urlencoded</code>格式的请求</p>
+</li>
+</ol>
+<pre><code>const url =
+   &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;;
+ //第一步 创建xhr对象
+ const xhr = new XMLHttpRequest();
+ //第四步 通过监听事件，来处理服务器响应
+ xhr.onreadystatechange = function () &#123;
+   if (xhr.readyState !== 4) return;
+   if (xhr.status === 200) &#123;
+     console.log(xhr.responseText);
+     console.log(typeof xhr.responseText);
+   &#125;
+ &#125;;
+ //第二步 调用open方法，准备发送
+ xhr.open(&quot;post&quot;, url);
+ //设置请求头，发送内容类型为application/x-www-form-urlencoded 格式
+ xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+ //第三步 调用send方法，正式发送请求
+ xhr.send(&quot;username=hermia&amp;password=12345&quot;);
+</code></pre>
+<img src="console-post.png">
+<img src="network-post.png">
+
+<ol start="3">
+<li>JSON 格式</li>
+</ol>
+<pre><code>const url =
+   &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;;
+ //第一步 创建xhr对象
+ const xhr = new XMLHttpRequest();
+ //第四步 通过监听事件，来处理服务器响应
+ xhr.onreadystatechange = function () &#123;
+   if (xhr.readyState !== 4) return;
+   if (xhr.status === 200) &#123;
+     console.log(xhr.responseText);
+     console.log(typeof xhr.responseText);
+   &#125;
+ &#125;;
+ //第二步 调用open方法，准备发送
+ xhr.open(&quot;post&quot;, url);
+ //设置请求头，发送内容类型为application/x-www-form-urlencoded 格式
+ xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+ //第三步 调用send方法，正式发送请求
+ xhr.send(
+   JSON.stringify(&#123;
+     username: &quot;hermia&quot;,
+     password: &quot;12345&quot;,
+   &#125;)
+ );
+</code></pre>
+<blockquote>
+<ul>
+<li>结果和上面一样</li>
+</ul>
+</blockquote>
+<h4 id="请求数据编码"><a href="#请求数据编码" class="headerlink" title="请求数据编码"></a>请求数据编码</h4><blockquote>
+<p>不管是GET还是POST请求，如果请求携带的数据是<strong>非英文字母</strong>的，如：中文汉字，就需要<strong>编码</strong>之后再发送给后端，不然会造成乱码问题<br>可以使用<code>encodeURIComponent()</code>方法进行编码</p>
+</blockquote>
+<pre><code>// GET请求地址中有中文需要编码
+const url = `https://www.xxx.com/test?wd=$&#123;encodeURIComponent(&quot;web前端&quot;)&#125;`;
+// POST请求体数据中有中文需要编码
+xhr.send(`username=$&#123;encodeURIComponent(&quot;艾编程&quot;)&#125;&amp;age=20`);
+</code></pre>
+<ul>
+<li>代码演示</li>
+</ul>
+<pre><code>const url =
+   &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;;
+ //第一步 创建xhr对象
+ const xhr = new XMLHttpRequest();
+ //第四步 通过监听事件，来处理服务器响应
+ xhr.onreadystatechange = function () &#123;
+   if (xhr.readyState !== 4) return;
+   if (xhr.status === 200) &#123;
+     console.log(xhr.responseText);
+     console.log(typeof xhr.responseText);
+   &#125;
+ &#125;;
+ //第二步 调用open方法，准备发送
+ xhr.open(&quot;post&quot;, url);
+ //设置请求头，发送内容类型为application/x-www-form-urlencoded 格式
+ xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;);
+ //第三步 调用send方法，正式发送请求
+ xhr.send(`username=$&#123;encodeURIComponent(&quot;艾编程&quot;)&#125;&amp;password=12345`);
+</code></pre>
+<blockquote>
+<ul>
+<li>查看编码后传递到服务器端的中文字符串：<img src="请求数据编码.png"></li>
+</ul>
+</blockquote>
+<h4 id="form表单get请求携带数据"><a href="#form表单get请求携带数据" class="headerlink" title="form表单get请求携带数据"></a>form表单get请求携带数据</h4><blockquote>
+<ul>
+<li>不需要设置<code>enctype</code>属性的值</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;form
+&gt;  action=&quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;
+&gt;  method=&quot;get&quot;
+&gt;&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&gt;&lt;/form&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>我们可以看到，表单请求（提交）的地址，并没有参数</li>
+<li>输入用户名、密码，提交之后，表单的值就会组成键值对的形式，作为参数拼接到url路径上，这个参数就是get请求所携带的数据体<img src="form表单发送get请求.png"></li>
+</ul>
+</blockquote>
+<h4 id="form-表单-post-请求携带数据"><a href="#form-表单-post-请求携带数据" class="headerlink" title="form 表单 post 请求携带数据"></a>form 表单 post 请求携带数据</h4><blockquote>
+<p><code>form</code> 表单在发送<code>post</code>请求时，请求体数据类型有如下三种，通过<code>enctype</code>属性设置。</p>
+<table>
+<thead>
+<tr>
+<th>enctype</th>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>application&#x2F;x-www-form-urlencoded</td>
+<td>默认值，只能上传文本格式的文件。不能用于发送文件。在发送前<strong>会编码所有字符</strong>，即在发送到服务器之前，所有字符都会进行编码</td>
+<td></td>
+</tr>
+<tr>
+<td>multipart&#x2F;form-data</td>
+<td>指定传输数据为<strong>二进制类型</strong>（不对字符编码），比如图片，mp3，文件。是将文件以二进制的形式上传，可以实现多种类型的文件上传</td>
+<td></td>
+</tr>
+<tr>
+<td>text&#x2F;plain</td>
+<td>纯文本的传输，空格转换为”+”号，但不对特殊字符编码，一般用于 email 之类的</td>
+<td></td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p><strong>温馨提示</strong></p>
+<ul>
+<li>form 表单只有在发送 post 请求时，需要设置 enctype 属性的值，如果不设置默认为<code>application/x-www-form-urlencoded</code></li>
+</ul>
+<p><strong>表单参数</strong></p>
+<ul>
+<li>action: 设置表单请求（提交）的地址</li>
+<li>method: 设置请求的方法</li>
+<li>enctype: 设置以post方法请求时，请求体携带的数据类型。</li>
+</ul>
+</blockquote>
+<ul>
+<li>当<code>enctype=&quot;application/x-www-form-urlencoded&quot;</code></li>
+</ul>
+<pre><code>&gt;&lt;form
+&gt;  action=&quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/login&quot;
+&gt;  method=&quot;post&quot;
+&gt;  enctype=&quot;application/x-www-form-urlencoded&quot;
+&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&gt;&lt;/form&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>在<code>Network</code>里查看提交的数据格式：<img src="表单发送post请求-1.png"></li>
+<li>是自动将表单<code>name</code>属性值和输入的内容进行拼接，作为请求体中的内容发送</li>
+</ul>
+</blockquote>
+<ul>
+<li>当 <code>enctype=&quot;text/plain&quot;</code></li>
+</ul>
+<pre><code>&gt;&lt;form
+&gt;  action=&quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/login&quot;
+&gt;  method=&quot;post&quot;
+&gt;  enctype=&quot;text/plain&quot;
+&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&gt;&lt;/form&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>在<code>Network</code>里查看提交的数据格式：<img src="表单发送post请求-2.png"></li>
+</ul>
+</blockquote>
+<ul>
+<li>当<code>enctype=&quot;multipart/form-data&quot;</code></li>
+</ul>
+<pre><code>&gt;&lt;form
+&gt;  action=&quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/login&quot;
+&gt;  method=&quot;post&quot;
+&gt;  enctype=&quot;multipart/form-data&quot;
+&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;
+&gt;&lt;/form&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>在<code>Network</code>里查看提交的数据格式：<img src="表单发送post请求-3.png"></li>
+</ul>
+</blockquote>
+<h4 id="利用Ajax来提交enctype-multipart-form-data-类型的表单数据。"><a href="#利用Ajax来提交enctype-multipart-form-data-类型的表单数据。" class="headerlink" title="利用Ajax来提交enctype = &quot;multipart/form-data&quot;类型的表单数据。"></a>利用<code>Ajax</code>来提交<code>enctype = &quot;multipart/form-data&quot;</code>类型的表单数据。</h4><blockquote>
+<p>根据前面的演示，可以发现：</p>
+<ul>
+<li>通过提交按扭提交表单数据时，<strong>会发生页面的跳转</strong>，如果不想发生页面跳转就需要通过<code>Ajax</code>来发送请求。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>思路：</p>
+<ul>
+<li>阻止默认行为，即点击提交按钮时的默认跳转行为</li>
+<li>用点击事件来发送<code>Ajax</code>请求</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;form method=&quot;post&quot; id=&quot;login&quot;&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;!-- 密码框不能自填充 --&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; autocomplete=&quot;off&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; id=&quot;submit&quot; /&gt;
+&gt;&lt;/form&gt;
+&gt;&lt;script&gt;
+  const login = document.getElementById(&quot;login&quot;);
+  const &#123; username, password &#125; = login;
+  //获取提交按钮
+  const submit = document.getElementById(&quot;submit&quot;);
+  //添加点击事件
+  submit.addEventListener(&quot;click&quot;, (e) =&gt; &#123;
+    e.preventDefault(); //阻止默认行为
+    //获取表单输入框中的数据
+    const _username = username.value.trim();
+    const _password = password.value.trim();
+    //输入的数据验证
+    //发送Ajax请求
+    const url =
+      &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;;
+    //第一步 创建xhr对象
+    const xhr = new XMLHttpRequest();
+    //第四步 通过监听事件，来处理服务器响应
+    xhr.onreadystatechange = function () &#123;
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200) &#123;
+        console.log(xhr.responseText);
+      &#125;
+    &#125;;
+    //第二步 调用open方法，准备发送
+    xhr.open(&quot;post&quot;, url);
+    //设置请求头，发送内容类型为application/x-www-form-urlencoded 格式
+    xhr.setRequestHeader(
+      &quot;Content-Type&quot;,
+      &quot;application/x-www-form-urlencoded&quot;
+    );
+    //第三步 调用send方法，正式发送请求
+    //拼接date数据
+    const date = `username=$&#123;_username&#125;&amp;password=$&#123;_password&#125;`;
+    xhr.send(date);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>密码框不能自填充：需要设置<code>autocomplete=&quot;off&quot;</code></li>
+<li>可以通过结构赋值的方式拿到输入框：<code>&#123;username, password &#125; = login</code>，然后用<code>.value</code>方法拿到输入的数据</li>
+</ul>
+</blockquote>
+<img src="Ajax发送表单数据.png">
+>- 可以看到，通过`Ajax`方法发送post请求，在不跳转页面的情况下，也可以提交`enctype = "multipart/form-data"`类型的表单数据。
+>- 设置请求头时，发送内容类型为`application/x-www-form-urlencoded`格式；所以提交的数据格式和`form`表单数据格式为` enctype="application/x-www-form-urlencoded"`时，提交的数据格式是相同的，都使用参数字符串格式
+>- 弊端：通过请求体携带的数据是我们人为 拼接输入框中的数据，当提交的信息比较多时，就比较麻烦了
+
+<h4 id="FormData-对象"><a href="#FormData-对象" class="headerlink" title="FormData 对象"></a>FormData 对象</h4><ol>
+<li>利用<code>FormData</code>来提交表单数据<blockquote>
+<p>从前面的学习中，可以知道：通过<code>Ajax</code>来提交 Form 表单时，如果提交的数据类型为<code>application/x-www-form-urlencoded</code>，需要人为拼接数据</p>
+<ul>
+<li><code>FormData</code>构造函数可以弥补这个问题</li>
+<li>如果提交的数据类型为<code>multipart/form-data</code>类型，可以利用到 <code>FormData</code> 构造函数来创建对应类型的数据。</li>
+<li><code>FormData</code>对象会自动将表单的所有数据编译成键值对，以便用<code>XMLHttpRequest</code>来发送数据</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>把表单元素作为构造函数的参数，更改数据类型</li>
+<li>还可以自己添加内容</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;form method=&quot;post&quot; id=&quot;login&quot;&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;username&quot; id=&quot;&quot; /&gt;
+&gt;  &lt;!-- 密码框不能自填充 --&gt;
+&gt;  &lt;input type=&quot;password&quot; name=&quot;password&quot; autocomplete=&quot;off&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;提交&quot; id=&quot;submit&quot; /&gt;
+&gt;&lt;/form&gt;
+&gt;&lt;script&gt;
+  const login = document.getElementById(&quot;login&quot;);
+  const &#123; username, password &#125; = login;
+  //获取提交按钮
+  const submit = document.getElementById(&quot;submit&quot;);
+  //添加点击事件
+  submit.addEventListener(&quot;click&quot;, (e) =&gt; &#123;
+    e.preventDefault(); //阻止默认行为
+    //输入的数据验证
+    //发送Ajax请求
+    const url =
+      &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;;
+    //第一步 创建xhr对象
+    const xhr = new XMLHttpRequest();
+    //第四步 通过监听事件，来处理服务器响应
+    xhr.onreadystatechange = function () &#123;
+      if (xhr.readyState !== 4) return;
+      if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+        console.log(xhr.responseText);
+      &#125;
+    &#125;;
+    //第二步 调用open方法，准备发送
+    xhr.open(&quot;post&quot;, url);
+    //设置请求头，发送内容类型为multipart/form-data格式
+    xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;multipart/form-data&quot;);
+    //第三步 调用send方法，正式发送请求
+    //拼接date数据
+    const date = new FormData(login);
+    //而且可以添加表单中没有的内容
+    date.append(&quot;age&quot;, 20);
+    xhr.send(date);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<img src="formData发送表单数据.png">
+>>注意：`fastMock`不能解析`FormData`数据，所以，得不到成功的结果
+
+<ol start="2">
+<li>FormData 的基本用法<blockquote>
+<p>接下来我们来学习以下几个 FormData 的实例方法</p>
+<ul>
+<li><code>new FormData()</code>得到的实例是<strong>可迭代对象</strong><table>
+<thead>
+<tr>
+<th>实例方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>append(key,value)</td>
+<td>添加一个新的值到 FormData 对象内的一个已存在的键中，如果键不存在则会添加该键</td>
+</tr>
+<tr>
+<td>set</td>
+<td>对 FormData 对象里的某个 key 设置一个新的值，如果该 key 不存在，则添加。</td>
+</tr>
+<tr>
+<td>get</td>
+<td>get() 方法用于返回 FormData 对象中和指定的键关联的第一个值</td>
+</tr>
+<tr>
+<td>getAll</td>
+<td>方法会返回该 FormData 对象指定 key 的所有值</td>
+</tr>
+<tr>
+<td>delete(key)</td>
+<td>根据 key 从 FormData 对象中删除指定键</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>关于 FormData 构造函数相关的实例方法查看官方文档</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>append(key,value)</code>和<code>get(key)</code>和<code>getAll(key)</code></li>
+</ul>
+<pre><code>const data = new FormData();
+ data.append(&quot;a&quot;, 1);
+ data.append(&quot;a&quot;, 2);
+ data.append(&quot;a&quot;, 1);
+ data.append(&quot;a&quot;, 2);
+ for (let item of data) &#123;
+   console.log(item);
+ &#125;
+ //[&#39;a&#39;, &#39;1&#39;]
+ //[&#39;a&#39;, &#39;2&#39;]
+ //[&#39;a&#39;, &#39;1&#39;]
+ //[&#39;a&#39;, &#39;2&#39;]
+&gt;
+ console.log(data.get(&quot;a&quot;)); //1
+ console.log(data.getAll(&quot;a&quot;)); //[&#39;1&#39;, &#39;2&#39;, &#39;1&#39;, &#39;2&#39;]
+</code></pre>
+<blockquote>
+<ul>
+<li><code>append</code>方法可以添加相同的值</li>
+<li><code>get</code>方法只能得到指定的键关联的第一个值</li>
+<li><code>getAll</code>会返回由指定key的所有值组成的数组</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>set(key,value)</code></li>
+</ul>
+<pre><code>const data = new FormData();
+data.set(&quot;a&quot;, 1);
+data.set(&quot;a&quot;, 2);
+data.set(&quot;a&quot;, 3);
+data.set(&quot;b&quot;, 1);
+for (let item of data) &#123;
+  console.log(item);
+&#125;
+//[&#39;a&#39;, &#39;3&#39;]
+//[&#39;b&#39;, &#39;1&#39;]
+&gt;
+console.log(data.get(&quot;a&quot;)); //3
+console.log(data.getAll(&quot;a&quot;)); //[&#39;3&#39;]
+</code></pre>
+<blockquote>
+<ul>
+<li><code>set</code>方法添加的键值不能相同，如果键名一样后添加的会替代前面的</li>
+<li>所以<code>get</code>方法和<code>getAll</code>方法得到的值都是最后添加进去的<code>value</code>值</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>delete</code></li>
+</ul>
+<pre><code> const data = new FormData();
+ data.set(&quot;a&quot;, 1);
+ data.append(&quot;a&quot;, 2);
+ data.append(&quot;b&quot;, 3);
+&gt;
+ for (let item of data) &#123;
+   console.log(item, &quot;--&quot;);
+ &#125;
+ // [&#39;a&#39;, &#39;1&#39;] &#39;--&#39;
+ // [&#39;a&#39;, &#39;2&#39;] &#39;--&#39;
+ // [&#39;b&#39;, &#39;3&#39;] &#39;--&#39;
+ data.delete(&quot;a&quot;);
+ for (let item of data) &#123;
+   console.log(item, &quot;--&quot;);
+ &#125;
+ // [&#39;b&#39;, &#39;3&#39;] &#39;--&#39;
+</code></pre>
+<h3 id="三、跨域"><a href="#三、跨域" class="headerlink" title="三、跨域"></a>三、跨域</h3><h4 id="什么是跨域-？"><a href="#什么是跨域-？" class="headerlink" title="什么是跨域 ？"></a>什么是跨域 ？</h4><blockquote>
+<p>跨域问题其实就是<strong>浏览器</strong>的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">同源策略</a>所导致的。</p>
+<p><strong>同源策略</strong>是一个重要的安全策略，它用于限制一个源<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Origin">Origin</a>的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介</p>
+<p><strong>源(Origin)的定义</strong><br>Web 内容的源由用于访问它的<code>URL</code>的 <strong>方案（协议）、主机名（域名）和 端口</strong>定义。只有当协议、主机和端口都匹配时，两个对象才具有相同的源。</p>
+</blockquote>
+<h4 id="什么是同域（源），什么是不同域（源）"><a href="#什么是同域（源），什么是不同域（源）" class="headerlink" title="什么是同域（源），什么是不同域（源）"></a>什么是同域（源），什么是不同域（源）</h4><blockquote>
+<p>我们观察以下 URL 地址:<br><img src="url地址.png"><br>只有当两个 <code>URL</code> 地址的 <code>protocol</code>（协议）、<code>domain</code>（域名）、<code>port</code>（端口） <strong>三者完全相同</strong>时，我们才认为他们是同域，只要三者中任何一个不同，就是不同域，与路径（参数、锚点）无关，路径是否一样无所谓</p>
+</blockquote>
+<ul>
+<li>以下 URL 为同域</li>
+</ul>
+<pre><code>https://www.icodingedu.com/
+https://www.icodingedu.com/goods/
+https://www.icodingedu.com/open/course/20
+https://www.icodingedu.com/goods/show/81?targetId=90&amp;preview=0
+</code></pre>
+<blockquote>
+<ul>
+<li>以上地址的协议都是：https，域名都是：<a target="_blank" rel="noopener" href="http://www.icodingedu.com,端口号没有写,默认都是/">www.icodingedu.com，端口号没有写，默认都是</a> 443</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下 URL 为不同域</li>
+</ul>
+<pre><code>&lt;!-- 以下URL的 协议不同，即为不同域 --&gt;
+https://www.icodingedu.com/
+http://www.icodingedu.com/
+&gt;
+&lt;!-- 以下URL的 域名不同，即为不同域 --&gt;
+http://www.icodingedu.com:80/goods/
+http://m.icodingedu.com:80/goods/
+&gt;
+&lt;!-- 以下URL的 第1个和第2个的协议 端口号都不同 --&gt;
+https://www.icodingedu.com:443/goods/
+http://www.icodingedu.com:80/goods/
+</code></pre>
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li>默认情况下 <code>http</code> 协议的默认端口号是<code>80</code>， 可以省略端口号</li>
+<li><code>https</code> 的默认端口是<code>443</code>，可以省略端口号</li>
+<li>所以以下情况为同域：</li>
+</ul>
+</blockquote>
+<pre><code>http://www.icodingedu.com:80 与 http://www.icodingedu.com 是同域
+https://www.icodingedu.com:443 与 https://www.icodingedu.com 是同域
+</code></pre>
+<h4 id="同域请求"><a href="#同域请求" class="headerlink" title="同域请求"></a>同域请求</h4><blockquote>
+<p>如果请求的 URL 地址和当前 URL 地址是<strong>同域</strong>，则不会受浏览器的同源策略限制。所以服务端响应的内容前端能正常的接受到。</p>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>在同一目录下，新建<code>index.html</code>和<code>data.json</code>文件 ，在<code>index.html</code>页面使用<code>Ajax</code>异步请求<code>data.json</code>文件</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>index.html</code>页面核心代码如下</li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  const url = &quot;./data.json&quot;;
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () &#123;
+    if (xhr.readyState !== 4) return;
+    if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+      const data = xhr.responseText;
+      console.log(data);
+      console.log(typeof data);
+      console.log(JSON.parse(data));
+    &#125;
+  &#125;;
+  xhr.open(&quot;get&quot;, url);
+  xhr.send();
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>data.json</code> 页面代码如下</li>
+</ul>
+<pre><code>&#123;
+  &quot;username&quot;: &quot;icoding&quot;,
+  &quot;age&quot;: 33
+&#125;
+</code></pre>
+<blockquote>
+<p><strong>代码解读</strong></p>
+<ul>
+<li>上面的代码，相当于是在 <code>http://127.0.0.1:5500/index.html</code> 路径下向 <code>http://127.0.0.1:5500/data.json</code> 路径发送了 <code>Ajax</code> 请求，因为两者 “协议名，域名，端口号” 三者都相同，所以是<strong>同域请求</strong>，并不受浏览器同源策略的限止。<blockquote>
+<p>注意：Ajax发送HTTP请求的url地址可以是<strong>本地</strong>也可以是远程服务</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h4><blockquote>
+<p>如果请求的 URL 地址和当前 URL 地址是<strong>不同域</strong>，则会受浏览器的同源策略限制，即服务端响应的会被浏览器给<strong>丢弃掉</strong>。</p>
+<p>也就是说请求发出去了，服务端也响应了内容，但是浏览器在接受到服务端的内容后，发现请求的地址和当前 URL 不是同域的，则会把内容丢弃掉</p>
+</blockquote>
+<blockquote>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>在同一目录下创建<code>index.html</code>和<code>server.js</code>两个文件</li>
+<li><code>server.js</code>文件，用来创建 <code>HTTP</code> 服务器，服务器的访问地址为 <code>http://127.0.0.1:8887</code></li>
+<li>在<code>index.html</code>页面使用 <code>Ajax</code> 异步请求 <code>http://127.0.0.1:8887</code>来获取内容</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>index.html</code></li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  const url = &quot;http://127.0.0.1:8887&quot;;
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () &#123;
+    if (xhr.readyState !== 4) return;
+    if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+      console.log(xhr.responseText);
+    &#125;
+  &#125;;
+  xhr.open(&quot;get&quot;, url);
+  xhr.send();
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>server.js</code></li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    console.log(&quot;请求成功&quot;);
+    // 设置响应头，解决中文乱码
+    response.writeHead(200, &#123;
+      &quot;Content-Type&quot;: &quot;text/plain; charset=utf-8&quot;,
+    &#125;);
+    response.end(&quot;发送的数据内容&quot;);
+  &#125;)
+  .listen(8887);
+&gt;
+console.log(&quot;Server running at http://127.0.0.1:8887&quot;);
+</code></pre>
+<blockquote>
+<p><strong>运行代码：</strong></p>
+<ul>
+<li>先在在 <code>VSCode</code> 的命令终端执行 <code>node server.js</code> 命令来运行 <code>node</code> 程序，创建<code>http://127.0.0.1:8887</code>服务</li>
+<li>然后在 <code>VScode</code> 中打开<code>index.html</code>页面，打开后地址为：<code>http://127.0.0.1:5500/index.html</code>，打开后，其内部就会向<code>http://127.0.0.1:8887</code>发送 <code>Ajax</code> 请求。</li>
+<li>所以我们 <code>VSCode</code> 的终端看到，服务端成功响应请求，并输出 “请求成功”。<blockquote>
+<p>但浏览器端并没有在控制台正确打印服务端响应的内容，而是报如下错误<br><img src="跨域错误.png"></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>跨域限制是<strong>浏览器的行为</strong>，它不限制请求发送到服务端，也没有限制服务端响应内容，只在服务端响应内容后，浏览器会判断当前地址和请求地址是不是同一域，如果不是，则会把响应回来的内容丢弃，并抛出相应错误。</li>
+<li>Ajax发送http请求的地址是本地的<code>http://127.0.0.1:5500</code>；而服务器的地址是<code>http://127.0.0.1:8887</code>，端口号不同，所以不同域</li>
+<li>当然，如果后端有相关设置，跨域也是可以的，后面会讲</li>
+</ul>
+</blockquote>
+<h4 id="跨域请求为什么会被阻止"><a href="#跨域请求为什么会被阻止" class="headerlink" title="跨域请求为什么会被阻止"></a>跨域请求为什么会被阻止</h4><blockquote>
+<p>阻止跨域请求，其实是浏览器本身的一种安全策略，即：同源策略</p>
+<p><strong>本质上</strong></p>
+<ul>
+<li>跨域被阻止的问题就是<strong>浏览器本身的问题</strong>（基于安全考虑，帮我们禁止掉了），其他客户端 或 服务器 都不存在跨域被阻止的问题。</li>
+<li>虽然，阻止了跨域请求保障了一定的安全，但有的时候合理的跨域请求也是至关重要的。那我们应该如何跨域请求，还不被浏览器阻止呢 ？<blockquote>
+<p>这就是我们接下来为什么要学习 跨域解决方案的原因了 ！</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>跨域常用解决方案</strong></p>
+<ul>
+<li>CORS 跨域资源共享（最常用）</li>
+<li>JSONP（主要用到 script 标签）</li>
+<li>代理跨域：开启一个代理服务器实现数据转发<br>关于跨域请求的解决方案有数十种之多，主要看应用场景，每种方式都有各自的优缺点。</li>
+<li>当下我们前端开发中会优先使用 CORS 跨域资源共享。</li>
+</ul>
+</blockquote>
+<h4 id="CORS-跨域资源共享"><a href="#CORS-跨域资源共享" class="headerlink" title="CORS 跨域资源共享"></a>CORS 跨域资源共享</h4><blockquote>
+<ul>
+<li>我们使用 CORS 跨域资源共享 主要是<strong>后端</strong>来解决的，其实我们前端什么都不用做也帮不上啥忙，只要后端解决了，前端就可以实现跨域了。</li>
+</ul>
+</blockquote>
+<ol>
+<li>CORS 是什么<blockquote>
+<p><strong>CORS</strong>（<code>Cross-Origin Resource Sharing</code>）通俗地译为<strong>跨域资源共享</strong>，定义了浏览器与服务器如何实现跨源通信。背后的基本思路是一种基于 HTTP 头的机制，该机制通过允许服务器标示除了它自己以外的其它源（域、协议或端口），使得浏览器允许这些源访问加载自己的资源。</p>
+<p>我们前面说过，因为浏览器的同源策略，所以不同域之间是不能实现资源共享。如果我们想要不同域之间能实现资源共享，我们只需要在服务端的响应头中添加<code>Access-Control-Allow-Origin</code>头信息</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>允许任意的外源访问该资源</li>
+</ul>
+<pre><code>Access-Control-Allow-Origin: &quot;*&quot;
+</code></pre>
+<ul>
+<li>只允许指定的外源访问该资源</li>
+</ul>
+<pre><code>Access-Control-Allow-Origin: &quot;https://www.xxx.com&quot;
+</code></pre>
+<ol start="2">
+<li>CORS 实现资源共享<blockquote>
+<p>接下来我们用代码来演示，<code>CORS</code>是如何解决不同域之间的资源共享。</p>
+<ul>
+<li>在同一目录下新建<code>index.html</code>和<code>server.js</code>文件。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>server.js</code>文件<blockquote>
+<ul>
+<li>用来创建一个<code>HTTP</code>服务，服务的访问地址 <code>http://127.0.0.1:8886</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    // 设置响应头
+    response.writeHead(200, &#123;
+      // 允许所有域访问
+      // &quot;Access-Control-Allow-Origin&quot;:&quot;*&quot;
+      // 只允许http://127.0.0.1:5500 这个域名下的所有请求
+      &quot;Access-Control-Allow-Origin&quot;: &quot;http://127.0.0.1:5500&quot;,
+    &#125;);
+    // 设置响应内容
+    response.end(&quot;响应内容&quot;);
+  &#125;)
+  .listen(8886);
+console.log(&quot;Server running at http:127.0.0.1:8886&quot;);
+</code></pre>
+<ul>
+<li><code>index.html</code>页面<blockquote>
+<ul>
+<li>使用<code>Ajax</code>向<code>http://127.0.0.1:8886</code>发起一个异步的请求</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  const url = &quot;http://127.0.0.1:8886&quot;;
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () &#123;
+    if (xhr.readyState !== 4) return;
+    if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+      console.log(xhr.response);
+    &#125;
+  &#125;;
+  xhr.open(&quot;get&quot;, url);
+  xhr.send();
+&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>以上代码执行过程</strong></p>
+<blockquote>
+<ul>
+<li>首先在 <code>VSCode</code> 的终端，执行<code>node server.js</code>命令来运行 <code>node</code> 程序，创建 <code>Http</code> 服务，服务地址<code>http:127.0.0.1:8886</code></li>
+<li>然后在 <code>VSCode</code> 中打开 <code>index.html</code> 页面，这时地址栏中的地址为<code>http://127.0.0.1:5500</code>,同时内部的 JS 代码执行，发起了 Ajax 请求，因为请求的地址：<code>http:127.0.0.1:8886</code>和<code>http://127.0.0.1:5500</code>不是同域的，所以就会有跨域限制，但是我们在响应头中设置了<code>&quot;Access-Control-Allow-Origin&quot;:&quot;http://127.0.0.1:5500&quot;</code>，相当于允许<code>http://127.0.0.1:5500</code>来访问我的资源，所以在浏览器的控制台能成功的打印出”响应内容”。</li>
+<li>如果把<code>server.js</code>文件中设置响应头<code>&quot;Access-Control-Allow-Origin&quot;:&quot;http://127.0.0.1:5500&quot;</code>代码去掉，你再次启动 <code>node</code> 服务，刷新<code>index.html</code>页面时，你就发现浏览器的控制台就报出了错误，相当请求失败。</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><p>使用 CORS 跨域过程</p>
+<blockquote>
+<ul>
+<li>①、浏览器发送请求</li>
+<li>②、后端在响应头中添加 <code>Access-Control-Allow-Origin</code>头信息</li>
+<li>③、浏览器接收到响应</li>
+<li>④、如果是同域下的请求，浏览器不会额外做什么，这次前后端通信就圆满完成了</li>
+<li>⑤、如果是跨域请求，浏览器会从响应头中查找是否允许跨域访问</li>
+<li>⑥、如果允许跨域，通信圆满完成</li>
+<li>⑦、如果没找到或不包含想要跨域的域名，就丢弃响应结果</li>
+</ul>
+</blockquote>
+</li>
+<li><p>如何给 CORS 设置多域名</p>
+<blockquote>
+<p>如果想要指定<strong>多个外源</strong>能访问该资源，其需要一定的办法才能办到，同时我们还需要了解以下两个必要的知识点：</p>
+<ul>
+<li>如果当前请求是跨域请求，则<strong>请求头</strong>中会有<code>Origin</code> 头字段</li>
+<li>如果当前请求不是跨域请求，则请求头中不会有<code>Origin</code>头字段<blockquote>
+<p>了解了这一点，我们就知道如何：指定多个外源访问该资源<br><strong>具体思路</strong></p>
+</blockquote>
+</li>
+<li>在响应端获取请求头中的<code>Origin</code>字段，如果没有值，则说明当前并没跨域，可以不做任何处理</li>
+<li>如果请求头中带有<code>Orign</code>字段，则说明当前为跨域请求，只需要将响应头<code>Access-Control-Allow-Origin</code>字段的值设置为请求头<code>Orign</code>字段的值</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>具体代码实现</li>
+</ul>
+<pre><code>// 用来保存响应头信息的对象
+const head = &#123;&#125;;
+// 允许访问该资源的外源
+const origin = [&quot;http://127.0.0.1:5500&quot;, &quot;http://127.0.0.1:5501&quot;];
+// 获取请求头的origin字段中的值，只有在请求是跨域请求是，请求头中才会有该字段，并且该字段的值是发起请求时所在的地址
+const requestOrigin = request.headers.origin;
+// 判断origin的值是否在允许的源中，如果在，则将响应头Access-Control-Allow-Origin的值设置为该源
+if (origin.includes(requestOrigin)) &#123;
+  head[&quot;Access-Control-Allow-Origin&quot;] = requestOrigin;
+&#125;
+&gt;
+// 设置 Vary: Origin，避免 CDN 缓存破坏 CORS 配置
+(head[&quot;Vary&quot;] = &quot;Origin&quot;),
+  // 设置响应头
+  response.writeHead(200, head);
+</code></pre>
+<ul>
+<li>完整的 node 代码</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    // 用来保存响应头信息的对象
+    const head = &#123;&#125;;
+    // 允许访问该资源的外源
+    const origin = [&quot;http://127.0.0.1:5500&quot;, &quot;http://127.0.0.1:5501&quot;];
+    // 获取请求头的origin字段中的值，只有在请求是跨域请求是，请求头中才会有该字段，并且该字段的值是发起请求时所在的地址
+    const requestOrigin = request.headers.origin;
+    // 判断origin的值是否在允许的源中，如果在，则将响应头Access-Control-Allow-Origin的值设置为该源
+    if (origin.includes(requestOrigin)) &#123;
+      head[&quot;Access-Control-Allow-Origin&quot;] = requestOrigin;
+    &#125;
+    // 设置 Vary: Origin，避免 CDN 缓存破坏 CORS 配置
+    (head[&quot;Vary&quot;] = &quot;Origin&quot;),
+      // 设置响应头
+      response.writeHead(200, head);
+    // 设置响应内容
+    response.end(&quot;响应内容&quot;);
+  &#125;)
+  .listen(8886);
+console.log(&quot;Server running at http:127.0.0.1:8886&quot;);
+</code></pre>
+<h4 id="JSONP-实现跨域"><a href="#JSONP-实现跨域" class="headerlink" title="JSONP 实现跨域"></a>JSONP 实现跨域</h4><ol>
+<li><p><code>JSONP</code>的原理</p>
+<blockquote>
+<p>在浏览器中<code>&lt;img&gt; 、&lt;link&gt; 、&lt;video&gt; 、&lt;script&gt;</code>等标签在跨域请求资源时<strong>不受浏览器同源策略的影响</strong>。</p>
+<ul>
+<li><code>JSONP</code>主要就是利用<code>&lt;script&gt;</code>标签，加载跨域文件</li>
+</ul>
+</blockquote>
+</li>
+<li><p>使用 JSONP 实现跨域</p>
+<blockquote>
+<p>为了让大家能理解 JSONP 是如何实现跨域来请求资源，我们先来从一段简单的 JS 代码开始说起</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>index.html</code>页面的 JS 代码</li>
+</ul>
+<pre><code>&gt;&lt;script&gt;
+  // 处理数据的函数  data为需要处理的数据
+  function handle(data) &#123;
+    console.log(data);
+  &#125;
+&gt;
+  // 调用函数，并将数据作为参数传入 ，这里的操作，我们是希望服务端返回对应的JS代码来实现
+  handle(&#123; userName: &quot;icoding&quot;, password: 123456 &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>我们希望通过<code>&lt;script&gt;</code>标签来发起请求，返回以下<code>JS</code>代码，而不是我们人为写死，因为我们传入函数中的参数数据更希望<strong>后端</strong>发送给到我们。</li>
+</ul>
+</blockquote>
+<pre><code>handle(&#123; userName: &quot;icoding&quot;, password: 123456 &#125;);
+</code></pre>
+<blockquote>
+<ul>
+<li>改造后的<code>index.html</code>页面代码如下</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;script&gt;
+  // 处理数据的函数  data为需要处理的数据
+  function handle(data) &#123;
+    console.log(data);
+  &#125;
+&gt;&lt;/script&gt;
+&lt;!-- 服务端通过地址中的参数 callback=handle 来判断返回的函数的名--&gt;
+&gt;&lt;script src=&quot;http://127.0.0.1:8885/callback=handle&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>node.js</code> 搭建 <code>HTTP</code> 服务<blockquote>
+<p>接下来我们来搭建 <code>HTTP</code> 服务，让大家感受完整的处理过程。即后端拿收到<code>http://127.0.0.1:8885/callback=handle</code>这个请求后，会如何响应，才能实现我们想要的结果</p>
+<ul>
+<li>创建<code>server.js</code>文件，用来创建<code>HTTP</code>服务</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    // 获取路径 /callback=handle 中的handle
+    const callback = request.url.split(&quot;=&quot;)[1];
+&gt;
+    const data = JSON.stringify(&#123; userName: &quot;icoding&quot;, password: 123456 &#125;);
+    response.end(`$&#123;callback&#125;($&#123;data&#125;)`);
+    // 上面代码同等于
+    //   response.end(`handle(&#123;&quot;userName&quot;:&quot;icoding&quot;,&quot;password&quot;:123456&#125;)`)
+  &#125;)
+  .listen(8885);
+console.log(&quot;Server running at http://127.0.0.1:8885&quot;);
+</code></pre>
+<blockquote>
+<ul>
+<li>服务端根据请求地址中的参数，来确定返回的字符串中的函数名，同时把对应的数据做为函数的实参传入。前端的<code>&lt;script&gt;</code>标签收到响应内容后，会把内容当成<code>JS</code>代码来编译和执行。</li>
+</ul>
+</blockquote>
+<p><strong>代码执行过程</strong></p>
+<blockquote>
+<ul>
+<li>首先在<code>VSCode</code>的终端，执行<code>node server.js</code>命令来运行<code>node</code>程序，创建<code>Http</code>服务，服务地址<code>http:127.0.0.1:8885</code></li>
+<li>然后在<code>VSCode</code>中打开<code>index.html</code>页面，这里你在控制台就能看到函数调用执行后的结果<img src="JSONP实现跨域.png"></li>
+</ul>
+</blockquote>
+<h4 id="代理跨域"><a href="#代理跨域" class="headerlink" title="代理跨域"></a>代理跨域</h4><ol>
+<li><p>代理跨域的原理</p>
+<blockquote>
+<p>我们前面说过，跨域请求被阻止是浏览器的行为，服务器和服务器之间是没有这种限制。</p>
+<p>如果在浏览器访问<code>http:127.0.0.1:5500</code>页面时，该页面发送<code>Ajax</code>请求到<code>http://127.0.0.1:8886</code>服务下获取资源，受到浏览器同源策略的影响，肯定会被阻止。</p>
+<p>如果我们可以在<strong>请求端和服务端之间</strong>架设一个代理服务器。这个代理服务器与请求端满足同源策略，那我们请求端就可把请求发给代理服务器，然后代理服务器帮我们把请求转发给真实的服务器，服务器响应内容给到代理服务器，代理服务器再把内容响应给到请求端。</p>
+<ul>
+<li>这样就完美的解决了跨域问题。<img src="代理跨域.png"></li>
+<li>关于代理服务器，我们后面将到 Vue 时会涉及到。这里我们就用 node 来搭建两个服务器来模拟下中间整个过程。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>模拟代理跨域的实现过程</p>
+<blockquote>
+<ul>
+<li>创建<code>a.js</code>，来创建 HTTP 服务器，服务地址<code>http:127.0.0.1:8881</code></li>
+<li>创建<code>b.js</code>，来创建 HTTP 服务，服务地址<code>http:127.0.0.1:8882</code>在这个服务器中返回一个<code>index.html</code>页面，这个返回的页面需要发送<code>Ajax</code>请求，获取服务器<code>http:127.0.0.1:8881</code>的响应结果。<blockquote>
+<p>因为受到浏览器同源策略的限制，所以请求肯定会失败。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><strong>我们模拟代理来实现</strong></p>
+<blockquote>
+<p>我们把请求转发给<code>http:127.0.0.1:8882/userInfo</code>这个服务器，然后这个服务器就相当于是一个代理服务器，他再发送请求到<code>http:127.0.0.1:8881</code>，拿到响应结果后，返回给到浏览器端。<br><img src="代理服务器跨域.png"></p>
+</blockquote>
+<ul>
+<li>新建<code>index.html</code>网页</li>
+</ul>
+<pre><code>&gt;&lt;body&gt;
+  a.js创建的服务器返回的html内容渲染后页面
+&gt;  &lt;script&gt;
+    // 需要获取http:127.0.0.1:8881 服务器响应的内容，因为受到同源策略的限制，所以我们需要把请求发送给到http://127.0.0.1:8882/getInfo,他会在接受到请求后，将请求转发给到http:127.0.0.1:8881，然后拿到响应的结果，返回给到浏览器端。
+    const url = &quot;http://127.0.0.1:8882/getInfo&quot;;
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () &#123;
+      if (xhr.readyState !== 4) return;
+      if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+        console.log(xhr.response);
+      &#125;
+    &#125;;
+    xhr.open(&quot;get&quot;, url);
+    xhr.send();
+&gt;  &lt;/script&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ul>
+<li>新建<code>a.js</code>创建<code>HTTP</code>服务器，服务地址<code>http:127.0.0.1:8881</code></li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+const fs = require(&quot;fs&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    response.writeHead(200, &#123;
+      &quot;Content-Type&quot;: &quot;text/plain;charset=utf-8&quot;,
+    &#125;);
+    // 发送请求到另一台服务器（目标服务器来获取内容）
+    response.end(&quot;目标服务器返回的内容&quot;);
+  &#125;)
+  .listen(8881);
+console.log(&quot;Server running at http:127.0.0.1:8881&quot;);
+</code></pre>
+<ul>
+<li>新建<code>b.js</code>，创建 HTTP 服务器，服务地址<code>http:127.0.0.1:8882</code><blockquote>
+<ul>
+<li>首先，这个地址返回<code>index.html</code>页面</li>
+<li>然后，<code>index.html</code>页面发送<code>Ajax</code>请求到<code>http://127.0.0.1:8882/getInfo</code>；因为<code>index.html</code>是<code>b.js</code>这个服务器返回的，所以他俩是同域的</li>
+<li>这个<code>http://127.0.0.1:8882/getInfo</code>服务器收到请求后，会发送请求到目标服务器<code>http://127.0.0.1:8881</code> 获取响应内容，然后将获取到的内容响应到浏览器端</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+const fs = require(&quot;fs&quot;);
+// 需要 npm install axios命令在当前目录下安装axios包
+const axios = require(&quot;axios&quot;);
+&gt;
+http
+  .createServer((request, response) =&gt; &#123;
+    // 获以url路径
+    if (request.url === &quot;/&quot;) &#123;
+      // 读取文件内容
+      const html = fs.readFileSync(&quot;./index.html&quot;);
+      response.writeHead(200, &#123;
+        &quot;Content-Type&quot;: &quot;text/html;charset=utf-8&quot;,
+      &#125;);
+      response.end(html);
+    &#125; else &#123;
+      // 发送请求到另一台服务器（目标服务器来获取内容）
+      axios.get(&quot;http://127.0.0.1:8881&quot;).then((res) =&gt; &#123;
+        // 将目标服务器响应的内容作为响应内容返回
+        response.end(res.data);
+      &#125;);
+    &#125;
+  &#125;)
+  .listen(8882);
+console.log(&quot;Server running at http:127.0.0.1:8882&quot;);
+</code></pre>
+<h3 id="四、XHR-对象的属性"><a href="#四、XHR-对象的属性" class="headerlink" title="四、XHR 对象的属性"></a>四、XHR 对象的属性</h3><ol>
+<li><code>responseType</code>、<code>esponseText</code>、<code>response</code>属性<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>responseType</td>
+<td>属性值是一个枚举字符串值，用于<strong>指定响应中包含的数据类型</strong>。其常用的类型有：<code>text</code>、<code>json</code>。 如果没有指定，则默认值为<code>text</code>文本类型</td>
+</tr>
+<tr>
+<td>response</td>
+<td>用于<strong>返回响应的正文</strong>，返回的类型为<code>responseType</code>指定的类型</td>
+</tr>
+<tr>
+<td>esponseText</td>
+<td>用来<strong>返回响应的正文</strong>，其接受的内容为文本形式。所以只有在没有设置<code>responseType</code>或者<code>responseType = &quot;&quot;</code>或<code>&quot;text&quot;</code>的时候才能使用</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p><strong>提示：</strong></p>
+<ul>
+<li>通过上面的了解，我们应该知道<code>response</code>完全可以替代 <code>responseText</code> ，关于<code>responseType</code>的更多类型，可查看 MDN 官方文档</li>
+</ul>
+</blockquote>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<p>如果<code>xhr.responseType=&#39;json&#39;</code>，则<code>xhr.response</code>的返回值是经过<code>json</code><strong>解析后的</strong><code>js</code>对象。</p>
+<ul>
+<li>所以如果返回内容不是<code>json</code>格式的，则返回值为<code>null</code></li>
+</ul>
+</blockquote>
+<ul>
+<li><code>server.js</code>创建 HTTP 服务</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;);
+http
+  .createServer((request, response) =&gt; &#123;
+    response.writeHead(200, &#123;
+      &quot;Content-Type&quot;: &quot;text/plain;charset=utf-8&quot;,
+      &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,
+    &#125;);
+&gt;
+    response.end(`&#123;&quot;username&quot;:&quot;icoding&quot;,&quot;age&quot;:12&#125;`);
+    //  response.end(&#39;abc&#39;);
+  &#125;)
+  .listen(8885);
+console.log(&quot;Server running at http://127.0.0.1:8885&quot;);
+</code></pre>
+<ul>
+<li><code>index.html</code>文件</li>
+</ul>
+<pre><code>const url = &quot;http://127.0.0.1:8885&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response); // 如果服务端响应内容不符合JSON格式,则最后的结果为null
+  &#125;
+&#125;;
+// 指定接受过来的响应的数据类型，如果为json字符串，则收到的值为json解析后的js对象
+xhr.responseType = &quot;json&quot;;
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+</code></pre>
+<ol start="2">
+<li><code>timeout</code>属性<blockquote>
+<p><code>timeout</code>的值是 是一个无符号长整型数（正整数），代表着一个请求在被自动终止前所消耗的毫秒数。也就是说在规定时间内请求发出去还没有响应，则取消请求。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>xhr.timeout = 10; //  超时时间为10ms
+</code></pre>
+<blockquote>
+<ul>
+<li><code>timeout</code>的默认值为 0，意味着没有超时（不设置 timeout 属性，就没有超时一说）</li>
+<li><code>timeout</code>一般在调用<code>open()</code>方法之后且在调用<code>send()</code>方法之前设置。</li>
+<li><code>timeout</code>属性常于**<code>timeout</code>事件**结合使用，在超时后，就会触发<code>timeout</code>事件，我们可以在<code>timeout</code>事件中来做相关处理</li>
+</ul>
+</blockquote>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;;
+xhr.ontimeout = function () &#123;
+  console.log(&quot;timeout&quot;);
+&#125;;
+xhr.open(&quot;get&quot;, url);
+xhr.timeout = 1000; // 请求超过1s还没响应，则取消请求
+xhr.send();
+</code></pre>
+<ol start="3">
+<li>withCredentials 属性<blockquote>
+<p><code>withCredentials</code>属性：指定**<code>Ajax</code>跨域**请求是要不要携带<code>cookie</code>等。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>使用<code>Ajax</code>发送请求，<strong>默认情况下</strong>：</p>
+<ul>
+<li>同域时，会携带 Cookie</li>
+<li>跨域时，不会携带Cookie</li>
+</ul>
+<p>同时需要设置<code>xhr.withCredentials = true;</code> ，但最终能否成功跨域携带 Cookie 还要看服务器是否同意，<strong>服务器端</strong>默认是不同意的。</p>
+<ul>
+<li>如果在同域请求时，设置<code>xhr.withCredentials=true;</code><strong>会抛出错误</strong></li>
+<li>如果需要成功携带 Cookie 服务端还需要以下两个设置。</li>
+</ul>
+<p><strong>服务端的设置</strong></p>
+<ul>
+<li>服务端必需要设置Access-Control-Allow-Origin，告诉浏览器允许跨域，而且这个值必须指定域名，不能设置为 *</li>
+<li>在响应头中，Access-Control-Allow-Credentials这个值也要设置为true</li>
+</ul>
+</blockquote>
+<p><strong>代码演示</strong></p>
+<ul>
+<li>新建<code>index.html</code>页面，代码如下</li>
+</ul>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/login&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.responseText);
+  &#125;
+&#125;;
+&gt;
+xhr.open(&quot;post&quot;, url);
+xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+//允许Ajax跨域请求时携带Cookie，如果把这里去掉，则请求时，请求头中没有Cookie信息
+xhr.withCredentials = true;
+xhr.send(JSON.stringify(&#123; username: &quot;admin&quot;, password: &quot;123456&quot; &#125;));
+</code></pre>
+<p><strong>温馨提示：</strong></p>
+<blockquote>
+<p>在测试这个功能时，建议使用<code>Firfox</code>（火狐）浏览器，因为 <code>Chrome 80</code> 版本以上的浏览器中仍然在请求头中没有携带 <code>Cookie</code>。原因在于<code>Chrome 80</code>以后<code>SameSite</code>的默认值为<code>Lax</code>，导致跨域<code>Cookie</code>传输收到限制，在此之前默认值为<code>none</code>。</p>
+<ul>
+<li>此处内容为后端人员需要解决的，所以不讲解（网上也有现成的答案，有兴趣自已了解）</li>
+</ul>
+</blockquote>
+<h3 id="五、XHR-对象的方法"><a href="#五、XHR-对象的方法" class="headerlink" title="五、XHR 对象的方法"></a>五、XHR 对象的方法</h3><ol>
+<li>abort() 方法<blockquote>
+<ul>
+<li>如果该请求已被发出，<code>XMLHttpRequest.abort()</code>方法将终止该请求</li>
+<li>需要<code>send()</code>方法发送请求完<strong>之后</strong>再调用<code>abort()</code>方法</li>
+<li><code>abort()</code>方法一般与**<code>abort</code>事件**一起配合使用</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;;
+// abort事件，在调用abort方法时，触发
+xhr.onabort = function () &#123;
+  console.log(&quot;abort&quot;);
+&#125;;
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+&gt;
+// 需要在发送完请求之后来调用 abort() 方法，即：发送完请求后，立马就取消了
+// abort() 方法用来终止当前请求
+// 请完成后，马上又终止了请求
+xhr.abort();
+</code></pre>
+<ol start="2">
+<li>setRequestHeader 方法<blockquote>
+<p><code>XMLHttpRequest.setRequestHeader()</code>是设置 <code>HTTP</code> 请求<strong>头部</strong>的方法。</p>
+<ul>
+<li>此方法必须在<code>open()</code>方法和 <code>send()</code> 之间调用。<br><strong>语法</strong></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// header 属性的名称   value属性的值
+xhr.setRequestHeader(header, value);
+</code></pre>
+<blockquote>
+<ul>
+<li>为了安全起见，大部分的请求头我们是没办法设置的，具体查阅官方文档</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>我们学习<code>setRequestHeader()</code>主要是为了设置<code>Content-Type</code>的属性值，在请求中，<code>Content-Type</code>主要是告诉服务器实际发送的数据类型，其值为<code>MIME</code>类型。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types">MIME类型</a></li>
+</ul>
+</blockquote>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/login&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;;
+&gt;
+xhr.open(&quot;post&quot;, url);
+&gt;/*
+&gt;    前后端通信时，需要协商好发送的数据类型（参数），默认不设置&quot;Content-Type&quot;属性时，其值为&quot;text/plain&quot;类型。但是响应端https://www.fastmock.site/.....是以JSON格式来处理接受的参数，所以不设置就会造成数据出错，拿不到结果。
+&gt;*/
+xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);
+const data = &#123;
+  username: &quot;admin&quot;,
+  password: &quot;123456&quot;,
+&#125;;
+xhr.send(JSON.stringify(data));
+</code></pre>
+<h3 id="六、XHR-对象的事件"><a href="#六、XHR-对象的事件" class="headerlink" title="六、XHR 对象的事件"></a>六、XHR 对象的事件</h3><blockquote>
+<p>XHR 常用的事件有</p>
+<table>
+<thead>
+<tr>
+<th>事件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>loadstart</td>
+<td>当调用send()函数，发出请求时触发</td>
+</tr>
+<tr>
+<td>load</td>
+<td>当请求完成（成功）时触发</td>
+</tr>
+<tr>
+<td>loadend</td>
+<td>请求结束时触发，无论请求成功 ( load) 还是失败 (abort) 或 (error)</td>
+</tr>
+<tr>
+<td>error</td>
+<td>当请求或网络错误时触发</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>当请求超时时触发</td>
+</tr>
+<tr>
+<td>abort</td>
+<td>当调用 abort 方 法，终止请求时触发</td>
+</tr>
+<tr>
+<td>progress</td>
+<td>当服务器响应数据时开始周期性触发</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>对任何请求，浏览器只会触发<code>load、timeout、abort、error</code>事件<strong>中的一个</strong><br>更多事件可 查阅官方文档</li>
+</ul>
+</blockquote>
+<ol>
+<li>load、loadstart、loadend 事件<blockquote>
+<p><code>load</code>事件：用于响应数据成功时触发，相当于<code>readyState === 4</code>时，才会触发。</p>
+<ul>
+<li>所以我们可以用<code>load</code>事件<strong>代替</strong><code>readystatechange</code>监听事件，处理响应。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function () &#123;
+//     if (xhr.readyState !== 4) return;
+//     if((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304 ) &#123;
+//       console.log(xhr.response);
+//     &#125;
+//   &#125;;
+&gt;
+// 用onload代替onreadystatechange,代码如下
+xhr.onload = function () &#123;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;;
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+</code></pre>
+<ul>
+<li>对比 load、loadstart、loadend 事件</li>
+</ul>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+// 当调用send()函数，发出请求时触发
+xhr.onloadstart = function () &#123;
+  console.log(&quot;loadstart&quot;);
+&#125;;
+// 当请求完成（成功）时触发
+xhr.onload = function () &#123;
+  console.log(&quot;load&quot;);
+&#125;;
+// 请求结束时触发，无论请求成功 (load) 还是失败 (abort) 或 (error)
+xhr.onloadend = function () &#123;
+  console.log(&quot;loadend&quot;);
+&#125;;
+&gt;
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+//loadstart
+//load
+//loadend
+</code></pre>
+<ol start="2">
+<li>error 事件<blockquote>
+<p>error 事件：请求发生错误时触发</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// url地址中的site，错写成了sit
+const url =
+  &quot;https://www.fastmock.sit/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+// 当调用send()函数，发出请求时触发
+xhr.onloadstart = function () &#123;
+  console.log(&quot;loadstart&quot;);
+&#125;;
+// 当请求完成（成功）时触发
+xhr.onload = function () &#123;
+  console.log(&quot;load&quot;);
+&#125;;
+// 请求结束时触发，无论请求成功 (load) 还是失败 (abort) 或 (error)
+xhr.onloadend = function () &#123;
+  console.log(&quot;loadend&quot;);
+&#125;;
+// 请求发生错误时触发，比如上面的url地址错误
+xhr.onerror = function () &#123;
+  console.log(&quot;error&quot;);
+&#125;;
+&gt;
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+//loadstart
+//error
+//loadend
+</code></pre>
+<ol start="3">
+<li>abort 事件<blockquote>
+<p>abort 事件：调用 abort() 终止请求时触发</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+xhr.addEventListener(&quot;load&quot;, () =&gt; &#123;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;);
+// 当调用abort方法终止请求时触发
+xhr.addEventListener(&quot;abort&quot;, () =&gt; &#123;
+  console.log(&quot;abort&quot;);
+&#125;);
+xhr.open(&quot;get&quot;, url);
+xhr.send();
+// 调用 abort() 方法终止请求
+xhr.abort();
+</code></pre>
+<ol start="4">
+<li>timeout 事件<blockquote>
+<p>timeout 事件：当请求超时后触发</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () &#123;
+  if (xhr.readyState !== 4) return;
+  if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+    console.log(xhr.response);
+  &#125;
+&#125;;
+xhr.ontimeout = function () &#123;
+  console.log(&quot;timeout&quot;);
+&#125;;
+xhr.open(&quot;get&quot;, url);
+xhr.timeout = 1000; // 请求超过1s还没响应，则取消请求
+xhr.send();
+</code></pre>
+<ol start="5">
+<li>progress 事件<blockquote>
+<p>progress 事件会在请求接收到数据的时候被<strong>周期性触发</strong>。</p>
+<ul>
+<li>在 progress 事件的<strong>事件对象（Event）</strong>上存在以下<strong>三个重要的属性</strong>，可以用来显示资源的下载进度，用<code>e.属性名</code>的方式调用。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lengthComputable</td>
+<td>只读属性，是一个布尔值；表示底层流程将需要完成的总工作量和已经完成的工作量是否可以计算。换句话说，它告诉我们<strong>进度是否可以被测量</strong></td>
+</tr>
+<tr>
+<td>loaded</td>
+<td>只读属性，是一个正整数，表示底层流程<strong>已经执行</strong>的工作总量</td>
+</tr>
+<tr>
+<td>total</td>
+<td>只读属性，是一个正整数，表示正在执行的底层流程的工作<strong>总量</strong>。（需要在响应头中携带<code>Content-Length</code>字段，<code>total</code>相当于是读取这个字段的信息</td>
+</tr>
+</tbody></table>
+<p><strong>代码演示</strong></p>
+<blockquote>
+<p>在请求资源时，最好弄一张大的图片，以免因为加载内容太小而看不到效果。同时在控制台把网速调慢和禁用缓存，否则直接从缓存读取或网速过快，也看不到进度效果。</p>
+</blockquote>
+<pre><code>// 请求地址
+const url = &quot;./bg.jpg&quot;;
+// 创建xhr对象
+const xhr = new XMLHttpRequest();
+// 响应成功的操作
+xhr.onload = function () &#123;
+  // 成功相关的操作可以自己设置
+&#125;;
+// 数据响应过程中的进度情况
+xhr.onprogress = function (e) &#123;
+  // 如果进度可以被测量
+  if (e.lengthComputable) &#123;
+    // 获取当前已执行的工作总量
+    const loaded = e.loaded;
+    // 获取响应数据的工作总量
+    const total = e.total;
+    // 计算当前的工作进程（百分比）
+    console.log(&quot;图片加载进度:&quot;, ((loaded / total) * 100).toFixed(0) + &quot;%&quot;);
+  &#125;
+&#125;;
+// 准备发送
+xhr.open(&quot;get&quot;, url);
+// 正式发送
+xhr.send();
+</code></pre>
+<ol start="6">
+<li>案例：显示图片加载进度</li>
+</ol>
+<ul>
+<li>页面布局</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  html,
+  body &#123;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  &#125;
+  body &#123;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  &#125;
+  .progress &#123;
+    width: 80%;
+    height: 50px;
+  &#125;
+  .progress .progress-bar &#123;
+    width: 0%;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    transition: all 0.2;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div class=&quot;progress&quot;&gt;
+&gt;    &lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ul>
+<li>JS实现加载进度条</li>
+</ul>
+<pre><code>let progressEl = document.querySelector(&quot;.progress&quot;);
+// 获取DOM元素
+let bar = document.querySelector(&quot;.progress-bar&quot;);
+&gt;
+// 请求地址
+const url = &quot;./bg.jpg&quot;;
+// 创建xhr对象
+const xhr = new XMLHttpRequest();
+// 响应成功的操作
+xhr.onload = function () &#123;
+  // 读取响应过来的数据
+  let blob = xhr.response;
+  // 根据blob创建对象的URL
+  let src = window.URL.createObjectURL(blob);
+  // 创建图片标签
+  let img = document.createElement(&quot;img&quot;);
+  // 给图片添加地址
+  img.src = src;
+  // 将图片添加到页面中
+  document.body.appendChild(img);
+  // 将进度掉隐藏
+  if (progressEl) &#123;
+    document.body.removeChild(progressEl);
+    progressEl = null;
+    bar = null;
+  &#125;
+&#125;;
+// 数据响应过程中的进度情况
+xhr.onprogress = function (e) &#123;
+  // 如果进度可以被测量
+  if (e.lengthComputable) &#123;
+    // 获取当前已执行的工作总量
+    const loaded = e.loaded;
+    // 获取响应数据的工作总量
+    const total = e.total;
+    // 计算当前的工作进程（百分比）
+    let progress = ((loaded / total) * 100).toFixed(0);
+    bar.style.width = progress + &quot;%&quot;;
+    bar.innerText = progress + &quot;%&quot;;
+  &#125;
+&#125;;
+// 将接受的数据类型设置为blob,一个包含二进制数据的 Blob 对象
+xhr.responseType = &quot;blob&quot;;
+// 准备发送
+xhr.open(&quot;get&quot;, url);
+// 正式发送
+xhr.send();
+</code></pre>
+<blockquote>
+<ul>
+<li><code>xhr.response</code>接收到的是二进制数据，需要两步：<ul>
+<li>将XHR对象的属性<code>responseType</code>设置为<code>&quot;blob&quot;</code></li>
+<li>用静态方法<code>window.URL.createObjectURL(xhr.response)</code>将二进制数据转化成<code>blob</code>格式的URL</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="七、Ajax-的简单封装"><a href="#七、Ajax-的简单封装" class="headerlink" title="七、Ajax 的简单封装"></a>七、Ajax 的简单封装</h3><ol>
+<li>Promise 简单封装 Ajax<blockquote>
+<p>利用 Promise 来简单封装下 Ajax 请求，关于更完善更复杂的封装后面再讲。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;/**
+&gt; * @param method 表示请求的方法，如get或post
+&gt; * @param url 请求的地址
+&gt; * @param body 如果为post请求，传入的请求体数据，需要传入JSON格式
+&gt; */
+function ajax(method, url, body = null) &#123;
+  // 返回Promise对象
+  return new Promise((resolve, reject) =&gt; &#123;
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener(&quot;load&quot;, () =&gt; &#123;
+      if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+        resolve(xhr.response);
+      &#125; else &#123;
+        reject(&quot;请求失败&quot;);
+      &#125;
+    &#125;);
+    // 响应过来的数据类型为json格式才接受
+    xhr.responseType = &quot;json&quot;;
+    xhr.open(method, url);
+    xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;); // 发送JSON格式数据
+    xhr.send(body);
+  &#125;);
+&#125;
+&gt;
+export default ajax;
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>我们设置了响应过来的数据类型为json格式，所以使用<code>post</code>方法的时候，<code>.send()</code>里面的数据要用<code>JSON.stringify()</code>处理</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>Ajax继发</li>
+</ol>
+<pre><code>&gt;&lt;script type=&quot;module&quot;&gt;
+  import ajax from &quot;./ajax.js&quot;;
+  ajax(
+    &quot;get&quot;,
+    &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user?num=2&quot;
+  )
+    .then((data) =&gt; &#123;
+      console.log(data);
+      return ajax(
+        &quot;post&quot;,
+        &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;,
+        JSON.stringify(&#123; username: &quot;hermia&quot;, password: 12345 &#125;)
+      );
+    &#125;)
+    .then((data) =&gt; &#123;
+      console.log(data);
+    &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>Ajax并发</li>
+</ol>
+<pre><code>&gt;&lt;script type=&quot;module&quot;&gt;
+  import ajax from &quot;./ajax.js&quot;;
+  ajax(
+    &quot;get&quot;,
+    &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user?num=2&quot;
+  ).then((data) =&gt; &#123;
+    console.log(data);
+  &#125;);
+  ajax(
+    &quot;post&quot;,
+    &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;,
+    JSON.stringify(&#123; username: &quot;hermia&quot;, password: &quot;12345&quot; &#125;)
+  ).then((data) =&gt; &#123;
+    console.log(data);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>Ajax 并发问题<blockquote>
+<p>利用 Promise.all 来处理多个 Ajax 并发的问题</p>
+<ul>
+<li>实现：两个Ajax并发后，拿到结果，再继发一条Ajax请求</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<ul>
+<li>相关伪代码如下：</li>
+</ul>
+</blockquote>
+<pre><code>const p1=ajax(method,url);
+const p2=ajax(method,url)
+&gt;
+const p=Promise.all([p1,p2]);
+p.then([data1,data2]=&gt;&#123;
+    console.log(data1)
+    console.log(data2)
+&#125;)
+&gt;
+// 以上针对情况是在需要拿到p1和p2的结果后，才能做后续相关操作
+</code></pre>
+<blockquote>
+<ul>
+<li>代码处理</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;script type=&quot;module&quot;&gt;
+  import ajax from &quot;./ajax.js&quot;;
+  const p1 = ajax(
+    &quot;get&quot;,
+    &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user?num=2&quot;
+  );
+  const p2 = ajax(
+    &quot;post&quot;,
+    &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/login&quot;,
+    JSON.stringify(&#123; username: &quot;hermia&quot;, password: &quot;12345&quot; &#125;)
+  );
+  Promise.all([p1, p2])
+    .then((data) =&gt; &#123;
+      console.log(data); //由p1,p2的data组成的数组 [&#123;…&#125;, &#123;…&#125;]
+      return ajax(
+        &quot;get&quot;,
+        &quot;https://www.fastmock.site/mock/b7eabdc70b21d19726d2d7ee7f372da9/item/user?num=3&quot;
+      );
+    &#125;)
+    .then((data) =&gt; &#123;
+      console.log(data); //&#123;code: &#39;0000&#39;, message: &#39;成功&#39;, data: &#39;成功返回三条数据&#39;&#125;
+    &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="八、Ajax-的实践与应用"><a href="#八、Ajax-的实践与应用" class="headerlink" title="八、Ajax 的实践与应用"></a>八、Ajax 的实践与应用</h3><h4 id="案例1：搜索自动补全"><a href="#案例1：搜索自动补全" class="headerlink" title="案例1：搜索自动补全"></a>案例1：搜索自动补全</h4><ol>
+<li>实现思路<blockquote>
+<ul>
+<li>给输入框绑定<code>input</code>事件,然后在事件中判断文本框输入的内容。如果内容不为空，则把输入的内容作为查询的参数拼接到请求的 <code>url </code>地址上，然后利用 <code>Ajax</code> 向后端发送 <code>get</code> 请求。</li>
+<li>根据后端返回的数据来创建 <code>DOM</code>，并插入到页面中。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&gt;&lt;style&gt;
+&gt;  .search &#123;
+&gt;    display: flex;
+&gt;    height: 200px;
+&gt;    flex-direction: column;
+&gt;    align-items: center;
+&gt;  &#125;
+&gt;  .search-input &#123;
+&gt;    width: 400px;
+&gt;    height: 40px;
+&gt;  &#125;
+&gt;&lt;/style&gt;
+&gt;
+&gt;&lt;div class=&quot;search&quot;&gt;
+&gt;  &lt;div&gt;&lt;input type=&quot;text&quot; name=&quot;&quot; class=&quot;search-input&quot; /&gt;&lt;/div&gt;
+&gt;  &lt;ul class=&quot;list&quot;&gt;
+&gt;    &lt;li&gt;111&lt;/li&gt;
+&gt;  &lt;/ul&gt;
+&gt;&lt;/div&gt;
+&gt;
+&gt;&lt;script type=&quot;module&quot;&gt;
+  // 导入模块
+  import ajax from &quot;./ajax.js&quot;;
+  // 获取DOM
+  const list = document.querySelector(&quot;.list&quot;);
+  const searchInput = document.querySelector(&quot;.search-input&quot;);
+  // 请求地址
+  let url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/search/keyword&quot;;
+  // 监听文本框input输入事件
+  searchInput.oninput = function () &#123;
+    // 获取内容，并去除字符串前后的空格
+    let value = this.value.trim();
+    // 如果输入内容不为空，则发起Ajax请求
+    if (value) &#123;
+      // 将搜索的参数拼接在url后面，发送到服务端
+      let newUrl = `$&#123;url&#125;?keyword=$&#123;value&#125;`;
+      ajax(&quot;get&quot;, newUrl).then((res) =&gt; &#123;
+        let data = res.data;
+        // 根据返回的数据，创建DOM，添加到页面中
+        render(data);
+      &#125;);
+    &#125; else &#123;
+      list.innerHTML = &quot;&quot;;
+    &#125;
+  &#125;;
+&gt;
+  // 根据请求的数据创建DOM，添加到页面
+  function render(data) &#123;
+    let html = &quot;&quot;;
+    list.innerHTML = &quot;&quot;; // 重新赋值前，先将原来的内容清空
+    for (let &#123; keyword &#125; of data) &#123;
+      html += `&lt;li&gt;$&#123;keyword&#125;&lt;/li&gt;`;
+    &#125;
+    list.innerHTML = html;
+  &#125;
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>优化</li>
+</ol>
+<ul>
+<li>如果想要降低请求的频率，可以结合之间讲的防抖函数，在规定的时间内再次触发 <code>input</code> 事件，则重新计时。</li>
+</ul>
+<pre><code>&gt;/**
+&gt; * debounce 防抖函数
+&gt; * @param fn 事件处理函数
+&gt; * @param delay 延迟时间
+&gt; */
+function debounce(fn, delay = 200) &#123;
+  var timer = null;
+  // 以下是每次需要执行的代码
+  return function () &#123;
+    if (timer) clearTimeout(timer);
+    // 开启定时器
+    timer = setTimeout(() =&gt; &#123;
+      fn.apply(this, arguments);
+      timer = null; // 这里很多人有争议，要不要置空
+    &#125;, delay);
+  &#125;;
+&#125;
+</code></pre>
+<ul>
+<li>如果上一次请求没有响应回来前，又触发了事件，则把上一次请求取消，重新发送请求<blockquote>
+<ul>
+<li>关注以下代码<code>--------------------------------</code>部分内容</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>import ajax from &quot;./ajax.js&quot;;
+// 获取输入框
+const searchInput = document.querySelector(&quot;.search-input&quot;);
+// 获取ul列表
+const list = document.querySelector(&quot;.list&quot;);
+// 请求地址
+let url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/search/keyword&quot;;
+&gt;
+//---------------------------------
+let xhr = null; // 保证xhr对象
+let done = false; // 当前没有请求
+// --------------------------------
+&gt;
+// 给输入框添加input事件
+searchInput.oninput = function () &#123;
+    // 获取输入框中内容，并去掉前后的空格
+    let value = this.value.trim();
+&gt;
+    // --------------------------------
+    if (done) &#123;
+        xhr.abort();
+    &#125;
+    done = true; // 当前有请求
+    // --------------------------------
+&gt;
+    // 如果输入框中的内容不为空，把对应内容作为参数拼接到URL后面，发送到服务端
+    if (value) &#123;
+        let newUrl = `$&#123;url&#125;?keyword=$&#123;value&#125;`;
+        xhr = new XMLHttpRequest();
+        // 监听事件
+        xhr.addEventListener(&quot;load&quot;, () =&gt; &#123;
+            if ((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status === 304) &#123;
+                // 响应成功
+                // --------------------------------
+                done = false; // 请求响应回来，标识目前没有请求
+                // --------------------------------
+                render(xhr.response.data);
+            &#125; else &#123;
+                // 响应失败
+            &#125;
+        &#125;);
+        // 统一响过来的数据只是JSON类型，并把他转换成JS对象返回
+        xhr.responseType = &quot;json&quot;;
+        xhr.open(&quot;get&quot;, newUrl);
+        xhr.send();
+    &#125; else &#123;
+        list.innerHTML = &quot;&quot;;
+    &#125;
+&#125;;
+&gt;
+// 用来渲染DOM
+function render(data) &#123;
+    let html = &quot;&quot;;
+    for (let &#123; keyword &#125; of data) &#123;
+        html += `&lt;li&gt;$&#123;keyword&#125;&lt;/li&gt;`;
+    &#125;
+    list.innerHTML = html;
+&#125;
+</code></pre>
+<h4 id="案例2：动态加载二级菜单"><a href="#案例2：动态加载二级菜单" class="headerlink" title="案例2：动态加载二级菜单"></a>案例2：动态加载二级菜单</h4><ul>
+<li>HTML、CSS 布局</li>
+</ul>
+<pre><code>&gt;&lt;style&gt;
+  html,
+  body,
+  ul &#123;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  &#125;
+  .menu &#123;
+    width: 200px;
+    margin-left: 300px;
+    margin-top: 100px;
+    border: 1px solid #ddd;
+    position: relative;
+  &#125;
+  .menu ul li &#123;
+    padding-left: 20px;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+  &#125;
+  .menu ul li:hover &#123;
+    background-color: tomato;
+    color: #fff;
+  &#125;
+  .menu ul li:hover .content &#123;
+    display: block;
+  &#125;
+  .menu .content &#123;
+    width: 200px;
+    min-height: 250px;
+    position: absolute;
+    left: 200px;
+    top: 0;
+    background-color: #ddd;
+    display: none;
+    padding: 0 10px;
+  &#125;
+  .menu .content p &#123;
+    display: flex;
+    align-items: center;
+  &#125;
+  .menu .content p img &#123;
+    width: 50px;
+    margin-right: 10px;
+  &#125;
+  .menu .content p a &#123;
+    text-decoration: none;
+    color: #000;
+  &#125;
+&gt;&lt;/style&gt;
+&gt;&lt;body&gt;
+&gt;  &lt;div class=&quot;menu&quot;&gt;
+  &lt;!-- &lt;ul&gt;
+      &lt;li data-id=&quot;&quot; data-done=&quot;&quot;&gt;
+        一级菜单
+        &lt;div class=&quot;content&quot;&gt;
+          加载二级菜单前
+          &lt;img src=&quot;./loading-balls.svg&quot; alt=&quot;&quot; /&gt;
+          加载后
+          &lt;p&gt;
+            &lt;img src=&quot;&quot; alt=&quot;&quot; /&gt;
+            &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;一级2&lt;/li&gt;
+      &lt;li&gt;一级3&lt;/li&gt;
+      &lt;li&gt;一级4&lt;/li&gt;
+      &lt;li&gt;一级5&lt;/li&gt;
+    &lt;/ul&gt; --&gt;
+&gt;  &lt;/div&gt;
+&gt;&lt;/body&gt;
+</code></pre>
+<ul>
+<li>JS 实现原理<blockquote>
+<p><strong>第一步：实现一级菜单</strong></p>
+<ul>
+<li>利用 Ajax 加载一级菜单数据，然后利用数据渲染出一级菜单。</li>
+<li>一级菜单<code>&lt;li&gt;</code>标签身上有两个自定义属性，分别为<code>data-id</code>和<code>data-done</code></li>
+<li>发送Ajax请求，得到数据后，构建dom，将<code>category_id</code>作为<code>li</code>标签的属性，<code>title</code>作为一级菜单的内容<ul>
+<li><code>data-id</code>用来保存一级菜单的栏目 <code>id</code>，后面根据这个 <code>id</code> 来确定需要获取的二级菜单数据</li>
+<li><code>data-done</code>属性值为<code>true</code>表示<code>Ajax</code>请求加载过数据，不需要再次发送请求。如果没有这个属性则表示没有加载过数据，需要发送<code>Ajax</code>请求来加载二级菜单数据</li>
+</ul>
+</li>
+</ul>
+<p><strong>第二步：实现动态显示二级菜单</strong></p>
+<ul>
+<li>当利用事件代理来处理，当滑动到li时，先获取<code>data-done</code>属性，如果没有这个属性，则获取 <code>li</code> 身上的<code>data-id</code>属性，来发送 <code>Ajax</code> 请求。</li>
+<li>如果没有<code>data-done</code>属性，则说明之前发送 Ajax 请求到了数据，不需要再发送 <code>Ajax</code> 请求。</li>
+<li>将一级菜单的<code>id</code>拼接在<code>url</code>后面，发送Ajax请求；读取数据来构建dom，<code>productImg</code>作为<code>img</code>元素的<code>src</code>，<code>productName</code>作为<code>a</code>标签的内容</li>
+<li>发送Ajax请求后，说明已经加载过了，所以给li添加自定义属性<code>data-done=true</code><blockquote>
+<p>注意：这两步请求是<strong>继发的</strong></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&gt;&lt;script type=&quot;module&quot;&gt;
+  // 导入模块
+  import ajax from &quot;./ajax.js&quot;;
+  // 获取DOM节点（菜单）
+  const menuEl = document.querySelector(&quot;.menu&quot;);
+  // 发送Ajax加载一级菜单
+  const url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/menu&quot;;
+  ajax(&quot;get&quot;, url)
+    .then((res) =&gt; &#123;
+      // Ajax加载成功的数据
+      let data = res.data;
+      // 拼接html
+      let html = &quot;&lt;ul&gt;&quot;;
+      // for...of遍历
+      for (let item of data) &#123;
+        html += `&lt;li data-id=$&#123;item[&quot;category_id&quot;]&#125;&gt;$&#123;item.title&#125;
+          &lt;div class=&quot;content&quot;&gt;
+              &lt;img src=&quot;./loading-svg/loading-bars.svg&quot; alt=&quot;&quot; /&gt;
+          &lt;/div&gt;
+      &lt;/li&gt;`;
+      &#125;
+      html += &quot;&lt;/ul&gt;&quot;;
+      menuEl.innerHTML = html;
+    &#125;)
+    // 处理鼠标滑上一级菜单，显示对应二级菜单
+    .then(() =&gt; &#123;
+      // 利用事件委托
+      menuEl.addEventListener(&quot;mouseover&quot;, (e) =&gt; &#123;
+        const target = e.target;
+        const tagName = target.tagName.toLowerCase();
+        let url =
+          &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/menu/&quot;;
+        if (tagName === &quot;li&quot;) &#123;
+          // 判断li身上是的data-done是否为true，如果为true表示已经加载过了，不再发ajax请求
+          if (!target.dataset.done) &#123;
+            // 把数据做为参数传过去
+            let newUrl = url + `$&#123;e.target.dataset.id&#125;`;
+            // 发起Ajax请求
+            ajax(&quot;get&quot;, newUrl).then((res) =&gt; &#123;
+              // 添加自定义属性 data-done=true
+              target.dataset.done = true;
+              // 读取Ajax加载的数据，来构建DOM
+              let data = res.data;
+              const conEl = target.querySelector(&quot;.content&quot;);
+              let html = &quot;&quot;;
+              // for...of遍历
+              for (let &#123; productName, productImg &#125; of data) &#123;
+                html += `&lt;p&gt;
+                    &lt;img src=&quot;$&#123;productImg&#125;&quot; /&gt;
+                    &lt;a href=&quot;&quot;&gt;$&#123;productName&#125;&lt;/a&gt; 
+                 &lt;/p&gt;`;
+              &#125;
+              conEl.innerHTML = html;
+            &#125;);
+          &#125;
+        &#125;
+      &#125;);
+    &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<h4 id="案例3：GET-请求实现搜索课程"><a href="#案例3：GET-请求实现搜索课程" class="headerlink" title="案例3：GET 请求实现搜索课程"></a>案例3：GET 请求实现搜索课程</h4><blockquote>
+<ul>
+<li>在<code>index.html</code>页面的表单搜索关键词跳转到表单的<code>action</code>设置的<code>url</code>链接</li>
+<li>由于表单的<code>method</code>方式是<code>get</code>，所以在页面跳转时，搜索框里输入的关键词会自动以<code>?关键词</code>的形式被添加到新的<code>url</code>地址后面，如果关键词是中文，会自动进行编码</li>
+<li>在新页面发送Ajax请求，关键词作为Ajax请求的url地址后缀<code>url?keyword=关键词</code></li>
+</ul>
+</blockquote>
+<ul>
+<li><code>index.html</code>页面<blockquote>
+<ul>
+<li>创建 form 表单，然后选择 get 方式发送请求</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;!--
+action：表单提交后，发送请求的地址,请求发送到search.html搜索页
+method:表示请求的方式，是以get方式发送请求
+--&gt;
+&gt;&lt;form action=&quot;./search.html&quot; method=&quot;get&quot;&gt;
+&gt;  &lt;input type=&quot;text&quot; name=&quot;keyword&quot; /&gt;
+&gt;  &lt;input type=&quot;submit&quot; value=&quot;搜索&quot; /&gt;
+&gt;&lt;/form&gt;
+</code></pre>
+<p><strong>注：</strong></p>
+<blockquote>
+<ul>
+<li>搜索框的input标签中一定要添加 name 属性，表单中的数据才能以<strong>键值对</strong>的形式自动出现在提交的地址栏中。</li>
+<li>因为搜索按扭的内容不需要出现在地址栏中，所以不用加 name 属性</li>
+</ul>
+</blockquote>
+<ul>
+<li>新建<code>search.html</code>页面，用来显示搜索到的课程<blockquote>
+<ul>
+<li>先获取地址栏中传过来的<code>keyword = xxx</code>参数，然后根据这个参数，再一次发送<code>Ajax</code>请求，向后端请求数据，拿到数据，开始根据数据创建<code>DOM</code>插入到页面。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 导入模块
+import ajax from &quot;./ajax.js&quot;;
+// 获取传递过来的keyword参数对应的值
+let url = window.location.search;
+const keyword = url.split(&quot;=&quot;)[1];
+// 发送Ajax请求
+let newUrl =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/search&quot;;
+ajax(&quot;get&quot;, `$&#123;newUrl&#125;?keyword=$&#123;keyword&#125;`).then((res) =&gt; &#123;
+  console.log(res.data);
+  render(res.data);
+&#125;);
+&gt;
+//方式1：
+function render(data) &#123;
+  // 我们可以将所有内容先添加到文档碎片
+  const fragment = document.createDocumentFragment();
+  // for(let item of data)&#123;
+  const div = document.createElement(&quot;div&quot;);
+  const h3 = document.createElement(&quot;h3&quot;);
+  const p = document.createElement(&quot;p&quot;);
+  const img = document.createElement(&quot;img&quot;);
+&gt;
+  h3.innerText = data.courseName;
+  p.innerText = data.desc;
+  img.src = data.imageUrl;
+&gt;
+  div.appendChild(img);
+  div.appendChild(h3);
+  div.appendChild(p);
+&gt;
+  fragment.appendChild(div);
+  &#125;
+&gt;
+//方式2：
+function render(data) &#123;
+  let html = &quot;&lt;div&gt;&quot;;
+  for (let &#123; courseName, desc, imageUrl &#125; of data) &#123;
+    html += `
+      &lt;img src=&quot;$&#123;imageUrl&#125;&quot;/&gt;
+      &lt;h3&gt;$&#123;courseName&#125;
+      &lt;p&gt;$&#123;desc&#125;
+      `;
+  &#125;
+  html += &quot;&lt;/ul&gt;&quot;;
+  document.body.innerHTML = html;
+&#125;
+</code></pre>
+<h3 id="九、Axios"><a href="#九、Axios" class="headerlink" title="九、Axios"></a>九、Axios</h3><ol>
+<li><p>Axios 是什么</p>
+<blockquote>
+<ul>
+<li>axios 是一个基于 <code>Promise</code> 的 HTTP 库，可以用在<strong>浏览器</strong> 和 <code>node.js</code> 中</li>
+<li>可理解为 axios 是一个第三方 <code>Ajax</code> 库，这个库是基于 <code>Promise</code> 的</li>
+<li>axios 的官方文档地址<a href="axios-http.com">Axios Docs</a></li>
+</ul>
+</blockquote>
+</li>
+<li><p>axios 的基本用法</p>
+<blockquote>
+<ul>
+<li>axios 是一个第三方库，所以我们需要引入这个库才能使用。最简单的方式就是通过<code>&lt;script&gt;</code>标签来引入对应的 <code>axios.js </code>文件来使用。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>为了提高文件的加载速度，我们使用 <code>CDN</code> 加速服务，[网址] (<a target="_blank" rel="noopener" href="https://www.bootcdn.cn/)%EF%BC%8C%E5%9C%A8%E6%90%9C%E7%B4%A2%E6%A1%86%E8%BE%93%E5%85%A5%60axios%60%EF%BC%8C%E6%89%BE%E5%88%B0%E5%AF%B9%E5%BA%94%E7%9A%84%E5%BC%95%E5%85%A5%E5%9C%B0%E5%9D%80%EF%BC%8C%E8%BF%9B%E5%85%A5">https://www.bootcdn.cn/)，在搜索框输入`axios`，找到对应的引入地址，进入</a></li>
+</ul>
+</blockquote>
+<pre><code>&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>axios 的基本用法<blockquote>
+<ul>
+<li>axios参数<ul>
+<li>url:请求的URL</li>
+<li>config:为可选项,请求相关的配置信息</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>const p=axios(config);
+const p=axios(url[,config]);
+</code></pre>
+<blockquote>
+<ul>
+<li><code>axios</code> 函数的返回值是一个 <code>Promise</code> 对象，所以可以通过<code>then()</code>方法来接受响应数据</li>
+</ul>
+</blockquote>
+<pre><code>&gt;&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
+  // 查看axios
+  console.log(axios);
+  // 基本用法
+  axios(url, config).then((response) =&gt; &#123;
+    // response 响应相关的数据都在这个对象上
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>使用 axios 来发送 get 请求<blockquote>
+<p>如果axios只传一个参数，这个参数是一个<code>url</code>，则默认为 get 请求，其它相关参数会采用默认配置</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>const url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;;
+// 发送ajax请求
+axios(url).then((response) =&gt; &#123;
+  // response 响应相关的信息都在response对象上
+  // 可以打印response,了解这个对象身上的相关属性和方法
+  console.log(response);
+  if (response.status === 200) &#123;
+    console.log(response.data.data);
+  &#125;
+&#125;);
+</code></pre>
+<ol start="3">
+<li>config 请求配置<blockquote>
+<p><code>config</code>为axios 创建请求时可用的配置选项，相关的配置项可能参考<a target="_blank" rel="noopener" href="https://axios-http.com/zh/docs/req_config">官方地址</a></p>
+<ul>
+<li>以下列出第几个常用的来作为讲解</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>axios(&#123;
+  // url是用于请求的服务器URL，如果第一个参数为url，这里可以不写
+  url: &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/list&quot;,
+  // 请求的方法
+  method: &quot;post&quot;,
+  // 自定义请求头
+  headers: &#123; &quot;Content-Type&quot;: &quot;application/json&quot; &#125;,
+  // 通过请求头携带的数据,主要与get方法结合
+  params: &#123;
+    num: 3,
+  &#125;,
+  //  请求体被发送的数据，主要与&#39;PUT&#39;, &#39;POST&#39;, &#39;DELETE 和 &#39;PATCH&#39; 请求方法
+  data: &#123;
+    username: &quot;admin&quot;,
+    password: &quot;123456&quot;,
+  &#125;,
+  // 请求超时的毫秒数,默认值 0 （永不超时）
+  timeout: 1000,
+  // 表示跨域请求时是否需要使用凭证（是否携带Cookie)  默认值false
+  withCredentials: false,
+  // 表示浏览器将要响应的数据类型，默认值 json
+  responseType: &quot;json&quot;,
+  // 浏览器专属 onUploadProgress 允许为上传处理进度事件
+  onUploadProgress: function (progressEvent) &#123;
+    // 处理原生进度事件
+  &#125;,
+  // onDownloadProgress 允许为下载处理进度事件
+  // 浏览器专属
+  onDownloadProgress: function (progressEvent) &#123;
+    // 处理原生进度事件
+  &#125;,
+  // `validateStatus` 定义了对于给定的 HTTP状态码是 resolve 还是 reject promise。
+  // 如果 `validateStatus` 返回 `true` (或者设置为 `null` 或 `undefined`)，
+  // 则promise 将会 resolved，否则是 rejected。
+  validateStatus: function (status) &#123;
+    return status &gt;= 200 &amp;&amp; status &lt; 300; // 默认值
+  &#125;,
+&#125;).then((res) =&gt; &#123;&#125;);
+</code></pre>
+<ul>
+<li><code>get</code> 请求</li>
+</ul>
+<pre><code>&gt;&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
+  axios(&#123;
+    // url是用于请求的服务器URL，如果第一个参数为url，这里可以不写
+    url: &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/list&quot;,
+    // url: &quot;./bg.jpg&quot;,
+    // 请求的方法
+    method: &quot;get&quot;,
+    // 通过请求头携带的数据,主要与get方法结合
+    params: &#123;
+      num: 3,
+    &#125;,
+    // 请求超时的毫秒数,默认值 0 （永不超时）
+    timeout: 5000,
+    // 表示跨域请求时是否需要使用凭证（是否携带Cookie)  默认值false
+    withCredentials: true,
+    // 表示浏览器将要响应的数据类型，默认值 json
+    responseType: &quot;json&quot;,
+&gt;
+    // onDownloadProgress 允许为下载处理进度事件
+    // 浏览器专属
+    onDownloadProgress: function (progressEvent) &#123;
+      // 处理原生进度事件
+      const e = progressEvent.event;
+      if (e.lengthComputable) &#123;
+        console.log(&quot;当前下载量:&quot;, e.loaded);
+        console.log(&quot;总下载量&quot;, e.total);
+      &#125;
+    &#125;,
+  &#125;).then((res) =&gt; &#123;
+    console.log(res.data);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>post 请求</li>
+</ul>
+<pre><code>&gt;&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
+  axios(&#123;
+    // url是用于请求的服务器URL，如果第一个参数为url，这里可以不写
+    url: &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/login&quot;,
+    // url: &quot;./bg.jpg&quot;,
+    // 设置请求头，请求发送的数据类型
+    headers: &#123;
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &#125;,
+    // 请求的方法
+    method: &quot;post&quot;,
+    //  请求体被发送的数据，主要与&#39;PUT&#39;, &#39;POST&#39;, &#39;DELETE 和 &#39;PATCH&#39; 请求方法
+    data: &#123;
+      username: &quot;admin&quot;,
+      password: &quot;123456&quot;,
+    &#125;,
+    // 表示跨域请求时是否需要使用凭证（是否携带Cookie)  默认值false
+    withCredentials: true,
+    // 表示浏览器将要响应的数据类型，默认值 json
+    responseType: &quot;json&quot;,
+  &#125;).then((res) =&gt; &#123;
+    console.log(res.data);
+  &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>response 响应对象<blockquote>
+<p>当请求响应回来后，相关信息保存在 response 响应对象中，响应对象的相关信息如下</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://axios-http.com/zh/docs/res_schema">参考官方文档</a></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  // `data` 由服务器提供的响应
+  data: &#123;&#125;,
+&gt;
+  // `status` 来自服务器响应的 HTTP 状态码
+  status: 200,
+&gt;
+  // `statusText` 来自服务器响应的 HTTP 状态信息
+  statusText: &#39;OK&#39;,
+&gt;
+  // `headers` 是服务器响应头
+  // 所有的 header 名称都是小写，而且可以使用方括号语法访问
+  // 例如: `response.headers[&#39;content-type&#39;]`
+  headers: &#123;&#125;,
+&gt;
+  // `config` 是 `axios` 请求的配置信息
+  config: &#123;&#125;,
+&gt;
+  // `request` 是生成此响应的请求
+  // 在node.js中它是最后一个ClientRequest实例 (in redirects)，
+  // 在浏览器中则是 XMLHttpRequest 实例
+  request: &#123;&#125;
+&#125;
+</code></pre>
+<ol start="5">
+<li>使用别名方式请求<blockquote>
+<p>为了方便起见，已经为所有支持的请求方法提供了别名。</p>
+<ul>
+<li><code>axios.request(config)</code></li>
+<li><code>axios.get(url[, config])</code></li>
+<li><code>axios.delete(url[, config])</code></li>
+<li><code>axios.head(url[, config])</code></li>
+<li><code>axios.options(url[, config])</code></li>
+<li><code>axios.post(url[, data[, config]])</code></li>
+<li><code>axios.put(url[, data[, config]])</code></li>
+<li><code>axios.patch(url[, data[, config]])</code><blockquote>
+<p>在使用别名方法时<code>url、method、data</code>这些属性都不必在配置中指定。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>axios 是别人封装好的，已经是非常成熟了，我们未来企业项目开发中也会经常用到。我们前面自己的封装的 Ajax 主要是为了学习使用，还有很多特殊情况没有考虑到，一般在实际开发中也不会真正使用。在实际开发中就使用 axios 这样成熟的库即可。</p>
+</blockquote>
+<pre><code>&gt;&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/axios/1.3.4/axios.min.js&quot;&gt;&lt;/script&gt;
+&gt;&lt;script&gt;
+  axios
+    .post(
+      &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/login&quot;,
+      &#123;
+        username: &quot;admin&quot;,
+        password: &quot;123456&quot;,
+      &#125;,
+      &#123;
+        headers: &#123;
+          &quot;Content-Type&quot;: &quot;application/json&quot;,
+        &#125;,
+        // 表示跨域请求时是否需要使用凭证（是否携带Cookie)  默认值false
+        // withCredentials: true,
+        // 表示浏览器将要响应的数据类型，默认值 json
+        responseType: &quot;json&quot;,
+      &#125;
+    )
+    .then((res) =&gt; &#123;
+      console.log(res.data);
+    &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="十、Fetch"><a href="#十、Fetch" class="headerlink" title="十、Fetch"></a>十、Fetch</h3><ol>
+<li><code>Fetch</code> 是什么<blockquote>
+<ul>
+<li>与<code>Ajax</code>类似，<code>Fetch</code>也是前后端通信的一种方式。<code>Fetch</code>要比<code>Ajax</code>年轻一些</li>
+<li><code>Fetch</code>被称为下一代<code>Ajax</code>技术（用来替代<code>XMLHttpRequest</code>），内部是采用<code>Promise</code>的方式来处理数据。</li>
+<li><code>API</code>语法简洁明了，比<code>XMLHttpRequest</code>更加简单易用</li>
+<li>采用了模块化设计，<code>API</code>分散于多个对象中（如：<code>Response</code>对象，<code>Request</code>对象、<code>Header</code>对象）</li>
+<li>通过数据流（<code>Stream</code>对象）处理数据，可以分块读取，有利于提高网站性能，对于大文件或者网速慢的场景极为有用。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><strong>兼容性</strong></p>
+<ul>
+<li>关于兼容性也可以使用：<a target="_blank" rel="noopener" href="https://caniuse.com/">查询</a><br><strong>Fetch 缺点</strong></li>
+<li>Fetch 的<strong>兼容性</strong>没有 Ajax 好</li>
+<li>Fetch 原生<strong>没有提供</strong> <code>abort</code> 终止请求方式、<code>timeout</code> 请求超时方式，如果需要用到这些时，需要自己来实现。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>Fetch 的基本用法<blockquote>
+<p><strong>全局的</strong> fetch() 方法用于发起获取资源的请求。</p>
+<ul>
+<li>它返回一个 promise，这个 promise 会在请求响应成功时被 resolve，并传回 Response对象。</li>
+<li>失败时会被 reject，并传回TypeError</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>// fetch 是一个全局函数，是真实存在的
+console.log(fetch);
+// ajax 是不存在的
+console.log(ajax);
+</code></pre>
+<ul>
+<li>语法<blockquote>
+<ul>
+<li>p 为Promise对象,通过then方法可以接受响应后的response对象</li>
+<li>url  :获取资源的URL</li>
+<li>options: 配置对象，包括所有对请求的设置</li>
+<li>response：是一个Response类型的对象，呈现了对一次请求的响应数据</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>const p = fetch(url, options).then((response) =&gt; &#123;
+  // 处理响应回来的数据
+&#125;);
+</code></pre>
+<ul>
+<li>利用 fetch 发送 get 请求<blockquote>
+<ul>
+<li>如果fetch()只接受一个url字符串参数，则表示向该网址发送 get 请求，请求返回一个 Promise 对象</li>
+<li>能过 Promise 的 then 方法可以得到一个 response 对象，对象的<code>status</code>属性获取返回响应的状态码，通过这个状态码可以知道响应是成功还是失败。</li>
+<li>调用 response 对象身上的特定方法可以获取到响应回来的数据，如<code>response.json()</code>方法</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 发送Ajax请求，请求方式 get
+fetch(
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;
+)
+  .then((res) =&gt; &#123;
+    // res 为response对象，res.status 返回响应的状态码
+    if (res.status === 200) &#123;
+      // res.json() 是一个异步操作 返回响应的数据（一个被解析为JSON格式的Promise对象）
+      return res.json();
+    &#125; else &#123;
+      // 抛出错误
+      throw new Error(&quot;请求错误&quot;);
+    &#125;
+  &#125;)
+  .then((data) =&gt; &#123;
+    // 拿到返回的JSON数据
+    console.log(data);
+  &#125;)
+  .catch((err) =&gt; &#123;
+    // 捕获错误信息
+    console.log(err);
+  &#125;);
+</code></pre>
+<ol start="3">
+<li>response 对象<blockquote>
+<p>关于 fetch 方法发起请求响应成功后，promise 对象返回的 response 对象的相关属性和方法可以查阅官方文档</p>
+<ul>
+<li>以下是常用到的一些属性和方法<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>status</td>
+<td>只读属性包含响应的状态代码，如成功为 200</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body 是一个可读的流，<strong>只能读取一次</strong>，读过之后就不让再读了</td>
+</tr>
+<tr>
+<td>bodyUsed</td>
+<td>表示 response 对象是否读取过 body 流，默认值为 false，如果读取过就变为 true</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>json</td>
+<td>接收一个 Response 流，并将其读取完成。它返回一个 Promise，Promise 的解析 resolve 结果是<strong>将文本体解析为 JSON</strong></td>
+</tr>
+</tbody></table>
+<pre><code>fetch(
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/test&quot;
+)
+  .then((res) =&gt; &#123;
+    if (res.status === 200) &#123;
+      console.log(res.bodyUsed);
+      console.log(res.json()); // 因为body流只能读一次，所以这里读了，后面就没法读
+      console.log(res.bodyUsed);
+      return res.json();
+    &#125;
+  &#125;)
+  .then((data) =&gt; &#123;
+    console.log(data); // 这里拿不到数据
+  &#125;);
+</code></pre>
+<ol start="3">
+<li>Fecth 的参数配置<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>method</td>
+<td>请求使用的方法，如 GET、POST、PUT 等</td>
+</tr>
+<tr>
+<td>body</td>
+<td>请求的 body(请求体) 信息，GET 方法不包含 body 信息</td>
+</tr>
+<tr>
+<td>headers</td>
+<td>请求的头信息，形式为 Headers的对象或包含 ByteString值的对象字面量</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>请求的模式，如 cors、no-cors 或者 same-origin；<code>cors：</code>跨域请求，且要求后端需要设置 cors 响应头；<code>no-cors：</code>允许跨域，但服务端不设置 cors 响应头，如果图片、脚本、样式；<code>same-origin</code>：同源请求，限制了不能跨域</td>
+</tr>
+<tr>
+<td>credentials</td>
+<td>请求是否携带 Cookie，有三个值：omit、same-origin、include；<code>omit：</code>缺省值，默认为该值<code>same-origin: </code>同源, 表示同域请求才发送 cookie；<code>include：</code>跨域请求中需要带有 cookie 时；与 Ajax 的 withCredentials 属性一样，设置跨域请求时是否允许携带 Cookie 等，同是后端也要做相关设置</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<pre><code>&gt;&lt;script&gt;
+  const url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/login&quot;;
+&gt;
+  fetch(url, &#123;
+    // 请求使用的方法，如 `GET`、`POST`、`PUT` 等
+    method: &quot;post&quot;,
+    // post请求体携带数据，不传递就是 null,可以是键值对、JSON、FormData
+    body: &quot;username=admin&amp;password=123456&quot;,
+    // 请求的头信息
+    headers: &#123;
+      // Form格式
+      &quot;Content-Type&quot;: &quot;application/x-www-form-urlencoded&quot;,
+      // JSON格式
+      // &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &#125;,
+    // 请求的模式：跨域资源共享，默认值：cors 默认支持跨域
+    mode: &quot;cors&quot;,
+    // 是否携带Cookie
+    credentials: &quot;include&quot;,
+  &#125;)
+    .then((res) =&gt; &#123;
+      if (res.status === 200) &#123;
+        return res.json();
+      &#125; else &#123;
+        throw new Error(&quot;请求出错&quot;);
+      &#125;
+    &#125;)
+    .then((data) =&gt; &#123;
+      console.log(data);
+    &#125;)
+    .catch((err) =&gt; &#123;
+      console.log(err);
+    &#125;);
+&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="测试题"><a href="#测试题" class="headerlink" title="测试题"></a>测试题</h3><ol>
+<li>下列选项中，描述错误的是 ？(单选)<blockquote>
+<ul>
+<li>A、JSON.stringify()的作用是将 JavaScript 中的对象转换为 JSON 字符串</li>
+<li>B、JSON.stringify()方法让 localStorage&#x2F;sessionStorage 可以存储对象</li>
+<li>C、JSON.parse()作用是将字符串转为一个对象</li>
+<li>D、JSON.stringify()方法可以判断两个数组或对象中的值是否相等</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>答案：C</p>
+<ul>
+<li>C项应该是将JSON字符串转为一个对象</li>
+<li>注意选项D，<code>JSON.stringify()</code>方法可以判断两个数组或对象中的值是否相等</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>下列描述正确的选项是 ？<blockquote>
+<ul>
+<li>A、responseType 属性值为空时，不可以使用 response 属性接收</li>
+<li>B、responseType 属性值为 json 时，不可以使用 responseText 属性接收</li>
+<li>C、responseType 属性值为 text 时，只能使用 responseText 属性接收</li>
+<li>D、没有设置 responseType 属性时，可以使用 responseText 或 response 属性接收<br>答案：BD<br>responseType 、esponseText、 response 属性之间的关系</li>
+<li><code>responseType</code>：指定响应中包含的数据类型，如果没有指定，则默认值为 text 文本类型</li>
+<li><code>response</code>用于返回响应的正文，返回的类型为<code>responseType</code>指定的类型</li>
+<li><code>esponseText</code>用来返回响应的正文，其接受的内容只能为<strong>文本形式</strong><code>text</code><blockquote>
+<p>所以在<strong>没有设置</strong><code>responseType</code>或者<code>responseType</code>为<code>text</code>时，用<code>esponseText、 response</code>都可以；</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/20/%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89/">https://hermiablog.com/2024/01/20/%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">网络</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/01/20/%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="网络（二）">
+                        
+                        <span class="card-title">网络（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JSON、Ajax、跨域、XHR、Fetch
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/18/%E7%BD%91%E7%BB%9C%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/39.jpg" class="responsive-img" alt="网络（一）">
+                        
+                        <span class="card-title">网络（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前后端数据交互、HTTP 协议、本地存储
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
