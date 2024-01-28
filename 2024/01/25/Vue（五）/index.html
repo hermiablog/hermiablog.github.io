@@ -1,0 +1,4045 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue（五）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue（五） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/46.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue（五）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    19.1k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="组合式API的简介"><a href="#组合式API的简介" class="headerlink" title="组合式API的简介"></a>组合式API的简介</h3><blockquote>
+<p>组合式 API（Composition API）是一系列 API 的集合，使我们可以使用<strong>函数</strong>而不是声明选项的方式书写 Vue 组件。它是一个概括性的术语，涵盖了以下方面的 API：</p>
+</blockquote>
+<ul>
+<li>响应式 API：使我们可以直接创建响应式状态、计算属性和侦听器，如： <code>ref()</code> 和 <code>reactive()</code></li>
+<li>生命周期钩子：使我们可以在组件各个生命周期阶段添加逻辑，如： <code>onMounted()</code> 和 <code>onUnmounted()</code></li>
+<li>依赖注入：使我们可以在使用响应式 API 时，利用 Vue 的依赖注入系统，如 <code>provide()</code> 和 <code>inject()</code><blockquote>
+<p>组合式 API 是 Vue 3 及 Vue 2.7的内置功能。对于更老的 Vue 2 版本，可以使用官方维护的插件 @vue&#x2F;composition-api。</p>
+<ul>
+<li>在 Vue 3 中，组合式 API 基本上都会配合<code>&lt;script setup&gt;</code>语法在单文件组件中使用。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>下面是一个使用组合式 API 的组件示例：</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, reactive, computed &#125; from &quot;vue&quot;;
+
+  // 创建响应式数据 相当于选项式API中 data中定义的属性
+  const msg = ref(&quot;Hello Composition API&quot;);
+  const num = ref(100);
+
+  // 定义一个方法，相当于选项式API中的methods选项中定义的方法
+  function update() &#123;
+    num.value = 200;
+  &#125;
+
+  // 创建一个计算属性，相当于选项式API中的computed选项中创建的计算属性
+  const price = computed(() =&gt; &#123;
+    return &quot;$&quot; + num.value;
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;h3&gt;&#123;&#123; msg &#125;&#125;&lt;/h3&gt;
+  &lt;p&gt;价格：&#123;&#123; price &#125;&#125;&lt;/p&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>从上面代码中可以看到，创建的响应式数据，methods 方法，computed 计算属性都是基于函数来实现的。这些函数组合在一起就能完成一个具体的应用。</li>
+<li>所谓组合式 API 就是指这些不同的 API（函数）组合在一起来实现一个完整的应用，和之前学习的选项式 API 风格完全不同</li>
+</ul>
+<h3 id="一、初识-setup-函数"><a href="#一、初识-setup-函数" class="headerlink" title="一、初识 setup() 函数"></a>一、初识 setup() 函数</h3><blockquote>
+<p><code>setup()</code>函数是在组件中使用组合式 API 的入口（表演的舞台），所有组合式 API 代码都写在<code>setup()</code>函数中</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    // setup函数是所有组合式API的入口（表演的舞台）
+    setup() &#123;
+      // .....所有代码在此书写
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol>
+<li>setup() 函数的返回值<blockquote>
+<p><code>setup()</code>函数的返回值通常是一个对象，这个对象的所有属性会暴露给组件模板和组件实例，所以</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在组件的<strong>模板</strong>中可以直接访问<code>setup()</code>返回对象的属性</li>
+<li>在组件的<strong>选项式 API</strong>中可通过组件实例可以访问<code>setup()</code>返回对象身上的属性。</li>
+<li>以下代码展示了，在模板中和组件实例上访问到setup()函数返回的对象身上的属性和方法。<ul>
+<li>提示：选项式 API 与组合式 API 是可以共存的。</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    setup() &#123;
+      // 返回值会暴露给模板和其他的选项式 API 钩子
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+        sayHello: () =&gt; console.log(&quot;sayHello&quot;),
+      &#125;;
+    &#125;,
+    beforeCreate() &#123;
+      console.log(this.message); // 组件实例可以直接获取message属性
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;sayHello&quot;&gt;sayHello&lt;/button&gt;
+  &lt;!--模板中可以直接使用message属性--&gt;
+  &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>setup() 函数中 this 指向</li>
+</ol>
+<ul>
+<li>setup()函数自身并不含对组件实例的访问权，在setup()中访问<code>this</code>会是<code>undefind</code></li>
+<li>所以setup()函数内是<strong>没有办法</strong>访问到选项式 API 中的属性、方法、计算属性等。</li>
+</ul>
+<pre><code>&lt;!-- 以下代码是错的 --&gt;
+&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+      &#125;;
+    &#125;,
+    setup() &#123;
+      console.log(this); // undefined
+      console.log(this.message); // 抛出错误，因为this为undefined
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>setup() 函数执行时机</li>
+</ol>
+<ul>
+<li>setup()函数是在 Vue 生命周期函数<code>beforeCreate()</code>之前被自动调用的。</li>
+<li>所以在<code>beforeCreate()</code>函数和选项式 API 中可以访问到setup()函数对外暴露的属性</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        text: this.message,
+      &#125;;
+    &#125;,
+    setup() &#123;
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+      &#125;;
+    &#125;,
+    beforeCreate() &#123;
+      // 在控制台输出 ： beforeCreate： Hello Vue!!
+      console.log(&quot;beforeCreate：&quot;, this.message);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!--以下代码渲染后效果: &lt;div&gt; Hello Vue!! &lt;/div&gt;--&gt;
+  &lt;div&gt;&#123;&#123; text &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="4">
+<li>setup() 函数暴露非响应式属性</li>
+</ol>
+<ul>
+<li>以下方式setup()函数对外暴露的属性<strong>非响应式</strong>的，当属性的值发生变化时，页面并不会同步更新。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    setup() &#123;
+      let a = 1;
+      let b = 2;
+      function update() &#123;
+        a = 10;
+        b = 20;
+      &#125;
+      return &#123;
+        a,
+        b,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;a的值：&#123;&#123; a &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;b的值：&#123;&#123; b &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新a,b的值&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上的 a,b 属性都是非响应式的，所以当我们点击按扭时，页面中 a,b 的值并没有变化</li>
+<li>如果想要对外暴露的属性支持响应式，需要用到响应式 API 中的<code>reactive()</code>或<code>ref()</code>方法来实现</li>
+</ul>
+<ol start="5">
+<li>总结</li>
+</ol>
+<ul>
+<li><code>setup()</code>函数返回值通常是一个对象，这个对象的所有属性会暴露给组件模板和组件实例</li>
+<li><code>setup()</code>函数中的<code>this</code>指向<code>undefined</code></li>
+<li><code>setup()</code>函数会在所有生命周期函数<code>beforeCreate</code>之前被执行。</li>
+<li><code>setup()</code>函数内定义的变量默认为非响应式的，所以对外暴露该属性为非响应式</li>
+</ul>
+<h3 id="二、初始-reactive-与-ref-响应式-API"><a href="#二、初始-reactive-与-ref-响应式-API" class="headerlink" title="二、初始 reactive 与 ref 响应式 API"></a>二、初始 reactive 与 ref 响应式 API</h3><blockquote>
+<p>本小节我们将会初步认识<code>reactive</code>与<code>ref</code>两个响应式 API，掌握他们的基本用法。</p>
+</blockquote>
+<h4 id="初识-reactive-方法"><a href="#初识-reactive-方法" class="headerlink" title="初识 reactive() 方法"></a>初识 reactive() 方法</h4><blockquote>
+<p><code>reactive()</code>方法用来返回一个对象的响应式代理。</p>
+</blockquote>
+<pre><code>const objProxy = reactive(obj); // objProxy为obj对象的响应式代理
+</code></pre>
+<ul>
+<li>我们通过响应式代理来操作对象的属性，当属性的值发生变化时也会驱动页面视图的更新</li>
+</ul>
+<pre><code>&lt;script&gt;
+  // 导入reactive方法
+  import &#123; reactive &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const obj = &#123; a: 1, b: 2 &#125;;
+      // objProxy 为响应式代理对象
+      const objProxy = reactive(obj);
+      console.log(objProxy); // Proxy(Object) &#123;a: 1, b: 2&#125;
+
+      function update() &#123;
+        // 修改对象属性的值
+        objProxy.a = 10;
+        objProxy.b = 20;
+      &#125;
+      // 将属性暴露给组件实例
+      return &#123;
+        objProxy,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;a的值：&#123;&#123; objProxy.a &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;b的值：&#123;&#123; objProxy.b &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新a,b的值&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>代码分析</p>
+</blockquote>
+<ul>
+<li>以上代码中的<code>objProxy</code>为<code>obj</code>对象的响应式代理对象。</li>
+<li>我们可以通过<code>objProxy.a=10</code> 和<code>objProxy.b=20</code>来为obj对象的 a、b 属性赋值。</li>
+<li>当点击按扭后，会调用 <code>update</code> 方法，更新对象的属性的值。最终 a、b 属性的值从 1，2 修改成 10，20。因为数据是响应式的，所以数据更新后页面视图也发生了更新</li>
+<li>以上过程证明<code>objProxy</code>代理对象具有响应性，所以<code>objProxy</code>为响应式代理对象</li>
+</ul>
+<ol>
+<li>深层响应性<blockquote>
+<p>通过<code>reactive()</code>方法转换的响应式对象是 “深层响应” 的。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>即不管对象的属性嵌套有多深，都具有响应性，其值发生变化时，页面视图会同步更新。</li>
+</ul>
+<ol start="2">
+<li>reactive() 无法转换基本数据类型</li>
+</ol>
+<ul>
+<li><code>reactive()</code>方法只能将一个对象转换为一个响应式对象，而不能将一个基本数据类型转换为响应式对象。</li>
+<li>因为<code>reactive()</code>方法的底层采用的是<code>Proxy</code>来实现的，而<code>Proxy</code>只能创建<strong>对象的代理</strong>。</li>
+</ul>
+<ol start="3">
+<li>reactive() 方法底层实现原理<blockquote>
+<p><code>reactive()</code>方法返回的响应式代理对象本质是<code>Proxy()</code>的实例。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const objProxy = reactive(obj);
+</code></pre>
+<ul>
+<li>以上代码的内部实现如下：（以下为极简版， 主要帮助大家理解响应式代理）</li>
+</ul>
+<pre><code>function reactive(obj) &#123;
+  // 判断obj是不是对象，是对象才可以利有Proxy实现代理
+  if (obj !== null &amp;&amp; typeof obj === &quot;object&quot;) &#123;
+    // objProxy响应式代理对象
+    return new Proxy(obj, &#123;
+      // 当访问objProxy对象身上的属性时,get方法会被调用
+      get(target, key, receiver) &#123;
+        const res = Reflect.get(target, key, receiver);
+        track(); // 响应式依赖收集 ,收集属性对应的DOM更新代码
+        return res;
+      &#125;,
+      // 当给objProxy对象向上的属性赋值时，set方法会被调用
+      set(target, key, value, receiver) &#123;
+        Reflect.set(target, key, value, receiver);
+        trigger(); // 触发响应式依赖 更新DOM
+      &#125;,
+      // ....
+    &#125;);
+  &#125;
+&#125;
+</code></pre>
+<h4 id="初识-ref-方法"><a href="#初识-ref-方法" class="headerlink" title="初识 ref() 方法"></a>初识 ref() 方法</h4><blockquote>
+<p>接受一个内部值，返回一个<strong>响应式的</strong>、<strong>可更改的</strong> ref 对象，此对象只有一个指向其内部值的属性<code>.value</code></p>
+</blockquote>
+<ul>
+<li>可更改是指你可以为<code>ref</code>对象的<code>value</code>属性赋予新的值</li>
+<li>响应式是指所有对 <code>.value</code> 的操作都将被追踪，并且写操作会触发与之相关的副作用（DOM 更新）</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      // msg为一个ref对象，并且是响应式的
+      const msg = ref(&quot;Hello Vue!!&quot;); // &#123;value: &quot;Hello Vue!!&quot;&#125;
+
+      // 修改ref对象value属性的值
+      msg.value = &quot;Hello ref!!&quot;;
+
+      return &#123;
+        msg,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt; &#123;&#123; msg &#125;&#125; &lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码中的字符串<code>&quot;Hello Vue!!&quot;</code>被<code>ref()</code>方法转换成了一个 <code>ref </code>对象<code>&#123;value: &quot;Hello Vue!!&quot;&#125;</code>。</li>
+<li>当我们修改这 value 属性的值时，页面视图中用到该数据的地方会同步更新</li>
+</ul>
+<ol>
+<li>访问 ref 对象的 value 属性</li>
+</ol>
+<ul>
+<li>在<code>setup()</code>中访问ref对象的value值时，需要<code>.value</code>的形式来访问</li>
+<li>在<strong>组件模板</strong>中访问ref对象的value值时，它会自动<strong>浅层解包</strong>（会自动调用<code>ref.value</code>），因此你无须再在模板中为它写 .value。</li>
+<li>在<strong>选项式 API <strong>中，通过 this 访问 ref 时也会自动</strong>浅层解包</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>使用场景</th>
+<th>是否自动浅层解包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>setup()函数</td>
+<td>否</td>
+</tr>
+<tr>
+<td>组件模板</td>
+<td>是</td>
+</tr>
+<tr>
+<td>选项式 API</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<pre><code>&lt;script&gt;
+  // 导入 ref 方法
+  import &#123; ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      // 将&quot;Hello Vue!!&quot; 转换为响应式，可更改的ref对象
+      const msg = ref(&quot;Hello Vue!!&quot;);
+      console.log(msg);
+      console.log(&quot;setup--&quot;, msg.value);
+      // 更新msg方法
+      function update() &#123;
+        // 修改msg的值
+        msg.value = &quot;Hello ref!!!&quot;;
+      &#125;
+      return &#123;
+        msg,
+        update,
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      // msg是一个ref对象，但会自动解包,所以不需要通过this.msg.value来获取值
+      console.log(&quot;mounted&quot;, this.msg);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新&lt;/button&gt;
+  &lt;!--msg会自动解包，不需要使用 msg.value--&gt;
+  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>ref() 方法转换对象<blockquote>
+<p><code>ref()</code>方法的参数如果为一个对象（引用类型），则最终返回的<code>ref</code>对象的<code>value</code>属性值为该对象的响应式代理对象。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>该 ref 对象是一具有<strong>深层响应式</strong>，可更改的ref对象。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const obj = &#123; msg: &quot;Hello ref!!&quot; &#125;;
+      /*
+        ref的参数为一个对象，先用reactive()方法返回obj的响应式代理对象
+        然后将该响应式代理对象赋值给到ref对象的value属性。
+        */
+      const refProxyObj = ref(obj);
+
+      console.log(refProxyObj);
+      console.log(refProxyObj.value);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>ref()方法的参数如果为一个对象，其内部相当于经历了以下两步：</p>
+</blockquote>
+<ul>
+<li>先用<code>reactive(obj)</code>方法返回obj的响应式代理对象 <code>proxyObj</code></li>
+<li>然后将该响应式代理对象赋值给到 ref 对象的 value 属性，即<code>&#123;value:proxyObj&#125;</code><ul>
+<li>所以最终得到的 ref 对象是一个深层响应式，可更改的ref对象</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>当数据的结构比较深时，深层响应式是非常消耗性能的，因为需要对对象进行深度递归，将每一个被嵌套的属性都转换为响应式。</p>
+</blockquote>
+<ul>
+<li>若要避免这种深层次的转换，请使用<code>shallowRef()</code>来替代。</li>
+</ul>
+<ol start="3">
+<li>ref() 方法的底层实现<blockquote>
+<p>以上代码中的ref()方法，返回的ref对象，底层实现如下（极简版，不完整，仅供了解思路）</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>function ref(value) &#123;
+  const refObject = &#123;
+    get value() &#123;
+      // 响应式依赖收集 ,收集属性对应的DOM更新代码
+      track(refObject, &quot;value&quot;);
+      return value;
+    &#125;,
+    set value(newValue) &#123;
+      value = newValue;
+      // 触发响应式依赖 更新DOM
+      trigger(refObject, &quot;value&quot;);
+    &#125;,
+  &#125;;
+  return refObject;
+&#125;
+</code></pre>
+<ul>
+<li>当我们访问 ref 对象的 value 属性时，本质是触发了 value 属性的 get 方法。</li>
+<li>当我们给 ref 对象赋值时，本质是触发了 value 属性的 set 方法</li>
+</ul>
+<h3 id="三、深入响应式-API-工具函数（一）"><a href="#三、深入响应式-API-工具函数（一）" class="headerlink" title="三、深入响应式 API - 工具函数（一）"></a>三、深入响应式 API - 工具函数（一）</h3><blockquote>
+<p>通过前面的学习我们知道<code>reactive()</code>方法的返回值为一个对象的<strong>响应式代理</strong></p>
+<ul>
+<li>注：我们将响应式代理对象简称为响应式对象</li>
+</ul>
+</blockquote>
+<h4 id="响应式对象会自动解包-ref-属性"><a href="#响应式对象会自动解包-ref-属性" class="headerlink" title="响应式对象会自动解包 ref 属性"></a>响应式对象会自动解包 ref 属性</h4><blockquote>
+<p>一个响应式对象的属性及嵌套属性的值如果为<code>ref</code>属性，在模板或<code>setup()</code>中使用时，会自动解包，同时保持响应性</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, ref &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const age = ref(33);
+      const userInfo = reactive(&#123;
+        age, // ref对象
+        sex: &quot;男&quot;,
+        test: &#123;
+          a: &#123;
+            b: ref(3), // ref对象
+          &#125;,
+        &#125;,
+      &#125;);
+      function update() &#123;
+        userInfo.age = 44; 
+        userInfo.sex = &quot;女&quot;;
+        userInfo.test.a.b = 100; // 深层响应式
+      &#125;
+      return &#123;
+        userInfo,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新数据&lt;/button&gt;
+  &lt;!--userInfo的属性为ref对象时，会自动解包--&gt;
+  &lt;div&gt;&#123;&#123; userInfo.userName &#125;&#125; -&#123;&#123; userInfo.age &#125;&#125;--&#123;&#123; userInfo.sex &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;&#123; userInfo.test.a.b &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>reactive()</code>方法用来返回一个对象的响应式代理，想要拿到参数的值，就需要用 <strong>响应式对象打点属性</strong> 的方式获取</li>
+<li>而<code>ref()</code>方法返回一个响应式的、可更改的 <code>ref</code> 对象，其属性为<code>value</code>，<code>ref()</code>的参数变成<code>value</code>的属性值；<code>setup()</code>中获取属性值：<ul>
+<li>参数是基本数据类型：<code>ref对象.value</code></li>
+<li>如果参数是一个对象：<code>ref对象.value.属性名</code></li>
+</ul>
+</li>
+<li>但是，如果一个对象，它的某个属性值为<code>ref</code>类型，那么当这个对象被<code>reactive()</code>后，访问它的<code>ref</code>类型属性值，在模板或<code>setup()</code>中使用时，采取 <strong>响应式对象打点属性</strong> 的方式获取属性值，因为会自动解包</li>
+</ul>
+<h4 id="不能被自动解包的集合"><a href="#不能被自动解包的集合" class="headerlink" title="不能被自动解包的集合"></a>不能被自动解包的集合</h4><blockquote>
+<p>当访问到某个响应式数组或<code>Map</code>这样的原生集合类型中的 ref 元素时，<strong>不会</strong>执行 ref 的解包。</p>
+</blockquote>
+<pre><code>const hobbies = reactive([ref(&quot;音乐&quot;), ref(&quot;阅读&quot;), ref(&quot;跳舞&quot;)]);
+// 这里需要 .value
+console.log(hobbies[0].value);
+
+const map = reactive(new Map([[&quot;count&quot;, ref(0)]]));
+// 这里需要 .value
+console.log(map.get(&quot;count&quot;).value);
+</code></pre>
+<h4 id="解构响应式对象"><a href="#解构响应式对象" class="headerlink" title="解构响应式对象"></a>解构响应式对象</h4><blockquote>
+<p>如果我们直接利用解构赋值来解构响应式对象</p>
+</blockquote>
+<ul>
+<li>当属性值为基本数据类型或<code>ref</code>对象（解包后为<strong>基本</strong>数据类型）时，解构后会失去响应性</li>
+<li>当属性值为引用数据类型或<code>ref</code>对象（解包后为<strong>引用</strong>数据类型）时，解构后仍保持响应性<ul>
+<li>主要看它解包后的状态</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, ref &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      // 解构响应式对象
+      let &#123; a, b, c, d &#125; = reactive(&#123;
+        a: ref(&quot;a&quot;),
+        b: ref([&quot;b&quot;]),
+        c: [&quot;c&quot;],
+        d: &quot;d&quot;,
+      &#125;);
+      console.log(a); // &#39;a&#39; 基本数据类型，失去响应式
+      console.log(b); // Proxy(Array) &#123;0: &#39;b&#39;&#125; 响应式对象，具有响应性
+      console.log(c); // Proxy(Array) &#123;0: &#39;c&#39;&#125; 响应式对象，具有响
+      console.log(d); // &#39;d&#39;  基本数据类型，失去响应式
+
+      // 更新数据
+      function update() &#123;
+        a = &quot;aa&quot;;
+        b[0] = &quot;bb&quot;;
+        c[0] = &quot;cc&quot;;
+        d = &quot;dd&quot;;
+      &#125;
+
+      return &#123;
+        a,
+        b,
+        c,
+        d,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;a:&#123;&#123; a &#125;&#125;--b:&#123;&#123; b[0] &#125;&#125;--c:&#123;&#123; c[0] &#125;&#125;--&#123;&#123; d &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>如果解构的响应式对象为数组或 Map 等原生集合类型</p>
+</blockquote>
+<ul>
+<li>只有集合中成员为基本数据类型时会失去响应性</li>
+<li>集合成员为ref类型与引用类型都不会失去响应性，因为ref成员不会自动解包</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, ref &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      // 解构响应式对象
+      let [a, b, c, d] = reactive([ref(&quot;a&quot;), ref([&quot;b&quot;]), [&quot;c&quot;], &quot;d&quot;]);
+      console.log(a); // &#123;value:&#39;a&#39;&#125; ref对象，具有响应性
+      console.log(b); 
+      // &#123;value:Proxy(Array)&#123;0:&#39;b&#39;&#125;&#125; ref对象，具有响应性
+      console.log(c); // Proxy(Array) &#123;0: &#39;c&#39;&#125; 响应式对象，具有响性
+      console.log(d); // &#39;d&#39;  基本数据类型，失去响应式
+
+      // 更新数据
+      function update() &#123;
+        a.value = &quot;aa&quot;;
+        b.value[0] = &quot;bb&quot;;
+        c[0] = &quot;cc&quot;;
+        d = &quot;dd&quot;;
+      &#125;
+
+      return &#123;
+        a,
+        b,
+        c,
+        d,
+        update,
+      &#125;
+    &#125;
+   &#125;;
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;a:&#123;&#123; a &#125;&#125;--b:&#123;&#123; b[0] &#125;&#125;--c:&#123;&#123; c[0] &#125;&#125;--&#123;&#123; d &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>变量 a，b 为 ref 对象，具有响应性</li>
+<li>变量 c 为 proxy 代理对象，具有响应性</li>
+<li>d 变量为基本数据类型，不具有响应性</li>
+<li>所以点击更新按扭后，a,b,c 变量的值更新后，页面也同步更新了<ul>
+<li>那我们如何保持解构后的变量都具有响应性呢 ？这就需要用到接下来讲到的<code>toRef()</code>和&#96;&#96;toRefs<code>()</code>方法</li>
+</ul>
+</li>
+</ul>
+<h4 id="toRef-方法"><a href="#toRef-方法" class="headerlink" title="toRef() 方法"></a>toRef() 方法</h4><blockquote>
+<p>toRef()方法可以<strong>基于响应式对象</strong>上的一个属性，创建一个对应的 ref</p>
+</blockquote>
+<ul>
+<li>这样创建的 ref 与其源属性保持同步：改变源属性的值将更新 ref 的值，反之亦然</li>
+</ul>
+<blockquote>
+<p>语法：</p>
+</blockquote>
+<pre><code>const variable = toRef(proxyObject, key, defaultValue);
+</code></pre>
+<ul>
+<li><code>proxyObject</code>为响应式对象</li>
+<li><code>key</code>为 响应式对象对应的原对象的属性</li>
+<li><code>defaultValue</code>默认值，当转换对象身上不存在的值是会返回 <code>undefined</code>，如果有默认值，则会使用默认值</li>
+</ul>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, toRef &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const obj = &#123; a: 1, b: 2 &#125;;
+      // objProxy 为响应式代理对象
+      const objProxy = reactive(obj);
+
+      // toRef()方法将对象obj的属性a转换为一个响应式的ref对象 &#123;value:1&#125;
+      let a = toRef(objProxy, &quot;a&quot;);
+
+      console.log(a); // &#123;value:1&#125;
+      console.log(a.value); // 1
+      // objProxy.a=10 时，对应a.value的值也变成了10，两者保持同步
+      objProxy.a = 10;
+      setTimeout(() =&gt; &#123;
+        // a.value=100时，对应objProxy.a的值也变成100，两者保持同步
+        a.value = 100;
+      &#125;, 2000);
+
+      return &#123;
+        a,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; a &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>objProxy</code>为<code>obj</code>对象的响应式代理对象；我们要通过<code>objProxy.属性名</code>的方式来获取属性值或者赋值</li>
+<li>但<code>toRef()</code>方法将对象<code>obj</code>的属性<code>a</code>转换为一个响应式的<code>ref</code>对象，可以通过<code>.value</code>的方式取值或赋值</li>
+<li>因此：<code>objProxy.a = 10</code>与<code>a.value = 100</code>最终都会影响到 <code>a</code> 变量的值，也可以说影响到<code>objProxy.a</code>的值，同时都具有响应性</li>
+</ul>
+<ol>
+<li>toRef() 注意事项<blockquote>
+<p><code>toRef()</code>如果传入的对象非响应式的，则返回该对象上指定属性的ref对象。（只做了解）</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let a = toRef(&#123; a: 1 &#125;, &quot;a&quot;); // &#123;value:1&#125;
+// 访问a的值
+console.log(a.value); // 1
+</code></pre>
+<blockquote>
+<p>当toRef()转换一个对象身上<strong>不存在</strong>的属性时，返回的 ref 对象的 value 值为<code>undefind</code>，可以为其指定默认值</p>
+</blockquote>
+<pre><code>const objProxy = reactive(&#123; a: 1, b: 2 &#125;);
+let c = toRef(objProxy, &quot;c&quot;);
+// 访问a的值
+console.log(c.value); // undefined
+
+c = toRef(objProxy, &quot;c&quot;, &quot;默认值&quot;);
+console.log(c.value); // 默认值
+</code></pre>
+<blockquote>
+<p>利用toRef()也可以返回一个只读的ref对象，当我们想创建一个只读的变量时可以使用</p>
+</blockquote>
+<pre><code>import &#123; reactive, toRef &#125; from &quot;vue&quot;;
+const obj = &#123; a: 1, b: 2 &#125;;
+// obj为响应式代理对象
+const objProxy = reactive(obj);
+// 返回值为只读的ref对象
+let a = toRef(() =&gt; objProxy);
+// 访问a的值
+console.log(a.value);
+// 以下赋值操作将抛出错误
+// a.value = &quot;ssss&quot;
+</code></pre>
+<h4 id="toRefs-方法"><a href="#toRefs-方法" class="headerlink" title="toRefs() 方法"></a>toRefs() 方法</h4><ul>
+<li>将一个响应式对象转换为一个普通对象，这个普通对象的每个属性都是指向源对象相应属性的 ref。</li>
+<li>每个单独的 ref 都是使用<code>toRef()</code>创建的。</li>
+</ul>
+<blockquote>
+<p>语法</p>
+</blockquote>
+<pre><code>toRefs(object); // object为响应式对象
+</code></pre>
+<ul>
+<li>如果我们想要一次性解构一个响应式对象的所有属性，则可以使用<code>toRefs()</code></li>
+</ul>
+<pre><code>import &#123; reactive, ref, toRefs &#125; from &quot;vue&quot;;
+export default &#123;
+  setup() &#123;
+    const objProxy = reactive(&#123; a: 1, b: 2 &#125;);
+    const obj = toRefs(objProxy);
+    console.log(obj); // &#123;a:toRef(objProxy,&quot;a&quot;),b:toRef(objProxy,&quot;b&quot;)&#125;
+    const &#123; a, b &#125; = obj;
+    // a,b为ref对象，所以访问需要.value
+    console.log(a.value, b.value); // 1  2
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li><code>toRefs</code> 在调用时只会为源对象上可以枚举的属性创建 ref。如果要为可能还不存在的属性创建 ref，请改用 <code>toRef</code></li>
+</ul>
+<h4 id="shallowReactive-方法"><a href="#shallowReactive-方法" class="headerlink" title="shallowReactive() 方法"></a>shallowReactive() 方法</h4><ul>
+<li><code>shallowReactive()</code>相当于是<code>reactive()</code>的浅层作用形式</li>
+<li>也就是<code>shallowReactive()</code>转换的响应式对象只有根级别的属性是响应式的。属性的值会被原样存储和暴露，这也意味着值为 <code>ref</code> 的属性不会被自动解包了</li>
+</ul>
+<h4 id="readonly-方法"><a href="#readonly-方法" class="headerlink" title="readonly() 方法"></a>readonly() 方法</h4><ul>
+<li>接受一个对象 (不论是响应式还是普通的) 或是一个 ref，返回一个原值的只读代理。</li>
+<li>只读代理是深层的：对任何嵌套属性的访问都将是只读的。它的 <code>ref</code> 解包行为与 <code>reactive()</code> 相同，会自动解包，但解包得到的值是只读的。</li>
+<li>要避免深层级的转换行为，请使用 <code>shallowReadonly()</code>作替代</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, readonly &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const proxyObj = reactive(&#123; a: 1, b: &#123; c: 2 &#125; &#125;);
+      const readonlyObj = readonly(proxyObj);
+      // 对象属性可读
+      console.log(readonlyObj.a); // `
+      console.log(readonlyObj.b.c); // 2
+      // 以下对象属性赋值失败，同时在控制台抛出错误
+      readonlyObj.a = 100;
+      readonlyObj.b.c = 200;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h4 id="isReactive-方法"><a href="#isReactive-方法" class="headerlink" title="isReactive() 方法"></a>isReactive() 方法</h4><blockquote>
+<p>检查一个对象是否是由<code>reactive()</code>或<code>shallowReactive()</code>创建的代理。</p>
+</blockquote>
+<ul>
+<li>返回值为<code>boolean</code>布尔类型值，<code>true</code>表示是，<code>false</code>表示否</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, isReactive, shallowReactive &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const obj = &#123; a: 1 &#125;;
+      console.log(isReactive(obj)); // false
+      console.log(isReactive(reactive(obj))); // true
+      console.log(isReactive(shallowReactive(obj))); // true
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="四、深入响应式-API-工具函数（二）"><a href="#四、深入响应式-API-工具函数（二）" class="headerlink" title="四、深入响应式 API - 工具函数（二）"></a>四、深入响应式 API - 工具函数（二）</h3><h4 id="shallowRef-方法"><a href="#shallowRef-方法" class="headerlink" title="shallowRef() 方法"></a>shallowRef() 方法</h4><ul>
+<li><code>shallowRef()</code>方法相当于<code>ref()</code>的浅层作用形式，只对<code>.value</code>的访问是响应式的，对对象的其它属性值的写操作不支持响应式</li>
+<li>针对大型的数据结构，如果我们确实只需要浅层次的响应式，则可以利用<code>shallowRef()</code>帮助我们提升性能，因为减小了深层次的递归操作。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; ref, shallowRef &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const state = shallowRef(&#123; count: 1 &#125;);
+
+      function update1() &#123;
+        // 不会触发页面的更新
+        state.value.count = 100;
+      &#125;
+      function update2() &#123;
+        // 会触发页面的更新
+        state.value = &#123; count: 200 &#125;;
+      &#125;
+      return &#123;
+        state,
+        update1,
+        update2,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;update1&quot;&gt;更新1&lt;/button&gt;
+  &lt;button @click=&quot;update2&quot;&gt;更新2&lt;/button&gt;
+  &lt;div&gt;&#123;&#123; state.count &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>点击更新 1 并不会触发页面的更新，只有点击更新 2 时，才会触发页面的更新。</li>
+<li>因为 <code>state</code> 是被<code>shallowRef</code>转换的的一个浅层的响应式对象，所以<code>state.value.count = 100</code>并不会触发页面的更新，而<code>state.value = &#123; count: 200 &#125;</code>会触发页面的更新</li>
+</ul>
+<h4 id="isRef-方法"><a href="#isRef-方法" class="headerlink" title="isRef() 方法"></a>isRef() 方法</h4><blockquote>
+<p>检查某个值是否为 ref 对象，如果是返回 true，否则返回 false</p>
+</blockquote>
+<pre><code>import &#123; isRef, ref &#125; from &quot;vue&quot;;
+
+export default &#123;
+  setup() &#123;
+    console.log(isRef(ref(0))); // true
+    console.log(isRef(0)); // false
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="unref-方法"><a href="#unref-方法" class="headerlink" title="unref() 方法"></a>unref() 方法</h4><blockquote>
+<p><code>unref()</code>方法的参数是 ref，则返回 ref 对象的 value 属性值，否则返回参数本身。</p>
+</blockquote>
+<ul>
+<li><code>unref()</code>方法是<code>val = isRef(val) ? val.value : val</code>计算的一个语法糖</li>
+</ul>
+<pre><code>import &#123; isRef, unref, ref &#125; from &quot;vue&quot;;
+
+export default &#123;
+  setup() &#123;
+    console.log(unref(ref(&quot;Hello&quot;))); // Hello
+    console.log(unref(&quot;Hello&quot;)); // Hello
+    console.log(unref(ref(&#123; a: 1, b: 2 &#125;))); // Proxy(Object) &#123;a: 1, b: 2&#125;
+    console.log(unref(&#123; a: 1, b: 2 &#125;)); // &#123;a: 1, b: 2&#125;
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="customRef-自定义-ref"><a href="#customRef-自定义-ref" class="headerlink" title="customRef() 自定义 ref"></a>customRef() 自定义 ref</h4><blockquote>
+<p><code>customRef()</code>方法用来创建一个自定义的<code>ref</code>，显式声明对其依赖追踪和更新触发的控制方式。</p>
+</blockquote>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>let value=0;
+// 返回值为ref对象
+const refObj=customRef((track,trigger)=&gt;&#123;
+    // 返回一个对象
+    return &#123;
+        get()&#123;
+            // 获取ref的值时，会调用get方法
+            return value;
+        &#125;,
+        set(newValue)&#123;
+            // 修改ref的值时，会调用set方法
+            value=newValue
+        &#125;
+    &#125;
+&#125;);
+</code></pre>
+<ul>
+<li>为了帮助大家更好的理解<code>customRef()</code>的用法，大家可以先按以下思路来创建一个自定义的 ref，实现数据与视图的同步更新。</li>
+</ul>
+<blockquote>
+<p>第一步：创建 <code>createRef()</code>函数</p>
+</blockquote>
+<ul>
+<li><code>customRef()</code>方法的返回值为一个<code>ref</code>，该方法接受一个回调函数作为参数。</li>
+<li><code>createRef(value)</code>方法直接将<code>customRef()</code>方法的返回值返回，即返回值为<code>ref</code></li>
+<li>参数<code>value</code>为需要转换为<code>ref</code>的原始值</li>
+<li>以下代码中<code>count</code>为原始值 <code>0</code> 转换后的 <code>ref</code> 对象</li>
+</ul>
+<pre><code>// createRef为自定义创建ref的方法，接受一个参数value，value为需要转换为ref的原始值
+function createRef(value) &#123;
+  return customRef(() =&gt; &#123;&#125;);
+&#125;
+
+// 使用createRef将原始值 0 创建成 ref，即count为ref对象
+const count = createRef(0);
+</code></pre>
+<blockquote>
+<p>第二步：<code>customRef()</code>回调函数的返回值</p>
+</blockquote>
+<ul>
+<li><code>customRef()</code>方法的回调函数返回一个带 get 和 set 的对象</li>
+<li>当访问 count 的值（<code>count.vaue</code>）时，会调用 get 方法获取到对应的值</li>
+<li>当修改 count 的值（<code>count.value=100</code>）时，会调用 set 方法来更新对应的值</li>
+</ul>
+<pre><code>function createRef(value) &#123;
+  return customRef(() =&gt; &#123;
+    return &#123;
+      // 当访问ref对象的value值时，会调用get方法
+      get() &#123;
+        console.log(`get被调用了，此时返回的value值为：$&#123;value&#125;`);
+        return value;
+      &#125;,
+      // 当给ref对象的value重新赋值时，会调用set方法
+      set(newValue) &#123;
+        value = newValue;
+        console.log(`set被调用了，此时value的值更新为：$&#123;value&#125;`);
+      &#125;,
+    &#125;;
+  &#125;);
+&#125;
+
+// 使用createRef将原始值 0 创建成 ref，即count为ref对象
+const count = createRef(0);
+// 读取ref中的值
+console.log(count.value);
+// 更新ref的value值
+count.value = 100;
+</code></pre>
+<blockquote>
+<p>第三步：在组件模板中使用 count</p>
+</blockquote>
+<ul>
+<li>在组件模板中使用自定义的 ref 对象 count</li>
+<li>定义 update 方法，当点击更新按扭时，调用该方法更新 count 的值</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; customRef &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      function createRef(value) &#123;
+        return customRef(() =&gt; &#123;
+          return &#123;
+            // 当访问ref对象的value值时，会调用get方法
+            get() &#123;
+              console.log(`get被调用了，此时返回的value值为：$&#123;value&#125;`);
+              return value;
+            &#125;,
+            // 当给ref对象的value重新赋值时，会调用set方法
+            set(newValue) &#123;
+              value = newValue;
+              console.log(`set被调用了，此时value的值更新为：$&#123;value&#125;`);
+            &#125;,
+          &#125;;
+        &#125;);
+      &#125;
+
+      // 使用createRef将原始值 0 创建成 ref，即count为ref对象
+      const count = createRef(0);
+      // 读取ref中的值
+      console.log(count.value);
+
+      function update() &#123;
+        // 更新ref的value值
+        count.value = 100;
+      &#125;
+
+      // 对外暴露属性与方法
+      return &#123;
+        count,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新myRef的值&lt;/button&gt;
+  &lt;div&gt;myRef的值:&#123;&#123; count &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>当我们点击对应的更新按扭更新count的值为 100 时，set 方法被调用了，<strong>但页面视图并没有同步更新</strong>。</li>
+<li>因为我们并没有在get 中收集依赖（建立对应属性与相关 DOM 的依赖，让 Vue 知道数据更新后要更新那些 DOM）</li>
+<li>也没有在set 方法中触发依赖（根据 get 方法中建立的依赖关系，触发 DOM 的更新）</li>
+</ul>
+<blockquote>
+<p>第四步：customRef()回调函数的track与trigger参数</p>
+</blockquote>
+<ul>
+<li><code>customRef((track, trigger) =&gt; &#123; &#125;)</code>回调函数的两个参数</li>
+<li><code>track()</code>方法用来在 get 方法被调用时，收集依赖</li>
+<li><code>trigger()</code>方法用来在 set 方法被调用时，触发依赖</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; customRef &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      function createRef(value) &#123;
+        return customRef((track, trigger) =&gt; &#123;
+          return &#123;
+            // 当访问ref对象的value值时，会调用get方法
+            get() &#123;
+              console.log(`get被调用了，此时返回的value值为：$&#123;value&#125;`);
+              track();
+              return value;
+            &#125;,
+            // 当给ref对象的value重新赋值时，会调用set方法
+            set(newValue) &#123;
+              value = newValue;
+              trigger();
+              console.log(`set被调用了，此时value的值更新为：$&#123;value&#125;`);
+            &#125;,
+          &#125;;
+        &#125;);
+      &#125;
+
+      // 使用createRef将原始值 0 创建成 ref，即count为ref对象
+      const count = createRef(0);
+      // 读取ref中的值
+      console.log(count.value);
+      function update() &#123;
+        // 更新ref的value值
+        count.value = 100;
+      &#125;
+
+      return &#123;
+        count,
+        update,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新myRef的值&lt;/button&gt;
+  &lt;div&gt;myRef的值:&#123;&#123; count &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>总结：customRef() 方法使用流程</p>
+</blockquote>
+<ul>
+<li>第一步：<ul>
+<li>创建一个自定义函数，该函数接受一个参数，这个参数为需要转换为 ref 的原始值</li>
+<li>函数的返回值为customRef()方法的返回值 ref</li>
+</ul>
+</li>
+</ul>
+<pre><code>function createRef(value) &#123;
+  return customRef(() =&gt; &#123;&#125;);
+&#125;
+</code></pre>
+<ul>
+<li>第二步：<ul>
+<li>创建 customRef 回调函数的返回值，返回值为一个带有 get 和 set 的对象。</li>
+<li>当访问 ref 的 value 值时调用 get 方法，所有在此时需要处理的相关逻辑都可以写在 get 中</li>
+<li>当修改 ref 的 value 值时调用 set 方法，所有在此时需要处理的相关逻辑都可以写在 set 中</li>
+</ul>
+</li>
+</ul>
+<pre><code>function createRef(value) &#123;
+  return customRef(() =&gt; &#123;
+    return &#123;
+      get() &#123;
+        return value;
+      &#125;,
+      set(newValue) &#123;
+        value = newValue;
+      &#125;,
+    &#125;;
+  &#125;);
+&#125;
+</code></pre>
+<ul>
+<li>第三步：<ul>
+<li>在 get 方法返回值前调用track()方法，收集依赖</li>
+<li>在 set 方法更新值之后调用trigger()方法，触发依赖</li>
+</ul>
+</li>
+</ul>
+<pre><code>function createRef(value) &#123;
+  return customRef((track, trigger) =&gt; &#123;
+    return &#123;
+      get() &#123;
+        track();
+        return value;
+      &#125;,
+      set(newValue) &#123;
+        value = newValue;
+        trigger();
+      &#125;,
+    &#125;;
+  &#125;);
+&#125;
+</code></pre>
+<blockquote>
+<p>自定义 ref 使用场景</p>
+</blockquote>
+<ul>
+<li>当我们在获取数据或更新数据时需要做一些<strong>额外的操作</strong>，就可以用自定义 ref。</li>
+<li>比如：页面视图的更新并不需要同步更新，而是数据在 200ms 内如果没有连续更新，则再更新视图</li>
+</ul>
+<h4 id="实战应用：自定义防抖-ref"><a href="#实战应用：自定义防抖-ref" class="headerlink" title="实战应用：自定义防抖 ref"></a>实战应用：自定义防抖 ref</h4><blockquote>
+<p>当在输入框中连续输入内容的间隔时间超过500ms，则更新 h3 标签显示的内容，否则不更新</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import &#123; customRef &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      function useDebouncedRef(value, delay = 500) &#123;
+        let timer = null; // 用来保存定时器
+        return customRef((track, trigger) =&gt; &#123;
+          return &#123;
+            get() &#123;
+              track();
+              return value;
+            &#125;,
+            set(newValue) &#123;
+              // 间隔时间不够500ms,则清除上一次定时器，重新计时
+              clearTimeout(timer);
+              timer = setTimeout(() =&gt; &#123;
+                value = newValue;
+                trigger();
+              &#125;, delay);
+            &#125;,
+          &#125;;
+        &#125;);
+      &#125;
+      // 创建 ref
+      const text = useDebouncedRef(&quot;hello&quot;);
+      // 对外暴露text
+      return &#123;
+        text,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;input v-model=&quot;text&quot; /&gt;
+  &lt;h3&gt;&#123;&#123; text &#125;&#125;&lt;/h3&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="五、setup-函数参数"><a href="#五、setup-函数参数" class="headerlink" title="五、setup() 函数参数"></a>五、setup() 函数参数</h3><h4 id="参数-props"><a href="#参数-props" class="headerlink" title="参数 props"></a>参数 props</h4><ul>
+<li>setup()函数有两个参数，第一个参数是组件的props，和标准的组件一致。</li>
+<li>一个 setup 函数的 props 是响应式的，并且会在传入新的props 时同步更新。</li>
+</ul>
+<pre><code>export default &#123;
+  props: [&quot;list&quot;, &quot;title&quot;],
+  setup(props) &#123;
+    console.log(props.title); // 访问传递的title属性
+    console.log(props.list); // 访问传递的list属性
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; reactive, ref &#125; from &quot;vue&quot;;
+  import List from &quot;./components/List.vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const list = reactive([&quot;新闻1..&quot;, &quot;新闻2..&quot;, &quot;新闻3..&quot;]);
+      const title = ref(&quot;新闻标题&quot;);
+
+      // 更新方法
+      function update() &#123;
+        (title.value = &quot;更新后--标题&quot;), list.push(&quot;新加内容一条&quot;);
+      &#125;
+      return &#123;
+        list,
+        title,
+        update,
+      &#125;;
+    &#125;,
+    components: &#123;
+      List,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;List :list=&quot;list&quot; :title=&quot;title&quot; @event-update=&quot;update&quot;&gt;&lt;/List&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>List.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    props: [&quot;list&quot;, &quot;title&quot;],
+    emits: [&quot;eventUpdate&quot;],
+    setup(props) &#123;
+      setTimeout(() =&gt; &#123;
+        console.log(props.title); // 访问传递的title属性
+        console.log(props.list); // 访问传递的list属性
+      &#125;, 3000);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;$emit(&#39;eventUpdate&#39;)&quot;&gt;更新&lt;/button&gt;
+  &lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in list&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+<ol>
+<li>解构 props<blockquote>
+<p>通过上面案例我们知道 props 参数的值为一个响应式代理对象，但如果直接解构props部分属性<strong>将失去响应性</strong>。因此推荐通过<code>props.xxx</code>的形式来使用 props</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>如果我们确实需要解构props，但解构后对应变量仍需保持响应性，可以利用<code>toRefs()</code>工具函数来实现</li>
+</ul>
+<pre><code>setup(props) &#123;
+    let &#123; title, list &#125; = toRefs(props)
+&#125;
+</code></pre>
+<ul>
+<li>如果我们需要将 props 中的某一个 prop 传递到外部，并保持其响应性，则可以利用toRef()工具函数来实现</li>
+</ul>
+<pre><code>setup(props) &#123;
+    let title = toRef(props, &#39;title&#39;)
+&#125;
+</code></pre>
+<h4 id="参数-context"><a href="#参数-context" class="headerlink" title="参数 context"></a>参数 context</h4><blockquote>
+<p>传入 setup 函数的第二个参数 context 是一个 Setup 上下文对象。上下文对象暴露了其他一些在 setup 中可能会用到的值。</p>
+<ul>
+<li>如下：</li>
+</ul>
+</blockquote>
+<pre><code>setup(props, context) &#123;
+    // context是非响应式的普通对象
+    console.log(&quot;context&quot;, context)
+    // 透传 Attributes（非响应式的对象（只读），等价于 $attrs）
+    console.log(&quot;attrs&quot;, context.attrs)
+
+    // 插槽（非响应式的对象，等价于 $slots）
+    console.log(&quot;slots&quot;, context.slots)
+
+    // 触发事件（函数）等价于 $emit）
+    console.log(&quot;emit&quot;, context.emit)
+
+    // 暴露组件公共属性（函数）
+    console.log(&quot;expose&quot;, context.expose)
+&#125;
+</code></pre>
+<ul>
+<li>context上下文对象是非响应式的，可以安全地解构</li>
+</ul>
+<pre><code>export default &#123;
+    // props是响应式的
+    // attrs,slots非响应式（只读的） emit、expose为函数
+    setup(props, &#123; attrs, slots, emit, expose &#125;) &#123;
+        ...
+
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>attrs 和 slots 都是有状态的对象，它们总是会随着组件自身的更新而更新<ul>
+<li>这意味着你应当避免解构它们，并始终通过 <code>attrs.x</code> 或 <code>slots.x</code> 的形式使用其中的属性</li>
+</ul>
+</li>
+</ul>
+<pre><code>/* 不应该解构他们 */
+setup(props, &#123; attrs, slots, emit, expose &#125;) &#123;
+    const &#123;xx,xxx&#125;=attrs;
+    const &#123;xx,xxx&#125;=slots
+    &#125;
+</code></pre>
+<h4 id="什么情况下会使用-setup-函数"><a href="#什么情况下会使用-setup-函数" class="headerlink" title="什么情况下会使用 setup() 函数"></a>什么情况下会使用 setup() 函数</h4><blockquote>
+<p>通过前面的学习，我们知道组合式 API 可以与选项式 API 共存，也就是说，我们可以在选项式 API 中使用setup()函数。<br>但在实际开发中，我们并不推荐两种方式混合使用，更希望在项目中选择其中的一种方式来开发。但在以下情况，选项式 API 会与组合式 API 共存。</p>
+</blockquote>
+<ul>
+<li>旧项目改造： 我们在改造旧项目时，旧项目使用的是选项式 API 书写的，但是我们现在想在原来的基础上集成基于组合式 API 的代码。</li>
+<li>非单文件组件： 在非单文件组件中我们想要使用组合使 API 时，就必需要使用到setup()函数。</li>
+</ul>
+<pre><code>// App.js
+import &#123; ref &#125; from &quot;https://unpkg.com/vue@3/dist/vue.esm-browser.js&quot;;
+export default &#123;
+  setup() &#123;
+    const msg = ref(&quot;Hello Vue!!&quot;);
+    return &#123;
+      msg,
+    &#125;;
+  &#125;,
+  template: `&lt;div&gt;&#123;&#123;msg&#125;&#125;&lt;/div&gt;`,
+&#125;;
+</code></pre>
+<ul>
+<li>对于单文件组件开发中想要使用组合式 API，我们更推荐在<code>&lt;script setup&gt;....&lt;/script&gt;</code>标签中来书写，代码更加简加及符合程序员编写代码的习惯</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>组合式API包括响应式API、生命周期钩子函数、依赖与注入</p>
+</blockquote>
+<h5 id="setup-函数"><a href="#setup-函数" class="headerlink" title="setup()函数"></a>setup()函数</h5><ul>
+<li>所有组合式API都写在<code>setup()</code>函数中</li>
+<li>它的返回值是一个对象<ul>
+<li>组件的模板中可以直接访问该对象的属性</li>
+<li>组件的选项式API中可以通过<code>this</code>打点访问该对象的属性</li>
+</ul>
+</li>
+<li><code>this</code>指向<code>undefined</code>；因此无法访问选项式API中的属性和方法</li>
+<li>执行时机：在<code>beforeCreate()</code>之前自动调用；</li>
+<li>在默认情况下，<code>setup()</code>函数定义的属性都没有响应性</li>
+</ul>
+<h5 id="reactive"><a href="#reactive" class="headerlink" title="reactive()"></a>reactive()</h5><ul>
+<li>用来返回一个<strong>对象</strong>的响应式代理对象，无法转换基本数据类型</li>
+<li>只能通过<code>代理对象.属性名</code>来操作原对象的属性</li>
+<li>返回的响应式代理对象是<strong>深层响应</strong>的</li>
+<li>底层实现：代理对象是<code>Proxy()</code>的实例，该实例上有get和set方法</li>
+<li>如果该参数或者该参数的嵌套属性为<code>ref</code>属性，那么<ul>
+<li>在模板或<code>setup()</code>中使用时会自动解包，可直接通过<code>对象.属性名</code>访问</li>
+<li>同时保持响应性 </li>
+<li>不能自动解包成员为ref属性的响应式数组或者Map，需要通过<code>.value</code>访问</li>
+</ul>
+</li>
+<li>在setup函数中解构响应式对象<ul>
+<li>解包后为基本数据类型的属性值，解构后会失去响应性</li>
+<li>解包后为引用数据类型的属性值，解构后为引用数据类型</li>
+<li>因为ref在setup函数中不会自动解包</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>shallowReactive()方法</p>
+</blockquote>
+<ul>
+<li>相当于是<code>reactive()</code>的浅层作用形式，只有根级别的属性才是响应式的</li>
+<li>因此ref类型的属性值不会自动解包，需要使用<code>.value</code>调用</li>
+</ul>
+<blockquote>
+<p>readonly()</p>
+</blockquote>
+<ul>
+<li>接收一个对象(普通&#x2F;响应式&#x2F;ref)，返回一个原值的只读代理</li>
+<li>只读代理是深层的，对任何嵌套属性的访问都是只读的</li>
+<li>ref解包行为与<code>reactive()</code>相同</li>
+</ul>
+<blockquote>
+<p>isReactive() </p>
+</blockquote>
+<ul>
+<li>检查一个对象是否由<code>reactive()</code>或<code>shallowReactive()</code>创建了代理</li>
+<li>返回值为true时表示是false为不是</li>
+</ul>
+<h5 id="ref-方法"><a href="#ref-方法" class="headerlink" title="ref()方法"></a>ref()方法</h5><ul>
+<li>用来返回一个响应式的、可更改的ref对象，该对象只有一个属性<code>value</code></li>
+<li>访问value属性：<ul>
+<li>在<code>setup()</code>函数内：<code>.value</code></li>
+<li>在模板中：直接使用return出的属性名</li>
+<li>在选项式API中：<code>this.属性名</code></li>
+<li>后两种方式都会自动浅层解包</li>
+</ul>
+</li>
+<li>参数是对象时：<code>&#123;value:reactive(obj)&#125;</code><ul>
+<li>返回的<code>ref</code>对象是一个深层响应的、可更改的ref对象</li>
+<li>返回的<code>ref</code>对象的属性值是一个响应式代理对象</li>
+</ul>
+</li>
+<li>底层实现：创建一个具有get和set属性的对象</li>
+</ul>
+<blockquote>
+<p>toRef()方法</p>
+</blockquote>
+<ul>
+<li><code>const variable = toRef(proxyObject, key, defaultValue);</code></li>
+<li>用于创建一个基于响应式对象的ref属性，并与原属性保持同步</li>
+<li>如果传入的对象不具有响应性，则返回该对象上指定属性的ref对象</li>
+<li>如果指定的属性不存在，将返回undefined或指定的默认值</li>
+<li>如果想创建一个只读的ref对象，就使用箭头函数，将其返回</li>
+</ul>
+<blockquote>
+<p>toRefs() 方法</p>
+</blockquote>
+<ul>
+<li>将一个响应式对象转为成每个成员都是ref属性的普通对象</li>
+</ul>
+<blockquote>
+<p>shallowRef()方法</p>
+</blockquote>
+<ul>
+<li>相当于是ref()的浅层作用形式，只对<code>.value</code>的访问是响应式的，对深层的属性值(<code>.value.属性</code>)不支持响应式</li>
+</ul>
+<blockquote>
+<p>isRef()方法</p>
+</blockquote>
+<ul>
+<li>检查某个值是否为ref对象</li>
+<li>是的话返回true</li>
+</ul>
+<blockquote>
+<p>unref() 方法</p>
+</blockquote>
+<ul>
+<li>unref()方法的参数是 ref，则返回 ref 对象的 <code>value</code> 属性值，否则返回参数本身。</li>
+<li>unref()方法是<code>val = isRef(val) ? val.value : val</code>计算的一个语法糖</li>
+</ul>
+<blockquote>
+<p>customRef()自定义ref</p>
+</blockquote>
+<ul>
+<li>用来创建一个自定义的ref，显示声明对其依赖追踪和更新触发的控制方式</li>
+<li>使用场景：获取数据或更新数据时需要做一些额外操作</li>
+</ul>
+<h5 id="setup-函数参数"><a href="#setup-函数参数" class="headerlink" title="setup()函数参数"></a>setup()函数参数</h5><ul>
+<li><p>第一个参数是组件的<code>props</code>，并且是一个响应式代理对象，会在传入新<code>props</code>时同步更新</p>
+</li>
+<li><p>解构<code>props</code>：使用<code>toRefs()</code>&#x2F;<code>toRef()</code>以保持响应性</p>
+</li>
+<li><p>第二个参数是setup上下文对象<code>context</code>，它是一个非响应式的普通对象</p>
+</li>
+<li><p><code>context</code>暴露了一些值：</p>
+<ul>
+<li><code>context.attrs</code>等价于<code>$attrs</code>，透传属性</li>
+<li><code>context.slots</code>等价于<code>$slots</code>，插槽</li>
+<li><code>context.emit</code>等价于<code>$emit</code>，自定义事件</li>
+<li><code>context.expose</code>用来暴露组件公共属性</li>
+</ul>
+</li>
+<li><p><code>attrs</code>和<code>slots</code>都是代理对象，因此不能解构他们，应当通过打点属性的方式使用其中的属性</p>
+</li>
+</ul>
+<h5 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h5><ul>
+<li>旧项目改造：在选项式API基础上集成组合式API的代码</li>
+<li>非单文件组件</li>
+</ul>
+<h3 id="六、"><a href="#六、" class="headerlink" title="六、"></a>六、<script setup></h3><blockquote>
+<p>在单文件组件中使用组合式 API，需要在<code>&lt;script&gt;</code>标签上添加<code>setup</code>属性。 此时写在<code>&lt;script setup&gt;</code>标签中的代码会被编译成组件<code>setup()</code>函数的内容。</p>
+<ul>
+<li><code>&lt;script setup&gt;</code>是在单文件组件（SFC）中使用组合式 API 的编译时语法糖</li>
+</ul>
+</blockquote>
+<h4 id="的基本用法"><a href="#的基本用法" class="headerlink" title="&lt;script setup&gt;的基本用法"></a><code>&lt;script setup&gt;</code>的基本用法</h4><blockquote>
+<p><code>&lt;script setup&gt;</code>中的<code>this</code>指向与<code>setup()</code>方法中的一样，都指向<code>undefined</code></p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  const count = 0;
+  console.log(this); // undefined
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>在 <code>&lt;script setup&gt; </code>声明的顶层的绑定（包括变量，函数声明，以及 <code>import</code> 导入的内容）都能在模板中直接使用</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 导入求和的方法 sum(2,3) 输出5
+  import sum from &quot;./sum.js&quot;;
+  // 变量
+  const count = 0;
+  // 方法
+  function sayHello() &#123;
+    return &quot;Hello Vue~~&quot;;
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;count:&#123;&#123; count &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;&#123; sayHello() &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;2+3=&#123;&#123; sum(2, 3) &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+<ul>
+<li>在 <code>&lt;script setup&gt;</code> 中创建的变量<strong>不会</strong>作为属性添加到组件实例中。</li>
+<li>如果在某些情况下确实需要从选项式 API 中访问到<code>&lt;script setup&gt;</code>中的变量，建议切换到<code>setup()</code>函数写法</li>
+</ul>
+</blockquote>
+<h4 id="响应式数据"><a href="#响应式数据" class="headerlink" title="响应式数据"></a>响应式数据</h4><ul>
+<li>在 <code>&lt;script setup&gt;</code> 中声明的顶层变量并不是响应式的，需要借助响应式 API（如<code>ref()</code>或<code>reactive()</code>）方法来创建响应式变量</li>
+<li>如果变量为<code>ref</code>对象，在模板中直接使用时会自动解包，这一特点与<code>setup()</code>函数中是一样的</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  // 导入求和的方法 sum(2,3) 输出5
+  import sum from &quot;./sum.js&quot;;
+  // 变量
+  const count = ref(0);
+  // 函数
+  function add() &#123;
+    count.value++; // ref对象需要打点vaule属性访问值
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;add&quot;&gt;count+1&lt;/button&gt;
+  &lt;!--count会自动解包--&gt;
+  &lt;div&gt;&#123;&#123; count &#125;&#125; --&#123;&#123; sum(2, 3) &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h4><blockquote>
+<p>在<code>&lt;script setup&gt;</code>中直接通过<code>import</code>导入需要的组件，然后该组件就可以直接在模板中通过标签名使用</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; defineAsyncComponent &#125; from &quot;vue&quot;;
+  // 导入组件
+  import List from &quot;./components/List.vue&quot;;
+  // 定义一个异步组件
+  const AsyncComp = defineAsyncComponent(() =&gt;
+    import(&quot;./components/AsyncComp.vue&quot;)
+  );
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--使用组件--&gt;
+  &lt;List /&gt;
+  &lt;AsyncComp /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>对于全局组件可以通过组件名直接在模板中使用</li>
+</ul>
+<h4 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h4><blockquote>
+<p>在<code>&lt;script setup&gt;</code>中组件是通过变量引用而不是基于字符串组件名注册<br>所在模板中使用<code>&lt;component&gt;</code>动态组件时，<code>:is</code>的值可以直接是组件定义。</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; shallowRef &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  import B from &quot;./components/B.vue&quot;;
+  /*
+    我们在更新currentComp的值时，只会用一个新的组件替换现有组件，并不会去更新组件中的内容,
+    即currentComp只需要做浅层响应性,并不需要做深层响应性，所以选择用shallowRef而不是ref，
+    */
+  const currentComp = shallowRef(A);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;currentComp = A&quot;&gt;A组件&lt;/button&gt;
+  &lt;button @click=&quot;currentComp = B&quot;&gt;B组件&lt;/button&gt;
+
+  &lt;br /&gt;
+  &lt;br /&gt;
+  &lt;component :is=&quot;currentComp&quot;&gt;&lt;/component&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性 computed"></a>计算属性 computed</h4><ul>
+<li>在组合式 API 中使用计算属性，需要借助 Vue 为我们提供的<code>computed()</code>方法</li>
+<li><code>computed()</code>方法接受一个 <code>getter</code> 函数，返回值为一个计算属性 ref，计算属性在模板中使用时会自动解包</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; computed, ref &#125; from &quot;vue&quot;;
+  const price = ref(10.0);
+  // newPrice为计算属性，是一个ref对象
+  const newPrice = computed(() =&gt; &#123;
+    return price.value + &quot;元&quot;;
+  &#125;);
+  console.log(newPrice.value); // 10元
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--newPrice 会自动解包，所以不用newPrice.value--&gt;
+  &lt;div&gt;&#123;&#123; newPrice &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>如果计算属性需要可写，则<code>computed()</code>方法接受一个带有<code>getter</code>和<code>setter</code>的对象作为参数。</li>
+<li>当读取计算属性时会调用<code>getter</code>方法，为计算属性赋值时，会调用<code>setter</code>方法</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; computed, ref &#125; from &quot;vue&quot;;
+  // tip为计算属性
+  const tip = computed(&#123;
+    get() &#123;
+      console.log(&quot;读取了内容&quot;);
+    &#125;,
+    set(value) &#123;
+      console.log(&quot;更新了内容&quot;);
+    &#125;,
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;tip&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="七、侦听器-watch"><a href="#七、侦听器-watch" class="headerlink" title="七、侦听器 watch"></a>七、侦听器 watch</h3><ol>
+<li>watch 方法的基本使用<blockquote>
+<p>在组合式 API 中，我们需要使用 Vue 提供的watch()函数来侦听一个或多个响应式数据源的变化，并在数据源变化时调用所给的回调函数。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>语法</li>
+</ul>
+<pre><code>watch(source, callback, options);
+</code></pre>
+<blockquote>
+<p>参数详解</p>
+</blockquote>
+<ul>
+<li><code>source</code>： 侦听的 “数据源”，他可以是以下几种形式<ul>
+<li>一个响应式对象（reactive()创建的对象）</li>
+<li>一个 ref 对象（ref()方法创建的对象）</li>
+<li>一个 getter 函数，返回一个值（可以用来监听一个对象属性）</li>
+<li>或以上类型值组成的一个数组</li>
+</ul>
+</li>
+<li><code>callback</code>：侦听的数据源发生变化时要调用的回调函数。这个回调函数接受三个参数<ul>
+<li>第一个参数<code>newValue</code>，表示数据源的新值</li>
+<li>第二个参数<code>oldValue</code>，表示数据源的旧值</li>
+<li>第三个参数<code>onCleanup</code> ，一个用于注册副作用清理的回函数，该回调会在下一次数据源变化调用 callback 函数前调用<br>-<code> options</code>: 是一个可选的配置参数对象，支持以下选项</li>
+<li><code>immediate</code>当值为 true 时，在侦听器创建时立即触发回调 ，默认情况下是 false</li>
+<li><code>deep</code>如果数据源是对象，强制深度遍历，以便在深层级变更时触发回调</li>
+<li><code>flush</code>：调整回调函数的刷新时机，<code>flush:&#39;post&#39;</code>表示在 Vue 更新之后 DOM 之后调用侦听器回调，可以侦听器回调中访问到 Vue 更新之后的 DOM</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>侦听数据源<blockquote>
+<p>侦听的 “数据源”，他可以是以下几种形式</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>一个响应式对象 （reactive()创建的对象）</li>
+<li>一个 getter 函数，返回一个值 （可以用来监听一个对象属性）</li>
+<li>一个 ref 对象（ref()方法创建的对象）</li>
+<li>或以上类型值组成的一个数组</li>
+</ul>
+<blockquote>
+<p>侦听响应式对象</p>
+</blockquote>
+<ul>
+<li>数据源是一个响应式对象，默认是<strong>深层侦听器</strong></li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive, watch &#125; from &quot;vue&quot;;
+
+  const state = reactive(&#123;
+    count: &#123;
+      a: &#123;
+        c: 0,
+      &#125;,
+    &#125;,
+  &#125;);
+
+  setTimeout(() =&gt; &#123;
+    // 只要是该对象的属性（或嵌套属性）的值变化了，侦听器都能侦听到
+    state.count.a.c = 100;
+  &#125;, 3000);
+
+  // 侦听state响应式对象 默认是深层侦听
+  watch(state, (newValue, oldValue) =&gt; &#123;
+    console.log(&quot;count的值更新为&quot;, newValue);
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; state.count.a.c &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>侦听 ref 对象</p>
+</blockquote>
+<ul>
+<li>数据源是一个 ref 对象，默认是浅层侦听，添加<code>deep:true</code>配置可以开启深侦听</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive, watch, ref &#125; from &quot;vue&quot;;
+
+  const state = ref(&#123;
+    count: &#123;
+      a: &#123;
+        c: 0,
+      &#125;,
+    &#125;,
+  &#125;);
+
+  // 如果watch中不添加deep:true配置，则以下修改没有办法被侦听到
+  setTimeout(() =&gt; &#123;
+    state.value.count.a.c = 100;
+  &#125;, 3000);
+
+  // 以下修改可以被正常侦听到
+  setTimeout(() =&gt; &#123;
+    state.value = 100;
+  &#125;, 4000);
+
+  watch(
+    state,
+    (newValue, oldValue) =&gt; &#123;
+      console.log(&quot;c的值更新为&quot;, newValue);
+    &#125;,
+    &#123; deep: true &#125;
+  );
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>侦听响应式对象的属性</p>
+</blockquote>
+<ul>
+<li>你不能直接侦听响应式对象的属性值，需要通过 <code>getter</code> 函数返回该响应式对象的属性才可以。</li>
+</ul>
+<pre><code>import &#123; reactive, watch &#125; from &quot;vue&quot;;
+const state = reactive(&#123; count: &#123; a: 1 &#125; &#125;);
+
+// 下面为错误写法，无法侦听到state的count属性
+watch(state.count, (newValue, oldValue) =&gt; &#123;
+  // .....
+&#125;);
+
+// 以下为正确写法  侦听state对象的count属性
+watch(
+  () =&gt; state.count,
+  (newValue, oldValue) =&gt; &#123;
+    // .....
+  &#125;
+);
+</code></pre>
+<ul>
+<li>以上方式默认是浅侦听，侦听的回调函数只在对象的该属性值发生变化时才会触发。添加<code>deep:true</code>配置可以开启深侦听</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive, watch &#125; from &quot;vue&quot;;
+  const state = reactive(&#123; count: &#123; a: 1 &#125; &#125;);
+
+  // 添加 deep: true 配置时，以下修改可以被侦听器侦听到，否则侦听不到
+  setTimeout(() =&gt; &#123;
+    state.count.a = 100;
+  &#125;, 3000);
+
+  // 侦听state对象的count属性
+  watch(
+    () =&gt; state.count,
+    (newValue, oldValue) =&gt; &#123;
+      console.log(&quot;count的值更新为&quot;, newValue);
+    &#125;,
+    &#123;
+      deep: true, // 开启深层侦听
+    &#125;
+  );
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; state.count.a &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码，如果不添加<code>deep:true</code>配置项，当通过<code>state.count.a=100</code>来修改 a 的值时，侦听器是没有办法侦听到的。</li>
+</ul>
+<blockquote>
+<p>侦听一个数组</p>
+</blockquote>
+<ul>
+<li>数据源是由<code>getter</code>函数、<code>ref</code>对象、<code>reactive</code>对象 类型值组成的一个数组，会侦听该数组中的每个成员的变化。</li>
+<li>如果成员是getter函数和ref对象，默认是浅侦听</li>
+<li>如果是响应式对象，默认是深层侦听</li>
+<li>侦听器回调函数的参数 newValue 和 oldValue 值为一个数组，数组中的每个成员对应数据源中每个成员的当前值和变化前值。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive, watch, ref &#125; from &quot;vue&quot;;
+  const msg = ref(&quot;Hello Vue&quot;);
+  const state = reactive(&#123; count: &#123; a: 1 &#125; &#125;);
+  let num = ref(&#123; a: 1 &#125;);
+  const obj = reactive(&#123; a: &#123; b: 2 &#125; &#125;);
+
+  setTimeout(() =&gt; &#123;
+    num.value.a = 100; // 侦听器侦听不到
+    num.value = &#123; a: 100 &#125;; // 侦听器能侦听到
+  &#125;, 2000);
+
+  setTimeout(() =&gt; &#123;
+    msg.value = &quot;Hello watch&quot;; // 侦听器能侦听到
+  &#125;, 3000);
+
+  setTimeout(() =&gt; &#123;
+    state.count.a = 100; // 侦听器能侦听到
+  &#125;, 4000);
+
+  setTimeout(() =&gt; &#123;
+    obj.a = &#123; b: 100 &#125;; // 侦听器能侦听到
+    obj.a.b = 200; // 侦听器侦听不到
+  &#125;, 4000);
+
+  /**
+   *  num.value 是浅侦听  只有num.value的值变化才能侦听到
+   *  msg 是浅侦听，只有msg.value的值变化才能侦听到
+   *  state 深侦听，state的属性或嵌套属性都能侦听到
+   *  obj.a是浅侦听，只有obj.a的值变化才能侦听到，其内部属性变化不能侦听
+   */
+  watch([() =&gt; num.value, msg, state, () =&gt; obj.a], (newValue, oldValue) =&gt; &#123;
+    console.log(&quot;数组的值更新为&quot;, newValue);
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;&lt;/template&gt;
+</code></pre>
+<ol start="3">
+<li>副作用清理</li>
+</ol>
+<ul>
+<li>在某些场景下，当监听的数据源发生变化时，就会向后台发起请求，如果数据在请求还没有回来时，数据源变化了 5 次，那就会向后台发送 5 次请求，完全是没有必要的。</li>
+<li>所以我们需要在上一次请求没有回来前，如果数据又发生了变化，则把上一次的请求取消，再重新发送一次请求。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; watch, ref &#125; from &quot;vue&quot;;
+  const count = ref(0);
+  // 侦听器，侦听属性count
+  watch(count, (newValue, oldValue, onCleanup) =&gt; &#123;
+    console.log(`数据变化了从$&#123;oldValue&#125; ==&gt; $&#123;newValue&#125;`);
+    // 模拟发送请求
+    let timer = setTimeout(() =&gt; &#123;
+      console.log(&quot;发起请求......&quot;);
+    &#125;, 3000);
+
+    // 取消请求的方法
+    function cancle() &#123;
+      console.log(&quot;取消请求&quot;);
+      clearTimeout(timer);
+    &#125;
+    // 清理副作用的回调函数
+    onCleanup(cancle);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;count++&quot;&gt;更新&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="4">
+<li>options 配置项<blockquote>
+<p>关于options配置项中每一项配置的含义，与前面讲的项选项式 API 中watch是一样的。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>immediate 当值为 true 时，在侦听器创建时立即触发回调 ，默认情况下是 false</li>
+<li>deep 如果数据源是对象，强制深度遍历，以便在深层级变更时触发回调</li>
+<li>flush：调整回调函数的刷新时机，flush:'post'表示在 Vue 更新之后 DOM 之后调用侦听器回调，可以侦听器回调中访问到 Vue 更新之后的 DOM<ul>
+<li>具体用法可以参考选项式 API：侦听器配置选项</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>停止侦听器<blockquote>
+<p>在<code>setup()</code>或<code>&lt;script setup&gt;</code>中用<strong>同步语句</strong>创建的侦听器，会自动绑定到宿主组件实例上，并且会在宿主组件卸载时自动停止。因此，在大多数情况下，你无需关心怎么停止一个侦听器。</p>
+<p>如果用<strong>异步回调</strong>创建一个侦听器，那么它不会绑定到当前组件上，你必须手动停止它，以防内存泄漏</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>同步语句中创建的侦听器，在组件实例被销毁时自动停止</li>
+</ul>
+<pre><code>watch(count, (newValue, oldValue) =&gt; &#123;
+  // ...
+&#125;);
+异步回调创建一个侦听器，在组件实例即将销毁前，手动停止
+let unwatch = null;
+setTimeout(() =&gt; &#123;
+  unwatch = watch(count, (newValue, oldValue) =&gt; &#123;
+    // ....
+  &#125;);
+&#125;);
+// 在组件实例即将销毁前，停止候听器
+onBeforeUnmount(() =&gt; &#123;
+  console.log(&quot;组件即将销毁&quot;);
+  // 停止侦听器
+  unwatch();
+&#125;);
+</code></pre>
+<h3 id="八、watchEffect-方法"><a href="#八、watchEffect-方法" class="headerlink" title="八、watchEffect() 方法"></a>八、watchEffect() 方法</h3><ol>
+<li>watchEffect() 的基本使用<blockquote>
+<p><code>watchEffect()</code>方法一旦被调用，会<strong>立即</strong>运行其回调函数，同时响应式地追踪其依赖，并在依赖更改时重新执行。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>function watchEffect(
+  effect: (onCleanup: OnCleanup) =&gt; void, //  运行副作用函数
+  options?: WatchEffectOptions // 可选的配置选项
+): StopHandle;
+
+interface WatchEffectOptions &#123;
+  flush?: &quot;pre&quot; | &quot;post&quot; | &quot;sync&quot;; // 默认：&#39;pre&#39;
+  onTrack?: (event: DebuggerEvent) =&gt; void;
+  onTrigger?: (event: DebuggerEvent) =&gt; void;
+&#125;
+</code></pre>
+<blockquote>
+<p>参数详解</p>
+</blockquote>
+<ul>
+<li>第一个参数是要运行的副作用函数。这个副作用函数的参数也是一个函数，用来注册清理回调。清理回调会在该副作用下一次执行前被调用，可以用来清理无效的副作用，例如等待中的异步请求</li>
+<li>第二个参数是一个可选的选项，可以用来调整副作用的刷新时机或调试副作用的依赖。<ul>
+<li><code>flush:&#39;post&#39;</code>默认情况下，侦听器将在组件渲染之前执行。设置<code>flush: &#39;post&#39;</code>将会使侦听器延迟到组件渲染之后再执行</li>
+<li><code>onTrack</code>将在响应属性或引用作为依赖项被跟踪时被调用。</li>
+<li><code>onTrigger</code>将在侦听器回调被依赖项的变更触发时被调用</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意与watch对比：</p>
+</blockquote>
+<ul>
+<li><code>watch()</code>方法是惰执行的，只在数据更新时才会执行，即第一次初始化时并不会侦听，除非添加了<code>immediate: true</code>配置</li>
+</ul>
+<ol start="2">
+<li>侦听器调试<blockquote>
+<p>如果我们想要对侦听器做调试，可以向 <code>watchEffect()</code> 传入第二个参数，是一个包含了 <code>onTrack</code> 和 <code>onTrigger</code> 两个回调函数的对象。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>onTrack</code>将在响应属性或引用作为依赖项被跟踪时被调用。</li>
+<li><code>onTrigger</code>将在侦听器回调被依赖项的变更触发时被调用。</li>
+<li>侦听器的 <code>onTrack</code> 和 <code>onTrigger</code> 选项仅会在开发模式下工作。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, watchEffect &#125; from &quot;vue&quot;;
+  const a = ref(2);
+  const b = ref(3);
+  watchEffect(
+    () =&gt; &#123;
+      console.log(`$&#123;a.value&#125;+$&#123;b.value&#125;=$&#123;a.value + b.value&#125;`);
+    &#125;,
+    &#123;
+      onTrack(e) &#123;
+        // 当读取a和b的值时触发，即： a.value  b.value
+        console.log(&quot;track&quot;);
+        debugger;
+      &#125;,
+      onTrigger(e) &#123;
+        // 当a和b的值发生变化时触发 即 a.value=20 b.value=20
+        console.log(&quot;trigger&quot;);
+        debugger;
+      &#125;,
+    &#125;
+  );
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;a: &lt;input type=&quot;text&quot; v-model.number=&quot;a&quot; /&gt;&lt;/div&gt;
+  &lt;div&gt;b: &lt;input type=&quot;text&quot; v-model.number=&quot;b&quot; /&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>更多响应性调试，查阅 Vue 官方文档：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/extras/reactivity-in-depth.html#reactivity-debugging">响应性调试</a></li>
+</ul>
+<ol start="3">
+<li>副作用清除</li>
+</ol>
+<ul>
+<li><code>watchEffect</code>回调函数的第一个参数<code>onCleanup</code>为副作用清除函数，<code>onCleanup</code>函数接收一个函数作为参数，该参数会在下一次回调函数调用前执行。</li>
+</ul>
+<pre><code>watchEffect((onCleanup) =&gt; &#123;
+  // 取消定时器或取消请求等操作
+  function cancle() &#123;&#125;
+
+  // cancle 函数会在下一次回调函数调用前执行
+  onCleanup(cancle);
+&#125;);
+</code></pre>
+<ol start="4">
+<li>停止侦听器<blockquote>
+<p>停止侦听器的方式和watch方法一样。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>具体如下：</li>
+</ul>
+<pre><code>const stop = watchEffect(() =&gt; &#123;&#125;);
+
+// 停止侦听器
+stop();
+</code></pre>
+<ol start="5">
+<li>watch() 与 watchEffect() 对比<blockquote>
+<p>watch()侦听器特点</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>默认是懒侦听的，即仅在侦听源发生变化时才执行回调函数，设置<code>immediate: true</code>时可以变为非惰性，页面首次加载就会执行</li>
+<li>需要指定侦听的数据源，并且只在该数据源发生变化时，才会执行</li>
+<li>可以获取数据变化前后的值</li>
+</ul>
+<blockquote>
+<p><code>watchEffect()</code>侦听器特点</p>
+</blockquote>
+<ul>
+<li><code>watchEffect()</code>立即执行，没有惰性，页面首次加载就会执行</li>
+<li><code>watchEffect()</code>不需要指定侦听的数据源，会自动收集依赖数据，依赖数据更新时重新执行自身</li>
+<li>无法获取到变化前的原始值，只能得到变化后的值</li>
+</ul>
+<ol start="6">
+<li>axios 取消请求<blockquote>
+<p>副作用清理函数常用来取消上一次请求，所以接下来，我们先来学习下如何在 axios 中取消上一次请求。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在 axios 中取消上一次请求相关代码，具体参考：<a target="_blank" rel="noopener" href="https://www.axios-http.cn/docs/cancellation">axios 取消请求</a>与 AbortController - <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/AbortController">Web API 接口参考 | MDN (mozilla.org)</a></li>
+<li>从 v0.22.0 开始，Axios 支持以 fetch API 方式 —— <code>AbortController</code>取消请求，该请求一旦被取消将不能被再发起。</li>
+</ul>
+<pre><code>// controller表示一个控制器对象，允许你根据需要中止一个或多个 Web 请求。
+const controller = new AbortController();
+
+axios
+  .get(&quot;/foo/bar&quot;, &#123;
+    // controller的只读属性signal 返回一个 AbortSignal 实例对象，该对象可以根据需要处理 DOM 请求通信，既可以建立通信，也可以终止通信。
+    signal: controller.signal,
+  &#125;)
+  .then(function (response) &#123;
+    //...
+  &#125;)
+  .catch(() =&gt; &#123;
+    console.log(&quot;请求失败&quot;);
+  &#125;);
+
+// 中止一个尚未完成的 Web（网络）请求
+controller.abort();
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>当点击发送请求按扭后，会开始发起两个请求，如果请求还没有回来时，点击了取消请求按扭，则会同时把两个请求都取消。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import axios from &quot;axios&quot;;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  // 请求地址
+  const url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/menu/&quot;;
+  // 请求ID
+  const paramId = ref(1001);
+
+  let controller = null;
+
+  // 发送请求
+  function onSend() &#123;
+    controller = new AbortController();
+
+    axios
+      .get(`$&#123;url&#125;+$&#123;paramId.value&#125;`, &#123;
+        signal: controller.signal,
+      &#125;)
+      .then((res) =&gt; &#123;
+        console.log(&quot;请求成功内容：&quot;);
+        // 处理请求回来的内容
+        console.log(res.data);
+      &#125;)
+      .catch(() =&gt; &#123;
+        console.log(&quot;请求失败&quot;);
+      &#125;);
+
+    axios
+      .get(`$&#123;url&#125;+$&#123;paramId.value&#125;`, &#123;
+        signal: controller.signal,
+      &#125;)
+      .then((res) =&gt; &#123;
+        console.log(&quot;请求成功内容：&quot;);
+        // 处理请求回来的内容
+        console.log(res.data);
+      &#125;)
+      .catch(() =&gt; &#123;
+        console.log(&quot;请求失败&quot;);
+      &#125;);
+  &#125;
+
+  function onAbort() &#123;
+    // 取消请求 （多个请求）
+    controller.abort();
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;onSend&quot;&gt;发起请求&lt;/button&gt;
+  &lt;button @click=&quot;onAbort&quot;&gt;取消请求&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="7">
+<li>实战应用</li>
+</ol>
+<ul>
+<li>以下示例展示了 paramId 变量的数据发生变化时，会发送 Ajax 请求。</li>
+<li>但是在请求数据还没有回来前 paramId 变值的值再次发生变化时，就会把上一次请求取消，然后重新发送一次请求。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import axios from &quot;axios&quot;;
+  import &#123; reactive, ref, watch, watchEffect &#125; from &quot;vue&quot;;
+  // 请求地址
+  const url =
+    &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/menu/&quot;;
+  // 请求参数
+  const paramId = ref(1001);
+  // 接受请求回来的数据 (数组)
+  const list = ref(null);
+  let controller = null;
+
+  // 一上来，就发一个请求获取数据
+  watchEffect((onCleanup) =&gt; &#123;
+    // AbortController 接口表示一个控制器对象，允许你根据需要中止一个或多个 Web 请求。
+    controller = new AbortController();
+    // 可以发请求
+    axios
+      .get(`$&#123;url&#125;$&#123;paramId.value&#125;`, &#123;
+        // 配置取消请求
+        signal: controller.signal,
+      &#125;)
+      .then((res) =&gt; &#123;
+        list.value = res.data.data;
+        console.log(list.value);
+      &#125;)
+      .catch((error) =&gt; &#123;
+        console.log(&quot;请求失败&quot;);
+      &#125;);
+
+    // 取消请求
+    function cancel() &#123;
+      console.log(&quot;用户取消请求&quot;);
+      controller.abort();
+    &#125;
+
+    // 在下一次执行前，会调用传入的cancle取消上一次请求
+    onCleanup(cancel);
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!-- 菜单 --&gt;
+  &lt;button @click=&quot;paramId = 1001&quot;&gt;菜单1&lt;/button&gt; |
+  &lt;button @click=&quot;paramId = 1002&quot;&gt;菜单2&lt;/button&gt; |
+  &lt;button @click=&quot;paramId = 1003&quot;&gt;菜单3&lt;/button&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;&#123;&#123; item.productName &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="九、自定义指令"><a href="#九、自定义指令" class="headerlink" title="九、自定义指令"></a>九、自定义指令</h3><ul>
+<li>在全局注册的自定义指令，在任意组件的模板中可以直接使用。</li>
+<li>在<code>&lt;script setup&gt;</code>中不需要显式注册局部指令，如果一个变量的命名遵循<code>vNameOfDirective</code>这样的规范，Vue 会自动把他当作一条指令来执行。</li>
+<li>指令的值和用法与选项式 API 中一模一样，具体可参考选项式 API</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 定义一条指令 v-my-directive  ,以下是对象的完整写法
+  const vMyDirective = &#123;
+    mounted(el, binding) &#123;&#125;,
+    updated(el, binding) &#123;&#125;,
+  &#125;;
+
+  // 定义一条指令v-focus,以下是函数简写形式
+  const vFocus = (el, binding) =&gt; &#123;&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--使用指令--&gt;
+  &lt;div v-my-directive&gt;&lt;/div&gt;
+  &lt;input type=&quot;text&quot; v-focus /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>如果指令是从别处导入的，可以通过重命名来使其符合命名规范</li>
+</ul>
+<pre><code>import &#123; focus as vFocus &#125; from &quot;./focus.js&quot;;
+
+// focus.js内容如下
+const focus = (el, binding) =&gt; &#123;
+  /* ...... */
+&#125;;
+export &#123; focus &#125;;
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>自定义<code>v-focus</code>指令，单行文本框在添加该指令后，会自获取焦点同时背景色变蓝色。</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const msg = ref(&quot;Hello&quot;);
+  const vFocus = &#123;
+    mounted(el, binding) &#123;
+      el.focus();
+      el.style.border = &quot;none&quot;;
+      el.style.backgroundColor = &quot;skyblue&quot;;
+    &#125;,
+  &#125;;
+
+  // 以下是函数简写形式,当 mounted 与 updated 效果一样时，可采用函数简写形式
+  /*
+    const vFocus = (el, binding) =&gt; &#123;
+      el.focus();
+      el.style.border = &quot;none&quot;;
+      el.style.backgroundColor = &quot;skyblue&quot;
+    &#125;
+    */
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;input type=&quot;text&quot; v-focus v-model=&quot;msg&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="十、模板引用"><a href="#十、模板引用" class="headerlink" title="十、模板引用"></a>十、模板引用</h3><ol>
+<li>ref 模板引用<blockquote>
+<p>在组合式 API 中要获得对模板的引用，我们需要声明一个同名的 ref 变量。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, onMounted &#125; from &quot;vue&quot;;
+  // 声明一个ref变量来存放该元素的引用
+  // 变量名必须与模板里 ref同名
+  const box = ref(null);
+
+  // 组件挂载成功后，才能访问到该元素的引用
+  onMounted(() =&gt; &#123;
+    console.log(box.value.innerHTML);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot; ref=&quot;box&quot;&gt;box内容&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>注意：你只可以在组件挂载后才能访问模板引用，在没有挂载前模板引用的 ref 值是一个 null。</li>
+</ul>
+<ol start="2">
+<li>v-for 中的模板引用<blockquote>
+<p>当在 v-for 中使用模板引用时，对应的 ref 中包含的值是一个数组，它将在元素被挂载后包含对应整个列表的所有元素</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, onMounted &#125; from &quot;vue&quot;;
+  const list = [1, 2, 3, 4];
+  // 声明一个ref变量来存放该元素的引用
+  // 变量名必须与模板里 ref同名
+  const items = ref([]);
+
+  // 组件挂载成功后，才能访问到该元素的引用
+  onMounted(() =&gt; &#123;
+    console.log(items.value);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in list&quot; ref=&quot;items&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="3">
+<li>组件上的 ref<blockquote>
+<p>在组合式 API<code>&lt;script setup&gt;</code>中，模板引用中获得的值是组件实例。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>不过使用了 <code>&lt;script setup&gt;</code> 的组件是默认私有的：一个父组件无法访问到一个使用了 <code>&lt;script setup&gt;</code> 的子组件中的任何东西，除非子组件在其中通过 <code>defineExpose</code> 宏显式暴露</li>
+</ul>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import A from &quot;./components/A.vue&quot;;
+  import &#123; ref, onMounted &#125; from &quot;vue&quot;;
+  const child = ref(null);
+  onMounted(() =&gt; &#123;
+    console.log(child.value.msg); //  undefined  如果A组件中对外暴露了该属性，则能获取值
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;a ref=&quot;child&quot;&gt;&lt;/a&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>A.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const msg = ref(&quot;A组件&quot;);
+  // 对外暴露属性
+  // defineExpose(&#123;
+  //     msg
+  // &#125;)
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="十一、组合式-API-组件通信-API"><a href="#十一、组合式-API-组件通信-API" class="headerlink" title="十一、组合式 API - 组件通信 API"></a>十一、组合式 API - 组件通信 API</h3><ol>
+<li>defineProps()</li>
+</ol>
+<ul>
+<li><p>在选项式 API 中，通过 props 选项来声明父组件传递的 props</p>
+</li>
+<li><p>在组合式 API 中，通过<code>defineProps()</code>方法来声明 props。</p>
+</li>
+<li><p><code>defineProps()</code>方法接收与 props 选项相同的值<br><code>defineProps()</code>方法被称为编译器宏，在组合式 API 中不需要导入，可以直接使用</p>
+</li>
+<li><p>数组简写形式</p>
+</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 参数是一个数组
+  const props = defineProps([&quot;userName&quot;, &quot;age&quot;]);
+  // props是由声明的属性名与属性值组成的对象
+  console.log(props); //  &#123;userName: 1, age: 19&#125;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>对象写法，对 props 做校验，</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 参数是一个对象，可以对prop做相关的校验
+  const props = defineProps(&#123;
+    userName: String,
+    age: &#123;
+      // 数据类型
+      type: Number,
+
+      // 属性是否为必传，true表示必传
+      required: true,
+
+      // 表示未传该属性时，属性的默认值，如果没有配置default选项
+      // 对于没有传的非bool类型属性，默认值为undefind，bool类型属性为false
+      // required与default 不能同时出现，因为必传，就决定了不会启用默认值
+      default: 17,
+
+      // 数据校验函数，如果返回值为false，表示校验失败，控制台会抛出禁告
+      validator(value) &#123;
+        // ....
+        return true;
+      &#125;,
+    &#125;,
+  &#125;);
+
+  // props是由声明的属性名与属性值组成的对象
+  console.log(props); //  &#123;userName: 1, age: 19&#125;
+&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>defineEmits() 方法<blockquote>
+<p>在选项式 API 中，通过<code>emits</code>来声明父组件传递的事件监听器，在组合式 API 中，通过<code>defineEmits()</code>方法来声明。<code>defineEmits()</code>方法接收与 emits 选项相同的值</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>defineEmits()</code>方法被称为编译器宏，在组合式 API 中不需要导入，可以直接使用</li>
+</ul>
+<pre><code>import &#123; onMounted &#125; from &quot;vue&quot;;
+// emit 相当于选项式API中的 this.$emit 用来触发自定义事件
+const emit = defineEmits([&quot;addEvent&quot;, &quot;delEvent&quot;]);
+
+// 生命周期函数中触发事件
+onMounted(() =&gt; &#123;
+  emit(&quot;addEvent&quot;);
+&#125;);
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  import Count from &quot;./components/Count.vue&quot;;
+  const count = ref(0);
+
+  function add() &#123;
+    count.value++;
+  &#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!--@add-event  绑定事件监听器--&gt;
+  &lt;Count :count=&quot;count&quot; @add-event=&quot;add&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>Count.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; onMounted &#125; from &quot;vue&quot;;
+  defineProps([&quot;count&quot;]);
+  // emit 相当于选项式API中的 this.$emit,可以用来触发事件
+  const emit = defineEmits([&quot;addEvent&quot;, &quot;delEvent&quot;]);
+
+  // 生命周期函数中触发事件
+  onMounted(() =&gt; &#123;
+    setTimeout(() =&gt; &#123;
+      emit(&quot;addEvent&quot;);
+    &#125;, 2000);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;$emit(&#39;addEvent&#39;)&quot;&gt;count++&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="3">
+<li>useAttrs() 方法</li>
+</ol>
+<ul>
+<li>在选项式 API 中，可以通过<code>this.$attrs</code>来访问透传属性。</li>
+<li>在组合式 API 中，我们需要用 Vue 提供的<code>useAttrs()</code>方法来获取所有透传属性，该方法的返回值与选项式 API 中<code>this.$attrs</code>的值是一样的</li>
+<li>注意：透传属性会自动绑定到子组件上，即使不使用<code>useAttrs()</code>方法，子组件模板也可以通过<code>$attrs</code>来使用透传属性；但在<code>script</code>中使用透传属性必须用<code>useAttrs()</code>方法</li>
+</ul>
+<pre><code>&lt;!--父组件中调用Count--&gt;
+&lt;template&gt;
+  &lt;Count :class=&quot;[&#39;active&#39;]&quot; id=&quot;box&quot; /&gt;
+&lt;/template&gt;
+
+&lt;!--Count.vue 代码--&gt;
+&lt;script setup&gt;
+  import &#123; ref, useAttrs &#125; from &quot;vue&quot;;
+  // attrs 相当于选项式API中的this.$attrs
+  const attrs = useAttrs();
+  console.log(attrs.class); // active
+  console.log(attrs.id); // box
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; attrs.class &#125;&#125; --- &#123;&#123; attrs.id &#125;&#125;&lt;/div&gt;
+  &lt;!-- 不使用useAttrs()方法时 --&gt;
+  &lt;div&gt;&#123;&#123; $attrs.class &#125;&#125; --- &#123;&#123; $attrs.id &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码最终渲染后代码如下：</li>
+</ul>
+<pre><code>&lt;div class=&quot;active&quot; id=&quot;box&quot;&gt;active --- box&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>禁用透传行为</p>
+</blockquote>
+<ul>
+<li>在选项式 API 中，我们通过<code>inheritAttrs</code>选项来禁用透传行为。</li>
+<li>在组合式 API 中，我们可以让<code>&lt;script setup&gt;</code>与<code>&lt;script&gt;</code>标签一起共存，在<code>&lt;script&gt;</code>标签的选项式 API 中来书写<code>inheritAttrs</code>选项禁用透传行为。</li>
+<li>在 <code>Vue3.3+</code>以上版本，也可以通过<code>defineOptions()</code>方法来实现</li>
+</ul>
+<pre><code>&lt;!--父组件中调用Count--&gt;
+&lt;template&gt;
+  &lt;Count :class=&quot;[&#39;active&#39;]&quot; id=&quot;box&quot; /&gt;
+&lt;/template&gt;
+
+&lt;!--Count.vue 代码--&gt;
+&lt;script&gt;
+  export default &#123;
+    inheritAttrs: false,
+  &#125;;
+&lt;/script&gt;
+&lt;script setup&gt;
+  import &#123; ref, useAttrs &#125; from &quot;vue&quot;;
+  // attrs 相当于选项式API中的this.$attrs
+  const attrs = useAttrs();
+  console.log(attrs.class);
+  console.log(attrs.id);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; attrs.class &#125;&#125; --- &#123;&#123; attrs.id &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码，最终渲染后效果如下：</li>
+</ul>
+<pre><code>&lt;div&gt;active --- box&lt;/div&gt;
+</code></pre>
+<ul>
+<li>class与id属性并没有自动透传绑定 div 元素身上</li>
+</ul>
+<ol start="4">
+<li>defineOptions() 方法</li>
+</ol>
+<ul>
+<li>在 <code>Vue3.3+</code> 以上版本，<code>defineOptions</code> 这个宏可以用来直接在 <code>&lt;script setup&gt;</code> 中声明组件选项，而不必使用单独的 <code>&lt;script&gt;</code> 块</li>
+<li><code>defineOptions()</code>方法被称为编译器宏，在组合式 API 中不需要导入，可以直接使用</li>
+<li><code>defineOptions</code>相当于选项式<code>script</code>块，可以禁止透传，也可以写选项式语法</li>
+</ul>
+<pre><code>&lt;!--父组件中调用Count--&gt;
+&lt;template&gt;
+  &lt;Count :class=&quot;[&#39;active&#39;]&quot; id=&quot;box&quot; /&gt;
+&lt;/template&gt;
+
+&lt;!--Count.vue 代码--&gt;
+&lt;script setup&gt;
+  import &#123; useAttrs &#125; from &quot;vue&quot;;
+  // attrs 相当于选项式API中的this.$attrs
+  const attrs = useAttrs();
+  //defineOptions相当于选项式script
+  defineOptions(&#123;
+    inheritAttrs: false,
+    data() &#123;
+      return &#123;
+        msg: &quot;Hello Vue&quot;,
+      &#125;;
+    &#125;,
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;&#123; attrs.class &#125;&#125; --- &#123;&#123; attrs.id &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码最终渲染结果如下：</li>
+</ul>
+<pre><code>&lt;div&gt;
+  &lt;div&gt;Hello Vue&lt;/div&gt;
+  &lt;div&gt;active --- box&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>属性自动透传行为被禁止，msg被正确的在模板中解析出来了</li>
+</ul>
+<ol start="5">
+<li>defineExpose() 方法</li>
+</ol>
+<ul>
+<li>使用<code>&lt;script setup&gt;</code>的组件是默认关闭的——即通过模板引用或者<code>$parent</code>链获取到的组件的公开实例，不会暴露任何在 <code>&lt;script setup&gt;</code> 中声明的绑定。</li>
+<li>可以通过 <code>defineExpose</code> 编译器宏来显式指定在 <code>&lt;script setup&gt;</code> 组件中要暴露出去的属性</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+
+  const msg = ref(&quot;Hello Count&quot;);
+  const count = ref(1);
+  // 对外暴露以下属性
+  defineExpose(&#123;
+    msg,
+    count,
+  &#125;);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Count from &quot;./components/Count.vue&quot;;
+  import &#123; ref, onMounted &#125; from &quot;vue&quot;;
+  const box = ref(null);
+  const comp = ref(null);
+
+  onMounted(() =&gt; &#123;
+    console.log(box.value); // &lt;div&gt;App.vue&lt;/div&gt;
+    console.log(comp.value.msg); // Hello Count
+    console.log(comp.value.count); // 1
+    console.log(comp.value.num); // undefined
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot;&gt;App.vue&lt;/div&gt;
+  &lt;Count ref=&quot;comp&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>Count.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const msg = ref(&quot;Hello Count&quot;);
+  const count = ref(1);
+  const num = ref(100);
+  defineExpose(&#123;
+    msg,
+    count,
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; msg &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;&#123; count &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;&#123;&#123; num&#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="十二、依赖与注入"><a href="#十二、依赖与注入" class="headerlink" title="十二、依赖与注入"></a>十二、依赖与注入</h3><blockquote>
+<p>在组合式 API 中，组件要为后代组件提供数据，后代组件要能使用上层组件提供的数据，需要经过以下两步：</p>
+</blockquote>
+<ul>
+<li>上层组件通过<code>provide()</code>函数向后代组件提供数据</li>
+<li>后代组件通过<code>inject()</code>函数注入上层组件提供的数据</li>
+</ul>
+<ol>
+<li>provide() 函数<blockquote>
+<p><code>provide()</code>函数用于在组合式 API 中为后代组件提供数据</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; provide &#125; from &quot;vue&quot;;
+  provide(/* 注入名 */ &quot;message&quot;, /* 值 */ &quot;hello!&quot;);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>参数详解</p>
+</blockquote>
+<ul>
+<li>第一个参数为注入名，可以是一个字符串或一个 <code>Symbol</code> 类型，后代组件会用该注入名来查找期望的注入值</li>
+<li>第二个参数是提供的值，值可以是任意类型，如果值是一个响应式的（如比 <code>ref</code> 或 <code>reactive</code>），则后代组件可以由此和提供者建立响应式的联系。</li>
+<li>一个组件可以多次调用 <code>provide()</code>，使用不同的注入名，注入不同的依赖值。</li>
+</ul>
+<ol start="2">
+<li>inject() 函数<blockquote>
+<p>inject()函数用于在组合式 API 中，后代组件要注入上层组件提供的数据</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; inject &#125; from &quot;vue&quot;;
+  const msg = inject(&quot;message&quot;, &quot;默认值&quot;);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>参数详解</p>
+</blockquote>
+<ul>
+<li>第一个参数为注入名，通过注入名访问到上层组件提供的对应数据</li>
+<li>第二个参数为默认值，如果上传组件没有提供该注入名，则会启用默认值</li>
+<li>上层组件提供的数据如果是一个 ref 对象，注入进来的会是该 ref 对象，而不会自动解包，这使得注入方组件能够通过 ref 对象保持了和供给方的响应性链接。不过在模板中使用时会自动解包。</li>
+</ul>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Main from &quot;./components/Main.vue&quot;;
+  import &#123; ref, reactive, provide &#125; from &quot;vue&quot;;
+  // 响应式数据
+  const userInfo = reactive(&#123;
+    userName: &quot;艾编程&quot;,
+    age: 12,
+    hobbies: [&quot;画画&quot;, &quot;唱歌&quot;, &quot;音乐&quot;],
+  &#125;);
+  function update() &#123;
+    userInfo.userName = &quot;清心&quot;;
+    userInfo.age = 30;
+    userInfo.hobbies = [&quot;写代码&quot;, &quot;跑步&quot;, &quot;阅读&quot;];
+  &#125;
+  // 提供数据
+  provide(&quot;userInfo&quot;, userInfo);
+  provide(&quot;update&quot;, update);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;main /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>Main.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Item from &quot;./Item.vue&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;Item /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>Item.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; inject, reactive, toRefs &#125; from &quot;vue&quot;;
+  // 注入数据
+  const &#123; userName, age, hobbies &#125; = toRefs(inject(&quot;userInfo&quot;));
+  // 以下写法，解构后，将会失去响应性
+  // const &#123; userName, age, hobbies &#125; = inject(&quot;userInfo&quot;)
+
+  const update = inject(&quot;update&quot;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click.once=&quot;update&quot;&gt;更新数据&lt;/button&gt;
+  &lt;div&gt;姓名：&#123;&#123; userName &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;年龄：&#123;&#123; age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;爱好：&#123;&#123; hobbies &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="十三、生命周期钩子"><a href="#十三、生命周期钩子" class="headerlink" title="十三、生命周期钩子"></a>十三、生命周期钩子</h3><ol>
+<li>生命周期函数示图</li>
+</ol>
+<ul>
+<li>我们再来回顾之前讲到的生命周期函数示图<img src="生命周期函数.png"></li>
+</ul>
+<blockquote>
+<p>组合式 API 中的生命周期函数与选项式 API 中是几乎是一一对应的，只是存在以下两点不同：</p>
+<ul>
+<li>两者函数名写法上有所不同，组合式 API 生命周函数都以 <code>on</code> 开头，并采用驼峰命名，如下表。</li>
+<li>组合式 API 中没有与之对应的<code>onBeforeCreate</code>与<code>onCreated</code>函数，所有期望在<code>beforeCreate</code>与<code>created</code>生命周期函数阶段执行的代码都可以写在在<code>setup()</code>函数或<code>&lt;script setup&gt;</code>标签中。<br>因为<code>setup()</code>与<code>&lt;script setup&gt;</code>中的代码会在<code>beforeCreate</code>生命周期函数之前被处理</li>
+<li>因此组合式 API 中所有写在<code>setup()</code>函数或<code>&lt;script setup&gt;</code>中的顶层变量或方法相当于选项式 API 中<code>data()</code>方法与<code>methods</code>选项等其它选项对外暴露的属性和方法。</li>
+</ul>
+</blockquote>
+<ul>
+<li>组合式 API 与选项式 API 中生命周期函数的对比表</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项式 API</th>
+<th>组合式 API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>beforeCreate</td>
+<td>setup</td>
+<td>在组件实例初始化完成之后立即调用</td>
+</tr>
+<tr>
+<td>created</td>
+<td>setup</td>
+<td>在组件实例处理完所有与状态相关的选项后调用</td>
+</tr>
+<tr>
+<td>beforeMount</td>
+<td>onBeforeMount</td>
+<td>组件被挂载之前被调</td>
+</tr>
+<tr>
+<td>mounted</td>
+<td>onMounted</td>
+<td>用组件挂载完成后执行</td>
+</tr>
+<tr>
+<td>beforeUpdate</td>
+<td>onBeforeUpdate</td>
+<td>组件即将因为响应式状态变更而更新其 DOM 树之前调用</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>onUpdated</td>
+<td>组件因为响应式状态变更而更新其 DOM 树之后调用</td>
+</tr>
+<tr>
+<td>beforeUnmount</td>
+<td>onBeforeUnmount</td>
+<td>组件实例被卸载之前调用</td>
+</tr>
+<tr>
+<td>unmounted</td>
+<td>onUnmounted</td>
+<td>组件实例被卸载之后调用</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>生命周期函数使用</li>
+</ol>
+<ul>
+<li>组合式 API 中生命周期函数需要先导入，然后才能使用。</li>
+<li>每个生命周期函数的第一个参数是一个回调函数，在组件或应用执行到此阶段时，会触发该回调函数</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 导入生命周期函数
+  import &#123; onMounted &#125; from &quot;vue&quot;;
+  // 只会在组件或应用执行到此生命阶段时，才会触发其回调函数
+  onMounted(() =&gt; &#123;
+    console.log(&quot;DOM挂载完毕&quot;);
+  &#125;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>如果在同一个 setup 中，同一个生命周期函数出现多次，则每个生命周期函数的回调都会触发，<strong>不存在覆盖的情况</strong></li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 导入生命周期函数
+  import &#123; onMounted &#125; from &quot;vue&quot;;
+  // 只会在组件或应用执行到此生命阶段时，才会触发其回调函数
+  onMounted(() =&gt; &#123;
+    console.log(&quot;111&quot;);
+  &#125;);
+  onMounted(() =&gt; &#123;
+    console.log(&quot;222&quot;);
+  &#125;);
+&lt;/script&gt;
+</code></pre>
+<h3 id="十四、组合式-API-常见疑问"><a href="#十四、组合式-API-常见疑问" class="headerlink" title="十四、组合式 API 常见疑问"></a>十四、组合式 API 常见疑问</h3><ul>
+<li>组合式 API 的常见疑问，大家可以参 Vue 官方文档：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/extras/composition-api-faq.html">组合式 API 常见问题</a></li>
+</ul>
+<blockquote>
+<p>为什么要有组合式 API？</p>
+</blockquote>
+<ul>
+<li>更好的逻辑复用</li>
+<li>更灵活的代码组织</li>
+<li>更好的类型推导</li>
+<li>更小的生产包体积</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/25/Vue%EF%BC%88%E4%BA%94%EF%BC%89/">https://hermiablog.com/2024/01/25/Vue%EF%BC%88%E4%BA%94%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/26/Vue%EF%BC%88%E5%85%AD%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/47.jpg" class="responsive-img" alt="Vue（六）">
+                        
+                        <span class="card-title">Vue（六）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            渲染机制、虚拟DOM、render函数、h函数、渲染流程、函数式组件、Transition内置组件
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/24/Vue%EF%BC%88%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/45.jpg" class="responsive-img" alt="Vue（四）">
+                        
+                        <span class="card-title">Vue（四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            插槽、依赖注入、兄弟组件间通信、发布与订阅、动态/异步组件
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

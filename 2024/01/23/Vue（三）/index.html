@@ -1,0 +1,4960 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue（三）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue（三） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/44.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue（三）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    25.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、Vue-组件的生命周期"><a href="#一、Vue-组件的生命周期" class="headerlink" title="一、Vue 组件的生命周期"></a>一、Vue 组件的生命周期</h3><h4 id="什么是生命周期"><a href="#什么是生命周期" class="headerlink" title="什么是生命周期"></a>什么是生命周期</h4><blockquote>
+<p>在 Vue 中每个以<code>.vue</code>结尾的文件就是一个组件，每个组件都有自己的生命周期</p>
+<p>生命周期（Life Cycle）是指一个对象从<strong>创建 -&gt; 运行 -&gt; 销毁</strong>的整个阶段，强调的是一个时间段。</p>
+</blockquote>
+<ul>
+<li>我们将 Vue 程序从创建到销毁的整个过程，称为 Vue 的生命周期<ul>
+<li><code>Vue</code>程序的创建，表示 Vue 生命周期的开始</li>
+<li><code>Vue</code>程序的销毁，表示 Vue 生命周期的结束</li>
+<li><code>Vue</code>程序从创建到销毁的整个过程，就是 Vue 的生命周期</li>
+</ul>
+</li>
+</ul>
+<h4 id="什么是生命周期函数（钩子）"><a href="#什么是生命周期函数（钩子）" class="headerlink" title="什么是生命周期函数（钩子）"></a>什么是生命周期函数（钩子）</h4><blockquote>
+<p>每个 Vue 组件实例在被创建时都要经过一系列的初始化过程，如：</p>
+</blockquote>
+<ul>
+<li>设置数据监听</li>
+<li>编译模板</li>
+<li>将实例挂载到 DOM</li>
+<li>数据变化时更新 DOM</li>
+<li>…..等</li>
+</ul>
+<blockquote>
+<p>这个过程中会<strong>在特定时间点运行</strong>一些叫做生命周期钩子的函数，让开发者有机会在特定阶段运行自己的代码。<br>总结</p>
+</blockquote>
+<ul>
+<li>生命周期函数（钩子）：是由 Vue 框架提供的内置函数，会伴随着生命周期，自动按次序执行</li>
+<li>生命周期函数的作用：允许开发者在特定的时间点，执行某些特定的操作。</li>
+</ul>
+<h4 id="Vue-生命周期函数（钩子）"><a href="#Vue-生命周期函数（钩子）" class="headerlink" title="Vue 生命周期函数（钩子）"></a>Vue 生命周期函数（钩子）</h4><blockquote>
+<p>以下是 Vue 组件的生命周期图示，图中从上到下完整的展示了 Vue 组件生命周期的完整过程：</p>
+</blockquote>
+<ul>
+<li><strong>创建</strong>：设置数据监听（data 数据、计算属性、方法和侦听器）等、编译模板</li>
+<li><strong>挂载</strong>：实例挂载到 DOM</li>
+<li><strong>更新</strong>：数据变化时更新 DOM</li>
+<li><strong>销毁</strong>：组件被卸载<ul>
+<li>图中红色箭头所指向的函数为 Vue 提供的生命周期函数（钩子），这些不同的钩子函数，分别在不同的时期执行。</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>生命周期函数</th>
+<th>执行阶段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>beforeCreate</td>
+<td>组件创建</td>
+<td>会在实例初始化完成、props 解析之后、data() 和 computed、methods 等选项处理之前立即调用</td>
+</tr>
+<tr>
+<td>created</td>
+<td>组件创建</td>
+<td>在组件实例处理完所有与状态（数据）相关的选项后调用</td>
+</tr>
+<tr>
+<td>beforeMount</td>
+<td>DOM 挂载前</td>
+<td>在组件（DOM）被挂载到页面（或父容器）之前调用。</td>
+</tr>
+<tr>
+<td>mounted</td>
+<td>DOM 挂载后</td>
+<td>在组件（本质是 DOM）被挂载到页面（或父容器）之后调用</td>
+</tr>
+<tr>
+<td>beforeUpdate</td>
+<td>DOM 更新前</td>
+<td>在响应式数据发生改变后，DOM 被更新之前调用</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>DOM 更新后</td>
+<td>在响应式数据发生改变后，导致的虚拟 DOM 重新渲染，并被挂载到页面后调用</td>
+</tr>
+<tr>
+<td>beforeUnmount</td>
+<td>组件销毁前</td>
+<td>在一个组件实例被卸载之前调用</td>
+</tr>
+<tr>
+<td>unmounted</td>
+<td>组件销毁后</td>
+<td>在一个组件实例被卸载之后调用</td>
+</tr>
+</tbody></table>
+<img src="生命周期函数.png">
+
+<ol>
+<li>生命周期函数的基本使用<blockquote>
+<p>使用生命周期函数分以下 2 步：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在组件实例中注册对应的生命周期函数</li>
+<li>把需要执行的代码写在对应的生命周函数内<ul>
+<li>这样 Vue 就会在对应的时间点自动帮我们调用这些生命周期函数执行相应的代码</li>
+</ul>
+</li>
+<li>注意： 生命周期函数内部的this指向当前组件实例</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      message: &quot;Hello Vue!&quot;,
+    &#125;;
+  &#125;,
+
+  // 在实例初始化之后,进行数据侦听和事件/侦听器的配置之前同步调用
+  beforeCreate() &#123;
+    console.log(&quot;beforeCreate&quot;);
+  &#125;,
+  // ....
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>beforeCreate</li>
+</ol>
+<ul>
+<li>会在实例初始化完成、<code>props</code> 解析<strong>之后</strong>、<code>data()</code> 和 <code>computed</code>、<code>methods</code> 等选项处理<strong>之前</strong>立即调用。</li>
+<li>在这个生命周期函数中，我们是没有办法访问到<code>data</code>中的属性，以及<code>methods</code>中的方法等其它选项的数据</li>
+</ul>
+<ol start="3">
+<li>created</li>
+</ol>
+<ul>
+<li><code>created</code>生命周期函数会在在组件实例处理完所有与状态（数据）相关的选项后调用。</li>
+<li><code>created</code>生命周期函数调用时，响应式数据、计算属性、方法和侦听器等内容已经设置完成。所以我们可以在这个函数中访问到组件的数据，计算属性，方法等。</li>
+<li>此阶段<strong>挂载</strong>还未开始，所以这个阶段我们没有办法访问组件实例的 <code>DOM</code>（如：$el属性还不可用）<blockquote>
+<ul>
+<li><code>$el</code>为组件实例的属性，用来获取该组件实例管理的<code>DOM</code>根节点</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue&quot;,
+        arr: [1, 2, 3, 4],
+      &#125;;
+    &#125;,
+    methods: &#123;
+      update() &#123;
+        console.log(&quot;Hello Vue3&quot;);
+      &#125;,
+    &#125;,
+    created() &#123;
+      // -----以下内容可以正常访问到-----
+      // 访问组件实例的属性
+      console.log(this.message); // Hello Vue
+      // 访组件实例的方法
+      this.update(); // Hello Vue3
+
+      // ------以下内容访问不到 -----
+      // 此时虚拟DOM还没有挂载到页面变成真实DOM，所以访问不到
+      const div = document.querySelectorAll(&quot;.box&quot;);
+      console.log(div); // [ ]
+      // 此时挂载阶段还未开始，因此 $el 属性仍不可用
+      console.log(this.$el); // null
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;ul&gt;
+      &lt;li v-for=&quot;item in arr&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="4">
+<li>beforeMount</li>
+</ol>
+<ul>
+<li><code>beforeMount</code>函数会在组件首次被挂载到页面之前调用。</li>
+<li><code>beforeMount</code>函数被调用时，组件已经完成了其响应式状态的设置，但还没有创建 DOM 节点。它即将首次执行 DOM 渲染过程。</li>
+<li>他与<code>created</code>函数相比，这个阶段Vue<strong>对模板做了编译</strong>。<blockquote>
+<p>如果我们想在 DOM 挂载到页面前做一些相关的操作，就可以在这里执行。不过实际开发中这种需求较少。因为，如果我们想要更改数据，最好的方式是在<code>beforeCreate</code>或<code>created</code>中来处理。这样就不会因为数据的变更，再次对模板进行编译。</p>
+</blockquote>
+</li>
+</ul>
+<ol start="5">
+<li>mounted<blockquote>
+<p>mounted函数在组件被挂载到页面之后调用<br>以下情况下视为已挂载：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>所有同步子组件都已经被挂载。(不包含异步组件或 <code>&lt;Suspense&gt;</code>树内的组件)</li>
+<li>其自身的 DOM 树已经创建完成并插入了父容器中（注意仅当根容器在文档中时，才可以保证组件 DOM 树也在文档中）。</li>
+<li>如果我们想在访问组件所渲染的 DOM，做相关的 DOM 操作，则可以在这里执行。此阶段，可以访问到$el</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      arr: [1, 2, 3, 4],
+    &#125;;
+  &#125;,
+  mounted() &#123;
+    const div = document.querySelectorAll(&quot;.box&quot;);
+    const list = document.querySelectorAll(&quot;.box ul li&quot;);
+    console.log(div);
+    console.log(list);
+    console.log(this.$el);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;ul&gt;
+      &lt;li v-for=&quot;item in arr&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<img src="mounted函数结果.png">
+
+<ol start="6">
+<li>beforeUpdate</li>
+</ol>
+<ul>
+<li><code>beforeUpdate</code>在响应式数据发生改变后，DOM 被更新<strong>之前</strong>调用</li>
+<li>如果想在 Vue 更新 DOM 之前对 DOM 做相关的操作，可以把相关操作代码写在<code>beforeUpdate</code>函数中</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      arr: [1, 2, 3],
+    &#125;;
+  &#125;,
+  beforeUpdate() &#123;
+    console.log(&quot;访问数据为更新后数据&quot;, this.arr);
+    const list = document.querySelectorAll(&quot;.box ul li&quot;);
+    console.log(list);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;arr = [1, 2, 3, 4, 5]&quot;&gt;更新数据&lt;/button&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;ul&gt;
+      &lt;li v-for=&quot;item in arr&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>点击更新数据按扭后，观察控制台的输出内容，发现获取的数据是最新的，但 DOM 元素是更新前的，也就是此时 DOM 还没有挂载到页面中</li>
+</ul>
+<ol start="7">
+<li>updated</li>
+</ol>
+<ul>
+<li>响应式数据发生改变后，会重新更新 DOM 树，update方法会在 DOM 树更新之后调用</li>
+<li>如果你想对更新后的 DOM 做相关的操作，则可以在此函数中执行。<blockquote>
+<p>注意：一定要避免在此期间更改状态（响应式数据），这可能会导致无限的更新循环！</p>
+</blockquote>
+</li>
+</ul>
+<ol start="8">
+<li>beforeUnmount 与 unmounted</li>
+</ol>
+<ul>
+<li><code>beforeUnmount</code>钩子函数，在一个组件实例被卸载之前调用。当这个钩子被调用时，组件实例依然还保有全部的功能。</li>
+<li><code>unmounted</code>在一个组件实例被卸载之后调用。</li>
+</ul>
+<blockquote>
+<p>一个组件在以下情况下被视为已卸载：</p>
+</blockquote>
+<ul>
+<li>其所有子组件都已经被卸载。</li>
+<li>所有相关的响应式作用 (渲染作用以及 <code>setup()</code> 时创建的计算属性和侦听器) 都已经停止。</li>
+</ul>
+<blockquote>
+<p>应用：</p>
+</blockquote>
+<ul>
+<li>可以在这个<code>beforeUnmount</code>钩子中手动清理一些副作用，例如计时器、DOM 事件监听器或者与服务器的连接</li>
+</ul>
+<h3 id="二、自定义指令"><a href="#二、自定义指令" class="headerlink" title="二、自定义指令"></a>二、自定义指令</h3><ul>
+<li>通过前面的学习，我们知道指令的作用就是帮助我们简化 DOM 元素的操作。如果 Vue 内置的指令不能满足我们的需求时，Vue 允许我们注册自定义指令（<code>Custom Directives</code>）。</li>
+<li>当我们需要直接对 DOM 元素做相关的重复性操作时，我们可以将这些重复性的操作定义成指令，实现复用。在需要执行相关操作的元素上，添加相关指令即可</li>
+</ul>
+<h4 id="如何定义自定义指令"><a href="#如何定义自定义指令" class="headerlink" title="如何定义自定义指令"></a>如何定义自定义指令</h4><ul>
+<li>所有的自定义指令都需要定义在组件的<code>directives</code>选项中。</li>
+<li>一个自定义指令由一个包含类似组件生命周期钩子的对象来定义，这些钩子函数分别会在不同的时间点被自动调用</li>
+<li>每个钩子函数，都有 4 个参数，4 个参数的详细介绍在下面会介绍</li>
+</ul>
+<blockquote>
+<p>指令命名规范</p>
+</blockquote>
+<ul>
+<li>指令<strong>定义时</strong>采用驼峰命名，并且不需要加<code>v-</code>前缀，在<strong>调用时</strong>需要加上<code>v-</code>前缀，并且需采用-分隔形式，如：<code>v-my-directive</code></li>
+</ul>
+<blockquote>
+<p>创建自定义指令</p>
+</blockquote>
+<ul>
+<li>以下代码中的<code>myDirective</code>为自定义指令</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        n: 10,
+        bool: true,
+        msg: &quot;update&quot;,
+      &#125;;
+    &#125;,
+    // 所有自定义指令需在此处注册
+    directives: &#123;
+      // myDirective为自定义指令名，定义时采用驼峰命名，
+      // 调用时，采用-分隔形式,且要加上v-前缀，如：v-my-directive
+      myDirective: &#123;
+        // 在绑定元素的 attribute 前
+        // 或事件监听器应用前调用
+        created(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;created&quot;);
+        &#125;,
+        // 初次渲染，在该元素被插入到 DOM 前调用
+        beforeMount(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;beforeMount&quot;);
+        &#125;,
+        // 在绑定元素的父组件，及他自己的所有子节点都挂载完成后调用
+        mounted(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;mounted&quot;);
+        &#125;,
+        // 绑定元素的父组件更新前调用 （元素更新，相当于父组件更新，父件其它内容更新，本质整个DOM会重新渲染)
+        beforeUpdate(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;beforeUpdate&quot;);
+        &#125;,
+        // 在绑定元素的父组件，及他自己的所有子节点都更新后调用
+        updated(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;updated&quot;);
+        &#125;,
+        // 绑定元素的或其父组件卸载前调用
+        beforeUnmount(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;beforeUnmount&quot;);
+        &#125;,
+        // 绑定元素或其父组件卸载后调用
+        unmounted(el, binding, vnode, prevVnode) &#123;
+          console.log(&quot;unmounted&quot;);
+        &#125;,
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click.once=&quot;bool = !bool&quot;&gt;卸载元素&lt;/button&gt; |
+  &lt;button @click=&quot;msg = &#39;updated&#39;&quot;&gt;更新msg的值&lt;/button&gt;
+
+  &lt;div&gt;msg的值:&#123;&#123; msg &#125;&#125;&lt;/div&gt;
+  &lt;!-- 指令定义时不用加v-,使用时需要加上v-前缀 --&gt;
+  &lt;div v-my-directive v-if=&quot;bool&quot;&gt;n的值: &#123;&#123; n &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>注：观察控制台结果，可以看到</p>
+</blockquote>
+<ul>
+<li>初始渲染时，只有<code>created</code>、<code>beforeMount</code>、<code>mounted</code>三个钩子被调用了</li>
+<li>当点击按扭更新<code>msg</code>的值时，会触发<code>DOM</code>的重新渲染，则<code>beforeUpdate</code>、<code>updated</code>两个钩子被调用</li>
+<li>当点击按扭卸载元素时，<code>beforeUnmount</code>与<code>unmounted</code>两个钩子被调用</li>
+</ul>
+<h4 id="自定义指令钩子"><a href="#自定义指令钩子" class="headerlink" title="自定义指令钩子"></a>自定义指令钩子</h4><blockquote>
+<p>指令的钩子中的<code>created</code>、<code>beforeMount</code>、<code>mounted</code>钩子有以下需要注意的点：</p>
+</blockquote>
+<ul>
+<li><code>created</code>与<code>beforeMount</code>钩子函数中，是没有办法访问到<strong>当前元素之后的元素</strong>，但可以访问该元素之前的元素。因为在该元素插入页面前，他前面的元素已经插入到页面，而后面的元素还没有</li>
+<li><code>mounted</code>钩子中可以访问到当前元素父元素中的所有子元素，因为此时<code>DOM</code>元素已插入到了页面中。</li>
+</ul>
+<blockquote>
+<p>总结：指令钩子执行时机</p>
+<ul>
+<li>自定义指令钩子的执行时期大概分为以下 4 个阶段</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>元素创建阶段</strong>：此阶段指令与元素成功绑定，此阶段会执行<code>created</code>与<code>beforeMount</code>钩子。不过此阶段不能访问到该元素之后的元素，因为此时该元素与之后的元素还没有插入到页面中。</li>
+<li><strong>挂载阶段</strong>：此阶段元素及子元素和父组件都被挂载到页面中。此阶段会执行<code>mounted</code>钩子。在此阶段可以访问到该组件的所有元素。</li>
+<li><strong>更新阶段</strong>：当响应式数据更新后（该数据可以与当前指令绑定元素无关），会重新渲染模板。此阶段会执行<code>beforeUpdate</code>与<code>updated</code>钩子。</li>
+<li><strong>销毁阶段</strong>：元素或其父元素即将销毁。此阶段会执行<code>beforeUnmount</code>与<code>unmounted</code>钩子</li>
+</ul>
+<blockquote>
+<p>指令钩子中 this</p>
+</blockquote>
+<ul>
+<li>在自定义指令钩子中，<code>this</code> 最终指向的是<code>undefined</code>。</li>
+<li>因为在钩子函数中，我们并不需要使用<code>this</code>。只需要知道当前绑定指令的元素和指令相关信息，而这些信息都通过钩子的前两个参数传递给到我们了。</li>
+</ul>
+<blockquote>
+<p>注意区分：</p>
+</blockquote>
+<ul>
+<li>前面学习的的<code>methods</code>、<code>computed</code>、<code>watch</code>选项中函数的<code>this</code>指向当前组件实例。</li>
+</ul>
+<h4 id="案例1：自定义-v-focus-指令"><a href="#案例1：自定义-v-focus-指令" class="headerlink" title="案例1：自定义 v-focus 指令"></a>案例1：自定义 v-focus 指令</h4><ul>
+<li>定义<code>v-focus</code>指令，该指令用来实现当一个 <code>input</code> 元素被 Vue 插入到 DOM 中后，它会被自动获取焦点，同时边框变红。</li>
+<li>注意：<code>input</code> 元素只有被插入到 <code>DOM</code> 后才能能获取焦点，所以相关逻辑需要写在 <code>mounted</code> 钩子中。</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  directives: &#123;
+    // 自定义v-focus指令
+    focus: &#123;
+      /*
+            // 指令与元素绑定前
+             created(el) &#123;
+              el.focus();
+              el.style.outline = &quot;none&quot;
+              el.style.border = &quot;1px solid red&quot;
+            &#125;,
+            // DOM元素被添加到页面前
+            beforeMount(el) &#123;
+              el.focus()
+              el.style.outline = &quot;none&quot;
+              el.style.border = &quot;1px solid red&quot;
+            &#125;,
+            */
+      mounted(el) &#123;
+        // el 为绑定指令的元素
+        el.style.outline = &quot;none&quot;;
+        el.focus();
+        el.style.border = &quot;1px solid red&quot;;
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;input type=&quot;text&quot; v-focus /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>代码写在<code>created</code>或<code>beforeMount</code>钩子中，<code>input</code>元素边框确实变红的，但是没有获取到焦点。</li>
+<li>代码写在<code>mounted</code>钩子中，<code>input</code>元素边框变红，同时获取到了焦点</li>
+</ul>
+<h4 id="指令钩子的参数"><a href="#指令钩子的参数" class="headerlink" title="指令钩子的参数"></a>指令钩子的参数</h4><blockquote>
+<p>指令的钩子会传递以下几种参数</p>
+</blockquote>
+<pre><code>// 指令钩子
+mounted(el,binding,vnode,prevNode) &#123;   &#125;
+</code></pre>
+<ul>
+<li><code> el</code>：指令绑定到的元素。可以用于直接操作绑定指令的 DOM 元素</li>
+<li><code>binding</code>：一个对象，包含以下属性<ul>
+<li><code>value</code>：传递给指令的值，如：<code>v-focus=&quot;n&quot;</code>指令中，<code>n</code> 的值为 <code>30</code>，则 <code>value</code> 值就是 <code>30</code></li>
+<li><code>oldValue</code>：指令之前的值，仅在 <code>beforeUpdate</code> 和 <code>updated</code> 中可用。无论值是否更改，它都可用。</li>
+<li><code>arg</code>：传递给指令的参数 (如果有的话) 如：<code>v-focus:input=&#39;n&#39;</code> 指令中，<code>input</code>为指令的参数，</li>
+<li><code>modifiers</code>:一个包含修饰符的对象 (如果有的话)。 如 <code>v-focus.radius=&#39;n&#39;</code>指令中，<code>.radius</code>为指令的修饰符，最终<code>modifiers</code>的值是<code>&#123;radius:true&#125;</code></li>
+<li><code>instance</code>: 使用该指令的组件实例</li>
+<li><code>dir</code>：指令的定义对象，如：<code>&#123; mounted()&#123; &#125;&#125;</code></li>
+</ul>
+</li>
+<li><code>vnode</code>：代表绑定元素的底层<code>VNode</code></li>
+<li><code>prevNode</code>：之前的渲染中代表指令所绑定元素的<code>VNode</code>。仅在 <code>beforeUpdate</code> 和 <code>updated</code> 钩子中可用</li>
+</ul>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>并不是更新与自定义指令相关的数据才会调用自定义指令钩子，只要是响应式数据更新，需要重新渲染模板，就会调用自定义指令对应的 <code>beforeUpdate</code> 和 <code>updated</code> 钩子</li>
+</ul>
+<h4 id="案例2：v-focus-指令添加参数与修饰符"><a href="#案例2：v-focus-指令添加参数与修饰符" class="headerlink" title="案例2：v-focus 指令添加参数与修饰符"></a>案例2：v-focus 指令添加参数与修饰符</h4><blockquote>
+<p>自定义<code>v-focus:input.radius=n</code>指令</p>
+</blockquote>
+<ul>
+<li>参数如果为<code>input</code>，元素要获取焦点，然后背景变成<code>skyblue</code>色</li>
+<li>如果参数为<code>button</code>，元素背景变为<code>orange</code>橘色</li>
+<li>修饰符<code>radius</code>表示给元素边框添加圆角效果，指令后面的值<code>n</code>为边框圆角的半径</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      n: 5,
+    &#125;;
+  &#125;,
+  // 所有指令，都需要在这里定义(注册)
+  directives: &#123;
+    focus: &#123;
+      // 在绑定元素的父组件
+      // 及他自己的所有子节点都挂载完成后调用
+      mounted(el, binding, vnode, prevVnode) &#123;
+        if (binding.arg === &quot;input&quot;) &#123;
+          el.focus();
+          el.style.backgroundColor = &quot;skyblue&quot;;
+        &#125;
+        if (binding.arg === &quot;button&quot;) &#123;
+          el.style.backgroundColor = &quot;orange&quot;;
+        &#125;
+        if (binding.modifiers.radius) &#123;
+          el.style.borderRadius = binding.value + &quot;px&quot;;
+        &#125;
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;n = 30&quot;&gt;圆角变大&lt;/button&gt;
+  &lt;button type=&quot;text&quot; v-focus:button.radius=&quot;n&quot;&gt;提交按扭&lt;/button&gt;
+  &lt;input type=&quot;text&quot; v-focus:input.radius=&quot;n&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>当我们点击按扭，想让圆角变小时，发现并没有效果，但是数据<code>num</code>确实变成了<code>30</code>。为什么数据变了，元素没有同步更新呢 ？</li>
+<li>原因在于我们要执行的指令代码，定义在<code>v-focus</code>指令的<code>mounted</code>钩子函数中，<code>mounted</code>钩子函数只会在初次渲染 <code>DOM</code> 挂载成功后才会被执行，后面数据更新，并不会执行。<ul>
+<li>所以想要数据更新后，执行对应的代码，让圆角变小，需要在<code>beforeUpdate</code>或<code>updated</code>中执行相关代码</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      n: 5,
+    &#125;;
+  &#125;,
+  // 所有指令，都需要在这里定义(注册)
+  directives: &#123;
+    focus: &#123;
+      // 在绑定元素的父组件
+      // 及他自己的所有子节点都挂载完成后调用
+      mounted(el, binding, vnode, prevVnode) &#123;
+        if (binding.arg === &quot;input&quot;) &#123;
+          el.focus();
+          el.style.backgroundColor = &quot;skyblue&quot;;
+        &#125;
+        if (binding.arg === &quot;button&quot;) &#123;
+          el.style.backgroundColor = &quot;orange&quot;;
+        &#125;
+        if (binding.modifiers.radius) &#123;
+          el.style.borderRadius = binding.value + &quot;px&quot;;
+        &#125;
+      &#125;,
+      updated(el, binding) &#123;
+        if (binding.arg === &quot;input&quot;) &#123;
+          el.focus();
+          el.style.backgroundColor = &quot;skyblue&quot;;
+        &#125;
+        if (binding.arg === &quot;button&quot;) &#123;
+          el.style.backgroundColor = &quot;orange&quot;;
+        &#125;
+        if (binding.modifiers.radius) &#123;
+          el.style.borderRadius = binding.value + &quot;px&quot;;
+        &#125;
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;n = 30&quot;&gt;圆角变大&lt;/button&gt; |
+  &lt;button type=&quot;text&quot; v-focus:button.radius=&quot;n&quot;&gt;提交按扭&lt;/button&gt; |
+  &lt;input type=&quot;text&quot; v-focus:input.radius=&quot;n&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码最终渲染效果如下，点击圆角变大按扭后，元素的圆角确实变大了</li>
+</ul>
+<h4 id="自定义指令函数写法"><a href="#自定义指令函数写法" class="headerlink" title="自定义指令函数写法"></a>自定义指令函数写法</h4><blockquote>
+<p>对于自定义指令来说，一个很常见的情况是仅仅需要在<code>mounted</code>和<code>updated</code>上实现相同的行为，除此之外并不需要其他钩子，这种情况下我们可以直接用一个函数来定义指令。</p>
+</blockquote>
+<ul>
+<li>如下：</li>
+</ul>
+<pre><code> directives: &#123;
+     // 以下函数式写法，就相当于focus函数中代码会在mounted与updated钩子中被调用。
+    focus(el, binding,vnode, prevVnode) &#123;&#125;
+  &#125;
+</code></pre>
+<ul>
+<li>用简写形式来优化上面<code>v-focus</code>指令的代码，如下：</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      n: 5,
+    &#125;;
+  &#125;,
+  // 所有指令，都需要在这里定义(注册)
+  directives: &#123;
+    focus(el, binding, vnode, prevVnode) &#123;
+      if (binding.arg === &quot;input&quot;) &#123;
+        el.focus();
+        el.style.backgroundColor = &quot;skyblue&quot;;
+      &#125;
+      if (binding.arg === &quot;button&quot;) &#123;
+        el.style.backgroundColor = &quot;orange&quot;;
+      &#125;
+      if (binding.modifiers.radius) &#123;
+        el.style.borderRadius = binding.value + &quot;px&quot;;
+      &#125;
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;n = 30&quot;&gt;圆角变大&lt;/button&gt; |
+  &lt;button type=&quot;text&quot; v-focus:button.radius=&quot;n&quot;&gt;提交按扭&lt;/button&gt; |
+  &lt;input type=&quot;text&quot; v-focus:input.radius=&quot;n&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="案例3：自定义-v-style-和-v-display-指令"><a href="#案例3：自定义-v-style-和-v-display-指令" class="headerlink" title="案例3：自定义 v-style 和 v-display 指令"></a>案例3：自定义 v-style 和 v-display 指令</h4><ul>
+<li><code>v-style</code>指令后面的值为一个 CSS 样式对象，用来给元素添加对应的 style 样式</li>
+<li><code>v-display</code>指令的效果同 Vue 内置的<code>v-show</code>指令效果一样，当值为 true 时，元素显示，值为 false 时，隐藏元素。</li>
+</ul>
+<blockquote>
+<p>指令绑定的值</p>
+</blockquote>
+<ul>
+<li>如果你的指令需要多个值，你可以向它传递一个 <code>JavaScript</code> 对象字面量</li>
+<li>指令也可以接收任何合法的 <code>JavaScript</code> 表达式</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      n: 0,
+      show: true,
+    &#125;;
+  &#125;,
+  methods: &#123;
+      getType(x) &#123;
+        var originType = Object.prototype.toString.call(x); //&#39;[object Object]&#39;
+        var spaceIndex = originType.indexOf(&quot; &quot;); // 查找空隙所在下标
+        var type = originType.slice(spaceIndex + 1, -1); //从空格下标+1位位置查询字符串，查询到字符串最后一位
+        return type.toLowerCase(); //将分格出来的类型，统一转成小写字
+      &#125;,
+    &#125;,
+  directives: &#123;
+    display(el, binding) &#123;
+      if (binding.value) &#123;
+        el.style.display = &quot;block&quot;;
+      &#125; else &#123;
+        el.style.display = &quot;none&quot;;
+      &#125;
+    &#125;,
+    style(el, binding) &#123;
+      const that = binding.instance; // 组件实例
+        // 判断传递的参数是否存在，如果存在，再判断值是否是一个对象
+      if (
+        binding.value &amp;&amp;
+        that.getType(binding.value) === &quot;object&quot;
+      ) &#123;
+        for (let key in binding.value) &#123;
+          console.log(key);
+          el.style[key] = binding.value[key];
+        &#125;
+      &#125;
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;p&gt;模拟v-show&lt;/p&gt;
+  &lt;button @click=&quot;show = !show&quot;&gt;开关&lt;/button&gt;
+  &lt;div v-display=&quot;show&quot;&gt;显示了吗&lt;/div&gt;
+  &lt;div&gt;----------&lt;/div&gt;
+  &lt;p&gt;更新样式&lt;/p&gt;
+  &lt;div v-style=&quot;&#123; fontSize: &#39;30px&#39;, backgroundColor: &#39;red&#39; &#125;&quot;&gt;文字文字&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>注意：<code>v-style</code>指令，先遍历<code>binding.value</code>，再用<code>el.style[key] = binding.value[key];</code>的方式添加样式</li>
+</ul>
+<h4 id="自定义全局指令"><a href="#自定义全局指令" class="headerlink" title="自定义全局指令"></a>自定义全局指令</h4><blockquote>
+<p>Vue 中的指令分为局部指令和全局指令。</p>
+</blockquote>
+<ul>
+<li><strong>局部指令</strong>：我们在组件的<code>directives</code>选项中注册的指令为局部指令，这种方式注册的指令只能供当前组件使用</li>
+<li><strong>全局指令</strong>：调用<code>app.directive()</code>方法来注册的指令称为全局指令。这种方式注册的指令可以在任意的组件中使用。</li>
+</ul>
+<ol>
+<li>app.directive方法<blockquote>
+<p><code>app.directive()</code>方法可以用来注册一个全局指令，也可以根据指令名返回注册的指令（如果存在的话）<br><strong>注册一个全局指令</strong></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/*
+    name：指令的名字
+    directive：指令定义，值是一个对象或一个函数，写法与局部指令的对象和函数写法一模一样
+    返回值应用实例 app，则支持链式调用
+*/
+app.directive(name: string, directive: Directive): this
+</code></pre>
+<p><strong>根据指令名返回该指令</strong></p>
+<pre><code>// name：已注册的全局指令的名字，最终返回该名字注册的指令，如果不存在返回undefined
+app.directive(name: string): Directive | undefined
+</code></pre>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+const app = createApp(App);
+
+// 注册全局指令v-focus （对象形式的指令）
+app.directive(&quot;focus&quot;, &#123;
+  /*  自定义钩子  */
+&#125;);
+
+// 注册全局指令 v-display （函数形式的写法）
+app.directive(&quot;display&quot;, (el, binding) =&gt; &#123;
+  /*  执行代码  */
+&#125;);
+
+// 得到一个已注册的指令
+const myDirective = app.directive(&quot;focus&quot;);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ol start="2">
+<li>注册全局指令<code>v-focus</code><blockquote>
+<p><code>v-focus</code>指令用于实现当<code>input</code>输入框插入页面后获取焦点同时背景颜色变为<code>skyblue</code></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在<code>/src/commont/directive.js</code>文件创建注册指令的<code>directives</code>方法</li>
+</ul>
+<pre><code>export const directives = (app) =&gt; &#123;
+  // 注册全局指令 （函数形式的写法）
+ app.directive(&#39;focus&#39;, (el, binding) =&gt; &#123;
+     el.focus();
+     el.style.backgroundColor = &quot;skyblue&quot;
+ &#125;)
+ // 注册全局指令 （对象形式的指令）
+ // app.directive(&quot;focus&quot;, &#123;
+ //     mounted(el, binding) &#123;
+ //         el.focus();
+ //         el.style.backgroundColor = &quot;skyblue&quot;
+ //     &#125;,
+ //     updated(el, binding) &#123;
+ //         el.focus();
+ //         el.style.backgroundColor = &quot;skyblue&quot;
+ //     &#125;
+ // &#125;)
+&#125;
+</code></pre>
+<ul>
+<li>在<code>main.js</code>中调用<code>directives</code>方法，注册全局指令</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+// 导入 directives方法
+import &#123; directives &#125; from &quot;./commont/directive&quot;;
+const app = createApp(App);
+// 注册全局指令
+directives(app);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li>在<code>App.vue</code>组件中使用全局指令</li>
+</ul>
+<pre><code>&lt;script&gt;
+import Hello from &quot;./components/Hello.vue&quot;;
+export default &#123;
+  components: &#123;
+    Hello,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h3&gt;App根组件&lt;/h3&gt;
+  &lt;input type=&quot;text&quot; v-focus /&gt;
+  &lt;Hello&gt;&lt;/Hello&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>Hello.vue</code>子组件中使用全局指令</li>
+</ul>
+<pre><code>&lt;script&gt;&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h3&gt;Hello 子组件中&lt;/h3&gt;
+  &lt;input type=&quot;text&quot; v-focus /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>一个页面中，只能有一个元素获取到焦点，所以这里只能是子组件中的<code>input</code>获取到焦点</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>关于自定义指令，以下内容是我们需要重点掌握的。<br><strong>自定义指令的分类</strong></p>
+</blockquote>
+<ul>
+<li>自定义指令分为全局指令与局部指令。</li>
+<li>直接在<code>directives</code>选项中注册的指令为局部指令，只能用于注册该指令的组件</li>
+<li>通过<code>app.directive</code>方法注册的指令为局部指令，可以在任意的组件中使用</li>
+</ul>
+<blockquote>
+<p>注册局部指令</p>
+<ul>
+<li>局部指令有对象与函数两种写法</li>
+</ul>
+</blockquote>
+<ul>
+<li>对象写法：根据需要添加对应的钩子函数</li>
+<li>函数简写形式：写在函数中的代码相当于定义在<code>mounted</code>与<code>updated</code>钩子中</li>
+</ul>
+<pre><code>// 注册局部指令，对象形式的写法
+directives:&#123;
+    myDirective:&#123;
+        /* 自定义钩子 */
+        mounted()&#123; &#125;,
+        // .....
+    &#125;
+&#125;
+
+// 注册局部指令，函数形式的写法
+directives:&#123;
+    myDirective()&#123;
+        /* 自定义代码 */
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注册全局指令</p>
+<ul>
+<li>自定义全局指令，也包含对象与函数两种写法</li>
+</ul>
+</blockquote>
+<pre><code>// 注册全局指令 （对象形式的写法）
+app.directive(&quot;my-focus&quot;, &#123;
+  /*  自定义钩子  */
+&#125;);
+
+// 注册全局指令 （函数形式的写法）
+app.directive(&quot;my-focus&quot;, (el, binding) =&gt; &#123;
+  /*  执行代码  */
+&#125;);
+</code></pre>
+<blockquote>
+<p>指令钩子参数</p>
+</blockquote>
+<pre><code>mounted(el,binding,vnode,prevNode) &#123;   &#125;
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>自定义指令钩子中<code>this</code>指向<code>undefined</code></li>
+<li>自定义指令的值可以是一个表达式，如果有多个值可以写成对象形式</li>
+</ul>
+<h3 id="三、自定义指令：实战应用"><a href="#三、自定义指令：实战应用" class="headerlink" title="三、自定义指令：实战应用"></a>三、自定义指令：实战应用</h3><h4 id="自定义v-debounce防抖指令"><a href="#自定义v-debounce防抖指令" class="headerlink" title="自定义v-debounce防抖指令"></a>自定义<code>v-debounce</code>防抖指令</h4><blockquote>
+<p>什么是防抖</p>
+</blockquote>
+<ul>
+<li>是指只有在间隔时间达到规定时间后才会执行一次真正的事件处理函数</li>
+<li>如果在规定时间内再次触发事件，则会重新计时。</li>
+</ul>
+<blockquote>
+<p><code>v-debounce</code>防抖指令</p>
+</blockquote>
+<ul>
+<li>指令参数用来指定绑定的事件类型，如：<code>input</code>事件<code>click</code> 事件</li>
+<li>指令值是一个对象，对象的<code>eventName</code>属性值为事件处理函数 <code>delay</code>为防抖时间，单位为<code>ms</code>，如果没有该属性默认值为 <code>300ms</code><blockquote>
+<p>完整代码</p>
+</blockquote>
+</li>
+<li>在<code>main.js</code>中调用<code>directives</code>方法，注册全局指令</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+// 导入 directives方法
+import &#123; directives &#125; from &quot;./commont/directive&quot;;
+const app = createApp(App);
+// 注册全局指令
+directives(app);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li>在<code>App.vue</code>组件中使用<code>v-debounce</code>指令</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  methods: &#123;
+    search(e) &#123;
+      console.log(e);
+      //拿到输入的值
+      console.log(this.$refs.myInput.value);
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h3&gt;App根组件&lt;/h3&gt;
+  &lt;input
+    type=&quot;text&quot;
+    ref=&quot;myInput&quot;
+    v-debounce:input=&quot;&#123; event: search, delay: 1000 &#125;&quot;
+  /&gt;
+  &lt;!-- &lt;input type=&quot;text&quot; v-focus /&gt; --&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>在<code>/src/commont/directive.js</code>文件创建注册指令的<code>directives</code>方法</li>
+</ul>
+<pre><code>export const directives = (app) =&gt; &#123;
+  app.directive(&quot;debounce&quot;, &#123;
+    created(el, binding) &#123;
+      if (typeof binding.value.event !== &quot;function&quot;) return;
+      el.timer = null;
+      el.handler = function () &#123;
+        //如果上一个还没结束，就先清除它
+        if (el.timer) &#123;
+          clearTimeout(el.timer);
+        &#125;
+        el.timer = setTimeout(() =&gt; &#123;
+          el.timer = null;
+          // binding.value.event();
+          binding.value.event.apply(this, arguments);
+        &#125;, binding.value.delay || 300);
+      &#125;;
+      el.addEventListener(binding.arg, el.handler);
+    &#125;,
+    beforeUnmount() &#123;
+      //在销毁前 解除事件监听
+      el.removeEventListener(binding.arg, el.handler);
+    &#125;,
+  &#125;);
+&#125;;
+</code></pre>
+<h4 id="自定义-v-drag-元素拖拽指令"><a href="#自定义-v-drag-元素拖拽指令" class="headerlink" title="自定义 v-drag 元素拖拽指令"></a>自定义 v-drag 元素拖拽指令</h4><blockquote>
+<p>自定义<code>v-drag</code>拖拽指令</p>
+</blockquote>
+<ul>
+<li>修饰符<code>self</code>表示添加<code>v-drag</code>指令元素为被拖拽的元素</li>
+<li>拖拽动画的实现原理如下图：<img src="拖拽动画.png"></li>
+</ul>
+<blockquote>
+<p>实现步骤：</p>
+</blockquote>
+<ul>
+<li><code>dragEl</code>为被拖拽的元素，当没有添加<code>self</code>修饰符时，<code>dragEl</code>为被点击元素的父元素；否则被拖拽元素就是被点击元素</li>
+<li>在鼠标按下时，即 <code>onmousedown</code> 事件<ul>
+<li>记录鼠标按下时与浏览器可视区左边和上边距离，即 <code>e.clientX</code>和<code>e.clientY</code></li>
+<li>同时记录被拖拽元素与定义父元素(<code>parent=dragEl.parentNode</code>)左边的距离，即<code>parent.offsetLeft</code>和<code>parent.offsetTop</code></li>
+</ul>
+</li>
+<li>在鼠标标移动时，即 <code>onmousemove</code> 事件<ul>
+<li>记录鼠标此时与浏览器可视区左边和上边距离，即 <code>e.clientX</code> 和 <code>e.clientY</code></li>
+<li>计算鼠标移动的距离：用移动后的<code>e.clientX</code> - 鼠标按下时<code>e.clientX</code></li>
+<li>计算被拖拽元素的<code>left</code>、<code>top</code>值：鼠标移动的距离+移动前元素的<code>offsetLeft</code>，就得到了此时被拖拽元素的<code>left</code>值。同得理得 <code>top</code> 值</li>
+</ul>
+</li>
+<li>还要添加<code>onmouseup</code>事件，在鼠标抬起时，要解绑 <code>onmousemove</code>和<code>onmouseup</code>事件<blockquote>
+<p>以上步骤实现了元素可以自由的被拖拽，但是并不能控制元素只能在定位父元素容器中移动</p>
+</blockquote>
+</li>
+<li>控制被拖拽元素移动时不能超出父容器，我们只需要控制被拖拽元素的 left 和 top 值的大小</li>
+<li>如果 <code>left &lt; 0</code>，表示超出了父容器左边界，此时设置 <code>left = 0</code>，强行拉回</li>
+<li>如果 <code>left &gt; 父容器宽 - 元素宽</code> ，表示超出了父容器右边界，此时设置 <code>left = 父容器宽 - 元素宽</code> ,强行拉回</li>
+<li>如果 <code>top &lt; 0</code>，表示超出了父容器上边界，此时设置 <code>top = 0</code>，强行拉回</li>
+<li>如果 <code>top &gt; 父容器高 - 元素高</code> ，表示超出了父容器下边界，此时设置 <code>top = 父容器宽 - 元素宽</code> ,强行拉回<ul>
+<li>以上步骤，实现了控制元素只能在父容器中移动</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>兼容性处理：如果被拖拽的元素是一个图片，或元素中有文字，被拖拽时就会出现卡顿</p>
+</blockquote>
+<ul>
+<li>处理办法，就是禁止掉鼠标按下时,图片和被选中的文字默认的拖拽行为</li>
+</ul>
+<pre><code>e.preventDefault();
+</code></pre>
+<ul>
+<li>在<code>/src/commont/directive.js</code>文件创建注册指令的<code>directives</code>方法</li>
+</ul>
+<pre><code>export const directives = (app) =&gt; &#123;
+  app.directive(&quot;drag&quot;, &#123;
+    mounted(el, binding) &#123;
+      //鼠标按下
+      el.mouseDown = function (event) &#123;
+        //取消默认行为
+        const e = event || window.event;
+        e.preventDefault();
+
+        //当元素没有self修饰符时，被拖动的是按下元素的父元素
+        const dragEl = binding.modifiers.self ? e.target : e.target.parentNode;
+        //获得被拖拽元素的父元素
+        const parent = dragEl.offsetParent;
+        //鼠标按下时 与浏览器左边和上边的的距离
+        let _clientX = e.clientX;
+        let _clientY = e.clientY;
+        //鼠标按下时 该元素与父容器左边和上边的距离
+        let _offsetLeft = dragEl.offsetLeft;
+        let _offsetTop = dragEl.offsetTop;
+        //被拖拽元素的宽高
+        let dragWidth = dragEl.offsetWidth;
+        let dragHeight = dragEl.offsetHeight;
+        //父元素的宽高
+        let parentWidth = parent.clientWidth;
+        let parentHeight = parent.clientHeight;
+        //能够移动的最大距离
+        const maxY = parentHeight - dragHeight;
+        const maxX = parentWidth - dragWidth;
+
+        document.onmousemove = function (e) &#123;
+          //鼠标移动时 与浏览器左边和上边的的距离
+          let clientX = e.clientX;
+          let clientY = e.clientY;
+
+          //该元素的left和top
+          let left = clientX - _clientX + _offsetLeft;
+          let top = clientY - _clientY + _offsetTop;
+          //控制移动的范围
+          left = left &lt; 0 ? 0 : left;
+          left = left &gt; maxX ? maxX : left;
+          top = top &lt; 0 ? 0 : top;
+          top = top &gt; maxY ? maxY : top;
+
+          dragEl.style.left = left + &quot;px&quot;;
+          dragEl.style.top = top + &quot;px&quot;;
+        &#125;;
+        document.onmouseup = function () &#123;
+          document.onmousemove = null;
+          document.onmouseup = null;
+        &#125;;
+      &#125;;
+      el.addEventListener(&quot;mousedown&quot;, el.mouseDown);
+    &#125;,
+  &#125;);
+&#125;;
+</code></pre>
+<ul>
+<li>在<code>main.js</code>中调用<code>directives</code>方法，注册全局指令<code>v-drag</code>指令</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+// 导入 directives方法
+import &#123; directives &#125; from &quot;./commont/directive&quot;;
+const app = createApp(App);
+// 注册全局指令
+directives(app);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li>在<code>App.vue</code>组件中使用</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;div class=&quot;drag1&quot; v-drag&gt;drag&lt;/div&gt;
+    &lt;div class=&quot;drag2&quot; v-drag.self&gt;drag-self&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+* &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+html,
+body &#123;
+  width: 100%;
+  height: 100%;
+&#125;
+.box &#123;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+&#125;
+.drag1 &#123;
+  width: 100%;
+  height: 40px;
+  background-color: skyblue;
+&#125;
+.drag2 &#123;
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 40px;
+  background-color: tomato;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="自定义-v-LazyLoad-图片懒加载指令"><a href="#自定义-v-LazyLoad-图片懒加载指令" class="headerlink" title="自定义 v-LazyLoad 图片懒加载指令"></a>自定义 v-LazyLoad 图片懒加载指令</h4><blockquote>
+<p>实现图片懒加载有很多种方式，最常见的就是以下两种</p>
+</blockquote>
+<ul>
+<li>监听到<code>scroll</code>事件后，调用目标元素的<code>getBoundingClientRect()</code>方法来实现。</li>
+<li>通过<code>IntersectionObserver</code>API来实现，他可以自动”观察”元素是否可见。由于可见（visible）的本质是，目标元素与视口产生一个交叉区，所以这个 API 叫做”交叉口观测器”。<ul>
+<li>本次我们采用第二种方式，利用IntersectionObserver构造函数来实现</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>IntersectionObserver 构造函数<blockquote>
+<p><code>IntersectionObserver</code>是浏览器原生提供的构造函数，可以自动”观察”元素是否可见</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 观察器实例
+const io = new IntersectionObserver(callback, options);
+</code></pre>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><code>callback</code>：是可见性变化时的回调函数。<code>callback</code>一般会触发<strong>两次</strong>，一次是目标元素刚刚进入视口（开始可见），另一次是完全离开视口（开始不可见）</li>
+<li><code>option</code>：是配置对象（该参数可选）</li>
+</ul>
+<blockquote>
+<p>返回值</p>
+</blockquote>
+<ul>
+<li>构造函数的返回值是一个观察器实例</li>
+</ul>
+<blockquote>
+<p>观察器实例方法</p>
+</blockquote>
+<ul>
+<li>实例的<code>observe</code>方法可以指定观察哪个 DOM 节点，如果需要观察多个节点，就需要多次调用<code>observe</code>方法</li>
+<li>实例的<code>unobserve</code>方法用于停止对某个元素的观察</li>
+<li>实例的<code>disconnect</code>方法用于关闭观察器</li>
+</ul>
+<pre><code>// 开始观察 box元素和container
+io.observe(document.getElementById(&#39;box&#39;));
+io.observe(document.getElementById(&#39;container&#39;));
+
+// 停止观察 box元素
+io.unobserve(document.getElementById(&#39;box&#39;));
+
+// 关闭观察器
+io.disconnect();
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        io: null, // 观察实例
+      &#125;;
+    &#125;,
+    methods: &#123;
+      stop() &#123;
+        this.io.unobserve(document.getElementById(&quot;box&quot;));
+      &#125;,
+    &#125;,
+    mounted() &#123;
+      // 创建观察者实例
+      this.io = new IntersectionObserver(() =&gt; &#123;
+        console.log(&quot;元素进入或离开可视区，我就会被打印&quot;);
+      &#125;);
+      // 开始观察 #box元素
+      this.io.observe(document.getElementById(&quot;box&quot;));
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;stop&quot;&gt;停止&lt;/button&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;img src=&quot;./assets/images/01.png&quot; alt=&quot;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .h1000 &#123;
+    height: 1000px;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>注意观察图下右边控制台的打印输出，当元素进入或离开可视区时<code>callback</code>回调函数都会被调用，右边控制台输出对应信息。</li>
+<li>当点击停止按扭停止侦听时，不管元素进入还是离开可视区，图下右边的控制台都不会有新的输出</li>
+</ul>
+<ol start="2">
+<li><code>IntersectionObserverEntry</code> 对象<blockquote>
+<p><code>callback</code>函数的第一个参数是一个数组，数组中的每个成员是一个<code>IntersectionObserverEntry</code>对象。如果同时有两个被观察的对象的可见性发生变化，<code>entries</code>数组就会有两个成员</p>
+<ul>
+<li><code>IntersectionObserverEntry</code>对象提供目标元素的信息，他主要有以下 7 个属性</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>time</code>：可见性发生变化的时间（从可见到不可见的时间间隔），是一个高精度时间戳，单位为毫秒</li>
+<li><code>target</code>：被观察的目标元素，是一个 DOM 节点对象</li>
+<li><code>rootBounds</code>：根元素的矩形区域的信息，<code>getBoundingClientRect()</code>方法的返回值，如果没有根元素（即直接相对于视口滚动），则返回<code>null</code></li>
+<li><code>boundingClientRect</code>：目标元素的矩形区域的信息</li>
+<li><code>intersectionRect</code>：目标元素与视口（或根元素）的交叉区域的信息</li>
+<li><code>intersectionRatio</code>：目标元素的可见比例，即<code>intersectionRect</code>占<code>boundingClientRect</code>的比例，完全可见时为1，完全不可见时小于等于0</li>
+<li><code>isIntersecting</code>：返回一个布尔值，如果目标元素与交叉区域观察者对象（intersection observer）的根相交，则返回 <code>true</code>。如果返回<code>true</code>, 则<code>IntersectionObserverEntry</code>描述了变换到交叉时的状态; 如果返回<code>false</code>, 那么可以由此判断，变换是从交叉状态到非交叉状态。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        io: null, // 观察实例
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      this.io = new IntersectionObserver((entries) =&gt; &#123;
+        console.log(entries);
+      &#125;);
+      // 开始观察  多个元素
+      const imgList = document.querySelectorAll(&quot;#box img&quot;);
+      imgList.forEach((img) =&gt; &#123;
+        this.io.observe(img);
+      &#125;);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+  &lt;div id=&quot;box&quot;&gt;
+    &lt;img src=&quot;./assets/images/01.png&quot; alt=&quot;&quot; /&gt;
+    &lt;img src=&quot;./assets/images/02.png&quot; alt=&quot;&quot; /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  #box &#123;
+    display: flex;
+  &#125;
+
+  #box img &#123;
+    width: 200px;
+  &#125;
+
+  .h1000 &#123;
+    height: 1000px;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ol start="3">
+<li>IntersectionObserver 实现图片懒加载</li>
+</ol>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      io: null, // 观察实例
+      imgList: [
+        &quot;/src/assets/images/1.png&quot;,
+        &quot;/src/assets/images/2.png&quot;,
+        &quot;/src/assets/images/3.png&quot;,
+        &quot;/src/assets/images/4.png&quot;,
+        &quot;/src/assets/images/5.png&quot;,
+        &quot;/src/assets/images/6.png&quot;,
+        &quot;/src/assets/images/7.png&quot;,
+        &quot;/src/assets/images/8.png&quot;,
+      ],
+    &#125;;
+  &#125;,
+  mounted() &#123;
+    //创建观察者实例
+    this.io = new IntersectionObserver((entries) =&gt; &#123;
+      for (let i = 0; i &lt; entries.length; i++) &#123;
+        //如果元素没有出现在可视区 则不做任何处理
+        if (entries[i].intersectionRatio &lt;= 0) continue;
+        const img = entries[i].target;
+        //定时器模拟开发效果，实际开发中去掉
+        setTimeout(() =&gt; &#123;
+          img.src = img.dataset.src;
+        &#125;, 500);
+        //图片加载出来后 就停止观察
+        this.io.unobserve(img);
+      &#125;
+    &#125;);
+    // 开始观察  多个元素
+    const imgList = document.querySelectorAll(&quot;#box img&quot;);
+    imgList.forEach((img) =&gt; &#123;
+      this.io.observe(img);
+    &#125;);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+  &lt;ul id=&quot;box&quot;&gt;
+    &lt;li v-for=&quot;item in imgList&quot;&gt;
+      &lt;img :data-src=&quot;item&quot; /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+* &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+#box &#123;
+  max-width: 600px;
+  margin: 0px auto;
+  list-style: none;
+&#125;
+
+#box li &#123;
+  width: 290px;
+  height: 189px;
+  margin: 5px;
+  background-color: #ddd;
+  float: left;
+&#125;
+
+#box li img &#123;
+  width: inherit;
+  height: inherit;
+&#125;
+
+.h1000 &#123;
+  height: 1000px;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<ol start="4">
+<li>options 选项</li>
+</ol>
+<ul>
+<li><code>root</code>：指定根元素，用于检查目标的可见性。必须是目标元素的父级元素。如果未指定或者为 null，则默认为浏览器视窗。</li>
+<li><code>rootMargin</code>：根元素的外边距，类似于 CSS 中的 <code>margin</code> 属性，如：<code>“200px 200px 200px 200px&quot;</code>。 如果 <code>margin-left</code> 值为 <code>200px</code>，则<code>rootBounds</code>的矩形区的宽度会变大 <code>200px</code>。</li>
+<li><code>threshold</code>：目标元素与根元素的交叉比例，可以是单一的 <code>number</code> 也可以是<code> number</code> 数组，比如，<code>[0, 0.25, 0.5, 0.75, 1]</code>就表示当目标元素<code>0%、25%、50%、75%、100%</code>可见时，会触发回调函数</li>
+</ul>
+<pre><code>&#123;
+    // options配置
+    // 指定根元素，  目标元素的可见性是相对于根元素而言
+    root: document.getElementById(&#39;box&#39;),
+    // 根元素的外边距 如果为正，相当根元素矩形区外扩，否则相当于内缩
+    rootMargin: &quot;-200px 0px 0px 0px&quot;,
+    // 目标元素与根元素的交叉比例
+    threshold: 1,
+&#125;
+</code></pre>
+<ol start="5">
+<li>v-lazy 指令实现图片懒加载</li>
+</ol>
+<ul>
+<li>在<code>/src/commont/directive.js</code>文件中创建注册指令的<code>directives</code>方法</li>
+</ul>
+<pre><code>export const directives = (app) =&gt; &#123;
+  app.directive(&quot;lazy&quot;, (el, binding) =&gt; &#123;
+    //创建观察者实例
+    const io = new IntersectionObserver((entries) =&gt; &#123;
+      //如果元素没有出现在可视区 则不做任何处理
+      if (entries[0].intersectionRatio &lt;= 0) return;
+      //定时器模拟开发效果，实际开发中去掉
+      setTimeout(() =&gt; &#123;
+        el.src = el.dataset.src;
+      &#125;, 500);
+      //图片加载出来后 就取消观察
+      io.unobserve(el);
+      //关闭观察器
+      io.disconnect();
+    &#125;);
+    // 开始观察
+    io.observe(el);
+  &#125;);
+&#125;;
+</code></pre>
+<ul>
+<li>在<code>main.js</code>中调用<code>directives</code>方法，注册全局指令<code>v-lazy</code>指令</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+// 导入 directives方法
+import &#123; directives &#125; from &quot;./commont/directive&quot;;
+const app = createApp(App);
+// 注册全局指令
+directives(app);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li><code>App.vue</code>组件中应用</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      imgList: [
+        &quot;/src/assets/images/1.png&quot;,
+        &quot;/src/assets/images/2.png&quot;,
+        &quot;/src/assets/images/3.png&quot;,
+        &quot;/src/assets/images/4.png&quot;,
+        &quot;/src/assets/images/5.png&quot;,
+        &quot;/src/assets/images/6.png&quot;,
+        &quot;/src/assets/images/7.png&quot;,
+        &quot;/src/assets/images/8.png&quot;,
+      ],
+    &#125;;
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+  &lt;ul id=&quot;box&quot;&gt;
+    &lt;li v-for=&quot;item in imgList&quot;&gt;
+      &lt;img v-lazy :data-src=&quot;item&quot; /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;h1000&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+* &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+#box &#123;
+  max-width: 600px;
+  margin: 0px auto;
+  list-style: none;
+&#125;
+
+#box li &#123;
+  width: 290px;
+  height: 189px;
+  margin: 5px;
+  background-color: #ddd;
+  float: left;
+&#125;
+
+#box li img &#123;
+  width: inherit;
+  height: inherit;
+&#125;
+
+.h1000 &#123;
+  height: 1000px;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<h3 id="四、模板引用-ref-属性"><a href="#四、模板引用-ref-属性" class="headerlink" title="四、模板引用 - ref 属性"></a>四、模板引用 - ref 属性</h3><blockquote>
+<p>我们之所以会选择 Vue 框架，是因为 Vue 框架帮我们做了大部分的 DOM 操作，我们只需要关注逻辑层的处理。但在某些情况下，我们仍然需要直接访问底层的 DOM 元素。</p>
+<ul>
+<li>在 Vue 中访问底层的 DOM 元素，我们有以下两种办法：</li>
+</ul>
+</blockquote>
+<ul>
+<li>通过原生 JS 访问 DOM，比如：<code>document.getElementById()</code>或 <code>document.querySelectorAll()</code> 等更多方法</li>
+<li>通过 Vue 为我们提供了一个特殊的<code>ref</code>属性，它允许我们在一个特定的 DOM 元素或子组件实例被挂载后，获得对它的直接引用。</li>
+</ul>
+<h4 id="原生-JS-访问-DOM"><a href="#原生-JS-访问-DOM" class="headerlink" title="原生 JS 访问 DOM"></a>原生 JS 访问 DOM</h4><blockquote>
+<p>在生命周期函数<code>mounted</code>中获取<code>id = box</code>的元素，然后在控制台输出。</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      message: &quot;Hello Vue!!&quot;,
+    &#125;;
+  &#125;,
+  mounted() &#123;
+    const box = document.getElementById(&quot;box&quot;);
+    console.log(box);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div id=&quot;box&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>不过 Vue 框架本身是希望我们不要去关注 DOM 的操作，如果我们又用原生 JS 的方式来获取 DOM 是违背了 Vue 框架的初衷。</li>
+<li>所以在 Vue 中要获取对 DOM 的引用，主要还是通过<code>ref</code>属性来实现。</li>
+</ul>
+<h4 id="ref-属性"><a href="#ref-属性" class="headerlink" title="ref 属性"></a>ref 属性</h4><blockquote>
+<p>当我们需要访问某个 DOM 元素时，我们可以在该元素上添加<code>ref</code>属性，如：<code>ref=&#39;box&#39;</code>，然后就可以通过<code>this.$refs.box</code>访问到该 DOM 元素。<br>注意：</p>
+</blockquote>
+<ul>
+<li>只有在 DOM 元素或子组件实例被挂载后，才能通过<code>this.$refs.xxx</code>方式访问到该元素或子组件实例</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      console.log(this.$refs.box);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="ref-的唯一性"><a href="#ref-的唯一性" class="headerlink" title="ref 的唯一性"></a>ref 的唯一性</h4><blockquote>
+<p><code>ref</code>属性更像是<code>id</code>属性的替代者，页面中不同出现相同的<code>ref</code>值。如果出现相同的，则以后面的为主。</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      console.log(this.$refs);
+      console.log(this.$refs.box);
+      console.log(this.$refs.main);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot; class=&quot;box1&quot;&gt;box1内容&lt;/div&gt;
+  &lt;div ref=&quot;box&quot; class=&quot;box2&quot;&gt;box2内容&lt;/div&gt;
+  &lt;div ref=&quot;main&quot;&gt;main内容&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<img src="ref的唯一性.png">
+- 通过上面打印结果，我们知道`this.$refs`是一个包含 DOM 元素的**对象**，对象的属性名为`ref`对应的值，属性值为`ref`所绑定的 DOM 元素
+
+<h4 id="v-for中的模板引用"><a href="#v-for中的模板引用" class="headerlink" title="v-for中的模板引用"></a>v-for中的模板引用</h4><blockquote>
+<p>当我们在一个包含<code>v-for</code>指令的元素上，添加了<code>ref=&#39;xxx&#39;</code>属性时，最终<code>this.$refs.xxx</code>得到的值是一个<strong>数组</strong>，数组中每一项为<code>v-for</code>指令遍历后生成的<code>DOM</code>元素。</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        arr: [1, 2, 3, 4],
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      console.log(this.$refs.items);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in arr&quot; ref=&quot;items&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+<img src="v-for中的模板引用.png">
+- 注意：上面`this.$refs.items`得到的数组并不保证与源数组相同的顺序
+
+<h4 id="组件上的-ref"><a href="#组件上的-ref" class="headerlink" title="组件上的 ref"></a>组件上的 ref</h4><ul>
+<li>当我们在一个子组件上添加<code>ref = xxx</code>属性时，最终通过<code>this.$refs.xxx</code>得到的值是<strong>组件实例</strong>。</li>
+<li>如果我们给子组件添加<code>id</code>属性，通过原生 JS 方式获取该组件，得到的是组件的 <strong>DOM 元素</strong>。（该组件的根元素必需为<strong>单个元素</strong>时才可以，否则不行，这涉及到透传属性，后面会讲到，这里暂不介绍）。</li>
+</ul>
+<blockquote>
+<p><code>App.vue</code>文件内容</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import Hello from &quot;./components/Hello.vue&quot;;
+  export default &#123;
+    components: &#123;
+      Hello,
+    &#125;,
+    data() &#123;
+      return &#123;
+        arr: [1, 2, 3, 4],
+      &#125;;
+    &#125;,
+    mounted() &#123;
+      console.log(&quot;ref方式：&quot;, this.$refs.text);
+      console.log(&quot;id方式：&quot;, document.getElementById(&quot;box&quot;));
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Hello ref=&quot;text&quot; id=&quot;box&quot;&gt;&lt;/Hello&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p><code>Hello.vue</code>文件内容</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello 子组件&quot;,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&#123;&#123; message &#125;&#125;&lt;/h3&gt;
+    &lt;div&gt;子组件中div&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<img src="组件上的ref.png">
+- 通过上面代码，我们知道在子组件上添加`ref = xxx`属性，则在父组件中，可以通过`this.$refs.xxx`得到子组件实例。也就意味着在父组件中可以访问到子组件实例上的**所有属性**，这显然不是我们希望看到的。
+- 如果我们只希望在父组件中访问子组件中允许我们访问的一些属性，那我们可以通过`expose`选项来对外暴露一些公共属性
+
+<h4 id="expose-选项"><a href="#expose-选项" class="headerlink" title="expose 选项"></a>expose 选项</h4><ul>
+<li>如果没有<code>expose</code>选项，默认在父组件中可以通过模板引用访问子组件实例的所有方法和属性</li>
+<li><code>expose</code>选项用于声明当组件实例被父组件通过模板引用访问时暴露的公共属性。只有出现在<code>expose</code>选项中的属性和方法才能在父组件中访问到。</li>
+<li><code>expose</code>选项值应当是一个包含要暴露的属性名称字符串的数组</li>
+</ul>
+<pre><code>export default &#123;
+  // 子组件对外暴露的公开属性
+  expose: [&quot;publicData&quot;, &quot;publicMethod&quot;],
+&#125;;
+</code></pre>
+<blockquote>
+<p>应用场景</p>
+</blockquote>
+<ul>
+<li>如果你创建了某个组件，而这个组件需要对外暴露一些公开的属性和方法，但又希望组件其它的属性和方法是私有的，则把公开属性在<code>expose</code>选项中声明</li>
+</ul>
+<h4 id="实战应用：计数器"><a href="#实战应用：计数器" class="headerlink" title="实战应用：计数器"></a>实战应用：计数器</h4><ul>
+<li><p>组件实例的和属性</p>
+<table>
+<thead>
+<tr>
+<th>实例属性</th>
+<th>描述</th>
+<th>私有或公开</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>n</td>
+<td>用来保存当前计数</td>
+<td>公开</td>
+</tr>
+<tr>
+<td>timer</td>
+<td>用来保存定时器</td>
+<td>私有</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>组件实例的方法</p>
+<table>
+<thead>
+<tr>
+<th>实例方法</th>
+<th>描述</th>
+<th>私有或公开</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>方法</td>
+<td>addInterval</td>
+<td>添加定时器</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>removeInterval</td>
+<td>移除定时器</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>start</td>
+<td>开始计数</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>end</td>
+<td>暂停计数</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>reset</td>
+<td>重置计数</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><code>Count.vue</code>子组件</p>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      n: 0,
+      timer: null,
+    &#125;;
+  &#125;,
+  methods: &#123;
+    // 公开
+    start() &#123;
+      this.addInterval();
+    &#125;,
+    end() &#123;
+      //关闭定时器
+      this.removeInterval();
+    &#125;,
+    reset() &#123;
+      //关闭定时器
+      this.removeInterval();
+      //将n置为0
+      this.n = 0;
+    &#125;,
+
+    // 私有
+    addInterval() &#123;
+      //如果有定时器 就什么也不做
+      if (this.timer) return;
+      this.timer = setInterval(() =&gt; &#123;
+        this.n++;
+      &#125;, 1000);
+    &#125;,
+    removeInterval() &#123;
+      //如果有定时器 就清理掉
+      if (this.timer) &#123;
+        clearInterval(this.timer);
+        //重置定时器
+        this.timer = null;
+      &#125;
+    &#125;,
+  &#125;,
+  expose: [&quot;start&quot;, &quot;end&quot;, &quot;reset&quot;],
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;count&quot;&gt;当前计数：&#123;&#123; n &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>App.vues</code>根组件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+import count from &quot;./components/count.vue&quot;;
+export default &#123;
+  data() &#123;
+    return &#123;&#125;;
+  &#125;,
+  components: &#123;
+    count,
+  &#125;,
+  methods: &#123;
+    start() &#123;
+      this.$refs.count.start();
+    &#125;,
+    end() &#123;
+      this.$refs.count.end();
+    &#125;,
+    reset() &#123;
+      this.$refs.count.reset();
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;count ref=&quot;count&quot; /&gt;
+  &lt;button @click=&quot;start&quot;&gt;开始计数&lt;/button&gt;
+  &lt;button @click=&quot;end&quot;&gt;暂停计数&lt;/button&gt;
+  &lt;button @click=&quot;reset&quot;&gt;重置&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="五、nextTick-与-nextTick"><a href="#五、nextTick-与-nextTick" class="headerlink" title="五、nextTick 与 $nextTick"></a>五、nextTick 与 $nextTick</h3><blockquote>
+<p>Vue 中 DOM 的更新是<strong>异步</strong>的，如果你想在数据更新后，获取到数据更新后的 DOM，你可以把相关的代码写在<code>nextTick</code>的回调函数中。</p>
+</blockquote>
+<pre><code>function nextTick(callback?: () =&gt; void): Promise&lt;void&gt;
+</code></pre>
+<ul>
+<li>当你在 Vue 中更改响应式状态时，最终的 DOM 更新并不是同步生效的，而是由 Vue 将它们缓存在一个队列中，直到下一个<code>“tick”</code>才一起执行。这样是为了确保每个组件无论发生多少状态改变，<strong>都仅执行一次更新</strong>。</li>
+<li>要理解上面这段话，需要回答以下两个问题<ul>
+<li>如何理解 DOM 更新是异步的</li>
+<li>下一次tick指的是什么时候</li>
+</ul>
+</li>
+</ul>
+<h4 id="DOM-更新是异步的"><a href="#DOM-更新是异步的" class="headerlink" title="DOM 更新是异步的"></a>DOM 更新是异步的</h4><blockquote>
+<p>在 Vue 中，当响应式数据发生变化时，页面用到数据的地方也会发生变化，但并不是同步的，DOM 的更新是异步的。</p>
+</blockquote>
+<ul>
+<li>也就是说，如果你一次更新多个数据，最终 DOM 只会更新一次，并不会在每个数据更新时，都更新下对应的 DOM。<ul>
+<li>代码示例</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        n: 0,
+      &#125;;
+    &#125;,
+    methods: &#123;
+      add() &#123;
+        for (let i = 1; i &lt;= 100; i++) &#123;
+          this.n++;
+        &#125;
+      &#125;,
+    &#125;,
+    watch: &#123;
+      n(newValue) &#123;
+        console.log(newValue);
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;n的值:&#123;&#123; n &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;add&quot;&gt;自增&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码中，我们为创建了<code>watch</code>侦听器来侦听<code>n</code>值的变化，当点击按扭时，n的值会按1,2,3,4…形式递增到 100。</li>
+<li>如果说数据更新后，DOM 就要同步更新的话，那 DOM 要更新 100，同时侦听器回调函数也会被调用 100 次。<strong>但实际上 DOM 只更新了一次，并且侦听器也只调用了一次，侦听到的 n 值为 100</strong></li>
+</ul>
+<ol>
+<li>DOM 更新是异步，带来的问题</li>
+</ol>
+<ul>
+<li>因为 DOM 更新是异步的，所以我们想在数据更新后，立刻获取到更新后的 DOM，是没有办法获取到的。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        n: 0,
+      &#125;;
+    &#125;,
+    methods: &#123;
+      add() &#123;
+        for (let i = 1; i &lt;= 100; i++) &#123;
+          this.n++;
+        &#125;
+        //  以下代码是在DOM更新前被执行
+        console.log(this.$refs.box.innerHTML); // n的值:0
+      &#125;,
+    &#125;,
+    watch: &#123;
+      n(newValue) &#123;
+        console.log(newValue);
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot;&gt;n的值:&#123;&#123; n &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;add&quot;&gt;自增&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>nextTick 中获取数据更新后 DOM</li>
+</ol>
+<ul>
+<li>如果想在数据更新后，获取到更新后的 DOM，可以把相关代码放在在<code>nextTick</code>的回调函数中来执行，<code>nextTick</code>的回调函数会在 DOM 更新后调用。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; nextTick &#125; from &quot;vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        n: 0,
+      &#125;;
+    &#125;,
+    methods: &#123;
+      add() &#123;
+        for (let i = 1; i &lt;= 100; i++) &#123;
+          this.n++;
+        &#125;
+        // nextTick中的代码是在DOM更新后执行
+        nextTick(() =&gt; &#123;
+          console.log(this.$refs.box.innerHTML); //  n的值:100
+        &#125;);
+      &#125;,
+    &#125;,
+    watch: &#123;
+      n(newValue) &#123;
+        console.log(newValue);
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot;&gt;n的值:&#123;&#123; n &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;add&quot;&gt;自增&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>接下来深入下来<code>nextTick</code>的原理</li>
+</ul>
+<ol start="2">
+<li>下一次 tick 指的是什么时候<blockquote>
+<p>要了解下一次tick是什么时候，我们需要知道何为一次<code>tick</code>，这就需要我们了解 JS 中的事件循环机制（Event Loop）<br><strong>事件循环机制</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>JS 中的任务分为同步与异步，其中异步任务又分为：宏任务（Macro-take）和微任务（Micro-take）<img src="js任务机制.png"></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>宏任务</th>
+<th>微任务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>script 标签(JS 整体代码)、setTimeout、setInterval、Ajax、DOM 事件 等</td>
+<td>Promise 的 then 和 catch 方法、MutaionObserver、async&#x2F;await 等</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>JS 是单线程的，它是基于事件循环的，事件循环大致分为以下几个步骤</p>
+</blockquote>
+<ul>
+<li>1、刚开始，调用栈空。微任务队列空，宏任务队列里有且只有一个 Script 脚本（整体 JS 代码）。这时首先执行的就是这个宏任务。(所以一开始程序执行时是没有微任务的)</li>
+<li>2、整体代码作为宏任务进入调用栈，先执行同步代码，在执行的过程中遇到宏任务或微任务，就将他们加入分别加入到宏任务队列或微任务队列。</li>
+<li>3、上一步的同步代码执行完后出栈，接着从微任务队列中取出微任务（先添加到微任务队列的先执行）并执行，在执行微任务过程中产生新的微任务，会添加到微任务队列，等微任务中的任务全部完成后，并不会马上执行宏任务，而是会进行 DOM 渲染</li>
+<li>4、开始 DOM 渲染，把内容呈现在页面中,DOM 渲染结束。</li>
+<li>5、接着从宏任务队列中取出宏任务（先加入到宏任务队列的先执行），并压入栈中执行。在执行宏任务时，也可能会产生新的宏任务和微任务。其执行过程重复上面操作。<ul>
+<li>以上不断重复的过程就叫做<code>Event Loop</code>（事件循环）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>何为一次 tick</p>
+</blockquote>
+<ul>
+<li>上面 1-3 的过程就算是一个tick，从 5 开始又是一次新的tick，即为下一次tick。</li>
+<li>上一tick和下一次tick之间隔着一个 DOM 渲染。</li>
+</ul>
+<blockquote>
+<p>nextTick 的执行时机</p>
+</blockquote>
+<ul>
+<li>因为响应式状态发生变化时，DOM 并不是同步更新的，而是由Vue将它们缓存在一个队列中，所以在下一次<code>tick</code>时，先执行的是更新 DOM 的微任务，然后再执行<code>nextTick</code>的回调，<code>nextTick</code>的回调函数本质是在<code>Promise</code>的<code>then</code>方法中调用的，执行也的是一个微任务。</li>
+<li>实际上这里提到的下一次tick是在步骤 4 前面执行的，因为他执行的是微任务。</li>
+<li>所以 Vue 内部本质是同步的方式更新数据，DOM 更新在微任务中执行，<code>nextTick</code>的回调也是在微任务中执行，只是在 DOM 更新后执行。</li>
+</ul>
+<ol start="3">
+<li>nextTick 的两种用法<blockquote>
+<p>nextTick 是一个全局方法，本质是创建一个异步任务，那么它自然要等到同步任务执行完成后才执行。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>nextTick</code>没有传递回调时，返回的是一个成功的<code>Promise</code></li>
+<li><code>nextTick</code>传入了回调函数，返回值是<code>void</code>，本质上回调函数会被传入<code>promise</code>的<code>then</code>方法中</li>
+</ul>
+<pre><code>// 以下是 nextTick的部分源码
+const resolvedPromise = /*#__PURE__*/ Promise.resolve();
+let currentFlushPromise = null;
+function nextTick(fn) &#123;
+  const p = currentFlushPromise || resolvedPromise;
+  return fn ? p.then(this ? fn.bind(this) : fn) : p;
+&#125;
+</code></pre>
+<ul>
+<li>所以我们可以通过以下两种方式来使用nextTick方法</li>
+</ul>
+<pre><code>// 方法一
+await nextTick();
+// 所有需要在数据更新后获取更新的DOM操作都可以写在这里
+
+// 方法二
+nextTick(() =&gt; &#123;
+  // 所有需要在数据更新后获取更新的DOM操作都可以写在这里
+&#125;);
+</code></pre>
+<h4 id="nextTick"><a href="#nextTick" class="headerlink" title="$nextTick"></a>$nextTick</h4><blockquote>
+<p>绑定在实例上的 nextTick()函数</p>
+</blockquote>
+<pre><code>$nextTick(callback?: (this: ComponentPublicInstance) =&gt; void): Promise&lt;void&gt;
+</code></pre>
+<ul>
+<li>和全局版本的 <code>nextTick()</code> 的唯一区别就是组件传递给 <code>this.$nextTick()</code> 的回调函数会带上 <code>this</code> 上下文，其绑定了当前组件实例</li>
+</ul>
+<pre><code>await this.$nextTick(function () &#123;
+  console.log(this); // 当前组件实例
+&#125;);
+
+await nextTick(function () &#123;
+  console.log(this); // undefined
+&#125;);
+</code></pre>
+<blockquote>
+<p>为什么同时需要<code>$nextTick</code>和<code>nextTick</code></p>
+</blockquote>
+<ul>
+<li>在指令的钩子函数中是没有办法访问<code>this.$nextTick</code>，因为其内部的<code>this</code>指向<code>undefined</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; nextTick &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    directives: &#123;
+      focus: &#123;
+        created(el, binding) &#123;
+          /* 错误写法，因为this指向
+                this.$nextTick(() =&gt; &#123;
+                    el.focus()
+                &#125;)
+                */
+          /* 这种方式可以，不过写法上较复杂
+                 binding.instance.$nextTick(() =&gt; &#123;
+                     el.focus()
+                 &#125;)
+                 */
+          // 以下是最简单写法
+          nextTick(() =&gt; &#123;
+            el.focus();
+          &#125;);
+        &#125;,
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;input type=&quot;text&quot; v-focus /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>在实际开发中可以根据需要来选择，能用<code>$nextTick</code>的尽量用他，因为不需要再导入全局的<code>nextTick</code></li>
+</ul>
+<h3 id="六、组件实例属性"><a href="#六、组件实例属性" class="headerlink" title="六、组件实例属性"></a>六、组件实例属性</h3><blockquote>
+<p>本小节我们来学习组件实例相关的属性，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>组件实例属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$el</td>
+<td>获取该组件实例管理的 DOM 根节点</td>
+</tr>
+<tr>
+<td>$parent</td>
+<td>获取该组件对应的父组件实例。如果当前组件是顶层组件，则为 null</td>
+</tr>
+<tr>
+<td>$root</td>
+<td>当前组件树的根组件实例。如果当前实例没有父组件，这个值就是它自己</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><code>/src/App.vue</code>根组件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import Header from &quot;./components/Header.vue&quot;;
+  export default &#123;
+    components: &#123;
+      Header,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;div class=&quot;top&quot;&gt;顶部小导航&lt;/div&gt;
+    &lt;header /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>/src/components/Header.vue</code> 组件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import Count from &quot;./Count.vue&quot;;
+  export default &#123;
+    components: &#123;
+      Count,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;header&quot;&gt;
+    &lt;Count /&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>/src/components/Count.vue</code>组件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    mounted() &#123;
+      console.log(&quot;组件本身的DOM根节点：&quot;, this.$el);
+      console.log(&quot;组件对应父组件实例&quot;, this.$parent.$el);
+      console.log(&quot;根组件的DOM根节点&quot;, this.$root.$el);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;count&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<img src="组件实例属性.png">
+
+<h3 id="七、单文件组件-CSS-功能"><a href="#七、单文件组件-CSS-功能" class="headerlink" title="七、单文件组件 CSS 功能"></a>七、单文件组件 CSS 功能</h3><h4 id="CSS-的默认处理行为"><a href="#CSS-的默认处理行为" class="headerlink" title="CSS 的默认处理行为"></a>CSS 的默认处理行为</h4><blockquote>
+<p>默认情况下<code>&lt;style&gt;</code>标签中的样式会作用于所有组件的元素。因为<code>vite</code></p>
+</blockquote>
+<ul>
+<li>在启动开发服务时，会所有的单文件组件中<code>&lt;style&gt;</code>标签中的样式添加到<code>index.html</code>入口文件的<code>&lt;style&gt;</code>标签中，所以相同的类名，写在后面的会覆盖前面的。</li>
+<li>在生产环境下打包时，所有单文件组件<code>&lt;style&gt;</code>标签中的样式会被打包到一个<code>*.css</code>的文件中，所以相同的类名，写在后面的会覆盖前面的</li>
+<li>不管是开发环境还是生产环境下，<code>App.vue</code>的样式都在子组件样式后面(子组件按照引入顺序)</li>
+</ul>
+<h4 id="scoped-属性"><a href="#scoped-属性" class="headerlink" title="scoped 属性"></a>scoped 属性</h4><blockquote>
+<p>当<code>&lt;style&gt;</code>标签带有<code>scoped attribute</code>的时候，它的 CSS 只会影响当前组件的元素。因为<code>vite</code>：</p>
+</blockquote>
+<ul>
+<li>在构建项目时，不管生产还是开发环境，都会给当前组件的 html 元素添加<code>data-v-xxx</code>的自定义属性</li>
+<li>同时组件中<code>&lt;style&gt;</code>标签中的选择器后会加上对应的<code>data-v-xxx</code>的属性选择。</li>
+<li>以上处理后，就达到了两个组件中的 CSS 样式只能应用于当前组件中的元素，从实现了样式的隔离</li>
+</ul>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>使用<code>scoped</code>后，父组件的样式将不会渗透到子组件中。不过，<strong>单根子组件</strong>的根节点会同时被父组件的作用域样式和子组件的作用域样式影响。因为<code>vite</code>在构建时，会给单根子组件的根节点元素上加上父组件对应的<code>data-v-xxx</code>的属性。</li>
+<li>注意：只有当子组件是单根组件时，才会在根节点元素上添加父组件的<code>data-v-xx</code>属性。</li>
+</ul>
+<p><strong>设计初衷</strong></p>
+<ul>
+<li>这样设计是为了让父组件可以从布局的角度出发，调整其子组件根元素的样式。常用于调整应用的第三方子组件的样式。</li>
+</ul>
+<h4 id="deep-伪类"><a href="#deep-伪类" class="headerlink" title=":deep() 伪类"></a>:deep() 伪类</h4><blockquote>
+<p>处于<code>scoped</code>样式中的选择器，如果想做更“深度”的。比如：在父组件中调整子组件中根元素之外的其它元素的样式，可以借助<code>:deep()</code>这个伪类</p>
+</blockquote>
+<ul>
+<li><code>App.vue</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+  import A from &quot;./components/A.vue&quot;;
+  export default &#123;
+    components: &#123;
+      A,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;A&gt;&lt;/A&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  * &#123;
+    margin: 0px;
+    padding: 0px;
+  &#125;
+&lt;/style&gt;
+
+&lt;!--style标签上添加了 scoped --&gt;
+&lt;style scoped&gt;
+  .box &#123;
+    border: 1px solid khaki;
+  &#125;
+
+  .box h3 &#123;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li><code>/src/components/A.vue</code>组件内容</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;h3&gt;组件A&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!-- style标签上添加了 scoped属性 --&gt;
+&lt;style scoped&gt;
+  .box &#123;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    border: 1px solid skyblue;
+  &#125;
+
+  .box h3 &#123;
+    height: 30px;
+    text-indent: 1em;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>打包后生成的html结构如下：</li>
+</ul>
+<pre><code>&lt;div data-v-7a7a37b1=&quot;&quot; class=&quot;main&quot;&gt;
+  &lt;!--A start--&gt;
+  &lt;div data-v-65097ce7 data-v-7a7a37b1 class=&quot;box&quot;&gt;
+    &lt;h3 data-v-65097ce7=&quot;&quot;&gt;组件A&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;!--A end--&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>打包后生产的*.css文件内容如下：</li>
+</ul>
+<pre><code>/* A组件样式 */
+.box[data-v-65097ce7] &#123;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid skyblue;
+&#125;
+.box h3[data-v-65097ce7] &#123;
+  height: 30px;
+  text-indent: 1em;
+  background-color: #87ceeb;
+&#125;
+/* App 组件样式 */
+* &#123;
+  margin: 0;
+  padding: 0;
+&#125;
+.box[data-v-7a7a37b1] &#123;
+  border: 1px solid khaki;
+&#125;
+.box h3[data-v-7a7a37b1] &#123;
+  background-color: khaki;
+&#125;
+</code></pre>
+<ul>
+<li>通过观察html结构与css，我们发现<code>.box h3[data-v-7a7a37b1]</code>选择器并没有生效，因为页面中 h3 标签并没有<code>data-v-7a7a37b1</code>属性。</li>
+<li>如果我们就是想在根组件App中调整 A 子组件中h3标签的样式，App根组件中控制 h3 标签的 CSS 样式应该是如下写法</li>
+</ul>
+<pre><code>.box[data-v-7a7a37b1] h3 &#123;
+  background-color: khaki;
+&#125;
+</code></pre>
+<ul>
+<li>这需要借助<code>:deep()</code>伪类，修改后<code>App.vue</code>中的<code>CSS</code> 样式：</li>
+</ul>
+<pre><code>.box :deep(h3) &#123;
+  background-color: khaki;
+&#125;
+</code></pre>
+<ul>
+<li>上面修改后的 CSS 代码最终会被编译成</li>
+</ul>
+<pre><code>.box[data-v-7a7a37b1] h3 &#123;
+  background-color: khaki;
+&#125;
+</code></pre>
+<ul>
+<li>这样就实现了在App组件中调整A组件中h3标签的样式</li>
+</ul>
+<h4 id="global-伪类"><a href="#global-伪类" class="headerlink" title=":global() 伪类"></a>:global() 伪类</h4><blockquote>
+<p>如果想让某个样式规则应用于全局</p>
+<ul>
+<li>有以下两种方式：</li>
+</ul>
+</blockquote>
+<ul>
+<li>写在不带<code>scoped</code>属性的<code>&lt;style&gt;</code>标签中的样式全局可用。注意：<code>&lt;style&gt;</code>标签与<code>&lt;style scoped&gt;</code>标签可以在一个组件中共存</li>
+</ul>
+<pre><code>&lt;style&gt;
+  /* 写在这里的样式，全局可用 */
+&lt;/style&gt;
+&lt;style scoped&gt;
+  /* 写在这里的样式，如果没有使用:global()，只能当前组件内可用 */
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>使用<code>:global</code>伪类来，在<code>scoped</code>中被<code>:global()</code>选中的选择器，最终编译后原样输出，不会加上<code>data-v-xx</code>属性选择</li>
+</ul>
+<pre><code>&lt;style scoped&gt;
+  /* scoped 中写在 :global()中的 css 选择器全局可用*/
+  :global(.box) &#123;
+    width: 200px;
+    height: 200px;
+    border: 1px solid khaki;
+    margin: 10px;
+  &#125;
+
+  :global(.box h3) &#123;
+    height: 30px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>以上代码最终编译后代码如下：</li>
+</ul>
+<pre><code>&lt;style&gt;
+  .box &#123;
+    width: 200px;
+    height: 200px;
+    border: 1px solid khaki;
+    margin: 10px;
+  &#125;
+
+  .box h3 &#123;
+    height: 30px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="CSS-Modules"><a href="#CSS-Modules" class="headerlink" title="CSS Modules"></a>CSS Modules</h4><blockquote>
+<p>一个<code>&lt;style module&gt;</code>标签会被编译为<code>CSS Modules</code>并且将生成的<code>CSS class</code>作为<code>$style</code>对象暴露给组件。</p>
+</blockquote>
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;div :class=&quot;$style.main&quot;&gt;
+    &lt;div&gt;$style对象值:&#123;&#123; $style &#125;&#125;&lt;/div&gt;
+    div
+    &lt;div :class=&quot;$style.box&quot;&gt;
+      &lt;h3&gt;App组件&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style module&gt;
+* &#123;
+  margin: 0px;
+  padding: 0px;
+&#125;
+
+.main &#123;
+  margin: 20px;
+&#125;
+
+.box &#123;
+  width: 200px;
+  height: 200px;
+  border: 1px solid skyblue;
+  margin: 20px;
+&#125;
+
+.box h3 &#123;
+  height: 30px;
+  background-color: skyblue;
+  color: #fff;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>以上代码，最终渲染后效果如下：<img src="CSS-Module示例.png"></li>
+</ul>
+<blockquote>
+<p>自定义注入名称</p>
+</blockquote>
+<ul>
+<li>你可以通过给 <code>module attribute</code> 一个值来自定义注入 <code>class</code> 对象的属性名：</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;!--注意使用时，不要加$符--&gt;
+  &lt;div :class=&quot;root.main&quot;&gt;
+    &lt;h3&gt;$style对象值:&#123;&#123; root &#125;&#125;&lt;/h3&gt;
+    &lt;div :class=&quot;root.box&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;!--root为注入名--&gt;
+&lt;style module=&quot;root&quot;&gt;
+  * &#123;
+    margin: 0px;
+    padding: 0px;
+  &#125;
+
+  .main &#123;
+    margin: 20px;
+  &#125;
+
+  .main h3 &#123;
+    font-weight: 400;
+    line-height: 40px;
+    border-bottom: 1px solid skyblue;
+  &#125;
+
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    margin: 20px;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>最终渲染后效果与前面的$style效果一模一样。</li>
+</ul>
+<h4 id="CSS-中的-v-bind"><a href="#CSS-中的-v-bind" class="headerlink" title="CSS 中的 v-bind()"></a>CSS 中的 v-bind()</h4><blockquote>
+<p>单文件组件的<code>&lt;style&gt;</code>标签中支持使用<code>v-bind</code>，CSS 函数将 CSS 的值链接到动态的组件状态。</p>
+</blockquote>
+<ul>
+<li><code>v-bind()</code>常用于接受父组件传递给子组件的 <code>CSS</code> 属性的值</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        color: &quot;red&quot;,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;Hello Vue!!&lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .box &#123;
+    color: v-bind(color);
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<img src="css中的v-bind().png">
+
+<ul>
+<li><code>v-bind()</code>函数中的变量最终被转换成哈希化的 CSS 自定义属性，然后在内联样式中通过<code>CSSvar()</code>函数使用自定义属性的值</li>
+<li>当前组件中通过<code>v-bind()</code>形式绑定的 CSS，最终会转换成哈希化的 CSS 自定义属性添加到当前组件的根元素上，同时会在源值变更的时候响应式地更新</li>
+</ul>
+<h4 id="CSS-预处理器"><a href="#CSS-预处理器" class="headerlink" title="CSS 预处理器"></a>CSS 预处理器</h4><blockquote>
+<p>在<code>&lt;style&gt;</code>标签上可以使用<code>lang</code>这个属性来声明 CSS 的预处理器语言。</p>
+<ul>
+<li>比如：<code>&lt;style lange=&#39;scss&#39;&gt; </code>，表示可以使用 sass 来编写 CSS。</li>
+</ul>
+</blockquote>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;p&gt;Hello Vue!!&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped lang=&quot;scss&quot;&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    border: 1px solid skyblue;
+
+    p &#123;
+      color: red;
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>要使sass最终能被成功编译成 CSS，还需要执行以下命令安装Sass的预处理器依赖</li>
+</ul>
+<pre><code>npm i sass -D # 安装sass 依赖包
+</code></pre>
+<ul>
+<li>最终上面<code>&lt;style&gt;</code>标签中的 Sass 编译成如下 CSS 样式</li>
+</ul>
+<pre><code>.box[data-v-7a7a37b1] &#123;
+  width: 100px;
+  height: 100px;
+  border: 1px solid skyblue;
+&#125;
+
+.box p[data-v-7a7a37b1] &#123;
+  color: red;
+&#125;
+</code></pre>
+<h3 id="八、组件间通信"><a href="#八、组件间通信" class="headerlink" title="八、组件间通信"></a>八、组件间通信</h3><blockquote>
+<p>组件间通信是指各个组件之间可以相互传递数据，实现数据的共享。</p>
+<ul>
+<li>比如：</li>
+</ul>
+</blockquote>
+<ul>
+<li>父组件可以给子组件传数据，子组件也可以给父组件传数据，各个兄弟组件之间也可以互相传递数据。</li>
+</ul>
+<blockquote>
+<p>我们将会学习以下几种组件间通信的方式：</p>
+</blockquote>
+<ul>
+<li>父子组件之间的通信</li>
+<li>兄弟组件之间的通信</li>
+<li>祖孙与后代组件之间的通信</li>
+<li>非关系组件之间的通信</li>
+</ul>
+<h3 id="九、父组件向子组件传值-props"><a href="#九、父组件向子组件传值-props" class="headerlink" title="九、父组件向子组件传值 - props"></a>九、父组件向子组件传值 - props</h3><h4 id="props-选项"><a href="#props-选项" class="headerlink" title="props 选项"></a>props 选项</h4><blockquote>
+<p>父组件向子组件传递数据，可以通过自定义 Prop（属性）来传递。</p>
+</blockquote>
+<ul>
+<li>在使用子组件的时候，在子组件标签上添加自定义属性（Prop），把需要传递的数据做为属性的值就可以，如下：</li>
+</ul>
+<pre><code>&lt;!--List子组件  title与 info 属性用来实现在父组件中传递数据给到子组件--&gt;
+&lt;List title=&quot;新闻标题&quot; info=&quot;新闻内容&quot; /&gt;
+</code></pre>
+<ul>
+<li>子组件需要通过<code>prpos</code>选项来接受父组件传递过来的 Prop（属性）。然后就可以在模板标签中通过插值语法使用接受的属性，也可以通过组件实例直接访问。</li>
+</ul>
+<pre><code>&lt;!--List组件--&gt;
+&lt;script&gt;
+  export default &#123;
+    // 通过props选项接受父组件通过Prop传递的数据
+    props: [&quot;title&quot;, &quot;info&quot;],
+    created() &#123;
+      console.log(this.title); // 新闻标题
+      console.log(this.info); // 新闻内容
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!--对于接受过来的数据，可以直接在模板中使用--&gt;
+  &lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;
+  &lt;div&gt;&#123;&#123; info &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="Prop-名字格式"><a href="#Prop-名字格式" class="headerlink" title="Prop 名字格式"></a>Prop 名字格式</h4><blockquote>
+<p>定义属性： 如果在传递数据时，属性的名字很长，由两个以上单词组成，建议在<code>HTML</code>标签上使用<code>kebab-case</code>形式来定义属性名。</p>
+<ul>
+<li>主要目标是为了与 HTML 原生的属性对齐。如下：</li>
+</ul>
+</blockquote>
+<pre><code>&lt;List data-title=&quot;新闻标题&quot; data-info=&quot;新闻内容&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>接受属性：</p>
+</blockquote>
+<ul>
+<li>在子组件的<code>props</code>选项来接受属性时，推荐使用<code>camelCase</code>形式，因为他是一个合法的 JS 标识符，而<code>kebab-case</code>形式并不是合法的 JS 标识符，在插值语法中没有办法使用。</li>
+</ul>
+<pre><code>&lt;!--data-title为不合法标识符，Vue没办法解析--&gt;
+&lt;div&gt;&#123;&#123; data-title &#125;&#125;&lt;/div&gt;
+&lt;!--正确写法--&gt;
+&lt;div&gt;&#123;&#123; dataTitle &#125;&#125;&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li><code>App.vue</code>根组件</li>
+</ul>
+<pre><code>&lt;script&gt;
+  // 导入组件
+  import List from &quot;./components/List.vue&quot;;
+  export default &#123;
+    // 注册组件
+    components: &#123;
+      List,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- 使用组件，title与info属性值为父组件向子组件传入的数据--&gt;
+  &lt;List data-title=&quot;新闻标题&quot; data-info=&quot;新闻内容&quot; /&gt;
+  &lt;List data-title=&quot;最新动态&quot; data-info=&quot;动态内容&quot;&gt;&lt;/List&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>List.vue</code>根组件</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;&#125;;
+    &#125;,
+    // 以下两种props写法都可以，但在模板中使用时需要采用 dataTitle与dataInfo写法
+    // props: [&quot;data-title&quot;, &quot;data-info&quot;],
+    props: [&quot;dataTitle&quot;, &quot;dataInfo&quot;],
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;h3&gt;&#123;&#123; dataTitle &#125;&#125;&lt;/h3&gt;
+  &lt;div&gt;&#123;&#123; dataInfo &#125;&#125;&lt;/div&gt;
+
+  &lt;!--以下为错误写法--&gt;
+  &lt;!--
+    &lt;h3&gt;&#123;&#123; data-title &#125;&#125;&lt;/h3&gt;
+    &lt;div&gt;&#123;&#123; data-info &#125;&#125;&lt;/div&gt;
+    --&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="静态-VS-动态-Prop"><a href="#静态-VS-动态-Prop" class="headerlink" title="静态 VS 动态 Prop"></a>静态 VS 动态 Prop</h4><blockquote>
+<p>组件在进行 prop 传值时，属性的值可以是一个静态值，也可以是一个动态值。</p>
+</blockquote>
+<ul>
+<li>以下写法的属性为静态属性，其属性值在被接受时，类型永远是字符串</li>
+</ul>
+<pre><code>&lt;List title=&quot;新闻标题&quot; info=&quot;&#123;a:1,b:2&#125;&quot; num=&quot;10&quot; /&gt;
+</code></pre>
+<ul>
+<li>使用<code>v-bind</code>或缩写<code>:</code>绑定的属性为动态属性，他可以传递任意类型的值，值在被接受时，可以区分不同类型。</li>
+</ul>
+<pre><code>&lt;List :title=&quot;news.title&quot; :info=&quot;&#123;a:1,b:2&#125;&quot; :num=&quot;10&quot; /&gt;
+</code></pre>
+<h4 id="props-对象写法"><a href="#props-对象写法" class="headerlink" title="props 对象写法"></a>props 对象写法</h4><blockquote>
+<p>props 选项的值可以是一个字符串类型的数组，也可以是一个对象。</p>
+</blockquote>
+<ul>
+<li>如果 props 接受的属性值不需要做类型的校验，可以采用前面讲到的数组写法</li>
+<li>如果 props 对于传过来的属性值有严格的类型要求，我们可以采用对象的形式来声明 props<ul>
+<li>如：</li>
+</ul>
+</li>
+</ul>
+<pre><code>export default &#123;
+  props: &#123;
+    title: String, // title值必需为子符串类型
+    age: Number, // num值必需为数字类型
+    bool: Boolean, // bool 值必需为数字类型
+    address: [Object, String], // info值可以是字符串类型，也可以是对象类型
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>如果传递的值类型不符合要求，控制台会抛出警告</li>
+</ul>
+<ol>
+<li>属性支持的检测类型<blockquote>
+<p>属性支持的检测类型可以是以下这些原生的构造函数：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>String</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>Array</li>
+<li>Object</li>
+<li>Date</li>
+<li>Function</li>
+<li>Symbol</li>
+</ul>
+<blockquote>
+<p>也可以是自定义的类或构造函数，Vue 将会通过<code>instanceof</code>来检查类型是否匹配。</p>
+</blockquote>
+<ul>
+<li>例如下面这个类：</li>
+</ul>
+<pre><code>class Person &#123;
+  constructor(name, age) &#123;
+    this.name = name;
+    this.age = age;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>你可以将其作为一个 Prop 的类型</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    props: &#123;
+      userInfo: Person,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li><code>Person.js</code> 中定义 <code>Person</code> 类</li>
+</ul>
+<pre><code>export class Person &#123;
+  constructor(name, age) &#123;
+    this.name = name;
+    this.age = age;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>App.vue</code> 根组件<ul>
+<li>直接在<code>data</code>里面<code>new</code>实例</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  // 导入People组件
+  import People from &quot;./components/People.vue&quot;;
+  // 导入 Person类
+  import &#123; Person &#125; from &quot;./common/Person.js&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        // userInfo 数据类型为 Person类的实例
+        userInfo: new Person(&quot;hermia&quot;, 13),
+      &#125;;
+    &#125;,
+    components: &#123;
+      People,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;People :user-info=&quot;userInfo&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>People.vue</code> 子组件</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; Person &#125; from &quot;../common/Person.js&quot;;
+  export default &#123;
+    props: &#123;
+      userInfo: Person,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&#123;&#123; userInfo.name &#125;&#125; -- &#123;&#123; userInfo.age &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="Prop-校验"><a href="#Prop-校验" class="headerlink" title="Prop 校验"></a>Prop 校验</h4><blockquote>
+<p>如果我们需要对传过来的值做更严格的校验，可以将 props 选项对象的属性值写成一个带有校验选项的对象。</p>
+<ul>
+<li>如下：</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>type</code>：数据类型</li>
+<li><code>required</code>：属性是否为必传，true表示必传</li>
+<li><code>default</code>：属性的默认值</li>
+<li><code>validator</code>：数据校验函数，注意<code>validator</code>没有办法访问到组件实例，<code>validator</code>方法中<code>this</code>为<code>undefined</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    props: &#123;
+      myProps: &#123;
+        // 数据类型
+        type: Number,
+
+        // 属性是否为必传，true表示必传
+        required: true,
+
+        // 表示未传该属性时，属性的默认值，如果没有配置default选项
+        default: 17,
+        /* default可以是一个函数，函数返回值属性默认值
+                default(rawProps)&#123;
+                    return 28
+                    &#125;
+                */
+
+        // 数据校验函数，如果返回值为false，表示校验失败，控制台会抛出警告
+        validator(value) &#123;
+          // ....
+          return true;
+        &#125;,
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>required</code>与<code>default</code>不能同时出现，因为必传，就决定了不会启用默认值</li>
+<li>这两种方式效果是一样的</li>
+</ul>
+<pre><code>props: &#123;
+    title: String, 
+&#125;
+
+ props: &#123;
+      title: &#123;
+        // 数据类型
+        type: String,
+      &#125;
+ &#125;
+</code></pre>
+<ul>
+<li>这两种方式对于没有传的非<code>bool</code>类型属性，默认值都为<code>undefind</code>，不会在页面显示；<code>bool</code>类型属性为<code>false</code>，会显示在页面</li>
+</ul>
+<h4 id="Boolean-类型-Prop-简写形式"><a href="#Boolean-类型-Prop-简写形式" class="headerlink" title="Boolean 类型 Prop 简写形式"></a>Boolean 类型 Prop 简写形式</h4><blockquote>
+<p>当父组件向子组件通过<code>Prop</code>传值时，传递的属性值为<code>Boolean</code>类型时，可以支持以下简写形式</p>
+</blockquote>
+<pre><code>&lt;!--完整写法--&gt;
+&lt;Person :bool=&quot;true&quot; /&gt;
+&lt;Person :bool=&quot;false&quot; /&gt;
+
+&lt;!--以下为简写形式--&gt;
+&lt;Person bool /&gt;
+&lt;!-- 等同于传入 :bool=&quot;true&quot; --&gt;
+
+&lt;Person /&gt;
+&lt;!-- 等同于传入 :bool=&quot;false&quot; --&gt;
+</code></pre>
+<ul>
+<li>注意：在子组件的<code>props</code>选项中必须要指定该属性值的类型为<code>Boolean</code>类型，多类型的时候要写在最前面</li>
+</ul>
+<pre><code>export default &#123;
+  props: &#123;
+    bool: Boolean, // 或 [Boolean, String]  Boolean一定要出现在第一位，以下简写形式才支持
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="使用一个对象绑定多个-Prop"><a href="#使用一个对象绑定多个-Prop" class="headerlink" title="使用一个对象绑定多个 Prop"></a>使用一个对象绑定多个 Prop</h4><blockquote>
+<p>如果你想要将一个对象的所有属性都当作 props 传入，你可以使用没有参数的<code>v-bind</code>。</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import Person from &quot;./components/Person.vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        userInfo: &#123;
+          username: &quot;清心&quot;,
+          age: 33,
+          tel: 13523456543,
+        &#125;,
+      &#125;;
+    &#125;,
+    components: &#123;
+      Person,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Person v-bind=&quot;userInfo&quot; /&gt;
+  &lt;!--以上方式等价于--&gt;
+  &lt;Person
+    :username=&quot;userInfo.username&quot;
+    :age=&quot;userInfo.age&quot;
+    :tel=&quot;userInfo.tel&quot;
+  /&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="Props-选项被处理的时机"><a href="#Props-选项被处理的时机" class="headerlink" title="Props 选项被处理的时机"></a>Props 选项被处理的时机</h4><blockquote>
+<p><code>Props</code>选项是在生命周期函数<code>beforeCreate</code>之前被解析，且<code>prop</code>的校验是在组件实例被创建之前处理的。</p>
+</blockquote>
+<ul>
+<li>所以在<code>data、computed、method</code>选项中可以访问到<code>Props</code>选项中的属性。</li>
+<li>但<code>Props</code>选项中没有办法访问到<code>data、computed、method</code>等选项中的属性</li>
+</ul>
+<h4 id="更新-prop-的值"><a href="#更新-prop-的值" class="headerlink" title="更新 prop 的值"></a>更新 prop 的值</h4><blockquote>
+<p>如果需要更新 prop 的值，推荐在<strong>父组件</strong>中更新，每次父组件中的数据更新后，所有子组件中对应的 props 都会被更新到最新值</p>
+</blockquote>
+<ol>
+<li>单向数据流</li>
+</ol>
+<ul>
+<li>所有的 props 都遵循着单向绑定原则，子组件中可以使用父组件传过来的数据，但这些数据是<strong>只读</strong>的，在子组件中不能去修改这些数据。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。</li>
+<li>如果在子组件中更改了 prop 的值，会在控制台抛出警告，这就意味着我们不应该这样做</li>
+</ul>
+<blockquote>
+<p>但在某些情况下，我们确实需要在子组件中更改 props 中属性的值，比如以下两个场景：</p>
+</blockquote>
+<ul>
+<li>场景一： prop 用来传入初始值，而子组件想在之后将其作为一个局部数据属性</li>
+<li>场景二： 需要对传入的 prop 值做进一步的转换<ul>
+<li>那应该如何操作呢 ？</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>更改<strong>基本数据类型</strong>的 prop 值<blockquote>
+<p>针对场景一： prop 用来传入初始值，而子组件想在之后将其作为一个局部数据属性。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>如果属性的值是基本数据类型，在这种情况下，最好是<strong>新定义</strong>一个局部数据属性，从 props 上获取初始值即可</li>
+</ul>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import Person from &quot;./components/Person.vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        money: 1000,
+      &#125;;
+    &#125;,
+    components: &#123;
+      Person,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Person :money=&quot;money&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>Person.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    props: [&quot;money&quot;],
+    data() &#123;
+      return &#123;
+        // 只是将money作为初始值
+        // 然后将其赋值给到一个新的属性，这样后期更新就和money无关了
+        newMoney: this.money,
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--子组件中，绑定newMoney属性--&gt;
+  &lt;div&gt;当前账户初始金额：&#123;&#123; newMoney &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;newMoney = newMoney - 200&quot;&gt;消费200&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>针对场景二：</p>
+</blockquote>
+<ul>
+<li>需要对传入的 prop 值做进一步的转换</li>
+<li>如果属性的值是基本数据类型，在这种情况中，最好是基于该 prop 值定义一个<strong>计算属性</strong></li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    props: [&quot;money&quot;],
+    data() &#123;
+      return &#123;
+        // 只是将money作为初始值
+        // 然后将其赋值给到一个新的属性，这样后期更新就和money无关了
+        newMoney: this.money,
+      &#125;;
+    &#125;,
+    computed: &#123;
+      myMoney() &#123;
+        return &quot;￥&quot; + this.newMoney + &quot;元&quot;;
+      &#125;,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--子组件中，绑定newMoney属性--&gt;
+  &lt;div&gt;当前账户初始金额：&#123;&#123; myMoney &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;newMoney = newMoney - 200&quot;&gt;消费200&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="3">
+<li>更改<strong>对象&#x2F;数组类型</strong>的 prop 值</li>
+</ol>
+<ul>
+<li>如果 prop 的值是数组或对象，我们虽然不能直接修改属性的值（重新给属性赋值），但我们依然可以更改数组和对象内部的值。</li>
+<li>因为对象和数组是引用数据类型，所以修改对象的值，会修改父组件中的数据</li>
+<li>但官方非常不推荐我们这样做，因为这种更改的主要缺陷是它允许了子组件以某种不明显的方式影响父组件的状态，可能会使数据流在将来变得更难以理解。</li>
+<li>假设父组件中的某个数据传递给了 10 个子组件，然后每个子组件内部都有一套修改该数据的方法，那最后数据的管理将会变得非常的混乱。如何所有修改数据的方法都交组父组件来管理，那对数据的管理将会更清淅。</li>
+<li>所以，针对 prop 的值是对象或数组，而我们又想在子组件中更改这些数据时，官方给我们提供了一种最佳的实现方式：子组件抛出一个事件来通知父组件做出改变：<code>emits</code></li>
+</ul>
+<h3 id="十、子组件向父组件传值-emits"><a href="#十、子组件向父组件传值-emits" class="headerlink" title="十、子组件向父组件传值 - emits"></a>十、子组件向父组件传值 - emits</h3><h4 id="监听与触发自定义事件"><a href="#监听与触发自定义事件" class="headerlink" title="监听与触发自定义事件"></a>监听与触发自定义事件</h4><blockquote>
+<p>自定义事件也可以称为组件事件，因为自定义事件主要是绑定在组件身上，用来解决子组件向父组件传递数据或修改父组件中数据。</p>
+</blockquote>
+<ul>
+<li>所以这里要与原生 JS 事件做区分，原生 JS 事件主要是绑定在原生的 HTML 元素身上。</li>
+</ul>
+<blockquote>
+<p>监听事件</p>
+</blockquote>
+<ul>
+<li>在父组件中可以通过<code>v-on</code>(缩写为<code>@</code>)来监听事件：</li>
+</ul>
+<pre><code>&lt;script&gt;
+  methods: &#123;
+      // 下面的update-event事件触发后，就会调用update更新数据
+      update() &#123; /* ... */&#125;
+  &#125;
+&lt;/script&gt;
+&lt;!-- 
+    update-event为事件名,类似于原生JS中click，mouseover等事件名
+    update为事件处理函数，即事件触发后调用的函数
+--&gt;
+&lt;MyComponent @update-event=&quot;update&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>触发事件</p>
+</blockquote>
+<ul>
+<li>方法1：在子组件的模板表达式中，可以直接使用<code>$emit(事件名)</code>方法触发自定义事件</li>
+</ul>
+<pre><code>&lt;!--MyComponent 子组件--&gt;
+&lt;!--updateEvent是触发的事件名，事件名在这里要采用驼峰命名--&gt;
+&lt;!--button绑定了click事件，点击按扭后，通过$emit方法触发了updateEvent自定义事件，事件触发后，就会调用事件绑定的update方法，更新数据--&gt;
+
+&lt;button @click=&quot;$emit(updateEvent)&quot;&gt;更新数据&lt;/button&gt;
+</code></pre>
+<ul>
+<li>方法2：在组件实例上以<code>this.$emit()</code>的方式触发自定义事件</li>
+</ul>
+<pre><code>// MyComponent 子组件
+&lt;script&gt;
+export default &#123;
+    methods: &#123;
+        updateData() &#123;
+            &lt;!--updateEvent是触发的事件名，事件名在这里要采用驼峰命名--&gt;
+            this.$emit(&#39;updateEvent&#39;)
+        &#125;
+    &#125;
+&#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;!--点击按扭，会调用updateDate方法，在此方法中通过this.$emit方法，触发了updateEvent自定义事件，事件触发后，就会调用事件绑定的update方法，更新数据--&gt;
+ 
+    &lt;button @click=&quot;updateDate&quot;&gt;更新数据2&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>总结：自定义事件监听与触发</p>
+</blockquote>
+<ul>
+<li>监听：在父组件中通过<code>v-on</code>（缩写为<code>@</code>）监听自定义事件，同时添加事件处理回调函数</li>
+<li>触发：<ul>
+<li>在子组件模板中通过<code>$emit</code>方法触发自定义事件；</li>
+<li>在子组件实例上通过<code>this.$emit()</code>方式触发自定义事件</li>
+</ul>
+</li>
+</ul>
+<h4 id="emits-选项"><a href="#emits-选项" class="headerlink" title="emits 选项"></a>emits 选项</h4><blockquote>
+<p><code>emits</code>选项用来显示声明子组件需要触发的事件，他支持数组与对象两种写法。</p>
+</blockquote>
+<blockquote>
+<p>以下是数组写法</p>
+</blockquote>
+<pre><code>export default &#123;
+  emits: [&quot;updateEvent&quot;, &quot;delEvent&quot;],
+&#125;;
+</code></pre>
+<ul>
+<li>在单根组件中，不用<code>emits</code>选项来声明子组件要触发的事件，好像对我们执行代码没有什么影响，控制台也不报警告。</li>
+<li>但在多根组件中不用<code>emits</code>选项来声明子组件要触发的事件，控制台就会抛出警告<blockquote>
+<p>不管子组件是单根组件还是多根组件，我们都推荐使用<code>emits</code>选项来完整声明所有要触发的自定义事件。这样有两个好处：</p>
+</blockquote>
+</li>
+<li>通过emits选项，一眼就能知道当前组件中需要触发那些自定义事件</li>
+<li>可以让 Vue 更好的将事件与<strong>透传属性</strong>作出区分</li>
+</ul>
+<blockquote>
+<p>如果需要对触发事件的参数作校验，则需要采用对象写法。</p>
+</blockquote>
+<h4 id="自定义事件名格式"><a href="#自定义事件名格式" class="headerlink" title="自定义事件名格式"></a>自定义事件名格式</h4><blockquote>
+<p>与 prop 名一样，事件的名字也提供了自动的格式转换</p>
+</blockquote>
+<ul>
+<li>在父组件中监听自定义事件时，推荐采用<code>kebab-case</code>形式为自定义事件命名。</li>
+<li>在组子件中触发自定义事件时，推荐采用<code>camelCase</code>形式书写自定义事件名。</li>
+</ul>
+<pre><code>&lt;!-- 父组件中监听事件，事件名以kebab-case形式命令 --&gt;
+&lt;List @update-event=&quot;update&quot; /&gt;
+
+&lt;!-- 在子组件中触发事件时，采用camelCase形式书写自定义事件名 --&gt;
+&lt;button @click=&quot;$emit(&#39;updateEvent&#39;)&quot;&gt;更新数据1&lt;/button&gt;
+</code></pre>
+<h4 id="自定义事件参数"><a href="#自定义事件参数" class="headerlink" title="自定义事件参数"></a>自定义事件参数</h4><blockquote>
+<p>有时候我们需要子组件在触发自定义事件时传一些数据给到父组件，则可以将需要传递的数据作为<code>$emit()</code>方法的第二个及之后的参数传入。</p>
+</blockquote>
+<pre><code>&lt;!--$emit的第一个参数为自定义事件名，之后的每个参数为需要传放的数据--&gt;
+&lt;button @click=&quot;$emit(&#39;updateEvent&#39;,5,6,7)&quot;&gt;更新数据1&lt;/button&gt;
+</code></pre>
+<ul>
+<li><p>在父组件中监听事件，传递过来的数据可以通过事件处理回调函数的参数接受到。事件处理函数可以采用以下两种写法</p>
+</li>
+<li><p>事件处理回调函数，写成一个箭头函数</p>
+</li>
+</ul>
+<pre><code>&lt;List @update-event=&quot;(a,b,c)=&gt;sum=a+b+c&quot; /&gt;
+</code></pre>
+<ul>
+<li>事件处理函数为组件的方法，定义在<code>methods</code>选项中</li>
+</ul>
+<pre><code>&lt;List @update-event=&quot;update&quot; /&gt;
+methods: &#123;
+    //方式1：
+    update(a, b, c) &#123;
+        // a b c对应传过来的数据 5 6 7
+        console.log(a, b, c);
+    &#125;
+
+    // 方式2：或通过arguments来接收
+    update() &#123;
+        Array.from(arguments).forEach((item) =&gt; &#123;
+            this.arr.push(item)
+        &#125;)
+        this.num=arguments[0]
+    &#125;
+    
+    // 方式3：或通过剩余参数来接收
+    update(...arg) &#123;
+        this.num=arg[0]
+    &#125;
+&#125;
+</code></pre>
+<h4 id="自定义事件校验"><a href="#自定义事件校验" class="headerlink" title="自定义事件校验"></a>自定义事件校验</h4><ul>
+<li>如果我们想要对触发的自定义事件的参数进行验证，可以将<code>emits</code>选项写成一个<strong>对象</strong></li>
+<li>对象中每个事件被赋值为一个函数，函数可接受的参数为<code>this.$emit</code>触发事件时传入的参数（除第一个参数之外的所有参数）</li>
+</ul>
+<pre><code>export default &#123;
+  emits: &#123;
+    // 事件没有校验
+    updateEvent: null,
+
+    // 校验delEvent事件
+    // ...params 剩余参数，用来接受传过来的所有参数
+    delEvent(...params) &#123;
+      // 通过返回值为 `true` 还是为 `false` 来判断事件是否合法
+      // 如果返回值为fasle，则事件不合法，控制台会抛出警告
+      // 如果返回值为true，则事件合法
+      return true; // 或false
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="自定义事件注意事项"><a href="#自定义事件注意事项" class="headerlink" title="自定义事件注意事项"></a>自定义事件注意事项</h4><blockquote>
+<p>以下是我们在使用自定义事件时，需要注意的相关事项：</p>
+</blockquote>
+<ul>
+<li>自定义事件只能用来实现子组件向父组件传递数据或修改父组件中数据，<strong>不能实现兄弟组件间通信</strong>。因为事件需要在父组件中被监听，然后在子组件中触发。</li>
+<li>自定义事件本身也支持<code>.once</code>修饰符，添加了<code>.once</code>修饰符后，自定义事件只能被触发一次。</li>
+<li>在组件上监听 JS <strong>原生</strong>的事件，可以直接透传到单根组件的根元素上，但多根组件就没办法接收。</li>
+<li>在<code>$emit</code>选项中不要声明一个 JS 原生的事件名（例如：click），如果click出现在<code>$emit</code>选项中，则监听器只会监听组件触发的 click 事件而不会再响应原生的 click 事件</li>
+</ul>
+<h3 id="十一、组件-v-model"><a href="#十一、组件-v-model" class="headerlink" title="十一、组件 v-model"></a>十一、组件 v-model</h3><blockquote>
+<p><code>v-model</code>指令不仅可以用在输入元素上，用来实现双向数据绑定，也可以用在组件上实现双向绑定。</p>
+</blockquote>
+<h4 id="v-model-绑定输入元素"><a href="#v-model-绑定输入元素" class="headerlink" title="v-model 绑定输入元素"></a>v-model 绑定输入元素</h4><blockquote>
+<p>以下是v-model指令应用在输入元素上，实现双向数据绑定</p>
+</blockquote>
+<pre><code>&lt;input v-model=&quot;searchText&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>以上v-model指令背后的实现原理：</p>
+</blockquote>
+<ul>
+<li>通过<code>v-bind</code>指令绑定将<code>searchText</code>变量的值绑定到输入框的 <code>value</code> 值</li>
+<li>通过监听<code>@input</code>事件，在表单中输入内容时触发<code>input</code>事件，把表单 <code>value</code> 的值绑定到<code>searchText</code>变量</li>
+</ul>
+<pre><code>&lt;input :value=&quot;searchText&quot; @input=&quot;searchText = $event.target.value&quot; /&gt;
+</code></pre>
+<ul>
+<li>本质上<code>v-model</code>是一个语法糖，帮我们简化了以上代码的书写。</li>
+</ul>
+<h4 id="v-model-绑定组件"><a href="#v-model-绑定组件" class="headerlink" title="v-model 绑定组件"></a>v-model 绑定组件</h4><blockquote>
+<p>以下是v-model指令应用于一个自定义弹窗组件，用来实现双向绑定</p>
+</blockquote>
+<pre><code>&lt;Popup v-model=&quot;show&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>以上v-model指令背后的实现原理：</p>
+</blockquote>
+<ul>
+<li>将变量<code>show</code>的值绑定到属性<code>modelValue</code>传递给到子组件<code>&lt;Popup&gt;</code></li>
+<li>父组件监听<code>update:modelValue</code>事件，事件接受一个参数，该参数用来修改变量<code>show</code>的值。</li>
+<li>注意：默认情况下属性名<code>modelValue</code>和事件<code>update:modelValue</code>是固定写法，不能修改</li>
+</ul>
+<pre><code>&lt;Popup
+  :modelValue=&quot;show&quot;
+  @update:modelValue=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot;
+/&gt;
+</code></pre>
+<ul>
+<li>本质上<code>v-model</code>是一个语法糖，帮我们简化了以上代码的书写</li>
+<li>无论采用哪种方式，子组件触发事件的方式都是一样的</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    // 1：接受父组件传递的属性
+    props: [&quot;modelValue&quot;],
+    // 2：接受父组件传递的事件
+    emits: [&quot;update:modelValue&quot;],
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- 3: 使用父组件传来的值 modelValue --&gt;
+  &lt;div class=&quot;popup&quot; v-show=&quot;modelValue&quot;&gt;
+    &lt;!-- 4：通过$emit方法触发了update:modelValue自定义事件将modelValue的值更新为false
+--&gt;
+    &lt;div class=&quot;close&quot; @click=&quot;$emit(&#39;update:modelValue&#39;, false)&quot;&gt;确认&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="v-model-实战应用：点击弹窗"><a href="#v-model-实战应用：点击弹窗" class="headerlink" title="v-model 实战应用：点击弹窗"></a>v-model 实战应用：点击弹窗</h4><blockquote>
+<p>利用<code>v-model</code>指令实现如下弹窗效果，点击显示按扭时会弹出弹窗，点击弹窗关闭按扭时会关闭弹窗</p>
+<ul>
+<li>实现步骤</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>父组件</p>
+</blockquote>
+<ul>
+<li>创建弹窗子组件<code>&lt;Popup&gt;</code>，并实现弹窗的布局</li>
+<li>在根组件<code>&lt;App&gt;</code>中创建一个按扭，点击按扭时就会显示弹窗。</li>
+<li>在<code>&lt;App&gt;</code>组件中定义一个布尔类型变量<code>show</code>用来控制弹窗的显示与隐藏，默认弹窗隐藏，则默认值为<code>false</code></li>
+<li>点击显示按扭，显示弹窗，则<code>show=true</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+  // 引入组件
+  import Popup from &quot;./components/Popup.vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        show: false, // 用来控制弹窗的显示与隐藏
+      &#125;;
+    &#125;,
+    components: &#123;
+      Popup,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = true&quot;&gt;显示&lt;/button&gt;
+  &lt;Popup /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>弹窗的显示与隐藏，本质是控制<code>.popup</code>和<code>.mask</code>元素的显示与隐藏。所以父组件需要把<code>show</code>变量的值通过<code>props</code>方式传递给到子组件，并且还需要传递操作<code>show</code>变量值的方法。</li>
+<li>这里我们把<code>show</code>变量做为<code>modelValue</code>属性的值传递给到子组件，同时监听操作<code>show</code>变量的方法<code>update:modelValue</code></li>
+</ul>
+<pre><code>&lt;Popup
+  :modelValue=&quot;show&quot;
+  @update:modelValue=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot;
+/&gt;
+
+&lt;!--  或以下为简这与形式 v-model指令实现 --&gt;
+&lt;Popup v-model=&quot;show&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>在子组件<code>&lt;Popup&gt;</code>中需要做以下 4 步处理</p>
+</blockquote>
+<ul>
+<li>在<code>props</code>选项中接收父组件传过来的<code>modelValue</code>属性的值</li>
+<li>在<code>emits</code>选项中接收父组件传过来的事件<code>update:modelValue</code></li>
+<li>将<code>modelValue</code>作为<code>v-show</code>指令的值，用来控制<code>.popup</code>元素与<code>.mask</code>元素的显示与隐藏</li>
+<li>点击确认按扭时，在<code>click</code>事件中通过<code>$emit</code>方法来触发<code>update:modelValue</code>方法，实现关闭弹窗</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    // 1：接受父组件传递的属性
+    props: [&quot;modelValue&quot;],
+    // 2：接受父组件传递的事件
+    emits: [&quot;update:modelValue&quot;],
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- 3: v-show 控制元素显示与隐藏--&gt;
+  &lt;div class=&quot;popup&quot; v-show=&quot;modelValue&quot;&gt;
+    &lt;!-- 4：
+        点击确定按扭，触发update:modelValue事件将modelValue的值更新为false，关闭弹窗
+       --&gt;
+    &lt;div class=&quot;close&quot; @click=&quot;$emit(&#39;update:modelValue&#39;, false)&quot;&gt;确认&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- 3: v-show 控制元素显示与隐藏--&gt;
+  &lt;div class=&quot;mask&quot; v-show=&quot;modelValue&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="组件-v-model-参数"><a href="#组件-v-model-参数" class="headerlink" title="组件 v-model 参数"></a>组件 v-model 参数</h4><blockquote>
+<p>默认情况下，<code>v-model</code>底层在组件上绑定的是<code>modelValue</code>属性，并且监听<code>update:modelValue</code>事件。</p>
+</blockquote>
+<ul>
+<li>我们可以通过给<code>v-model</code>指定一个参数来更改绑定的属性名和事件名。</li>
+</ul>
+<pre><code>&lt;Popup v-model:bool=&quot;show&quot; /&gt;
+</code></pre>
+<ul>
+<li>上面<code>v-model</code>底层绑定的是<code>bool</code>属性，监听的是<code>update:bool</code>事件，如下代码</li>
+</ul>
+<pre><code>&lt;Popup :bool=&quot;show&quot; @update:bool=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot; /&gt;
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+<ul>
+<li>在上面弹窗案例的基础上，为<code>v-model</code>指定<code>bool</code>参数，实现效果不变，对应代码修改如下：</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>App.vue</code>中其它代码不变，模板代码修改如下</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;button @click=&quot;show = true&quot;&gt;显示&lt;/button&gt;
+  &lt;Popup :bool=&quot;show&quot; @update:bool=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot; /&gt;
+  &lt;Popup v-model:bool=&quot;show&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>Popup.vue</code>文件中<ul>
+<li>所有<code>modelValue</code>修改成<code>bool</code></li>
+<li>所有<code>update:modelValue</code>修改成<code>update:bool</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    // 接受传递的属性与事件
+    props: [&quot;bool&quot;],
+    emits: [&quot;update:bool&quot;],
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;popup&quot; v-show=&quot;bool&quot;&gt;
+    &lt;div class=&quot;close&quot; @click=&quot;$emit(&#39;update:bool&#39;, false)&quot;&gt;确认&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mask&quot; v-show=&quot;bool&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="多个-v-model-绑定"><a href="#多个-v-model-绑定" class="headerlink" title="多个 v-model 绑定"></a>多个 v-model 绑定</h4><blockquote>
+<p>通过给<code>v-model</code>指定一个参数可以更改绑定的属性名和事件名，所以我们可以同时为一个组件绑定多个<code>v-model</code></p>
+</blockquote>
+<pre><code>&lt;Popup v-model:bool=&quot;show&quot; v-model:title=&quot;title&quot; /&gt;
+</code></pre>
+<ul>
+<li>以上代码等价于以下写法</li>
+</ul>
+<pre><code>&lt;Popup
+  :bool=&quot;show&quot;
+  @update:bool=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot;
+  :title=&quot;title&quot;
+  @update:title=&quot;(newValue) =&gt; &#123; title = newValue &#125;&quot;
+/&gt;
+</code></pre>
+<blockquote>
+<p>我们在之前弹窗的基础之上做了相关优化，在弹出的框中可以输入内容，将输入的内容显示到父组件中</p>
+</blockquote>
+<ul>
+<li><code>App.vue</code>文件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import Popup from &quot;./components/Popup.vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        show: false, //
+        title: &quot;&quot;,
+      &#125;;
+    &#125;,
+    components: &#123;
+      Popup,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;show = true&quot;&gt;显示&lt;/button&gt;
+  &lt;div&gt;弹窗输入内容：&#123;&#123; title &#125;&#125;&lt;/div&gt;
+  &lt;!-- 
+    &lt;Popup 
+        :bool=&quot;show&quot; 
+        @update:bool=&quot;(newValue) =&gt; &#123; show = newValue &#125;&quot; 
+        :title=&quot;title&quot;
+        @update:title=&quot;(newValue) =&gt; &#123; title = newValue &#125;&quot; 
+    /&gt; 
+    --&gt;
+
+  &lt;Popup v-model:bool=&quot;show&quot; v-model:title=&quot;title&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>Popup.vue</code>文件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    // 接受传递的属性与事件
+    props: [&quot;bool&quot;, &quot;title&quot;],
+    emits: [&quot;update:bool&quot;, &quot;update:title&quot;],
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;popup&quot; v-show=&quot;bool&quot;&gt;
+    &lt;textarea
+      :value=&quot;title&quot;
+      @input=&quot;$emit(&#39;update:title&#39;, $event.target.value)&quot;
+    &gt;&lt;/textarea&gt;
+    &lt;div class=&quot;close&quot; @click=&quot;$emit(&#39;update:bool&#39;, false)&quot;&gt;确认&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;mask&quot; v-show=&quot;bool&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;style&gt;
+&lt;!-- 省略 --&gt;
+&lt;/style&gt;
+</code></pre>
+<h4 id="v-model-修饰符"><a href="#v-model-修饰符" class="headerlink" title="v-model 修饰符"></a>v-model 修饰符</h4><blockquote>
+<p><code>v-model</code>指令绑定表单输入元素时可以使用一些内置的修饰符，如：<code>.trim、.number、.lazy</code>。</p>
+<p>在自定义组件上的<code>v-model</code>不支持以上修饰符，但允许我们自定义修饰符</p>
+<ul>
+<li>注意：子组件在<code>props</code>里，<code>modelModifiers</code>或<code>参数Modifiers</code>接收修饰符，像其他非bool类型的<code>props</code>属性一样，如果没传，默认值为<code>undefined</code></li>
+<li>像下面这种情况，需要根据修饰符分情况处理，则要给它一个默认值<code>&#123;&#125;</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>只有修饰符</li>
+</ul>
+<pre><code>&lt;MyComponent v-model.capitalize=&quot;msg&quot; /&gt;
+</code></pre>
+<ul>
+<li>上面组件<code>v-model</code>上添加的修饰符，在子组件的<code>props</code>选项中通过<code>modelModifiers</code>来接受</li>
+<li><code>modelModifiers</code>属性的值是一个<code>&#123;capitalize:true&#125;</code>对象</li>
+</ul>
+<pre><code>// MyComponent 组件
+export default &#123;
+  props: &#123;
+    // v-model指令的修饰符
+    modelModifiers: &#123;
+      //  默认值为一个空对象
+      default: () =&gt; (&#123;&#125;),
+    &#125;,
+  &#125;,
+  created() &#123;
+    console.log(this.modelModifiers); //  &#123; capitalize: true &#125;
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>同时具有修饰符和参数</li>
+</ul>
+<pre><code>&lt;MyComponent v-model:text.capitalize=&quot;msg&quot; /&gt;
+</code></pre>
+<ul>
+<li>上面组件<code>v-modle</code>上同时添加了参数与修饰符，在子组件中可以通过<code>textModifiers</code>属性在组件内访问到</li>
+<li><code>textModifiers</code>属性的值是一个<code>&#123;capitalize:true&#125;</code>对象</li>
+</ul>
+<pre><code>// MyComponent 组件
+export default &#123;
+  props: &#123;
+    text: String,
+    // v-model:text 指令的修饰符
+    textModifiers: &#123;
+      default: () =&gt; (&#123;&#125;),
+    &#125;,
+  &#125;,
+  created() &#123;
+    console.log(this.textModifiers);
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="实战应用：输入内容首字母大写"><a href="#实战应用：输入内容首字母大写" class="headerlink" title="实战应用：输入内容首字母大写"></a>实战应用：输入内容首字母大写</h4><blockquote>
+<p>如果<code>&lt;MyComponent&gt;</code>组件上的<code>v-modle</code>添加<code>capitalize</code>修饰符，则返回的内容首字母大小，否则正常输出</p>
+</blockquote>
+<pre><code>&lt;MyComponent v-model.capitalize=&quot;msg&quot; /&gt;
+</code></pre>
+<ul>
+<li><code>App.vue</code>组件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+import Popup from &quot;./components/Popup.vue&quot;;
+export default &#123;
+  data() &#123;
+    return &#123;
+      show: false,
+      text: &quot;sss&quot;,
+    &#125;;
+  &#125;,
+  components: &#123;
+    Popup,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = true&quot;&gt;显示&lt;/button&gt;
+  &lt;div class=&quot;text&quot;&gt;&#123;&#123; text &#125;&#125;&lt;/div&gt;
+  &lt;Popup v-model:bool=&quot;show&quot; v-model:text.capitalize=&quot;text&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>Popup.vue</code>文件内容</li>
+</ul>
+<pre><code>&lt;script&gt;
+export default &#123;
+  props: &#123;
+    bool: Boolean,
+    text: String,
+    textModifiers: &#123;
+      default: () =&gt; (&#123;&#125;),
+    &#125;,
+  &#125;,
+  emits: [&quot;update:bool&quot;, &quot;update:text&quot;],
+  methods: &#123;
+    onInput(e) &#123;
+      let value = e.target.value;
+      if (this.textModifiers.capitalize) &#123;
+        value = value.charAt(0).toUpperCase() + value.slice(1);
+      &#125;
+      this.$emit(&quot;update:text&quot;, value);
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;mask&quot; v-show=&quot;bool&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;box&quot; v-show=&quot;bool&quot;&gt;
+    &lt;textarea @input=&quot;onInput&quot; :value=&quot;text&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+    &lt;div class=&quot;close&quot; @click=&quot;$emit(&#39;update:bool&#39;, false)&quot;&gt;确定&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+&lt;!-- 省略 --&gt;
+&lt;/style&gt;
+</code></pre>
+<h3 id="十二、透传属性（Attributes）"><a href="#十二、透传属性（Attributes）" class="headerlink" title="十二、透传属性（Attributes）"></a>十二、透传属性（Attributes）</h3><h4 id="透传属性定义"><a href="#透传属性定义" class="headerlink" title="透传属性定义"></a>透传属性定义</h4><blockquote>
+<p>当我们给一个组件传递的<code>Prop</code>或<code>v-on</code>事件监听器，没有出现在该组件的<code>props</code>或<code>emits</code>选项中，那这些<code>Prop</code>和<code>v-on</code>事件监听被称为透传属性（Attributes）。</p>
+</blockquote>
+<ul>
+<li>在<code>App.vue</code>根组件中调用<code>&lt;List /&gt;</code>子组件，并传递了两个<code>Prop</code>和两个<code>v-on</code>事件监听器</li>
+</ul>
+<pre><code>&lt;List :a=&quot;1&quot; :b=&quot;2&quot; @click=&quot;fn&quot; @add-event=&quot;add&quot; /&gt;
+</code></pre>
+<ul>
+<li>在子组件<code>&lt;List /&gt;</code>中通过<code>props</code>与<code>emits</code>选项来显示声明接受的属性与需要触发的事件</li>
+</ul>
+<pre><code>export default &#123;
+  props: [&quot;a&quot;],
+  emits: [&quot;addEvent&quot;],
+&#125;;
+</code></pre>
+<ul>
+<li>上面代码中的<code>b</code>属性和<code>@click</code>事件监听器就可称为透传属性（Attributes）。</li>
+<li>因为：<ul>
+<li>传递给子组件<code>&lt;List&gt;</code>的<code>Prop</code>有a，b两个，传递的<code>v-on</code>事件监听器有<code>click</code>,<code>add-event</code>两个。</li>
+<li>但在子组件的<code>props</code>选项中只声明了a，在<code>emits</code>选项中只声明了<code>addEvent</code>，没有声明的b属性和<code>click</code>事件就可以称为透传属性（Attributes）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="单根组件透传属性的继承"><a href="#单根组件透传属性的继承" class="headerlink" title="单根组件透传属性的继承"></a><strong>单根</strong>组件透传属性的继承</h4><blockquote>
+<p>当组件是一个单根组件时，透传的属性（Attributes）会被自动被添加到组件的<strong>根元素</strong>上。相当于根元素自动继承组件的属性。</p>
+<ul>
+<li>温馨提示： 透传属性常用来传递<code>class</code>，<code>style</code>和<code>id</code>这样的属性。</li>
+</ul>
+</blockquote>
+<ul>
+<li>因为很多时候，我们希望把传递给组件的<code>class</code>、<code>style</code>和<code>id</code>能直接应用到组件的根元素上，在某此特殊的需求下，我们可以利用这个特性修改子组件最终呈现的样式。</li>
+</ul>
+<h4 id="透传属性继承的注意事项"><a href="#透传属性继承的注意事项" class="headerlink" title="透传属性继承的注意事项"></a>透传属性继承的注意事项</h4><blockquote>
+<p>如果组件是一个单根组件，透传属性的自动继承有以下两个需要注意的点：</p>
+</blockquote>
+<ul>
+<li>对 <code>class</code> 和 <code>style</code> 的合并</li>
+<li><code>v-on</code> 监听器继承</li>
+</ul>
+<blockquote>
+<p>对 class 和 style 的合并</p>
+</blockquote>
+<ul>
+<li>如果组件的根元素上的属性与透传属性同名，则会以透传属性为主，<strong>覆盖</strong>根元素自身的属性</li>
+<li>但如果组件的根元素上已有属性为<code>class</code>或<code>style</code>，它会和透传属性<code>class</code>或<code>style</code>的值进行<strong>合并</strong></li>
+</ul>
+<pre><code>&lt;!--父组件中调用子组件List--&gt;
+&lt;List :class=&quot;&#123; active: true &#125;&quot; :style=&quot;&#123; color: color &#125;&quot; title=&quot;透传属性&quot; /&gt;
+
+&lt;!--以下为List子组件根元素,在List组件的props选项中没有声明 class  style  title--&gt;
+&lt;div class=&quot;list&quot; style=&quot;&#123;font-size:&#39;30px&#39;&#125;&quot; title=&quot;组件自身属性&quot;&gt;
+  List组件，是一个单根组件
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>以上代码最终渲染效果如下</li>
+</ul>
+<pre><code>&lt;div class=&quot;list active&quot; style=&quot;color: red;&quot; title=&quot;透传属性&quot;&gt;
+  List组件，是一个单根组件
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>v-on 监听器继承</p>
+</blockquote>
+<ul>
+<li>如果组件的根元素自身通过<code>v-on</code>绑定了一个与透传的<code>v-on</code>同名的事件监听器，则最终两个事件监听器<strong>都会被触发</strong>。</li>
+</ul>
+<pre><code>&lt;!--父组件中调用子组件List--&gt;
+&lt;List @click=&quot;fn&quot; /&gt;
+
+&lt;!--以下为List子组件根元素,在List组件的emits选项中没有声明 click--&gt;
+&lt;div @click=&quot;add&quot;&gt;List组件，是一个单根组件&lt;/div&gt;
+</code></pre>
+<ul>
+<li>以上代码，在点击div元素时，两个事件监听都会触发，即fn与add两个方法都会被调用</li>
+</ul>
+<h4 id="禁用透传属性自动继承"><a href="#禁用透传属性自动继承" class="headerlink" title="禁用透传属性自动继承"></a>禁用透传属性自动继承</h4><blockquote>
+<p>在某些场景下我们并不希望透传属性自动继承到单根组件的根元素上，而是想把透传的属性按需要添加到<strong>根节点以外</strong>的其他元素上，这时我们就需要禁用透传属性的自动继承行为。</p>
+</blockquote>
+<ul>
+<li>你只需要在子组件中添加以下<code>inheritAttrs: false</code>配置，这样透传属性就不会自动继承到根元素上。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  export default &#123;
+    inheritAttrs: false, // 禁用透传属性的自动继承
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;List组件，是一个单根组件&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>那我们如何访问到透传进来的所有属性呢 ？这就需要用到<code>$attr</code>属性，接下来我们就来学习下<code>$attr</code>属性。</li>
+</ul>
+<h4 id="attr-属性"><a href="#attr-属性" class="headerlink" title="$attr 属性"></a>$attr 属性</h4><ol>
+<li>$attr 属性的使用方法<blockquote>
+<p>如果我们想在一个组件中访问到所有透传的属性，可以通过以下两种方式来实现</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在子组件的模板表达式中，你可以直接使用<code>$attrs</code>对象访问到所有透传的属性。</li>
+</ul>
+<pre><code>&lt;!--通过 $attrs.class 和 $attrs.style 访问透传属性class与style--&gt;
+&lt;div :class=&quot;$attrs.class&quot; :style=&quot;$attrs.style&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>在 JS 中你可以通过子组件实例的<code>this.$attrs</code>方法来访问所有透传的属性。</li>
+</ul>
+<pre><code>export default &#123;
+  beforeCreate() &#123;
+    console.log(&quot;class&quot;, this.$attrs.class); // 访问透传属性 class
+    console.log(&quot;style&quot;, this.$attrs.style); // 访问透传属性 style
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>不管子组件中是否添加<code>inheritAttrs: false</code>选项，<code>$attrs</code>属性都可以访问到所有的透传属性</li>
+</ul>
+<ol start="2">
+<li>$attrs 属性的注意事项</li>
+</ol>
+<ul>
+<li>与<code>props</code>有所不同，透传属性在 JS 中<strong>保留了它们原始的大小写</strong>，所以在父组件中通过<code>kebab-case</code>方式命名的属性，需要通过<code>$attrs[&quot;kebab-case&quot;]</code>形式来访问。</li>
+<li>所有<code>v-on</code>绑定的事件监听器，在<code>$attrs</code>对象下被暴露为一个函数。如果父组件中添加<code>@add-event=&#39;add&#39;</code>事件监听听，在<code>$attrs</code>对象上要通过<code>$attrs.onAdd</code>形式来访问</li>
+</ul>
+<h4 id="多根组件透传属性的继承"><a href="#多根组件透传属性的继承" class="headerlink" title="多根组件透传属性的继承"></a><strong>多根</strong>组件透传属性的继承</h4><blockquote>
+<p>和单根组件有所不同，多根组件的透传属性不会自动继承到组件的根元素上，所以我们需要显示绑定<code>$attrs</code></p>
+</blockquote>
+<ul>
+<li>如果<code>$attrs</code>没有显示绑定，会在控制台将会抛出警告，因为根元素有多个，Vue 不知道要将透传属性放到那个元素上。</li>
+</ul>
+<pre><code>&lt;List data-title=&quot;新闻标题&quot; :data-num=&quot;1&quot; /&gt;
+</code></pre>
+<ul>
+<li>如果<code>&lt;List&gt;</code>组件中的模板内容如下，则会在控制台抛出错误，因为没有显示绑定<code>$attrs</code></li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;h3&gt;.....&lt;/h3&gt;
+  &lt;div&gt;.....&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>如果<code>&lt;List&gt;</code>组件中的模板内容如下，则不会在控制台抛出错误提示，因为显示绑定了<code>$attrs</code></li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;h3&gt;.....&lt;/h3&gt;
+  &lt;div v-bind=&quot;$attrs&quot;&gt;.....&lt;/div&gt;
+ 
+  &lt;!--以上写法为以下写法的简写--&gt;
+  &lt;!-- 
+    &lt;div :title=&quot;$attrs[&#39;data-title&#39;]&quot; :num=&quot;$attrs[&#39;data-num&#39;]&quot;&gt;
+    .....
+    &lt;/div&gt; 
+    --&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="深层组件继承"><a href="#深层组件继承" class="headerlink" title="深层组件继承"></a>深层组件继承</h4><blockquote>
+<p>有些情况下一个组件会在根节点上渲染另一个组件，如下：</p>
+</blockquote>
+<pre><code>&lt;!--以为下为List组件，在List组件中，只是渲染另一个组件 &lt;Item/&gt;--&gt;
+
+&lt;template&gt;
+  &lt;List /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>此时，<code>&lt;List&gt;</code>组件接收的透传属性会直接继承传给<code>&lt;Item/&gt;</code>组件</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/23/Vue%EF%BC%88%E4%B8%89%EF%BC%89/">https://hermiablog.com/2024/01/23/Vue%EF%BC%88%E4%B8%89%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/24/Vue%EF%BC%88%E5%9B%9B%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/45.jpg" class="responsive-img" alt="Vue（四）">
+                        
+                        <span class="card-title">Vue（四）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            插槽、依赖注入、兄弟组件间通信、发布与订阅、动态/异步组件
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-24
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/22/Vue%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/43.jpg" class="responsive-img" alt="Vue（二）">
+                        
+                        <span class="card-title">Vue（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            模板语法、事件处理、计算属性、侦听器、表单、样式绑定、条件/列表渲染、指令
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

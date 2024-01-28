@@ -1,0 +1,3365 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue（八）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue（八） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/49.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue（八）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    15.8k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<blockquote>
+<p>Pinia 是 Vue 的专属状态（状态指的就是数据）管理库，它允许你跨组件或页面共享状态。 Pinia 相当于一个数据仓库，所有当前应用的组件都可以访问数据仓库中的数据</p>
+</blockquote>
+<h3 id="一、Pinia-的基本使用"><a href="#一、Pinia-的基本使用" class="headerlink" title="一、Pinia 的基本使用"></a>一、Pinia 的基本使用</h3><blockquote>
+<p>本小节主要讲解关于 Pinai 的基本使用，使用 Pinia 需要经历以下 5 步：</p>
+</blockquote>
+<ul>
+<li>安装 Pinia</li>
+<li>在 vue3 中注册 Pinia 插件</li>
+<li>定义 Store</li>
+<li>使用 Store</li>
+</ul>
+<h4 id="安装-Pinia"><a href="#安装-Pinia" class="headerlink" title="安装 Pinia"></a>安装 Pinia</h4><ul>
+<li>执行以下命令安装 pinia</li>
+</ul>
+<pre><code>yarn add pinia
+# 或者使用 npm 安装
+npm install pinia
+</code></pre>
+<h4 id="注册-Pinia"><a href="#注册-Pinia" class="headerlink" title="注册 Pinia"></a>注册 Pinia</h4><ul>
+<li>以下为在 Vue3 中注册 Pinia 的方法</li>
+<li>首先导入 pinia 提供的<code>createPinia</code>方法，然后调用创建 pinia 实例</li>
+<li>执行<code>app.use()</code>方法，将 pinia 实例传递给应用</li>
+</ul>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import App from &quot;./App.vue&quot;;
+
+// 导航pinia的createPinia方法
+import &#123; createPinia &#125; from &quot;pinia&quot;;
+// 创建 pinia实例
+const pinia = createPinia();
+const app = createApp(App);
+// 注册pinia插件
+app.use(pinia);
+
+app.mount(&quot;#app&quot;);
+</code></pre>
+<h4 id="定义-Store"><a href="#定义-Store" class="headerlink" title="定义 Store"></a>定义 Store</h4><blockquote>
+<p>在定义 Store 之前，我们需要先了解下什么是 Store ？Store 有仓库的意思，在这里好比是数据存放的仓库。</p>
+</blockquote>
+<ol>
+<li>Store 是什么 ？<blockquote>
+<p>Store （如 Pinia）是一个保存状态和业务逻辑的实例，它并不与你的组件树绑定</p>
+<p>上面这句话你可以理解为，应用中需要共享的全局状态（数据）及数据处理相关的逻辑都保存在 Store 实例上，但他不与应用中的任何组件单独绑定。</p>
+<p>它有点像一个永远存在的组件，每个组件都可以读取和写入它。它有三个概念，<code>state</code>、<code>getter</code>和<code>action</code>，我们可以假设这些概念相当于组件中的<code>data</code>、<code>computed</code>和<code>methods</code>。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>如何定义 Store</p>
+</blockquote>
+<ul>
+<li>Store 是用<code>defineStore()</code>定义的，返回值为一个函数，函数名推荐使用<code>use...Store</code>写法</li>
+<li>它的第一个参数要求是一个独一无二的名字</li>
+<li>它的第二个参数接受两类值：<code>Setup</code> 函数或<code>Option</code> 对象</li>
+</ul>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+// 定义Store ，Store的命名推荐使用 usexxxStore 这种写法
+export const useCountStore = defineStore(&quot;count&quot;, &#123;
+  //  Option对象
+&#125;);
+
+// 或
+export const useCountStore = defineStore(&quot;count&quot;, () =&gt; &#123;
+  // setup函数
+&#125;);
+</code></pre>
+<ol start="2">
+<li>Option Store<blockquote>
+<p><code>defineStore()</code>方法的第二个参数可以是一个Option对象，该对象与 Vue 的<strong>选项式 API</strong> 类似，接受 state、actions 与 getters 属性。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在当前项目的src目录下新建store目录，并在该目录下新建 <code>count.js</code>文件，在文件中定义 Store 并对外暴露</li>
+</ul>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+// 定义Store ，Store的命名推荐使用 usexxxStore 这种写法
+export const useCountStore = defineStore(&quot;count&quot;, &#123;
+  // Option对象,有三个重要的属性 state、actions 与 getters,
+
+  // state 相当于组件中的data
+  // 为了完整类型推理，state函数更推荐箭头函数写法
+  state: () =&gt; &#123;
+    return &#123;
+      count: 10,
+    &#125;;
+  &#125;,
+
+  // getters 相当于组件中的computed,会对数据缓存
+  getters: &#123;
+    doubleCount: (state) =&gt; state.count * 2,
+  &#125;,
+  // actions 相当于组件中的methods
+  actions: &#123;
+    add() &#123;
+      this.count++; // this指向创建的store
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ul>
+<li>你可以认为以上代码中的 state 是 store 的数据 (data)，getters 是 store 的计算属性 (computed)，而 actions 则是方法 (methods)。</li>
+</ul>
+<blockquote>
+<p>温馨提示：为了完整类型推理，state 函数更推荐箭头函数写法</p>
+</blockquote>
+<ol start="4">
+<li>使用 Store</li>
+</ol>
+<ul>
+<li>上面我们定义了一个 Store，但在我们没有调用<code>defineStore()</code>方法返回的值（一个函数）之前，store 实例是不会被创建的</li>
+<li>我们在<code>&lt;script setup&gt;</code>中调用<code>useCountStore()</code>创建 store 实例</li>
+<li>一旦 store 被实例化，你可以直接访问在 store 的 state、getters 和 actions 中定义的任何属性</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; useCountStore &#125; from &quot;./store/count&quot;;
+  // countStore为创建的store实例，可以在组件的任意位置访问countStore
+  const countStore = useCountStore();
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;count的值：&#123;&#123; countStore.count &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;count放大2倍值：&#123;&#123; countStore.doubleCount &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;countStore.add&quot;&gt;count++&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="5">
+<li>Setup Store</li>
+</ol>
+<ul>
+<li><code>defineStore()</code>方法的第二个参数除了是一个 <code>Option</code> 对象，还可以是一个<code>Setup</code>函数。</li>
+<li>该函数与 Vue 组合式 API 的<strong>Setup函数</strong>相似。该函数定义了一些响应式属性和方法，并且返回一个带有我们想暴露出去的属性和方法的对象。</li>
+</ul>
+<blockquote>
+<p>温馨提示：</p>
+</blockquote>
+<ul>
+<li><p>我们可以定义任意多的 Store，但为了让使用 pinia 的益处最大化（比如允许构建工具自动进行代码分割以及 TypeScript 推断），我们应该在不同的文件中去定义 store</p>
+</li>
+<li><p>在store目录下新建<code>user.js</code>文件，在文件中创建一个 Store</p>
+</li>
+</ul>
+<pre><code>import &#123; ref, computed, reactive &#125; from &quot;vue&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+export const useUserStore = defineStore(&quot;user&quot;, () =&gt; &#123;
+  // 定义的ref变量，相当于Option对象中的state 即相当于组件中的data
+  const username = ref(&quot;艾编程&quot;);
+  const age = ref(17);
+  const hobbies = reactive([&quot;画画&quot;, &quot;写字&quot;]);
+
+  // 计算属性  相当于Option对象的getters，即相当于组件中的computed
+  // 返回的计算属性 identity 是一个ref对象，所以是响应式的
+  const identity = computed(() =&gt; &#123;
+    return age.value &gt;= 18 ? &quot;成年&quot; : &quot;未成年&quot;;
+  &#125;);
+
+  // 函数，相当于Option对象的actions，即相当于组件中的methods方法
+  function update() &#123;
+    age.value++;
+  &#125;
+
+  // 对外暴露属性和方法
+  return &#123;
+    username,
+    age,
+    hobbies,
+    identity,
+    update,
+  &#125;;
+&#125;);
+</code></pre>
+<blockquote>
+<p>在Setup Store中，Setup 函数中</p>
+</blockquote>
+<ul>
+<li><p>定义的响应式变量，就是 state 属性，好比组件的 data 属性</p>
+</li>
+<li><p>定义的<code>computed()</code>计算属性，就是 <code>getters</code>，好比组件中的计算属性</p>
+</li>
+<li><p>定义的<code>function()</code>就是 actions，好比组件中的 methods 方法</p>
+</li>
+<li><p>在组件中使用创建好的 Store</p>
+</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  // countStore为创建的store实例，可以在组件的任意位置访问countStore
+  const userStore = useUserStore();
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; userStore.username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; userStore.age &#125;&#125;&lt;/div&gt;
+  &lt;!--
+    identity计算属性虽然是一个ref对象，但是userStore是一个用reactive包装的响应式对象
+    针对响应式对象的ref属性，在模板中调用时会自动解包，所以模板中调用不需要`.value`
+    --&gt;
+  &lt;div&gt;用户身份：&#123;&#123; userStore.identity &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;userStore.update&quot;&gt;更新年龄&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="6">
+<li>解构 Store</li>
+</ol>
+<ul>
+<li>创建的<code>Store</code>实例对象是一个用<code>reactive</code>包装的响应式对象（即 <code>Proxy</code> 代理对象）。</li>
+<li>所以不能直接解构 <code>Store</code>，因为解构后会失去响应式</li>
+</ul>
+<blockquote>
+<p>错误示例</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  //  直接解构store，会失去响应性，
+  const &#123; username, age, identity, update &#125; = useUserStore();
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户身份：&#123;&#123; identity &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新年龄&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>为了从 store 中提取属性时保持其响应性，你需要使用 <code>storeToRefs()</code>。</li>
+<li>该方法类似于 Vue 中的<code>toRefs()</code>，最终解构出来的每个属性都是一个单的ref对象。</li>
+<li>不过要特别注意，store 实例中的方法是可以直接从 store 实例解构的</li>
+</ul>
+<blockquote>
+<p>正确示例</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  const UserStore = useUserStore();
+  //  直接解构store，会失去响应性
+  const &#123; username, age, identity &#125; = storeToRefs(UserStore);
+  // 方法，可以直接解构
+  const &#123; update &#125; = UserStore;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户身份：&#123;&#123; identity &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新年龄&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="二、深入-State"><a href="#二、深入-State" class="headerlink" title="二、深入 State"></a>二、深入 State</h3><ol>
+<li>直接修改 state 的值<blockquote>
+<p>我们可以通过 store 实例访问 state，直接修改其值</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  const userStore = useUserStore();
+  function update() &#123;
+    userStore.username = &quot;清心&quot;;
+    userStore.age = 33;
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; userStore.username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; userStore.age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户身份：&#123;&#123; userStore.identity &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新数据&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>批量修改 State 的值<blockquote>
+<p>调用 store 实例的<code>$patch</code>方法，它允许你用一个 state 的补丁对象在同一时间更改多个属性。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  const userStore = useUserStore();
+  function update() &#123;
+    userStore.$patch(&#123;
+      username: &quot;清心&quot;,
+      age: 33,
+    &#125;);
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; userStore.username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; userStore.age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户身份：&#123;&#123; userStore.identity &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新用户信息&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<blockquote>
+<p>如果<code>UserStore</code>有一个<code>hobbies</code>属性，该属性是一个数组，我们需要向数组中添加一项，则需要<strong>创建一个新的数组</strong>来实现。</p>
+</blockquote>
+<pre><code>function update() &#123;
+  UserStore.$patch(&#123;
+    username: &quot;清心&quot;,
+    age: 33,
+    hobbies: [...userStore.hobbies, &quot;唱歌&quot;],
+  &#125;);
+&#125;
+</code></pre>
+<ul>
+<li>所以针对任何集合类型的修改，上面这种方式都是非常麻烦的，所以<code>$patch</code>也接受一个函数作为参数。</li>
+</ul>
+<ol start="3">
+<li>批量修改函数形式<blockquote>
+<p>你可以向 store 实例的<code>$patch</code>方法传入一个<strong>函数</strong>作为参数来实现一次性修改多个 state 属性值</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>该回调函数接受 state 作为第一个参数</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;./store/user&quot;;
+  const userStore = useUserStore();
+
+  // 修改state中多个属性的值
+  function update() &#123;
+    userStore.$patch((state) =&gt; &#123;
+      state.username = &quot;清心&quot;;
+      state.age = 33;
+      state.hobbies.push(&quot;唱歌&quot;);
+    &#125;);
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;用户姓名：&#123;&#123; userStore.username &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户年龄：&#123;&#123; userStore.age &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户身份：&#123;&#123; userStore.identity &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;用户爱好：&#123;&#123; userStore.hobbies &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;update&quot;&gt;更新用户信息&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="4">
+<li>通过 actions 修改<blockquote>
+<p>我们可以在 Store 的 <code>actions</code> 选项中定义方法来修改 state 中的值</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>以下代码中的 update 方法用来修改 state 属性中的值</li>
+</ul>
+<pre><code>import &#123; ref, computed, reactive &#125; from &quot;vue&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+export const useUserStore = defineStore(&quot;user&quot;, () =&gt; &#123;
+  // 定义的ref变量，相当于Option对象中的state 即相当于组件中的data
+  const username = ref(&quot;艾编程&quot;);
+  const age = ref(17);
+  const hobbies = reactive([&quot;画画&quot;, &quot;写字&quot;]);
+
+  // 计算属性  相当于Option对象的getters，即相当于组件中的computed
+  const identity = computed(() =&gt; &#123;
+    return age.value &gt;= 18 ? &quot;成年&quot; : &quot;未成年&quot;;
+  &#125;);
+
+  // 函数，相当于Option对象的actions，即相当于组件中的methods
+  function update() &#123;
+    username.value = &quot;清心&quot;;
+    age.value = 33;
+    hobbies.push(&quot;喝歌&quot;);
+  &#125;
+
+  // 对外暴露属性和方法
+  return &#123;
+    username,
+    age,
+    identity,
+    update,
+    hobbies,
+  &#125;;
+&#125;);
+</code></pre>
+<ol start="5">
+<li>注意事项<blockquote>
+<p>我们没有办法替换掉<code>store</code>的<code>state</code>，因为那样会破坏其响应性。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>即使你使用<code>store.$state</code>来重新给 state 赋值，也无计于事。因为<code>store.$state</code>代码内部本质是调用了<code>sotre.$patch</code>来实现打补丁修改<code>state</code>某些属性值。</li>
+</ul>
+<pre><code>// 以下代码实际上并没有替换掉整个state
+userStore.$state = &#123; username: &quot;清心&quot; &#125;;
+
+// 上面代码相当于内部调用了$patch()方法，如下
+userStore.$patch(&#123; username: &quot;清心&quot; &#125;);
+</code></pre>
+<ol start="6">
+<li>订阅 state<blockquote>
+<p>你可以通过 store 的 <code>$subscribe()</code> 方法侦听 state 及其变化。当 state 的值发生改变时就会触发<code>$subscribe()</code>方法及回调函数。比起普通的 <code>watch()</code>，使用 <code>$subscribe()</code> 的好处是 <code>subscriptions</code> 在 <code>patch</code> 后<strong>只触发一次</strong></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>使用<code>store.$patch()</code>方法一次修改多个 state 的值，只会触发一次<code>$subscribe()</code>方法的执行</li>
+</ul>
+<blockquote>
+<p>语法</p>
+</blockquote>
+<pre><code>const stop = store.$subscribe(
+  (mutation, state) =&gt; &#123;
+    /*
+      * mutation主要包含三个属性值：
+      *   events：当前state改变的具体数据都在该对象上
+      *   storeId：是当前store的id
+      *   type：用于记录这次数据变化是通过什么途径，主要有三个分别是
+      *         “direct” ：直接修改 , 如：store.count++
+                ”patch object“ ：通过 $patch 传递对象的方式改变的
+                “patch function” ：通过 $patch 传递函数的方式改变的
+      *
+      * */
+    // 我们就可以在此处监听store中值的变化，当变化为某个值的时候，去做一些业务操作之类的
+  &#125;,
+  &#123;
+    /*
+     * 第二个参数options对象，是各种配置参数
+     * detached:布尔值，默认是 false，正常情况下，当订阅所在的组件被卸载时，订阅将被停止删除， 如果设置detached值为 true 时，即使所在组件被卸载，订阅依然在生效
+     * immediate，deep，flush等等参数 和vue3 watch的参数是一样的
+     *
+     * */
+  &#125;
+);
+
+// 停止订阅
+stop();
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>定义 store</li>
+</ul>
+<pre><code>import &#123; ref &#125; from &quot;vue&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+export const useCountStore = defineStore(&quot;count&quot;, () =&gt; &#123;
+  const count = ref(10);
+  const num = ref(1);
+
+  return &#123;
+    count,
+    num,
+  &#125;;
+&#125;);
+</code></pre>
+<ul>
+<li>使用<code>store</code>，并订阅<code>state</code></li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; watch &#125; from &quot;vue&quot;;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useCountStore &#125; from &quot;./store/count&quot;;
+  const countStore = useCountStore();
+  // 解构state
+  const &#123; count, num &#125; = storeToRefs(countStore);
+  // 修改值
+  function add() &#123;
+    countStore.$patch(() =&gt; &#123;
+      count.value++;
+      num.value++;
+    &#125;);
+  &#125;
+  // 订阅
+  const stop = countStore.$subscribe((mutation, state) =&gt; &#123;
+    console.log(&quot;改变后count的值&quot;, state.count);
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;count的值：&#123;&#123; count &#125;&#125;&lt;/div&gt;
+  &lt;div&gt;num的值&#123;&#123; num &#125;&#125;&lt;/div&gt;
+  &lt;button @click=&quot;add&quot;&gt;count++&lt;/button&gt;
+  &lt;button @click=&quot;stop()&quot;&gt;停止订阅&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="三、深入-Getter"><a href="#三、深入-Getter" class="headerlink" title="三、深入 Getter"></a>三、深入 Getter</h3><blockquote>
+<p><code>Getter</code> 完全等同于 <code>store</code> 的 <code>state</code> 的计算值。可以通过 <code>defineStore()</code> 中的 <code>getters</code> 属性来定义它们。</p>
+<p><strong>推荐</strong>使用箭头函数，并且它将接收 <code>state</code> 作为第一个参数</p>
+</blockquote>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+
+export const useCountStore = defineStore(&quot;count&quot;, &#123;
+  state: () =&gt; &#123;
+    return &#123;
+      count: 10,
+    &#125;;
+  &#125;,
+  getters: &#123;
+    doubleCount: (state) =&gt; state.count * 2,
+    price: (state) =&gt; &quot;$&quot; + state.count,
+  &#125;,
+&#125;);
+</code></pre>
+<ol>
+<li>Getter 中的 this<blockquote>
+<p>使用普通函数（非箭头函数）定义<code>getter</code>时，<code>getter</code>函数内部的 this 指向整个 store 实例。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们可以通过<code>this</code>问<code>state</code>、<code>getter</code>、<code>actions</code></li>
+</ul>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+
+export const useCountStore = defineStore(&quot;count&quot;, &#123;
+  state: () =&gt; &#123;
+    return &#123;
+      count: 10,
+    &#125;;
+  &#125;,
+  getters: &#123;
+    doubleCount: (state) =&gt; state.count * 2,
+    price() &#123;
+      return this.fn() + &quot;$&quot; + this.doubleCount;
+    &#125;,
+  &#125;,
+  actions: &#123;
+    fn() &#123;
+      return &quot;价格：&quot;;
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ol start="2">
+<li>向 getter 传递参数<blockquote>
+<p>Getter 只是幕后的计算属性，所以不可以向它们传递任何参数。不过，你可以从 getter 返回一个函数，该函数可以接受任意参数</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const sum = computed(() =&gt; &#123;
+  // 这里的数据相当于被缓存
+  // 返回一个带有函数的函数，函数本身不会被缓存，因为他并不是一个具体的值
+  return (item) =&gt; total + item;
+&#125;);
+</code></pre>
+<blockquote>
+<p>请注意</p>
+</blockquote>
+<ul>
+<li>当你这样做时，<code>getter</code>将不再被缓存，它们只是一个被你调用的函数。</li>
+<li>不过，你可以在<code>getter</code>本身中缓存一些结果，虽然这种做法并不常见，但有证明表明它的性能会更好</li>
+</ul>
+<pre><code>import &#123; reactive, computed &#125; from &quot;vue&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+export const useUserStore = defineStore(&quot;user&quot;, () =&gt; &#123;
+  const list = reactive([1, 2, 3, 4, 5, 6]);
+  const sum = computed(() =&gt; &#123;
+    // 计算数组中所有数之和
+    const total = list.reduce((total, prev, next) =&gt; total + prev, 0);
+    console.log(&quot;total相当于缓存下来了&quot;);
+    return (item) =&gt; total + item;
+  &#125;);
+
+  return &#123;
+    sum,
+    list,
+  &#125;;
+&#125;);
+</code></pre>
+<ul>
+<li>测试代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;../src/store/user.js&quot;;
+  const userStore = useUserStore();
+  console.log(userStore.sum(4));
+  console.log(userStore.sum(5));
+  console.log(userStore.sum(6));
+  console.log(userStore.sum(7));
+  userStore.list.push(20);
+  console.log(userStore.sum(4));
+&lt;/script&gt;
+</code></pre>
+<h3 id="四、深入-Action"><a href="#四、深入-Action" class="headerlink" title="四、深入 Action"></a>四、深入 Action</h3><ol>
+<li>action 的异步写法<blockquote>
+<p>在 setup store 中，我们像写正常的异步方法一样来书写就可</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>以下代码中的 <code>getInfo</code> 方法，根据 id 来返回对应的用户条数</li>
+</ul>
+<pre><code>import axios from &quot;axios&quot;;
+import &#123; reactive, ref &#125; from &quot;vue&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+export const useUserStore = defineStore(&quot;user&quot;, () =&gt; &#123;
+  // 保存获取的数据
+  let result = ref([]);
+  // 异步获取数据
+  async function getInfo(id) &#123;
+    const list = await axios.get(
+      `https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/list?num=$&#123;id&#125;`
+    );
+    result.value = list.data.data.userslist || [];
+  &#125;
+
+  return &#123;
+    getInfo,
+    result,
+  &#125;;
+&#125;);
+</code></pre>
+<ul>
+<li>代码测试</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  import &#123; useUserStore &#125; from &quot;../src/store/user.js&quot;;
+  const userStore = useUserStore();
+  // 获取数据
+  userStore.getInfo(3);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div v-for=&quot;item in userStore.result&quot;&gt;
+    &lt;h3&gt;&#123;&#123; item.username &#125;&#125;&lt;/h3&gt;
+    &lt;p&gt;&#123;&#123; item.desc &#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>订阅 action<blockquote>
+<p>我们可以通过<code>store.$onAction()</code>来监听 action 和它们的返回结果，即 action 被调用时就会触发<code>$onAction</code>。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><code>store.$onAction()</code>方法的第一个参数是一个回调函数，回调函数会在 <code>action</code> 本身<strong>之前</strong>执行。</p>
+</li>
+<li><p>回调函数的参数对象的每个属性的作用如下</p>
+</li>
+</ul>
+<pre><code>userStore.$onAction(
+  (&#123;
+    name, // action 名称
+    store, // store 实例，类似 `someStore`
+    args, // 传递给 action 的参数数组
+    after, // 在 action执行完后，会调用after方法的回调
+    onError, // action 抛出错误或 reject 时执行执行该方法的回调
+  &#125;) =&gt; &#123;
+    console.log(&quot;name&quot;, name);
+    console.log(&quot;store&quot;, &quot;store&quot;);
+    console.log(&quot;args&quot;, args);
+    // 在action 函数执行完后调用，
+    // 如果action是一个异步方法，会在返回后的promise的then方法前调用。
+    // result为 action执行后的返回结果
+    after((result) =&gt; &#123;
+      console.log(&quot;after回调执行&quot;, result);
+    &#125;);
+  &#125;
+);
+</code></pre>
+<blockquote>
+<p>代码演示</p>
+</blockquote>
+<ul>
+<li>在 store 文件夹下新建<code>user.js</code>文件，内容如下：</li>
+</ul>
+<pre><code>import axios from &quot;axios&quot;;
+import &#123; defineStore &#125; from &quot;pinia&quot;;
+import &#123; ref &#125; from &quot;vue&quot;;
+let url =
+  &quot;https://www.fastmock.site/mock/6ec78e345df340241e1f5043f0167833/icode/users/list?num=&quot;;
+export const useUserStore = defineStore(&quot;user&quot;, () =&gt; &#123;
+  let result = ref([]);
+  // 请求数据方法
+  async function getInfo(id) &#123;
+    console.log(&quot;action的getInfo方法正在执行&quot;);
+    const list = await axios.get(`$&#123;url&#125;$&#123;id&#125;`);
+    result.value = list.data.data.userslist || [];
+  &#125;
+
+  // 对外暴露属性
+  return &#123;
+    getInfo,
+    result,
+  &#125;;
+&#125;);
+</code></pre>
+<ul>
+<li>在组件中使用 store，App.vue文件内容如下：</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; storeToRefs &#125; from &quot;pinia&quot;;
+  import &#123; useUserStore &#125; from &quot;../src/store/user.js&quot;;
+  const userStore = useUserStore();
+  const &#123; getInfo &#125; = userStore;
+
+  // 订阅action
+  userStore.$onAction(
+    (&#123;
+      name, // action 名称
+      store, // store 实例，类似 `someStore`
+      args, // 传递给 action 的参数数组
+      after, // 在 action执行完后，会调用after方法的回调
+      onError, // action 抛出错误或 reject 时执行执行该方法的回调
+    &#125;) =&gt; &#123;
+      console.log(&quot;name&quot;, name);
+      console.log(&quot;store&quot;, &quot;store&quot;);
+      console.log(&quot;args&quot;, args);
+      // 在action 函数执行完后调用，
+      // 如果action是一个异步方法，会在返回后的promise的then方法前调用。
+      // result为 action执行后的返回结果
+      after((result) =&gt; &#123;
+        console.log(&quot;after回调执行&quot;, result);
+      &#125;);
+    &#125;
+  );
+
+  // 请求获取数据
+  getInfo(3);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div v-for=&quot;item in userStore.result&quot;&gt;
+    &lt;h3&gt;&#123;&#123; item.username &#125;&#125;&lt;/h3&gt;
+    &lt;p&gt;&#123;&#123; item.desc &#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>想要在<code>action</code>执行前做相关操作，可以直接写在的<code>$onAction()</code>的回调函数中</li>
+<li>想要在<code>action</code>执行后做相关操作，可以直接写在 <code>after</code> 方法的回调函数中</li>
+</ul>
+<h3 id="五、组合式-Store"><a href="#五、组合式-Store" class="headerlink" title="五、组合式 Store"></a>五、组合式 Store</h3><blockquote>
+<p>你可以在一个 store 中使用另一个 store，使用步骤如下：</p>
+</blockquote>
+<ul>
+<li>在当前 store 的顶部直接通过<code>import</code>导入另一个 store</li>
+<li>调用导入的 store，创建 store 实例</li>
+<li>在需要使用的地方，直接通过 store 实例来访问其身上的 state、getter、action</li>
+</ul>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+import &#123; useBStore &#125; from &quot;../store/useB.js&quot;;
+// 注意，不要在这里  const bStore=useBStore()
+export const useAStore = defineStore(&quot;useA&quot;, &#123;
+  state() &#123;
+    return &#123;
+      a: useBStore().m, // 使用别一个store中数据
+    &#125;;
+  &#125;,
+&#125;);
+</code></pre>
+<pre><code>import &#123; defineStore &#125; from &quot;pinia&quot;;
+import &#123; useAStore &#125; from &quot;../store/useA.js&quot;;
+// 注意，不要在这里  const aStore=useAStore()
+
+export const useBStore = defineStore(&quot;useB&quot;, () =&gt; &#123;
+  const m = 10;
+  return &#123;
+    m,
+  &#125;;
+&#125;);
+</code></pre>
+<blockquote>
+<p>注意事项:</p>
+</blockquote>
+<ul>
+<li>如果两个或更多的 store <strong>相互使用</strong><ul>
+<li>它们不可以通过<code> getters</code> 或 <code>actions</code> 创建一个无限循环。</li>
+<li>它们也不可以同时在它们的 <code>setup</code> 函数中直接互相读取对方的 state</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、组件间通信的方案"><a href="#六、组件间通信的方案" class="headerlink" title="六、组件间通信的方案"></a>六、组件间通信的方案</h3><blockquote>
+<p>大家可以自行去复习下我们之前讲过的通信方案，包括（使用方法，场景）</p>
+</blockquote>
+<ul>
+<li><code>props</code>父子组件间通信</li>
+<li><code>emit</code>父子组件间通信</li>
+<li><code>v-model</code>父子组件间通信</li>
+<li>依赖注入（provide &#x2F; inject）</li>
+<li><code>$attrs</code>透传属性</li>
+<li>任意组件间通信- 发布与订阅</li>
+<li><code>ref</code> 获取子组件实例</li>
+<li><code>$parent</code>访问父组件实例</li>
+<li><code>$children</code>访问子组件实例</li>
+<li><code>$root</code>访问根组件</li>
+<li><code>pinia</code>全局状态管理</li>
+</ul>
+<h3 id="七、Teleport内置组件"><a href="#七、Teleport内置组件" class="headerlink" title="七、Teleport内置组件"></a>七、Teleport内置组件</h3><blockquote>
+<p><code>&lt;Teleport&gt;</code>是一个内置组件，它可以将一个组件内部的一部分模板 “传送” 到该组件的 DOM 结构外层的位置去。<br><code>&lt;Teleport&gt;</code>组件相关内容如下：</p>
+</blockquote>
+<ul>
+<li><code>to</code> 属性</li>
+<li>为什么需要 <code>Teleport</code> 组件</li>
+<li>搭配组件使用</li>
+<li>禁用 <code>Teleport</code></li>
+<li>实战应用：根据屏幕尺寸渲染县浮窗</li>
+<li>多个 <code>Teleport</code> 共享目标</li>
+</ul>
+<h4 id="to-属性"><a href="#to-属性" class="headerlink" title="to 属性"></a>to 属性</h4><blockquote>
+<p><code>&lt;Teleport&gt;</code>接收一个 <code>to</code> prop 来指定传送的目标。<code>to</code> 的值可以是一个 <code>CSS </code>选择器字符串，也可以是一个 <code>DOM</code> 元素对象。</p>
+</blockquote>
+<pre><code>&lt;Teleport to=&quot;#id&quot;&gt;&lt;/Teleport&gt;
+&lt;Teleport to=&quot;.class&quot;&gt; &lt;/Teleport&gt;
+&lt;Teleport to=&quot;[title=&#39;xxx&#39;]&quot;&gt; &lt;/Teleport&gt;
+&lt;Teleport to=&quot;tagname&quot;&gt; &lt;/Teleport&gt;
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>下面Modal组件中这段代码的作用就是告诉 Vue“把<code>&lt;Teleport&gt;</code>中的模板片段传送到 body 标签下”。</li>
+</ul>
+<pre><code>&lt;!--Modal组件--&gt;
+&lt;Teleport to=&quot;body&quot;&gt;
+  &lt;div class=&quot;modal-mask&quot;&gt;
+    &lt;div class=&quot;modal-container&quot;&gt;弹窗&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/Teleport&gt;
+</code></pre>
+<ul>
+<li>在 App 根组件中使用 Modal 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Modal from &quot;./components/Modal.vue&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;Modal&gt;&lt;/Modal&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>以上代码最终渲染后的 HTML 结构如下，<code>.modal-mask</code>对应的 Div 从<code>.main</code>中移除添加到了 body 中</li>
+</ul>
+<pre><code>&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;div class=&quot;main&quot;&gt;
+      &lt;!--.modal-maks从这里被移除，添加到了body中--&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!--.modal-mask被添加到了body中--&gt;
+  &lt;div class=&quot;modal-mask&quot;&gt;
+    &lt;div class=&quot;modal-container&quot;&gt;弹窗&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><blockquote>
+<p><code>&lt;Teleport&gt;</code> 挂载时，传送的 to 目标必须已经存在于 DOM 中。理想情况下，这应该是整个 Vue 应用 DOM 树外部的一个元素。</p>
+<p>如果目标元素也是由 Vue 渲染的，你需要确保在挂载 <code>&lt;Teleport&gt;</code> 之前先挂载该元素。</p>
+</blockquote>
+<blockquote>
+<p>以下为错误示例</p>
+</blockquote>
+<ul>
+<li>因为<code>&lt;Teleport&gt;</code>挂载前，<code>h3.title</code>元素还没有被挂载到页面中</li>
+</ul>
+<pre><code>&lt;div class=&quot;main&quot;&gt;
+  &lt;Teleport to=&quot;h3.title&quot;&gt;
+    &lt;div class=&quot;a&quot;&gt;A&lt;/div&gt;
+  &lt;/Teleport&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+</code></pre>
+<ul>
+<li>以下为正确示例</li>
+</ul>
+<pre><code>&lt;h3 class=&quot;title&quot;&gt;&lt;/h3&gt;
+&lt;div class=&quot;main&quot;&gt;
+  &lt;Teleport to=&quot;h3.title&quot;&gt;
+    &lt;div class=&quot;a&quot;&gt;A&lt;/div&gt;
+  &lt;/Teleport&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="为什么需要-Teleport-组件"><a href="#为什么需要-Teleport-组件" class="headerlink" title="为什么需要 Teleport 组件"></a>为什么需要 Teleport 组件</h4><blockquote>
+<p>在实际开发中我们可能会遇到这样的场景：</p>
+<ul>
+<li>一个组件模板的一部分在逻辑上从属于该组件，但从整个应用视图的角度来看，它在 DOM 中应该被渲染在整个 Vue 应用外部的其他地方。</li>
+</ul>
+</blockquote>
+<ul>
+<li>我们来看下面这个弹窗的例子</li>
+</ul>
+<pre><code>&lt;!--Modal.vue--&gt;
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;div class=&quot;modal-mask&quot;&gt;
+      &lt;div class=&quot;modal-container&quot;&gt;
+        &lt;button&gt;确认&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .main &#123;
+    width: 300px;
+    height: 300px;
+    border: 2px solid red;
+    margin: 100px auto;
+    /* transform: translate(10px); */
+  &#125;
+
+  /* 弹窗样式 */
+  .modal-mask &#123;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+  &#125;
+
+  .modal-container &#123;
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li><p>以上代码最终渲染效果如下：</p>
+<img src="./src/teleport组件实例1.png">
+</li>
+<li><p>如果我在<code>.main</code>中添加如下样式</p>
+</li>
+</ul>
+<pre><code>.main &#123;
+  transform: translate(0px);
+&#125;
+</code></pre>
+<ul>
+<li><p>最终渲染出来的效果如下，并不是我们期望的效果</p>
+<img src="./src/teleport组件实例2.png">
+</li>
+<li><p>是因为固定定位元素的祖先元素添加了 <code>transform</code>、<code>perspective</code>、<code>filter</code> 或 <code>backdrop-filter</code> 属性非 none 时，其相的容器由视口改为该祖先。（即非 body 而为该祖先元素）</p>
+</li>
+<li><p>有了<code>&lt;Teleport&gt;</code>我们就不需要再顾虑 DOM 结构问题，使用<code>&lt;Teleport&gt;</code>组件并结合 to 属性即可指定弹窗的具体 DOM 位置。</p>
+</li>
+<li><p>如下代码中的<code>.modal-mask</code>渲染后会被移动到 body 标签中</p>
+</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;Teleport to=&quot;body&quot;&gt;
+      &lt;div class=&quot;modal-mask&quot;&gt;
+        &lt;div class=&quot;modal-container&quot;&gt;
+          &lt;button&gt;确认&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/Teleport&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="搭配组件使用"><a href="#搭配组件使用" class="headerlink" title="搭配组件使用"></a>搭配组件使用</h4><blockquote>
+<p><code>&lt;Teleport&gt;</code>只改变了渲染的 DOM 结构，它<strong>不会影响</strong>组件间的逻辑关系。</p>
+<p>也就是说，如果 <code>&lt;Teleport&gt;</code> 包含了一个组件，那么该组件始终和这个使用了 <code>&lt;teleport&gt;</code> 的组件保持逻辑上的父子关系。传入的 props 和触发的事件也会照常工作。</p>
+</blockquote>
+<ul>
+<li>Modal 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Modal from &quot;./components/Modal.vue&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;Teleport to=&quot;body&quot;&gt;
+      &lt;Modal title=&quot;弹窗标题&quot;&gt;&lt;/Modal&gt;
+    &lt;/Teleport&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>App 组件中，在 <code>&lt;Teleport&gt;</code> 组件中使用 <code>&lt;Modal&gt;</code> 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  const props = defineProps([&quot;title&quot;]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--Modal组件--&gt;
+  &lt;div class=&quot;modal-mask&quot;&gt;
+    &lt;div class=&quot;modal-container&quot;&gt;
+      &lt;div class=&quot;modal-header&quot;&gt;&#123;&#123; title &#125;&#125;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>最终渲染后的 HTML 结构如下：</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;modal-mask&quot;&gt;
+  &lt;div class=&quot;modal-container&quot;&gt;
+    &lt;div class=&quot;modal-header&quot;&gt;弹窗标题&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="禁用-Teleport"><a href="#禁用-Teleport" class="headerlink" title="禁用 Teleport"></a>禁用 Teleport</h4><blockquote>
+<p>我们可以通过对 <code>&lt;Teleport&gt;</code> 动态地传入一个 <code>disabled</code> prop 来决定使用还是禁用<code>&lt;Teleport&gt;</code>组件。</p>
+</blockquote>
+<ul>
+<li>值为 true 表示禁用</li>
+<li>flase 表示启用</li>
+</ul>
+<pre><code>&lt;Teleport :disabled=&quot;isMobile&quot;&gt; ... &lt;/Teleport&gt;
+</code></pre>
+<h4 id="实战应用：根据屏幕大小渲染悬浮窗"><a href="#实战应用：根据屏幕大小渲染悬浮窗" class="headerlink" title="实战应用：根据屏幕大小渲染悬浮窗"></a>实战应用：根据屏幕大小渲染悬浮窗</h4><ul>
+<li>当屏幕尺寸 &gt; 750 时，元素相对于浏览器左侧悬浮显示</li>
+<li>当屏幕尺寸 &lt;&#x3D; 750 时， 元素在组件内全屏显示</li>
+</ul>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>定义Menu导航组件，该组件内定义了两套样式，分别用来展示不同状态下的样式<ul>
+<li><code>.fixed</code>菜单相对浏览器固定定位在左侧，显示为左侧悬浮菜单效果</li>
+<li><code>.relative</code>菜单为普通的块元素，显示为全屏菜单效果</li>
+</ul>
+</li>
+<li>将<code>.sidebar</code>放置在<code>&lt;Teleport&gt;</code>组件中<ul>
+<li>添加to属性，用来控制<code>.sidebar</code>渲染的 DOM 结构位置</li>
+<li>添加<code>disabled</code>属性，用来控制是禁用还是使用<code>&lt;Teleport&gt;</code>组件</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;!--Menu.vue 组件--&gt;
+&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const disabled = ref(false);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Teleport to=&quot;body&quot; :disabled=&quot;disabled&quot;&gt;
+    &lt;div class=&quot;sidebar&quot;&gt;&lt;/div&gt;
+  &lt;/Teleport&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .fixed &#123;
+    width: 150px;
+    height: 200px;
+    background-color: skyblue;
+    position: fixed;
+    left: 0px;
+    top: 50px;
+  &#125;
+
+  .relative &#123;
+    width: 100%;
+    height: 200px;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>根据屏幕宽度来决定<code>&lt;Teleport&gt;</code>组件的使用情况，并为<code>.sidebar</code>元素动态添加 class<ul>
+<li>如果屏幕宽 <code>&gt; 750px</code>，启用 <code>Teleport</code> 组件，变量<code>disabled.value=false</code>，同时为<code>.sidebar</code>添加<code>fixed </code>class</li>
+<li>如果屏幕宽 <code>&lt;= 750px</code>，禁用 <code>Teleport</code> 组件，变量<code>disabled.value=true</code>,同时为<code>.sidebar</code>添加<code>relative</code> class</li>
+</ul>
+</li>
+<li>根据<code>disabled</code>的值来决定当前Menu导航根元素对应的 CSS 样式</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, onMounted, onUnmounted, computed &#125; from &quot;vue&quot;;
+  const disabled = ref(false);
+  // const modalClass = ref(&quot;fixed&quot;)
+
+  // 计算属性,根据disabled的值来决来modalClass的值
+  const modalClass = computed(() =&gt; &#123;
+    return disabled.value ? &quot;relative&quot; : &quot;fixed&quot;;
+  &#125;);
+
+  // 根据浏览器当前窗口大小，决定是启用还是禁用Teleport组件
+  function onResize() &#123;
+    // 获取浏览器的宽
+    const w = window.innerWidth;
+    if (w &gt; 750) &#123;
+      // pc 端,悬浮效果 不能禁用Teleport
+      disabled.value = false;
+      // modalClass.value = &quot;fixed&quot;
+    &#125; else &#123;
+      // 移动端  正常显示, 禁用Teleport
+      disabled.value = true;
+      // modalClass.value = &quot;relative&quot;
+    &#125;
+  &#125;
+
+  // 调用fn
+  onResize();
+
+  // 组件挂载成功，添加事件监听
+  onMounted(() =&gt; &#123;
+    window.addEventListener(&quot;resize&quot;, onResize);
+  &#125;);
+  // 卸载组件时,要移除事件监听
+  onUnmounted(() =&gt; &#123;
+    window.removeEventListener(&quot;resize&quot;, fn);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!-- 
+        当浏览器宽&gt;750px  不能禁用Teleport  class=&quot;fixed&quot;
+        当浏览器宽&lt;750px  禁用Teleport class=&quot;relative&quot; 
+    --&gt;
+  &lt;Teleport to=&quot;body&quot; :disabled=&quot;disabled&quot;&gt;
+    &lt;div class=&quot;sidebar&quot; :class=&quot;modalClass&quot;&gt;&lt;/div&gt;
+  &lt;/Teleport&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .sidebar &#123;
+  &#125;
+
+  /* 左侧悬浮菜单样式 */
+  .fixed &#123;
+    width: 150px;
+    height: 200px;
+    background-color: skyblue;
+    position: fixed;
+    top: 100px;
+    left: 0;
+  &#125;
+
+  /* 正常渲染的样式 */
+  .relative &#123;
+    width: 100%;
+    height: 200px;
+    background-color: tomato;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>App 组件中使用Menu导航组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Menu from &quot;./components/Menu.vue&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;main&quot;&gt;
+    &lt;menu&gt;&lt;/menu&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  /* 让页面产生滚动条 */
+  :global(body) &#123;
+    height: 3000px;
+  &#125;
+  .main &#123;
+    width: 100%;
+    height: 200px;
+    border: 1px solid blue;
+    margin: 100px auto;
+    transform: translate(0px); /* 设置的干扰因素 */
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="多个-Teleport-共享目标"><a href="#多个-Teleport-共享目标" class="headerlink" title="多个 Teleport 共享目标"></a>多个 Teleport 共享目标</h4><blockquote>
+<p>我们可以将多个<code>&lt;Teleport&gt;</code>组件的内容挂载在同一个目标元素上，他们的挂载顺序书写时的顺序。</p>
+</blockquote>
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code>&lt;Teleport to=&quot;.sidebar&quot;&gt;
+  &lt;div class=&quot;a&quot;&gt;A&lt;/div&gt;
+&lt;/Teleport&gt;
+&lt;Teleport to=&quot;.sidebar&quot;&gt;
+  &lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;
+&lt;/Teleport&gt;
+</code></pre>
+<ul>
+<li>以上代码渲染的结果为：</li>
+</ul>
+<pre><code>&lt;div data-v-94fcd891=&quot;&quot; class=&quot;sidebar fixed&quot;&gt;
+  &lt;div class=&quot;a&quot;&gt;A&lt;/div&gt;
+  &lt;div class=&quot;b&quot;&gt;B&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="八、ESLint"><a href="#八、ESLint" class="headerlink" title="八、ESLint"></a>八、ESLint</h3><blockquote>
+<p>当我们在进行团队协作开发项目时，每个人的代码习惯和理解的差异会导致团队中出现各种各样规范的代码。如：有的人认为语句后应加冒号，有的人认为不应该加；有的人习惯用单引号来包裹字符串，有的人习惯用双引号包裹字符串等之类的各种问题。</p>
+</blockquote>
+<blockquote>
+<p>这种差异性会造成团队协作效率低下，也会影响项目的健壮性和可维护性。所以我们需要对代码风格进行规范，这种规范有以下好处：</p>
+</blockquote>
+<ul>
+<li>代码风格保持统一</li>
+<li>并且可以在代码运行之前检测出错误和 bug，提高协作开发效率</li>
+</ul>
+<h4 id="什么是-ESLint"><a href="#什么是-ESLint" class="headerlink" title="什么是 ESLint"></a>什么是 ESLint</h4><blockquote>
+<p>ESLint 是一个 JavaScript 的 Lint（静态代码分析）工具，其目的使代码风格更加一致并避免错误。他可以帮助我们在运行代码前就发现语法错误和潜在的 bug，非常适合用于制定团队代码规范。</p>
+<ul>
+<li>ESLint 官网：<a target="_blank" rel="noopener" href="http://eslint.cn/">http://eslint.cn/</a></li>
+</ul>
+</blockquote>
+<h4 id="ESLint-的基本使用"><a href="#ESLint-的基本使用" class="headerlink" title="ESLint 的基本使用"></a>ESLint 的基本使用</h4><blockquote>
+<p>ESLint 是用来对项目中的代码进行统一规范，所以 ESLint 必须结合项目来使用。</p>
+</blockquote>
+<blockquote>
+<p>首先我们需要创建一个项目目录，然后执行以下命令，初始化<code>package.json</code>文件</p>
+</blockquote>
+<pre><code>npm init -y   #初始化package.json文件
+</code></pre>
+<blockquote>
+<p>你可以使用该命令安装并配置 ESLint</p>
+</blockquote>
+<pre><code>npm init @eslint/config
+</code></pre>
+<ul>
+<li>以上命令执行后，在控制台会提出一系列的问题让我们来选择，根据自身项目情况选择即可。</li>
+</ul>
+<blockquote>
+<p>安装成功后，在当前根目录下会生成<code>.eslintrc.js</code>文件(选择了js格式的配置文件)，该文件为 <code>ESLint</code> 的配置文件。默认生成后的内容如下：</p>
+</blockquote>
+<pre><code>module.exports = &#123;
+  env: &#123;
+    browser: true,
+    commonjs: true,
+    es2021: true,
+  &#125;,
+  extends: &quot;eslint:recommended&quot;,
+  overrides: [
+    &#123;
+      env: &#123;
+        node: true,
+      &#125;,
+      files: [&quot;.eslintrc.&#123;js,cjs&#125;&quot;],
+      parserOptions: &#123;
+        sourceType: &quot;script&quot;,
+      &#125;,
+    &#125;,
+  ],
+  parserOptions: &#123;
+    ecmaVersion: &quot;latest&quot;,
+  &#125;,
+  rules: &#123;&#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>以上配置文件中各个配置项的具体含义和作用，我们放在后面 ESLint 配置文件版块再讲。</li>
+</ul>
+<h4 id="使用-ESLint-工具"><a href="#使用-ESLint-工具" class="headerlink" title="使用 ESLint 工具"></a>使用 ESLint 工具</h4><blockquote>
+<p>我们可以在当前项目下新建<code>src/test.js</code>文件，然后书写如下代码</p>
+</blockquote>
+<pre><code>function sum(a, b) &#123;
+  console.log(a + b);
+  return a + b;
+&#125;
+</code></pre>
+<blockquote>
+<p>使用 ESLint 命令行检查<code>src/test.js</code>文件中代码</p>
+</blockquote>
+<pre><code># 检查src/test.js文件中代码是否符合规范
+npx eslint ./src/test.js 
+
+# 检查 ./src 目录下的所有JS文件是否符合规范
+npx eslint ./src  
+</code></pre>
+<blockquote>
+<p>会发现，在控制台抛出了如下一个错误：sun定义了但从未使用</p>
+</blockquote>
+<blockquote>
+<p>如果我们把配置文件中的<code>&quot;extends&quot;: &quot;eslint:recommended&quot;</code>, 换成 <code>&quot;extends&quot;: &quot;eslint:all&quot;</code>。</p>
+<ul>
+<li>再执行 <code>npx eslint ./src</code>时，会抛出更多错误</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>原因在于</p>
+</blockquote>
+<ul>
+<li><code>eslint:recommended</code>内置规范包，只有 60 条左右的代码规范</li>
+<li><code>eslint:all</code>内置规范包，包含所有（280 条）的代码规范</li>
+</ul>
+<h4 id="修复问题-–fix"><a href="#修复问题-–fix" class="headerlink" title="修复问题 –fix"></a>修复问题 –fix</h4><blockquote>
+<p>执行以下命令可以修复存在的部分规范问题，但不是所有的问题都可以用此项来修复</p>
+</blockquote>
+<pre><code>npx eslint --fix ./src
+</code></pre>
+<ul>
+<li>命令执行后，部分问题会被自动修复，但仍有问题是没有办法修复的，需要人为去修复。</li>
+<li>最终人为将代码修改成如下内容，然后执行<code>npx eslint ./src</code>命令后，将没有任何错误信息</li>
+</ul>
+<pre><code>&quot;use strict&quot;;
+const aa = 1,
+  bb = 2,
+  sum = function sum(a1, b1) &#123;
+    return a1 + b1;
+  &#125;;
+sum(aa, bb);
+</code></pre>
+<h4 id="VSCode-中安装-ESLint-插件"><a href="#VSCode-中安装-ESLint-插件" class="headerlink" title="VSCode 中安装 ESLint 插件"></a>VSCode 中安装 ESLint 插件</h4><blockquote>
+<p>通过前面的代码演示我们知道，只有当我们执行npx eslint …命令时，才会调用 eslint 来帮助我们检查代码。</p>
+</blockquote>
+<ul>
+<li>如果我们想在编写代码的时候，一旦出现不符合要求的代码，就给你们提示，就需要借助 VSCode 的 ESLint 插件。</li>
+<li>安装 ESLint 插件</li>
+</ul>
+<blockquote>
+<p>VSCode 的 ESLint 插件对代码的检查规则是：</p>
+</blockquote>
+<ul>
+<li>如果当前项目目录下有<code>.eslintrc</code>文件，就会按该文件中配置的规则来检测代码，</li>
+<li>如果没有，就会按插件本身的默认规则来。</li>
+</ul>
+<h3 id="九、ESLint-配置文件"><a href="#九、ESLint-配置文件" class="headerlink" title="九、ESLint 配置文件"></a>九、ESLint 配置文件</h3><h4 id="配置文件格式"><a href="#配置文件格式" class="headerlink" title="配置文件格式"></a>配置文件格式</h4><blockquote>
+<p>配置文件有<code>.js</code>、<code>.yml</code>、<code>.json</code> 三种格式。</p>
+</blockquote>
+<h4 id="env-节点"><a href="#env-节点" class="headerlink" title="env 节点"></a>env 节点</h4><blockquote>
+<p>env 用于启用特定环境的全局变量。</p>
+</blockquote>
+<blockquote>
+<p>由于 ESLint 的各种规范中，一般都不允许使用未在页面内声明的成员（变量），而在开发中经常会用到一些运行环境自带的全局变量，如：</p>
+</blockquote>
+<ul>
+<li>浏览器中的 window、document等</li>
+<li>nodejs 中的 __dirname 等</li>
+<li>es2021 中的 WeakRef 等</li>
+</ul>
+<blockquote>
+<p>如果我们没有启用任何特定环境全局变量，那我们在代码中使用了 <code>window</code>，<code>document</code> 时，ESLint 就会认为这两个变量没有定义，会抛出未定义的错误。</p>
+</blockquote>
+<blockquote>
+<p>所以我们需要告诉 ESLint，当前代码运行在哪个环境中，这些环境下的全局变量检查时就不会报错</p>
+</blockquote>
+<blockquote>
+<p>代码测式一</p>
+</blockquote>
+<pre><code>&quot;env&quot;: &#123;
+    &quot;browser&quot;: true,  //  启用浏览器环境下的全局变量
+&#125;,
+</code></pre>
+<ul>
+<li>如果 env 中指定了以上配置，以下代码在 ESLint 检测时，不会抛出错误</li>
+</ul>
+<pre><code>window.a = 1;
+</code></pre>
+<ul>
+<li>如果 env 中没有启用特定环境的全局变量，则代码在 ESLint 检测时，会抛出错误</li>
+</ul>
+<h4 id="extends-节点"><a href="#extends-节点" class="headerlink" title="extends 节点"></a>extends 节点</h4><blockquote>
+<p><code>extends</code>用于配置 ESLint 使用哪种规则包来检查代码。</p>
+</blockquote>
+<blockquote>
+<p>规则包分为以下 2 类：</p>
+</blockquote>
+<p>①、ESLint 内置规范包：</p>
+<ul>
+<li><code>eslint-all</code> 要使用全部 280 多个规则</li>
+<li><code>eslint-recommended</code> 只需要满足部分核心规则</li>
+</ul>
+<pre><code>&quot;extends&quot;: &quot;eslint:recommended&quot;, 
+// 使用内置的推荐规则包
+</code></pre>
+<ul>
+<li>eslint-all包与eslint-recommended包的所有规则，查阅 <a target="_blank" rel="noopener" href="https://zh-hans.eslint.org/docs/latest/rules/">ESLint规则参考</a></li>
+</ul>
+<p>②、第三方规范包</p>
+<ul>
+<li><code>eslint-config-standard</code> 目前比较流行的一个标准规则包，<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-config-standard">standard 包使用教程</a></li>
+<li><code>eslint-config-airbnb-base</code> 目前最流行的一个规则包，<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/eslint-config-airbnb-base">airbnb-base 包使用教程</a><blockquote>
+<p>使用 <code>eslint-config-standard</code> 规则包</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>extends: &quot;standard&quot;,    // 使用 eslint-config-standard 规则包
+</code></pre>
+<ul>
+<li>使用这个规则包之前，要执行以下命令安装相关包</li>
+</ul>
+<pre><code>npm install --save-dev eslint-config-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-n
+</code></pre>
+<ul>
+<li>standard 包指定了哪些规则，可以在<code>node_modules/eslint-config-standard/index.js</code>中可以查看到，具体如下：</li>
+</ul>
+<pre><code>&#123;
+  &quot;parserOptions&quot;: &#123;
+    &quot;ecmaVersion&quot;: 2022,
+    &quot;ecmaFeatures&quot;: &#123;
+      &quot;jsx&quot;: true
+    &#125;,
+    &quot;sourceType&quot;: &quot;module&quot;
+  &#125;,
+
+  &quot;env&quot;: &#123;
+    &quot;es2021&quot;: true,
+    &quot;node&quot;: true
+  &#125;,
+
+  &quot;plugins&quot;: [
+    &quot;import&quot;,
+    &quot;n&quot;,
+    &quot;promise&quot;
+  ],
+
+  &quot;globals&quot;: &#123;
+    &quot;document&quot;: &quot;readonly&quot;,
+    &quot;navigator&quot;: &quot;readonly&quot;,
+    &quot;window&quot;: &quot;readonly&quot;
+  &#125;,
+
+  &quot;rules&quot;: &#123;
+    &quot;no-var&quot;: &quot;warn&quot;,
+    &quot;object-shorthand&quot;: [&quot;warn&quot;, &quot;properties&quot;],
+
+    &quot;accessor-pairs&quot;: [&quot;error&quot;, &#123; &quot;setWithoutGet&quot;: true, &quot;enforceForClassMembers&quot;: true &#125;],
+    &quot;array-bracket-spacing&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;array-callback-return&quot;: [&quot;error&quot;, &#123;
+      &quot;allowImplicit&quot;: false,
+      &quot;checkForEach&quot;: false
+    &#125;],
+    &quot;arrow-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],
+    &quot;block-spacing&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;brace-style&quot;: [&quot;error&quot;, &quot;1tbs&quot;, &#123; &quot;allowSingleLine&quot;: true &#125;],
+    &quot;camelcase&quot;: [&quot;error&quot;, &#123;
+      &quot;allow&quot;: [&quot;^UNSAFE_&quot;],
+      &quot;properties&quot;: &quot;never&quot;,
+      &quot;ignoreGlobals&quot;: true
+    &#125;],
+    &quot;comma-dangle&quot;: [&quot;error&quot;, &#123;
+      &quot;arrays&quot;: &quot;never&quot;,
+      &quot;objects&quot;: &quot;never&quot;,
+      &quot;imports&quot;: &quot;never&quot;,
+      &quot;exports&quot;: &quot;never&quot;,
+      &quot;functions&quot;: &quot;never&quot;
+    &#125;],
+    &quot;comma-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: false, &quot;after&quot;: true &#125;],
+    &quot;comma-style&quot;: [&quot;error&quot;, &quot;last&quot;],
+    &quot;computed-property-spacing&quot;: [&quot;error&quot;, &quot;never&quot;, &#123; &quot;enforceForClassMembers&quot;: true &#125;],
+    &quot;constructor-super&quot;: &quot;error&quot;,
+    &quot;curly&quot;: [&quot;error&quot;, &quot;multi-line&quot;],
+    &quot;default-case-last&quot;: &quot;error&quot;,
+    &quot;dot-location&quot;: [&quot;error&quot;, &quot;property&quot;],
+    &quot;dot-notation&quot;: [&quot;error&quot;, &#123; &quot;allowKeywords&quot;: true &#125;],
+    &quot;eol-last&quot;: &quot;error&quot;,
+    &quot;eqeqeq&quot;: [&quot;error&quot;, &quot;always&quot;, &#123; &quot;null&quot;: &quot;ignore&quot; &#125;],
+    &quot;func-call-spacing&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;generator-star-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],
+    &quot;indent&quot;: [&quot;error&quot;, 2, &#123;
+      &quot;SwitchCase&quot;: 1,
+      &quot;VariableDeclarator&quot;: 1,
+      &quot;outerIIFEBody&quot;: 1,
+      &quot;MemberExpression&quot;: 1,
+      &quot;FunctionDeclaration&quot;: &#123; &quot;parameters&quot;: 1, &quot;body&quot;: 1 &#125;,
+      &quot;FunctionExpression&quot;: &#123; &quot;parameters&quot;: 1, &quot;body&quot;: 1 &#125;,
+      &quot;CallExpression&quot;: &#123; &quot;arguments&quot;: 1 &#125;,
+      &quot;ArrayExpression&quot;: 1,
+      &quot;ObjectExpression&quot;: 1,
+      &quot;ImportDeclaration&quot;: 1,
+      &quot;flatTernaryExpressions&quot;: false,
+      &quot;ignoreComments&quot;: false,
+      &quot;ignoredNodes&quot;: [&quot;TemplateLiteral *&quot;, &quot;JSXElement&quot;, &quot;JSXElement &gt; *&quot;, &quot;JSXAttribute&quot;, &quot;JSXIdentifier&quot;, &quot;JSXNamespacedName&quot;, &quot;JSXMemberExpression&quot;, &quot;JSXSpreadAttribute&quot;, &quot;JSXExpressionContainer&quot;, &quot;JSXOpeningElement&quot;, &quot;JSXClosingElement&quot;, &quot;JSXFragment&quot;, &quot;JSXOpeningFragment&quot;, &quot;JSXClosingFragment&quot;, &quot;JSXText&quot;, &quot;JSXEmptyExpression&quot;, &quot;JSXSpreadChild&quot;],
+      &quot;offsetTernaryExpressions&quot;: true
+    &#125;],
+    &quot;key-spacing&quot;: [&quot;error&quot;, &#123; &quot;beforeColon&quot;: false, &quot;afterColon&quot;: true &#125;],
+    &quot;keyword-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: true, &quot;after&quot;: true &#125;],
+    &quot;lines-between-class-members&quot;: [&quot;error&quot;, &quot;always&quot;, &#123; &quot;exceptAfterSingleLine&quot;: true &#125;],
+    &quot;multiline-ternary&quot;: [&quot;error&quot;, &quot;always-multiline&quot;],
+    &quot;new-cap&quot;: [&quot;error&quot;, &#123; &quot;newIsCap&quot;: true, &quot;capIsNew&quot;: false, &quot;properties&quot;: true &#125;],
+    &quot;new-parens&quot;: &quot;error&quot;,
+    &quot;no-array-constructor&quot;: &quot;error&quot;,
+    &quot;no-async-promise-executor&quot;: &quot;error&quot;,
+    &quot;no-caller&quot;: &quot;error&quot;,
+    &quot;no-case-declarations&quot;: &quot;error&quot;,
+    &quot;no-class-assign&quot;: &quot;error&quot;,
+    &quot;no-compare-neg-zero&quot;: &quot;error&quot;,
+    &quot;no-cond-assign&quot;: &quot;error&quot;,
+    &quot;no-const-assign&quot;: &quot;error&quot;,
+    &quot;no-constant-condition&quot;: [&quot;error&quot;, &#123; &quot;checkLoops&quot;: false &#125;],
+    &quot;no-control-regex&quot;: &quot;error&quot;,
+    &quot;no-debugger&quot;: &quot;error&quot;,
+    &quot;no-delete-var&quot;: &quot;error&quot;,
+    &quot;no-dupe-args&quot;: &quot;error&quot;,
+    &quot;no-dupe-class-members&quot;: &quot;error&quot;,
+    &quot;no-dupe-keys&quot;: &quot;error&quot;,
+    &quot;no-duplicate-case&quot;: &quot;error&quot;,
+    &quot;no-useless-backreference&quot;: &quot;error&quot;,
+    &quot;no-empty&quot;: [&quot;error&quot;, &#123; &quot;allowEmptyCatch&quot;: true &#125;],
+    &quot;no-empty-character-class&quot;: &quot;error&quot;,
+    &quot;no-empty-pattern&quot;: &quot;error&quot;,
+    &quot;no-eval&quot;: &quot;error&quot;,
+    &quot;no-ex-assign&quot;: &quot;error&quot;,
+    &quot;no-extend-native&quot;: &quot;error&quot;,
+    &quot;no-extra-bind&quot;: &quot;error&quot;,
+    &quot;no-extra-boolean-cast&quot;: &quot;error&quot;,
+    &quot;no-extra-parens&quot;: [&quot;error&quot;, &quot;functions&quot;],
+    &quot;no-fallthrough&quot;: &quot;error&quot;,
+    &quot;no-floating-decimal&quot;: &quot;error&quot;,
+    &quot;no-func-assign&quot;: &quot;error&quot;,
+    &quot;no-global-assign&quot;: &quot;error&quot;,
+    &quot;no-implied-eval&quot;: &quot;error&quot;,
+    &quot;no-import-assign&quot;: &quot;error&quot;,
+    &quot;no-invalid-regexp&quot;: &quot;error&quot;,
+    &quot;no-irregular-whitespace&quot;: &quot;error&quot;,
+    &quot;no-iterator&quot;: &quot;error&quot;,
+    &quot;no-labels&quot;: [&quot;error&quot;, &#123; &quot;allowLoop&quot;: false, &quot;allowSwitch&quot;: false &#125;],
+    &quot;no-lone-blocks&quot;: &quot;error&quot;,
+    &quot;no-loss-of-precision&quot;: &quot;error&quot;,
+    &quot;no-misleading-character-class&quot;: &quot;error&quot;,
+    &quot;no-prototype-builtins&quot;: &quot;error&quot;,
+    &quot;no-useless-catch&quot;: &quot;error&quot;,
+    &quot;no-mixed-operators&quot;: [&quot;error&quot;, &#123;
+      &quot;groups&quot;: [
+        [&quot;==&quot;, &quot;!=&quot;, &quot;===&quot;, &quot;!==&quot;, &quot;&gt;&quot;, &quot;&gt;=&quot;, &quot;&lt;&quot;, &quot;&lt;=&quot;],
+        [&quot;&amp;&amp;&quot;, &quot;||&quot;],
+        [&quot;in&quot;, &quot;instanceof&quot;]
+      ],
+      &quot;allowSamePrecedence&quot;: true
+    &#125;],
+    &quot;no-mixed-spaces-and-tabs&quot;: &quot;error&quot;,
+    &quot;no-multi-spaces&quot;: &quot;error&quot;,
+    &quot;no-multi-str&quot;: &quot;error&quot;,
+    &quot;no-multiple-empty-lines&quot;: [&quot;error&quot;, &#123; &quot;max&quot;: 1, &quot;maxBOF&quot;: 0, &quot;maxEOF&quot;: 0 &#125;],
+    &quot;no-new&quot;: &quot;error&quot;,
+    &quot;no-new-func&quot;: &quot;error&quot;,
+    &quot;no-new-object&quot;: &quot;error&quot;,
+    &quot;no-new-symbol&quot;: &quot;error&quot;,
+    &quot;no-new-wrappers&quot;: &quot;error&quot;,
+    &quot;no-obj-calls&quot;: &quot;error&quot;,
+    &quot;no-octal&quot;: &quot;error&quot;,
+    &quot;no-octal-escape&quot;: &quot;error&quot;,
+    &quot;no-proto&quot;: &quot;error&quot;,
+    &quot;no-redeclare&quot;: [&quot;error&quot;, &#123; &quot;builtinGlobals&quot;: false &#125;],
+    &quot;no-regex-spaces&quot;: &quot;error&quot;,
+    &quot;no-return-assign&quot;: [&quot;error&quot;, &quot;except-parens&quot;],
+    &quot;no-self-assign&quot;: [&quot;error&quot;, &#123; &quot;props&quot;: true &#125;],
+    &quot;no-self-compare&quot;: &quot;error&quot;,
+    &quot;no-sequences&quot;: &quot;error&quot;,
+    &quot;no-shadow-restricted-names&quot;: &quot;error&quot;,
+    &quot;no-sparse-arrays&quot;: &quot;error&quot;,
+    &quot;no-tabs&quot;: &quot;error&quot;,
+    &quot;no-template-curly-in-string&quot;: &quot;error&quot;,
+    &quot;no-this-before-super&quot;: &quot;error&quot;,
+    &quot;no-throw-literal&quot;: &quot;error&quot;,
+    &quot;no-trailing-spaces&quot;: &quot;error&quot;,
+    &quot;no-undef&quot;: &quot;error&quot;,
+    &quot;no-undef-init&quot;: &quot;error&quot;,
+    &quot;no-unexpected-multiline&quot;: &quot;error&quot;,
+    &quot;no-unmodified-loop-condition&quot;: &quot;error&quot;,
+    &quot;no-unneeded-ternary&quot;: [&quot;error&quot;, &#123; &quot;defaultAssignment&quot;: false &#125;],
+    &quot;no-unreachable&quot;: &quot;error&quot;,
+    &quot;no-unreachable-loop&quot;: &quot;error&quot;,
+    &quot;no-unsafe-finally&quot;: &quot;error&quot;,
+    &quot;no-unsafe-negation&quot;: &quot;error&quot;,
+    &quot;no-unused-expressions&quot;: [&quot;error&quot;, &#123;
+      &quot;allowShortCircuit&quot;: true,
+      &quot;allowTernary&quot;: true,
+      &quot;allowTaggedTemplates&quot;: true
+    &#125;],
+    &quot;no-unused-vars&quot;: [&quot;error&quot;, &#123;
+      &quot;args&quot;: &quot;none&quot;,
+      &quot;caughtErrors&quot;: &quot;none&quot;,
+      &quot;ignoreRestSiblings&quot;: true,
+      &quot;vars&quot;: &quot;all&quot;
+    &#125;],
+    &quot;no-use-before-define&quot;: [&quot;error&quot;, &#123; &quot;functions&quot;: false, &quot;classes&quot;: false, &quot;variables&quot;: false &#125;],
+    &quot;no-useless-call&quot;: &quot;error&quot;,
+    &quot;no-useless-computed-key&quot;: &quot;error&quot;,
+    &quot;no-useless-constructor&quot;: &quot;error&quot;,
+    &quot;no-useless-escape&quot;: &quot;error&quot;,
+    &quot;no-useless-rename&quot;: &quot;error&quot;,
+    &quot;no-useless-return&quot;: &quot;error&quot;,
+    &quot;no-void&quot;: &quot;error&quot;,
+    &quot;no-whitespace-before-property&quot;: &quot;error&quot;,
+    &quot;no-with&quot;: &quot;error&quot;,
+    &quot;object-curly-newline&quot;: [&quot;error&quot;, &#123; &quot;multiline&quot;: true, &quot;consistent&quot;: true &#125;],
+    &quot;object-curly-spacing&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;object-property-newline&quot;: [&quot;error&quot;, &#123; &quot;allowMultiplePropertiesPerLine&quot;: true &#125;],
+    &quot;one-var&quot;: [&quot;error&quot;, &#123; &quot;initialized&quot;: &quot;never&quot; &#125;],
+    &quot;operator-linebreak&quot;: [&quot;error&quot;, &quot;after&quot;, &#123; &quot;overrides&quot;: &#123; &quot;?&quot;: &quot;before&quot;, &quot;:&quot;: &quot;before&quot;, &quot;|&gt;&quot;: &quot;before&quot; &#125; &#125;],
+    &quot;padded-blocks&quot;: [&quot;error&quot;, &#123; &quot;blocks&quot;: &quot;never&quot;, &quot;switches&quot;: &quot;never&quot;, &quot;classes&quot;: &quot;never&quot; &#125;],
+    &quot;prefer-const&quot;: [&quot;error&quot;, &#123;&quot;destructuring&quot;: &quot;all&quot;&#125;],
+    &quot;prefer-promise-reject-errors&quot;: &quot;error&quot;,
+    &quot;prefer-regex-literals&quot;: [&quot;error&quot;, &#123; &quot;disallowRedundantWrapping&quot;: true &#125;],
+    &quot;quote-props&quot;: [&quot;error&quot;, &quot;as-needed&quot;],
+    &quot;quotes&quot;: [&quot;error&quot;, &quot;single&quot;, &#123; &quot;avoidEscape&quot;: true, &quot;allowTemplateLiterals&quot;: false &#125;],
+    &quot;rest-spread-spacing&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;semi&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;semi-spacing&quot;: [&quot;error&quot;, &#123; &quot;before&quot;: false, &quot;after&quot;: true &#125;],
+    &quot;space-before-blocks&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;space-before-function-paren&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;space-in-parens&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;space-infix-ops&quot;: &quot;error&quot;,
+    &quot;space-unary-ops&quot;: [&quot;error&quot;, &#123; &quot;words&quot;: true, &quot;nonwords&quot;: false &#125;],
+    &quot;spaced-comment&quot;: [&quot;error&quot;, &quot;always&quot;, &#123;
+      &quot;line&quot;: &#123; &quot;markers&quot;: [&quot;*package&quot;, &quot;!&quot;, &quot;/&quot;, &quot;,&quot;, &quot;=&quot;] &#125;,
+      &quot;block&quot;: &#123; &quot;balanced&quot;: true, &quot;markers&quot;: [&quot;*package&quot;, &quot;!&quot;, &quot;,&quot;, &quot;:&quot;, &quot;::&quot;, &quot;flow-include&quot;], &quot;exceptions&quot;: [&quot;*&quot;] &#125;
+    &#125;],
+    &quot;symbol-description&quot;: &quot;error&quot;,
+    &quot;template-curly-spacing&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;template-tag-spacing&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;unicode-bom&quot;: [&quot;error&quot;, &quot;never&quot;],
+    &quot;use-isnan&quot;: [&quot;error&quot;, &#123;
+      &quot;enforceForSwitchCase&quot;: true,
+      &quot;enforceForIndexOf&quot;: true
+    &#125;],
+    &quot;valid-typeof&quot;: [&quot;error&quot;, &#123; &quot;requireStringLiterals&quot;: true &#125;],
+    &quot;wrap-iife&quot;: [&quot;error&quot;, &quot;any&quot;, &#123; &quot;functionPrototypeMethods&quot;: true &#125;],
+    &quot;yield-star-spacing&quot;: [&quot;error&quot;, &quot;both&quot;],
+    &quot;yoda&quot;: [&quot;error&quot;, &quot;never&quot;],
+
+    &quot;import/export&quot;: &quot;error&quot;,
+    &quot;import/first&quot;: &quot;error&quot;,
+    &quot;import/no-absolute-path&quot;: [&quot;error&quot;, &#123; &quot;esmodule&quot;: true, &quot;commonjs&quot;: true, &quot;amd&quot;: false &#125;],
+    &quot;import/no-duplicates&quot;: &quot;error&quot;,
+    &quot;import/no-named-default&quot;: &quot;error&quot;,
+    &quot;import/no-webpack-loader-syntax&quot;: &quot;error&quot;,
+
+    &quot;n/handle-callback-err&quot;: [&quot;error&quot;, &quot;^(err|error)$&quot; ],
+    &quot;n/no-callback-literal&quot;: &quot;error&quot;,
+    &quot;n/no-deprecated-api&quot;: &quot;error&quot;,
+    &quot;n/no-exports-assign&quot;: &quot;error&quot;,
+    &quot;n/no-new-require&quot;: &quot;error&quot;,
+    &quot;n/no-path-concat&quot;: &quot;error&quot;,
+    &quot;n/process-exit-as-throw&quot;: &quot;error&quot;,
+
+    &quot;promise/param-names&quot;: &quot;error&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>standard 规则中使用单引号、首行缩进 2 个空格，对象属性不用加引号，这样<code>.eslintrc.js</code>文件格式不符合要求，需要对配置文件单独配置这些规则。如下：</li>
+</ul>
+<pre><code>&quot;overrides&quot;: [
+        &#123;
+            &quot;files&quot;: [
+                &quot;.eslintrc.&#123;js,cjs&#125;&quot;
+            ],
+            &quot;parserOptions&quot;: &#123;
+                &quot;sourceType&quot;: &quot;script&quot;
+            &#125;,
+            &quot;rules&quot;: &#123;
+                &quot;quotes&quot;: [2, &quot;double&quot;],  // 双引号
+                &quot;indent&quot;: [&quot;error&quot;, 4],  // 首行缩进4个字符
+                &quot;quote-props&quot;: [&quot;error&quot;, &quot;always&quot;]  // 对象属性名用双号号
+            &#125;
+        &#125;
+    ],
+</code></pre>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>在使用第三方规范包时，一定要记得先下载对应的包，包的使用教程在 npm 上查询。</li>
+<li>所有以<code>eslint-config-</code>前缀的规则包，可以省略 <code>eslint-config-前缀</code></li>
+</ul>
+<h4 id="overrides-节点"><a href="#overrides-节点" class="headerlink" title="overrides 节点"></a>overrides 节点</h4><blockquote>
+<p>有时同一目录下的文件的配置不同。</p>
+<p>因此，你可以在 overrides 键下提供配置，这些配置只应用于特定的文件。</p>
+</blockquote>
+<pre><code>module.exports = &#123;
+  env: &#123;
+    browser: true,
+    commonjs: true,
+    es2021: true,
+  &#125;,
+  extends: &quot;standard&quot;,
+  overrides: [
+    // 针对.eslintrc.&#123;js,cjs&#125; 文件使用以下规则，其它文件使用 standard 规则
+    &#123;
+      env: &#123;
+        node: true, // 启用node环境的全局变量
+      &#125;,
+      files: [
+        &quot;.eslintrc.&#123;js,cjs&#125;&quot;, // 文件
+      ],
+      parserOptions: &#123;
+        sourceType: &quot;script&quot;,
+      &#125;,
+      rules: &#123;
+        // 文件对应的检查规则
+        quotes: [2, &quot;double&quot;],
+        indent: [&quot;error&quot;, 4],
+        &quot;quote-props&quot;: [&quot;error&quot;, &quot;always&quot;],
+      &#125;,
+    &#125;,
+  ],
+&#125;;
+</code></pre>
+<h4 id="rules-节点"><a href="#rules-节点" class="headerlink" title="rules 节点"></a>rules 节点</h4><blockquote>
+<p>我们可以在 rules 节点中配置相关的规则，这些规则会覆盖 extends 节点中指定的规则</p>
+<ul>
+<li>要改变规则的设置，你必须把规则 ID 设置为这些值之一：</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><code>&quot;off&quot;</code>或 <code>0</code> —— 关闭规则</p>
+</li>
+<li><p><code>&quot;warn&quot;</code>或 <code>1</code> —— 启用并视作警告（不影响退出）</p>
+</li>
+<li><p><code>&quot;error&quot;</code>或 <code>2</code> —— 启用并视作错误（触发时退出代码为 1）</p>
+</li>
+<li><p>ESLint 的所有规则参考：<a target="_blank" rel="noopener" href="https://zh-hans.eslint.org/docs/latest/rules/">规则参考</a></p>
+</li>
+</ul>
+<pre><code>module.exports = &#123;
+  env: &#123;
+    // 环境全局变量
+    browser: true,
+    commonjs: true,
+    es2021: true,
+  &#125;,
+  extends: &quot;standard&quot;, // 检查规则包
+  overrides: [], //覆盖
+  parserOptions: &#123;
+    //
+    ecmaVersion: &quot;latest&quot;,
+  &#125;,
+  rules: &#123;
+    // 文件对应的检查规则 ，会覆盖standard规则包中对应规则
+    quotes: [2, &quot;double&quot;],
+    indent: [&quot;error&quot;, 4],
+    &quot;quote-props&quot;: [&quot;error&quot;, &quot;always&quot;],
+    &quot;no-var&quot;: 0,
+  &#125;,
+&#125;;
+</code></pre>
+<blockquote>
+<p>常见规则</p>
+</blockquote>
+<pre><code>&quot;no-alert&quot;: 0,//禁止使用alert confirm prompt
+&quot;no-array-constructor&quot;: 2,//禁止使用数组构造器
+&quot;no-bitwise&quot;: 0,//禁止使用按位运算符
+&quot;no-caller&quot;: 1,//禁止使用arguments.caller或arguments.callee
+&quot;no-catch-shadow&quot;: 2,//禁止catch子句参数与外部作用域变量同名
+&quot;no-class-assign&quot;: 2,//禁止给类赋值
+&quot;no-cond-assign&quot;: 2,//禁止在条件表达式中使用赋值语句
+&quot;no-console&quot;: 2,//禁止使用console
+&quot;no-const-assign&quot;: 2,//禁止修改const声明的变量
+&quot;no-constant-condition&quot;: 2,//禁止在条件中使用常量表达式 if(true) if(1)
+&quot;no-continue&quot;: 0,//禁止使用continue
+&quot;no-control-regex&quot;: 2,//禁止在正则表达式中使用控制字符
+&quot;no-debugger&quot;: 2,//禁止使用debugger
+&quot;no-delete-var&quot;: 2,//不能对var声明的变量使用delete操作符
+&quot;no-div-regex&quot;: 1,//不能使用看起来像除法的正则表达式/=foo/
+&quot;no-dupe-keys&quot;: 2,//在创建对象字面量时不允许键重复 &#123;a:1,a:1&#125;
+&quot;no-dupe-args&quot;: 2,//函数参数不能重复
+&quot;no-duplicate-case&quot;: 2,//switch中的case标签不能重复
+&quot;no-else-return&quot;: 2,//如果if语句里面有return,后面不能跟else语句
+&quot;no-empty&quot;: 2,//块语句中的内容不能为空
+&quot;no-empty-character-class&quot;: 2,//正则表达式中的[]内容不能为空
+&quot;no-empty-label&quot;: 2,//禁止使用空label
+&quot;no-eq-null&quot;: 2,//禁止对null使用==或!=运算符
+&quot;no-eval&quot;: 1,//禁止使用eval
+&quot;no-ex-assign&quot;: 2,//禁止给catch语句中的异常参数赋值
+&quot;no-extend-native&quot;: 2,//禁止扩展native对象
+&quot;no-extra-bind&quot;: 2,//禁止不必要的函数绑定
+&quot;no-extra-boolean-cast&quot;: 2,//禁止不必要的bool转换
+&quot;no-extra-parens&quot;: 2,//禁止非必要的括号
+&quot;no-extra-semi&quot;: 2,//禁止多余的冒号
+&quot;no-fallthrough&quot;: 1,//禁止switch穿透
+&quot;no-floating-decimal&quot;: 2,//禁止省略浮点数中的0 .5 3.
+&quot;no-func-assign&quot;: 2,//禁止重复的函数声明
+&quot;no-implicit-coercion&quot;: 1,//禁止隐式转换
+&quot;no-implied-eval&quot;: 2,//禁止使用隐式eval
+&quot;no-inline-comments&quot;: 0,//禁止行内备注
+&quot;no-inner-declarations&quot;: [2, &quot;functions&quot;],//禁止在块语句中使用声明（变量或函数）
+&quot;no-invalid-regexp&quot;: 2,//禁止无效的正则表达式
+&quot;no-invalid-this&quot;: 2,//禁止无效的this，只能用在构造器，类，对象字面量
+&quot;no-irregular-whitespace&quot;: 2,//不能有不规则的空格
+&quot;no-iterator&quot;: 2,//禁止使用__iterator__ 属性
+&quot;no-label-var&quot;: 2,//label名不能与var声明的变量名相同
+&quot;no-labels&quot;: 2,//禁止标签声明
+&quot;no-lone-blocks&quot;: 2,//禁止不必要的嵌套块
+&quot;no-lonely-if&quot;: 2,//禁止else语句内只有if语句
+&quot;no-loop-func&quot;: 1,//禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
+&quot;no-mixed-requires&quot;: [0, false],//声明时不能混用声明类型
+&quot;no-mixed-spaces-and-tabs&quot;: [2, false],//禁止混用tab和空格
+&quot;linebreak-style&quot;: [0, &quot;windows&quot;],//换行风格
+&quot;no-multi-spaces&quot;: 1,//不能用多余的空格
+&quot;no-multi-str&quot;: 2,//字符串不能用\换行
+&quot;no-multiple-empty-lines&quot;: [1, &#123;&quot;max&quot;: 2&#125;],//空行最多不能超过2行
+&quot;no-native-reassign&quot;: 2,//不能重写native对象
+&quot;no-negated-in-lhs&quot;: 2,//in 操作符的左边不能有!
+&quot;no-nested-ternary&quot;: 0,//禁止使用嵌套的三目运算
+&quot;no-new&quot;: 1,//禁止在使用new构造一个实例后不赋值
+&quot;no-new-func&quot;: 1,//禁止使用new Function
+&quot;no-new-object&quot;: 2,//禁止使用new Object()
+&quot;no-new-require&quot;: 2,//禁止使用new require
+&quot;no-new-wrappers&quot;: 2,//禁止使用new创建包装实例，new String new Boolean new Number
+&quot;no-obj-calls&quot;: 2,//不能调用内置的全局对象，比如Math() JSON()
+&quot;no-octal&quot;: 2,//禁止使用八进制数字
+&quot;no-octal-escape&quot;: 2,//禁止使用八进制转义序列
+&quot;no-param-reassign&quot;: 2,//禁止给参数重新赋值
+&quot;no-path-concat&quot;: 0,//node中不能使用__dirname或__filename做路径拼接
+&quot;no-plusplus&quot;: 0,//禁止使用++，--
+&quot;no-process-env&quot;: 0,//禁止使用process.env
+&quot;no-process-exit&quot;: 0,//禁止使用process.exit()
+&quot;no-proto&quot;: 2,//禁止使用__proto__属性
+&quot;no-redeclare&quot;: 2,//禁止重复声明变量
+&quot;no-regex-spaces&quot;: 2,//禁止在正则表达式字面量中使用多个空格 /foo bar/
+&quot;no-restricted-modules&quot;: 0,//如果禁用了指定模块，使用就会报错
+&quot;no-return-assign&quot;: 1,//return 语句中不能有赋值表达式
+&quot;no-script-url&quot;: 0,//禁止使用javascript:void(0)
+&quot;no-self-compare&quot;: 2,//不能比较自身
+&quot;no-sequences&quot;: 0,//禁止使用逗号运算符
+&quot;no-shadow&quot;: 2,//外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
+&quot;no-shadow-restricted-names&quot;: 2,//严格模式中规定的限制标识符不能作为声明时的变量名使用
+&quot;no-spaced-func&quot;: 2,//函数调用时 函数名与()之间不能有空格
+&quot;no-sparse-arrays&quot;: 2,//禁止稀疏数组， [1,,2]
+&quot;no-sync&quot;: 0,//nodejs 禁止同步方法
+&quot;no-ternary&quot;: 0,//禁止使用三目运算符
+&quot;no-trailing-spaces&quot;: 1,//一行结束后面不要有空格
+&quot;no-this-before-super&quot;: 0,//在调用super()之前不能使用this或super
+&quot;no-throw-literal&quot;: 2,//禁止抛出字面量错误 throw &quot;error&quot;;
+&quot;no-undef&quot;: 1,//不能有未定义的变量
+&quot;no-undef-init&quot;: 2,//变量初始化时不能直接给它赋值为undefined
+&quot;no-undefined&quot;: 2,//不能使用undefined
+&quot;no-unexpected-multiline&quot;: 2,//避免多行表达式
+&quot;no-underscore-dangle&quot;: 1,//标识符不能以_开头或结尾
+&quot;no-unneeded-ternary&quot;: 2,//禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
+&quot;no-unreachable&quot;: 2,//不能有无法执行的代码
+&quot;no-unused-expressions&quot;: 2,//禁止无用的表达式
+&quot;no-unused-vars&quot;: [2, &#123;&quot;vars&quot;: &quot;all&quot;, &quot;args&quot;: &quot;after-used&quot;&#125;],//不能有声明后未被使用的变量或参数
+&quot;no-use-before-define&quot;: 2,//未定义前不能使用
+&quot;no-useless-call&quot;: 2,//禁止不必要的call和apply
+&quot;no-void&quot;: 2,//禁用void操作符
+&quot;no-var&quot;: 0,//禁用var，用let和const代替
+&quot;no-warning-comments&quot;: [1, &#123; &quot;terms&quot;: [&quot;todo&quot;, &quot;fixme&quot;, &quot;xxx&quot;], &quot;location&quot;: &quot;start&quot; &#125;],//不能有警告备注
+&quot;no-with&quot;: 2,//禁用with
+&quot;array-bracket-spacing&quot;: [2, &quot;never&quot;],//是否允许非空数组里面有多余的空格
+&quot;arrow-parens&quot;: 0,//箭头函数用小括号括起来
+&quot;arrow-spacing&quot;: 0,//=&gt;的前/后括号
+&quot;accessor-pairs&quot;: 0,//在对象中使用getter/setter
+&quot;block-scoped-var&quot;: 0,//块语句中使用var
+&quot;brace-style&quot;: [1, &quot;1tbs&quot;],//大括号风格
+&quot;callback-return&quot;: 1,//避免多次调用回调什么的
+&quot;camelcase&quot;: 2,//强制驼峰法命名
+&quot;comma-dangle&quot;: [2, &quot;never&quot;],//对象字面量项尾不能有逗号
+&quot;comma-spacing&quot;: 0,//逗号前后的空格
+&quot;comma-style&quot;: [2, &quot;last&quot;],//逗号风格，换行时在行首还是行尾
+&quot;complexity&quot;: [0, 11],//循环复杂度
+&quot;computed-property-spacing&quot;: [0, &quot;never&quot;],//是否允许计算后的键名什么的
+&quot;consistent-return&quot;: 0,//return 后面是否允许省略
+&quot;consistent-this&quot;: [2, &quot;that&quot;],//this别名
+&quot;constructor-super&quot;: 0,//非派生类不能调用super，派生类必须调用super
+&quot;curly&quot;: [2, &quot;all&quot;],//必须使用 if()&#123;&#125; 中的&#123;&#125;
+&quot;default-case&quot;: 2,//switch语句最后必须有default
+&quot;dot-location&quot;: 0,//对象访问符的位置，换行的时候在行首还是行尾
+&quot;dot-notation&quot;: [0, &#123; &quot;allowKeywords&quot;: true &#125;],//避免不必要的方括号
+&quot;eol-last&quot;: 0,//文件以单一的换行符结束
+&quot;eqeqeq&quot;: 2,//必须使用全等
+&quot;func-names&quot;: 0,//函数表达式必须有名字
+&quot;func-style&quot;: [0, &quot;declaration&quot;],//函数风格，规定只能使用函数声明/函数表达式
+&quot;generator-star-spacing&quot;: 0,//生成器函数*的前后空格
+&quot;guard-for-in&quot;: 0,//for in循环要用if语句过滤
+&quot;handle-callback-err&quot;: 0,//nodejs 处理错误
+&quot;id-length&quot;: 0,//变量名长度
+&quot;indent&quot;: [2, 4],//缩进风格
+&quot;init-declarations&quot;: 0,//声明时必须赋初值
+&quot;key-spacing&quot;: [0, &#123; &quot;beforeColon&quot;: false, &quot;afterColon&quot;: true &#125;],//对象字面量中冒号的前后空格
+&quot;lines-around-comment&quot;: 0,//行前/行后备注
+&quot;max-depth&quot;: [0, 4],//嵌套块深度
+&quot;max-len&quot;: [0, 80, 4],//字符串最大长度
+&quot;max-nested-callbacks&quot;: [0, 2],//回调嵌套深度
+&quot;max-params&quot;: [0, 3],//函数最多只能有3个参数
+&quot;max-statements&quot;: [0, 10],//函数内最多有几个声明
+&quot;new-cap&quot;: 2,//函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
+&quot;new-parens&quot;: 2,//new时必须加小括号
+&quot;newline-after-var&quot;: 2,//变量声明后是否需要空一行
+&quot;object-curly-spacing&quot;: [0, &quot;never&quot;],//大括号内是否允许不必要的空格
+&quot;object-shorthand&quot;: 0,//强制对象字面量缩写语法
+&quot;one-var&quot;: 1,//连续声明
+&quot;operator-assignment&quot;: [0, &quot;always&quot;],//赋值运算符 += -=什么的
+&quot;operator-linebreak&quot;: [2, &quot;after&quot;],//换行时运算符在行尾还是行首
+&quot;padded-blocks&quot;: 0,//块语句内行首行尾是否要空行
+&quot;prefer-const&quot;: 0,//首选const
+&quot;prefer-spread&quot;: 0,//首选展开运算
+&quot;prefer-reflect&quot;: 0,//首选Reflect的方法
+&quot;quotes&quot;: [1, &quot;single&quot;],//引号类型 &quot;&quot; &#39;&#39;
+&quot;quote-props&quot;:[2, &quot;always&quot;],//对象字面量中的属性名是否强制双引号
+&quot;radix&quot;: 2,//parseInt必须指定第二个参数
+&quot;id-match&quot;: 0,//命名检测
+&quot;require-yield&quot;: 0,//生成器函数必须有yield
+&quot;semi&quot;: [2, &quot;always&quot;],//语句强制分号结尾
+&quot;semi-spacing&quot;: [0, &#123;&quot;before&quot;: false, &quot;after&quot;: true&#125;],//分号前后空格
+&quot;sort-vars&quot;: 0,//变量声明时排序
+&quot;space-after-keywords&quot;: [0, &quot;always&quot;],//关键字后面是否要空一格
+&quot;space-before-blocks&quot;: [0, &quot;always&quot;],//不以新行开始的块&#123;前面要不要有空格
+&quot;space-before-function-paren&quot;: [0, &quot;always&quot;],//函数定义时括号前面要不要有空格
+&quot;space-in-parens&quot;: [0, &quot;never&quot;],//小括号里面要不要有空格
+&quot;space-infix-ops&quot;: 0,//中缀操作符周围要不要有空格
+&quot;space-return-throw-case&quot;: 2,//return throw case后面要不要加空格
+&quot;space-unary-ops&quot;: [0, &#123; &quot;words&quot;: true, &quot;nonwords&quot;: false &#125;],//一元运算符的前/后要不要加空格
+&quot;spaced-comment&quot;: 0,//注释风格要不要有空格什么的
+&quot;strict&quot;: 2,//使用严格模式
+&quot;use-isnan&quot;: 2,//禁止比较时使用NaN，只能用isNaN()
+&quot;valid-jsdoc&quot;: 0,//jsdoc规则
+&quot;valid-typeof&quot;: 2,//必须使用合法的typeof的值
+&quot;vars-on-top&quot;: 2,//var必须放在作用域顶部
+&quot;wrap-iife&quot;: [2, &quot;inside&quot;],//立即执行函数表达式的小括号风格
+&quot;wrap-regex&quot;: 0,//正则表达式字面量用小括号包起来
+&quot;yoda&quot;: [2, &quot;never&quot;]//禁止尤达条件
+</code></pre>
+<h4 id="parserOptions-节点"><a href="#parserOptions-节点" class="headerlink" title="parserOptions 节点"></a>parserOptions 节点</h4><blockquote>
+<p>ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 希望使用 ECMAScript 5 语法。</p>
+</blockquote>
+<blockquote>
+<p>你可以通过使用解析器选项来覆盖这一设置，以实现对其他 ECMAScript 版本以及 JSX 的支持。</p>
+</blockquote>
+<pre><code>&#123;
+    &quot;parserOptions&quot;: &#123;
+        &quot;ecmaVersion&quot;: 6   // 启用 ES6 语法
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li><code>ecmaVersion</code>- 设置为 3、5（默认）、6、7、8、9、10、11、12 或 13，以指定你要使用的 ECMAScript 语法的版本。</li>
+<li>你也可以设置为 2015（6）、2016（7）、2017（8）、2018（9）、2019（10）、2020（11）、2021（12）或 2022（13）来使用基于年份的命名。你也可以设置 “latest” 来使用受支持的最新版本。</li>
+<li>具体配置参考官方：<a target="_blank" rel="noopener" href="https://zh-hans.eslint.org/docs/latest/use/configure/language-options#%E6%8C%87%E5%AE%9A%E8%A7%A3%E6%9E%90%E5%99%A8%E9%80%89%E9%A1%B9">指定解析器选项</a></li>
+</ul>
+<h3 id="十、Prettier-代码格式化"><a href="#十、Prettier-代码格式化" class="headerlink" title="十、Prettier 代码格式化"></a>十、Prettier 代码格式化</h3><blockquote>
+<p>Prettier 是一个代码格式化工具。</p>
+<p>我们通过一个简单的代码示例来帮助大家学习如何使用 Prettier 插件。</p>
+</blockquote>
+<h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>执行以下命令，初始化<code>package.json</code>文件</p>
+<pre><code>npm init -y
+</code></pre>
+<p>新建<code>src/index.js</code>文件，内容如下：</p>
+<pre><code>const obj = &#123;
+  username: &quot;admin&quot;,
+  password: &quot;123456&quot;,
+&#125;;
+
+const a = 1;
+const b = 2;
+const arr = [1, 2, 3];
+</code></pre>
+<h4 id="安装-Prettier"><a href="#安装-Prettier" class="headerlink" title="安装 Prettier"></a>安装 Prettier</h4><blockquote>
+<p>执行以下命令安装 Prettier</p>
+</blockquote>
+<pre><code>npm install --save-dev --save-exact prettier
+</code></pre>
+<h4 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h4><blockquote>
+<p>在项目根目录下新建<code>.prettierrc.json</code>文件，该文件为<code>Prettier</code>插件的配置文件，然后添加相关配置。</p>
+</blockquote>
+<blockquote>
+<p>配置示例</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;semi&quot;: false,  // 仅在特列情况下在代码尾部加分号，其它都不加
+  &quot;tabWidth&quot;: 2, // 指定每个缩进级别的空格数2
+  &quot;singleQuote&quot;: true,  // 使用单引号
+  &quot;printWidth&quot;: 100,   // 代码换行的长度
+  &quot;trailingComma&quot;: &quot;none&quot;  // 没有尾随逗号
+&#125;
+</code></pre>
+<ul>
+<li>更多配置查阅 <a target="_blank" rel="noopener" href="https://www.prettier.cn/docs/options.html">prettier-配置选项</a>，以下为部分配置示例</li>
+</ul>
+<pre><code>&#123;
+  // 一行的字符数，如果超过会进行换行，默认为80
+    printWidth: 80,
+    // tab缩进大小,默认为2
+    tabWidth: 2,
+    // 使用tab缩进，默认false
+    useTabs: true,
+    // 不使用分号, 默认true, true表示添加
+    semi: false,
+    // 使用单引号, 默认false(在jsx中配置无效, 默认都是双引号)
+    singleQuote: true,
+    // 行尾逗号,默认none,可选 none|es5|all
+    // es5 包括es5中的数组、对象
+    // all 包括函数对象等所有可选
+    trailingComma: &#39;es5&#39;,
+    // 对象中的空格 默认true
+    // true: &#123; foo: bar &#125;
+    // false: &#123;foo: bar&#125;
+    bracketSpacing: true,
+    // JSX标签闭合位置 默认false
+    // false: &lt;div
+    //          className=&quot;&quot;
+    //          style=&#123;&#123;&#125;&#125;
+    //       &gt;
+    // true: &lt;div
+    //          className=&quot;&quot;
+    //          style=&#123;&#123;&#125;&#125; &gt;
+    jsxBracketSameLine: true,
+    // 箭头函数参数括号 默认avoid 可选 avoid| always
+    // avoid 能省略括号的时候就省略 例如x =&gt; x
+    // always 总是有括号
+    arrowParens: &#39;avoid&#39;,
+    endOfLine: &#39;auto&#39;, // 结尾是 \n \r \n\r auto
+
+&#125;
+</code></pre>
+<h4 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h4><blockquote>
+<p>执行以下命令，调用Prettier来格式化代码</p>
+</blockquote>
+<pre><code># 只格式化src/index.js文件
+npx prettier src/index.js --write  
+# 格式化 src目录下所有文件
+npx prettier src/  --write  
+# 格式化整个项目
+npx prettier . --write    
+</code></pre>
+<blockquote>
+<p>最终格式化后<code>src/index.js</code>文件内容如下：</p>
+</blockquote>
+<pre><code>const obj = &#123;
+  username: &quot;admin&quot;,
+  password: &quot;123456&quot;,
+&#125;;
+
+const a = 1;
+const b = 2;
+const arr = [1, 2, 3];
+</code></pre>
+<h3 id="十一、VueUse"><a href="#十一、VueUse" class="headerlink" title="十一、VueUse"></a>十一、VueUse</h3><blockquote>
+<p>VueUse 是一款基于组合式 API 的函数集合，到目前为止大概有 200 多个函数。</p>
+<p>VusUse 中文文档：<a target="_blank" rel="noopener" href="https://www.vueusejs.com/">https://www.vueusejs.com</a></p>
+</blockquote>
+<h4 id="VueUse-基本使用"><a href="#VueUse-基本使用" class="headerlink" title="VueUse 基本使用"></a>VueUse 基本使用</h4><ul>
+<li>使用 VueUse 提供的函数前，需要先执行以下命令安装 VueUse 核心包</li>
+</ul>
+<pre><code>npm i @vueuse/core
+</code></pre>
+<ul>
+<li>然后在<code>@vueuse/core</code>中导入你需要的<a target="_blank" rel="noopener" href="https://www.vueusejs.com/functions.html">函数</a>，这里以<code>useToggle</code>函数为例来讲解</li>
+<li><code>useToggle</code>函数用来实现对某个响应式变量布尔值的切换，主要用来实现<code>toggle</code>切换</li>
+</ul>
+<pre><code>&lt;script setup lang=&quot;ts&quot;&gt;
+  import &#123; useToggle &#125; from &quot;@vueuse/core&quot;;
+  // isShow=ref(false) toggle用来切换isShow的布尔值
+  const [isShow, toggle] = useToggle(false);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;toggle()&quot;&gt;切换&lt;/button&gt; |
+  &lt;button @click=&quot;toggle(false)&quot;&gt;隐藏&lt;/button&gt; |
+  &lt;button @click=&quot;toggle(true)&quot;&gt;显示&lt;/button&gt;
+  &lt;div class=&quot;box&quot; v-if=&quot;isShow&quot;&gt;box.....&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="useStorage-响应式本地存储"><a href="#useStorage-响应式本地存储" class="headerlink" title="useStorage 响应式本地存储"></a>useStorage 响应式本地存储</h4><blockquote>
+<p><code>useStorage</code>用于实现响应式本地存储，当数据发生变会时，页面用到数据的地址方会自动更新，同时也会更新本地存储。</p>
+<ul>
+<li>也可参考 VueUse 官方应用</li>
+</ul>
+</blockquote>
+<pre><code>&lt;script setup lang=&quot;ts&quot;&gt;
+  import &#123; useStorage &#125; from &quot;@vueuse/core&quot;;
+
+  // 初始值
+  const theDefault = [
+    &#123;
+      id: 1,
+      keyword: &quot;奶茶&quot;,
+    &#125;,
+    &#123;
+      id: 2,
+      keyword: &quot;葡萄&quot;,
+    &#125;,
+    &#123;
+      id: 3,
+      keyword: &quot;口红&quot;,
+    &#125;,
+  ];
+  // historyList为theDefault的响应式 ， historyList=ref(theDefault) 当值被修改时，本地存储中也会更新
+  // theDefault 为默认值
+  const historyList = useStorage(&quot;historyList&quot;, theDefault);
+
+  // 添加
+  const add = () =&gt; &#123;
+    historyList.value.push(&#123;
+      id: Date.now(),
+      keyword: &quot;苹果&quot;,
+    &#125;);
+  &#125;;
+  // 移除
+  const remove = () =&gt; &#123;
+    historyList.value.shift();
+  &#125;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;add&quot;&gt;添加数据&lt;/button&gt; |
+  &lt;button @click=&quot;remove&quot;&gt;移除数据&lt;/button&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;item in historyList&quot; :key=&quot;item.id&quot;&gt;&#123;&#123; item.keyword &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/28/Vue%EF%BC%88%E5%85%AB%EF%BC%89/">https://hermiablog.com/2024/01/28/Vue%EF%BC%88%E5%85%AB%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/01/28/Vue%EF%BC%88%E5%85%AB%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/49.jpg" class="responsive-img" alt="Vue（八）">
+                        
+                        <span class="card-title">Vue（八）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pinia、Teleport内置组件、ESLint、Prettier、VueUse
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/27/Vue%EF%BC%88%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/48.jpg" class="responsive-img" alt="Vue（七）">
+                        
+                        <span class="card-title">Vue（七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Vue Router
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

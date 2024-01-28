@@ -1,0 +1,3886 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue（一）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue（一） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/42.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue（一）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    22.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="Vue快速入门"><a href="#Vue快速入门" class="headerlink" title="Vue快速入门"></a>Vue快速入门</h2><h3 id="一、为什么需要-Vue-框架"><a href="#一、为什么需要-Vue-框架" class="headerlink" title="一、为什么需要 Vue 框架"></a>一、为什么需要 Vue 框架</h3><blockquote>
+<p>首先，仅凭HTML5+CSS3+JS+HTTP 协议+Ajax，已经可以与后端开发配合，开发一个完整 Web 应用了</p>
+<p>那为什么我们还需要学习 Vue 框架呢 ？要解决这个疑问，我们就得先从 Web 前端技术的发展历程讲起</p>
+</blockquote>
+<h4 id="Web-前端技术的发展"><a href="#Web-前端技术的发展" class="headerlink" title="Web 前端技术的发展"></a>Web 前端技术的发展</h4><blockquote>
+<p>关于 Web 前端技术的发展，我们从 Web 应用开发的三个阶段来展开学习：</p>
+<ul>
+<li>前后端不分离</li>
+<li>前后端分离</li>
+<li>前端工程化<img src="前端技术的发展.png"></li>
+</ul>
+</blockquote>
+<h5 id="前后端不分离"><a href="#前后端不分离" class="headerlink" title="前后端不分离"></a>前后端不分离</h5><ul>
+<li>早期（1995 年）以前，Web 应用主要是静态网页的浏览，技术主要以 HTML+CSS 为主</li>
+<li>在 1995 年，网景公司的工程师 Brendan Eich（布兰登·艾奇） 用 10 天时间设计了 JavaScript，随后的网页中开始诞生了动画特效。但是，Web 的应用主要还是静态网页的浏览，只是比之前多了些特效罢了。</li>
+<li>再之后，更多的应用需要根据用户的请求动态生成页面信息，复杂一点的还需要从数据库中查询数据，经过一定的运算，生成一个 HTML 页面返回给用户。</li>
+<li>在 2004 年以前，前端工作主要交由美工来负责。美工利用 HTML+CSS+JS 来编写静态网页，然后后端开发人员利用服务端技术从服务器的数据库中把数据查出来，绑定到 HTML 页面中，实现根据用户的请求动态生成 HTML 页面信息。这个时候，浏览器拿到的是服务端渲染好的 HTML 页面，然后展示在浏览器端</li>
+</ul>
+<blockquote>
+<p>前后端不分离，带来的问题</p>
+</blockquote>
+<ul>
+<li>HTML 页面由服务端渲染，每一次数据的交互都要全局刷新，影响用户体验</li>
+<li>前后端串行开发，开发时间相对较长</li>
+<li>前后端代码揉在一起，开发维护成本高</li>
+</ul>
+<h5 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h5><ul>
+<li>在 2004，Google 发布了 Gmail（一款电子邮件应用），其利用的就是 Ajax 技术，用户可以在不刷新页面的情况下进行复杂的交互，之后，Ajax 逐渐成为网页开发的技术标准，也不断地被应用于各种网站。</li>
+<li>2005 年，<code>XMLHttpRequest</code>对象发请求的技术正式取名为<code>AJAX</code></li>
+<li>Ajax 这个技术让我们可以异步的获取数据并且刷新页面，从此前端不再受限于后端的模板，这也宣告了 Web2.0 时代正式到来。至此，前端工程师也正式作为一个独立工种出现。</li>
+<li>在之后的一段时间里，前端的工作主要在于利用 <code>HTML+CSS+Jquery+JS+BootStrap</code> 等开发网页，同时利用 <code>Ajax</code> 向后端发送请求，拿到后端返回的(XML 或 JSON)等格式的数据做渲染，在渲染时，要做大量的 <code>DOM</code> 操作。而后端只需要专注于业务逻辑的处理，返回（XML 或 JSON）格式的数据</li>
+<li>同时前后端可以并行开发，开发的时间成本降低了。同时前后端分离，维护成本降低，当布局需要变动，内容不变时，只需要变动前端布局就好，后端就可以不动</li>
+</ul>
+<blockquote>
+<p>前后端分离，带来的新问题</p>
+</blockquote>
+<ul>
+<li>前端开发在数据渲染时，需要大量的 DOM 操作，非常繁琐和耗时。所以那个时候 JQuery 非常流行，虽然他可以帮助我们简化 DOM 的操作，但依然还是需要大量操作 DOM</li>
+<li>因为数据都是在浏览器端通过 Ajax 请求获取的，然后渲染在页面中。所以爬虫在爬取页面内容时，没有什么有用的实质性内容可获取，页面只有一些简单的 HTML 结构，所以对 SEO 优化非常不友好</li>
+</ul>
+<h5 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a>前端工程化</h5><ul>
+<li>在 2009 年 <code>AngularJS</code> 和 <code>Node.js</code> 的诞生，也宣告前端工程化时代的到来。<ul>
+<li><code>AngularJS</code> 的诞生，引领了前端 MVVM 模式的潮流。</li>
+<li><code>Node.js</code> 的诞生，让前端有了入侵后端的能力，也加速了前端工程化的诞生。</li>
+</ul>
+</li>
+<li>2013 年 <code>Vue</code> 框架诞生了。</li>
+<li><code>Vue</code>、<code>Angular</code>、<code>React</code> 这类前端框架，可以帮助我们解决在前端数据渲染时，不需要再关注于 DOM 的操作，而只需要关注于业务逻辑的处理。</li>
+<li>Vue 等前端框架让前端工程师从大量的 DOM 操作中解放出来，但依然对 SEO 不友好，因为他本质也是通过 Ajax 请求，向后台拿到数据，在前端渲染。</li>
+<li>不过，现在 Vue 提供了<code>@vue/server-renderer</code>插件，可以在服务器端解析 Vue 的组件，直接把渲染结果返回给浏览器。这样 SEO 不友好的问题也就解决了</li>
+</ul>
+<h4 id="前端框架介绍"><a href="#前端框架介绍" class="headerlink" title="前端框架介绍"></a>前端框架介绍</h4><h4 id="什么是框架"><a href="#什么是框架" class="headerlink" title="什么是框架"></a>什么是框架</h4><ul>
+<li>如果，你想要有一个自己的房子，按正常流程，你得自己从 0 开始一点一点的修建，至少需要一年的时间，但这样太费时了。如果有人把房子的框架都搭好了，（比如：开房商提供的毛坯房），你只需要按自己喜欢的风格来装修就好，这样是不是 2-3 个月就能入住了，大大的缩减了建房子的时间。</li>
+<li>上面例子中毛坯房相比装修好的房子，毛坯房就是房子的框架，有了毛坯房，就不需要再从 0 开始搭建房子了，直接进入装修环节就好，这样省时有省力。</li>
+</ul>
+<h5 id="框架帮我们做了什么"><a href="#框架帮我们做了什么" class="headerlink" title="框架帮我们做了什么"></a>框架帮我们做了什么</h5><ul>
+<li>从上面的例子中，我们知道，如果直接选用毛坯房，那我们就不需要再从 0 开始修建房子了，直接装修就好。所以框架帮我们把原来属于我们自己要做的那一部分工作给做掉了，我们只需要在这个基础之上，做其它的后续工作就可以。</li>
+<li>同理，前端框架就是帮开发人员把原本属于开发人员的一部分工作给做掉了，开发人员只需要在这个基础之上，做其它工作。</li>
+</ul>
+<h5 id="前端流行框架有那些"><a href="#前端流行框架有那些" class="headerlink" title="前端流行框架有那些"></a>前端流行框架有那些</h5><ul>
+<li>目前前端流行的框架主要有<code>Vue、React、Angular</code>。这些框架的目标都是为了帮助开发者高效地开发 Web 应用，只不过走的路线略显不同<blockquote>
+<ul>
+<li><code>React</code>注重数据不可变、虚拟 DOM 和运行时。</li>
+<li><code>Angular</code>则在抽象这个维度又走向一个极致，生来就是为了复杂项目</li>
+<li><code>Vue</code>相比前两种框架要简单多了，简单到大部分前端开发者都能学得会。<code>Vue</code> 在每个维度之间，做了非常好的权衡和取舍，算是一个非常中庸且优雅的框架，兼顾响应式、虚拟 DOM、运行时和编译优化</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h5 id="Vue-框架帮我们做了什么"><a href="#Vue-框架帮我们做了什么" class="headerlink" title="Vue 框架帮我们做了什么"></a>Vue 框架帮我们做了什么</h5><blockquote>
+<p>作为前端开发人员，如果你想配合后端，开发出一个完整的 Web 网站或应用等。</p>
+</blockquote>
+<ul>
+<li>在没有应用 Vue 框架前，你需要利用 <code>HTML+CSS+JS</code> 来开发 <code>HTML</code> 网页，同时利用 <code>Ajax</code> 请求向后端获取 <code>JSON</code> 数据，然后利用 <code>JS</code> 操作 <code>DOM</code> 将数据渲染到 <code>HTML</code> 中。</li>
+<li>如果有了 Vue 框架，就不再需要利用 JS 操作 DOM 将数据渲染到 HTML 中，<strong>因为 Vue 框架帮你做了这部分工作</strong></li>
+<li>Vue 框架本质就是帮我们把 JS 操作 DOM 的这一套逻辑业务代码写好了，我们只需在这个基础做后续开发。</li>
+</ul>
+<h4 id="MVVM-模式"><a href="#MVVM-模式" class="headerlink" title="MVVM 模式"></a>MVVM 模式</h4><blockquote>
+<p>前端框架几乎都是采用典型的 MVVM 设计模型，那 Vue 也不例外。MVVM 是 <code>Model-View-ViewModel</code> 的简写。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>MVVM</th>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Model 模型</td>
+<td>用于封装应用的业务逻辑和数据。在 Vue 框架中书写在<code>&lt;script&gt;</code>标签中的代码</td>
+<td></td>
+</tr>
+<tr>
+<td>View 视图</td>
+<td>用于封装 UI 和 UI 逻辑，也就是我们常写的 HTML 与 CSS 相关的代码。就好比上面的 HTML 模块</td>
+<td></td>
+</tr>
+<tr>
+<td>ViewModel 视图模型</td>
+<td>他主要是将 Model 与 View 结合到一起，封装了将他们结合到一起的底层逻辑；Vue 框架负责的就是 VM 的工作，通过 Vue 可以将视图和模型相关联，省去了开发人员手动操作 DOM 的工作</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>我们可以把上面的 <code>VM</code> 看作<code>Vue</code>框架，那<code>Vue</code>负责 VM（视图模型）的工作，通过<code>Vue</code>可以将视图和模型相关联。</li>
+<li>当<code>Model</code>模型（JS 数据）发生变化时，会通知<code>ViewModel</code>，<code>ViewModel</code>会控制视图自动更新</li>
+<li>当 <code>View</code> 视图（如：表单数据）发生变化时，也会通知 <code>ViewModel</code>，<code>ViewModel</code>会控制<code>Model</code>自动更新数据。<blockquote>
+<ul>
+<li>以上工作模式，也是 <code>Vue</code> 框架的一个核心特点：响应式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="二、Vue-简介"><a href="#二、Vue-简介" class="headerlink" title="二、Vue 简介"></a>二、Vue 简介</h3><h4 id="什么是-Vue"><a href="#什么是-Vue" class="headerlink" title="什么是 Vue"></a>什么是 Vue</h4><ul>
+<li>Vue 是一款用于构建<strong>用户界面</strong>的 JavaScript 框架。它基于标准 HTML、CSS 和 JavaScript 构建，并提供了一套<strong>声明式</strong>的、<strong>组件化</strong>的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</li>
+<li>用户界面：是指系统和用户之间进行交互和信息交换的媒介。比如：电脑屏幕，手机等电子设备屏幕。这里你可以理解为，客户端界面要呈现的内容，可以用 Vue 来构建。</li>
+</ul>
+<h5 id="1-声明式与命令式"><a href="#1-声明式与命令式" class="headerlink" title="1. 声明式与命令式"></a>1. 声明式与命令式</h5><blockquote>
+<p>要了解什么是声明式，最好与命令式结合在一起来学习，这样能帮助我们更好的理解声明式。</p>
+</blockquote>
+<ul>
+<li>命令式：更关注过程</li>
+<li>声明式：更关注结果</li>
+</ul>
+<blockquote>
+<p>我们先用一个生活中的例子，来帮助我们理解。比如，你想要你男朋友帮你倒杯水<br><strong>如果用命令式：</strong></p>
+<ul>
+<li>你要对他说：“先到餐桌 -&gt; 拿起我的水杯 -&gt; 转身 -&gt; 向前走 -&gt; 把杯子放在饮水机下 -&gt; 按下开关 -&gt; 端水 -&gt; 走到我面前”，然后才能喝到水。</li>
+</ul>
+<p><strong>如果用声明式：</strong></p>
+<ul>
+<li>你只需要对他说：“我口渴了 -&gt; 想喝水”，他就会把水端到你面前，你就能喝到水了。</li>
+</ul>
+</blockquote>
+<h5 id="2-命令式框架与声明式框架"><a href="#2-命令式框架与声明式框架" class="headerlink" title="2. 命令式框架与声明式框架"></a>2. 命令式框架与声明式框架</h5><blockquote>
+<p>视图层框架通常分为命令式和声明式，JQuery 就是典型的命令式框架，Vue 就是典型的声明式框架</p>
+</blockquote>
+<ul>
+<li>命令式框架（JQuery 框架）</li>
+</ul>
+<pre><code>&lt;!--引入Jquery框架(插件)--&gt;
+&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--JQuery代码--&gt;
+&lt;script&gt;
+  $(&quot;.box&quot;).on(&quot;click&quot;, function () &#123;
+    $(this).text(&quot;Hello&quot;);
+  &#125;);
+&lt;/script&gt;
+
+&lt;!--
+    上面代码，相当于在执行以下几个步骤
+        1、获取.box元素
+        2、给.box元素绑定click事件
+        3、当click事件触发后，为.box元素添加内容为&quot;hello&quot;
+--&gt;
+</code></pre>
+<ul>
+<li>命令式编程(原生 JS 代码)</li>
+</ul>
+<pre><code>// 1、获取.box元素
+const box = document.querySelector(&quot;.box&quot;);
+// 2、.box绑定click事件
+box.onclick = function () &#123;
+  // 3、将box的内容更新为Hello
+  this.innerText = &quot;Hello&quot;;
+&#125;;
+</code></pre>
+<blockquote>
+<p>通过上面 <code>JQuery</code> 和 原生 <code>JS</code> 代码 代码可以看到，代码描述的是实现最终效果要经过的<strong>具体步骤</strong>，更关注“做事的过程”，当然这更符合我们的逻辑，只是代码写起来比较麻烦。</p>
+</blockquote>
+<ul>
+<li>声明式框架 （采用 Vue）</li>
+</ul>
+<pre><code>&lt;!---引入Vue框架--&gt;
+&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+
+&lt;!--声明式--&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;div @click=&quot;show&quot; class=&quot;box&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--Vue代码--&gt;
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &quot;&quot;,
+      &#125;;
+    &#125;,
+    methods: &#123;
+      show() &#123;
+        this.message = &quot;Hello&quot;;
+      &#125;,
+    &#125;,
+  &#125;).mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>以上代码，重点关注 <code>HTML</code> 部分代码，这就是 Vue 帮我们实现以上功能的方式。可以看到，我们提供的是一个“结果”。</p>
+<p>至于具体的实现过程，我们不需要关注，Vue.js 会帮我们完成。换句话说，Vue.js 帮我们封装了整个 JS 操作 DOM 的过程，因此，我们可以猜想，Vue.js 的内部实现一定是命令式的，而暴露给用户的却是声明式的</p>
+</blockquote>
+<h5 id="3-组件化"><a href="#3-组件化" class="headerlink" title="3. 组件化"></a>3. 组件化</h5><blockquote>
+<p>组件允许我们将<code>UI</code>划分为独立的、可重用的部分，并且可以对每个部分进行单独的思考。</p>
+</blockquote>
+<ul>
+<li><p>在实际应用中，组件常常被组织成层层嵌套的树状结构</p>
+<img src="组件化树状结构.png">
+</li>
+<li><p>上图左侧的网页，由一个根组件 <code>Root</code> 开始，在根组件 <code>Root</code> 中包含 <code>Header、Main、Aside</code> 子组件，在 <code>Main</code> 和 <code>Aside</code> 组件中，又可以放很多的子组件。</p>
+</li>
+</ul>
+<blockquote>
+<p>在 Vue 中：</p>
+</blockquote>
+<ul>
+<li>组件本质就是一组 DOM 的封装，用来显示具体功能的 UI 界面。</li>
+<li>一个完整的 Vue 组件包含 <code>HTML、CSS、JS</code> 三部分。当我们需要在多个页面实现相同的功能的 UI 时，就可以把这部分功能的(CSS、HTML、JS)抽离出去，做成一个单独的组件，然后实现复用。</li>
+</ul>
+<blockquote>
+<p>注：区分模块化与组件化</p>
+</blockquote>
+<ul>
+<li>模块化强调的是把一个大的 JS 文件拆分成许多具有独立功能的小的 JS 文件，从而实现代码复用</li>
+<li>组件化强调的把一个大的 UI 界面，拆分成许多具有独立功能的小 UI，从而实现 UI 界面的复用</li>
+</ul>
+<h5 id="4-渐进式"><a href="#4-渐进式" class="headerlink" title="4. 渐进式"></a>4. 渐进式</h5><blockquote>
+<p>在 Vue 的官网，开篇就提到，Vue 是一个 <code>Javascript</code> 渐进式框架，那什么是渐进式呢？</p>
+</blockquote>
+<ul>
+<li><p>所谓渐进式，就是把框架进行分层设计，每层都是<strong>可选</strong>的，不同层可以灵活地替换为其他的方案。</p>
+</li>
+<li><p>Vue 渐进式框架分层结构下如图：</p>
+<img src="Vue%20渐进式框架分层结构.png">
+</li>
+<li><p>Vue <strong>最核心</strong>的部分就是他的声明式渲染，向外是组件系统，在这个基础上再加入路由系统和状态管理，最外层是构建系统。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>组合</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>组合一</td>
+<td>声明式渲染</td>
+<td>当我们开发的页面很简单，可以把<code>Vue.js</code>作为一个<code>JS</code>库来使用，只使用他的声明式渲染来帮我们轻松地操作<code>DOM</code>，实现数据变化的自动视图渲染</td>
+</tr>
+<tr>
+<td>组合二</td>
+<td>声明式渲染+组件系统</td>
+<td>当我们开发的页面较复杂，想要把界面元素组件化，就可以在组合一的基础上加入<code>Vue</code>的组件系统，将界面的部分功能开发成一个组件，采用分而治之的策略，而且还可以实现功能的复用。</td>
+</tr>
+<tr>
+<td>组合三</td>
+<td>声明式渲染+组件系统+路由系统</td>
+<td>如果想要将前端做成单页面应用程序，可以在组合二的基础上加入<code>Vue</code>的路由系统<code>VueRouter</code>,实现单页面应用。</td>
+</tr>
+<tr>
+<td>组合四</td>
+<td>声明式渲染+组件系统+路由系统+状态管理</td>
+<td>如果我们的项目较复杂，应用中有很多数据需要在多个组件间共享，就可以在组合二或三的基础上引入<code>Vuex</code>或<code>Pinia</code>统一对状态（数据）进行管理</td>
+</tr>
+<tr>
+<td>组合五</td>
+<td>声明式渲染+组件系统+路由系统+状态管理+构建系统</td>
+<td>如果你不想手动的从0开始搭建一个<code>Vue</code>项目，可以引入<code>Vue</code>的构建系统，他可以轻松地帮你搭建一个脚手架项目。然后在这个基础上开发你的Web应用</td>
+</tr>
+</tbody></table>
+<ul>
+<li>注：在实际开发中，我们的项目都不会太小，所以我们通常会选择组合五来开发我们的项目</li>
+</ul>
+<h4 id="Vue-发展历程简介"><a href="#Vue-发展历程简介" class="headerlink" title="Vue 发展历程简介"></a>Vue 发展历程简介</h4><blockquote>
+<p>最开始尤雨溪在 Google 公司工作，在工作中用到 Angular 框架，他觉得 Angular 框架太重了，然后慢慢就萌芽出一个想法，想自己开发出一个轻量级的框架出来。最开始他开发的这个框架叫 Seed，后来更名为 Vue，版本 0.6.0</p>
+</blockquote>
+<ul>
+<li>2013 年 12 月 7 日发布了 Vue 的 0.6.0 版本，也就是 Vue 框架诞生了。</li>
+<li>2014 年 Vue 正式对外发布，版本号 0.8.0</li>
+<li>2015 年 10 月 27 日，正式发布 Vue1.0.0 Evangellon（新世纪福音战士）</li>
+<li>2016 年 10 月 1 日，正式发布 Vue2.0.0 Ghost in the Shell （攻壳机动队）</li>
+<li>2020 年 9 月 18 日，正式发布 Vue3.0.0 One Piece（海赋王）</li>
+</ul>
+<blockquote>
+<p>题外话</p>
+</blockquote>
+<ul>
+<li>Vue 之所以能火起来，除了它本身确实好用之外，还有一个重要的原因就是<code>Taylor Otwell</code> 的推荐。<code>Taylor Otwel</code>是 <code>PHP Web</code> 开发框架 <code>Laravel</code> 之父，他在圈里面非常有名气，而且粉丝量特别庞大。</li>
+<li>在 2014 年的某一天，他在 Twitter 上发表动态，说自己正在学习 <code>Vue.js</code>，觉得还不错。他这一说，就相当于给 Vue 在程序员圈子里打了个广告，所以更多的人知道了 Vue，并学习他，慢慢的就火起来了。</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>Vue 框架的三大特点：</p>
+</blockquote>
+<ul>
+<li><code>Vue</code>框架为典型的声明式框架，借助<code>Vue</code>框架我们不再需要手动操作 DOM</li>
+<li><code>Vue</code>支持组件化开发，可以将 UI 抽离成单独的组件，从页实现 UI 的复用</li>
+<li><code>Vue</code>是一个渐进式框架，我们可以根据项目的需要来选择使用<code>Vue</code>的五大核心功能：声明式渲染、组件系统、路由系统、状态管理、构建系统</li>
+</ul>
+<h3 id="三、创建一个-Vue-应用"><a href="#三、创建一个-Vue-应用" class="headerlink" title="三、创建一个 Vue 应用"></a>三、创建一个 Vue 应用</h3><blockquote>
+<p>在项目中使用 Vue，方式有如下三种：</p>
+<ul>
+<li>在实际的开发中，主要用到的是第三种方式，前两种方式在实际的开发中几乎不用。</li>
+</ul>
+</blockquote>
+<ul>
+<li>通过 CDN 来使用 Vue</li>
+<li>通过原生的 ES 模块使用 Vue</li>
+<li>通过 Vue 脚手架来使用 Vue</li>
+</ul>
+<h4 id="通过-CDN-来使用-Vue"><a href="#通过-CDN-来使用-Vue" class="headerlink" title="通过 CDN 来使用 Vue"></a>通过 CDN 来使用 Vue</h4><blockquote>
+<p>借助 script 标签直接通过 CDN 来使用 Vue</p>
+</blockquote>
+<ul>
+<li>使用全局构建版本<blockquote>
+<ul>
+<li>以下代码就相当添加了全局变量 <code>Vue</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;app&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue
+  
+  createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &#39;Hello Vue!&#39;
+      &#125;
+    &#125;
+  &#125;).mount(&#39;#app&#39;)
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>通过原生的 ES 模块使用 Vue</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+
+&lt;script type=&quot;module&quot;&gt;
+  import &#123; createApp &#125; from &#39;https://unpkg.com/vue@3/dist/vue.esm-browser.js&#39;
+  
+  createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &#39;Hello Vue!&#39;
+      &#125;
+    &#125;
+  &#125;).mount(&#39;#app&#39;)
+&lt;/script&gt;
+</code></pre>
+<h4 id="创建应用实例"><a href="#创建应用实例" class="headerlink" title="创建应用实例"></a>创建应用实例</h4><ul>
+<li>首先要解构 Vue 对象中的的<code>createApp</code>方法<ul>
+<li>上面两种方法分别使用了不同的方式来解构</li>
+</ul>
+</li>
+<li>然后使用<code>createApp</code>方法<ul>
+<li>如果本页面就是根组件，就直接传入由属性组成的对象</li>
+</ul>
+</li>
+</ul>
+<pre><code>createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &#39;Hello Vue!&#39;
+      &#125;
+    &#125;
+  &#125;)
+</code></pre>
+<ul>
+<li>如果根组件是单文件组件，先导入根组件，再使用：</li>
+</ul>
+<pre><code>import App from &quot;./app.js&quot;;
+const app = createApp(App);
+</code></pre>
+<h4 id="template-属性"><a href="#template-属性" class="headerlink" title="template 属性"></a>template 属性</h4><ul>
+<li>根组件对象身上有一个<code>template</code>属性<strong>（可选）</strong>，用于声明组件的<strong>字符串模板</strong>。</li>
+<li><code>template</code>属性中的html字符串最终会被 Vue 编译成真实的 HTML 元素），添加到页面中</li>
+</ul>
+<pre><code>const app = createApp(&#123;
+  template: &quot;&lt;div&gt;Hello Vue&lt;/div&gt;&quot;,
+&#125;);
+</code></pre>
+<ul>
+<li>上面的根组件最终被渲染成如下html代码</li>
+</ul>
+<pre><code>&lt;div&gt;Hello Vue&lt;/div&gt;
+</code></pre>
+<ul>
+<li>不过此时，它还是<strong>虚拟DOM</strong>，需要用<code>mount</code>方法挂载到页面上</li>
+</ul>
+<blockquote>
+<p>如果没有<code>template</code>属性，组件会以<code>mount()</code>方法传入的参数（CSS 选择器）选择的元素的<code>innerHTML</code>作为渲染的模板。</p>
+</blockquote>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+//这就是 app 元素的`innerHTML`
+  &lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>以上方式仅做了解，在实际项目中几乎不用，因为后期开发主要采用的是组件化开发</li>
+</ul>
+<h4 id="mount-方法"><a href="#mount-方法" class="headerlink" title="mount 方法"></a>mount 方法</h4><ul>
+<li>调用<code>createApp()</code>方法创建的应用实例 <code>app</code> 身上的<code>mount()</code>方法，来实现<strong>挂载</strong>。</li>
+<li>挂载：是指将生成的HTML元素，添加到真实的页面中去。</li>
+<li><code>mount()</code>方法需要传一个的<strong>css 选择器</strong>字符串作为参数，用来告诉 Vue，把<code>template</code>模块中渲染后的内容添加到页面的那个 HTML 元素（容器）内。</li>
+<li><code>mount()</code>方法的返回值为根组件实例对象</li>
+</ul>
+<pre><code>const app = createApp(&#123;
+  template: &quot;&lt;div&gt;Hello Vue&lt;/div&gt;&quot;,
+&#125;);
+// root为根组件实例对象
+const root = app.mount(&quot;#app&quot;);
+// mount的方法，就相当于把template中的内容赋值给到#app元素的innerHTML属性。
+</code></pre>
+<ul>
+<li>以上代码，最终在浏览器显示的 HTML 结构如下</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;Hello Vue&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="data-属性"><a href="#data-属性" class="headerlink" title="data 属性"></a>data 属性</h4><ul>
+<li><p>在根组件对象上，还可以添加一个<code>data</code>函数，用于声明组件初始<strong>响应式状态</strong>的函数。</p>
+</li>
+<li><p>data 的值是一个函数，该函数应当返回一个普通 JavaScript 对象，Vue 会将它转换为<strong>响应式对象</strong>。</p>
+</li>
+<li><p>根组件实例创建后，可以通过 <code>root.$data</code> 访问该响应式对象，同时组件实例也代理了该数据对象上所有的属性，因此 <code>root.message</code> 等价于 <code>root.$data.message</code></p>
+</li>
+<li><p>演示代码</p>
+</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  // app 为创建的应用实例，指代上面的this
+  const app = createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue&quot;,
+      &#125;;
+    &#125;,
+    template: &quot;&lt;div&gt;Hello Vue&lt;/div&gt;&quot;,
+  &#125;);
+  const root = app.mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><p>在浏览器中打开当前页面，然后在控制台输入<code>root</code>，查看输出结果如下：</p>
+<img src="data--root代理对象.png">
+</li>
+<li><p>接下，我们在控制台输入对应代码，输出结果如下：</p>
+<img src="访问响应式对象.png"></li>
+</ul>
+<blockquote>
+<p>结果分析</p>
+<ul>
+<li>因为<code>root.$data</code>代理了 data 函数返回的那个对象，所以可以通过<code>root.$data.message</code>访问到 message 属性。</li>
+<li>因为 <code>root</code> 对象代理了 data 函数返回的那个对象的所有属性，所以可以通过<code>root.message</code>访问到 message 属性。</li>
+<li>当执行<code>root.message=&quot;更改Hello vue&quot;</code>，本质上是通过代理更改 data 函数返回的那个对象身上的 message 属性。所以通过<code>root.$data.message</code>再次访问 message 属性时，得到结果也为<code>&quot;更改Hello vue&quot; </code></li>
+</ul>
+</blockquote>
+<h5 id="模板中访问-data-属性"><a href="#模板中访问-data-属性" class="headerlink" title="模板中访问 data 属性"></a>模板中访问 data 属性</h5><ul>
+<li>我们可以在<code>template</code>模板中，使用插值语法<code>&#123;&#123;&#125;&#125;</code>等方式访问 data 函数返回的对象身上的属性。</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  const app = createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue&quot;,
+      &#125;;
+    &#125;,
+    template: &quot;&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;&quot;,
+  &#125;);
+  const root = app.mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>以上代码，最终在浏览器显示的 HTML 结构如下</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div&gt;Hello Vue&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h5 id="data-的响应性"><a href="#data-的响应性" class="headerlink" title="data 的响应性"></a>data 的响应性</h5><blockquote>
+<p>上面提到：data函数返回一个普通 JavaScript 对象，Vue 会将它转换为响应式对象。<br><strong>响应式对象特点</strong></p>
+</blockquote>
+<ul>
+<li>当我们更改<strong>该对象属性的值</strong>时，页面 DOM 中展示的数据会更新为更改后的值。</li>
+<li>当我们更改了<strong>页面中的数据</strong>时，JS 对象身上的属性值也会更新为更改后的值。</li>
+</ul>
+<h5 id="data-为什么被设置成一个函数，而不是一个对象"><a href="#data-为什么被设置成一个函数，而不是一个对象" class="headerlink" title="data 为什么被设置成一个函数，而不是一个对象"></a>data 为什么被设置成一个函数，而不是一个对象</h5><ul>
+<li>之所以每个子组件的数据不会产生相互干扰，是因为每个子组件使用的数据都是通过<code>data()</code>函数返回的一个新的响应式对象，所以在操作数据时，每个组件操作的是与他对应的响应式对象。</li>
+<li>而对象本身是引用数据类型，指向同一地址，数据之间会互相影响</li>
+</ul>
+<h4 id="Vue-调试工具-Devtools"><a href="#Vue-调试工具-Devtools" class="headerlink" title="Vue 调试工具 Devtools"></a>Vue 调试工具 Devtools</h4><blockquote>
+<p>安装 Devtools 调试工具有两种方案</p>
+</blockquote>
+<ul>
+<li>①、Google 应用商店安装<ul>
+<li>点击 Google 浏览器的右上角 …</li>
+<li>点击扩展程序</li>
+<li>访问 Google 应用商店</li>
+<li>在搜索框搜索需要的插件，即可安装</li>
+</ul>
+</li>
+<li>②、下载 Devtools 插件，然后再安装<ul>
+<li>点击 Google 浏览器的右上角 …</li>
+<li>点击扩展程序</li>
+<li>点击管理扩展程序，打开浏览器右上角开发者模式</li>
+<li>把下载好的<code>vue.jsdevtools.crx</code>拖到扩展程序页面，弹出是否安装，点击确认即可</li>
+</ul>
+</li>
+</ul>
+<h4 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h4><ul>
+<li>以下<code>index.html</code>页面中代码，大部分是固定写法，只有<strong>根组件</strong>中的代码需要经常变动。</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  const app = createApp(&#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue&quot;,
+      &#125;;
+    &#125;,
+    template: &quot;&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;&quot;,
+  &#125;).mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>将<code>index.html</code>页面中<code>&lt;script&gt;</code>标签中的代码抽离出来，放到一个单独的<code>main.js</code>文件中，然后在<code>index.html</code>页面，通过<strong>模块化</strong>的方式引入</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;!-- 注意，需要添加type=&quot;module&quot; --&gt;
+&lt;script type=&quot;module&quot; src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>把<code>main.js</code>中的根组件抽离出去，放在一个单独的<code>app.js</code>文件中，然后对外默认导出，最后在<code>main.js</code>中通过模块化的方式导入。</li>
+</ul>
+<pre><code>// main.js
+const &#123; createApp &#125; = Vue;
+import App from &quot;./app.js&quot;;
+const app = createApp(App);
+app.mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li>以下是App.js文件中代码，定义根组件</li>
+</ul>
+<pre><code>export default &#123;
+  data() &#123;
+    return &#123;
+      message: &quot;Hello Vue&quot;,
+    &#125;;
+  &#125;,
+  template: &quot;&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;&quot;,
+&#125;;
+</code></pre>
+<h3 id="四、Vue-组件基础"><a href="#四、Vue-组件基础" class="headerlink" title="四、Vue 组件基础"></a>四、Vue 组件基础</h3><ul>
+<li>组件是用一个包含特定选项（属性）的 JS 对象来表示，比如：有<code>data</code>、<code>template</code>等更多属性。</li>
+<li>组件最终会被渲染成一个 DOM 元素插入到页面中。</li>
+<li>Vue 组件又分为根组件和子组件，一个应用一般是由一个根组件与多个子组件组成。</li>
+</ul>
+<h4 id="如何创建根组件"><a href="#如何创建根组件" class="headerlink" title="如何创建根组件"></a>如何创建根组件</h4><ul>
+<li>一个页面可以有多个根组件，但正常情况下，一个单页面应用只有一个根组件，其它组件作为根组件的子组件，然后嵌套组合成一个完整的应用。</li>
+<li>根组件需要通过<code>createApp()</code>方法来渲染，最终调用<code>mount()</code>方法，将渲染后的 DOM 添加到页面中对应容器。</li>
+</ul>
+<h4 id="如何创建子组件"><a href="#如何创建子组件" class="headerlink" title="如何创建子组件"></a>如何创建子组件</h4><ul>
+<li>子组件本身也是组件，所以也是用一个 JS 对象表示，其写法与根组件的写法一模一样，只是不需要通过<code>createApp()</code>方法来渲染</li>
+<li>使用子组件<ul>
+<li>子组件不能单独使用，需要被嵌套在根组件或其它子组件中使用。</li>
+<li>多个子组件层层嵌套组合在一起，配合根组件最终实现一个完整的应用。</li>
+<li>子组件在使用前需要先被 <strong>“注册”</strong> ，这样 Vue 才能在渲染模板时找到对应子组件并渲染成 DOM。</li>
+</ul>
+</li>
+</ul>
+<h4 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h4><ul>
+<li>组件注册有两种方式<ul>
+<li>全局注册</li>
+<li>局部注册</li>
+</ul>
+</li>
+</ul>
+<h5 id="注册全局组件"><a href="#注册全局组件" class="headerlink" title="注册全局组件"></a>注册全局组件</h5><ul>
+<li>我们可以使用 <code>Vue</code> 应用实例的<code>app.component()</code> 方法来注册一个全局组件，该组件可以在当前 <code>Vue</code> 应用中全局可用</li>
+</ul>
+<pre><code>/*
+    name :  为注册成功的全局组件的组件名
+    component : 为注册为全局组件的子组件（
+*/
+component(name: string, component: Component): this
+</code></pre>
+<ul>
+<li>以下定义了一个全局组件<code>global-component</code></li>
+</ul>
+<pre><code>// 定义子组件
+const MyComponent = &#123;
+  template: &quot;&lt;div&gt;Hello Vue&lt;/div&gt;&quot;,
+&#125;;
+// 将子组件MyComponent注册为全局组件，全局组件名为 &quot;global-component&quot;
+app.component(&quot;global-component&quot;, MyComponent);
+</code></pre>
+<ul>
+<li>全局组件在整个应用中全局可用，我们可以直接在其它组件的template模板中使用</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  // 创建应用实例
+  const app = createApp(&#123;
+    // 使用全局组件
+    template: `&lt;global-component /&gt;`,
+  &#125;);
+
+  // 定义子组件
+  const MyComponent = &#123;
+    template: &quot;&lt;div&gt;Hello Vue&lt;/div&gt;&quot;,
+  &#125;;
+
+  // 将子组件注册为全局组件，在整个应用中全局可用,全局组件名自定义
+  app.component(&quot;global-component&quot;, MyComponent);
+
+  // 挂载
+  app.mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>以上代码，最终渲染后的 HTML 代码如下</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot; data-v-app=&quot;&quot;&gt;&lt;div&gt;Hello Vue!!&lt;/div&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>总结：把组件注册为全局组件并使用分为以下三步<ul>
+<li>定义子组件 <code>const MyComponent=&#123; /* */ &#125;</code></li>
+<li>调用<code>app.component(name,component)</code>方法，将组件注册为全局组件</li>
+<li>在其它组件的<code>template</code>模板中使用全局组件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>app.component()</code> 链式调用</p>
+</blockquote>
+<ul>
+<li><code>app.component()</code> 方法返回值为 <code>app</code> 应用实例，所以该方法支持链式调用</li>
+</ul>
+<pre><code>// 注册全局 my-list组件，并在组件中调用my-item组件
+app
+  .component(&quot;my-list&quot;, &#123;
+    template: `&lt;div class=&quot;list&quot;&gt;my-list组件中调用my-item组件 &lt;my-item/&gt;&lt;/div&gt;`,
+  &#125;)
+  .component(&quot;my-item&quot;, &#123;
+    template: `&lt;div class=&quot;item&quot;&gt;my-item组件内容&lt;/div&gt;`,
+  &#125;);
+</code></pre>
+<h5 id="注册局部组件"><a href="#注册局部组件" class="headerlink" title="注册局部组件"></a>注册局部组件</h5><ul>
+<li>局部组件只能在使用它的父组件中显示导入才能使用，并且只能在导入的父组件中使用</li>
+<li>在父组件中显示导入需要使用的子组件，需要使用<code>components</code>属性</li>
+<li>注意：需要使用的子组件，需写在<code>const app = createApp(&#123;&#125;)</code>代码之前，否则会出现找不到组件的错误</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+  const &#123; createApp &#125; = Vue;
+  // 创建子组件 ComponentA
+  const ComponentA = &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;ComponentA&quot;,
+      &#125;;
+    &#125;,
+    template: &quot;&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;&quot;,
+  &#125;;
+
+  // 创建应用
+  const app = createApp(&#123;
+    // 在父组件中显示导入要使用的子组件
+    components: &#123;
+      ComponentA
+    &#125;,
+    // 在根组件中使用子组件
+    template: &quot;&lt;ComponentA /&gt;&quot;
+  &#125;);
+
+  // 挂载
+  app.mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>抽离子组件</p>
+</blockquote>
+<ul>
+<li><p>以上代码，子组件全写在一个页面看起来代码混乱，可以把</p>
+</li>
+<li><p>子组件抽离出去，放在单独的 JS 文件中，通过<code>export default</code>来默认导出</p>
+</li>
+<li><p>需要使用该子组件的父组件中，通过<code>import</code>导入对应子组件</p>
+</li>
+<li><p><code>ComponentA.js</code> 文件，对外默认暴露本组件</p>
+</li>
+</ul>
+<pre><code>// 创建子组件
+export default &#123;
+  data() &#123;
+    return &#123;
+      message: &quot;ComponentA&quot;,
+    &#125;;
+  &#125;,
+  template: &quot;&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;&quot;,
+&#125;;
+</code></pre>
+<ul>
+<li><code>index.html</code>页面，项目入口</li>
+</ul>
+<pre><code>&lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.js&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+
+&lt;!--注意要加入 type=&quot;module&quot;--&gt;
+&lt;script type=&quot;module&quot;&gt;
+  const &#123; createApp &#125; = Vue;
+  // 导入子组件
+  import ComponentA from &quot;./src/components/ComponentA.js&quot;;
+
+  // 创建应用
+  const app = createApp(&#123;
+    // 在父组件中显示导入要使用的子组件
+    components: &#123;
+      ComponentA: ComponentA,
+    &#125;,
+    // 在根组件中使用子组件
+    template: &quot;&lt;ComponentA /&gt;&quot;,
+  &#125;);
+  // 挂载
+  app.mount(&quot;#app&quot;);
+&lt;/script&gt;
+</code></pre>
+<h4 id="组件的复用性"><a href="#组件的复用性" class="headerlink" title="组件的复用性"></a>组件的复用性</h4><ul>
+<li>全局或局部 组件最大的优势就是可以复用，所以我们可以在一个页面重复使用同一个组件多次，他们的数据互不干扰</li>
+</ul>
+<h4 id="组件命名"><a href="#组件命名" class="headerlink" title="组件命名"></a>组件命名</h4><ul>
+<li>组件名如果为单个单词，首字母推荐大写，这样在定义时可以与变量区分，在使用时可以与原生的 html 区分。如：组件名为<code>Counter</code> ，在模板中使用写法<code>&lt;Counter/&gt;</code>。</li>
+<li>组件名如果为多个单词组成，推荐采用 <code>PascalCase</code> 格式，每个单字首字母大写（如：MyComponent ） 但在模板中使用时，可以采用以下三种写法</li>
+<li><code>&lt;MyComponent /&gt;</code>、<code>&lt;MyComponent&gt;&lt;/MyComponent&gt;</code>、<code>&lt;my-component&gt;&lt;/my-component&gt;</code></li>
+</ul>
+<blockquote>
+<p>温馨提示：</p>
+</blockquote>
+<ul>
+<li>如果你想区分全局组件与局部组件，全局组件命采用多个单词，并使用-短横分隔（如：<code>my-component</code>）。</li>
+<li>在模板中使用时，采用<code>&lt;my-component&gt;&lt;/my-component&gt;</code> 或<code>&lt;my-component/&gt;</code>简写<blockquote>
+<ul>
+<li>一般引用的第三方组件库，都是全局组件，组件名采用多个单词，并用-短横线分隔</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="全局组件-VS-局部组件"><a href="#全局组件-VS-局部组件" class="headerlink" title="全局组件 VS 局部组件"></a>全局组件 VS 局部组件</h4><blockquote>
+<p>全局注册虽然很方便，但有以下几个问题：</p>
+</blockquote>
+<ul>
+<li>①、全局注册，但并没有被使用的组件无法在生产打包时被自动移除（也叫“<code>tree-shaking</code>”）。如果你全局注册了一个组件，即使它并没有被实际使用，它仍然会出现在打包后的 JS 文件中。</li>
+<li>②、全局注册，在大型项目中使项目的依赖关系变得不那么明确。在父组件中使用子组件时，不太容易定位子组件的实现。和使用过多的全局变量一样，这可能会影响应用长期的可维护性。</li>
+<li>相比之下，局部注册的组件需要在使用它的父组件中显式导入，并且只能在该父组件中使用。它的优点是使组件之间的依赖关系更加明确，并且对 <code>tree-shaking </code>更加友好。</li>
+</ul>
+<h3 id="五、非单文件组件开发"><a href="#五、非单文件组件开发" class="headerlink" title="五、非单文件组件开发"></a>五、非单文件组件开发</h3><ul>
+<li>利用组件化来实现以下布局<img src="组件化树状结构.png"></li>
+</ul>
+<h4 id="如果我们把所有代码写在一个页面中"><a href="#如果我们把所有代码写在一个页面中" class="headerlink" title="如果我们把所有代码写在一个页面中"></a>如果我们把所有代码写在一个页面中</h4><pre><code>&lt;style&gt;
+  html,
+  body &#123;
+    padding: 0;
+    margin: 0;
+    background-color: #ddd;
+  &#125;
+  #app &#123;
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+  &#125;
+  .header &#123;
+    width: 100%;
+    height: 100px;
+    background-color: tomato;
+  &#125;
+  .container &#123;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  &#125;
+  .main &#123;
+    width: 60%;
+    min-height: 700px;
+  &#125;
+  .article1 &#123;
+    height: 310px;
+    background-color: khaki;
+    margin-top: 20px;
+  &#125;
+  .article2 &#123;
+    height: 310px;
+    background-color: palevioletred;
+    margin-top: 20px;
+  &#125;
+  .aside &#123;
+    width: 35%;
+  &#125;
+  .item &#123;
+    height: 200px;
+    margin-top: 20px;
+  &#125;
+  .item:nth-child(1) &#123;
+    background-color: lightblue;
+  &#125;
+  .item:nth-child(2) &#123;
+    background-color: lightcoral;
+  &#125;
+  .item:nth-child(3) &#123;
+    background-color: lightseagreen;
+  &#125;
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;!--app应用 相当于根组件App--&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;!--头部，相当于子组件Header--&gt;
+    &lt;div class=&quot;header&quot;&gt;&#123;&#123;header&#125;&#125;&lt;/div&gt;
+    &lt;!--container start--&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;!--main start--&gt;
+      &lt;!--main，相当于子组件Main--&gt;
+      &lt;div class=&quot;main&quot;&gt;
+        &lt;div class=&quot;article1&quot;&gt;&#123;&#123;article1&#125;&#125;&lt;/div&gt;
+        &lt;div class=&quot;article2&quot;&gt;&#123;&#123;article2&#125;&#125;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!--aside start--&gt;
+      &lt;!--aside，相当于子组件Aside--&gt;
+      &lt;div class=&quot;aside&quot;&gt;
+        &lt;div class=&quot;item item1&quot;&gt;&#123;&#123;item1&#125;&#125;&lt;/div&gt;
+        &lt;div class=&quot;item item2&quot;&gt;&#123;&#123;item2&#125;&#125;&lt;/div&gt;
+        &lt;div class=&quot;item item3&quot;&gt;&#123;&#123;item3&#125;&#125;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!--container end--&gt;
+  &lt;/div&gt;
+
+  &lt;script type=&quot;module&quot;&gt;
+    import &#123; createApp &#125; from &quot;https://unpkg.com/vue@3/dist/vue.esm-browser.js&quot;;
+    const app = createApp(&#123;
+      data() &#123;
+        return &#123;
+          header: &quot;网站头部&quot;,
+          article1: &quot;文章版块一&quot;,
+          article2: &quot;文章版块二&quot;,
+          item1: &quot;侧边栏一&quot;,
+          item2: &quot;侧边栏一&quot;,
+          item3: &quot;侧边栏一&quot;,
+        &#125;;
+      &#125;,
+    &#125;).mount(&quot;#app&quot;);
+  &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<h4 id="模块化、组件化"><a href="#模块化、组件化" class="headerlink" title="模块化、组件化"></a>模块化、组件化</h4><ul>
+<li>利用模块化思想<ul>
+<li>把html标签和data拆分给<code>App.js</code></li>
+<li>创建Vue应用实例的入口：<code>major.js</code></li>
+</ul>
+</li>
+<li>利用组件化思想，抽离三个或更多子组件<img src="非单文件组件.png"></li>
+</ul>
+<blockquote>
+<p>index.html</p>
+</blockquote>
+<pre><code>&lt;head&gt;
+  &lt;style&gt;
+  ....省略css样式
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;script type=&quot;module&quot; src=&quot;./major.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>major.js</p>
+</blockquote>
+<pre><code>import &#123; createApp &#125; from &quot;https://unpkg.com/vue@3/dist/vue.esm-browser.js&quot;;
+//导入根组件
+import App from &quot;./App.js&quot;;
+//创建应用实例 并挂载到页面
+const app = createApp(App).mount(&quot;#app&quot;);
+</code></pre>
+<blockquote>
+<p>App.js</p>
+</blockquote>
+<pre><code>//导入子组件
+import Header from &quot;./Header.js&quot;;
+import Main from &quot;./Main.js&quot;;
+import Aside from &quot;./Aside.js&quot;;
+export default &#123;
+  data() &#123;
+    return &#123;&#125;;
+  &#125;,
+  components: &#123;
+    Header,
+    Main,
+    Aside,
+  &#125;,
+  template: `
+  &lt;Header/&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;Main/&gt;
+    &lt;Aside/&gt;
+  &lt;/div&gt;
+  `,
+&#125;;
+</code></pre>
+<blockquote>
+<p>Header.js</p>
+</blockquote>
+<pre><code>export default &#123;
+  data() &#123;
+    return &#123;
+      header: &quot;网站头部&quot;,
+    &#125;;
+  &#125;,
+  template: `
+  
+    &lt;div class=&quot;header&quot;&gt;&#123;&#123;header&#125;&#125;&lt;/div&gt;
+    `,
+&#125;;
+</code></pre>
+<blockquote>
+<p>Main.js</p>
+</blockquote>
+<pre><code>export default &#123;
+  data() &#123;
+    return &#123;
+      article1: &quot;文章板块一&quot;,
+      article2: &quot;文章板块二&quot;,
+    &#125;;
+  &#125;,
+  template: `
+  &lt;div class=&quot;main&quot;&gt;
+     &lt;div class=&quot;article1&quot;&gt;&#123;&#123;article1&#125;&#125;&lt;/div&gt;
+     &lt;div class=&quot;article2&quot;&gt;&#123;&#123;article2&#125;&#125;&lt;/div&gt;
+  &lt;/div&gt;
+`,
+&#125;;
+</code></pre>
+<blockquote>
+<p>Aside.js</p>
+</blockquote>
+<pre><code>export default &#123;
+  data() &#123;
+    return &#123;
+      item1: &quot;侧边栏一&quot;,
+      item2: &quot;侧边栏二&quot;,
+      item3: &quot;侧边栏三&quot;,
+    &#125;;
+  &#125;,
+  template: `
+  &lt;div class=&quot;aside&quot;&gt;
+    &lt;div class=&quot;item item1&quot;&gt;&#123;&#123;item1&#125;&#125;&lt;/div&gt;
+    &lt;div class=&quot;item item2&quot;&gt;&#123;&#123;item2&#125;&#125;&lt;/div&gt;
+    &lt;div class=&quot;item item3&quot;&gt;&#123;&#123;item3&#125;&#125;&lt;/div&gt;
+  &lt;/div&gt;
+  `,
+&#125;;
+</code></pre>
+<h4 id="非单文件组件产生问题"><a href="#非单文件组件产生问题" class="headerlink" title="非单文件组件产生问题"></a>非单文件组件产生问题</h4><blockquote>
+<p>显然以上方式存在以下两个严重的问题：</p>
+</blockquote>
+<ul>
+<li>不支持 CSS，CSS 样式没有拆分出去，本质上是没有完全实现组件化的，因为一个完整的组件需要HTML，CSS，JS三部分</li>
+<li>在 JS 中通过<code>template</code>字符串模板来书写 HTML 非常不方便，代码显得很丑陋，缺乏语法高亮和代码提示。<ul>
+<li>非单文件组件在实际开发中并几乎不用，这里只是借用他来了解组件，并引出单文件组件</li>
+</ul>
+</li>
+</ul>
+<h3 id="六、单文件组件开发（SFC）"><a href="#六、单文件组件开发（SFC）" class="headerlink" title="六、单文件组件开发（SFC）"></a>六、单文件组件开发（SFC）</h3><ul>
+<li>我们一般会将 <code>Vue</code> 组件定义在一个单独的 <code>.vue</code>结尾的文件中，这被叫做单文件组件 (英文 <code>Single-File Component</code>，简称 <code>SFC</code>)。</li>
+<li>他是一种特殊的文件格式，使我们能够将一个 <code>Vue</code> 组件的模板、逻辑与样式封装在单个文件中</li>
+</ul>
+<h4 id="定义一个单文件组件"><a href="#定义一个单文件组件" class="headerlink" title="定义一个单文件组件"></a>定义一个单文件组件</h4><blockquote>
+<p>下面是一个单文件组件的示例</p>
+</blockquote>
+<ul>
+<li>组件的逻辑，即 JS 代码写在<code>&lt;script&gt;</code>标签中，通过export default对外暴露组件选项对象</li>
+<li>组件的模板，即 HTML 模板代码，写在<code>&lt;template&gt;</code>标签中</li>
+<li>组件的样式，即 CSS 样式，写在<code>&lt;style&gt;</code>标签中</li>
+</ul>
+<pre><code>&lt;!--App.vue文件内容--&gt;
+
+&lt;!--逻辑--&gt;
+&lt;script&gt;
+export default &#123;
+  data() &#123;
+    return &#123;
+      message: &quot;Hello World!&quot;,
+    &#125;;
+  &#125;,
+&#125;;
+&lt;/script&gt;
+
+&lt;!--模板--&gt;
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;!--样式--&gt;
+&lt;style&gt;
+.box &#123;
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<ul>
+<li>每个<code>*.vue</code>文件最多可以包含一个顶层 <code>&lt;template&gt;</code> 块</li>
+<li>每个<code>*.vue</code>文件最多可以包含一个 <code>&lt;script&gt;</code> 块。(使用<code>&lt;script setup&gt;</code>的情况除外)</li>
+<li>每个<code>*.vue</code>文件可以包含多个 <code>&lt;style&gt;</code> 标签</li>
+</ul>
+<h4 id="使用单文件组件改造项目"><a href="#使用单文件组件改造项目" class="headerlink" title="使用单文件组件改造项目"></a>使用单文件组件改造项目</h4><ul>
+<li>调整项目结构<ul>
+<li>将子组件都放入<code>components</code>文件夹里</li>
+<li>将<code>js</code>文件改成<code>.vue</code>文件，分离出<code>CSS</code>样式</li>
+</ul>
+</li>
+<li>因为单文件组件是将 <code>Vue</code> 组件定义在一个以<code>.vue</code>结尾的文件，而浏览器是没有办法识别<code>.vue</code>结尾的文件。<ul>
+<li>所以我们需要借助构建工具来完成项目的构建，这里我们借助<code>Vite</code>构建工具。</li>
+</ul>
+</li>
+<li>安装插件，<code>Vue Language Features (Volar)</code>插件是 <code>Vscode</code>开发<code>vue3</code>必备插件，针对<code>.vue</code>文件提供语法高亮提示，非常好用</li>
+</ul>
+<p><strong>利用 Vite 打包 Vue 项目</strong></p>
+<blockquote>
+<p>Vite 官网地址：<code>https://cn.vitejs.dev/</code></p>
+</blockquote>
+<ul>
+<li>使用终端，在当前项目根目录下，执行<code>npm init -y</code>初始化项目的<code>package.json</code>文件</li>
+<li>执行以下命令安装 <code>Vite</code> 前端构建工具</li>
+</ul>
+<pre><code>npm i vite -D
+</code></pre>
+<ul>
+<li>构建工具打包时，默认是不识别<code>.vue</code>文件，所以需要安装<code>@vitejs/plugin-vue</code>插件来对<code>.vue</code>文件解析<ul>
+<li>安装以上插件，会自动帮我们安装好 <code>vue3.0</code> 以上的包，不需要再手动执行<code>npm i vue</code>命令安装 Vue 包。</li>
+</ul>
+</li>
+</ul>
+<pre><code>npm i -D @vitejs/plugin-vue
+</code></pre>
+<ul>
+<li>在项目的根目录下新建<code>vite.config.js</code>文件，此文件为 Vite 的配置文件，我们需要配置 Vite 的插件，告诉 Vite 在构建打包时，启用插件来识别.vue的文件。<br><code>vite.config.js</code>文件内容如下</li>
+</ul>
+<pre><code>// 导入vue插件包
+import vue from &quot;@vitejs/plugin-vue&quot;;
+// defineConfig方法，让配置文件有智能提示功能
+import &#123; defineConfig &#125; from &quot;vite&quot;;
+export default defineConfig(&#123;
+  // 配置vue插件。
+  plugins: [vue()],
+&#125;);
+</code></pre>
+<ul>
+<li>最后，我们可以执行以下命令，启动开发服务</li>
+</ul>
+<pre><code>npx vite # 启动开发服务
+</code></pre>
+<ul>
+<li>命令执行后，会在终端显示以下信息</li>
+</ul>
+<pre><code>  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+</code></pre>
+<blockquote>
+<ul>
+<li>点击上面的<strong>网址</strong>，就可以查看到开发的项目</li>
+</ul>
+</blockquote>
+<ul>
+<li>如果想要对生产环境打包，并预览项目，可以执行以下两个命令</li>
+</ul>
+<pre><code>npx vite build # 生产环境打包
+npx vite preview # 预览生产环境打包后的项目
+</code></pre>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>单文件组件</p>
+</blockquote>
+<ul>
+<li>单文件组件本质上是一个特殊的文件格式，使我们能够将一个 Vue 组件的<strong>模板、逻辑与样式</strong>封装在单个文件中。</li>
+<li>单文件组件开发必需配合<strong>打包工具</strong>才能使用，因为浏览器本身不能识别<code>.vue</code>的文件。</li>
+<li>Vite 打包工具，需要安装<code>@vitejs/plugin-vue</code>插件，并在配置文件中配置好该插件，在打包时才能正确识别<code>.vue</code>文件。<blockquote>
+<p>组件的拆分</p>
+</blockquote>
+</li>
+<li>了解并尝试把一个大的项目拆分成多个组件，你可以自己尝试把上面项目的Aside与Main组件再进一步的拆分成多个子组件。<blockquote>
+<p>单文件组件的优点</p>
+</blockquote>
+</li>
+<li>组件最大的特点就是可以实现复用</li>
+<li>为什么需要使用 SFC，可以查阅<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/scaling-up/sfc.html">官方说明</a></li>
+</ul>
+<h3 id="Vue-脚手架创建-Vue-项目"><a href="#Vue-脚手架创建-Vue-项目" class="headerlink" title="Vue 脚手架创建 Vue 项目"></a>Vue 脚手架创建 Vue 项目</h3><blockquote>
+<p>通过 Vue 脚手架来使用 Vue，是我们需要重点掌握的，在实际开发中，这是我们首选的开发方式，同时他支持 Vue 的单文件组件（SFC）化开发。</p>
+<p>这种方式，需要我们先安装node，同时了解 npm 包管理工具的使用。因为前面我们学习过 node 和 npm，所以这里就不再做相关介绍<br>在本节中将介绍如何在本地搭建 Vue 单页应用。创建的项目将使用基于 Vite 的构建设置，并允许我们使用 Vue 的单文件组件 (SFC)。</p>
+</blockquote>
+<h4 id="安装-Vue"><a href="#安装-Vue" class="headerlink" title="安装 Vue"></a>安装 Vue</h4><blockquote>
+<p>官方安装教程地址：<a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/quick-start.html%EF%BC%8C%E5%BB%BA%E8%AE%AE%E5%A4%A7%E5%AE%B6%E4%BB%A5%E5%90%8E%E5%9C%A8%E5%AE%89%E8%A3%85">https://cn.vuejs.org/guide/quick-start.html，建议大家以后在安装</a> Vue 时，以官方教程为主。</p>
+</blockquote>
+<ul>
+<li>执行以下命令，进行安装</li>
+</ul>
+<pre><code>npm init vue@latest
+</code></pre>
+<blockquote>
+<p>这一指令将会安装并执行<code>create-vue</code>，它是 Vue 官方的项目脚手架工具。会帮我们把开发项目时每次都需要做的一些重复的繁琐的工作给做掉，从而提高我们的开发效率。</p>
+</blockquote>
+<ul>
+<li>你将会看到一些诸如<code>TypeScript</code>和测试支持之类的可选功能提示：</li>
+</ul>
+<pre><code>✔ Project name: … &lt;your-project-name&gt;
+✔ Add TypeScript? … No / Yes        # 是否使用 TypeScript
+✔ Add JSX Support? … No / Yes		# 是否使用 JSX
+✔ Add Vue Router for Single Page Application development? … No / Yes   # 是否安装 Vue Router开发一个单页面应用
+✔ Add Pinia for state management? … No / Yes    # 是否添加Pinia组件来进行状态管理
+✔ Add Vitest for Unit testing? … No / Yes      # 是否添加Vitest来进行单元测试
+✔ Add Cypress for both Unit and End-to-End testing? … No / Yes # 是否添加Cypress来进行单元测试和端到端测试
+✔ Add ESLint for code quality? … No / Yes  		# 是否添加ESLint来进行代码质量检查
+✔ Add Prettier for code formatting? … No / Yes   # 为代码格式添加 Prettier  (格式化代码插件)
+
+Scaffolding project in ./&lt;your-project-name&gt;...
+Done.
+</code></pre>
+<blockquote>
+<p>在这里，我们在执行<code>npm init vue@latest</code>命令后，全部选择<code>No</code>就好。因为我们刚开始学习，对于安装的第三方依赖是什么以及有什么用，都不了解。等后我们学完 Vue 后，大家就明白这些第三方依赖是什么，根据需要选择安装就好。</p>
+</blockquote>
+<ul>
+<li>安装好后，会出现以下内容。</li>
+</ul>
+<pre><code>cd vue-project   # 进入到项目目录 vue-project
+npm install   # 安装package.json中的开发和生产依赖
+npm run dev  # 在开发环境下运行vue项目
+</code></pre>
+<blockquote>
+<p>项目创建后，并没有给我们安装相应的依赖包，所以需要我们通过执行<code>cd vue-project</code>命令进到项目根目录，然后执行<code>npm install</code>安装<code>package.json</code>文件中提供的开发和生产依赖包。</p>
+</blockquote>
+<ul>
+<li><code>package.json</code>文件内容如下，帮我们配置好了<code>scripts</code>命令脚本、开发与生产依赖需要的包。</li>
+</ul>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;vue-project&quot;,
+  &quot;version&quot;: &quot;0.0.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: &#123;
+    &quot;dev&quot;: &quot;vite&quot;,
+    &quot;build&quot;: &quot;vite build&quot;,
+    &quot;preview&quot;: &quot;vite preview&quot;
+  &#125;,
+  &quot;dependencies&quot;: &#123;
+    &quot;vue&quot;: &quot;^3.2.47&quot;
+  &#125;,
+  &quot;devDependencies&quot;: &#123;
+    &quot;@vitejs/plugin-vue&quot;: &quot;^4.0.0&quot;,
+    &quot;vite&quot;: &quot;^4.1.4&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>最后，我们再执行<code>npm run dev</code>命令，会出现如下内容</li>
+</ul>
+<pre><code>➜  Local:   http://localhost:5173/
+➜  Network: use --host to expose
+➜  press h to show help
+</code></pre>
+<ul>
+<li>我们在浏览器中打开上面 Local字段后面对应的<code>http://localhost:5173/</code>地址，就可以看创建好的 Vue 项目，说明 Vue 启动成功。</li>
+</ul>
+<h4 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h4><blockquote>
+<p>通过<code>npm init vue@latest</code>命令创建好的项目的目录结构<br><img src="vue脚手架基础项目目录.png"></p>
+</blockquote>
+<ul>
+<li>以下表格中序号对应上图中标出来的序号，我们针对标出来的文件或文件夹做相关说明<table>
+<thead>
+<tr>
+<th>文件编号</th>
+<th>文件或文件夹名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>.vscode</td>
+<td>针对当前项目，.vscode目录存放当前项目相关的 VSCode 配置文件的目录</td>
+</tr>
+<tr>
+<td>2</td>
+<td>extensions.json</td>
+<td>推荐当前项目使用的 VSCode 插件</td>
+</tr>
+<tr>
+<td>3</td>
+<td>public</td>
+<td>public下的资源会在项目生产环境打包时，被完整复制到目标目录的根目录下。如果你有以下资源，应该放在 public 目录下：不会被源码引用（例如 robots.txt）；必须保持原有文件名（没有经过 hash）… 或者你压根不想引入该资源，只是想得到其 URL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>src</td>
+<td>源码资源目录，开发阶段的源码都是放在这个目录下</td>
+</tr>
+<tr>
+<td>5</td>
+<td>assets</td>
+<td>静态资源目录，默认存放图片、CSS、JS 等</td>
+</tr>
+<tr>
+<td>6</td>
+<td>components</td>
+<td>公共组件目录，用来存放 Vue 子组件</td>
+</tr>
+<tr>
+<td>7</td>
+<td>.vue文件</td>
+<td>vue 的单文件组件（简单 SFC）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>App.vue</td>
+<td>Vue 的根组件</td>
+</tr>
+<tr>
+<td>9</td>
+<td>main.js</td>
+<td>创建 Vue 应用实例的入口 JS</td>
+</tr>
+<tr>
+<td>10</td>
+<td>.gitignore</td>
+<td>在用 git 提交项目时，需要过滤掉的一些文件</td>
+</tr>
+<tr>
+<td>11</td>
+<td>index.html</td>
+<td>项目的主页（也是打包的入口文件）</td>
+</tr>
+<tr>
+<td>12</td>
+<td>README.md</td>
+<td>项目的说明文档</td>
+</tr>
+<tr>
+<td>13</td>
+<td>vite.config.js</td>
+<td>Vite 前端构建工具的配置文件。</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="vite-config-js配置文件"><a href="#vite-config-js配置文件" class="headerlink" title="vite.config.js配置文件"></a><code>vite.config.js</code>配置文件</h4><blockquote>
+<p>针对<code>vite.config.js</code>配置文件中相关内容，给大家做个简单的介绍</p>
+</blockquote>
+<pre><code>// 导入node:url模块，这个模块是用来处理路径的
+import &#123; fileURLToPath, URL &#125; from &quot;node:url&quot;;
+
+import &#123; defineConfig &#125; from &quot;vite&quot;;
+import vue from &quot;@vitejs/plugin-vue&quot;;
+
+// https://vitejs.dev/config/
+export default defineConfig(&#123;
+  plugins: [vue()],
+  resolve: &#123;
+    // 配置路径别名
+    alias: &#123;
+      &quot;@&quot;: fileURLToPath(new URL(&quot;./src&quot;, import.meta.url)),
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ul>
+<li><code>import.meta.url</code><ul>
+<li><code>import.meta</code>是一个给<code>JavaScript</code> 模块暴露特定上下文的元数据属性的对象。它包含了这个模块的信息，比如说这个模块的 URL。</li>
+<li><code>import.meta.url</code>为当前模块的完整 url 地址，如<code>C:\Users\EDY\Desktop\vue\vue-project\vite.config.js</code></li>
+</ul>
+</li>
+<li><code>new URL()</code> 创建路径</li>
+</ul>
+<pre><code>new URL(input[, base])
+</code></pre>
+<ul>
+<li><code>input&lt;string&gt;</code>要解析的绝对&#x2F;相对的<code>URL</code>，如果<code>input</code>是相对路径，则需要<code>base</code>。如果是绝对路径，则忽略<code>base</code></li>
+<li><code>base&lt;string&gt;|&lt;URL&gt;</code>如果<code>input</code>不是绝对路径，则为要解析的基本URL</li>
+</ul>
+<pre><code>new URL(&#39;./src&#39;, import.meta.url)
+// 得到一个URL对象，对象的结构如下
+
+URL &#123;
+  href: &#39;file:///C:/Users/EDY/Desktop/vue/vue-project/src&#39;,
+  origin: &#39;null&#39;,
+  protocol: &#39;file:&#39;,
+  username: &#39;&#39;,
+  password: &#39;&#39;,
+  host: &#39;&#39;,
+  hostname: &#39;&#39;,
+  port: &#39;&#39;,
+  pathname: &#39;/C:/Users/EDY/Desktop/vue/vue-project/src&#39;,
+  search: &#39;&#39;,
+  searchParams: URLSearchParams &#123;&#125;,
+  hash: &#39;&#39;
+&#125;
+</code></pre>
+<ul>
+<li><code>fileURLToPath</code>文件将url 转换为 本地文件路径，其参数可以是 url 也可以是 url 对象。</li>
+</ul>
+<pre><code>fileURLToPath(new URL(&quot;./src&quot;, import.meta.url));
+// 最后输出的结果为：
+// C:\Users\EDY\Desktop\vue\vue-project\src
+</code></pre>
+<blockquote>
+<p>在<code>alias</code>里为路径配置取别名时</p>
+<ul>
+<li>原本是不能使用绝对路径，而<code>fileURLToPath()</code>里面的配置是为了使绝对路径变成相对路径</li>
+<li>因此，在配置了这个之后，两种路径都能被解析</li>
+<li>不过要注意：在<code>index.html</code>文件加载的 JS 和 CSS，不要使用别名，因为在开发服务下，并不会去解析别名</li>
+</ul>
+</blockquote>
+<h4 id="项目核心代码分析"><a href="#项目核心代码分析" class="headerlink" title="项目核心代码分析"></a>项目核心代码分析</h4><ul>
+<li><code>index.html</code>文件<blockquote>
+<ul>
+<li>作为项目的入口文件，里面通过 ES 模块化的方式加载了<code>main.js</code>，同时提供了 Vue 项目根组件容器<code>#app</code>，即：后续所有组件（本质是 DOM）都会被添加到<code>#app</code>容器内。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;module&quot; src=&quot;/src/main.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>main.js</code> 文件</li>
+</ul>
+<pre><code>// 导入vue的 createApp方法
+import &#123; createApp &#125; from &quot;vue&quot;;
+// 导入 Vue的根组件
+import App from &quot;./App.vue&quot;;
+// 导入main.css，最终main.css中内容，会被添加到index.html页面的&lt;style&gt;标签中
+import &quot;./assets/main.css&quot;;
+// 创建应用实例，将应用实例挂载到#app 容器中
+createApp(App).mount(&quot;#app&quot;);
+</code></pre>
+<ul>
+<li><code>App.vue</code> 文件（最终被转换成 DOM）添加到<code>#app</code>容器中</li>
+</ul>
+<pre><code>&lt;!--组件逻辑，以下采用的是Vue3支持的组合式写法--&gt;
+&lt;script setup&gt;
+// 导入子组件
+import HelloWorld from &quot;./components/HelloWorld.vue&quot;;
+import TheWelcome from &quot;./components/TheWelcome.vue&quot;;
+&lt;/script&gt;
+
+&lt;!--组件模板--&gt;
+&lt;template&gt;
+  &lt;header&gt;
+    &lt;img
+      alt=&quot;Vue logo&quot;
+      class=&quot;logo&quot;
+      src=&quot;./assets/logo.svg&quot;
+      width=&quot;125&quot;
+      height=&quot;125&quot;
+    /&gt;
+
+    &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;!--添加子组件  本质是DOM--&gt;
+      &lt;HelloWorld msg=&quot;You did it!&quot; /&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;!--添加子组件 本质是DOM--&gt;
+    &lt;TheWelcome /&gt;
+  &lt;/main&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+/* 组件的css样式,内容省略*/
+&lt;/style&gt;
+</code></pre>
+<h2 id="Vite"><a href="#Vite" class="headerlink" title="Vite"></a>Vite</h2><blockquote>
+<p>Vite（法语意为 “快速的”，发音 &#x2F;vit&#x2F;，发音同 “veet”）是一种新型前端构建工具，能够显著提升前端开发体验，其最大的特点就是快 ！</p>
+</blockquote>
+<ul>
+<li>Vite 官方文档：<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/">https://cn.vitejs.dev/</a></li>
+</ul>
+<h3 id="一、构建工具和打包工具区别"><a href="#一、构建工具和打包工具区别" class="headerlink" title="一、构建工具和打包工具区别"></a>一、构建工具和打包工具区别</h3><ul>
+<li>在 Vite 之前，我们学习过 <code>WebPack</code>，我们说 <code>WebPack</code> 是静态模块打包器。而我们这里提到的 Vite 称为前端构建工具。那构建工具和打包工具有什么区别呢 ？</li>
+<li>要了解什么是构建工具，就得了解构建工具在我们的项目中具体做了什么工作</li>
+</ul>
+<h4 id="前端构建工具负责的工作"><a href="#前端构建工具负责的工作" class="headerlink" title="前端构建工具负责的工作"></a>前端构建工具负责的工作</h4><blockquote>
+<p>前端构建工具，在我们打包项目时，通常会帮我们做以下工作：</p>
+<table>
+<thead>
+<tr>
+<th>前端构建工具常负责的工作</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>代码转换</td>
+<td>比如将 SCSS 编译成 CSS，将 TypeScript 编译成 JS 等。将浏览器不能识别的文件或代码，转换成浏览器能识别的文件或代码</td>
+</tr>
+<tr>
+<td>兼容性处理</td>
+<td>利用 babel 将 ES6 代码转换成 ES5 或 ES3 等</td>
+</tr>
+<tr>
+<td>文件优化</td>
+<td>对代码和图进行压缩，比如压缩 JS、CSS、HTML 代码</td>
+</tr>
+<tr>
+<td>代码分割</td>
+<td>提取多个页面的公共代码，提取首屏不需要执行部分的代码让其异步加载</td>
+</tr>
+<tr>
+<td>自动刷新</td>
+<td>自动监听本地源代码的变化，自动重新构建，刷新浏览器。比如：HMR（热更新）</td>
+</tr>
+<tr>
+<td>……</td>
+<td>…….</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>以上构建工具做的工作，通常是在打包一个项目的过程中需要去做的事情。</li>
+<li>也就是说，在对项目打包时，会<strong>先</strong>利用构建工具进行构建，然后<strong>再</strong>根据他们的依赖关系，最终打包成一个或多个 JS 文件。</li>
+</ul>
+</blockquote>
+<p><strong>构建工具终极目标</strong></p>
+<ul>
+<li>将我们在开发环境写的代码，转换成生产环境的代码。（项目生产上线需要考虑的那些因素，在构建工具都会帮我们实现）</li>
+</ul>
+<h4 id="构建工具与打包工具有什么区别"><a href="#构建工具与打包工具有什么区别" class="headerlink" title="构建工具与打包工具有什么区别"></a>构建工具与打包工具有什么区别</h4><blockquote>
+<ul>
+<li>构建工具，更注重的是前端的自动化流程。开发好的代码，通过自动化流程转换成<strong>生产环境</strong>代码。</li>
+<li>打包工具，更注重打包这一过程，主要包括<strong>依赖管理</strong>和<strong>版本管理</strong>。</li>
+</ul>
+</blockquote>
+<h4 id="为什么-Webpack-称打包工具，而-Vite-称构建工具"><a href="#为什么-Webpack-称打包工具，而-Vite-称构建工具" class="headerlink" title="为什么 Webpack 称打包工具，而 Vite 称构建工具"></a>为什么 Webpack 称打包工具，而 Vite 称构建工具</h4><blockquote>
+<ul>
+<li><code>WebPack</code>在打包过程中，会调用构建工具完成构建工作，但是 <code>WebPack</code>更注重打包这一过程。<strong>他的构建工作，主要依赖第三方插件来完成</strong>，所以我们需要通过配置插件来实现相关的构建工作。</li>
+<li><code>Vite</code>更测重于项目的构建，前端自动化流程。在用 Vite 构建项目时，也会参与打包工作，但是他更注重构建工作，大部分前端项目在打包上线过程中需要完成的构建工作，Vite 都帮我们内置好了，不需要我们再下载插件和配置来完成。</li>
+<li>平时，我们并不会把构建工具和打包工具做严格的区分，所以 <code>WebPack</code>和 Vite 被称打包或构建工具都没问题</li>
+<li>这两个工具都会完成构建和打包这两个步骤；<code>WebPack</code>本身是用来打包的，所以构建的功能注意靠第三方插件；而<code>Vite</code>本身更注重构建项目</li>
+</ul>
+</blockquote>
+<h3 id="二、Vite-简介"><a href="#二、Vite-简介" class="headerlink" title="二、Vite 简介"></a>二、Vite 简介</h3><ol>
+<li><p>Vite 的诞生</p>
+<blockquote>
+<ul>
+<li>Vite 是尤雨溪随 Vue3 正式版(2020 年 9 月 18 日)一并发布的一种新型的前端构建工具。</li>
+<li>起初，大家会认为 Vite 是为 Vue3 服务的这么一款工具。但其实他不是这样一款工具，在 Vite 发布之后，很快，他就经历了一次迭代，发布了 2.0 版本。</li>
+<li>至从 2.0 版本发布后，他就是一个完全独立于前端框架的这样一个构建工具，不再只服务于 Vue 了。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>为什么选 Vite</p>
+<blockquote>
+<ul>
+<li>随着前端的发展，我们开始构建越来越大型的应用时，需要处理的<code>JavaScript</code>代码量也呈指数级增长。包含数千个模块的大型项目相当普遍。</li>
+<li>基于<code>JavaScript</code>开发的工具就会开始遇到<strong>性能瓶颈</strong>：通常需要很长时间（甚至是几分钟！）才能启动开发服务器，即使使用模块热替换（HMR），文件修改后的效果也需要几秒钟才能在浏览器中反映出来。如此循环往复，迟钝的反馈会极大地影响开发者的开发效率和幸福感。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>以下是常见的打包构建工具，都是采用 JS 编写的</p>
+<ul>
+<li>WebPack</li>
+<li>rollup</li>
+<li>parcel</li>
+<li>gulp</li>
+</ul>
+<p>这些工具，大型项目中都存在缓慢的服务启动和缓慢的更新问题。而 Vite 就解决了上面这个问题，他在启动应用时的速度可以说是相当的快。</p>
+</blockquote>
+<ol start="3">
+<li><p>Vite 的优势</p>
+<blockquote>
+<p>Vite 相比其它的打包工具，具有以下优势</p>
+<ul>
+<li>上手非常简单</li>
+<li>开发效率极高</li>
+<li>社区成本低（兼容 rollup 插件）</li>
+<li>没有复杂晦涩的配置</li>
+<li>Vite 有自身的插件系统</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Vite 的两大组成部分</p>
+<blockquote>
+<p>Vite 针对开发环境和生产环境下的<strong>打包构建模式</strong>完全不一样，他主要由以下两个部分组成：</p>
+<ul>
+<li>一个开发服务，服务于<strong>开发环境</strong>，基于原生 <code>ES</code> 模块和 <code>esbuild</code> 依赖预构建，同时提供了丰富的内建功能，如极快的模块热替换（HMR）</li>
+<li>一套构建指令，服务于<strong>生产环境</strong>，基于 <code>Rollup</code> 完成打包，并且它是预配置的，可输出用于生产环境的高度优化过的静态资源。<blockquote>
+<p>Vite 这样做的主要目的是为了<strong>在开发环境</strong>构建项目时能获得极快的体验。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="三、搭建第一个-Vite-项目"><a href="#三、搭建第一个-Vite-项目" class="headerlink" title="三、搭建第一个 Vite 项目"></a>三、搭建第一个 Vite 项目</h3><blockquote>
+<p>前提：</p>
+<ul>
+<li>在使用 Vite 前，需要先安装 Node，同时了解 npm 的用法。</li>
+<li>Vite 需要的 Node.js 版本为 14.18+ 然而，有些模板需要依赖更高的 Node 版本才能正常运行，当你的包管理器发出警告时，请注意升级你的 Node 版本</li>
+</ul>
+</blockquote>
+<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>项目初始化<blockquote>
+<p>创建名为<code>vite-demo</code>的文件夹作为当前项目的根目录</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在当前目录下，执行以下命令初始化<code>package.json</code>文件。</li>
+</ul>
+<pre><code>npm init -y
+</code></pre>
+<ol start="2">
+<li>安装 Vite<blockquote>
+<p>执行以下命令，安装 Vite</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm i vite -D
+</code></pre>
+<ol start="3">
+<li>创建项目<blockquote>
+<p>根据以下目录结构，创建项目</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>vite-demo
+├─ index.html    // 项目打包入口文件
+├─ main.js
+├─ basic.js
+├─ package-lock.json
+└─ package.json
+</code></pre>
+<ul>
+<li><code>vite-demo/index.html</code> 文件</li>
+</ul>
+<pre><code>&lt;head&gt;
+  &lt;!--ES模块化方式引入main.js--&gt;
+  &lt;script type=&quot;module&quot; src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>Vite 默认以当前项目<strong>根目录</strong>下的<code>index.html</code>文件作为打包的入口文件， 并且他是基于原生 ES 模块提供服务。</li>
+<li>所以在<code>index.html</code>文件中要通过<strong>ES 模块方式</strong>加载 JS 文件。</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>vite-demo/main.js</code>文件</li>
+</ul>
+<pre><code>// 导入 basic.js文件中变量
+import &#123; username, age &#125; from &quot;./basic.js&quot;;
+
+const sex = &quot;女&quot;;
+const hobbies = [&quot;唱歌&quot;, &quot;跑步&quot;, &quot;音乐&quot;];
+console.log(`$&#123;username&#125;性别$&#123;sex&#125;,今年$&#123;age&#125;岁了，他喜欢$&#123;hobbies.join(&quot;,&quot;)&#125;`);
+</code></pre>
+<ul>
+<li><code>vite-demo/basic.js</code>文件</li>
+</ul>
+<pre><code>export const username = &quot;hermia&quot;;
+export const age = 21;
+</code></pre>
+<h4 id="启动开发服务"><a href="#启动开发服务" class="headerlink" title="启动开发服务"></a>启动开发服务</h4><ol>
+<li>在当前项目根目录下执行以下命令，启动开发服务。</li>
+</ol>
+<pre><code># 相当于开发环境下打包，不过Vite并不会对源码打包处理
+npx vite   
+</code></pre>
+<ul>
+<li>命令执行后，并没有当前根目录下新建<code>dist</code>目录，而是在命令终端显示以下代码</li>
+</ul>
+<pre><code>  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+</code></pre>
+<ol start="2">
+<li>预览打包后项目</li>
+</ol>
+<ul>
+<li>在浏览器中访问上面Local字段对应的<code>http://localhost:5173/</code>地址，然后在当前地址下打开浏览器的<code>Console</code>控制面板，看到我们创建的内容，就说明服务器启动成功</li>
+<li>切换到<code>Network</code>面板，可以看到<code>main.js</code>和<code>basic.js</code>是通过浏览器直接发请求获取的，并没有做相关的打包工作</li>
+</ul>
+<ol start="3">
+<li>总结：Vite 开发环境下打包特点</li>
+</ol>
+<ul>
+<li>开发环境下，Vite <strong>并没有对源码执行打包</strong>工作，而是直接启动一个服务器加载当前根目录下的<code>index.html</code>文件（默认情况下，<code>index.html</code>文件为打包的入口文件）</li>
+<li>然后利用浏览器支持 ES 模块化加载这一特点，直接加载<code>index.html</code>里面的 JS 文件，然后<strong>顺着依赖</strong>加载其它的 JS 文件。</li>
+</ul>
+<h4 id="生产环境下打包"><a href="#生产环境下打包" class="headerlink" title="生产环境下打包"></a>生产环境下打包</h4><ol>
+<li>执行以下命令，来完成生成环境下打包工作</li>
+</ol>
+<pre><code>npx vite build
+</code></pre>
+<ul>
+<li>命令执行后，会在当前目录下生成<code>dist</code>文件夹，<code>dist</code>目录结构如下：</li>
+</ul>
+<pre><code>dist
+├─ assets   // 打包后的资源放在assets目录下
+│  └─ index-bdbbf184.js   // main.js打包后生成的js文件
+└─ index.html // 项目入口文件
+</code></pre>
+<blockquote>
+<ul>
+<li>可以看到，打包后，<code>main.js</code>及相关的依赖全部被打包生成了<strong>一个</strong> <code>JS</code> 文件。</li>
+</ul>
+</blockquote>
+<ul>
+<li>查看打包后的<code>index.html</code>文件，内容如下：</li>
+</ul>
+<pre><code>&lt;script type=&quot;module&quot; crossorigin src=&quot;/assets/index-bdbbf184.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>可以看到，打包后依然采用的是 ES 模块化来加载打包后生成的 JS 文件。</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>预览打包后项目<blockquote>
+<p>如果我们直接在 VSCode 中打开<code>dist</code>目录下的<code>index.html</code>页面，在浏览器控制台会抛出错误</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>因为，打包后生成的<code>dist</code>目录，项目默认以<code>dist</code>目录作为项目的根目录</li>
+<li>而我们直接在 VSCode 打开<code>dist</code>目录下的<code>index.html</code>文件，是以<code>vite-demo</code>作为项目的根目录。</li>
+<li>所以，我们可以在<code>dist</code>目录下打开 VSCode，然后再用 VSCode 打开<code>index.html</code>文件，项目就可以正常跑起来。</li>
+</ul>
+<blockquote>
+<p>不过 Vite 给我们内置了以下命令，我们执行以下命令，就相当以<code>dist</code>目录为项目根目录开启一个服务。</p>
+</blockquote>
+<pre><code>npx vite preview   # 预览打包后的项目
+</code></pre>
+<ul>
+<li>命令执行后，显示以下代码</li>
+</ul>
+<pre><code>➜  Local:   http://localhost:4173/
+➜  Network: use --host to expose
+</code></pre>
+<ul>
+<li>在浏览器中打开 Local 字段后面对应的<code>http://localhost:4173/</code>地址，然后在浏览器的 Console 面板，就可以看到输出结果。</li>
+</ul>
+<ol start="3">
+<li>注意事项<blockquote>
+<p>如果入口文件<code>index.html</code>中有加载了多个 JS，则打包后也只会生成<strong>一个</strong> JS 文件</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;!-- index.html --&gt;
+&lt;script type=&quot;module&quot; src=&quot;./main.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;index.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;module&quot; src=&quot;a.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li>生产环境下打包后，生成的<code>dist</code>目录结构和<code>index.html</code>文件如下</li>
+</ul>
+<pre><code>dist
+├─ assets
+│  └─ index-453aba04.js
+└─ index.html
+</code></pre>
+<pre><code>&lt;!--index.html--&gt;
+&lt;script type=&quot;module&quot; crossorigin src=&quot;/assets/index-453aba04.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>总结：Vite 生产环境下打包特点<blockquote>
+<ul>
+<li>在生产环境下，我们可以执行<code>npx vite build</code>命令来完打包工作，执行<code>npx vite preview</code>命令来启动打包后的项目。</li>
+<li>生产环境下也是以<code>index.html</code>作为入口文件来执行打包，会把入口文件中加载的 JS 及相关依赖打包成一个 JS 文件，然后在<code>index.html</code>文件中，采用 ES 模块化方式来加载打包后生成的 JS 文件。</li>
+<li>如果<code>index.html</code>中通过模块化的方式加载了多个 JS，则最终都会打包到一个 JS 文件中</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 id="配置scripts命令脚本"><a href="#配置scripts命令脚本" class="headerlink" title="配置scripts命令脚本"></a>配置<code>scripts</code>命令脚本</h4><blockquote>
+<p>我们可以把 Vite 的以下三个常用命令</p>
+</blockquote>
+<pre><code>npx vite  # 启动开发服务
+npx vite build # 执行生产环境打包
+npx vite preview #预览生产环境打包后的项目
+</code></pre>
+<ul>
+<li>在<code>package.json</code>文件的<code>&quot;scripts&quot;</code>字段中配置，具体配置如下：</li>
+</ul>
+<pre><code>&quot;scripts&quot;: &#123;
+    &quot;dev&quot;:&quot;vite&quot;,
+    &quot;build&quot;:&quot;vite build&quot;,
+    &quot;preview&quot;:&quot;vite preview&quot;
+&#125;
+</code></pre>
+<ul>
+<li>配置好后，我们就可以通过执行以下命令，来完成 Vite 对应的工作。</li>
+</ul>
+<pre><code>npm run dev    # 启动开发服务
+npm run build   # 执行生产环境打包
+npm run preview  #预览生产环境打包后的项目
+</code></pre>
+<h3 id="四、Vite-的依赖预构建"><a href="#四、Vite-的依赖预构建" class="headerlink" title="四、Vite 的依赖预构建"></a>四、Vite 的依赖预构建</h3><blockquote>
+<p>当你在开发环境下首次启动 vite 时，Vite 在本地加载你的站点之前预构建了项目依赖，本质就是做了以下两件事：</p>
+<ul>
+<li>针对依赖使用esbuild打包处理</li>
+<li>针对打包后的依赖文件做缓存</li>
+<li>详细查阅，Vue 官方文档 - <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/dep-pre-bundling.html">依赖预构建</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>你现在可能有以下 4 个疑问：</p>
+</blockquote>
+<ul>
+<li>何为依赖 ？</li>
+<li>为什么依赖需要打包 ？</li>
+<li>为什么采用esbuild来打包，而不是别的工具呢 ？</li>
+<li>如何对依赖做缓存 ？</li>
+</ul>
+<h4 id="区分依赖与源码"><a href="#区分依赖与源码" class="headerlink" title="区分依赖与源码"></a>区分依赖与源码</h4><blockquote>
+<p>Vite 通过在一开始将应用中的模块区分为<strong>依赖</strong>和<strong>源码</strong>两类，改进了开发服务器启动时间。</p>
+</blockquote>
+<ul>
+<li>依赖模块： 大多为在开发时不会变动的纯<code>JavaScript</code>，这里通常指引用的第三方模块。</li>
+<li>源码模块： 通常指由我们自己写的那部分代码，如自已写 CSS 样式、Vue 组件、JS 代码。<blockquote>
+<ul>
+<li>在开发环境下，Vite 并不会对源码做打包工作，但对于依赖（第三方模块）会做相关的打包工作。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>通过前面学习，我们知道源码不打包主要是为了更快的开发服务启动，那依赖为什么又要做打包处理呢 ？</p>
+<h4 id="依赖打包原因"><a href="#依赖打包原因" class="headerlink" title="依赖打包原因"></a>依赖打包原因</h4><blockquote>
+<p>依赖做打包处理主要有两个目的：</p>
+</blockquote>
+<ul>
+<li>代码兼容性</li>
+<li>更好的性能</li>
+</ul>
+<ol>
+<li>代码兼容性<blockquote>
+<p>在开发阶段中，Vite 的开发服务器将所有代码视为<strong>原生 ES 模块</strong>，但以下两种情况，必须处理</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>针对开发中用到的第三方模块（依赖），采用如下 <code>import</code> 语法导入模块时，浏览器是<strong>不能识别的</strong>，如下：</li>
+</ul>
+<pre><code>import axios from &quot;axios&quot;; 
+// ES 模块   浏览器可不知道要到node_modules目录下去找axios
+</code></pre>
+<ul>
+<li>第三方模块所使用的模块系统<strong>不一定</strong>是 ES 模块的规范，可能是<code>CommonJS</code>或<code>UMD</code>等，Vite 必须先将以<code>CommonJS</code>或<code>UMD</code>形式提供的依赖项转换为 ES 模块。</li>
+</ul>
+<pre><code>// node.js 导出模块
+module.exports = &#123;
+  a: 1,
+  b: 2,
+&#125;;
+
+// 导航模块
+const obj = require(&quot;./b.js&quot;);
+console.log(obj.a);
+console.log(obj.b);
+</code></pre>
+<ol start="2">
+<li>更好的性能</li>
+</ol>
+<ul>
+<li>为了提高后续页面的加载性能，Vite 将那些具有许多内部模块的 ESM 依赖项转换为<strong>单个模块</strong>。</li>
+<li>有些包将它们的 ES 模块构建为许多单独的文件，彼此导入。例如，<code>lodash-es</code> 有超过 300 个内置模块！当我们执行 <code>import &#123; debounce &#125; from &#39;lodash-es&#39;</code> 时，浏览器同时发出 300 多个 HTTP 请求！即使服务器能够轻松处理它们，但大量请求会导致浏览器端的网络拥塞，使页面加载变得明显缓慢。</li>
+<li>通过将 <code>lodash-es</code> 预构建成单个模块，现在我们只需要一个 HTTP 请求！<ul>
+<li><code>lodash-es</code>是使用 ES6 的模块语法编写的一个高性能的 <code>JavaScript</code> 实用工具库</li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么采用-esbuild-依赖预构建"><a href="#为什么采用-esbuild-依赖预构建" class="headerlink" title="为什么采用 esbuild 依赖预构建"></a>为什么采用 esbuild 依赖预构建</h4><blockquote>
+<p><code>esbuild</code> 使用 <code>Go</code> 编写，并且比以 JavaScript 编写的打包器（如：WebPack 和 Rollup）预构建依赖快 <code>10-100</code> 倍。所以 Vite 采用<code>esbuild</code>打包速度会非常快。</p>
+<p>以下是 <code>esbuild</code> 官方提供的一个关于几种不同打包工具的打包速度对比。<br><img src="esbuild速度对比.png"></p>
+</blockquote>
+<h4 id="文件缓存与浏览器缓存"><a href="#文件缓存与浏览器缓存" class="headerlink" title="文件缓存与浏览器缓存"></a>文件缓存与浏览器缓存</h4><blockquote>
+<p>Vite 对打包后的依赖文件做了：文件缓存和浏览器缓存</p>
+</blockquote>
+<ol>
+<li>文件缓存</li>
+</ol>
+<ul>
+<li>Vite 将预构建的依赖项缓存到 <code>node_modules/.vite</code> 中。也就是把依赖打包后生成的 JS 文件，保存在当前项目的<code>node_modules/.vite</code>目录下缓存起来。</li>
+<li>在后续启动开发服务时，如果<code>node_modules/.vite</code>下能找到对应的缓存文件，则直接使用，不会再进行依赖预构建。</li>
+<li>依赖模块在打包后，在<code>node_modules/.vite</code>下会多出<code>.js</code>和<code>.map</code>两个 JS 文件，本质就是将依赖打包后文件缓存下来</li>
+</ul>
+<ol start="2">
+<li>浏览器缓存</li>
+</ol>
+<ul>
+<li>对于已预构建的依赖请求使用 HTTP 头 <code>max-age=31536000, immutable</code>进行强缓存，以提高开发期间页面重新加载的性能。</li>
+<li>一旦被缓存，这些请求将永远不会再次访问开发服务器，而是直接从缓存中读取。</li>
+</ul>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>什么是依赖预构建</p>
+</blockquote>
+<ul>
+<li>在开发环境首次启动<code>vite</code>时，<code>vite</code>会：<ul>
+<li>使用<code>esbulid</code>，对引用的依赖模块(第三方模块)做打包工作。这是为了处理代码的兼容问题，以及提高性能 </li>
+<li>对打包后的依赖文件做<ul>
+<li>文件缓存：将预构建的依赖项缓存到<code>node_modules/.vite</code></li>
+<li>浏览器缓存：对已预构建的依赖请求使用强缓存</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>为什么生产环境下不使用<code>esbuild</code>来构建呢 ？这个官方文档给出了说明。参考地址：<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/why.html">https://cn.vitejs.dev/guide/why.html</a></li>
+</ul>
+<h3 id="五、Vite-开发服务器启动快的原因"><a href="#五、Vite-开发服务器启动快的原因" class="headerlink" title="五、Vite 开发服务器启动快的原因"></a>五、Vite 开发服务器启动快的原因</h3><blockquote>
+<p>Vite 在开发环境下之所以能快速的启动服务，除了前面讲到的以下几个原因：</p>
+</blockquote>
+<ul>
+<li>Vite 以原生 ESM 方式(<code>&lt;script type=&quot;module&quot;&gt;</code>)提供源码（源码不打包），让浏览器接管了打包程序的部分工作</li>
+<li>使用<code>esbuild</code>预构建依赖和加快构建速度</li>
+<li>对预构建的依赖做文件缓存与浏览器缓存</li>
+</ul>
+<blockquote>
+<p>还有以下 2 个重要的原因：</p>
+</blockquote>
+<ul>
+<li>启动应用时按需提供代码</li>
+<li>内置了一套原生 ESM 的模块热替换（HMR）</li>
+</ul>
+<h4 id="启动应用时按需提供代码"><a href="#启动应用时按需提供代码" class="headerlink" title="启动应用时按需提供代码"></a>启动应用时按需提供代码</h4><blockquote>
+<p>为什么传统的打包工具在应用启动很慢，而 Vite 确可以做到极快的启动应用。</p>
+<p>这就需要我们了解传统工具在开发环境下的服务启动流程和 Vite 在开发环境下的服务启动流程。</p>
+</blockquote>
+<ol>
+<li>传统工具打包的整个流程图<img src="传统工具打包的整个流程图.png"></li>
+</ol>
+<blockquote>
+<p>注：</p>
+<ul>
+<li>这幅图清淅的描述了 Webpack 的整个打包过程，他是根据<code>entry</code>打包的入口点构建一个<strong>依赖图</strong>，然后将你项目中所需的每一个模块<strong>打包</strong>成一个或多个模块，最后再<strong>启动</strong>服务器。</li>
+<li>如果项目比较大，打包所需要的时间就会很长，这就是为什么传统打包工具在启动服务时会非常慢的原因。</li>
+<li>同时，因为项目都是基于打包器启动，重建整个包的效率很低，每次更新相当于做了一次打包工作，每次更新都要先打包</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>Vite构建项目时的，构建流程图<img src="Vite构建项目的构建流程图.png"></li>
+</ol>
+<blockquote>
+<p>注：<br>Vite 在开发环境下构建项目时，先<code>esbuild</code>依赖<strong>预构建</strong>，然后<strong>启动</strong>服务器，加载<code>index.html</code>项目<strong>入口</strong>文件，根据访问的路由<strong>按需加载</strong>对应的模块，那些不在当前路由内的模块，并不会去加载。</p>
+</blockquote>
+<h4 id="模块热替换"><a href="#模块热替换" class="headerlink" title="模块热替换"></a>模块热替换</h4><blockquote>
+<p>Vite 提供了一套原生 <code>ESM</code> 的 <code>HMR API</code>。具有 HMR 功能的框架可以利用该 API 提供即时、准确的更新，而无需重新加载页面或清除应用程序状态。</p>
+<p>模块热替换我们在讲 WebPack 的时候讲过，所以这里不再讲解，忘记的可以看之前的资料。</p>
+</blockquote>
+<ul>
+<li>当我们使用 Vite 脚手架创建应用程序时，所选模板已经为你预先配置了这些</li>
+</ul>
+<pre><code>npm create vite@latest
+</code></pre>
+<h4 id="总结：Vite-开发服务启动过程"><a href="#总结：Vite-开发服务启动过程" class="headerlink" title="总结：Vite 开发服务启动过程"></a>总结：Vite 开发服务启动过程</h4><blockquote>
+<p>在开发环境下采用 Vite 构建项目时</p>
+</blockquote>
+<ul>
+<li>首先，Vite 在本地加载你的站点之前<strong>预构建了项目依赖</strong>（采用打包速度极快的<code>esbuild</code>完成依赖预构建）</li>
+<li>其次，将依赖预构建的生成的模块保存在<code>node_modules\vite</code>目录下<strong>缓存</strong>起来</li>
+<li>接着，开启一个<strong>开发服务器</strong>，用来加载当前项目，并且针对依赖预构建生成的模块做<strong>浏览器强缓存</strong>。<ul>
+<li>服务是基于原生 ES 模块，所以在开发环境下 Vite 并不会对开发的源代码进行打包工作，这部分工作交给了浏览器来处理。</li>
+</ul>
+</li>
+<li>在访问页面时，只根据访问的路由<strong>按需加载</strong>对应的模块，那些不在当前路由内的模块，并不会去加载。<blockquote>
+<ul>
+<li>通过以上优化，Vite 解决了传统打包工具存在缓慢的服务启动和缓慢的更新两个问题</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="六、Vite-脚手架创建-Vite-项目"><a href="#六、Vite-脚手架创建-Vite-项目" class="headerlink" title="六、Vite 脚手架创建 Vite 项目"></a>六、Vite 脚手架创建 Vite 项目</h3><blockquote>
+<p>Vite 为了方便我们创建 Vite 项目，给我们提供了更快捷的方式，可以通过 Vite 脚手架创建 Vite 项目</p>
+</blockquote>
+<h4 id="创建-Vite-项目"><a href="#创建-Vite-项目" class="headerlink" title="创建 Vite 项目"></a>创建 Vite 项目</h4><ul>
+<li>执行以下命令，就可以创建一个简单版的 Vite 项目</li>
+</ul>
+<pre><code>npm create vite@latest
+</code></pre>
+<ul>
+<li>执行该命令之后，会出现以下代码<img src="用vite脚手架创建vite项目.png"></li>
+</ul>
+<blockquote>
+<ul>
+<li>创建 Vite 项目，是选择第一个<code>Vanilla</code>进入后，再选择 <code>JS</code> 就可以了</li>
+</ul>
+</blockquote>
+<ul>
+<li>回车后，会出现以代码<img src="vite脚手架启动开发服务命令.png"></li>
+</ul>
+<blockquote>
+<p>按顺序执行以上三个命令，就可以启动开发服务，因为：</p>
+<ul>
+<li>新建的<code>vite-project</code>文件夹为项目的根目录，需要执行<code>cd vite-project</code>进入根目录下</li>
+<li>其次，并没有安装项目相关的依赖包，需要在根目录下执行<code>npm install</code>安装<code>package.json</code>中提供的开发和生产依赖包。</li>
+<li>最后，执行<code>npm run dev</code>启动开发服务。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>脚手架并没有安装项目相关的依赖包，因为不同项目需要的不一样，为了不造成冗余，它在你选择完项目类型后，会根据你的选择创建不同的文件内容</li>
+<li>虽然在<code>package.json</code>文件，会有相应的开发和生产依赖，但安装包需要你根据命令安装</li>
+</ul>
+<h4 id="目录结构分析"><a href="#目录结构分析" class="headerlink" title="目录结构分析"></a>目录结构分析</h4><blockquote>
+<p>以下是通过<code>npm create vite@latest</code>命令创建后，生成的目录结构。</p>
+</blockquote>
+<pre><code>vite-project   //  项目目录（项目名称）
+└─ ├─ counter.js
+   ├─ index.html  // 项目打包的入口文件
+   ├─ javascript.svg
+   ├─ .gitignore  // git在提交时，忽略的文件
+   ├─ main.js  // index.html文件用到的main.js文件
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ public  // 不会被起其它文件引用的资源放在这个目录
+   │  └─ vite.svg  // 浏览网页时，出现在地址栏上方的小图标
+   └─ style.css
+</code></pre>
+<ul>
+<li>public 目录<blockquote>
+<p>如果你有下列这些资源，应当放在 public 目录下</p>
+</blockquote>
+</li>
+<li>不会被源码引用（例如 <code>robots.txt</code>）</li>
+<li>必须保持原有文件名（没有经过<code>hash</code>，比如浏览器右上角显示公司 logo 的小图标）</li>
+<li>… 或者你压根不想引入该资源，只是想得到其 URL<blockquote>
+<ul>
+<li>public 目录下的资源，在开发时能直接通过<code>/</code>根跟径访问，并且打包时会被完整复制到目标目录的根目录下（如：dist 目录）</li>
+<li>注意：<code>public</code>中的资源<strong>不应该</strong>被<code>JavaScript</code>文件引用</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="Vite-脚手架作用"><a href="#Vite-脚手架作用" class="headerlink" title="Vite 脚手架作用"></a>Vite 脚手架作用</h4><blockquote>
+<p><strong>脚手架：</strong>帮我们把开发项目时需要做的一些常规项给做了，而提高我们的开发效率。如：</p>
+</blockquote>
+<ul>
+<li>创建一个简单的项目示例</li>
+<li>配置项目启动脚本命令</li>
+<li>配置项目需要用到的开发与生产依赖包</li>
+<li>…..</li>
+</ul>
+<h3 id="七、Vite-中使用插件"><a href="#七、Vite-中使用插件" class="headerlink" title="七、Vite 中使用插件"></a>七、Vite 中使用插件</h3><h4 id="JS-兼容型处理"><a href="#JS-兼容型处理" class="headerlink" title="JS 兼容型处理"></a>JS 兼容型处理</h4><blockquote>
+<p>Vite 在生产环境下打包时，默认是不会处理 JS 的兼容型问题，需要借助 Vite 的<code>@vitejs/plugin-legacy</code>插件来实现。</p>
+</blockquote>
+<ol>
+<li>安装插件<blockquote>
+<p>执行以下命名，安装<code>@vitejs/plugin-legacy</code>插件 ，<a target="_blank" rel="noopener" href="https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue">点击查看插件详细教程</a></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm i -D @vitejs/plugin-legacy
+npm i -D terser  
+#必须安装Terser，因为 @vitejs/plugin-legacy插件使用Terser进行压缩JS代码
+</code></pre>
+<blockquote>
+<ul>
+<li>插件安装成功后，我们需要在 Vite 的配置文件中来配置插件，这样才能在打包时找到对应的插件做相关工作</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>配置插件</li>
+</ol>
+<ul>
+<li>在根目录下，<strong>新建</strong><code>vite.config.js</code>文件，此文件为 Vite 的配置文件。</li>
+<li>配置文件采用 ES 模块语法，对外<strong>导出</strong>一个对象。</li>
+</ul>
+<pre><code>// vite.config.js
+export default &#123;&#125;;
+</code></pre>
+<ul>
+<li>通过<code>import</code>语法<strong>导入</strong>插件，并在配置文件导出对象的<code>plugins</code>选项中配置插件。<blockquote>
+<ul>
+<li>指定转码后的代码需要兼容那些版本的浏览器</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>import legacy from &quot;@vitejs/plugin-legacy&quot;;
+export default &#123;
+  // 插件配置选项，plugins的值是一个数组，其中的第一项代表一个插件
+  plugins: [
+    // 配置legacy插件
+    legacy(&#123;
+      // 指定转码后的代码需要兼容那些版本的浏览器,
+      // 与webpack中`@babel/preset-env`预设中设置了`targets`参数的含义一样
+      targets: &quot;Firefox &gt; 23&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<ol start="3">
+<li>生产打包</li>
+</ol>
+<ul>
+<li><p>执行<code>npm run build</code>完成生产环境下的打包，最后在生成的<code>dist/assets</code>目录下生成了三个 <code>JS</code> 文件，如下图</p>
+<img src="JS兼容性处理-打包文件.png">
+</li>
+<li><p>查看打包后生成的<code>index.html</code>文件，</p>
+<blockquote>
+<ul>
+<li>发现新增了一些脚本，这些脚本根据浏览器的支持程度来动态的引入正常版本文件还是带有 <code>legacy</code> 字样的遗留版本文件。</li>
+<li>当项目运行在一些版本较低的浏览器时，插件添加的脚本会自动加载 legacy 版本的文件。</li>
+</ul>
+</blockquote>
+</li>
+<li><p>执行<code>npm run preview</code>来查看打包后的项目</p>
+<blockquote>
+<ul>
+<li>当我们在最新的<code>Chorme</code>浏览器中访问项目时，Network中只有打包生成的<code>index-36c8d0ed.js</code>文件。</li>
+<li>当我们在<code>firefox 32</code>版的浏览器中访问项目时，Network中请求加载了 3 个 JS文件，也就是<code>dist/assets</code>目录的那三个</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="配置文件智能提示功能"><a href="#配置文件智能提示功能" class="headerlink" title="配置文件智能提示功能"></a>配置文件智能提示功能</h4><ul>
+<li>可以使用 <code>defineConfig</code> 工具函数来为配置添中智能提示功能，具体写法如下</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+
+export default defineConfig(&#123;
+  // ...
+&#125;);
+</code></pre>
+<ul>
+<li>与<code>@vitejs/plugin-legacy</code>插件结合，<code>vite.config.js</code>文件配置如下：</li>
+</ul>
+<pre><code>import legacy from &quot;@vitejs/plugin-legacy&quot;;
+import &#123; defineConfig &#125; from &quot;vite&quot;;
+export default defineConfig(&#123;
+  plugins: [
+    legacy(&#123;
+      targets: &quot;Firefox &gt; 23&quot;,
+    &#125;),
+  ],
+&#125;);
+</code></pre>
+<blockquote>
+<p>关于其它相关配置，也可以让配置有智能提示，查阅 <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/#config-intellisense">Vite 官方- 配置智能提示</a></p>
+</blockquote>
+<h4 id="支持-Vue-结尾的文件"><a href="#支持-Vue-结尾的文件" class="headerlink" title="支持.Vue 结尾的文件"></a>支持.Vue 结尾的文件</h4><blockquote>
+<p>Vue 的单文件组件都是写在以<code>.vue</code>结尾的文件，但是 Vite 默认是不支持<code>.vue</code>的文件的。</p>
+</blockquote>
+<ul>
+<li>需要通过第三方的<code>@vitejs/plugin-vue</code>插件实现。</li>
+</ul>
+<p><strong>安装插件</strong></p>
+<ul>
+<li>首先：执行以下命令，安装<code>@vitejs/plugin-vue</code>插件包</li>
+</ul>
+<pre><code>npm i -D @vitejs/plugin-vue
+</code></pre>
+<ul>
+<li>然后：在<code>vite.config.js</code>配置文件中，配置对应的插件，如下</li>
+</ul>
+<pre><code>// 导入包
+import vue from &quot;@vitejs/plugin-vue&quot;;
+export default (&#123;
+  // 配置vue插件。
+  plugins: [vue()],
+&#125;);
+</code></pre>
+<ul>
+<li>执行<code>npx vite</code>或<code>npm run dev</code>命令就可以成功启动项目</li>
+<li>执行<code>npm run build</code>也可以正常完成生产环境下打包</li>
+</ul>
+<h4 id="Vite-脚手架初始-Vue-项目"><a href="#Vite-脚手架初始-Vue-项目" class="headerlink" title="Vite 脚手架初始 Vue 项目"></a>Vite 脚手架初始 Vue 项目</h4><ul>
+<li>执行<code>npm create vite@latest</code>命令</li>
+<li>在命令执行过程，我们选择支持的框架为<code>Vue</code>，然后，再选择对应的<code>javascript</code>或<code>TypeScript</code></li>
+<li>根据提示，进入项目根目录，下载开发与生产依赖，启动开发服务</li>
+<li>按以上步骤操作后，最终搭建一个简单的 Vue 项目，项目结构如下：<img src="vite脚手架创建vue项目.png"></li>
+</ul>
+<blockquote>
+<p>Vite 脚手架创建<code>vue</code>项目时，脚手架帮我们做了以下几件事</p>
+</blockquote>
+<ul>
+<li>初始化一个简单的<code>vue</code>项目</li>
+<li>在<code>package.json</code>中配置启动<code>vue</code>项目用到的脚本命令</li>
+<li>在<code>package.json</code>中配置了项目需要用到的开发和生产依赖包（如：<code>vite、vue、@vitejs/plugin-vue</code>），我们只需要执行<code>npm i</code>就可以一键安装</li>
+<li>在<code>vite.config.js</code>中配置好使用的<code>@vitejs/plugin-vue</code>插件<blockquote>
+<ul>
+<li>注意：<code>@vitejs/plugin-vue</code>插件和配置文件智能提示功能的<code>defineConfig</code>工具函数都已经自动配置好了</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="八、Vite-静态资源处理"><a href="#八、Vite-静态资源处理" class="headerlink" title="八、Vite 静态资源处理"></a>八、Vite 静态资源处理</h3><blockquote>
+<p>Vite 作为一个开箱即用的前端构建工具，默认支持 JS、CSS、Sass、Less、JSON、图片、HTML 等静态资源的处理。</p>
+<p>但有些情况下还是需要做额外的配置，我们挑了一些比较常用的功能来做讲解：</p>
+<ul>
+<li>CSS 的默认处理行为</li>
+<li>CSS 模块化处理</li>
+<li>CSS 预处理器</li>
+<li>CSS 兼容性处理</li>
+<li>限定大小的图片转为 Base64 编码</li>
+<li>JSON 的导入</li>
+<li>JSON 支持具名导入</li>
+</ul>
+</blockquote>
+<h4 id="CSS-的默认处理行为"><a href="#CSS-的默认处理行为" class="headerlink" title="CSS 的默认处理行为"></a>CSS 的默认处理行为</h4><blockquote>
+<p>css 文件中通过<code>@import</code>导入的其它 CSS，能自动识别，被打包到当前 CSS 中。</p>
+</blockquote>
+<ul>
+<li>开发环境下<blockquote>
+<ul>
+<li>JS 文件中以<code>import</code>导入的<code>.css</code>文件内容最终处理后，会插入到<code>index.html</code>文件的<code>&lt;style&gt;</code>标签中，同时自带<code>HMR</code> 支持。</li>
+<li>对于<code>&lt;link&gt;</code>标签引入的 CSS 不做额外处理。</li>
+</ul>
+</blockquote>
+</li>
+<li>生产环境下<blockquote>
+<ul>
+<li>通过<code>&lt;link&gt;</code>标签引入的 CSS 和<code>import</code>导入的 CSS 打包到<strong>一个</strong> CSS 文件中，输出在项目的<code>dist/assets</code>目录下。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="CSS-模块化处理"><a href="#CSS-模块化处理" class="headerlink" title="CSS 模块化处理"></a>CSS 模块化处理</h4><ul>
+<li><code>Vite</code>允许我们对 CSS 进行模块化处理，也就对 CSS 类名和选择器的<strong>作用域</strong>进行限定的一种方式。</li>
+<li><code>Vite</code>会把任何以<code>.module.css</code>为的缀名的 CSS 文件看成一个模块，并采用<code>CSS module</code>的方式来处理<ul>
+<li>也就是进行样式隔离，相同命名不会冲突</li>
+</ul>
+</li>
+</ul>
+<h4 id="CSS-预处理器"><a href="#CSS-预处理器" class="headerlink" title="CSS 预处理器"></a>CSS 预处理器</h4><blockquote>
+<p>Vite 默认是支持<code>.scss</code>、<code>.sass</code>、<code>.less</code>、<code>.stylus</code>结尾的文件，但必需要安装相应的预处理器依赖。</p>
+</blockquote>
+<ul>
+<li><p><code>.scss</code>和<code>.sass</code>对应的预处理器依赖包为 <code>sass</code></p>
+</li>
+<li><p><code>.less</code>对应的的预处理器依赖包为 <code>less</code> 包</p>
+</li>
+<li><p><code>.stylus</code>对应的的预处理器依赖包为 <code>stylus</code> 包</p>
+</li>
+<li><p>执行以下命令，安装预处理器依赖的 sass 包</p>
+</li>
+</ul>
+<pre><code>npm i sass -D
+</code></pre>
+<ul>
+<li>执行<code>npx vite</code>命令，在浏览器查看效果</li>
+<li>执行<code>npx vite build</code>命令后，在<code>dist/assets</code>目录下生成了对应的 <code>css</code> 文件</li>
+</ul>
+<h4 id="CSS-兼容性处理"><a href="#CSS-兼容性处理" class="headerlink" title="CSS 兼容性处理"></a>CSS 兼容性处理</h4><blockquote>
+<p>如果我们想要 CSS 能兼容不同的浏览器，那我们就需要为相关的 CSS 属性添加兼容性前缀。我们自己去书写每个 CSS 前缀太麻烦了，所以我们可以利用 <code>PostCSS</code> 来帮我们处理。</p>
+</blockquote>
+<ul>
+<li><p><code>Vite</code>内置了 PostCSS，我们只需要安装相关的 PostCSS 插件，并做好相关的 PostCSS 配置就可以了。</p>
+</li>
+<li><p><code>autoprefixer</code>插件，是专门用来处理 CSS 兼容性的插件。我们只需要安装这个插件，并配置好就可以</p>
+</li>
+<li><p>执行以下命令，安装<code>autoprefixer</code>插件</p>
+</li>
+</ul>
+<pre><code>npm i autoprefixer@10.4.14 --save-dev
+</code></pre>
+<ul>
+<li>方式一：在<code>vite.config.js</code>文件的<code>css.postcss</code>选项中来配置这个插件</li>
+</ul>
+<pre><code>// 导入插件
+import autoprefixer from &quot;autoprefixer&quot;;
+
+export default &#123;
+  css: &#123;
+    postcss: &#123;
+      // 配置postcss插件
+      plugins: [
+        autoprefixer(&#123;
+          // 指定兼容 99.5%的浏览器。
+          browsers: [&quot;cover 99.5%&quot;],
+        &#125;),
+      ],
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>方式二：与JS保持相同的浏览器兼容处理<blockquote>
+<ul>
+<li>把对浏览器支持的 <code>browsers</code> 配置，从 <code>postcss</code> 的插件配置中去掉，改写在<code>package.json</code>的<code>browserslist</code>字段中配置，如下</li>
+<li><code>package.json</code>文件</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>&#123;
+  &quot;devDependencies&quot;: &#123;&#125;,
+  &quot;browserslist&quot;: [&quot;cover 99.5%&quot;]
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li><code>vite.config.js</code>文件</li>
+</ul>
+</blockquote>
+<pre><code>// 导入插件
+import autoprefixer from &quot;autoprefixer&quot;;
+
+export default &#123;
+  css: &#123;
+    postcss: &#123;
+      // 配置postcss插件
+      plugins: [
+        autoprefixer(),
+      ],
+    &#125;,
+  &#125;,
+&#125;;
+</code></pre>
+<h4 id="图片转为-base64-编码"><a href="#图片转为-base64-编码" class="headerlink" title="图片转为 base64 编码"></a>图片转为 base64 编码</h4><blockquote>
+<p>如果想要在<strong>生产环境</strong>下打包时，针对一定大小的图片转成 <code>Base64</code>编码，只需要在<code>vite.config.js</code>中添加如下配置即可</p>
+<ul>
+<li>注意：在开发环境下不会变化</li>
+</ul>
+</blockquote>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+
+export default defineConfig(&#123;
+  build: &#123;
+    // 10kb以下，转Base64
+    assetsInlineLimit: 1024 * 10,
+  &#125;,
+&#125;);
+</code></pre>
+<h4 id="JSON-文件处理"><a href="#JSON-文件处理" class="headerlink" title="JSON 文件处理"></a>JSON 文件处理</h4><blockquote>
+<p>JSON 可以被直接导入 —— 同样支持<strong>具名导入</strong></p>
+</blockquote>
+<ul>
+<li>新建<code>data.json</code>文件，内容如下</li>
+</ul>
+<pre><code>&#123;
+  &quot;code&quot;: &quot;0000&quot;,
+  &quot;data&quot;: [
+    &#123;
+      &quot;category_id&quot;: 1001,
+      &quot;title&quot;: &quot;人气 TOP&quot;
+    &#125;,
+    &#123;
+      &quot;category_id&quot;: 1002,
+      &quot;title&quot;: &quot;爆款套餐&quot;
+    &#125;
+  ],
+  &quot;message&quot;: &quot;成功&quot;
+&#125;
+</code></pre>
+<ul>
+<li>新建<code>index.js</code>文件内容如下<blockquote>
+<ul>
+<li>可以整个导入</li>
+<li>也可以通过解构赋值来具名导入，没导入的就会被<code>treeshaking</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>// 导入整个JSON，最终json为JSON对象
+import json from &quot;./data.json&quot;;
+console.log(json);
+
+//  对一个根字段使用具名导入 —— 有效帮助 treeshaking！
+import &#123; data &#125; from &quot;./data.json&quot;;
+console.log(data);
+</code></pre>
+<ul>
+<li>新建<code>index.html</code>内容如下</li>
+</ul>
+<pre><code>&lt;script type=&quot;module&quot; src=&quot;./index.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="九、Vite-常规配置"><a href="#九、Vite-常规配置" class="headerlink" title="九、Vite 常规配置"></a>九、Vite 常规配置</h3><h4 id="Vite-开发服务器配置"><a href="#Vite-开发服务器配置" class="headerlink" title="Vite 开发服务器配置"></a>Vite 开发服务器配置</h4><blockquote>
+<p>当我们执行<code>npx vite</code>或<code>npx run vite</code>命令时，会启动一个开发服务。Vite提供了相关的配置允许更改服务的主机，端口等。</p>
+<p>通过修改<code>vite.config.js</code>文件导出对象的<code>server</code>选项中来配置。</p>
+</blockquote>
+<ul>
+<li>具体如下：</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+
+export default defineConfig(&#123;
+  server: &#123;
+    port: 8880, // 自定义端口，默认为5173
+    open: true, // 服务启动后，自动在浏览器中打开，默认是不打开的
+    hmr: true, // 为开发服务启用热更新，默认是不启用热更新的
+  &#125;,
+&#125;);
+</code></pre>
+<blockquote>
+<ul>
+<li>更多配置：查阅 Vite 官方文档 - <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/server-options.html">开发服务选项配置img srcui</a></li>
+</ul>
+</blockquote>
+<h4 id="Vite-代理服务配置"><a href="#Vite-代理服务配置" class="headerlink" title="Vite 代理服务配置"></a>Vite 代理服务配置</h4><blockquote>
+<p>当我们在项目中利用<code>Ajax</code>向服务端发请求时，会遇到跨域的限制。</p>
+<p>为了能让请求成功，我们通常会在请求和真实服务之间架设一个代理服务。代理服务再向真实服务器发请求拿到数据并返回给到客户端<br><img src="代理跨域.png"></p>
+<ul>
+<li>Vite允许我们为开发服务配置自定义代理规则，我们只需要在<code>server.proxy</code>选项下进行相关配置就可</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>server.proxy</code>配置</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &#39;vite&#39;
+
+export default defineConfig(&#123;
+    server:&#123;
+        proxy:&#123;
+            // /api是字符串 http://localhost:5173/api 的简写法
+            // 以下表示，当我们向 http://localhost:5173/api地址及下级路径发请求时，帮我转发到`http://127.0.0.1:8990/api`地址及对应的下级路径发请求
+            // http://127.0.0.1:8990/api --&gt; http://127.0.0.1:8990/api
+            // http://127.0.0.1:8990/api/menu --&gt; http://127.0.0.1:8990/api/menu
+            &quot;/api&quot;:&quot;http://127.0.0.1:8990/api
+            //
+        &#125;
+    &#125;
+&#125;)
+</code></pre>
+<ol>
+<li>代码演示 -（项目结构）<blockquote>
+<p>我们利用<code>node</code>来搭建两个请求数据的服务</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><p><code>http://127.0.0.1:8990/api/menu</code>获取菜单数据</p>
+</li>
+<li><p><code>http://127.0.0.1:8990/api/course</code>获取课程数据</p>
+<blockquote>
+<p>然后在 Vite 项目中，利用<code>axios</code>向上面两个地址发送请求来获取数据</p>
+<p>因为受到跨域限制，所以我们需要设置开发服务的代理服务，利用代理服务帮帮我们拿到数据并转发给我们。</p>
+</blockquote>
+</li>
+<li><p>整体项目目录结构如下</p>
+</li>
+</ul>
+<pre><code>vite
+├─ data   // JSON数据，node服务会读取JSON文件中内容，然后返回给客户端
+│  ├─ course.json
+│  └─ menu.json
+├─ index.html  // Vite 项目的入口文件
+├─ index.js  // 文件中会利用axios向服务端发请求获取数据
+├─ node-api.js  // 搭建node服务，返回JSON数据
+├─ package-lock.json
+├─ package.json
+└─ vite.config.js  // 配置文件
+</code></pre>
+<ol start="2">
+<li>代码演示 - 搭建 node 服务</li>
+</ol>
+<ul>
+<li><code>node-api.js</code>文件内容如下 ：</li>
+</ul>
+<pre><code>const http = require(&quot;http&quot;); // 加载http模块,用来创建http服务
+const fs = require(&quot;fs&quot;); // 加载fs模块，用来操作文件
+
+// 创建http服务，req请求对象   res响应对象
+http
+  .createServer((req, res) =&gt; &#123;
+    // 获取请求地址主机端口后地址
+    const url = req.url;
+    // 设置响应头，响应的数据类型
+    res.writeHead(200, &#123;
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+    &#125;);
+
+    // 请求地址拦截
+    if (url === &quot;/api/menu&quot;) &#123;
+      // 读取JSON文件中数据，并响应到客户端
+      const data = fs.readFileSync(&quot;./data/menu.json&quot;, &quot;utf-8&quot;);
+      res.end(data);
+    &#125; else if (url === &quot;/api/course&quot;) &#123;
+      const data = fs.readFileSync(&quot;./data/course.json&quot;, &quot;utf-8&quot;);
+      res.end(data);
+    &#125; else &#123;
+      res.end(&quot;Hello Node&quot;);
+    &#125;
+  &#125;)
+  .listen(&quot;8990&quot;); // 设置端口号
+
+// 服务器正常启动，打印下面这句话作为提示
+console.log(&quot;Server running at http://127.0.0.1:8990&quot;);
+</code></pre>
+<ul>
+<li>data 文件夹中<code>product.json</code>和<code>menu.json</code>文件，内容如下</li>
+</ul>
+<pre><code>&#123;
+  &quot;code&quot;: &quot;0000&quot;,
+  &quot;data&quot;: [
+    &#123;
+      &quot;Name&quot;: &quot;丝袜奶茶&quot;,
+      &quot;imageUrl&quot;: &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2022/08-29/210311f423d6528839.jpg&quot;,
+      &quot;desc&quot;: &quot;奶茶香飘飘&quot;
+    &#125;,
+    &#123;
+      &quot;Name&quot;: &quot;柠檬水&quot;,
+      &quot;imageUrl&quot;: &quot;https://sce7a2b9c9d95a-sb-qn.qiqiuyun.net/files/course/2020/03-30/13215973670d532706.jpg&quot;,
+      &quot;desc&quot;: &quot;暴打柠檬&quot;
+    &#125;
+  ],
+  &quot;message&quot;: &quot;成功&quot;
+&#125;
+</code></pre>
+<pre><code>&#123;
+  &quot;code&quot;: &quot;0000&quot;,
+  &quot;data&quot;: [
+    &#123;
+      &quot;category_id&quot;: 1001,
+      &quot;title&quot;: &quot;人气 TOP&quot;
+    &#125;,
+    &#123;
+      &quot;category_id&quot;: 1005,
+      &quot;title&quot;: &quot;甜品小点&quot;
+    &#125;
+  ],
+  &quot;message&quot;: &quot;成功&quot;
+&#125;
+</code></pre>
+<ul>
+<li>以上文件创建好后，只需要 Vite 目录执行<code>node node-api.js</code>就可以启动<code>node</code>服务。</li>
+<li>访问<code>http://127.0.0.1:8990/api/menu</code>和<code>http://127.0.0.1:8990/api/course</code>地址，可以查看到返回的<code>JSON</code>字符串。</li>
+</ul>
+<ol start="3">
+<li>代码演示 - 搭建 Vite 项目</li>
+</ol>
+<ul>
+<li><code>index.html</code>文件内容如下</li>
+</ul>
+<pre><code>&lt;script type=&quot;module&quot; src=&quot;./index.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<ul>
+<li><code>index.js</code>文件内容如下</li>
+</ul>
+<pre><code>import axios from &quot;axios&quot;;
+// 向 http://localhost:5173/api/menu 发请求,因为设置了代理，代理转发向http://127.0.0.1:8990/api/menu 发请求
+axios.get(&quot;/api/menu&quot;).then((res) =&gt; &#123;
+  console.log(res.data.data);
+&#125;);
+
+// 向 http://localhost:5173/api/course 发请求 因为设置了代理，代理转发向http://127.0.0.1:8990/api/course 发请求
+axios.get(&quot;/api/course&quot;).then((res) =&gt; &#123;
+  console.log(res.data);
+&#125;);
+</code></pre>
+<ul>
+<li><code>vite.config.js</code>配置文件内如下</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+
+export default defineConfig(&#123;
+  server: &#123;
+    proxy: &#123;
+      &quot;/api&quot;: &quot;http://127.0.0.1:8990&quot;,
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ul>
+<li>新建终端</li>
+<li>初始化项目</li>
+</ul>
+<pre><code>npm init -y
+</code></pre>
+<ul>
+<li>安装vite</li>
+</ul>
+<pre><code>npm i vite -D
+</code></pre>
+<ul>
+<li>安装<code>axios</code></li>
+</ul>
+<pre><code>npm i axios
+</code></pre>
+<ul>
+<li>最后执行<code>npx vite</code>启动开发服务，访问<code>http://localhost:5173/</code>地址，可以看到控制台正常打印了请求到的内容。</li>
+</ul>
+<h4 id="Vite-中如何配置别名路径"><a href="#Vite-中如何配置别名路径" class="headerlink" title="Vite 中如何配置别名路径"></a>Vite 中如何配置别名路径</h4><ul>
+<li>当我们在访问静态资源时，如果书写的路径非常长，那每次书写时就会非常麻烦。</li>
+<li>如果能把相同部分的路径用别名代替，那我们在书写路径时只需要书写别名+不同的路径部分就好了。</li>
+<li>我们可以在<code>vite</code>的配置文件中， 为文件系统路径配置别名，如下：</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &#39;vite&#39;
+export default defineConfig(&#123;
+    resolve:&#123;
+        alias:&#123;
+            /*
+                @js 为 路径 /src/assets/js 的别名
+                导入JS：  import &#123; username &#125;  from &quot;/src/assets/js/basic.js&quot;
+                可简写成： import &#123; username &#125; from &quot;@js/basic.js&quot;
+            */
+          &quot;@js&quot;:&quot;/src/assets/js&quot;,
+    &#125;
+  &#125;
+&#125;)
+</code></pre>
+<blockquote>
+<p>注意事项</p>
+<ul>
+<li>当使用文件系统路径的别名时，请始终使用<strong>绝对路径</strong>，相对路径的别名值会原封不动地被使用，因此无法被正常解析。</li>
+<li>在<code>index.html</code>项目入口文件中<strong>不要</strong>使用别名加载文件，因为启动开发服务并不会对源码做打包</li>
+</ul>
+</blockquote>
+<h4 id="vite-中如何配置多入口，进行多页面开发"><a href="#vite-中如何配置多入口，进行多页面开发" class="headerlink" title="vite 中如何配置多入口，进行多页面开发"></a>vite 中如何配置多入口，进行多页面开发</h4><ul>
+<li>Vite 在<strong>开发环境</strong>下默认是多入口开发的</li>
+<li>在<strong>生产环境</strong>下，如果想要多入口开发，需要额外的配置。</li>
+<li>Vite 在生产环境下是利用<code>rollup</code>来实现打包，所以我们需要对<code>rollup</code>的打包入口进行配置。</li>
+</ul>
+<blockquote>
+<p>开发环境下</p>
+</blockquote>
+<ul>
+<li>如果在项目根目录下同时存在<code>index.html</code>和<code>app.html</code>两个页面</li>
+<li>在浏览器访问项目时默认打开的是<code>index.html</code></li>
+<li>访问<code>app.html</code>需要在地址后添加<code>app.html</code>，如<code>http://localhost:5173/app.html</code></li>
+</ul>
+<blockquote>
+<p>生产环境下，多入口打包配置如下</p>
+</blockquote>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+import &#123; resolve &#125; from &quot;path&quot;;
+export default defineConfig(&#123;
+  // 生产环境下打包配置在build选项中配置
+  build: &#123;
+    // rollup 相关配置在rollupOptions选项中配置
+    rollupOptions: &#123;
+      // 打包入口，以下是多入口
+      input: &#123;
+        index: resolve(__dirname, &quot;index.html&quot;),
+        app: resolve(__dirname, &quot;app.html&quot;),
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+<ul>
+<li>执行<code>npx vite build</code>打包，会发现生成的<code>dist</code>目录下有一个<code>modulepreload-polyfill.js</code>文件，是自动注入的 模块预加载 <code>polyfill</code><ul>
+<li><code>modulepreload</code>模块预加载可以预加载原生模块，保证某些文件可以不必等到执行时才加载</li>
+</ul>
+</li>
+<li>观察<code>dist</code>目录，会发现所有资源文件全部打包后放在了<code>dist/assets</code>目录下，如果我们想按文件类型，将 JS、CSS、Images 分别放到 JS、CSS、Images 文件夹，还需要我们做额外配置</li>
+</ul>
+<h4 id="Vite-打包后资源分类存到对应文件夹"><a href="#Vite-打包后资源分类存到对应文件夹" class="headerlink" title="Vite 打包后资源分类存到对应文件夹"></a>Vite 打包后资源分类存到对应文件夹</h4><ul>
+<li>可以做如下配置：</li>
+</ul>
+<pre><code>import &#123; defineConfig &#125; from &quot;vite&quot;;
+import &#123; resolve &#125; from &quot;path&quot;;
+
+export default defineConfig(&#123;
+  build: &#123;
+    rollupOptions: &#123;
+      // 打包输出路径,默认是dist/assets,以下相当于dist/static
+      assetsDir: &quot;static&quot;,
+      // 打包入口，以下是多入口
+      input: &#123;
+        index: resolve(__dirname, &quot;index.html&quot;),
+        app: resolve(__dirname, &quot;app.html&quot;),
+      &#125;,
+      // 出口设置
+      output: &#123;
+        // 入口文件中JS输出地址
+        entryFileNames: &quot;static/js/[name]-[hash].js&quot;,
+        // 对代码分割中产生的 chunk 自定义命名
+        chunkFileNames: &quot;static/chunk/[name]-[hash].js&quot;,
+        // 资源出口路径(如：图片、css等)
+        assetFileNames: function (assetInfo) &#123;
+          const name = assetInfo.name;
+          if (/.css$/.test(name)) &#123;
+            return &quot;static/css/[name]-[hash].[ext]&quot;;
+          &#125; else if (/.[jpe?g|png|gif]$/.test(name)) &#123;
+            return &quot;static/images/[name]-[hash].[ext]&quot;;
+          &#125; else &#123;
+            return &quot;static/[ext]/[name]-[hash].[ext]&quot;;
+          &#125;
+        &#125;,
+      &#125;,
+    &#125;,
+  &#125;,
+&#125;);
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/21/Vue%EF%BC%88%E4%B8%80%EF%BC%89/">https://hermiablog.com/2024/01/21/Vue%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/22/Vue%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/43.jpg" class="responsive-img" alt="Vue（二）">
+                        
+                        <span class="card-title">Vue（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            模板语法、事件处理、计算属性、侦听器、表单、样式绑定、条件/列表渲染、指令
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/20/%E7%BD%91%E7%BB%9C%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="网络（二）">
+                        
+                        <span class="card-title">网络（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            JSON、Ajax、跨域、XHR、Fetch
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-20
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

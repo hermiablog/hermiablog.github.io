@@ -1,0 +1,4962 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue（六）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Vue（六） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/47.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Vue（六）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-28
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    22.5k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、Vue-描述-UI-的-2-种方式"><a href="#一、Vue-描述-UI-的-2-种方式" class="headerlink" title="一、Vue 描述 UI 的 2 种方式"></a>一、Vue 描述 UI 的 2 种方式</h3><blockquote>
+<p>Vue 提供了以下两种方式来声明式描述 UI</p>
+<ul>
+<li>模板语法来描述 UI</li>
+<li>虚拟 DOM 来描述 UI</li>
+</ul>
+</blockquote>
+<ul>
+<li>模板语法<ul>
+<li>以下代码使用模板语法来描述 UI</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;!-- 模板语法描述UI --&gt;
+&lt;button @click=&quot;count++&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;
+</code></pre>
+<ul>
+<li>虚拟 DOM<ul>
+<li>以下代码使用虚拟 DOM 来描述 UI</li>
+</ul>
+</li>
+</ul>
+<pre><code>/*
+   h() 函数是Vue提供用来创建虚拟DOM ,函数的
+      第一个参数：元素的HTML标签名
+      第二个参数：标签元素的属性、事件等
+      第三个参数：标签元素的子元素内容
+*/
+h(&quot;button&quot;, &#123; onClick: () =&gt; count.value++ &#125;, count.value);
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>以上两段代码采用了不同的方式描述 UI，但最终渲染出来的结果是一模一样，都是告诉 Vue：<ul>
+<li>需要生成button元素，button元素的innerText值为count变量的值</li>
+<li>为button元素绑定了click事件，点击按扭后，count变量的值 +1</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、虚拟-DOM"><a href="#二、虚拟-DOM" class="headerlink" title="二、虚拟 DOM"></a>二、虚拟 DOM</h3><h4 id="虚拟-DOM-定义"><a href="#虚拟-DOM-定义" class="headerlink" title="虚拟 DOM 定义"></a>虚拟 DOM 定义</h4><blockquote>
+<p>虚拟 DOM（Virtual DOM，简称 VDOM）是一种编程概念，意为将目标所需的 UI 通过数据结构“虚拟”地表示出来，保存在内存中，然后将真实的 DOM 与之保持同步。</p>
+<ul>
+<li>”虚拟 DOM“ 简单理解就是用一个纯 JavaScript 的对象来描述真实的 DOM 结构</li>
+<li>”虚拟 DOM“ 这个概念是由 React 率先开拓，随后被许多不同的框架采用，当然也包括 Vue。</li>
+</ul>
+</blockquote>
+<ul>
+<li>以下为真实 DOM</li>
+</ul>
+<pre><code>&lt;div id=&quot;box&quot; class=&quot;active&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>转换成虚拟 DOM</li>
+</ul>
+<pre><code>const vnode = &#123;
+  // 标签名 &lt;div&gt;
+  tag: &quot;div&quot;,
+  // 标签上的属性
+  props: &#123;
+    id: &quot;box&quot;,
+    class: &quot;active&quot;,
+  &#125;,
+  children: null, // 可以是 null 空数组、&quot;&quot; 或 不存在 都可以
+  // .....
+&#125;;
+</code></pre>
+<blockquote>
+<p>注：上面代码用一个 JS 对象表达 DOM 结构</p>
+</blockquote>
+<ul>
+<li><code>tag</code>：属性用来描述标签名称，所以tag:’div’ 描述的就是一个<div>标签</li>
+<li><code>props</code>：属性值是一个对象，用来描述标签的属性、事件等内容。所以<code>props:&#123;id:&#39;box&#39;,class:&#39;active&#39;&#125;</code> 表示标签的属性，如：<div id='box' class='active'></div></li>
+<li><code>children</code>：属性用来描述标签的子节点，没有子节点，所以值为 <code>null</code>，当然也可是空数组，空字符串都可以。</li>
+<li>注意： JS 对象表示 vnode 的写法<strong>并不是固定的</strong>，对象中属性名可以自定义，也可以增加其它属性来表示元素的其它信息，没有规定说一定要如何写才是对，只要能用一个对象来表达出 DOM 的信息，就是合理的。<ul>
+<li>与其说虚拟 DOM 是一种具体的技术，不如说是一种模式，所以并没有一个标准的实现。</li>
+</ul>
+</li>
+</ul>
+<h4 id="手动创建虚拟-DOM"><a href="#手动创建虚拟-DOM" class="headerlink" title="手动创建虚拟 DOM"></a>手动创建虚拟 DOM</h4><blockquote>
+<p>将以下 DOM 结构转换为虚拟 DOM（vnode）</p>
+</blockquote>
+<pre><code>&lt;div id=&quot;box&quot; class=&quot;active&quot;&gt;
+  &lt;a href=&quot;xxx.html&quot; target=&quot;_blank&quot;&gt;
+    &lt;img src=&quot;xxx.png&quot; alt=&quot;图片&quot; /&gt;
+  &lt;/a&gt;
+  &lt;p&gt;图片描述&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>以上 DOM 结构转换为 vnode 如下</li>
+</ul>
+<pre><code>const vnode = &#123;
+  // 标签名 &lt;div&gt;
+  tag: &quot;div&quot;,
+  // 标签上的属性
+  props: &#123;
+    id: &quot;box&quot;,
+    class: &quot;active&quot;,
+  &#125;,
+  // 标签的子节点，数组中每一个对象用来描述一个子节点
+  children: [
+    // 第一个子节点，
+    &#123;
+      tag: &quot;a&quot;,
+      props: &#123;
+        href: &quot;xxx.html&quot;,
+        target: &quot;_blank&quot;,
+      &#125;,
+      children: [
+        &#123;
+          tag: &quot;img&quot;,
+          props: &#123;
+            src: &quot;xxx.png&quot;,
+            alt: &quot;图片&quot;,
+          &#125;,
+        &#125;,
+      ],
+    &#125;,
+    // 第二个子节点
+    &#123;
+      tag: &quot;p&quot;,
+      children: &quot;图片描述&quot;,
+    &#125;,
+  ],
+&#125;;
+</code></pre>
+<ul>
+<li>上面代码用一个 JS 对象表达 DOM 结构</li>
+<li><code>tag</code>：属性用来描述标签名称，所以<code>tag:&#39;div&#39; </code>描述的就是一个<div>标签</li>
+<li><code>props</code>：属性值是一个对象，用来描述标签的属性、事件等内容。所以<code>props:&#123;id:&#39;box&#39;,class:&#39;active&#39;&#125;</code> 表示标签的属性，如：<code>&lt;div id=&#39;box&#39; class=&#39;active&#39;&gt;&lt;/div&gt;</code></li>
+<li><code>children</code>：属性用来描述标签的子节点<ul>
+<li>值可以是一个数组，数组中的每一个对象表示一个子节点。</li>
+<li>也可以是一个字符串，表示只有一个文本类的子节点。</li>
+</ul>
+</li>
+</ul>
+<h4 id="自动创建虚拟-DOM"><a href="#自动创建虚拟-DOM" class="headerlink" title="自动创建虚拟 DOM"></a>自动创建虚拟 DOM</h4><blockquote>
+<p>如果真实 DOM 的结构非常复杂，我们还采用手动形式来书写虚拟 DOM 这肯定是不可行的。所以我们可以创建一个方法，用来将真实 DOM 转换成虚拟 DOM<br>实现原理</p>
+<ul>
+<li>创建一个函数，根据真实 DOM 节点返回 vnode</li>
+<li>处理节点标签名</li>
+<li>处理节点属性</li>
+<li>处理节点的子节点</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>创建一个函数<code>createNode</code>，该函数的第一个参数为真实 DOM 元素，然后返回该 DOM 元素的 <code>vnode</code></li>
+</ul>
+<pre><code>function createNode(el) &#123;
+  const vnode = &#123;&#125;;
+  // ....
+  return vnode;
+&#125;
+// 返回#box的vnode
+const vnode = createNode(document.getElementById(&quot;box&quot;));
+</code></pre>
+<ul>
+<li>判断 el 是否是元素节点，如果是元素节点，则获取该元素的标签名</li>
+</ul>
+<pre><code>// 1、判断el是否为元素节点，如果是，获取该元素的标签名
+if (el.nodeType === 1) &#123;
+  vnode.tag = el.tagName.toLowerCase();
+&#125;
+</code></pre>
+<ul>
+<li>用<code>attribute</code>获取元素节点的所有属性，然后将属性名与属性值作为 <code>props </code>的属性和属性值</li>
+</ul>
+<pre><code>// 2、获取元素节点的所有属性，然后将属性名与属性值作为props的属性和属性值
+const attrs = el.attributes;
+// 如果有属性
+if (attrs.length) &#123;
+  const props = &#123;&#125;;
+  vnode.props = props;
+  [...attrs].forEach((attr) =&gt; &#123;
+    // 取出对应属性的属性名与属性值
+    let &#123; name, value &#125; = attr;
+    props[name] = value;
+  &#125;);
+&#125;
+</code></pre>
+<ul>
+<li>用<code>childNodes</code>获取该元素节点的子节点，如果存在，创建<code>vnode.children=[]</code>,用来保存子节点。</li>
+<li>在添加前，要判断子节点的类型。<ul>
+<li>如果子节点为文本节点，则直接将文本节点的<code>nodeValue</code>添加到数组中</li>
+<li>如果子节点为元素节点，则利用递归，获取子节点的 vnode，然后将 vnode 添加到数组中。</li>
+</ul>
+</li>
+<li>注意：不能使用<code>children</code>来获取子节点，因为它拿不到文本节点</li>
+</ul>
+<pre><code>// 3、获取子节点
+const children = el.childNodes;
+// 如果存在子节点
+if (children.length) &#123;
+  vnode.children = [];
+  [...children].forEach((child) =&gt; &#123;
+    // 如果为文本节点
+    if (child.nodeType === 3) &#123;
+      // 如果不考虑空的文本节点
+      if (child.nodeValue.trim()) &#123;
+        //将不为空的文本节点push进vnode.children
+        vnode.children.push(child.nodeValue.trim());
+      &#125;
+      // 如果为元素节点，就进行递归
+    &#125; else if (child.nodeType === 1) &#123;
+      vnode.children.push(createNode(child));
+    &#125;
+  &#125;);
+&#125;
+</code></pre>
+<ul>
+<li>最终完整版代码如下：</li>
+</ul>
+<pre><code>export default function createNode(el) &#123;
+  const vnode = &#123;&#125;;
+
+  // 1、判断el是否为元素节点，如果是，获取该元素的标签名
+  if (el.nodeType === 1) &#123;
+    vnode.tag = el.tagName.toLowerCase();
+
+    // 2、获取元素的所有属性，然后遍历，将属性与属性对应值添加到props对象上
+    const attrs = el.attributes;
+    // 如果有属性
+    if (attrs.length) &#123;
+      const props = &#123;&#125;;
+      vnode.props = props;
+      [...attrs].forEach((attr) =&gt; &#123;
+        let &#123; name, value &#125; = attr;
+        props[name] = value;
+      &#125;);
+    &#125;
+    // 3、获取子节点
+    const children = el.childNodes;
+    // 如果存在子节点
+    if (children.length) &#123;
+      vnode.children = [];
+      [...children].forEach((child) =&gt; &#123;
+        // 如果为文本节点
+        if (child.nodeType === 3) &#123;
+          // 如果不考虑空的文本节点，可以加个判断
+          if (child.nodeValue.trim()) &#123;
+            vnode.children.push(child.nodeValue.trim());
+          &#125;
+          // 如果为元素节点
+        &#125; else if (child.nodeType === 1) &#123;
+          vnode.children.push(createNode(child));
+        &#125;
+      &#125;);
+    &#125;
+  &#125;
+
+  // ....
+  return vnode;
+&#125;
+</code></pre>
+<blockquote>
+<p>回顾知识点</p>
+<table>
+<thead>
+<tr>
+<th>节点类型</th>
+<th>nodeName</th>
+<th>nodeType</th>
+<th>nodeVulue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文档节点</td>
+<td>#document</td>
+<td>9</td>
+<td>null</td>
+</tr>
+<tr>
+<td>元素节点</td>
+<td>标签名</td>
+<td>1</td>
+<td>null</td>
+</tr>
+<tr>
+<td>属性节点</td>
+<td>属性名</td>
+<td>2</td>
+<td>属性值</td>
+</tr>
+<tr>
+<td>文本节点</td>
+<td>#text</td>
+<td>3</td>
+<td>文本内容</td>
+</tr>
+</tbody></table>
+</blockquote>
+<blockquote>
+<p>拿到子节点的方式有两种</p>
+</blockquote>
+<ul>
+<li><code>childNodes</code>考虑所有节点</li>
+<li><code>children</code>只考虑元素节点</li>
+</ul>
+<h3 id="三、Vue-渲染函数"><a href="#三、Vue-渲染函数" class="headerlink" title="三、Vue 渲染函数"></a>三、Vue 渲染函数</h3><blockquote>
+<p>前面我们提到 Vue 提供了 模板语法 与 虚拟 DOM 两种方式来声明式的描述 UI，那 Vue 是如何将模板与虚拟 DOM 转换为真实的 DOM 节点呢 ？这就需要用到 Vue 提供的以下两个函数：</p>
+</blockquote>
+<ul>
+<li><code>h()</code>函数：创建虚拟 DOM</li>
+<li><code>render()</code>渲染函数：返回虚拟 DOM</li>
+</ul>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>以下 Vue 代码利用<code>h()</code>函数来创建虚拟 DOM，然后利用<code>render</code>渲染函数返回虚拟 DOM。最终 Vue 会利用渲染器将虚拟 DOM 转换为真实 DOM 显示在页面中。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      let count = ref(10);
+      /*
+           h() 函数用来创建虚拟DOM ,函数的
+          第一个参数：元素的HTML标签名
+          第二个参数：标签元素的属性、事件等
+          第三个参数：标签元素的子元素内容
+          setup函数返回值为 render渲染函数  render函数返回用虚拟DOM树，最终Vue渲染器会将虚拟DOM渲染成真实DOM挂载到页面中。
+            */
+      return () =&gt; h(&quot;button&quot;, &#123; onClick: () =&gt; count.value++ &#125;, count.value);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h4 id="h-函数的语法"><a href="#h-函数的语法" class="headerlink" title="h() 函数的语法"></a>h() 函数的语法</h4><ul>
+<li><code>Vue</code>提供的<code>h()</code>函数是用来创建 <code>vnodes</code></li>
+<li><code>h()</code>是 <code>hyperscript</code> 的简称 —— 意思是 “能生成 HTML（超文本标记语言）的 JavaScript”</li>
+</ul>
+<blockquote>
+<p>语法</p>
+</blockquote>
+<pre><code>function h(
+ type: string | Component,
+ props?: object | null,
+ children?: Children | Slot | Slots
+): VNode
+
+// children值的三种类型
+type Children = string | number | boolean | VNode | null | Children[]
+type Slot = () =&gt; Children  // 组件默认插槽内容
+type Slots = &#123; [name: string]: Slot &#125;  //  组件插槽内容
+</code></pre>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li><code>type</code>：如果值为字符串，表示生成 DOM 元素的标签名。如果是一个 Vue 组件，表示将组件转换为 vnode</li>
+<li><code>props</code>：可选参数，用于定义生成后标签元素或组件的属性、事件，值可以是一个对象也可以 null</li>
+<li><code>children</code>：可选参数，用于生成标签元素的子节点或组件的插槽内容</li>
+</ul>
+<h4 id="h-函数的基本用法"><a href="#h-函数的基本用法" class="headerlink" title="h 函数的基本用法"></a>h 函数的基本用法</h4><blockquote>
+<p>实际上h()函数的使用非常灵活。h函数可以</p>
+</blockquote>
+<ul>
+<li>创建原生 HTML 元素的 vnode</li>
+<li>也可以创建组件的 vnode</li>
+</ul>
+<ol>
+<li>创建 HTML 元素的 vnode<blockquote>
+<p>以下代码为测试示例，你可以更改以下代码的h()，来查看最终生成的 DOM，掌握h函数的用法</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      return () =&gt; h(&quot;div&quot;);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>h 函数被传入三个参数，第一个参数为标签名，第二个为标签属性，第三个为子节点</li>
+</ul>
+<pre><code>h(&quot;div&quot;, &#123; id: &quot;box&quot; &#125;, &quot;Hello Vue!!&quot;);
+
+// 以上代码，最终生成如下结构的vnode
+const vndoe = &#123;
+  type: &quot;div&quot;,
+  props: &#123; id: &quot;box&quot; &#125;,
+  children: &quot;Hello Vue!!&quot;,
+  //......
+&#125;;
+//  渲染后DOM :   &lt;div id=&#39;box&#39;&gt; Hello Vue!! &lt;/div&gt;
+</code></pre>
+<ul>
+<li>第一个参数必填，表示标签名，其它两个参数为可选项</li>
+</ul>
+<pre><code>h(&quot;div&quot;); // 渲染后DOM : &lt;div&gt;&lt;/div&gt;
+h(&quot;div&quot;, &#123; id: &quot;foo&quot; &#125;); // 渲染后DOM :&lt;div id=&#39;foo&#39;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>没有 prop 时可以省略不写，<strong>第二个参数表示子节点</strong></li>
+</ul>
+<pre><code>h(&quot;div&quot;, &quot;hello&quot;); //  渲染后DOM :&lt;div&gt;hello&lt;/div&gt;
+h(&quot;div&quot;, [h(&quot;span&quot;, &quot;hello&quot;)]); // 渲染后DOM : &lt;div&gt;&lt;span&gt;hello&lt;/span&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>第三个参数children，可以是是以下任意类型</li>
+</ul>
+<pre><code>/* 字符串、数字、布尔值、虚拟DOM、null 、数组（成员为前面几种类型组成） */
+type Children = string | number | boolean | VNode | null | Children[];
+</code></pre>
+<pre><code>h(&quot;div&quot;, &#123; id: &quot;foo&quot; &#125;, &quot;hello&quot;);
+// 渲染后DOM :&lt;div id=&quot;foo&quot;&gt;hello&lt;/div&gt;
+
+h(&quot;div&quot;, true);
+//  渲染后DOM:&lt;div&gt;true&lt;/div&gt;
+
+h(&quot;div&quot;, h(&quot;span&quot;, &#123; class: &quot;sp&quot; &#125;));
+// 渲染后DOM &lt;div&gt;&lt;span class=&quot;sp&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+
+h(&quot;div&quot;, [&quot;hello&quot;, h(&quot;span&quot;, &quot;hello&quot;)]);
+// 渲染后DOM : &lt;div&gt;hello&lt;span&gt;hello&lt;/span&gt;&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>创建组件的 vnode<blockquote>
+<p>当给组件创建 vnode 时，传入给h()函数的</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>第一个参数应当是组件的定义</li>
+<li>第二个参数是传递给组件的 prop 或 事件监听</li>
+<li>第三个参数是传递给组件的插槽内容，如果组件只有默认槽，可以使用单个插槽函数进行传递。否则，必须以插槽函数的对象形式来传递。</li>
+</ul>
+<pre><code>type Slot = () =&gt; Children; // 只有一个默认插槽时，通过插槽函数传递插槽内容
+type Slots = &#123; [name: string]: Slot &#125;; // 多个插槽时，要通过插槽函数对象形式传递插槽内容
+</code></pre>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li><code>App.vue</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &#39;vue&#39;;
+  import A from &quot;./components/A.vue&quot;
+
+  export default &#123;
+      setup() &#123;
+          const title = ref(&quot;新闻标题&quot;);
+          const info = ref(&quot;新闻内容&quot;);
+
+          function update() &#123;
+              title.value = &quot;标题XXX&quot;;
+              info.value = &quot;内容XXX&quot;
+
+          // 渲染函数
+          return () =&gt; h(
+              // 组件定义
+              A,
+              // 组件属性与事件
+              &#123;
+                  title: title.value,  // prop属性
+                  info: info.value,  //  prop属性
+                  onUpdate: update  // 组件监听事件
+              &#125;,
+              // 只传递默认插槽内容
+              // () =&gt; h(&#39;div&#39;, &#123; class: &quot;header&quot; &#125;, &quot;最新动态&quot;),
+              // 传递多个插槽内容
+              &#123;
+                  default: () =&gt; h(&#39;div&#39;, &#123; class: &quot;header&quot; &#125;, &quot;最新动态&quot;),
+                  footer: () =&gt; h(&#39;div&#39;, &#123; class: &#39;footer&#39; &#125;, &quot;底部&quot;)
+              &#125;
+          )
+      &#125;
+  &#125;
+&#125;
+&lt;/script&gt;
+
+&lt;style scoped&gt;
+  .header,
+  .footer &#123;
+    margin: 20px 0;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>A.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // props
+  defineProps([&quot;title&quot;, &quot;info&quot;]);
+  // emit
+  defineEmits([&quot;update&quot;]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;com-a&quot;&gt;
+    &lt;!-- 默认插槽 --&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+
+    &lt;div class=&quot;main&quot;&gt;
+      &lt;h3&gt;&#123;&#123; title &#125;&#125;&lt;/h3&gt;
+      &lt;p&gt;&#123;&#123; info &#125;&#125;&lt;/p&gt;
+      &lt;button @click=&quot;$emit(&#39;update&#39;)&quot;&gt;更新&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 具名插槽 --&gt;
+    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .main &#123;
+    background-color: #ddd;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="渲染函数的基本用法"><a href="#渲染函数的基本用法" class="headerlink" title="渲染函数的基本用法"></a>渲染函数的基本用法</h4><blockquote>
+<p><code>render()</code>用于编程式地创建组件虚拟 DOM 树的函数，返回值为 <code>VNodeChild</code> 类型。</p>
+<ul>
+<li>在以下三种情况会用到渲染函数</li>
+</ul>
+</blockquote>
+<ul>
+<li>选项式 API 中的<code>render </code>选项</li>
+<li><code>setup()</code>函数直接返回<code>render </code>渲染函数</li>
+<li><code>&lt;script setup&gt;</code>中使用<code>render </code>渲染函数</li>
+</ul>
+<ol>
+<li>选项式 API</li>
+</ol>
+<ul>
+<li>在选项式 API 中，我们可以使用 render 选项来声明渲染函数</li>
+<li>render()函数中的 this 为当前组件实例，所以在render()函数中可以访问组件的属性和方法等</li>
+</ul>
+<pre><code>&lt;!-- App.vue --&gt;
+&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        message: &quot;Hello Vue!!&quot;,
+      &#125;;
+    &#125;,
+    render() &#123;
+      // 返回值为vnode
+      return h(&quot;div&quot;, &#123; id: &quot;box&quot; &#125;, this.message);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<p>以上 App 组件最终渲染后的真实 DOM 如下：</p>
+<pre><code>&lt;div id=&quot;box&quot;&gt;Hello Vue!!&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>setup() 函数中</li>
+</ol>
+<ul>
+<li>组合式 API 中，<code>setup()</code>钩子可以直接返回渲染函数。</li>
+<li>在 <code>setup()</code>内部声明的渲染函数天生能够访问在同一范围内声明的 props 和许多响应式状态。</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    props: [&quot;text&quot;], // props.text的值是 Vue!!
+    data() &#123;
+      return &#123;
+        message: &quot;Hello&quot;, // setup中访问不到
+      &#125;;
+    &#125;,
+    setup(props) &#123;
+      const msg = ref(&quot;Hello&quot;);
+      return () =&gt; &#123;
+        return h(&quot;div&quot;, &#123; id: &quot;box&quot; &#125;, msg.value + props.text);
+      &#125;;
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>以上 App 组件最终渲染后的真实 DOM 如下：</li>
+</ul>
+<pre><code>&lt;div id=&quot;box&quot;&gt;Hello Vue!!&lt;/div&gt;
+</code></pre>
+<ol start="3">
+<li>在 <code>&lt;script setup&gt;</code> 中使用<blockquote>
+<p>在 setup 中，一个带有 <code>render</code>选项的 JS 对象就会被当成组件渲染，可以直接在模板中使用。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  const info = ref(&quot;ComA&quot;);
+  const ComA = &#123;
+    render() &#123;
+      return h(&quot;div&quot;, info.value);
+    &#125;,
+  &#125;;
+&lt;/&gt;
+
+&lt;template&gt;
+  &lt;ComA&gt;&lt;/ComA&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="根渲染函数"><a href="#根渲染函数" class="headerlink" title="根渲染函数"></a>根渲染函数</h4><blockquote>
+<p>根渲染函数是用于将一个 vnode 转换为真实 DOM 挂载到指定的 DOM 容器中。</p>
+</blockquote>
+<ul>
+<li>语法：</li>
+</ul>
+<pre><code>function render(vnode, container, isSVG?: boolean) &#123;&#125;
+</code></pre>
+<ul>
+<li>代码示例</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; h, render, ref, onMounted &#125; from &quot;vue&quot;;
+  // 创建vnode
+  const vnode = h(&quot;div&quot;, &#123; id: &quot;box&quot; &#125;, &quot;Hello Vue!!&quot;);
+  // 获取.container元素
+  const container = ref(null);
+  onMounted(() =&gt; &#123;
+    // 将vnode转换为真实DOM挂载到页面
+    // 第一个参数为vnode，第二个参数为挂载容器
+    render(vnode, container.value);
+    // render(vnode, document.body)
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;container&quot; ref=&quot;container&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="渲染函数-与-template-模板"><a href="#渲染函数-与-template-模板" class="headerlink" title="渲染函数 与 template 模板"></a>渲染函数 与 template 模板</h4><ul>
+<li><code>render</code>函数是字符串模板的一种替代，所以不能一个组件中同时拥有<code>render</code>和<code>template</code>。</li>
+<li>因为单文件组件中的<code>template</code>模板，会在构建时被编译为<code>render</code>函数，添加到组件实例上。</li>
+</ul>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li><code>A.vue</code>文件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const msg = ref(&quot;A组件&quot;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;A组件&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><code>App.vue</code></li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import A from &quot;./components/A.vue&quot;;
+  console.log(A);
+&lt;/script&gt;
+&lt;template&gt;&lt;/template&gt;
+</code></pre>
+<h4 id="模板-VS-渲染函数"><a href="#模板-VS-渲染函数" class="headerlink" title="模板 VS 渲染函数"></a>模板 VS 渲染函数</h4><blockquote>
+<p>Vue 提供了以下两种方式来声明式描述 UI</p>
+</blockquote>
+<ul>
+<li>使用模板语法来描述 UI</li>
+<li>使用虚拟 DOM 来描述 UI</li>
+</ul>
+<blockquote>
+<p>在绝大多数情况下，Vue 推荐使用模板语法来创建应用，主要原因有：</p>
+</blockquote>
+<ul>
+<li>模板更贴近实际的 HTML。这使得我们能够更方便地重用一些已有的 HTML 代码片段，能够带来更好的可访问性体验、能更方便地使用 CSS 应用样式，并且更容易使设计师理解和修改。</li>
+<li>由于其确定的语法，更容易对模板做静态分析。这使得 Vue 的模板编译器能够应用许多编译时优化来提升虚拟 DOM 的性能表现 。具体内容参考 Vue 官网：带编译时信息的虚拟 DOM(opens new window)</li>
+</ul>
+<blockquote>
+<p>在实践中，模板对大多数的应用场景都是够用且高效的。渲染函数一般只会在需要处理高度动态渲染逻辑的可重用组件中使用。</p>
+</blockquote>
+<ul>
+<li>比如接下来要讲到的《动态生成带锚点标题》的案例，使用渲染函数要比使用模板语法来的更简洁高效易读。</li>
+</ul>
+<h4 id="实战应用：动态生成带锚点标题"><a href="#实战应用：动态生成带锚点标题" class="headerlink" title="实战应用：动态生成带锚点标题"></a>实战应用：动态生成带锚点标题</h4><blockquote>
+<p>我们希望创建如下这样一个组件，这个组件可以根据传入的<code>level</code>属性值，动态生成带有链接的的 <code>h</code> 标签。</p>
+</blockquote>
+<pre><code>&lt;AnchoredHeading :level=&quot;3&quot; href=&quot;http://www.icodingedu.com&quot;
+  &gt;艾编程&lt;/AnchoredHeading
+&gt;
+
+&lt;!-- 以上代码最终编译后的真实DOM如下 --&gt;
+&lt;h3&gt;&lt;a href=&quot;http://www.icodingedu.com&quot;&gt;艾编程&lt;/a&gt;&lt;/h3&gt;
+</code></pre>
+<blockquote>
+<p>我们采用模板语法和虚拟 DOM 两种方式来描述 UI，通过对比来看那种方式更简洁</p>
+</blockquote>
+<ul>
+<li>模板语法来描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  defineProps([&quot;level&quot;, &quot;href&quot;]);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;h1 v-if=&quot;level === 1&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h1&gt;
+  &lt;h2 v-else-if=&quot;level === 2&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h2&gt;
+  &lt;h3 v-else-if=&quot;level === 3&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h3&gt;
+  &lt;h4 v-else-if=&quot;level === 4&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h4&gt;
+  &lt;h5 v-else-if=&quot;level === 5&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h5&gt;
+  &lt;h6 v-else-if=&quot;level === 6&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/h6&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>虚拟 DOM 描述 UI</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    props: [&quot;level&quot;, &quot;href&quot;],
+    setup(props, &#123; slots &#125;) &#123;
+      return () =&gt;
+        h(&quot;h&quot; + props.level, h(&quot;a&quot;, &#123; href: props.href &#125;, slots.default()));
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>通过对比，明显采用虚拟 DOM 描述 UI 的方式在这里更合适，代码相对要简洁很多</li>
+</ul>
+<h3 id="四、Vue-渲染机制"><a href="#四、Vue-渲染机制" class="headerlink" title="四、Vue 渲染机制"></a>四、Vue 渲染机制</h3><blockquote>
+<p>通过前面的学习，我知道 Vue 提供了<strong>模板语法</strong>与<strong>虚拟 DOM</strong>两种方式声明式描述 UI。</p>
+<ul>
+<li>如果 Vue 提供虚拟 DOM 来描述 UI，则需要用到 h 函数来创建虚拟 DOM，render 函数来返回虚拟 DOM。最终 vue 渲染器会将 vnode 转换为真实 DOM。但渲染器是如何将 vnode 转换为真实 DOM 的呢 ？</li>
+<li>如果 Vue 采用模板语法来描述 UI，那模板最终会被编译成什么，又如何转换成真实 DOM 的呢？</li>
+</ul>
+<p>要回答面提到的两个问题，就需要先掌握以下几个知识点：</p>
+<ul>
+<li>编译器</li>
+<li>虚拟 DOM</li>
+<li>渲染器</li>
+<li>渲染器渲染组件</li>
+</ul>
+<p>当我们了解了以上知识点后，我们就知道 Vue 的整个渲染流程和渲染机制了。</p>
+</blockquote>
+<h4 id="编译器"><a href="#编译器" class="headerlink" title="编译器"></a>编译器</h4><blockquote>
+<p>Vue 中的编译器主要是将 Vue 的模板编译成渲染函数，该渲染函数会添加到组件实例上。这一步通常是通过构建步骤提前完成的，也可以使用运行时编译器即时完成。即：</p>
+</blockquote>
+<ul>
+<li>如果我们采用<strong>虚拟 DOM</strong>来描述 UI，并不需要用到编译器，因为我们是直接通过<code>h()</code>函数来创建 vnode，然后在render渲染函数中返回 vnode。</li>
+<li>只有采用<strong>模板语法</strong>来描述 UI 时，才需要用到编译器。</li>
+</ul>
+<blockquote>
+<p>定义了一个 Vue 组件：</p>
+</blockquote>
+<pre><code>&lt;!--A组件--&gt;
+&lt;script setup&gt;
+  function handler() &#123;&#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div @click=&quot;handler&quot;&gt;点我&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>在构建时，编译器会将上模板转换为一个与之功能相同的渲染函数，添加到组件实例上。</li>
+<li>以上单文件组件最终被转换成如下代码：</li>
+</ul>
+<pre><code>function handler() &#123;&#125;
+const A = &#123;
+  __name: &quot;A&quot;, // 组件名
+  render() &#123;
+    //  h函数，用来生成vnode，
+    return h(&quot;div&quot;, &#123; onClick: handler &#125;, &quot;点我&quot;);
+  &#125;,
+  //	......省略更多属性
+&#125;;
+</code></pre>
+<h4 id="渲染器"><a href="#渲染器" class="headerlink" title="渲染器"></a>渲染器</h4><blockquote>
+<p>通过前面的学习我知道，如果 Vue 项目采用的是模板语法来描述 UI，则在构建项目时首先会利用<strong>编译器</strong>将模板编译成render渲染函数，渲染函数的返回值为虚拟 DOM<br>那 Vue 是如何将一个虚拟 DOM 转换为一个真实的 DOM 并渲染到浏览器页面中呢 ？这就需要借助渲染器来实现。</p>
+<ul>
+<li>渲染器的作用就是把虚拟 DOM 渲染为真实 DOM</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>将以下 vnode 渲染成一个真实的 DOM</li>
+</ul>
+<pre><code>// 虚拟DOM中需要用到的事件处理函数
+function handler() &#123;
+  alert(&quot;我被点击了&quot;);
+&#125;
+// vnode为虚拟DOM
+const vnode = &#123;
+  // html元素标签名
+  tag: &quot;div&quot;,
+  // 元素身上的属性
+  props: &#123;
+    id: &quot;box&quot;,
+  &#125;,
+  // 元素子节点
+  children: [
+    &#123;
+      tag: &quot;button&quot;,
+      props: &#123;
+        onClick: handler, // 绑定一个click事件，事件处理函数为handler
+      &#125;,
+      children: &quot;点我&quot;,
+    &#125;,
+  ],
+&#125;;
+</code></pre>
+<blockquote>
+<p>编写一个渲染器，将上面虚拟 DOM 转换为真实 DOM</p>
+<ul>
+<li>实现思路：</li>
+</ul>
+</blockquote>
+<ul>
+<li>创建 html 元素：把 <code>vnode.tag</code> 作为标签名来创建 DOM 元素</li>
+<li>为元素添加属性和事件：遍历<code>vnode.props</code>对象，如果 key 以 <code>on</code> 字符开头，说明它是一个事件，事件名为on之后的字符，则从on之后截图字符并利用<code>toLowerCase</code>函数将事件名转换为小写，最终得到合法的事件名称。如：<code>onClick</code>变成<code>click</code>，最后调用<code>addEventListener</code>方法为元素添加事件监听。</li>
+<li>创建子节点：首先判断 <code>children</code> 是否有内容，如果没有则不做任何处理，如果是一个字符串，则使用<code>createTextNode</code>方法创建一个文本节点，并将其加入到新创建的元素内。如果是一个数组，则遍历数组，然后递归<code>renderer</code>函数继续渲染子节点。</li>
+<li>挂载：将<code>vnode.tag</code>作为标签名创建的元素挂载到真实的 DOM 容器<code>container</code>中</li>
+</ul>
+<blockquote>
+<p>完整版代码</p>
+</blockquote>
+<pre><code>/**
+ * 创建渲染器 renderer
+ * vnode为需要渲染的虚拟DOM
+ * container为一个真实DOM，渲染后的DOM需要挂载的容器
+ */
+function renderer(vnode, container) &#123;
+  // 获取tag属性，创建DOM元素
+  const el = document.createElement(vnode.tag);
+  // 遍历props，将属性与事件添加到元素身上
+  for (const key in vnode.props) &#123;
+    // 如果key为on开头，表示添加的事件
+    if (/^on/.test(key)) &#123;
+      // 将事件名，转换为小写，并去掉on
+      const eventName = key.substring(2).toLocaleLowerCase();
+      // 添加事件监听
+      el.addEventListener(eventName, vnode.props[key]);
+    &#125; else &#123;
+      el.setAttribute(key, vnode.props[key]);
+    &#125;
+  &#125;
+  // 判断是否有子节点,并判断是一个子节点还是多个，
+  // 如果是一个，则是一个字符串，如果是多个，则是一个数组
+  if (vnode.children &amp;&amp; typeof vnode.children === &quot;string&quot;) &#123;
+    // 创建文本类子节点
+    el.appendChild(document.createTextNode(vnode.children));
+  &#125; else if (Array.isArray(vnode.children)) &#123;
+    // 如果有多个子节点，则利用递归来处理
+    vnode.children.forEach((child) =&gt; &#123;
+      renderer(child, el);
+    &#125;);
+  &#125;
+  // 将元素添加到挂载容器中
+  container.appendChild(el);
+&#125;
+</code></pre>
+<ul>
+<li>我们上面只学习了渲染器如何在初始化时创建 DOM 节点，但渲染器的核心是 DOM 的更新，DOM 的更新涉及到 <code>diff</code> 算法与响应式，非常复杂，目前暂时不讲解。</li>
+</ul>
+<h4 id="渲染器渲染组件"><a href="#渲染器渲染组件" class="headerlink" title="渲染器渲染组件"></a>渲染器渲染组件</h4><blockquote>
+<p>通过前面的学习我们知道</p>
+<ul>
+<li>组件最终编译成一个带有 <code>render</code> 函数的对象。<code>render</code> 函数返回值是一组 <code>vnode</code>，这里的 <code>vnode</code> 就是<code>template</code>模板中的内容被编译器编译成了虚拟 <code>DOM</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>以下代码为编译后的组件实例</li>
+</ul>
+<pre><code>// A组件实例
+const A = &#123;
+  render() &#123;
+    //  h函数，用来生成vnode，
+    return h(&quot;div&quot;, &#123; onClick: handler &#125;, &quot;点我&quot;);
+  &#125;,
+  //	......省略更多属性
+&#125;;
+</code></pre>
+<ul>
+<li><p>虚拟 DOM 是用一个纯 JavaScript 的对象来描述真实的 DOM 结构。其实虚拟 DOM 除了能描述真实 DOM 之外，还能够描述组件。只需要将 vnode 对象的 tag 属性定义为一个组件的定义就 ok。</p>
+</li>
+<li><p>以下为组件 A 的虚拟 DOM</p>
+</li>
+</ul>
+<pre><code>const vnode=&#123;
+    tag：A  // A为组件实例
+&#125;
+</code></pre>
+<ul>
+<li>渲染器的作用就是把虚拟 DOM 渲染成一个真实 DOM。那渲染器在渲染时，他如何判断是要渲染一个 HTML 元素，还是渲染一个组件呢？</li>
+<li>渲染器在渲染时会判断传入的第一个参数 vnode 的<code>tag</code>属性值是一个字符串还是一个对象<ul>
+<li>如果是一个<strong>字符串</strong>则会渲染成 HTML 元素</li>
+<li>如果是一个<strong>对象</strong>，则调用该对象的<code>render</code>方法得到<code>vnode</code>，然后递归调用用<code>renderer</code>渲染器来渲染 vnode。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>为了使渲染器能渲染组件，我们需要对renderer函数做修改，具体如下：</p>
+</blockquote>
+<pre><code>function renderer(vnode, container) &#123;
+  // 如果tag的值为字符串，则vnode描述的是标签元素
+  if (typeof vnode.tag === &quot;string&quot;) &#123;
+    // mountElement方法，就是原来的renderer方法
+    mountElement(vnode, container);
+    // 如果tag的值为对象，则vnode描述的是组件
+  &#125; else if (typeof vnode.tag === &quot;object&quot;) &#123;
+    mountComponent(vnode, container);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>mountElement</code>函数用来渲染标签元素，与前面提到的 <code>renderer</code>函数内容一致。</li>
+</ul>
+<pre><code>/**
+ * 创建渲染器
+ * vnode为需要渲染的虚拟DOM
+ * container为一个真实DOM，渲染后的DOM需要挂载的容器
+ */
+function mountElement(vnode, container) &#123;
+  // 获取tag属性，创建DOM元素
+  const el = document.createElement(vnode.tag);
+  // 遍历props，将属性与事件添加到元素身上
+  for (const key in vnode.props) &#123;
+    // 如果key为on开头，表示添加的事件
+    if (/^on/.test(key)) &#123;
+      // 将事件名，转换为小写，并去掉on
+      const eventName = key.substring(2).toLocaleLowerCase();
+      // 添加事件监听
+      window.addEventListener(eventName, vnode.props[key]);
+    &#125; else &#123;
+      el.setAttribute(key, vnode.props[key]);
+    &#125;
+  &#125;
+  // 判断是否有子节点,并判断是一个子节点还是多个，
+  // 如果是一个，则是一个字符串，如果是多个，则是一个数组
+  if (vnode.children &amp;&amp; typeof vnode.children === &quot;string&quot;) &#123;
+    // 创建文本类子节点
+    el.appendChild(document.createTextNode(vnode.children));
+  &#125; else if (Array.isArray(vnode.children)) &#123;
+    // 如果有多个子节点，则利用递归来处理
+    vnode.children.forEach((child) =&gt; &#123;
+      renderer(child, el);
+    &#125;);
+  &#125;
+  // 将元素添加到挂载容器中
+  container.appendChild(el);
+&#125;
+</code></pre>
+<ul>
+<li><code>mountComponent</code> 函数，用来渲染组件。内容如下：</li>
+</ul>
+<pre><code>function mountComponent(vnode, container) &#123;
+  // vnode.tag是组件对象，调用它的render函数得到组件要渲染的内容(vnode)
+  const subtree = vnode.tag.render();
+  mountElement(subtree, container);
+&#125;
+</code></pre>
+<blockquote>
+<p>测试代码</p>
+</blockquote>
+<pre><code>// A组件实例
+const A = &#123;
+  render() &#123;
+    return &#123;
+      tag: &quot;div&quot;,
+      props: &#123;
+        id: &quot;com&quot;,
+      &#125;,
+      children: [
+        &#123;
+          tag: &quot;p&quot;,
+          children: &quot;组件内容&quot;,
+        &#125;,
+      ],
+    &#125;;
+  &#125;,
+&#125;;
+
+// DOM元素的虚拟DOM
+const vnode1 = &#123;
+  tag: &quot;div&quot;,
+  props: &#123;
+    class: &quot;box1&quot;,
+  &#125;,
+  children: &quot;div元素&quot;,
+&#125;;
+
+// 组件A的虚拟DOM
+const vnode2 = &#123;
+  tag: A,
+&#125;;
+// 渲染 html元素，挂载到#app容器中
+renderer(vnode1, document.getElementById(&quot;app&quot;));
+// 渲染组件，最终将生成的html元素挂载到#app2容器中
+renderer(vnode2, document.getElementById(&quot;app2&quot;));
+</code></pre>
+<ul>
+<li>最终渲染后代码如下：</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  &lt;div class=&quot;box1&quot;&gt;div元素&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;app2&quot;&gt;
+  &lt;div id=&quot;com&quot;&gt;
+    &lt;p&gt;组件内容&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h4 id="Vue-渲染流程"><a href="#Vue-渲染流程" class="headerlink" title="Vue 渲染流程"></a>Vue 渲染流程</h4><blockquote>
+<p>通过前面的学习，我们知道了 Vue 的渲染流程大致如下图：<br><img src="Vue%20渲染流程.png"></p>
+</blockquote>
+<blockquote>
+<p>编译</p>
+<ul>
+<li>在项目构建阶段，会通过编译器将 Vue 模板编译为渲染函数，渲染函数用来返回虚拟 DOM 树</li>
+</ul>
+<p>挂载（渲染器）</p>
+<ul>
+<li>在运行项目时，渲染器会调用组件身上的渲染函数，遍历返回的虚拟 DOM 树，并基于它创建实际的 DOM 节点。当然内部还会做相关的响应式处理等更多优化。</li>
+</ul>
+<p>更新</p>
+<ul>
+<li>当某个响应式数据发生是变化时，会创建一个更新后的虚拟 DOM 树，然后渲染器遍历这棵新树，将它与旧树进行比较，然后将必要的更新应用到真实 DOM 上去。</li>
+</ul>
+</blockquote>
+<h3 id="五、深入-h-函数"><a href="#五、深入-h-函数" class="headerlink" title="五、深入 h 函数"></a>五、深入 h 函数</h3><blockquote>
+<p>前面我们对h函数的用法做了一定的了解，接下来我们针对没有讲到的一些内容做相关补充</p>
+</blockquote>
+<ul>
+<li><code>attribute</code>和<code>property</code> 都可以用于 prop，Vue 会自动选择正确的方式来分配它</li>
+</ul>
+<pre><code>h(&quot;div&quot;, &#123; class: &quot;bar&quot;, innerHTML: &quot;hello&quot; &#125;);
+// 渲染后DOM : &lt;div class=&quot;bar&quot;&gt;hello&lt;/div&gt;
+</code></pre>
+<ul>
+<li>class 与 style 可以像在模板中一样，用数组或对象的形式书写</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const foo = ref(&quot;foo&quot;);
+      const bar = ref(true);
+      return () =&gt;
+        h(&quot;div&quot;, &#123; class: [foo.value, &#123; bar &#125;], style: &#123; color: &quot;red&quot; &#125; &#125;);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;!-- 渲染后DOM如下--&gt;
+&lt;div class=&quot;foo bar&quot; style=&quot;color: red;&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>给元素添加事件监听器以<code>onxxx</code>的形式书写</li>
+</ul>
+<pre><code>h(
+  &quot;div&quot;,
+  &#123;
+    onClick: () =&gt; &#123;
+      alert(&quot;点击了&quot;);
+    &#125;,
+  &#125;,
+  &quot;点我&quot;
+);
+// 渲染后DOM : &lt;div&gt;点我&lt;/div&gt;
+// 元素添加了点击事件，点击元素时，会弹出弹窗，显示&quot;点击了&quot;
+</code></pre>
+<h4 id="vnodes-必须唯一"><a href="#vnodes-必须唯一" class="headerlink" title="vnodes 必须唯一"></a>vnodes 必须唯一</h4><blockquote>
+<p>组件树中的 vnodes 必须是唯一的，以下为错误示范:</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  const p = h(&quot;p&quot;, &quot;hi&quot;);
+
+  export default &#123;
+    setup() &#123;
+      return () =&gt; h(&quot;div&quot;, [p, p]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>如果 vnodes 是一样的，那后期操作 DOM 时，操作第一个 p 会影响到第二个 p</li>
+<li>如果你真的非常想在页面上渲染多个重复的元素或者组件，你可以使用一个<strong>工厂函数</strong>来做这件事。</li>
+</ul>
+<blockquote>
+<p>以下代码可以渲染出 10 个一样的 p 标签</p>
+</blockquote>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      return () =&gt;
+        h(
+          &quot;div&quot;,
+          Array.from(&#123; length: 20 &#125;).map(() =&gt; h(&quot;p&quot;, &quot;h1&quot;))
+        );
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="六、渲染函数案例"><a href="#六、渲染函数案例" class="headerlink" title="六、渲染函数案例"></a>六、渲染函数案例</h3><ol>
+<li>v-on 事件</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const count = ref(0);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;count++&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const count = ref(0);
+      return () =&gt; h(&quot;button&quot;, &#123; onClick: () =&gt; count.value++ &#125;, count.value);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="2">
+<li>v-if 指令</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!--模板语法--&gt;
+  &lt;div&gt;
+    &lt;button @click=&quot;isShow = !isShow&quot;&gt;切换&lt;/button&gt;
+    &lt;div v-if=&quot;isShow&quot;&gt;A内容&lt;/div&gt;
+    &lt;div v-else&gt;B内容&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const isShow = ref(true);
+      // 渲染函数--------------
+      return () =&gt;
+        h(&quot;div&quot;, [
+          h(
+            &quot;button&quot;,
+            &#123; onClick: () =&gt; (isShow.value = !isShow.value) &#125;,
+            &quot;切换&quot;
+          ),
+          isShow.value ? h(&quot;div&quot;, &quot;A内容&quot;) : h(&quot;div&quot;, &quot; B内容&quot;),
+        ]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>v-for</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive &#125; from &quot;vue&quot;;
+  const list = reactive([1, 2, 3]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;ul&gt;
+    &lt;li v-for=&quot;(item, index) in list&quot; :key=&quot;index&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, reactive &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const list = reactive([1, 2, 3]);
+      return () =&gt;
+        h(
+          &quot;ul&quot;,
+          list.map((item, index) =&gt; h(&quot;li&quot;, &#123; key: index &#125;, item))
+        );
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="4">
+<li>事件修饰符<blockquote>
+<p>对于 <code>.passive</code>、<code>.capture</code> 和 <code>.once</code> 事件修饰符，可以使用<strong>驼峰写法</strong>将他们拼接在事件名后面：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const count = ref(1);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;!--只能点击一次，按下enter抬起键盘背景变红色--&gt;
+  &lt;button @click.once=&quot;count++&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const count = ref(0);
+      return () =&gt;
+        h(
+          &quot;button&quot;,
+          &#123;
+            onClickOnce: () =&gt; count.value++,
+          &#125;,
+          count.value
+        );
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<blockquote>
+<p>对于事件和按键修饰符，可以使用<a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/render-function.html#withmodifiers"><code>withModifiers</code>函数</a>：</p>
+</blockquote>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  const count = ref(0);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div @click.self=&quot;count++&quot;&gt;
+    &lt;span&gt;&#123;&#123; count &#125;&#125;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  div &#123;
+    width: 50px;
+    height: 50px;
+    padding: 50px;
+    background-color: skyblue;
+  &#125;
+
+  div span &#123;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, ref, withModifiers &#125; from &quot;vue&quot;;
+  export default &#123;
+    setup() &#123;
+      const count = ref(0);
+      return () =&gt;
+        h(
+          &quot;div&quot;,
+          &#123;
+            onClick: withModifiers(() =&gt; count.value++, [&quot;self&quot;]),
+          &#125;,
+          [h(&quot;span&quot;, count.value)]
+        );
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+&lt;style scoped&gt;
+  div &#123;
+    width: 50px;
+    height: 50px;
+    padding: 50px;
+    background-color: skyblue;
+  &#125;
+
+  div span &#123;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ol start="5">
+<li>组件</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; shallowRef &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  import B from &quot;./components/B.vue&quot;;
+  const current = shallowRef(A);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;current = B&quot;&gt;切换到B&lt;/button&gt;
+  &lt;component :is=&quot;current&quot;&gt;&lt;/component&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, shallowRef &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  import B from &quot;./components/B.vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const current = shallowRef(A);
+      return () =&gt;
+        h(&quot;div&quot;, [
+          h(&quot;button&quot;, &#123; onClick: () =&gt; (current.value = B) &#125;, &quot;切换到B&quot;),
+          // 渲染组件的虚拟DOM
+          h(current.value),
+        ]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="6">
+<li>内置组件<blockquote>
+<p>诸如<code>&lt;KeepAlive&gt;</code>、<code>&lt;Transition&gt;</code>、<code>&lt;TransitionGroup&gt;</code>、<code>&lt;Teleport&gt;</code>和<code>&lt;Suspense&gt;</code>等内置组件在渲染函数中必须导入才能使用：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; h, shallowRef &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  import B from &quot;./components/B.vue&quot;;
+  const current = shallowRef(A);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;current = B&quot;&gt;切换到B&lt;/button&gt;
+  &lt;button @click=&quot;current = A&quot;&gt;切换到A&lt;/button&gt;
+  &lt;KeepAlive&gt;
+    &lt;component :is=&quot;current&quot;&gt;&lt;/component&gt;
+  &lt;/KeepAlive&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, shallowRef, resolveComponent, KeepAlive &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  import B from &quot;./components/B.vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const current = shallowRef(A);
+      return () =&gt;
+        h(&quot;div&quot;, [
+          h(&quot;button&quot;, &#123; onClick: () =&gt; (current.value = B) &#125;, &quot;切换到B&quot;),
+          h(&quot;button&quot;, &#123; onClick: () =&gt; (current.value = A) &#125;, &quot;切换到A&quot;),
+          h(KeepAlive, [h(current.value)]),
+        ]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="7">
+<li>渲染插槽<blockquote>
+<p>在渲染函数中，插槽可以通过 <code>setup()</code> 的上下文来访问。</p>
+<ul>
+<li>每个<code>slots</code>对象中的插槽都是一个返回<code>vnodes</code>数组的函数：</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;!-- 具名插槽 --&gt;
+    &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;
+    &lt;!-- 默认插槽 --&gt;
+    &lt;slot :info=&quot;&#123; a: 1&#125;&quot;&gt;&lt;/slot&gt;
+    &lt;!-- 具名插槽 --&gt;
+    &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;!--A组件--&gt;
+&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    // slots用来接受传递的插槽内容，返回该插槽的vnodes数组
+    setup(props, &#123; slots &#125;) &#123;
+      return () =&gt;
+        h(&quot;div&quot;, [
+          // &lt;slot name=&quot;header&quot;&gt;&lt;/slot&gt;
+          slots.header(),
+          // &lt;slot info=&#123;a:1&#125;&gt;&lt;/slot&gt;
+          slots.default(&#123;
+            info: &#123; a: 1 &#125;,
+          &#125;),
+          // &lt;slot name=&quot;footer&quot;&gt;&lt;/slot&gt;
+          slots.footer(),
+        ]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>在组件中使用上面的 A 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import A from &quot;./components/A.vue&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;a&gt;
+    &lt;template #header&gt;
+      &lt;div class=&quot;header&quot;&gt;头部&lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template #default=&quot;&#123; info &#125;&quot;&gt;
+      &lt;div class=&quot;main&quot;&gt;主体参数：&#123;&#123; info.a &#125;&#125;&lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template #footer&gt;
+      &lt;div class=&quot;footer&quot;&gt;底部&lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/a&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="8">
+<li>传递插槽内容</li>
+</ol>
+<ul>
+<li>在使用组件时，需要传递插槽内容，前面创建组件的 vnode 时讲过</li>
+</ul>
+<ol start="9">
+<li>组件 v-model<blockquote>
+<p>当我们在使用 A 组件时，在组件上绑定<code>v-model</code>指令，如下：</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  import A from &quot;./components/A.vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;a v-model=&quot;isShow&quot;&gt;&lt;/a&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li><p>在 A 组件中要接受传过来的 props 和 emits，并在需要的时候触发事件。</p>
+</li>
+<li><p>模板描述 UI</p>
+</li>
+</ul>
+<pre><code>&lt;!--A组件--&gt;
+&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    props: [&quot;modelValue&quot;],
+    emits: [&quot;update:modelValue&quot;],
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;$emit(&#39;update:modelValue&#39;, !modelValue)&quot;&gt;切换&lt;/button&gt;
+  &lt;div class=&quot;box&quot; v-if=&quot;modelValue&quot;&gt;内容&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  export default &#123;
+    props: [&quot;modelValue&quot;],
+    emits: [&quot;update:modelValue&quot;],
+    setup(props, &#123; emit &#125;) &#123;
+      return () =&gt;
+        h(&quot;div&quot;, [
+          h(
+            &quot;button&quot;,
+            &#123;
+              onClick: () =&gt; emit(&quot;update:modelValue&quot;, !props.modelValue),
+            &#125;,
+            &quot;切换&quot;
+          ),
+          props.modelValue ? h(&quot;div&quot;, &#123; class: &quot;box&quot; &#125;, &quot;内容&quot;) : &quot;&quot;,
+        ]);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="10">
+<li>自定义指令<blockquote>
+<p>可以使用<a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/render-function.html#withdirectives"><code>withDirectives</code></a>将自定义指令应用于 vnode</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  const vFocus = (el, binding) =&gt; &#123;
+    console.log(binding.value); // 指令值
+    console.log(binding.arg); // 指令参数
+    console.log(binding.modifiers); // 指令修饰符
+    el.focus();
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;input type=&quot;text&quot; v-focus:color.enter=&quot;&#39;red&#39;&quot; value=&quot;123&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h, withDirectives &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      // 自定义指令
+      const focus = (el, binding) =&gt; &#123;
+        console.log(binding.value); // 指令值
+        console.log(binding.arg); // 指令参数
+        console.log(binding.modifiers); // 指令修饰符
+        el.focus();
+      &#125;;
+      return () =&gt;
+        withDirectives(
+          // html元素
+          h(&quot;input&quot;, &#123; type: &quot;text&quot;, value: &quot;123&quot; &#125;),
+          // 指令
+          [[focus, &quot;red&quot;, &quot;color&quot;, &#123; enter: true &#125;]]
+        );
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<ol start="11">
+<li>模板引用<blockquote>
+<p>在组合式 API 中，模板引用通过将 ref() 本身作为一个属性传递给 vnode 来创建</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>模板描述 UI</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, onMounted &#125; from &quot;vue&quot;;
+  const box = ref(null);
+  onMounted(() =&gt; &#123;
+    console.log(box.value.innerText);
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div ref=&quot;box&quot;&gt;box内容&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价于下面代码</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; ref, onMounted, h &#125; from &quot;vue&quot;;
+
+  export default &#123;
+    setup() &#123;
+      const box = ref(null);
+      onMounted(() =&gt; &#123;
+        console.log(box.value.innerText);
+      &#125;);
+      return () =&gt; h(&quot;div&quot;, &#123; ref: box &#125;, &quot;box内容&quot;);
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="七、函数式组件"><a href="#七、函数式组件" class="headerlink" title="七、函数式组件"></a>七、函数式组件</h3><blockquote>
+<p>函数式组件是一种定义自身没有任何状态的组件的方式</p>
+<p>它们很像纯函数：接收 <code>props</code>，返回 <code>vnodes</code>。函数式组件在渲染过程中不会创建组件实例（也就是说，没有 this），也不会触发常规的组件生命周期钩子。</p>
+</blockquote>
+<ul>
+<li>函数式组件的写法与<code>setup()</code>函数类似，其返回值为<code>vnode</code>，</li>
+</ul>
+<pre><code>// 函数式组件 没有expose
+function MyComponent(props, &#123; slots, emit, attrs &#125;) &#123;
+  // ...
+  return h(&quot;div&quot;); // 返回vnode
+&#125;
+</code></pre>
+<ul>
+<li>大多数常规组件的配置选项在函数式组件中都不可用，除了 <code>props</code>和<code>emits</code>。我们可以给函数式组件添加对应的属性来声明它们：</li>
+</ul>
+<pre><code>MyComponent.props = [&quot;value&quot;];
+MyComponent.emits = [&quot;click&quot;];
+</code></pre>
+<ol>
+<li>函数式组件的基本用法<blockquote>
+<p>函数式组件和普通函数一样被注册和使用</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在<code>&lt;script setup&gt;</code>中定义函数式组件，则在模板中可以直接使用</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  function MyComponent(props, &#123; slots, emit, attrs &#125;) &#123;
+    // ...
+    return h(&quot;div&quot;, &#123; class: &quot;box&quot; &#125;, &quot;函数式组件&quot;);
+  &#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;MyComponent&gt;&lt;/MyComponent&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>在选项式 API 中，需要先注册，然后才能使用</li>
+</ul>
+<pre><code>&lt;script&gt;
+  import &#123; h &#125; from &quot;vue&quot;;
+  function MyComponent(props, &#123; slots, emit, attrs &#125;) &#123;
+    // ...
+    return h(&quot;div&quot;, &#123; class: &quot;box&quot; &#125;, &quot;函数式组件&quot;);
+  &#125;
+  export default &#123;
+    components: &#123;
+      MyComponent,
+    &#125;,
+  &#125;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;MyComponent&gt;&lt;/MyComponent&gt;
+&lt;/template&gt;
+</code></pre>
+<ol start="2">
+<li>函数式组件复杂应用<blockquote>
+<p>利用函数式组件实现如下<code>MyComponent</code>组件</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  defineProps([&quot;title&quot;]); // 声明接受的props
+  defineEmits([&quot;update&quot;]); // 声明接受的事件
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;box&quot;&gt;
+    &lt;!--update方法更新title标题内容--&gt;
+    &lt;button @click=&quot;$emit(&#39;update&#39;, &#39;xxxx函数式组件xxxx&#39;)&quot;&gt;更新&lt;/button&gt;
+    &lt;div&gt;&#123;&#123; title &#125;&#125;&lt;/div&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+    &lt;slot name=&quot;main&quot;&gt;&lt;/slot&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>在其它组件中使用MyComponent组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; h, ref &#125; from &quot;vue&quot;;
+  //  import MyComponent from &quot;./components/MyComponent.js&quot;
+  import MyComponent from &quot;./components/MyComponent.vue&quot;;
+  const title = ref(&quot;函数式组件&quot;);
+  function update(value) &#123;
+    title.value = value;
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;MyComponent :title=&quot;title&quot; info=&quot;内容&quot; @update=&quot;update&quot;&gt;
+    &lt;template #default&gt;
+      &lt;div&gt;---默认插槽内容---&lt;/div&gt;
+    &lt;/template&gt;
+    &lt;template #main&gt;
+      &lt;div&gt;---具名插槽main内容---&lt;/div&gt;
+    &lt;/template&gt;
+  &lt;/MyComponent&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>上面代码等价下面的 函数式组件</li>
+</ul>
+<pre><code>import &#123; h &#125; from &quot;vue&quot;;
+
+// props属性  slots 插槽   emit 触发器   attrs 透传属性
+export default function MyComponent(props, &#123; slots, emit, attrs &#125;) &#123;
+  // 返回虚拟DOM
+  return h(&quot;div&quot;, &#123; class: &quot;box&quot; &#125;, [
+    h(
+      &quot;button&quot;,
+      &#123; onClick: () =&gt; emit(&quot;update&quot;, &quot;xxxx函数式组件xxxx&quot;) &#125;,
+      &quot;更新&quot;
+    ),
+    h(&quot;div&quot;, props.title),
+    slots.default(), // 默认插槽
+    slots.main(), // 具名插槽
+  ]);
+&#125;
+
+// 声明接受的props
+MyComponent.props = [&quot;title&quot;];
+// 声明接受的事件
+MyComponent.emit = [&quot;update&quot;];
+</code></pre>
+<blockquote>
+<p>Vue 为我们提供了两个内置组件<code>&lt;Transition&gt;</code>和<code>&lt;TransitionGroup&gt;</code>，他们可以帮助我们制作基于状态变化的过渡和动画效果。</p>
+<ul>
+<li><code>&lt;Transition&gt;</code>会在一个元素或组件进入和离开 DOM 时应用动画</li>
+<li><code>&lt;TransitionGroup&gt;</code>会在一个<code>v-for</code>列表中的元素或组件被插入，移动，或移除时应用动画</li>
+</ul>
+<p>除了以上两个组件，我们也可以通过其他技术手段来应用动画，比如切换 <code>CSS class</code> 或用状态绑定样式来驱动动画</p>
+</blockquote>
+<h3 id="八、内置组件"><a href="#八、内置组件" class="headerlink" title="八、&lt;Transition&gt;内置组件"></a>八、<code>&lt;Transition&gt;</code>内置组件</h3><h4 id="组件的基本用法"><a href="#组件的基本用法" class="headerlink" title="组件的基本用法"></a><Transition>组件的基本用法</h4><ul>
+<li><code>&lt;Transition&gt;</code> 是一个内置组件，这意味着它在任意别的组件中都可以被使用，无需注册</li>
+<li>将需要使现过渡和动画的单个根元素或单个单根组件作为<code>&lt;Transition&gt;</code>组件的默认插槽内容传入<ul>
+<li><code>&lt;Transition&gt;</code>中只能有一个根元素，多个根元素会报错，所以传入的组件也只能是单个单根组件</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>进入或离开的动画由以下条件之一触发</p>
+</blockquote>
+<ul>
+<li>由 v-if 所触发的切换</li>
+<li>由 v-show 所触发的切换</li>
+<li>由特殊元素 <code>&lt;component&gt;</code> 切换的动态组件</li>
+<li>改变特殊的 key 属性</li>
+</ul>
+<blockquote>
+<p>实现淡入淡出过渡动画效果</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = !isShow&quot;&gt;淡出与淡入&lt;/button&gt;
+  &lt;!--Transition内置组件--&gt;
+  &lt;Transition&gt;
+    &lt;div class=&quot;box&quot; v-show=&quot;isShow&quot;&gt;&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>以上代码还不能使现元素在被插入或移除时有过渡与动画效果，还必须提供配套的 CSS 样式，如下：</li>
+</ul>
+<pre><code>/* 元素插入动画样式 */
+.v-enter-from &#123;
+  opacity: 0;
+&#125;
+
+.v-enter-active &#123;
+  transition: opacity 2s ease;
+&#125;
+
+.v-enter-to &#123;
+  opacity: 1;
+&#125;
+
+/* 元素移除动画样式 */
+.v-leave-from &#123;
+  opacity: 1;
+&#125;
+
+.v-leave-active &#123;
+  transition: opacity 2s ease;
+&#125;
+
+.v-leave-to &#123;
+  opacity: 0;
+&#125;
+</code></pre>
+<h4 id="CSS-过渡-Class"><a href="#CSS-过渡-Class" class="headerlink" title="CSS 过渡 Class"></a>CSS 过渡 Class</h4><blockquote>
+<p>在利用<code>&lt;Transition&gt;</code>内置组件实现过渡与动画时，会自动为元素在不同的时刻添加和移除对应的 <code>CSS class</code></p>
+</blockquote>
+<ul>
+<li>如下图：<img src="Transition组件的class.png"></li>
+</ul>
+<blockquote>
+<p>Enter 入场动画 （插入元素时动画）</p>
+</blockquote>
+<ul>
+<li><code>v-enter-from</code>：进入动画的起始状态。在元素插入之前添加，在元素插入完成后的下一帧移除。</li>
+<li><code>v-enter-active</code>：进入动画的生效状态。应用于整个进入动画阶段。在元素被插入之前添加，在过渡或动画完成之后移除。这个 class 可以被用来定义进入动画的持续时间、延迟与速度曲线类型。</li>
+<li><code>v-enter-to</code>：进入动画的结束状态。在元素插入完成后的下一帧被添加 (也就是 <code>v-enter-from</code> 被移除的同时)，在过渡或动画完成之后移除。</li>
+</ul>
+<blockquote>
+<p>Leave 出场动画（移除元素时动画）</p>
+</blockquote>
+<ul>
+<li><code>v-leave-from</code>：离开动画的起始状态。在离开过渡效果被触发时立即添加，在一帧后被移除。</li>
+<li><code>v-leave-active</code>：离开动画的生效状态。应用于整个离开动画阶段。在离开过渡效果被触发时立即添加，在过渡或动画完成之后移除。这个 class 可以被用来定义离开动画的持续时间、延迟与速度曲线类型。</li>
+<li><code>v-leave-to</code>：离开动画的结束状态。在一个离开动画被触发后的下一帧被添加 (也就是 <code>v-leave-from</code> 被移除的同时)，在过渡或动画完成之后移除。</li>
+</ul>
+<blockquote>
+<p>分析前面提到的淡出与淡入的效果的整个 Class 添加与移除的过程</p>
+</blockquote>
+<ul>
+<li>点击按扭，方块淡出隐藏，Class 添加和移除过程如下：</li>
+</ul>
+<pre><code>&lt;!-- 1、淡出动画生效前 添加 v-leave-from 和 v-leave-active --&gt;
+&lt;div class=&quot;box v-leave-from v-leave-active&quot;&gt;&lt;/div&gt;
+&lt;!--  2、添加 v-leave-to 的同时（稍后）移除 v-leave-from 触发淡出动画- --&gt;
+&lt;div class=&quot;box v-leave-active  v-leave-to&quot;&gt;&lt;/div&gt;
+&lt;!-- 3、淡出动画结束后，移出 v-leave-active 和 v-leave-to --&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ul>
+<li>点击按扭，方块淡出显示，Class 添加移除过程如下：</li>
+</ul>
+<pre><code>&lt;!-- 1、在淡入动画生效前 class --&gt;
+&lt;div class=&quot;box v-enter-from v-enter-active&quot;&gt;&lt;/div&gt;
+&lt;!-- 2、移除v-enter-from 添加v-enter-to 触发淡入动画--&gt;
+&lt;div class=&quot;box v-enter-active v-enter-to &quot;&gt;&lt;/div&gt;
+&lt;!--3、 动画结束后，移除v-enter-active 和 v-enter-to--&gt;
+&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>优化前面 “淡入与淡出” 动画的 CSS 样式</p>
+<ul>
+<li>其实不难发现，上面（一般情况下）过渡动画的</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>v-enter-to</code>与<code>v-leave-from</code>中 CSS 样式是一样的，因为入场动画的结束状态就是出场动画的开始状态</li>
+<li><code>v-enter-from</code>与<code>v-leave-to</code>中 CSS 样式是一样的，因为出场动画的结束状态就是入场动画的开始状态</li>
+<li><code>v-enter-active</code>与<code>v-leave-active</code>中 CSS 样式是一样的，大多情况下，出场与入场动画执行相反效果，其动画代码是一样的。</li>
+</ul>
+<blockquote>
+<ul>
+<li>优化后的 CSS 样式</li>
+</ul>
+</blockquote>
+<pre><code>/* 动画起始与离开动画的结束状态 */
+.v-enter-from,
+.v-leave-to &#123;
+  opacity: 0;
+&#125;
+/* 动画生效状态 */
+.v-enter-active,
+.v-leave-active &#123;
+  transition: opacity 2s ease;
+&#125;
+/* 动画结束与离开动画的起始状态*/
+/* 以下代码写可以省略，因为元素没有调置opacity属性时，默认值为1
+.v-enter-to,.v-leave-from &#123;
+  opacity: 1;
+&#125;
+*/
+</code></pre>
+<h4 id="元素初次渲染时过渡-（appear-属性）"><a href="#元素初次渲染时过渡-（appear-属性）" class="headerlink" title="元素初次渲染时过渡 （appear 属性）"></a>元素初次渲染时过渡 （appear 属性）</h4><blockquote>
+<p>前面讲到的 “淡入与淡出” 动画，在页面初次渲染时并没有呈现一个淡入的动画效果，如果想在元素初次渲染时应用一个过渡效果，你可以为他添加<code>appear</code>属性。</p>
+</blockquote>
+<pre><code>&lt;Transition appear&gt; ... &lt;/Transition&gt;
+</code></pre>
+<h4 id="元素间过渡"><a href="#元素间过渡" class="headerlink" title="元素间过渡"></a>元素间过渡</h4><blockquote>
+<p>接下来，我们实现如下图所示的多个元素来回切换的过渡动画效果<br>&lt;img src&#x3D;”元素间过度—transiion组件.gif”</p>
+</blockquote>
+<ul>
+<li>几个元素当中不同时刻只能有一个元素显示，所以我们可以利用<code>v-if</code>、<code>v-else</code>、<code>v-else-if</code>来确保每次<code>&lt;Transition&gt;</code>组件内只能有一个根元素或一个单根组件，如下：</li>
+</ul>
+<pre><code>&lt;Transition&gt;
+  &lt;div class=&quot;item&quot; v-if=&quot;index === 1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;item&quot; v-else-if=&quot;index === 2&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot; v-else-if=&quot;index === 3&quot;&gt;3&lt;/div&gt;
+&lt;/Transition&gt;
+
+&lt;!-- 以下写法是错的 --&gt;
+&lt;Transition&gt;
+  &lt;div class=&quot;item&quot; v-if=&quot;index === 1&quot;&gt;1&lt;/div&gt;
+  &lt;div class=&quot;item&quot; v-if=&quot;index === 2&quot;&gt;2&lt;/div&gt;
+  &lt;div class=&quot;item&quot; v-if=&quot;index === 3&quot;&gt;3&lt;/div&gt;
+&lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>每个元素在切换时的入场与出场动画都是一样的，所以我们只需为他们指定一套入场与出场的 CSS 样式即可</li>
+</ul>
+<pre><code>/* 入场动画开始前状态 */
+.v-enter-from &#123;
+  opacity: 0;
+  transform: translateX(100px);
+&#125;
+/* 入场与出场动画生效状态*/
+.v-enter-active,
+.v-leave-active &#123;
+  transition: all 1s ease;
+&#125;
+/* 出场动来结束后状态*/
+.v-leave-to &#123;
+  transform: translateX(-100px);
+  opacity: 0;
+&#125;
+
+/* 以下代码可省略 入场动画结束入出场动画开始状态一样，只需要采用默认值即可*/
+/* 
+.v-enter-to,
+.v-leave-from &#123;
+    transform: translateX(0);
+    opacity: 1;
+&#125;
+*/
+</code></pre>
+<h4 id="过渡模式-mode-”out-in”"><a href="#过渡模式-mode-”out-in”" class="headerlink" title="过渡模式 mode&#x3D;”out-in”"></a>过渡模式 mode&#x3D;”out-in”</h4><blockquote>
+<p>我们观察上面代码实现的多个元素切换的过渡动画（如下图），可以看到入场和出场的元素都是<strong>同时开始动画</strong>的。</p>
+<ul>
+<li>因此我们需要将它们设为<code>positions: absolute</code>以避免二者同时存在时出现的布局问题</li>
+</ul>
+<p>但在有些情况下，我可能希望在出场动画结束后，再开始执行入场动画。我们可以通过向<code>&lt;Transition&gt;</code>传入一个<code>mode </code>属性来实现这个行为。</p>
+<ul>
+<li><code>mode=&quot;out-in&quot;</code>表示，先执行出场（离开）动画，出场动画结束后，再执行入场动画</li>
+<li><code>mode=&quot;in-out&quot;</code>表示，先执行入场（进入）动画，入场动画结束后，再执行出场动画 （基本不用）</li>
+</ul>
+</blockquote>
+<pre><code>&lt;Transition mode=&quot;out-in&quot;&gt; ... &lt;/Transition&gt;
+</code></pre>
+<h4 id="组件间过渡"><a href="#组件间过渡" class="headerlink" title="组件间过渡"></a><component>组件间过渡</h4><blockquote>
+<p>我们前面提到过<code>&lt;Transition&gt;</code>也可以作用于由<code>&lt;component&gt;</code>切换的动态组件</p>
+</blockquote>
+<pre><code>&lt;Transition mode=&quot;out-in&quot;&gt;
+  &lt;component :is=&quot;activeComponent&quot;&gt;&lt;/component&gt;
+&lt;/Transition&gt;
+</code></pre>
+<blockquote>
+<p>接下来，我们实现如下多组件间切换的过渡效果<br><img src="多组件间切换.gif"></p>
+</blockquote>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code>&lt;!-- App根组件 --&gt;
+&lt;script setup&gt;
+  import &#123; shallowRef &#125; from &quot;vue&quot;;
+  import ComA from &quot;./components/ComA.vue&quot;;
+  import ComB from &quot;./components/ComB.vue&quot;;
+  const activeComponent = shallowRef(ComA); // 浅层响应性能更高
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;!--单选按扭--&gt;
+  &lt;input type=&quot;radio&quot; v-model=&quot;activeComponent&quot; :value=&quot;ComA&quot; /&gt; comA
+  &lt;input type=&quot;radio&quot; v-model=&quot;activeComponent&quot; :value=&quot;ComB&quot; /&gt; comB
+
+  &lt;!--多组件间过渡--&gt;
+  &lt;Transition mode=&quot;out-in&quot;&gt;
+    &lt;component :is=&quot;activeComponent&quot; /&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+  &#125;
+
+  .v-enter-active,
+  .v-leave-active &#123;
+    transition: opacity 0.5s ease;
+  &#125;
+
+  /* .v-enter-to,
+    .v-leave-from &#123;
+    opacity: 1;
+    &#125; */
+&lt;/style&gt;
+
+&lt;!-- ComA 组件 --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;com-a&quot;&gt;this is Component A&lt;/div&gt;
+&lt;/template&gt;
+&lt;!-- ComB 组件 --&gt;
+&lt;template&gt;
+  &lt;div class=&quot;com-b&quot;&gt;this is Component A&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="为过渡效果命名"><a href="#为过渡效果命名" class="headerlink" title="为过渡效果命名"></a>为过渡效果命名</h4><blockquote>
+<p>当一个页面同时有多个不同的过渡动画时，则需要为不同的过渡动画取不同的过渡效果名。</p>
+<ul>
+<li>我们可以给<code>&lt;Transition&gt;</code>组件传一个<code>name</code>属性来声明一个过渡效果名</li>
+</ul>
+</blockquote>
+<pre><code>&lt;Transition name=&quot;fade&quot;&gt; ... &lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>当<code>&lt;Transition&gt;</code>有了<code>name</code>属性后，CSS 过渡 Class 的名字不再是以<code>v-</code>作为前缀，而是要以<code>name</code>属性的值作为前缀。</li>
+</ul>
+<blockquote>
+<p>如果<code>name=fade</code>则对应的过渡<code>Class</code>名为<code>fade-enter-from</code>、<code>fade-enter-active</code>、<code>fade-enter-to</code>、<code>fade-leave-from</code>、<code>fade-leave-active</code>、<code>fade-leave-to</code></p>
+</blockquote>
+<ul>
+<li>针对前面实现的 “淡出与淡入” 动画，我们给<code>&lt;Transition&gt;</code>组件添加<code>name=&quot;fade&quot;</code>属性，完整版代码如下：</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = !isShow&quot;&gt;淡出与淡入&lt;/button&gt;
+  &lt;Transition appear name=&quot;fade&quot;&gt;
+    &lt;div class=&quot;box&quot; v-show=&quot;isShow&quot;&gt;&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+  &#125;
+
+  /* 动画起始与离开动画的结束状态 */
+  .fade-enter-from,
+  .fade-leave-to &#123;
+    opacity: 0;
+  &#125;
+
+  /* 动画生效状态 */
+  .fade-enter-active,
+  .fade-leave-active &#123;
+    transition: opacity 2s ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="深层级过渡与显式指定过渡时长"><a href="#深层级过渡与显式指定过渡时长" class="headerlink" title="深层级过渡与显式指定过渡时长"></a>深层级过渡与显式指定过渡时长</h4><blockquote>
+<p>通过前面的学习，我们知道过渡<code>class</code>仅能应用在<code>&lt;Transition&gt;</code>组件的根元素上，如果我们想使根元素的后代元素有过渡和动画效果</p>
+</blockquote>
+<ol>
+<li>简单效果<blockquote>
+<ul>
+<li>如下图所示效果：<img src="深层级过渡与显式指定过渡时长.gif"></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>我们可以通过 CSS 后代选择器，在后代元素上触发过渡效果。</li>
+</ul>
+<blockquote>
+<p>代码示例</p>
+</blockquote>
+<ul>
+<li>以下代码，我们期望通过 CSS 后代选择器，使动画效果最终触发在<code>.box</code>元素上</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&lt;button @click=&quot;isShow = !isShow&quot;&gt;内层元素动画&lt;/button&gt;&lt;/div&gt;
+  &lt;!-- 自定义过渡Class名 --&gt;
+  &lt;Transition name=&quot;fade&quot;&gt;
+    &lt;div class=&quot;container&quot; v-if=&quot;isShow&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .container &#123;
+    width: 400px;
+    height: 200px;
+    background-color: khaki;
+    display: inline-block;
+  &#125;
+
+  .box &#123;
+    width: 200px;
+    height: 100px;
+    margin: 50px auto;
+    background-color: skyblue;
+  &#125;
+
+  /* 动画起始与离开动画的结束状态 */
+  .fade-enter-from .box,
+  .fade-leave-to .box &#123;
+    opacity: 0;
+  &#125;
+
+  /* 动画生效状态 */
+  .fade-enter-active .box,
+  .fade-leave-active .box &#123;
+    transition: opacity 2s ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>但实际上，以上代码并不没有实现我们想要的效果，不管是<code>.container</code>还是<code>.box</code>元素都没有动画效果。</li>
+</ul>
+<blockquote>
+<p>没有过渡效果原因如下</p>
+</blockquote>
+<ul>
+<li><code>&lt;Transition&gt;</code>组件之所以能清楚的知道<code>transition</code>动画在何时结束，是因为其内部监听了根元素上的<code>transitionend</code>事件。</li>
+<li>通过<code>transitionend</code>事件 Vue 就可以知道动画何时结束。</li>
+<li>在嵌套的过渡动画中，根元素很多时候本身并没有任何的过渡动画，所以会立即显示或隐藏，以致于看不到内部元素的过渡效果。</li>
+</ul>
+<blockquote>
+<p>如何才能看到过渡效果</p>
+</blockquote>
+<ul>
+<li>要实现以上效果，我们可以向<code>&lt;Transition&gt;</code>组件传入<code>duration</code>属性来显示指定根元素过渡的持续时间（以毫秒为单为）。然后就会按以下效果来完成动画。</li>
+<li>在入场动画时，先显示根元素，然后再执行内部元素的动画</li>
+<li>在出场动画时，需要先执行内部元素的动画，在动画结束后，再隐藏根元素</li>
+</ul>
+<pre><code>&lt;!-- 入场与出场动画持续是一样，均为2s--&gt;
+&lt;Transition name=&quot;fade&quot; duration=&quot;2000&quot;&gt;&lt;/Transition&gt;
+&lt;!-- 入场动画持续时间2s ，出场动画持续时间 3s --&gt;
+&lt;Transition :duration=&quot;&#123; enter: 2000, leave: 3000 &#125;&quot;&gt;...&lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>温馨提示：持续时间不应该小于内部元素动画从开始到结束所需要的时间</li>
+</ul>
+<blockquote>
+<p>优化上面案例代码</p>
+</blockquote>
+<ul>
+<li>给以上代码的<code>&lt;Transition&gt;</code>组件添加<code>duration=&quot;2000&quot;</code>后，就能看到前面<code>gif</code>图片显示的动画效果了</li>
+</ul>
+<pre><code>&lt;Transition name=&quot;fade&quot; duration=&quot;2250&quot;&gt;&lt;/Transition&gt;
+</code></pre>
+<p>为了使看到的动画更自然，可以添加以下代码，让<code>.box</code>元素的入场动画延迟<code>.25s</code>秒执行。</p>
+<pre><code>.fade-enter-active .box &#123;
+  transition-delay: 0.25s;
+&#125;
+</code></pre>
+<ul>
+<li>以下是最终完整版代码：</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;&lt;button @click=&quot;isShow = !isShow&quot;&gt;内层元素动画&lt;/button&gt;&lt;/div&gt;
+  &lt;!-- 自定义过渡Class名 --&gt;
+  &lt;Transition name=&quot;fade&quot; appear duration=&quot;2250&quot;&gt;
+    &lt;div class=&quot;container&quot; v-if=&quot;isShow&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .container &#123;
+    width: 400px;
+    height: 200px;
+    background-color: khaki;
+    display: inline-block;
+  &#125;
+
+  .box &#123;
+    width: 200px;
+    height: 100px;
+    margin: 50px auto;
+    background-color: skyblue;
+  &#125;
+
+  /* 动画起始与离开动画的结束状态 */
+  .fade-enter-from .box,
+  .fade-leave-to .box &#123;
+    opacity: 0;
+  &#125;
+
+  /* 动画生效状态 */
+  .fade-enter-active .box,
+  .fade-leave-active .box &#123;
+    transition: opacity 2s ease;
+  &#125;
+
+  .fade-enter-active .box &#123;
+    transition-delay: 0.25s;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ol start="2">
+<li>复杂动画应用<blockquote>
+<p>我们在上面代码的基础上，做相关优化，最终实现如下动画效果</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>入场动画：黄色盒子执行淡入动画，淡入动画结束后，内部的蓝色盒子再执行淡入动画</li>
+<li>出场动画：蓝色盒子先执行淡出动画，淡出动画结束后，黄色盒子再执行淡出动画。</li>
+</ul>
+<img src="深层级过渡与显式指定过渡时长-复杂动画.gif">
+
+<blockquote>
+<p>实现原理</p>
+</blockquote>
+<ul>
+<li>假设黄色盒子与蓝色盒子的动画执行时间都<code>1s</code>，则我们可以将<code>duration = 2000</code></li>
+<li>入场动画：给黄色盒子和蓝色盒子添加入场动画样式，同时控制黄色盒子的动画在延迟 <code>1s</code> 之后开始执行</li>
+</ul>
+<pre><code>/* 黄色盒子入场动画样式 */
+.fade-enter-from &#123;
+  opacity: 0;
+&#125;
+.fade-enter-active &#123;
+  transition: opacity 1s ease;
+&#125;
+
+/* 蓝色盒子入场动画样式*/
+/* 动画起始与离开动画的结束状态 */
+.fade-enter-from .box &#123;
+  opacity: 0;
+&#125;
+.fade-enter-active .box &#123;
+  transition: opacity 1s ease;
+  transition-delay: 1s; /* 延迟 1s后开始动画 */
+&#125;
+</code></pre>
+<ul>
+<li>出场动画：给黄色盒子和蓝色盒子添加了出场动画样式，同时控制黄色盒子的动画在延迟 1s 之后开始执行</li>
+</ul>
+<pre><code>/* 黄色盒子出场动画样式 */
+.fade-leave-to &#123;
+  opacity: 0;
+&#125;
+.fade-leave-active &#123;
+  transition: opacity 1s ease;
+  transition-delay: 1s; /* 延迟 1s后开始动画 */
+&#125;
+
+/* 蓝色盒子出场动画样式 */
+.fade-leave-to .box &#123;
+  opacity: 0;
+&#125;
+.fade-leave-active .box &#123;
+  transition: opacity 1s ease;
+&#125;
+</code></pre>
+<ul>
+<li>完整版代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div&gt;&lt;button @click=&quot;isShow = !isShow&quot;&gt;内层元素动画&lt;/button&gt;&lt;/div&gt;
+  &lt;!-- 自定义过渡Class名 --&gt;
+  &lt;Transition name=&quot;fade&quot; duration=&quot;2000&quot; appear&gt;
+    &lt;div class=&quot;container&quot; v-if=&quot;isShow&quot;&gt;
+      &lt;div class=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  button &#123;
+    margin: 50px;
+  &#125;
+
+  .container &#123;
+    width: 400px;
+    height: 200px;
+    background-color: khaki;
+    display: inline-block;
+    margin-left: 50px;
+  &#125;
+
+  .box &#123;
+    width: 200px;
+    height: 100px;
+    margin: 50px auto;
+    background-color: skyblue;
+  &#125;
+
+  /* 动画起始与离开动画的结束状态 */
+  .fade-enter-from,
+  .fade-leave-to,
+  .fade-enter-from .box,
+  .fade-leave-to .box &#123;
+    opacity: 0;
+  &#125;
+
+  /* 黄色盒子入场动画 */
+  .fade-enter-active &#123;
+    transition: opacity 1s ease;
+  &#125;
+
+  /* 黄色盒子出场动画 */
+  .fade-leave-active &#123;
+    transition: opacity 1s ease;
+    transition-delay: 1s;
+  &#125;
+
+  /* 动画生效状态 */
+  .fade-enter-active .box &#123;
+    transition: opacity 1s ease;
+    transition-delay: 1s;
+  &#125;
+
+  .fade-leave-active .box &#123;
+    transition: opacity 1s ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="CSS-的-animation-动画"><a href="#CSS-的-animation-动画" class="headerlink" title="CSS 的 animation 动画"></a>CSS 的 animation 动画</h4><blockquote>
+<p>在<code>&lt;Transition&gt;</code>组件中，实现原生 CSS 的<code>animation</code>动画与原生 CSS 的<code>transition</code>动画的应用方式基本是相同的，只有一点不同，那就是<code>*-enter-from</code>不是在元素插入后立即移除，而是在一个<code>animationend</code>事件触发时被移除。</p>
+<ul>
+<li>对于大多数 CSS 的<code>animation</code>动画，我们只需要在<code>*-enter-active</code>和<code>*-leave-activeClass</code>下声明它们</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>我们来看下面这样一个元素自动缩放的动画效果，如何来实现<br><img src="animation动画.gif"></p>
+</blockquote>
+<blockquote>
+<p>我们先来分析下上面的效果</p>
+</blockquote>
+<ul>
+<li>出场（离场）：元素从显示到隐藏，先是原大小，再是放大，最后缩小一直到看不见</li>
+<li>入场：元素从隐藏到显示，先是从看不见一直放大，然后再缩小到原大小<ul>
+<li>所以元素从隐藏到显示的<code>animation</code>动画定义如下，当从显示到隐藏时，只需要反着来执行该动画就好</li>
+</ul>
+</li>
+</ul>
+<pre><code>/* 定义动画  从隐藏到放大再缩放到原大小 */
+@keyframes scale &#123;
+  0% &#123;
+    transform: scale(0); /* 看不见*/
+  &#125;
+
+  50% &#123;
+    transform: scale(1.25);
+  &#125;
+
+  100% &#123;
+    transform: scale(1);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>完整版代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = !isShow&quot;&gt;缩放动画&lt;/button&gt;
+  &lt;Transition name=&quot;scale&quot; appear&gt;
+    &lt;div class=&quot;text&quot; v-if=&quot;isShow&quot;&gt;我是一段测试animation 缩放动画的文字&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .text &#123;
+    text-align: center;
+  &#125;
+  /* 入场动画*/
+  .scale-enter-active &#123;
+    /* 动画名  动画时间  时间函数   延迟时间  执行次数   执行方向（reverse 为反向播放） 动画不播放时模式  */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: scale 1s ease;
+  &#125;
+  /* 出场动画 */
+  .scale-leave-active &#123;
+    /* 与入场动画相反的方式执行 */
+    animation: scale 1s ease reverse;
+  &#125;
+
+  /* 定义动画 */
+  @keyframes scale &#123;
+    0% &#123;
+      transform: scale(0);
+    &#125;
+
+    50% &#123;
+      transform: scale(1.25);
+    &#125;
+
+    100% &#123;
+      transform: scale(1);
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="自定义过渡-class"><a href="#自定义过渡-class" class="headerlink" title="自定义过渡 class"></a>自定义过渡 class</h4><blockquote>
+<p>你也可以向 <code>&lt;Transition&gt;</code> 传递以下的 <code>props</code> 来指定自定义的过渡 <code>class</code>：</p>
+</blockquote>
+<pre><code>enter-from-class
+enter-active-class
+enter-to-class
+leave-from-class
+leave-active-class
+leave-to-class
+</code></pre>
+<ul>
+<li>你传入的这些 class 会覆盖相应阶段的默认 class 名。如下：</li>
+</ul>
+<pre><code>&lt;Transition enter-active-class=&quot;bounce-in a&quot; leave-active-class=&quot;bounce-out&quot;&gt;
+  &lt;div class=&quot;text&quot; v-if=&quot;isShow&quot;&gt;我是一段测试animation 缩放动画的文字&lt;/div&gt;
+&lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>在没有自定义过渡 class 时，入场动画生效状态添加的 class 是 <code>v-enter-active</code>，自定义了 <code>enter-active-class</code> 后，添加的class是<code>bounce-in</code> 和 <code>a</code></li>
+<li>在没有自定义过渡 class 时，出场动画生效状态添加的 class 是 <code>v-leave-active</code> ，自定义了<code>leave-active-class</code>后，添加的 class 是 <code>bounce-out</code></li>
+<li>用上面代码替换前面 “缩放动画” 对应的<code>&lt;Transition&gt;</code>标签内容，则对应的 CSS 需要写成如下：</li>
+</ul>
+<pre><code>.bounce-in &#123;
+  animation: scale 1s ease;
+&#125;
+
+.a &#123;
+&#125;
+
+.bounce-out &#123;
+  animation: scale 1s ease reverse;
+&#125;
+</code></pre>
+<ul>
+<li>完整版代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = !isShow&quot;&gt;缩放动画&lt;/button&gt;
+  &lt;!-- 自定义过渡Class名 --&gt;
+  &lt;Transition enter-active-class=&quot;bounce-in&quot; leave-active-class=&quot;bounce-out&quot;&gt;
+    &lt;div class=&quot;text&quot; v-if=&quot;isShow&quot;&gt;我是一段测试animation 缩放动画的文字&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .text &#123;
+    text-align: center;
+  &#125;
+  /* 入场动画 */
+  .bounce-in &#123;
+    animation: scale 1s ease;
+  &#125;
+  /* 出场动画 */
+  .bounce-out &#123;
+    animation: scale 1s ease reverse;
+  &#125;
+
+  /* 定义动画 */
+  @keyframes scale &#123;
+    0% &#123;
+      transform: scale(0);
+    &#125;
+
+    50% &#123;
+      transform: scale(1.25);
+    &#125;
+
+    100% &#123;
+      transform: scale(1);
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="animate-css-与-组件结合应用"><a href="#animate-css-与-组件结合应用" class="headerlink" title="animate.css 与 组件结合应用"></a>animate.css 与 <Transition>组件结合应用</h4><blockquote>
+<p>当我们想要在 Vue 的动画机制下集成其他的第三方 CSS 动画库时，自定义过渡 class 就显得非常有用。</p>
+<ul>
+<li>比如：常见的第三方 CSS 动画库：<a target="_blank" rel="noopener" href="https://daneden.github.io/animate.css/">Animate.css</a></li>
+</ul>
+</blockquote>
+<ol>
+<li>如何使用 Animate 动画库</li>
+</ol>
+<ul>
+<li>第一步：打开 Animate 动画库官网<ul>
+<li>Animate 官网地址：<code>https://animate.style/</code></li>
+</ul>
+</li>
+<li>第二步：安装<code>animate.css</code>包<ul>
+<li>按官网首页的安装教程来安装<code>animate.css</code>包，命令如下：</li>
+</ul>
+</li>
+</ul>
+<pre><code>npm install animate.css --save
+</code></pre>
+<ul>
+<li>第三步：导入<code>animate.css</code>样式</li>
+</ul>
+<pre><code>import &quot;animate.css&quot;;
+</code></pre>
+<ul>
+<li>第四步：添加动画<ul>
+<li>在需要执行相关动画的元素上，添加对应的动画的<code>class</code> 名，如下：<blockquote>
+<ul>
+<li>与Class结合</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;!-- animate__animated 是必需要加的基础类，animate__bounce为所要实现动画效果的动画类 --&gt;
+&lt;div class=&quot;animate__animated animate__bounce&quot;&gt;An animated element&lt;/div&gt;
+</code></pre>
+<blockquote>
+<ul>
+<li>与<code>&lt;Transition&gt;</code>结合</li>
+</ul>
+</blockquote>
+<pre><code>&lt;Transition
+    enter-active-class=&quot;animate__animated animate__backInLeft&quot;
+    leave-active-class=&quot;animate__animated animate__backOutRight&quot;
+  &gt;
+  //...
+&lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>不同的动画 Class 名，大家可以在动画名右侧显示的小方块上点击下，就可以复制到对应的 Class 名</li>
+</ul>
+<ol start="2">
+<li>应用：入场出场动画<blockquote>
+<p>接下来，我们利用<code>Animate</code>与<code>&lt;Transition&gt;</code>实现以下酷炫动画效果<br><img src="入场出场动画.gif"></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>完整版代码如下：</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &quot;animate.css&quot;;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = true&quot; :disabled=&quot;isShow&quot;&gt;入场&lt;/button&gt;
+  &lt;button @click=&quot;isShow = false&quot; :disabled=&quot;!isShow&quot;&gt;出场&lt;/button&gt;
+
+  &lt;Transition
+    appear
+    name=&quot;custom-classes&quot;
+    enter-active-class=&quot;animate__animated animate__backInLeft&quot;
+    leave-active-class=&quot;animate__animated animate__backOutRight&quot;
+  &gt;
+    &lt;div class=&quot;text&quot; v-show=&quot;isShow&quot;&gt;An animated element&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .text &#123;
+    text-align: center;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>注：以上代码中的<code>name</code>属性相对于自定义过渡 <code>class</code> 而言，是不生效的，但对于没有定义的过渡 <code>class</code> 是生效的</li>
+<li>千完不要忘记加<code>animate__animated</code></li>
+</ul>
+<h4 id="同时使用-transition-和-animation"><a href="#同时使用-transition-和-animation" class="headerlink" title="同时使用 transition 和 animation"></a>同时使用 transition 和 animation</h4><blockquote>
+<p>不管是<code>transition</code>动画还是<code>animation</code>动画，Vue 之所以能知道动画在何时结束，是因为内部监听了<code>transitionend</code>和<code>animationend</code>事件。</p>
+<p>如果一个元素只运用了<code>transition</code>或<code>animation</code>中的一种动画，Vue 可以自动探测到正确的类型，然后监听对应的事件。</p>
+<p>如果一个元素<strong>同时运用了这两种动画</strong>，则 Vue 就没有办法知道应该在那个动画结束时将元素移除。这时就需要我们显示的传入<code>type</code>属性来声明，告诉 Vue 需要关心哪种类型，传入的值是 <code>animation</code>或<code>transition</code></p>
+</blockquote>
+<blockquote>
+<p>以下代码展示在执行<code>animation</code>动画的同时，执行了<code>transition</code>动画使文字变色。</p>
+</blockquote>
+<ul>
+<li>如果我们显式指定了<code>type=&quot;animation&quot;</code>，相当于告诉 vue，帮我们监听<code>animationend</code>事件，动画会在1s后结束。</li>
+<li>如果我们显式指定了<code>type=&quot;transition&quot;</code>，相当于告诉 Vue，帮我们监听<code>transitionend</code>事件，动画会在20s后结束</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const isShow = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;isShow = !isShow&quot;&gt;缩放动画&lt;/button&gt;
+  &lt;!-- 自定义过渡Class名 --&gt;
+  &lt;Transition
+    name=&quot;rotate&quot;
+    type=&quot;animation&quot;
+    enter-active-class=&quot;bounce-in rotate-in&quot;
+    leave-active-class=&quot;bounce-out rotate-out&quot;
+  &gt;
+    &lt;div class=&quot;text&quot; v-if=&quot;isShow&quot;&gt;我是一段测试animation 缩放动画的文字&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+  .text &#123;
+    text-align: center;
+  &#125;
+
+  .rotate-enter-from,
+  .rotate-leave-to &#123;
+    color: red;
+  &#125;
+
+  .rotate-in,
+  .rotate-out &#123;
+    transition: color 20s;
+  &#125;
+
+  /* 入场动画 */
+  .bounce-in &#123;
+    animation: scale 1s ease;
+  &#125;
+
+  /* 出场动画 */
+  .bounce-out &#123;
+    animation: scale 1s ease reverse;
+  &#125;
+
+  /* 定义动画 */
+  @keyframes scale &#123;
+    0% &#123;
+      transform: scale(0);
+    &#125;
+
+    50% &#123;
+      transform: scale(1.25);
+    &#125;
+
+    100% &#123;
+      transform: scale(1);
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><blockquote>
+<p>使用CSS 过渡 Class</p>
+<ul>
+<li>使用<code>*-enter-from</code>等六种class</li>
+<li>在<code>.*-enter/leave-active</code>中使用的是<code>transition</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>使用animation动画</p>
+<ul>
+<li>使用<code>@keyframes name</code>定义动画</li>
+<li>在<code>*-enter-active</code>和<code>*-leave-activeClass</code>下声明animation动画</li>
+<li>在<code>*-*-active</code>样式中使用<code>animation</code></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>使用自定义过渡时</p>
+<ul>
+<li>需要在<code>&lt;Transition&gt;</code>中指定自定义过渡的class</li>
+<li>注意：此时name属性相对于自定义过渡 class 而言，是不生效的，只对于没有定义的过渡 class 是生效的</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>animation+自定义过渡</p>
+<ul>
+<li>在<code>style</code>中，使用自定义样式替代<code>*-enter-active</code>和<code>*-leave-activeClass</code>中对动画的声明</li>
+<li>如果使用<code>animation.css</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>引入库后，只需在<code>&lt;Transition&gt;</code>的对应class中填上动画名</li>
+<li>注意不能忘记基础的css样式<code>animate__animated</code></li>
+<li><code>style</code>中不用再写<code>*-enter-active</code>和<code>*-leave-activeClass</code></li>
+</ul>
+<h4 id="动画的-JavaScript-钩子"><a href="#动画的-JavaScript-钩子" class="headerlink" title="动画的 JavaScript 钩子"></a>动画的 JavaScript 钩子</h4><blockquote>
+<p>Vue 为<code>&lt;Transition&gt;</code>组件添加了一些事件，这些事件会在过渡不同生命阶段自被动调用。</p>
+<ul>
+<li>我们可以通过监听事件的方式在过渡过程中挂上钩子函数：</li>
+</ul>
+</blockquote>
+<pre><code>&lt;Transition
+  @before-enter=&quot;onBeforeEnter&quot;
+  @enter=&quot;onEnter&quot;
+  @after-enter=&quot;onAfterEnter&quot;
+  @enter-cancelled=&quot;onEnterCancelled&quot;
+  @before-leave=&quot;onBeforeLeave&quot;
+  @leave=&quot;onLeave&quot;
+  @after-leave=&quot;onAfterLeave&quot;
+  @leave-cancelled=&quot;onLeaveCancelled&quot;
+&gt;
+  &lt;!-- ... --&gt;
+&lt;/Transition&gt;
+</code></pre>
+<ul>
+<li>以下为钩子函数的不同执行时机</li>
+</ul>
+<pre><code>// 在元素被插入到 DOM 之前被调用
+// 用这个来设置元素的 &quot;enter-from&quot; 状态
+function onBeforeEnter(el) &#123;&#125;
+
+// 在元素被插入到 DOM 之后的下一帧被调用
+// 用这个来开始进入动画
+function onEnter(el, done) &#123;
+  // 调用回调函数 done 表示过渡结束
+  // 如果与 CSS 结合使用，则这个回调是可选参数
+  done();
+&#125;
+
+// 当进入过渡完成时调用。
+function onAfterEnter(el) &#123;&#125;
+
+// 在 leave 钩子之前调用
+// 大多数时候，你应该只会用到 leave 钩子
+function onBeforeLeave(el) &#123;&#125;
+
+// 在离开过渡开始时调用
+// 用这个来开始离开动画
+function onLeave(el, done) &#123;
+  // 调用回调函数 done 表示过渡结束
+  // 如果与 CSS 结合使用，则这个回调是可选参数
+  done();
+&#125;
+
+// 在离开过渡完成、
+// 且元素已从 DOM 中移除时调用
+function onAfterLeave(el) &#123;&#125;
+
+// 仅在 v-show 过渡中可用
+function onLeaveCancelled(el) &#123;&#125;
+</code></pre>
+<ul>
+<li>注意：在调用回调函数<code>done</code>时，需要设置定时器，在动画结束后调用<code>done</code></li>
+<li>在使用仅由 <code>JavaScript</code> 执行的动画时，最好是添加一个 <code>:css=&quot;false&quot;</code>属性。这显式地向 Vue 表明可以跳过对 CSS 过渡的自动探测。除了性能稍好一些之外，还可以防止 CSS 规则意外地干扰过渡效果</li>
+</ul>
+<pre><code>&lt;Transition :css=&quot;false&quot;&gt; ... &lt;/Transition&gt;
+</code></pre>
+<ol>
+<li><p>钩子函数功能</p>
+<blockquote>
+<p>各个钩子函数中具体实现的功能</p>
+<ul>
+<li>如下表：<table>
+<thead>
+<tr>
+<th>钩子函数</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@before-enter</td>
+<td>用来设置入场动画的起始状态，即<code>enter-from</code> 状态，等同于<code>.v-enter-from</code></td>
+</tr>
+<tr>
+<td>@enter</td>
+<td>用来设置入场动画与动画的结束状态，即<code>enter-active</code>与<code>enter-to</code></td>
+</tr>
+<tr>
+<td>@after-enter</td>
+<td>入场动画结束后，移除添加到元素身上的动画样式 （还要移除：<code>v-leave-active</code>）</td>
+</tr>
+<tr>
+<td>@enter-cancelled</td>
+<td>入场动画中途被中断后，通常要移除<code>enter-to</code>状态</td>
+</tr>
+<tr>
+<td>@before-leave</td>
+<td>用来设置出场动画的起始状态，即<code>leave-from</code> 状态</td>
+</tr>
+<tr>
+<td>@leave</td>
+<td>用来设置出场动画与动画的结束状态，即<code>leave-active</code>与<code>leave-to</code></td>
+</tr>
+<tr>
+<td>@after-leave</td>
+<td>出场动画结束后，移除添加到元素身上的动画样式 (还要移除<code>v-enter-active</code>)</td>
+</tr>
+<tr>
+<td>@leave-cancelled</td>
+<td>出场动画中途被中断后，通常要移除<code>leave-to</code>状态</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>案例：弹性动画</p>
+<img src="弹性动画.gif"></li>
+</ol>
+<blockquote>
+<p>以上动画中，入场动画和出场动画分别是用<code>transition</code>和<code>animation</code>来实现的</p>
+<ul>
+<li>不过，入场动画的开始状态并不是出场动画的结束状态</li>
+<li>但是，入场动画的结束状态是出场动画的开始状态</li>
+</ul>
+</blockquote>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const show = ref(true);
+  const timer = ref(null);
+
+  /* 入场动画状态 */
+  function onBeforeEnter(el) &#123;
+    el.classList.add(&quot;v-enter-from&quot;);
+  &#125;
+  /* 入场动画与动画结束状态 */
+  function onEnter(el, done) &#123;
+    setTimeout(() =&gt; &#123;
+      el.classList.add(&quot;v-enter-active&quot;, &quot;v-enter-to&quot;);
+      el.classList.remove(&quot;v-enter-from&quot;);
+    &#125;);
+
+    setTimeout(() =&gt; &#123;
+      done();
+    &#125;, 1200);
+  &#125;
+
+  // 入场动画结束后，将添加的动画样式删除
+  function onAfterEnter(el) &#123;
+    el.classList.remove(&quot;v-enter-to&quot;, &quot;v-enter-active&quot;);
+  &#125;
+
+  // 出场动画
+  function onLeave(el, done) &#123;
+    setTimeout(() =&gt; &#123;
+      el.classList.add(&quot;v-leave-active&quot;);
+    &#125;);
+
+    clearTimeout(timer.value);
+    timer.value = setTimeout(() =&gt; &#123;
+      done();
+    &#125;, 2000);
+  &#125;
+  // 出场动画结束后，将添加的动画样式移除
+  function onAfterLeave(el) &#123;
+    el.classList.remove(&quot;v-leave-active&quot;);
+  &#125;
+  function onLeaveCancelled(el) &#123;
+    el.classList.remove(&quot;v-leave-active&quot;);
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = !show&quot;&gt;切换&lt;/button&gt;
+  &lt;Transition
+    :css=&quot;false&quot;
+    @before-enter=&quot;onBeforeEnter&quot;
+    @enter=&quot;onEnter&quot;
+    @after-enter=&quot;onAfterEnter&quot;
+    @enter-cancelled=&quot;onAfterEnter&quot;
+    @leave=&quot;onLeave&quot;
+    @after-leave=&quot;onAfterLeave&quot;
+    @leave-cancelled=&quot;onLeaveCancelled&quot;
+  &gt;
+    &lt;div class=&quot;ball&quot; v-show=&quot;show&quot;&gt;&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .ball &#123;
+    width: 50px;
+    height: 50px;
+    background-color: skyblue;
+    border-radius: 50%;
+  &#125;
+
+  .v-enter-from &#123;
+    transform: scale(0.25);
+    opacity: 1;
+  &#125;
+
+  .v-enter-active &#123;
+    transition: all 1s ease;
+    transition-delay: 200;
+  &#125;
+
+  .v-enter-to &#123;
+    transform: scale(1);
+  &#125;
+
+  .v-leave-active &#123;
+    /* 
+        forwards 表示动画结束后将停止在最后结束的状态，以免产生回到原始位置的抖动效果
+    */
+    animation: move 2s ease forwards;
+  &#125;
+
+  @keyframes move &#123;
+    0% &#123;
+      transform: scale(1) translateX(0px);
+    &#125;
+
+    20% &#123;
+      transform: scale(1) translateX(-50px);
+    &#125;
+
+    100% &#123;
+      transform: translateX(300px) scale(0.25);
+      opacity: 0;
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="封装动画组件"><a href="#封装动画组件" class="headerlink" title="封装动画组件"></a>封装动画组件</h4><blockquote>
+<p>接下来我们把淡出与淡入动画 和 左右滑动动画封装在<code>&lt;CustomTransiton&gt;</code>组件中，当我们传入以下不同<code>props</code> 时，显示不同的动画</p>
+<ul>
+<li>注意：</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>在<code>style</code>中使用变量时，要使用<code>v-bind</code>才能实现</p>
+</li>
+<li><p>插槽的样式原本应该写在父组件中，但因为要封装组件，所以样式写在了子组件中，因此，子组件的<code>style</code>不能加<code>scope</code></p>
+</li>
+<li><p>完整版代码如下：</p>
+</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  const props = defineProps([&quot;duration&quot;, &quot;animationName&quot;]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;Transition :name=&quot;animationName&quot;&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  /* fade 淡入与淡出动画 */
+  .fade-enter-from,
+  .fade-leave-to &#123;
+    opacity: 0;
+  &#125;
+
+  .fade-enter-active,
+  .fade-leave-active &#123;
+    transition: opacity v-bind(duration) ease;
+  &#125;
+
+  /* 左右滑动动画 */
+  .slide-enter-from,
+  .slide-leave-to &#123;
+    transform: translateX(300px);
+    opacity: 0;
+  &#125;
+
+  .slide-enter-active,
+  .slide-leave-active &#123;
+    transition: transform v-bind(duration) ease, opacity v-bind(duration) ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>在其它组件中调用<CustomTransition>组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import CustomTransition from &quot;./components/CustomTransition.vue&quot;;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const show = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = !show&quot;&gt;切换动画&lt;/button&gt;
+
+  &lt;CustomTransition duration=&quot;5s&quot; animationName=&quot;fade&quot;&gt;
+    &lt;div class=&quot;box&quot; v-show=&quot;show&quot;&gt;&lt;/div&gt;
+  &lt;/CustomTransition&gt;
+
+  &lt;br /&gt;
+
+  &lt;CustomTransition duration=&quot;2s&quot; animationName=&quot;slide&quot;&gt;
+    &lt;div class=&quot;box&quot; v-show=&quot;show&quot;&gt;&lt;/div&gt;
+  &lt;/CustomTransition&gt;
+&lt;/template&gt;
+&lt;style&gt;
+  .box &#123;
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a><Transition>总结</h4><ol>
+<li><Transition> 的基本用法</li>
+</ol>
+<ul>
+<li><Transition> 组件中只能是 单根元素 或 单根组件</li>
+<li>进入或离开的动画由以下条件之一触发<ul>
+<li>由 v-if 所触发的切换</li>
+<li>由 v-show 所触发的切换</li>
+<li>由特殊元素 <component> 切换的动态组件</li>
+<li>改变特殊的 key 属性</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>过渡与动画默认 class</li>
+</ol>
+<ul>
+<li>入场动画<code>class</code>：<code>v-enter-from</code>、<code>v-enter-active</code>、<code>v-enter-to</code></li>
+<li>出场动画<code>calss</code>：<code>v-leave-from</code>、<code>v-leave-active</code>、<code>v-leave-to</code></li>
+</ul>
+<ol start="3">
+<li><p><Transition> 组件 props</p>
+<table>
+<thead>
+<tr>
+<th>props</th>
+<th>功能</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>appear</td>
+<td>是否初次渲染</td>
+<td>布尔属性</td>
+<td>添加 appear 属性，表示元素初次渲染时添加动画效果</td>
+</tr>
+<tr>
+<td>name</td>
+<td>过渡效果命名</td>
+<td>字符串类型</td>
+<td>为不同的过渡动画取不同的过渡效果名，如果 name&#x3D;’fade‘，则 css 过渡 class 名为fade-enter-from&#x2F;active&#x2F;to 、fade-leave-from&#x2F;active&#x2F;to</td>
+</tr>
+<tr>
+<td>mode</td>
+<td>过渡模式</td>
+<td>out-in &#x2F; in-out</td>
+<td>out-in：先执行出场（离开）动画，出场动画结束后，再执行入场动画；in-out：先执行入场（进入）动画，入场动画结束后，再执行出场动画 （基本不用）</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>过渡时长</td>
+<td>整数</td>
+<td>表示动画执行的时长，单位为毫秒</td>
+</tr>
+<tr>
+<td>type</td>
+<td>指定监听动画类型</td>
+<td>“transition”&#x2F;“animation”</td>
+<td>值为”transition”表示监听transitionend事件，当 tranition 动画结束后即元素身上所有动画结束；值为”animation”表示监听animationend事件，当animation动画结束后即元素身上所有动画结束</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>自定义过渡 class</p>
+<blockquote>
+<p>你也可以向 <code>&lt;Transition&gt;</code> 传递以下的 props 来指定自定义的过渡 class：</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>enter-from-class</code></li>
+<li><code>enter-active-class</code></li>
+<li><code>enter-to-class</code></li>
+<li><code>leave-from-class</code></li>
+<li><code>leave-active-class</code></li>
+<li><code>leave-to-class</code></li>
+</ul>
+<ol start="5">
+<li>动画 Javascript 钩子</li>
+</ol>
+<pre><code>&lt;Transition
+  @before-enter=&quot;onBeforeEnter&quot;
+  @enter=&quot;onEnter&quot;
+  @after-enter=&quot;onAfterEnter&quot;
+  @enter-cancelled=&quot;onEnterCancelled&quot;
+  @before-leave=&quot;onBeforeLeave&quot;
+  @leave=&quot;onLeave&quot;
+  @after-leave=&quot;onAfterLeave&quot;
+  @leave-cancelled=&quot;onLeaveCancelled&quot;
+&gt;
+  &lt;!-- ... --&gt;
+&lt;/Transition&gt;
+</code></pre>
+<h3 id="九、-内置组件"><a href="#九、-内置组件" class="headerlink" title="九、 内置组件"></a>九、<TransitionGroup> 内置组件</h3><blockquote>
+<p>通过前面的学习，我们知道<code>&lt;Transition&gt;</code>组件只能应用单个元素或单个单根组件。</p>
+<ul>
+<li>如果要实现同时多个元素的过渡动画效果，如下图所示：<img src="多元素淡入淡出动画.gif"></li>
+</ul>
+</blockquote>
+<ul>
+<li>单个<code>&lt;Transition&gt;</code>是没有办法做到的，除非把上面四个元素，每个元素用一个<code>&lt;Transition&gt;</code>包裹，当然这样做是非常麻烦的，而<code>&lt;TransitionGroup&gt; </code>内置组件可以轻松帮我们做到。</li>
+<li><code>&lt;TransitionGroup&gt;</code>是一个内置组件，他主要用于多个元素的过渡效果。</li>
+<li>常用于对 <code>v-for</code> 列表中的元素或组件的插入、移除和顺序改变添加动画效果。</li>
+<li><code>&lt;TransitionGroup&gt;</code> 支持和 <code>&lt;Transition&gt;</code> 基本相同的 props、CSS 过渡 class 和 JavaScript 钩子监听器，不过还存在一些不同点</li>
+</ul>
+<h4 id="与的不同"><a href="#与的不同" class="headerlink" title="与的不同"></a><TransitionGroup>与<Transition>的不同</h4><ol>
+<li>可以为<code>&lt;TransitionGroup&gt;</code>组件传入&#96;tag prop&#96;&#96;来指定一个元素作为容器元素来渲染</li>
+</ol>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+  &lt;TransitionGroup tag=&quot;div&quot;&gt;&lt;/TransitionGroup&gt;
+&lt;/div&gt;
+
+&lt;!-- 以上代码，最终渲染成如下--&gt;
+&lt;div class=&quot;container&quot;&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--如果没有加tag属性，则渲染如下--&gt;
+&lt;div class=&quot;container&quot;&gt;&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>过渡模式（<code>mode = &quot;out-in&quot;</code>） 在这里不可用，因为我们不再是在互斥的元素之间进行切换。</li>
+</ol>
+<pre><code>&lt;!--以下为错误写法，TransitionGroup 并不支持mode属性--&gt;
+&lt;TransitionGroup mode=&quot;out-in&quot;&gt;&lt;/TransitionGroup&gt;
+</code></pre>
+<ol start="3">
+<li>列表中的每个元素都必须有一个独一无二的 <code>key attribute</code></li>
+</ol>
+<pre><code>&lt;!--如果div元素身上没有Key属性，或每个key不是唯一的，都是错误写法，在控制台会抛出警告--&gt;
+&lt;TransitionGroup&gt;
+  &lt;div :key=&quot;1&quot;&gt;1&lt;/div&gt;
+  &lt;div :key=&quot;2&quot;&gt;2&lt;/div&gt;
+  &lt;div :key=&quot;3&quot;&gt;3&lt;/div&gt;
+&lt;/TransitionGroup&gt;
+</code></pre>
+<ol start="4">
+<li>CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上</li>
+</ol>
+<h4 id="实战应用：多元素延迟淡入淡出动画"><a href="#实战应用：多元素延迟淡入淡出动画" class="headerlink" title="实战应用：多元素延迟淡入淡出动画"></a>实战应用：多元素延迟淡入淡出动画</h4><ol>
+<li>基础版</li>
+</ol>
+<ul>
+<li>完整版代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const show = ref(true);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = !show&quot;&gt;切换&lt;/button&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;TransitionGroup :duration=&quot;2600&quot;&gt;
+      &lt;div class=&quot;item&quot; v-show=&quot;show&quot; :key=&quot;1&quot; style=&quot;--delay:0s&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;item&quot; v-show=&quot;show&quot; :key=&quot;2&quot; style=&quot;--delay:0.2s&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;item&quot; v-show=&quot;show&quot; :key=&quot;3&quot; style=&quot;--delay:0.4s&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;item&quot; v-show=&quot;show&quot; :key=&quot;4&quot; style=&quot;--delay:0.6s&quot;&gt;&lt;/div&gt;
+    &lt;/TransitionGroup&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .container &#123;
+    display: flex;
+    width: 600px;
+    height: 200px;
+    margin: 10px;
+    border: 2px dashed khaki;
+    background-color: rgb(249, 247, 228);
+    overflow: hidden;
+  &#125;
+
+  .container .item &#123;
+    flex: 1;
+    margin: 10px;
+    background-color: khaki;
+  &#125;
+
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+    transform: translateY(100px);
+  &#125;
+
+  .v-enter-active,
+  .v-leave-active &#123;
+    transition: all 2s ease var(--delay);
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>代码解析：</p>
+</blockquote>
+<ul>
+<li><code>duration=&quot;2600&quot;</code>属性一定要加（值为整个动画从开始到结束的时间）</li>
+<li>如果不加，每个元素自身动画结束后，就会立即隐藏，这样会造成后面元素向前移动，引发布局混乱。</li>
+<li><code>duration=&quot;2600&quot;</code>表示在 2.6s 后（所有动画都结束了）一次性隐藏所有元素</li>
+<li>每个item元素的 <code>key</code> 属性一定要加，并且值还不能一样（这是 Vue 规定的）</li>
+<li>item元素身上的<code>--delay</code>属性为自定义 css 属性，用来表示每个元素执行动画前的延迟时间。</li>
+</ul>
+<blockquote>
+<p>重点观察</p>
+</blockquote>
+<ul>
+<li>我们重点观察控制台中每个item元素身上 class 的变化</li>
+<li>我们发现过渡 class 加在了每个元素身上，每个元素身上的过渡 class 是同一时间被加上的。</li>
+<li>还有每个元素身上的 class 是在同一时间被删除，同一时间被删除主要是受<code>duration=&quot;2600&quot;</code>属性的影响</li>
+</ul>
+<ol start="2">
+<li>优化版</li>
+</ol>
+<ul>
+<li>在实际的开发中，我们肯定是希望所有内部元素的动画执行完成后，再把外部元素也给隐藏或移除掉；因此<code>.container</code>在动画结束后也要隐藏</li>
+<li>一般列表内容在实际开发中是通过<code>v-for</code>列表来渲染的，所以我们把内容改成通过<code>v-for</code>来渲染</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; reactive, ref &#125; from &quot;vue&quot;;
+  const show = ref(true);
+  const list = reactive([1, 2, 3, 4]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;show = !show&quot;&gt;切换&lt;/button&gt;
+  &lt;Transition :duration=&quot;2800&quot; name=&quot;fade&quot;&gt;
+    &lt;div class=&quot;container&quot; v-show=&quot;show&quot;&gt;
+      &lt;TransitionGroup :duration=&quot;2800&quot; appear&gt;
+        &lt;div
+          class=&quot;item&quot;
+          v-for=&quot;(item, index) in  list &quot;
+          v-show=&quot;show&quot;
+          :key=&quot;index&quot;
+          :style=&quot;&#123; &#39;--delay&#39;: 0.2 * index + &#39;s&#39; &#125;&quot;
+        &gt;&lt;/div&gt;
+      &lt;/TransitionGroup&gt;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .container &#123;
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    border: 2px dashed khaki;
+    background-color: rgb(249, 247, 228);
+    display: flex;
+  &#125;
+
+  .container .item &#123;
+    flex: 1;
+    margin: 10px;
+    background-color: khaki;
+  &#125;
+
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+    transform: translateY(100px);
+  &#125;
+
+  .v-enter-active,
+  .v-leave-active &#123;
+    transition: all 2s ease var(--delay);
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>注意自定义属性<code>--delay</code></li>
+</ul>
+<ol start="3">
+<li>用JS 钩子函数与 css 过渡实现</li>
+</ol>
+<pre><code>  &lt;button @click=&quot;show = !show&quot;&gt;切换&lt;/button&gt;
+  &lt;Transition :duration=&quot;2800&quot; name=&quot;fade&quot;&gt;
+    &lt;div class=&quot;container&quot; v-show=&quot;show&quot;&gt;
+      &lt;!--添加 @leave=&quot;onLeave&quot; --&gt;
+      &lt;TransitionGroup :duration=&quot;2800&quot; @leave=&quot;onLeave&quot;&gt;
+        &lt;!-- data-index自定义属性--&gt;
+        &lt;div
+          class=&quot;item&quot;
+          v-for=&quot;(item, index) in  list &quot;
+          v-show=&quot;show&quot;
+          :key=&quot;index&quot;
+          :data-index=&quot;index&quot;
+        &gt;&lt;/div&gt;
+      &lt;/TransitionGroup&gt;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .container &#123;
+    width: 600px;
+    height: 200px;
+    overflow: hidden;
+    margin: 10px;
+    border: 2px dashed khaki;
+    background-color: rgb(249, 247, 228);
+    display: flex;
+  &#125;
+
+  .container .item &#123;
+    flex: 1;
+    margin: 10px;
+    background-color: khaki;
+  &#125;
+
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+    transform: translateY(100px);
+  &#125;
+
+  .v-enter-active,
+  .v-leave-active &#123;
+    /* transition: all 2s ease var(--delay); */
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="实战应用：列表添加、删除、排序元素时动画"><a href="#实战应用：列表添加、删除、排序元素时动画" class="headerlink" title="实战应用：列表添加、删除、排序元素时动画"></a>实战应用：列表添加、删除、排序元素时动画</h4><img src="列表添加删除排序时动画.gif">
+
+<ol>
+<li>基础版</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, reactive &#125; from &quot;vue&quot;;
+  const list = reactive([1, 2, 3, 4]);
+  let len = list.length;
+  // 根据数组长度，产生0-小于数组长度内的随机整数，用来作为随机删除的元素下标
+  function randomIndex() &#123;
+    //注意：要使用list.length 要随时更新数组长度
+    return Math.floor(Math.random() * list.length);
+  &#125;
+  // 随机位置插入比当前数组长度&gt;1的整数
+  function add() &#123;
+    len++;
+    list.splice(randomIndex(), 0, len);
+  &#125;
+  // 根据随机生成的下标，随机删除数组中的一位元素
+  function remove() &#123;
+    list.splice(randomIndex(), 1);
+  &#125;
+  // 对数组中元素升序排序
+  function sort() &#123;
+    list.sort((a, b) =&gt; &#123;
+      return a - b;
+    &#125;);
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;add&quot;&gt;在任意位置添加一项&lt;/button&gt;&amp;nbsp;
+  &lt;button @click=&quot;remove&quot;&gt;在任意位置移除一项&lt;/button&gt;
+  &lt;button @click=&quot;sort&quot;&gt;升序排序&lt;/button&gt;
+  &lt;TransitionGroup tag=&quot;ul&quot;&gt;
+    &lt;li v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/TransitionGroup&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+    transform: translateX(30px);
+  &#125;
+
+  .v-enter-active,
+  .v-leave-active &#123;
+    transition: all 1s ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<blockquote>
+<p>以上效果与我们最终想要的效果，明显有很大的差异</p>
+<ul>
+<li>两处不同差异：</li>
+</ul>
+</blockquote>
+<ul>
+<li>当某一项被插入或移除时，它周围的元素会立即发生“跳跃”而不是平稳地移动</li>
+<li>当我们对现有元素排序时，并没有看到动画效果，直接展示排序后效果</li>
+</ul>
+<blockquote>
+<ul>
+<li>差异产生的原因在于：</li>
+</ul>
+</blockquote>
+<ul>
+<li>vue 只给添加或移除的元素添加的过渡 class，对于排序的元素也没有加。（观察上图中控制台中元素 class 变化可以看到）</li>
+<li>要解决以上问题，可以通过添加一些额外的 CSS 规则来解决这个问题</li>
+<li>添加如下<code>.v-move</code> class ,<code>.v-move</code>将应用于所有（移动中）布局发生变化的元素，用来实现其过渡效果</li>
+<li>针对离开的元素，在离开的一瞬间<code>v-leave-active</code>将其设置为<strong>绝对定位</strong>，脱离文档流，这样后面的元素就会发生布局上的变化，从而触发了过渡效果</li>
+</ul>
+<pre><code>.v-move,  /* 对移动中的元素应用的过渡 */
+.v-enter-active,
+.v-leave-active &#123;
+  transition: all 1s ease;
+&#125;
+
+/* 确保将离开的元素从布局流中删除
+  以便能够正确地计算移动的动画。 */
+.v-leave-active &#123;
+  position: absolute;
+&#125;
+</code></pre>
+<ol start="2">
+<li>最终版</li>
+</ol>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, reactive &#125; from &quot;vue&quot;;
+  const list = reactive([1, 2, 3, 4]);
+  let len = list.length;
+  // 根据数组长度，产生0-小于数组长度内的随机整数，用来作为随机删除的元素下标
+  function randomIndex() &#123;
+    return Math.floor(Math.random() * list.length);
+  &#125;
+  // 随机位置插入比当前数组长度&gt;1的整数
+  function add() &#123;
+    len++;
+    list.splice(randomIndex(), 0, len);
+  &#125;
+  // 根据随机生成的下标，随机删除数组中的一位元素
+  function remove() &#123;
+    list.splice(randomIndex(), 1);
+  &#125;
+  // 对数组中元素升序排序
+  function sort() &#123;
+    list.sort((a, b) =&gt; &#123;
+      return a - b;
+    &#125;);
+  &#125;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;button @click=&quot;add&quot;&gt;在任意位置添加一项&lt;/button&gt;&amp;nbsp;
+  &lt;button @click=&quot;remove&quot;&gt;在任意位置移除一项&lt;/button&gt;
+  &lt;button @click=&quot;sort&quot;&gt;升序排序&lt;/button&gt;
+  &lt;TransitionGroup tag=&quot;ul&quot;&gt;
+    &lt;li v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;&#123;&#123; item &#125;&#125;&lt;/li&gt;
+  &lt;/TransitionGroup&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+  .v-enter-from,
+  .v-leave-to &#123;
+    opacity: 0;
+    transform: translateX(30px);
+  &#125;
+
+  .v-move,
+  .v-enter-active,
+  .v-leave-active &#123;
+    transition: all 1s ease;
+  &#125;
+
+  /* 确保将离开的元素从布局流中删除
+    以便能够正确地计算移动的动画。 */
+  .v-leave-active &#123;
+    position: absolute;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p><code>&lt;TransitionGroup&gt;</code> 支持和 <code>&lt;Transition&gt;</code> 基本相同的 <code>props</code>、<code>CSS</code> 过渡 <code>class</code> 和 <code>JavaScript</code> 钩子监听器，不过还存在以下不同：</p>
+</blockquote>
+<ul>
+<li>可以为<code>&lt;TransitionGroup&gt;</code>组件传入tagprop 来指定一个元素作为容器元素来渲染</li>
+<li><code>&lt;TransitionGroup&gt;</code>组件中列表的每个元素都必须有一个独一无二的 <code>key</code> attribute</li>
+<li>CSS 过渡 class 会被应用在列表内的元素上，而不是容器元素上。<br>0 过渡模式（<code>mode = &quot;out-in&quot;</code>） 在这里不可用</li>
+</ul>
+<blockquote>
+<p>列表元素被触发动画的机制</p>
+</blockquote>
+<ul>
+<li>元素被移除或插入时会添加对应的 Class，触发动画</li>
+<li>元素被显示与隐藏时会添加对应的 Class，触发动画</li>
+<li>多个元素发生动画时，自身动画结束后就会被移除或隐藏，如果想所有元素动画都执行完再隐藏或移除，可以添加 durationprop 来指定动画结束时间<ul>
+<li>在刚开始执行动画时，列表中的其它元素的位置发生如果发生改变，则会添加<code>.move</code> Class，可以在<code>.move</code>中添加过渡动画，让整个变化有动画效果</li>
+</ul>
+</li>
+<li>在移除或隐藏元素时，要保证后面元素有过渡动画，可以<code>.v-leave-active</code>中添加<code>position:absolute</code>这样出场动画刚执行时后面的元素就会发生位移，然后被添加<code>.move</code> Class</li>
+</ul>
+<h3 id="十、其他动画"><a href="#十、其他动画" class="headerlink" title="十、其他动画"></a>十、其他动画</h3><h4 id="基于-css-class-的动画"><a href="#基于-css-class-的动画" class="headerlink" title="基于 css class 的动画"></a>基于 css class 的动画</h4><blockquote>
+<p>元素颤抖效果：当点击某个元素时，元素会颤抖<br>颤抖动画的实现原理：</p>
+<ul>
+<li>在规定的时间内（比如 1s），让元素向按以下方式来移动</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>10%：从原位置上，向上上移动到 2px 即：translateY(-2px)</p>
+</li>
+<li><p>20%：向下移动到 2px，即：translateY(2px)</p>
+</li>
+<li><p>30%：向上移动到 4px，即：translateY(-4px)</p>
+</li>
+<li><p>40%：向下移动到 4px，即：translateY(4px)</p>
+</li>
+<li><p>50%：同 30%时执行效果一样</p>
+</li>
+<li><p>60%：同 40%时执行效果一样</p>
+</li>
+<li><p>70%：同 30%时执行效果一样</p>
+</li>
+<li><p>80%：同 20%时执行效果一样</p>
+</li>
+<li><p>90%：同 10%时执行效果一样</p>
+</li>
+<li><p>100%：回到元素动画开始前的元位置 translateY(0px)</p>
+</li>
+<li><p>动画实现代码：</p>
+</li>
+</ul>
+<pre><code>@keyframes shake &#123;
+  10%,
+  90% &#123;
+    transform: translateY(-2px);
+  &#125;
+
+  20%,
+  80% &#123;
+    transform: translateY(2px);
+  &#125;
+
+  30%,
+  50%,
+  70% &#123;
+    transform: translateY(-4px);
+  &#125;
+
+  40%,
+  60% &#123;
+    transform: translateY(4px);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>完整代码</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  const disabled = ref(false);
+  function shake() &#123;
+    disabled.value = true;
+    setTimeout(() =&gt; &#123;
+      disabled.value = false;
+    &#125;, 1000);
+  &#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;box&quot; :class=&quot;&#123; shake: disabled &#125;&quot; @click=&quot;shake&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .box &#123;
+    margin: 30px;
+    width: 200px;
+    height: 250px;
+    background-color: khaki;
+    position: absolute;
+  &#125;
+  .shake &#123;
+    animation: shake 1s;
+  &#125;
+  50% @keyframes shake &#123;
+    10%,
+    90% &#123;
+      transform: translateY(-2px);
+    &#125;
+
+    20%,
+    80% &#123;
+      transform: translateY(2px);
+    &#125;
+
+    30%,
+    50%,
+    70% &#123;
+      transform: translateY(-4px);
+    &#125;
+
+    40%,
+    60% &#123;
+      transform: translateY(4px);
+    &#125;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h4 id="基于侦听器的动画"><a href="#基于侦听器的动画" class="headerlink" title="基于侦听器的动画"></a>基于侦听器的动画</h4><blockquote>
+<p>数字动画</p>
+<ul>
+<li>效果：根据起始数据和目标数据的值，快速从起始数据递增或者递减到目标数据</li>
+</ul>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref, watch &#125; from &quot;vue&quot;;
+  const num = ref(0); // 绑定表单输入的值
+  const timer = ref(null); // 保存定时器
+  const number = ref(0); // 绑定变化后的值
+
+  // 侦听器
+  watch(num, (newValue, oldValue) =&gt; &#123;
+    if (!oldValue) &#123;
+      oldValue = 0;
+    &#125;
+    if (!newValue) &#123;
+      newValue = 0;
+    &#125;
+    numberAnimate(
+      Math.ceil(oldValue),
+      Math.ceil(newValue),
+      (value) =&gt; (number.value = value),
+      20
+    );
+  &#125;);
+
+  /**
+   * numberAnimate 方法用来实现数字动画
+   * @param  start 起始数字
+   * @param  target 结束数字
+   * @param  delay  定时器每次间隔时长
+   * @param  result 保存起始数字到结束数字中间变化的状态值
+   *
+   */
+  function numberAnimate(start, target, callback, delay = 20) &#123;
+    // 动画的步长
+    let step = 0;
+    // 如果有定时器，先清定时器
+    if (timer.value) &#123;
+      clearInterval(timer.value);
+    &#125;
+    timer.value = setInterval(() =&gt; &#123;
+      // 计算每次运动的步长
+      step = (target - start) / 5;
+      // 目标值大于起始值，向上取整,否则向下取整
+      step = step &gt; 0 ? Math.ceil(step) : Math.floor(step);
+
+      // 起始值累加
+      start = step + start;
+
+      // 将数值中间的变化值作为参数传递给callback
+      callback(start);
+      // result.value = start;
+
+      // 当起始值=目标值，则暂停定时器
+      if (start === target) &#123;
+        clearInterval(timer.value);
+      &#125;
+    &#125;, delay);
+  &#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;input v-model.number=&quot;num&quot; type=&quot;number&quot; /&gt;
+  &lt;div&gt;&#123;&#123; number &#125;&#125;&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/26/Vue%EF%BC%88%E5%85%AD%EF%BC%89/">https://hermiablog.com/2024/01/26/Vue%EF%BC%88%E5%85%AD%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/01/27/Vue%EF%BC%88%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/48.jpg" class="responsive-img" alt="Vue（七）">
+                        
+                        <span class="card-title">Vue（七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Vue Router
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/25/Vue%EF%BC%88%E4%BA%94%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/46.jpg" class="responsive-img" alt="Vue（五）">
+                        
+                        <span class="card-title">Vue（五）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            组合式API
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
