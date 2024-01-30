@@ -1,0 +1,3030 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="原生组件开发（一）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>原生组件开发（一） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/49.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">原生组件开发（一）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BB%84%E4%BB%B6/">
+                                <span class="chip bg-color">组件</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%89%8B%E5%86%99/" class="post-category">
+                                手写
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-01-30
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-01-30
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="todos组件"><a href="#todos组件" class="headerlink" title="todos组件"></a>todos组件</h2><h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><blockquote>
+<p>项目功能</p>
+</blockquote>
+<ul>
+<li>输入添加todos</li>
+<li>可以单项删除</li>
+<li>可以编辑每一项todos</li>
+<li>选中后，文字出现删除线</li>
+<li>可以全选或取消全选所有todos</li>
+<li>具有统计功能，统计当前已完成和全部todos项</li>
+<li>具有筛选功能，可以筛选未完成、已完成、全部</li>
+<li>可以批量删除已完成事件</li>
+</ul>
+<blockquote>
+<p>项目涉及核心知识点</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>知识点分类</th>
+<th>…</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vue基础</td>
+<td>插值语法、列表渲染、v-bind指令、表单元素绑定、事件绑定、样式绑定、事件修饰符、计算属性、methods方法</td>
+</tr>
+<tr>
+<td>组件间通信</td>
+<td>props、组件事件、组件v-model、依赖注入</td>
+</tr>
+<tr>
+<td>原生JS基础</td>
+<td>本地数据持久化：localStorage本地存储、JSON.parse、JSON.stringify、数组相关API：filter、find、findIndex、splice、unshift、reduce</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>交互效果</p>
+</blockquote>
+<ul>
+<li>输入框获取焦点和失去焦点后的样式</li>
+<li>当鼠标滑动到每一项Todos时，在当前项最后面显示删除按钮</li>
+<li>双击每一项，会变成单行文本输入框，可以输入内容，同时todos和删除按钮隐藏</li>
+<li>复选框的选中和未选中状态</li>
+<li>点击不同的筛选按钮，显示不同数据，并且该按钮样式改变</li>
+</ul>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>实现UI静态布局–&gt;拆分组件–&gt;根据功能点逐个击破<img src="todos-ui图.png"></li>
+</ul>
+<h3 id="功能点"><a href="#功能点" class="headerlink" title="功能点"></a>功能点</h3><h4 id="渲染todos数据"><a href="#渲染todos数据" class="headerlink" title="渲染todos数据"></a>渲染todos数据</h4><blockquote>
+<p>父组件向子组件传值<br><strong>思路</strong></p>
+</blockquote>
+<ul>
+<li>todos数据应该是由App组件传给子组件TodoList进行列表循环</li>
+<li>TodoList再把对应数据传给TodoItem组件进行渲染<br><strong>注意点</strong></li>
+<li>TodoList在进行列表循环时，需要给todoItem组件传入数据</li>
+<li>因为每个事件都是一个对象，因此，采用不带参数的<code>v-bind</code>进行传入，todoItem组件在接收时，直接用对象里的属性名接收</li>
+</ul>
+<pre><code>props: [&quot;title&quot;, &quot;id&quot;, &quot;complected&quot;],
+</code></pre>
+<blockquote>
+<p>孙组件修改祖先组件的值</p>
+</blockquote>
+<ul>
+<li>App组件提供一个方法，根据其他组件传过来的id来修改对应的事件的完成状态；<ul>
+<li>使用<code>find()</code>方法来查找满足条件的事件</li>
+</ul>
+</li>
+<li>需要修改时间状态的组件，注入依赖，并绑定注入的方法，传入对应id</li>
+</ul>
+<h4 id="添加todo"><a href="#添加todo" class="headerlink" title="添加todo"></a>添加todo</h4><blockquote>
+<p>子组件向父组件传值：<code>emit</code>事件</p>
+</blockquote>
+<ul>
+<li>父组件定义添加todo的方法</li>
+<li>子组件中：<ul>
+<li>在键盘抬起并按下回车键时触发<code>emit</code>事件 </li>
+<li>获取输入框中的值，当<code>value</code>不为空时，再进行下一步</li>
+<li>定义一个对象，将<code>value</code>作为title，再加上id、completed属性</li>
+<li>将该对象传入<code>emit</code>事件</li>
+<li>清除输入框中的内容</li>
+</ul>
+</li>
+</ul>
+<h4 id="单项删除"><a href="#单项删除" class="headerlink" title="单项删除"></a>单项删除</h4><blockquote>
+<p>孙组件<code>todoItem</code>修改祖先组件的值</p>
+</blockquote>
+<ul>
+<li>使用依赖与注入</li>
+<li>App组件提供方法，根据孙组件提供的id来修改todos，删除对应事件</li>
+<li>使用<code>findIndex()</code>方法，找到对应事件的下标</li>
+<li>使用<code>splice()</code>方法，删除事件</li>
+</ul>
+<h4 id="编辑每一项todo"><a href="#编辑每一项todo" class="headerlink" title="编辑每一项todo"></a>编辑每一项todo</h4><ul>
+<li>定义变量<code>modifyId</code>，双击事件名部分后，把<code>modifyId</code>修改成对应的id，当id等于<code>modifyId</code>时，显示对应id的输入框，隐藏事件内容</li>
+<li>编辑后要修改祖先组件的数据：使用依赖与注入</li>
+<li>App组件定义修改todo的方法，孙组件注入该方法</li>
+<li>当键盘抬起并按下回车键后<ul>
+<li>获取输入的值</li>
+<li>如果输入框有值，就调用该方法，并传入id和输入的值；没有的话就什么都不做</li>
+<li>修改<code>modifyId</code>，以隐藏输入框</li>
+</ul>
+</li>
+</ul>
+<h3 id="全选或取消全选"><a href="#全选或取消全选" class="headerlink" title="全选或取消全选"></a>全选或取消全选</h3><ul>
+<li>单个选中后全选：<ul>
+<li>使用计算属性<code>selectState</code>，监测<code>todos</code>属性的变化；当事件的状态改变后，计算属性也会重新计算</li>
+<li><code>selectState</code>的值根据<code>todos</code>的完成状态得到，当所有事件都完成时，<code>selectState</code>才会等于true</li>
+<li>使用<code>reduce()</code>方法</li>
+</ul>
+</li>
+<li>点击全选按钮选中：子组件修改父组件的数据用<code>emit</code><ul>
+<li>全选按钮的状态由<code>selectState</code>决定</li>
+<li>App定义自定义事件，接收子组件传来的状态值<code>selectState</code>，当它为<code>true</code>时，就将所有事件的状态改为<code>false</code>(注意是相反的，已经是true，再次点击时就是不选中)</li>
+</ul>
+</li>
+</ul>
+<h3 id="筛选功能"><a href="#筛选功能" class="headerlink" title="筛选功能"></a>筛选功能</h3><ul>
+<li>定义一个变量<code>filterIndex</code>表示筛选条件</li>
+<li>使用计算属性<code>filterTodos</code>来根据<code>filterIndex</code>筛选todos事件</li>
+<li>父组件定义一个事件来接收<code>TodoFooter</code>组件传来的值，修改筛选条件</li>
+<li>子组件中，点击不同按钮，给父组件传递不同的值</li>
+</ul>
+<h3 id="批量删除已完成的事件"><a href="#批量删除已完成的事件" class="headerlink" title="批量删除已完成的事件"></a>批量删除已完成的事件</h3><ul>
+<li>父组件定义一个事件，当子组件点击删除按钮时，将<code>todos</code>数据进行修改，删除所有已完成项</li>
+</ul>
+<h3 id="组件内部操作"><a href="#组件内部操作" class="headerlink" title="组件内部操作"></a>组件内部操作</h3><h4 id="TodoHeader组件"><a href="#TodoHeader组件" class="headerlink" title="TodoHeader组件"></a>TodoHeader组件</h4><blockquote>
+<p>输入框的样式</p>
+</blockquote>
+<ul>
+<li>定义一个变量<code>active</code></li>
+<li>动态绑定class样式，当active为true时，显示样式</li>
+<li>绑定<code>focus</code>和<code>blur</code>事件，并分别修改active的样式</li>
+</ul>
+<h4 id="TodoItem组件"><a href="#TodoItem组件" class="headerlink" title="TodoItem组件"></a>TodoItem组件</h4><blockquote>
+<p>删除按钮</p>
+</blockquote>
+<ul>
+<li>滑动到对应位置才显示</li>
+</ul>
+<blockquote>
+<p>输入框样式</p>
+</blockquote>
+<ul>
+<li>绑定<code>focus</code>事件，当active为true时，显示样式</li>
+<li>绑定<code>blur</code>事件，当失去焦点时，将<code>modifyId</code>的值重置，隐藏输入框</li>
+</ul>
+<h4 id="TodoFooter组件"><a href="#TodoFooter组件" class="headerlink" title="TodoFooter组件"></a>TodoFooter组件</h4><blockquote>
+<p>统计当前已完成和全部todos项</p>
+</blockquote>
+<ul>
+<li>全部数量即数据长度</li>
+<li>已完成数：使用<code>reduce()</code>方法</li>
+</ul>
+<blockquote>
+<p>按钮点击后，样式需要改变</p>
+</blockquote>
+<ul>
+<li>按钮的emit事件触发后，需要传入对应的分类号</li>
+<li>定义一个变量<code>clickIndex</code>保存当前点击的按钮的分类号</li>
+<li>在点击触发emit事件后，将<code>clickIndex</code>修改为当前按钮的分类号</li>
+<li>当<code>clickIndex</code>等于自己的分类号时，点击样式生效</li>
+</ul>
+<h3 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h3><blockquote>
+<p>使用侦听器的方式，侦听todos的变化，在每次变化后，将新的值保存到<code>localStorage</code>中</p>
+</blockquote>
+<ul>
+<li>初始化时，从本地存储中取数据(一定要解析JSON字符串)：</li>
+</ul>
+<pre><code>todos: JSON.parse(window.localStorage.getItem(&quot;todos&quot;)) || [],
+</code></pre>
+<ul>
+<li>侦听器，侦听todos的变化(一定要序列化)：</li>
+</ul>
+<pre><code>watch: &#123;
+    todos: &#123;
+      handler(todos) &#123;
+        window.localStorage.setItem(&quot;todos&quot;, JSON.stringify(todos));
+      &#125;,
+      deep: true,
+    &#125;,
+  &#125;,
+</code></pre>
+<h2 id="带历史记录的搜索"><a href="#带历史记录的搜索" class="headerlink" title="带历史记录的搜索"></a>带历史记录的搜索</h2><h3 id="项目介绍-1"><a href="#项目介绍-1" class="headerlink" title="项目介绍"></a>项目介绍</h3><blockquote>
+<p>功能点</p>
+</blockquote>
+<ul>
+<li>在搜索框输入内容，并按回车键<ul>
+<li>输入框中的内容添加到<strong>搜索历史</strong>列表中</li>
+<li>根据关键词搜索对应的课程，并将<strong>搜索结果</strong>呈现在页面中</li>
+</ul>
+</li>
+<li>点击搜索框右则的<strong>取消</strong>按扭，可以取消输入框中的的内容</li>
+<li>点击<strong>搜索历史列表中的关键字</strong>，可以触发搜索功能，将搜索的结果以列表形式呈现在页面中</li>
+<li>点击搜索历史列表右则的<strong>删除</strong>按扭，可以清空搜索历史列表</li>
+</ul>
+<blockquote>
+<p>项目涉及核心知识点</p>
+<ul>
+<li>该项目所涉及知识点较多，主要有：</li>
+</ul>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>知识点分类</th>
+<th>涉及内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vue 基础（组合式）</td>
+<td>插值语法、列表渲染、v-bind 指令、表单元素绑定、事件绑定、样式绑定、事件修饰符、watchEffect 侦听器、响应式 API-reactive</td>
+</tr>
+<tr>
+<td>组件间通信</td>
+<td>defineProps、defineEmits、组件 v-model</td>
+</tr>
+<tr>
+<td>原生 JS 基础</td>
+<td>本地数据持久化：localStorage 本地存储、JSON.parse、JSON.stringify；数组相关 API：unshift</td>
+</tr>
+<tr>
+<td>网络请求</td>
+<td>axios</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>实现步骤</p>
+</blockquote>
+<ul>
+<li>实现UI静态布局–&gt;拆分组件–&gt;根据功能点逐个击破<img src="带历史记录的搜索UI图.png"></li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><blockquote>
+<p>核心数据</p>
+<ul>
+<li>为了实现响应式，需要使用<code>reactive</code>方法</li>
+<li>将核心数据都存入<code>state</code>变量中</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>url</code>：保存接口地址</li>
+<li><code>searchList</code>：保存搜索结果</li>
+<li><code>historyList</code>：保存搜索记录</li>
+</ul>
+<pre><code>const state = reactive(&#123;
+  text: &quot;&quot;, //搜索框的值
+  url: &quot;https://www.fastmock.site/mock/804fcae2e74bf1139d47b1fd79c3bbaa/vue/search&quot;,
+  historyList: [
+    //模拟数据
+    &#123;
+      id: Date.now(),
+      keyword: &quot;前端&quot;,
+    &#125;,
+  ],
+  searchList: [],
+&#125;);
+</code></pre>
+<ul>
+<li>定义获取数据的方法：使用axios</li>
+</ul>
+<pre><code>import axios from &quot;axios&quot;;
+//定义一个方法 发起axios请求 获取数据
+async function getSearchList(keyword) &#123;
+  const res = await axios.get(`$&#123;state.url&#125;?keyword=$&#123;keyword&#125;`);
+  //如果成功获取数据
+  if (res) &#123;
+    //如果获取的是空数据，就为空数组
+    state.searchList = res.data.data || [];
+  &#125;
+&#125;
+</code></pre>
+<h4 id="SearchInput组件"><a href="#SearchInput组件" class="headerlink" title="SearchInput组件"></a>SearchInput组件</h4><blockquote>
+<p>需要实现的功能</p>
+</blockquote>
+<ul>
+<li>在搜索框输入关键词，按下回车键后<ul>
+<li>根据关键词发送axios请求，获取数据，存入<code>searchList</code>中</li>
+<li>同时搜索框的值存入父组件的<code>historyList</code>中</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>功能实现</p>
+</blockquote>
+<ol>
+<li>实现App组件与输入框的双向数据绑定</li>
+</ol>
+<ul>
+<li>通过<code>v-model</code>将父组件的<code>state.text</code>传入子组件</li>
+<li>子组件接收<code>modelValue</code>属性和<code>update:modelValue</code>方法，并绑定在<code>input</code>标签上</li>
+<li>当<code>input</code>事件发生时，触发<code>update:modelValue</code>方法，并将输入框中的值传入</li>
+</ul>
+<ol start="2">
+<li>输入框回车时，修改父组件的<code>state.historyList</code>数据</li>
+</ol>
+<ul>
+<li>子向父传值，需要使用自定义事件；在父组件中定义事件名和事件处理函数，input标签在回车时触发事件，并将输入框中的值传入</li>
+<li>父组件的事件处理函数：接收子组件传来的值<ul>
+<li>如果值不为空，就调用<code>getSearchList</code>方法</li>
+<li>添加进历史记录：前提是不能传入相同的值</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>点击取消按钮删除输入框中的内容</li>
+</ol>
+<ul>
+<li>在父组件中定义一个方法</li>
+<li>绑定在子组件的取消按钮上</li>
+</ul>
+<blockquote>
+<p>props</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>placehoder</td>
+<td>输入框中的占位提示文字</td>
+<td>string</td>
+<td>-</td>
+</tr>
+<tr>
+<td>action-text</td>
+<td>输入框右侧的取消文字</td>
+<td>string</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>modelValue(state.text)</td>
+<td>输入框的值，通过v-model实现双向绑定</td>
+<td>string</td>
+<td>“”</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Events事件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+<th>参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>search</td>
+<td>在回车后调用自定义事件</td>
+<td>e.target.value</td>
+</tr>
+<tr>
+<td>update:modelValue</td>
+<td>将输入框中的值传给父组件</td>
+<td>$event.target.value</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>slot插槽</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>location</td>
+<td>输入框左侧的内容</td>
+</tr>
+</tbody></table>
+<h4 id="SearchHistory插件与Badge插件"><a href="#SearchHistory插件与Badge插件" class="headerlink" title="SearchHistory插件与Badge插件"></a>SearchHistory插件与Badge插件</h4><blockquote>
+<p>核心数据传递</p>
+</blockquote>
+<ul>
+<li>App组件将历史数据<code>state.historyList</code>传给<code>SearchHistory</code>组件</li>
+<li><code>SearchHistory</code>组件，使用<code>v-for</code>列表渲染<code>state.historyList</code>，然后将<code>item</code>传给<code>Badge</code>组件</li>
+<li><code>Badge</code>组件再将接收的数据渲染到页面</li>
+</ul>
+<blockquote>
+<p>功能</p>
+</blockquote>
+<ul>
+<li>孙组件修改祖先组件的数据，利用依赖与注入</li>
+</ul>
+<ol>
+<li>点击删除键，根据id删除对应的历史记录</li>
+</ol>
+<ul>
+<li>在App组件中定义一个方法，当接收到子孙组件传来的id后，将id与<code>searchHistory</code>中的数据比较，删除id相同的项</li>
+</ul>
+<ol start="2">
+<li>点击历史记录，可以进行搜索</li>
+</ol>
+<ul>
+<li>在App组件中将发起请求的getSearchList方法提供出去</li>
+</ul>
+<ol start="3">
+<li>点击删除图标，删除App组件中的历史数据</li>
+</ol>
+<blockquote>
+<p>props</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>historyList</td>
+<td>历史搜索记录</td>
+<td>Array</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Events事件</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>事件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>delAllHistory</td>
+<td>删除所有历史数据</td>
+</tr>
+</tbody></table>
+<h4 id="SearchList组件"><a href="#SearchList组件" class="headerlink" title="SearchList组件"></a>SearchList组件</h4><ul>
+<li>App将搜索结果传给<code>SearchList</code>组件</li>
+<li><code>SearchList</code>组件接收数据后，进行渲染</li>
+</ul>
+<h4 id="本地存储-1"><a href="#本地存储-1" class="headerlink" title="本地存储"></a>本地存储</h4><blockquote>
+<p>使用侦听器的方式，侦听todos的变化，在每次变化后，将新的值保存到<code>localStorage</code>中</p>
+</blockquote>
+<ul>
+<li>初始化时，从本地存储中取数据(一定要解析JSON字符串)：</li>
+</ul>
+<pre><code>history: JSON.parse(window.localStorage.getItem(&quot;history&quot;)) || [],
+</code></pre>
+<ul>
+<li>侦听器，侦听todos的变化(一定要序列化)：</li>
+</ul>
+<pre><code>watchEffect(() =&gt; &#123;
+  localStorage.setItem(&quot;history&quot;, JSON.stringify(state.historyList));
+&#125;);
+</code></pre>
+<h2 id="无线下拉菜单"><a href="#无线下拉菜单" class="headerlink" title="无线下拉菜单"></a>无线下拉菜单</h2><h3 id="项目介绍-2"><a href="#项目介绍-2" class="headerlink" title="项目介绍"></a>项目介绍</h3><h4 id="项目功能"><a href="#项目功能" class="headerlink" title="项目功能"></a>项目功能</h4><blockquote>
+<p>该项目所需要实现的功能如下：</p>
+</blockquote>
+<ul>
+<li>无论菜单有多少级，都能够递归渲染出来。</li>
+<li>当鼠标滑动到对应的菜单上时，才会显示对应菜单的下级菜单。</li>
+<li>针对有下级菜单的菜单不能点击跳转，针对没有下级菜单的菜单可以点击跳转</li>
+</ul>
+<h4 id="项目涉及核心知识点"><a href="#项目涉及核心知识点" class="headerlink" title="项目涉及核心知识点"></a>项目涉及核心知识点</h4><blockquote>
+<p>该项目涉及知识点主要有：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>知识分类</th>
+<th>涉及内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vue 基础（组合式）</td>
+<td>插值语法、列表渲染、v-bind 指令、响应式 API-reactive</td>
+</tr>
+<tr>
+<td>组件间通信</td>
+<td>defineProps、slot 插槽</td>
+</tr>
+<tr>
+<td>其它知识</td>
+<td>递归组件</td>
+</tr>
+</tbody></table>
+<h4 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h4><ul>
+<li>组件拆分：一个完整的项目，应该如何进行组件化拆分</li>
+<li>项目开发流程：如何一步步完成项目的开发，先做什么后做什么</li>
+<li>递归组件：如何实现递归一个组件自身</li>
+<li>render 渲染函数：掌握渲染函数何递归组件。</li>
+</ul>
+<h4 id="项目开发流程"><a href="#项目开发流程" class="headerlink" title="项目开发流程"></a>项目开发流程</h4><p>分析 UI 图 –&gt; 实现 UI 静态布局 –&gt; 拆分组件 –&gt; 确定数据源 –&gt; 渲染一级 与 二级菜单 –&gt; 渲染无限级菜单</p>
+<blockquote>
+<p>分析 UI 图</p>
+</blockquote>
+<ul>
+<li>首先我们需要通过 UI 图，分析当前项目可以拆分成哪些组件，当前项目可以拆分成以下 3 个组件（未包含当前应用的 APP 组件）<img src="无线下拉菜单UI图.png"></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MenuItem</td>
+<td>单个菜单项</td>
+</tr>
+<tr>
+<td>SubMenu</td>
+<td>二级菜单（二级菜单子菜单调用<MenuItem>）</td>
+</tr>
+<tr>
+<td>ReSubMenu</td>
+<td>递归组件，用来递归自身。该组件内部调用<SubMenu>组件</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>实现 UI 静态布局<br>根据 UI 图，利用HTML + CSS实现静态布局，同时要把所有的交互效果用到的 CSS 样式也要写好。并且要清楚的知道每一个交互背后的实现逻辑。</p>
+<ul>
+<li>本案例中涉及到如下几个交互效果</li>
+</ul>
+</blockquote>
+<ul>
+<li>鼠标滑动到对应的菜单项，菜单项的背景变黄色</li>
+<li>当鼠标滑动到对应菜单项的子项时，对应菜单项和子项的背景都变黄色</li>
+<li>当鼠标滑动到对应的菜单项时，如果有子级，显示对应的子菜单项</li>
+</ul>
+<blockquote>
+<p>确定数据源<br>整个应用中最核心的数据就是菜单列表，以下数据为模拟的菜单列表数据，定义在 <code>src/data/menu.js</code> 文件中</p>
+</blockquote>
+<pre><code>export default [
+  &#123;
+    id: 1,
+    title: &quot;菜单一&quot;,
+    href: &quot;http://www.xxx11.com&quot;,
+  &#125;,
+  &#123;
+    id: 2,
+    title: &quot;菜单二&quot;,
+    children: [
+      &#123;
+        id: 21,
+        title: &quot;菜单二-21&quot;,
+        children: [
+          &#123;
+            id: 211,
+            title: &quot;菜单21-1&quot;,
+            href: &quot;http://www.xxx211.com&quot;,
+          &#125;,
+          &#123;
+            id: 212,
+            title: &quot;菜单21-2&quot;,
+            children: [
+              &#123;
+                id: 2121,
+                title: &quot;菜单21-2-1&quot;,
+                href: &quot;http://www.xxx2121.com&quot;,
+              &#125;,
+            ],
+          &#125;,
+          &#123;
+            id: 213,
+            title: &quot;菜单21-3&quot;,
+            href: &quot;http://www.xxx213.com&quot;,
+          &#125;,
+        ],
+      &#125;,
+      &#123;
+        id: 22,
+        title: &quot;菜单二-22&quot;,
+        href: &quot;http://www.xxx22.com&quot;,
+      &#125;,
+      &#123;
+        id: 23,
+        title: &quot;菜单二-23&quot;,
+        href: &quot;http://www.xxx23.com&quot;,
+      &#125;,
+    ],
+  &#125;,
+  &#123;
+    id: 3,
+    title: &quot;菜单三&quot;,
+    href: &quot;http://www.xxx3.com&quot;,
+  &#125;,
+  &#123;
+    id: 4,
+    title: &quot;菜单四&quot;,
+    href: &quot;http://www.xxx4.com&quot;,
+  &#125;,
+];
+</code></pre>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><blockquote>
+<p>步骤</p>
+</blockquote>
+<ul>
+<li>先拆成两个组件<ul>
+<li>渲染一二级菜单</li>
+<li>渲染多级菜单，在SubMenu组件进行递归</li>
+<li>使用rend函数渲染SubMenu组件</li>
+</ul>
+</li>
+<li>拆成三个组件<ul>
+<li>SubMenu组件只进行二级渲染</li>
+</ul>
+</li>
+</ul>
+<h4 id="拆分组件——App、MenuItem、SubMenu"><a href="#拆分组件——App、MenuItem、SubMenu" class="headerlink" title="拆分组件——App、MenuItem、SubMenu"></a>拆分组件——App、MenuItem、SubMenu</h4><ul>
+<li>App 根组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import MenuItem from &quot;./components/MenuItem.vue&quot;;
+  import SubMenu from &quot;./components/SubMenu.vue&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;menu&quot;&gt;
+    &lt;!--menu-item start--&gt;
+    &lt;Menuitem&gt; &lt;/Menuitem&gt;
+    &lt;!--menu-item end--&gt;
+
+    &lt;!--sub-menu start--&gt;
+    &lt;SubMenu&gt;&lt;/SubMenu&gt;
+    &lt;!--sub-menu end--&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .menu &#123;
+    width: 200px;
+    margin: 150px;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>MenuItem 组件</li>
+</ul>
+<pre><code>&lt;template&gt;
+  &lt;div class=&quot;menu-item&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;菜单一&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  /* menu-item start */
+  .menu-item &#123;
+    width: 100%;
+  &#125;
+
+  .menu-item a &#123;
+    display: block;
+    line-height: 35px;
+    text-indent: 2em;
+    background-color: skyblue;
+    color: #fff;
+    text-decoration: none;
+  &#125;
+
+  .menu-item a:hover &#123;
+    background-color: khaki;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>SubMenu 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import MenuItem from &quot;./MenuItem.vue&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;sub-menu&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;
+      菜单二
+      &lt;span&gt;&amp;gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sub-item&quot;&gt;
+      &lt;Menuitem&gt; 菜单二-21&lt;/Menuitem&gt;
+      &lt;Menuitem&gt; 菜单二-22&lt;/Menuitem&gt;
+      &lt;Menuitem&gt; 菜单二-23&lt;/Menuitem&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  /* sub-menu start */
+  .sub-menu &#123;
+    height: 35px;
+    position: relative;
+  &#125;
+
+  .sub-menu:hover &gt; .title &#123;
+    background-color: khaki;
+  &#125;
+
+  .sub-menu:hover &gt; .sub-item &#123;
+    display: block;
+  &#125;
+
+  .sub-menu .title &#123;
+    height: 35px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    text-indent: 2em;
+    background-color: skyblue;
+    color: #fff;
+  &#125;
+
+  .sub-menu:hover .title &#123;
+    background-color: khaki;
+  &#125;
+
+  .sub-menu .title span &#123;
+    margin-right: 10px;
+  &#125;
+
+  .sub-menu .sub-item &#123;
+    width: 100%;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    display: none;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<h5 id="渲染一二级菜单"><a href="#渲染一二级菜单" class="headerlink" title="渲染一二级菜单"></a>渲染一二级菜单</h5><blockquote>
+<p>我们先只考虑 1 级到二级菜单内容的渲染，然后再考虑递归组件渲染无限级菜单</p>
+<p>在数据渲染时，我们希望菜单的内容由用户通过插槽来传入，这样用户就可以根据自己的需求来定义菜单的样式</p>
+</blockquote>
+<ul>
+<li>MenuItem组件模板内容调整如下</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  defineProps([&quot;href&quot;]);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;menu-item&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>App组件中将菜单数据渲染成列表</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import MenuItem from &quot;./components/MenuItem.vue&quot;;
+  import SubMenu from &quot;./components/SubMenu.vue&quot;;
+  import menuList from &quot;./data/menu.js&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;menu&quot;&gt;
+    &lt;template v-for=&quot;item in menuList&quot;&gt;
+      &lt;!--没有子菜单，就渲染一级--&gt;
+      &lt;menuitem v-if=&quot;!item.children&quot; :key=&quot;item.id&quot; :href=&quot;item.href&quot;&gt;
+        &#123;&#123; item.title &#125;&#125;
+      &lt;/menuitem&gt;
+      &lt;!--有子菜单，就渲染二级--&gt;
+      &lt;SubMenu v-else :data=&quot;item&quot;&gt;&lt;/SubMenu&gt;
+    &lt;/template&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>SubMenu组件对接受的 data 数据进行渲染</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import MenuItem from &quot;./MenuItem.vue&quot;;
+  defineProps([&quot;data&quot;]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;sub-menu&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;
+      &#123;&#123; data.title &#125;&#125;
+      &lt;span&gt;&amp;gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sub-item&quot;&gt;
+      &lt;menuitem
+        v-for=&quot;child in data.children&quot;
+        :key=&quot;child.id&quot;
+        :href=&quot;child.href&quot;
+      &gt;
+        &#123;&#123; child.title &#125;&#125;
+      &lt;/menuitem&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h5 id="渲染无限级菜单"><a href="#渲染无限级菜单" class="headerlink" title="渲染无限级菜单"></a>渲染无限级菜单</h5><blockquote>
+<p>在SubMenu使用递归</p>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+import MenuItem from &quot;./MenuItem.vue&quot;;
+defineProps([&quot;data&quot;]);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;sub-menu&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;
+      &#123;&#123; data.title &#125;&#125;
+      &lt;span class=&quot;more&quot;&gt;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sub-item&quot;&gt;
+      &lt;template v-for=&quot;item in data.children&quot;&gt;
+        &lt;MenuItem v-if=&quot;!item.children&quot; :href=&quot;item.href&quot;&gt;&#123;&#123;
+          item.title
+        &#125;&#125;&lt;/MenuItem&gt;
+        &lt;SubMenu v-else :data=&quot;item&quot;&gt;&lt;/SubMenu&gt;
+      &lt;/template&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>完整代码</li>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+import MenuItem from &quot;./components/MenuItem.vue&quot;;
+import SubMenu from &quot;./components/SubMenu.vue&quot;;
+import data from &quot;./data/menu&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;menu&quot;&gt;
+    &lt;template v-for=&quot;item in data&quot; :key=&quot;item.id&quot;&gt;
+      &lt;MenuItem v-if=&quot;!item.children&quot; :href=&quot;item.href&quot;&gt;&#123;&#123;
+        item.title
+      &#125;&#125;&lt;/MenuItem&gt;
+      &lt;SubMenu v-else :data=&quot;item&quot;&gt;&lt;/SubMenu&gt;
+    &lt;/template&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style&gt;
+a &#123;
+  color: #333;
+  text-decoration: none;
+&#125;
+&lt;/style&gt;
+&lt;style scoped&gt;
+.menu &#123;
+  width: 200px;
+  height: 35px;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>MenuItem.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+defineProps([&quot;href&quot;]);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;menu-item&quot;&gt;
+    &lt;a :href=&quot;href&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+/* menu-item start */
+.menu-item &#123;
+  width: 100%;
+  height: 100%;
+&#125;
+.menu-item a &#123;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 35px;
+  text-indent: 2em;
+  background-color: skyblue;
+&#125;
+.menu-item a:hover &#123;
+  background-color: khaki;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>SubMenu.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+import MenuItem from &quot;./MenuItem.vue&quot;;
+defineProps([&quot;data&quot;]);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;sub-menu&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;
+      &#123;&#123; data.title &#125;&#125;
+      &lt;span class=&quot;more&quot;&gt;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sub-item&quot;&gt;
+      &lt;template v-for=&quot;item in data.children&quot;&gt;
+        &lt;MenuItem v-if=&quot;!item.children&quot; :href=&quot;item.href&quot;&gt;&#123;&#123;
+          item.title
+        &#125;&#125;&lt;/MenuItem&gt;
+        &lt;SubMenu v-else :data=&quot;item&quot;&gt;&lt;/SubMenu&gt;
+      &lt;/template&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+/* sub-menu start */
+.sub-menu &#123;
+  width: 100%;
+  height: 100%;
+  position: relative;
+&#125;
+.sub-menu .title &#123;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-indent: 2em;
+  width: 100%;
+  height: 100%;
+  background-color: skyblue;
+&#125;
+.title .more &#123;
+  margin-right: 10px;
+&#125;
+.sub-item &#123;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  display: none;
+&#125;
+.sub-menu:hover &gt; .title &#123;
+  background-color: khaki;
+&#125;
+.sub-menu:hover &gt; .sub-item &#123;
+  display: block;
+&#125;
+&lt;/style&gt;
+</code></pre>
+<h5 id="使用render函数渲染组件"><a href="#使用render函数渲染组件" class="headerlink" title="使用render函数渲染组件"></a>使用render函数渲染组件</h5><blockquote>
+<p>涉及知识点：</p>
+</blockquote>
+<ul>
+<li>渲染函数同时实现<code>v-for</code>、<code>v-if</code>指令、传递插槽内容<ul>
+<li>v-for：使用<code>.map()</code></li>
+<li>v-if：使用<code>if...else</code></li>
+<li>传递插槽内容：默认插槽直接使用箭头函数，具名插槽要使用对象形式</li>
+</ul>
+</li>
+<li>SubMenu.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+import &#123; h &#125; from &quot;vue&quot;;
+import MenuItem from &quot;./MenuItem.vue&quot;;
+import SubMenu from &quot;./SubMenu.vue&quot;;
+export default &#123;
+  props: [&quot;data&quot;],
+  setup(props) &#123;
+    return () =&gt;
+      h(&quot;div&quot;, &#123; class: &quot;sub-menu&quot; &#125;, [
+        h(&quot;div&quot;, &#123; class: &quot;title&quot; &#125;, [
+          props.data.title,
+          h(&quot;span&quot;, &#123; class: &quot;more&quot; &#125;, &quot;&gt;&quot;),
+        ]),
+        h(
+          &quot;div&quot;,
+          &#123; class: &quot;sub-item&quot; &#125;,
+          props.data.children.map((item) =&gt; &#123;
+            if (!item.children) &#123;
+              return h(MenuItem, &#123; href: item.href &#125;, () =&gt; item.title);
+            &#125; else &#123;
+              return h(SubMenu, &#123; data: item &#125;);
+            &#125;
+          &#125;)
+        ),
+      ]);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script&gt;
+import &#123; h &#125; from &quot;vue&quot;;
+import MenuItem from &quot;./components/MenuItem.vue&quot;;
+import SubMenu from &quot;./components/SubMenu.vue&quot;;
+import data from &quot;./data/menu&quot;;
+export default &#123;
+  setup() &#123;
+    return () =&gt;
+      h(
+        &quot;div&quot;,
+        &#123; class: &quot;menu&quot; &#125;,
+        data.map((item) =&gt; &#123;
+          if (!item.children) &#123;
+            return h(
+              MenuItem,
+              &#123; href: item.href, key: item.id &#125;,
+              () =&gt; item.title
+            );
+          &#125; else &#123;
+            return h(SubMenu, &#123; data: item &#125;);
+          &#125;
+        &#125;)
+      );
+  &#125;,
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<h4 id="拆分成三个组件"><a href="#拆分成三个组件" class="headerlink" title="拆分成三个组件"></a>拆分成三个组件</h4><ul>
+<li><p>我们新建一个ReSubMenu组件，这个组件主要是用来递归</p>
+</li>
+<li><p>根据传递的数据来渲染SubMenu组件，考虑到要渲染无限菜单，后续的子菜单内容要跟在上一级菜单的后面，所以传递给SubMenu组件中的内容需要通过插槽来接受</p>
+</li>
+<li><p>在 App 组件中调用ReSubMenu组件，并将一级菜单的数据内容传递过来</p>
+</li>
+<li><p>在ReSubMenu组件中调用 SubMenu组件，利用插槽传递内容 </p>
+<ul>
+<li>如果没有子级，则正常显示title</li>
+<li>如果当前菜单项有子级；在插槽中：二级使用<code>SubMenu</code>，不传递内容，三级使用递归<code>ReSubMenu</code>继续渲染；</li>
+</ul>
+</li>
+<li><p>App.vue</p>
+</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+import MenuItem from &quot;./components/MenuItem.vue&quot;;
+import ReSubMenu from &quot;./components/ReSubMenu.vue&quot;;
+import data from &quot;./data/menu&quot;;
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;menu&quot;&gt;
+    &lt;template v-for=&quot;item in data&quot;&gt;
+      &lt;MenuItem v-if=&quot;!item.children&quot; :key=&quot;item.id&quot; :href=&quot;item.href&quot;&gt;&#123;&#123;
+        item.title
+      &#125;&#125;&lt;/MenuItem&gt;
+      &lt;ReSubMenu v-else :data=&quot;item&quot;&gt;&lt;/ReSubMenu&gt;
+    &lt;/template&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>ReSubMenu.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+import SubMenu from &quot;./SubMenu.vue&quot;;
+import MenuItem from &quot;./MenuItem.vue&quot;;
+import ReSubMenu from &quot;./ReSubMenu.vue&quot;;
+defineProps([&quot;data&quot;]);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;SubMenu&gt;
+    &lt;template #title&gt;&#123;&#123; data.title &#125;&#125;&lt;/template&gt;
+    &lt;template #default&gt;
+      &lt;template v-for=&quot;item in data.children&quot;&gt;
+        &lt;MenuItem v-if=&quot;!item.children&quot; :key=&quot;item.id&quot;&gt;
+          &#123;&#123; item.title &#125;&#125;
+        &lt;/MenuItem&gt;
+        &lt;!-- 渲染更多层级时 --&gt;
+        &lt;!-- &lt;ReSubMenu v-else :data=&quot;item&quot;&gt;&lt;/ReSubMenu&gt; --&gt;
+        &lt;!-- 只渲染到二级 --&gt;
+        &lt;SubMenu v-else :data=&quot;item&quot;&gt;
+          &lt;template #title&gt;&#123;&#123; data.title &#125;&#125;&lt;/template&gt;
+        &lt;/SubMenu&gt;
+      &lt;/template&gt;
+    &lt;/template&gt;
+  &lt;/SubMenu&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>SubMenu.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;&lt;/script&gt;
+&lt;template&gt;
+  &lt;div class=&quot;sub-menu&quot;&gt;
+    &lt;div class=&quot;title&quot;&gt;
+      &lt;slot name=&quot;title&quot;&gt;&lt;/slot&gt;
+      &lt;span class=&quot;more&quot;&gt;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sub-item&quot;&gt;
+      &lt;slot&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h5 id="使用render函数"><a href="#使用render函数" class="headerlink" title="使用render函数"></a>使用render函数</h5><ul>
+<li><code>ReSubMenu.vue</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+import SubMenu from &quot;./SubMenu.vue&quot;;
+import MenuItem from &quot;./MenuItem.vue&quot;;
+import ReSubMenu from &quot;./ReSubMenu.vue&quot;;
+import &#123; h &#125; from &quot;vue&quot;;
+export default &#123;
+  props: [&quot;data&quot;],
+  setup(props) &#123;
+    return () =&gt;
+      h(SubMenu, null, &#123;
+        title: () =&gt; props.data.title,
+        default: () =&gt;
+          props.data.children.map((item) =&gt; &#123;
+            if (!item.children) &#123;
+              return h(
+                MenuItem,
+                &#123; key: item.id, href: item.href &#125;,
+                () =&gt; item.title
+              );
+            &#125; else &#123;
+              return h(ReSubMenu, &#123; data: item &#125;);
+            &#125;
+          &#125;),
+      &#125;);
+  &#125;,
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>注意：<code>null</code>不能丢</li>
+<li>给<code>MenuItem</code>组件传值时，要使用给组件传值的方式：<code>()=&gt;&#123;&#125;</code>，因为是给默认插槽传值</li>
+</ul>
+<h2 id="开发Message组件"><a href="#开发Message组件" class="headerlink" title="开发Message组件"></a>开发Message组件</h2><h3 id="项目介绍-3"><a href="#项目介绍-3" class="headerlink" title="项目介绍"></a>项目介绍</h3><h4 id="项目功能-1"><a href="#项目功能-1" class="headerlink" title="项目功能"></a>项目功能</h4><ul>
+<li>Message组件有<strong>成功、警告、消息、错误</strong>四种样式，显示不同的操作反馈</li>
+<li>提示框显示与离开都伴有动画效果</li>
+<li>同时显示多个提示框时，会有序的从上往下排列，前面元素离开后，后面元素会缓慢的向上移动<img src="Message组件.gif"></li>
+</ul>
+<h4 id="项目涉及核心知识点-1"><a href="#项目涉及核心知识点-1" class="headerlink" title="项目涉及核心知识点"></a>项目涉及核心知识点</h4><table>
+<thead>
+<tr>
+<th>知识分类</th>
+<th>涉及内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Vue 基础（组合式）</td>
+<td>插值语法、reactive、ref、事件监听、样式绑定、v-show 指令、<Transition>内置组件、createApp 创建应用实例</td>
+</tr>
+<tr>
+<td>组件间通信</td>
+<td>defineProps、defineExpose</td>
+</tr>
+<tr>
+<td>其它知识</td>
+<td>async&#x2F;await 、Promise、setTimeout、clearTimeout；数组方法：forEach、findIndex</td>
+</tr>
+</tbody></table>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><blockquote>
+<p>关系概况</p>
+</blockquote>
+<ul>
+<li>创建Meassage组件，实现信息的动态弹窗效果</li>
+<li>在<code>index.js</code>文件中，创建Message方法，用来实现Message组件的挂载</li>
+<li>App组件，设置四个按钮，点击后可调用Message方法，传入不同的按钮类型和信息，可实现不同的动画效果</li>
+</ul>
+<blockquote>
+<p>具体项目开发思路</p>
+</blockquote>
+<ul>
+<li>创建<code>&lt;Message&gt;</code>组件，组件的 UI 显示有 4 种不同的状态，并且组件显示与离开都有动画效果。</li>
+<li>创建 <code>Message</code> 方法，该方法接受一个对象作为参数，当调用该方法或该方法的静态方法（<code>Message.success</code>&#x2F;<code>message</code>&#x2F;<code>error</code>&#x2F;<code>warning</code>）都可以实现<code>Message</code>组件的挂载</li>
+<li><code>Message</code>组件挂载成功后，以动画形式显示</li>
+<li><code>Message</code>组件挂载成功后，过<code>3000ms</code>或<code>xxx</code>时间则以动画形式消失</li>
+<li>当同时有多个 <code>Messag</code> 组件挂载后，后面的组件的按顺序在其它组件后面显示<ul>
+<li>设置数组，存放组件实例</li>
+</ul>
+</li>
+<li>当前面的组件消失后，后面组件会有序的缓慢向前移动<ul>
+<li>当动画结束时，卸载组件，将它从数组中删除；用watch侦听数组变化，每次变化都更新top值</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现-Message-组件"><a href="#实现-Message-组件" class="headerlink" title="实现 Message 组件"></a>实现 Message 组件</h4><blockquote>
+<p>根据 UI 图，利用html+css实现静态布局，同时要把所有的交互效果用到的 CSS 样式也要写好。并且要清楚的知道每一个交互背后的实现逻辑。</p>
+<ul>
+<li>组件显示与离开都有动画效果，可以利用<code>&lt;Transition&gt;</code>组件来实现</li>
+<li>当前面的组件卸载后，后面的组件缓慢向前移动，可以利用 <code>CSS3</code> 的 <code>transition</code> 来实现过渡动画</li>
+</ul>
+</blockquote>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  // 控制元素的显示与隐藏
+  const isShow = ref(false);
+
+  // 模拟修改isShow的值来触发动画
+  setTimeout(() =&gt; &#123;
+    isShow.value = true;
+    setTimeout(() =&gt; &#123;
+      isShow.value = false;
+    &#125;, 2000);
+  &#125;, 1000);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;Transition name=&quot;slide&quot;&gt;
+    &lt;!-- 
+            弹窗显示的内容和4种UI状态由：
+            Message(&#123;type:&#39;message&#39;,message:&#39;this is a message&#39;&#125;) 函数传入的参数决定
+            --&gt;
+    &lt;div class=&quot;ibc-message message&quot; v-show=&quot;isShow&quot;&gt;this is a message&lt;/div&gt;
+    &lt;!-- 
+            &lt;div class=&quot;ibc-message success&quot;&gt; this is a success&lt;/div&gt;
+            &lt;div class=&quot;ibc-message warning&quot;&gt; this is a warning&lt;/div&gt;
+            &lt;div class=&quot;ibc-message error&quot;&gt; this is a error&lt;/div&gt; 
+        --&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .ibc-message &#123;
+    min-width: 200px;
+    height: 35px;
+    line-height: 35px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    text-align: center;
+    background-color: #ddd;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    /* 元素本身一直有过渡动画效果 */
+    transition: top 0.5s ease;
+  &#125;
+  .message &#123;
+    background-color: #e9e9eb;
+    color: #73767a;
+    border: 1px solid #dedfe0;
+  &#125;
+  
+  .success &#123;
+    background-color: #e1f3d8;
+    color: #529b2e;
+    border: 1px solid #d1edc4;
+  &#125;
+  
+  .warning &#123;
+    background-color: #faecd8;
+    color: #b88230;
+    border: 1px solid #f8e3c5;
+  &#125;
+  
+  .error &#123;
+    background-color: #fde2e2;
+    color: #c45656;
+    border: 1px solid #fcd3d3;
+  &#125;
+
+  .slide-enter-from,
+  .slide-leave-to &#123;
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  &#125;
+
+  .slide-enter-active,
+  .slide-leave-active &#123;
+    transition: all 0.5s ease;
+  &#125;
+
+  /*
+    .slide-enter-to &#123;
+        transform: translateY(0);
+        opacity: 1;
+    &#125;
+    */
+&lt;/style&gt;
+</code></pre>
+<h4 id="实现-Message-方法基本框架"><a href="#实现-Message-方法基本框架" class="headerlink" title="实现 Message 方法基本框架"></a>实现 Message 方法基本框架</h4><ul>
+<li>在App.vue组件中，创建 4 个按扭，点击不同按扭分别调用 Message 方法或 Message 身上的静态方法，显示 4 种不同状态的提示框</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  // 以下代码相当于导入 src/components/Message/index.js
+  import Message from &quot;./components/Message&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button
+    @click=&quot;Message(&#123;
+        type: &#39;message&#39;,
+        message: &#39;this is a message&#39;
+        &#125;)&quot;
+  &gt;
+    message
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message(&#123;
+    type: &#39;success&#39;,
+    message: &#39;this is a success&#39;
+    &#125;)&quot;
+  &gt;
+    success
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message.warning(&#123;
+      message: &#39;this is a warning&#39;
+      &#125;)&quot;
+  &gt;
+    warning
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message.error(&#123;
+      message: &#39;this is a error&#39;
+      &#125;)&quot;
+  &gt;
+    error
+  &lt;/button&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  button &#123;
+    line-height: 30px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>在<code>./src/Message/index.js</code>中，定义Message方法，和Message身上的静态方法，然后对外默认暴露 Message 方法</li>
+</ul>
+<pre><code>// 创建Message方法，用来实现Message组件挂载
+function Message(options) &#123;
+  console.log(options);
+&#125;
+
+// 为Message添加以下四个静态方法
+[&quot;message&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;].forEach((item) =&gt; &#123;
+  Message[item] = function (options) &#123;
+    options.type = item;
+    Message(options);
+  &#125;;
+&#125;);
+export default Message;
+</code></pre>
+<h4 id="Message-方法实现组件挂载"><a href="#Message-方法实现组件挂载" class="headerlink" title="Message 方法实现组件挂载"></a>Message 方法实现组件挂载</h4><blockquote>
+<p>当调用 Message 方法时，需要将 Message 组件挂载到页面中。需要分以下几步：</p>
+<ul>
+<li>利用 createApp 来创建 Message 的应用实例 MessageApp，createApp 的第二个参数相当于传递给组件 Message 的 props。则可以在 Message 组件中接受传过来的 props。</li>
+<li>利用document.createDocumentFragment()方法创建文档碎片</li>
+<li>调用MessageApp.mount()方法，将 Message 组件挂载到fragment中，得到返回值 vm 组件实例</li>
+<li>利用document.body.appendChild(fragment)，将文档碎片（即 Message 组件）添加到页面。</li>
+</ul>
+</blockquote>
+<pre><code>import &#123; createApp &#125; from &quot;vue&quot;;
+import MessageCom from &quot;./Message.vue&quot;;
+
+// 创建Message方法，用来实现Message组件挂载
+function Message(options) &#123;
+  // 创建Message应用实例，并挂载到页面中
+  const MessageApp = createApp(MessageCom, options);
+  showMessage(MessageApp, options);
+&#125;
+
+// 为Message添加以下四个静态方法
+[&quot;message&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;].forEach((item) =&gt; &#123;
+  Message[item] = function (options) &#123;
+    options.type = item;
+    Message(options);
+  &#125;;
+&#125;);
+
+// options要往后传，后面需要用到从显示到离开需要的延迟时间
+function showMessage(app, options) &#123;
+  // 创建文档碎片
+  const fragment = document.createDocumentFragment();
+  // 将组件挂载到文档碎片，返回组件实例vm
+  const vm = app.mount(fragment);
+  // 将文档碎片，即（Message）组件挂载到页面中
+  document.body.appendChild(fragment);
+&#125;
+export default Message;
+</code></pre>
+<ul>
+<li>Message 组件中接受传递的 props</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; ref &#125; from &quot;vue&quot;;
+  // 控制元素的显示与隐藏
+  const isShow = ref(false);
+  // 声明接受的props，即createApp(MessageCom,options) 方法的options参数的属性
+  defineProps(&#123;
+    type: &#123;
+      type: String,
+      default: &quot;message&quot;,
+      /* 校验 */
+      validator(value) &#123;
+        return [&quot;message&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;].includes(value);
+      &#125;,
+    &#125;,
+    message: &#123;
+      type: String,
+      default: &quot;this is a message&quot;,
+    &#125;,
+  &#125;);
+
+  // 模拟修改isShow的值来触发动画
+  setTimeout(() =&gt; &#123;
+    isShow.value = true;
+    setTimeout(() =&gt; &#123;
+      isShow.value = false;
+    &#125;, 2000);
+  &#125;, 1000);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;Transition name=&quot;slide&quot;&gt;
+    &lt;div class=&quot;ibc-message&quot; :class=&quot;type&quot; v-show=&quot;isShow&quot;&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+</code></pre>
+<ul>
+<li>但是，组件的显示与隐藏是通过定时器来模拟控制的。</li>
+<li>实际上，我们在将组件挂载到页面后就要将 Message 组件的 isShow 设置为 true，在规定的延迟时间到了后，才将组件从页面移除。</li>
+</ul>
+<h4 id="实现显示组件"><a href="#实现显示组件" class="headerlink" title="实现显示组件"></a>实现显示组件</h4><blockquote>
+<ul>
+<li>一开始 Message 组件中的<code>isShow = false</code>，所以 Message 组件挂载到页面后，并不会显示，则需要设置<code>isShow = true</code>。</li>
+<li>在 Message 组件中创建<code>setShow</code>方法，用来设置<code>isShow</code>属性的值，然后将该方法通过<code>defineExpose</code>对外暴露</li>
+</ul>
+</blockquote>
+<pre><code>// 控制元素显示与隐藏
+function setShow(value) &#123;
+  isShow.value = value;
+&#125;
+// 对外暴露一些公共属性
+defineExpose(&#123;
+  setShow,
+&#125;);
+在index.js中,showMessage方法中调用 setShow 方法来显示组件
+
+function showMessage(app, options) &#123;
+  // .......
+  // 显示
+  vm.setShow(true);
+&#125;
+</code></pre>
+<h4 id="实现卸载组件"><a href="#实现卸载组件" class="headerlink" title="实现卸载组件"></a>实现卸载组件</h4><blockquote>
+<ul>
+<li>我们可以创建hideMessage方法，在规定的延迟时间到达后，用来卸载对应的 Message 组件</li>
+<li>卸载组件时要保证先完成离开动画，然后再卸载组件</li>
+</ul>
+</blockquote>
+<pre><code>function showMessage(app, options) &#123;
+  // .....
+  // 显示
+  vm.setShow(true);
+  // 隐藏  在规定的延迟时间到达后再隐藏，所以要传入options.duration，同时在调用
+  // Message(&#123; duration:2000 &#125;) 方法时可以传入duration选项
+  hideMessage(app, vm, options.duration);
+&#125;
+// 隐藏组件
+function hideMessage(app, vm, duration) &#123;
+  vm.timer = setTimeout(() =&gt; &#123;
+    // 隐藏
+    vm.setShow(false);
+    // 卸载
+    app.unmount();
+    clearTimeout(vm.timer);
+    vm.timer = null;
+  &#125;, duration || 2000);
+&#125;
+</code></pre>
+<ul>
+<li>显然在hideMessage方法中，调用vm.setShow(false)方法隐藏组件时，动画还没有执行完，组件就被卸载了，上面的代码显示是不行的。</li>
+<li>我们需要等待动画执行完再卸载组件，所以我们可以修改setShow()方法，在该方法中返回一个Promise对象，在组件动画执行完后，调用Promise的 resolve 方法。</li>
+<li>然后在Promise的 then 方法中来卸载组件</li>
+</ul>
+<pre><code>// 控制元素显示与隐藏
+function setShow(value) &#123;
+  // 触发动画
+  isShow.value = value;
+  return new Promise((resolve, reject) =&gt; &#123;
+    timer = setTimeout(() =&gt; &#123;
+      // 动画结束了，调resolve
+      clearTimeout(timer);
+      resolve();
+    &#125;, 500);
+  &#125;);
+&#125;
+
+// 移除应用实例（在移除前要先触发动画）
+function hideMessage(app, vm, duration) &#123;
+  vm.timer = setTimeout(async () =&gt; &#123;
+    await vm.setShow(false);
+    // 卸载
+    app.unmount();
+    clearTimeout(vm.timer);
+    vm.timer = null;
+  &#125;, duration || 2000);
+&#125;
+</code></pre>
+<h4 id="计算元素的-Top-值"><a href="#计算元素的-Top-值" class="headerlink" title="计算元素的 Top 值"></a>计算元素的 Top 值</h4><blockquote>
+<ul>
+<li>创建一个数组messageArr &#x3D; []用来保存当前创的所有 vm 组件实例</li>
+<li>每创建一个新的 vm，将 vm 添加 push 到 messageArr 数组中，每当有一个 vm 被卸载，则从数组中移除</li>
+<li>然后根据 vm 在数组messageArr中的索引来计算当前 vm 元素的 top 值</li>
+<li>在 Message 组件中动态绑style &#x3D; ‘{top: top + ‘px’} 样式，来设置 top 的值， 同时暴露setTop方法来修改 top 的值。</li>
+</ul>
+</blockquote>
+<ul>
+<li>Message 组件</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  const top = ref(20);
+
+  // 设置top值
+  function setTop(value) &#123;
+    top.value = value;
+  &#125;
+
+  // 对外暴露一些公共属性
+  defineExpose(&#123;
+    setShow,
+    setTop,
+  &#125;);
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div
+    class=&quot;ibc-message&quot;
+    :class=&quot;type&quot;
+    v-show=&quot;isShow&quot;
+    :style=&quot;&#123; top: top + &#39;px&#39; &#125;&quot;
+  &gt;
+    &#123;&#123; message &#125;&#125;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h4 id="完整版代码"><a href="#完整版代码" class="headerlink" title="完整版代码"></a>完整版代码</h4><ul>
+<li>App.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import Message from &quot;./components/Message&quot;;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;button
+    @click=&quot;Message(&#123;
+        type: &#39;message2&#39;,
+        message: &#39;this is a message&#39;
+    &#125;)&quot;
+  &gt;
+    message
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message(&#123;
+        type: &#39;success&#39;,
+        message: &#39;this is a success&#39;
+    &#125;)&quot;
+  &gt;
+    success
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message.warning(&#123;
+        message: &#39;this is a warning&#39;
+    &#125;)&quot;
+  &gt;
+    warning
+  &lt;/button&gt;
+
+  &lt;button
+    @click=&quot;Message.error(&#123;
+        message: &#39;this is a error&#39;
+    &#125;)&quot;
+  &gt;
+    error
+  &lt;/button&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  button &#123;
+    line-height: 30px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+<ul>
+<li>index.js</li>
+</ul>
+<pre><code>import MessageCom from &quot;./Message.vue&quot;;
+import &#123; createApp, reactive, watch &#125; from &quot;vue&quot;;
+
+// 存放存放的Message组件实例
+const messageArr = reactive([]);
+
+function Message(options) &#123;
+  // 创建Message应用实例，并挂载到页面中
+  const MessageApp = createApp(MessageCom, options);
+  showMessage(MessageApp, options.duration);
+&#125;
+
+// 为Message添加以下四个静态方法
+[&quot;message&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;].forEach((item) =&gt; &#123;
+  Message[item] = function (options) &#123;
+    options.type = item;
+    Message(options);
+  &#125;;
+&#125;);
+
+// 显示提示框
+function showMessage(app, duration) &#123;
+  const fragment = document.createDocumentFragment();
+  // 组件实例
+  const vm = app.mount(fragment);
+  // 将vm组件实例添加到数组中
+  messageArr.push(vm);
+  document.body.appendChild(fragment);
+
+  setTop(vm);
+  watch(messageArr, () =&gt; &#123;
+    setTop(vm);
+  &#125;);
+  // 显示
+  vm.setShow(true);
+
+  // 隐藏
+  hideMessage(app, vm, duration);
+&#125;
+
+// 移除应用实例（在移除前要先触发动画）
+function hideMessage(app, vm, duration) &#123;
+  vm.timer = setTimeout(async () =&gt; &#123;
+    await vm.setShow(false);
+    // 从数组中移除vm
+    const index = messageArr.findIndex((item) =&gt; item === vm);
+    messageArr.splice(index, 1);
+    // 卸载
+    app.unmount();
+    clearTimeout(vm.timer);
+    vm.timer = null;
+  &#125;, duration || 2000);
+&#125;
+
+// 设置提示框与顶部的距离
+function setTop(vm) &#123;
+  // 设置message显示的top值
+  const index = messageArr.findIndex((item) =&gt; item === vm);
+  console.log(messageArr);
+  const top = 20 + index * 60;
+  vm.setTop(top);
+&#125;
+
+export default Message;
+</code></pre>
+<ul>
+<li>Message.vue</li>
+</ul>
+<pre><code>&lt;script setup&gt;
+  import &#123; computed, ref &#125; from &quot;vue&quot;;
+  const isShow = ref(false);
+  const top = ref(20);
+  const timer = ref(null);
+  defineProps(&#123;
+    type: &#123;
+      type: String,
+      default: &quot;message&quot;,
+      /* 校验 */
+      validator(value) &#123;
+        return [&quot;message&quot;, &quot;success&quot;, &quot;warning&quot;, &quot;error&quot;].includes(value);
+      &#125;,
+    &#125;,
+    message: &#123;
+      type: String,
+      default: &quot;this is a message&quot;,
+    &#125;,
+  &#125;);
+
+  function setShow(value) &#123;
+    // 触发动画
+    isShow.value = value;
+    return new Promise((resolve, reject) =&gt; &#123;
+      timer.value = setTimeout(() =&gt; &#123;
+        // 动画结束了，调resolve
+        clearTimeout(timer);
+        resolve();
+      &#125;, 500);
+    &#125;);
+  &#125;
+
+  // 设置top值
+  function setTop(value) &#123;
+    top.value = value;
+  &#125;
+  // 对外暴露一些公共属性
+  defineExpose(&#123;
+    setShow,
+    setTop,
+  &#125;);
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;Transition name=&quot;slide&quot;&gt;
+    &lt;div
+      class=&quot;ibc-message&quot;
+      :class=&quot;type&quot;
+      v-show=&quot;isShow&quot;
+      :style=&quot;&#123; top: top + &#39;px&#39; &#125;&quot;
+    &gt;
+      &#123;&#123; message &#125;&#125;
+    &lt;/div&gt;
+  &lt;/Transition&gt;
+&lt;/template&gt;
+&lt;style scoped&gt;
+  .ibc-message &#123;
+    min-width: 200px;
+    height: 35px;
+    line-height: 35px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    text-align: center;
+    background-color: #ddd;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    transition: top 0.5s ease;
+  &#125;
+  .message &#123;
+    background-color: #e9e9eb;
+    color: #73767a;
+    border: 1px solid #dedfe0;
+  &#125;
+
+  .success &#123;
+    background-color: #e1f3d8;
+    color: #529b2e;
+    border: 1px solid #d1edc4;
+  &#125;
+
+  .warning &#123;
+    background-color: #faecd8;
+    color: #b88230;
+    border: 1px solid #f8e3c5;
+  &#125;
+
+  .error &#123;
+    background-color: #fde2e2;
+    color: #c45656;
+    border: 1px solid #fcd3d3;
+  &#125;
+
+  .slide-enter-from,
+  .slide-leave-to &#123;
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  &#125;
+
+  .slide-enter-active,
+  .slide-leave-active &#123;
+    transition: all 0.5s ease;
+  &#125;
+&lt;/style&gt;
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/01/30/%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/">https://hermiablog.com/2024/01/30/%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E7%BB%84%E4%BB%B6/">
+                                    <span class="chip bg-color">组件</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/01/30/%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/49.jpg" class="responsive-img" alt="原生组件开发（一）">
+                        
+                        <span class="card-title">原生组件开发（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%89%8B%E5%86%99/" class="post-category">
+                                    手写
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BB%84%E4%BB%B6/">
+                        <span class="chip bg-color">组件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/28/Vue%EF%BC%88%E5%85%AB%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/49.jpg" class="responsive-img" alt="Vue（八）">
+                        
+                        <span class="card-title">Vue（八）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Pinia、Teleport内置组件、ESLint、Prettier、VueUse
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
