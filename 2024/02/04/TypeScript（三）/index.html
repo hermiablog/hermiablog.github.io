@@ -1,0 +1,3157 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="TypeScript（三）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>TypeScript（三） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/53.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">TypeScript（三）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TypesSript/">
+                                <span class="chip bg-color">TypesSript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-04
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、枚举类型"><a href="#一、枚举类型" class="headerlink" title="一、枚举类型"></a>一、枚举类型</h3><blockquote>
+<p>观察以下代码，这是一个角色判断的案例：一般系统都会有很多种角色，每个角色都会有不同的操作权限，同时也会对应不同的 UI 界面。</p>
+<ul>
+<li>一般用户登录系统时，会做一些初始化的工作，如下代码所示</li>
+</ul>
+</blockquote>
+<pre><code>// 初始化角色权限
+function initByRole(role) &#123;
+  if (role === 1 || role === 2) &#123;
+    // ...
+  &#125; else if (role === 3 || role === 4) &#123;
+    // ...
+  &#125; else if (role === 5) &#123;
+    // ...
+  &#125; else &#123;
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：以上代码的问题</p>
+</blockquote>
+<ul>
+<li>①、可读性差：如果不借助特殊的文档，很难记住数字的含义</li>
+<li>②、可维护性差：代表角色的数字都被硬编码了，如果某一天这些数字需要发生改变，就会牵一发而动全身，成本和风险就是灾难级的</li>
+</ul>
+<p>如何解决这种问题呢，就可以使用 TS 的枚举类型，这是在 ES 中没有的数据类型</p>
+<h4 id="什么是枚举"><a href="#什么是枚举" class="headerlink" title="什么是枚举"></a>什么是枚举</h4><blockquote>
+<p>枚举：一组有名字的常量集合</p>
+</blockquote>
+<ul>
+<li><p>我们可以把它理解成手机里的通讯录，在拨打电话时，只需要记住人名即可，而不别真正去记住她的电话号码。更何况电话号码是可变的，人名基本是不会变的</p>
+<img src="./04/枚举.png">
+</li>
+<li><p>同时，枚举类型分为数字枚举 和 字符串枚举</p>
+</li>
+</ul>
+<h4 id="Enum-结构的特别之处"><a href="#Enum-结构的特别之处" class="headerlink" title="Enum 结构的特别之处"></a>Enum 结构的特别之处</h4><blockquote>
+<p>Enum 结构的特别之处在于，它既是一种类型，也是一个值。</p>
+</blockquote>
+<ul>
+<li>绝大多数 TypeScript 语法都是类型语法，编译后会全部去除，但是 Enum 结构是一个值，编译后会变成 JavaScript 对象，留在代码中</li>
+</ul>
+<pre><code>// 编译前
+enum Color &#123;
+  Red, // 0
+  Green, // 1
+  Blue, // 2
+&#125;
+
+// 编译后
+let Color = &#123;
+  Red: 0,
+  Green: 1,
+  Blue: 2,
+&#125;;
+</code></pre>
+<h4 id="Enum-应用场景"><a href="#Enum-应用场景" class="headerlink" title="Enum 应用场景"></a>Enum 应用场景</h4><blockquote>
+<p>由于 TypeScript 的定位是 JavaScript 语言的类型增强，所以官方建议谨慎使用 Enum 结构，因为它不仅仅是类型，还会为编译后的代码加入一个对象</p>
+</blockquote>
+<ul>
+<li>Enum 结构比较适合的场景是，成员的值不重要，名字更重要，从而增加代码的可读性和可维护性。</li>
+</ul>
+<pre><code>enum Operator &#123;
+  ADD,
+  DIV,
+  MUL,
+  SUB,
+&#125;
+
+function compute(op: Operator, a: number, b: number) &#123;
+  switch (op) &#123;
+    case Operator.ADD:
+      return a + b;
+    case Operator.DIV:
+      return a / b;
+    case Operator.MUL:
+      return a * b;
+    case Operator.SUB:
+      return a - b;
+    default:
+      throw new Error(&quot;wrong operator&quot;);
+  &#125;
+&#125;
+
+const res = compute(Operator.ADD, 3, 6);
+console.log(res); // 9
+</code></pre>
+<ul>
+<li>Enum 结构 Operator 的四个成员表示四则运算“加减乘除”</li>
+<li>代码根本不需要用到这四个成员的值，只用成员名就够了</li>
+</ul>
+<h4 id="Enum-注意事项"><a href="#Enum-注意事项" class="headerlink" title="Enum 注意事项"></a>Enum 注意事项</h4><blockquote>
+<p>TypeScript 5.0 之前，Enum 有一个 Bug，就是 Enum 类型的变量可以赋值为任何数值</p>
+</blockquote>
+<pre><code>enum Bool &#123;
+  No,
+  Yes,
+&#125;
+
+function foo(noYes: Bool) &#123;
+  // ...
+&#125;
+
+foo(22); // TypeScript 5.0 之前不报错
+</code></pre>
+<ul>
+<li>函数foo的参数noYes是 Enum 类型，只有两个可用的值</li>
+<li>但是，TypeScript 5.0 之前，任何数值作为函数foo的参数，编译都不会报错，TypeScript 5.0 纠正了这个问题</li>
+</ul>
+<blockquote>
+<p>另外，由于 Enum 结构编译后是一个对象，所以不能有与它同名的变量（包括对象、函数、类等）。</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red,
+  Green,
+  Blue,
+&#125;
+
+const Color = &quot;red&quot;; // 报错
+</code></pre>
+<ul>
+<li>Enum 结构与变量同名，导致报错</li>
+</ul>
+<blockquote>
+<p>很大程度上，Enum 结构可以被对象的as const断言替代。</p>
+</blockquote>
+<pre><code>enum Foo &#123;
+  A,
+  B,
+  C,
+&#125;
+
+const Bar = &#123;
+  A: 0,
+  B: 1,
+  C: 2,
+&#125; as const;
+
+if (x === Foo.A) &#123;
+&#125;
+// 等同于
+if (x === Bar.A) &#123;
+&#125;
+</code></pre>
+<ul>
+<li>对象Bar使用了<code>as const</code>断言，作用就是使得它的属性无法修改</li>
+<li>这样的话，Foo 和 Bar的行为就很类似了，前者完全可以用后者替代，而且后者还是 JavaScript 的原生数据结构。</li>
+</ul>
+<h4 id="Enum-成员的值"><a href="#Enum-成员的值" class="headerlink" title="Enum 成员的值"></a>Enum 成员的值</h4><blockquote>
+<p>Enum 成员默认不必赋值，系统会从零开始逐一递增，按照顺序为每个成员赋值，比如 0、1、2……</p>
+</blockquote>
+<blockquote>
+<p>但是，也可以为 Enum 成员显式赋值。</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red,
+  Green,
+  Blue,
+&#125;
+
+// 等同于
+enum Color &#123;
+  Red = 0,
+  Green = 1,
+  Blue = 2,
+&#125;
+</code></pre>
+<ul>
+<li>Enum 每个成员的值都是显式赋值</li>
+</ul>
+<blockquote>
+<p>成员的值可以是任意数值，但不能是大整数（Bigint）</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red = 90,
+  Green = 0.5,
+  Blue = 7n, // 报错
+&#125;
+</code></pre>
+<blockquote>
+<p>成员的值甚至可以相同</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red = 0,
+  Green = 0,
+  Blue = 0,
+&#125;
+</code></pre>
+<blockquote>
+<p>如果只设定第一个成员的值，后面成员的值就会从这个值开始递增</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red = 6,
+  Green, // 7
+  Blue, // 8
+&#125;
+
+// 或者
+enum Color &#123;
+  Red, // 0
+  Green = 6,
+  Blue, // 7
+&#125;
+</code></pre>
+<blockquote>
+<p>Enum 成员的值也可以使用计算式。</p>
+</blockquote>
+<pre><code>enum Permission &#123;
+  UserRead = 1 &lt;&lt; 8,
+  UserWrite = 1 &lt;&lt; 7,
+  UserExecute = 1 &lt;&lt; 6,
+  GroupRead = 1 &lt;&lt; 5,
+  GroupWrite = 1 &lt;&lt; 4,
+  GroupExecute = 1 &lt;&lt; 3,
+  AllRead = 1 &lt;&lt; 2,
+  AllWrite = 1 &lt;&lt; 1,
+  AllExecute = 1 &lt;&lt; 0,
+&#125;
+
+enum Bool &#123;
+  No = 123,
+  Yes = Math.random(),
+&#125;
+</code></pre>
+<ul>
+<li>Enum 成员的值等于一个计算式，或者等于函数的返回值，都是正确的。</li>
+</ul>
+<blockquote>
+<p>Enum 成员值都是只读的，不能重新赋值。</p>
+</blockquote>
+<pre><code>enum Color &#123;
+  Red,
+  Green,
+  Blue,
+&#125;
+
+Color.Red = 5; // 报错
+</code></pre>
+<ul>
+<li>重新为 Enum 成员赋值就会报错</li>
+</ul>
+<blockquote>
+<p>为了让这一点更醒目，通常会在 <code>enum</code> 关键字前面加上<code>const</code>修饰，表示这是常量，不能再次赋值</p>
+</blockquote>
+<pre><code>const enum Color &#123;
+  Red,
+  Green,
+  Blue,
+&#125;
+</code></pre>
+<blockquote>
+<p>加上const还有一个好处，就是编译为 JavaScript 代码后，代码中 Enum 成员会被替换成对应的值，这样能提高性能表现。</p>
+</blockquote>
+<pre><code>const enum Color &#123;
+  Red,
+  Green,
+  Blue,
+&#125;
+
+const x = Color.Red;
+const y = Color.Green;
+const z = Color.Blue;
+
+// 编译后
+const x = 0; /* Color.Red */
+const y = 1; /* Color.Green */
+const z = 2; /* Color.Blue */
+</code></pre>
+<ul>
+<li>由于 Enum 结构前面加了const关键字，所以编译产物里面就没有生成对应的对象，而是把所有 Enum 成员出现的场合，都替换成对应的常量</li>
+</ul>
+<blockquote>
+<p>如果希望加上<code>const</code>关键词后，运行时还能访问 Enum 结构（即编译后依然将 Enum 转成对象），需要在编译时打开<code>preserveConstEnums</code>编译选项。</p>
+</blockquote>
+<h4 id="同名-Enum-的合并"><a href="#同名-Enum-的合并" class="headerlink" title="同名 Enum 的合并"></a>同名 Enum 的合并</h4><blockquote>
+<p>多个同名的 Enum 结构会自动合并</p>
+</blockquote>
+<pre><code>enum Foo &#123;
+  A,
+&#125;
+
+enum Foo &#123;
+  B = 1,
+&#125;
+
+enum Foo &#123;
+  C = 2,
+&#125;
+
+// 等同于
+enum Foo &#123;
+  A,
+  B = 1，
+  C = 2
+&#125;
+</code></pre>
+<ul>
+<li>Foo 分成三段定义，系统会自动把它们合并</li>
+</ul>
+<blockquote>
+<p>Enum 结构合并时，只允许<strong>其中一个</strong>的首成员省略初始值，否则报错。</p>
+</blockquote>
+<pre><code>enum Foo &#123;
+  A,
+&#125;
+
+enum Foo &#123;
+  B, // 报错
+&#125;
+</code></pre>
+<ul>
+<li>Foo 的两段定义的第一个成员，都没有设置初始值，导致报错</li>
+</ul>
+<blockquote>
+<p>同名 Enum 合并时，不能有同名成员，否则报错。</p>
+</blockquote>
+<pre><code>enum Foo &#123;
+  A,
+  B,
+&#125;
+
+enum Foo &#123;
+  B = 1, // 报错
+  C,
+&#125;
+</code></pre>
+<ul>
+<li>Foo 的两段定义有一个同名成员 B，导致报错</li>
+</ul>
+<blockquote>
+<p>同名 Enum 合并的另一个限制是，所有定义必须同为<code>const</code>枚举或者<code>非 const</code> 枚举，不允许混合使用。</p>
+</blockquote>
+<pre><code>// 正确
+enum E &#123;
+  A,
+&#125;
+enum E &#123;
+  B = 1,
+&#125;
+
+// 正确
+const enum E &#123;
+  A,
+&#125;
+const enum E &#123;
+  B = 1,
+&#125;
+
+// 报错
+enum E &#123;
+  A,
+&#125;
+const enum E &#123;
+  B = 1,
+&#125;
+</code></pre>
+<ul>
+<li>同名 Enum 的合并，最大用处就是补充外部定义的 Enum 结构</li>
+</ul>
+<h4 id="数字枚举"><a href="#数字枚举" class="headerlink" title="数字枚举"></a>数字枚举</h4><blockquote>
+<p>使用 enum 关键字定义一个数字枚举，该枚举包含了 5 个枚举成员，它们的取值从零开始</p>
+</blockquote>
+<pre><code>// 数字枚举
+enum Role &#123;
+  SuperAdministrator,
+  Administrators,
+  OrdinaryAdministrator,
+  User,
+  Developer,
+&#125;
+console.log(Role.SuperAdministrator); // 0
+</code></pre>
+<ul>
+<li>声明了一个 Enum 结构 Role，里面包含五个成员</li>
+<li>第一个成员的值默认为整数0，第二个为1，第三个为2，以此类推。</li>
+</ul>
+<blockquote>
+<p>使用时，调用 Enum 的某个成员，与调用对象属性的写法一样，可以使用<strong>点运算符</strong>，也可以使用<strong>方括号运算符</strong>。</p>
+</blockquote>
+<pre><code>enum Role &#123;
+  SuperAdministrator,
+  Administrators,
+  OrdinaryAdministrator,
+  User,
+  Developer,
+&#125;
+
+let u = Role.User; // 3
+
+// 等同于
+let u1 = Role[&quot;User&quot;];
+
+console.log(u, u1); // 3 3
+</code></pre>
+<blockquote>
+<p>Enum 结构本身也是一种类型。比如，上例的变量u等于3，它的类型可以是 Role，也可以是number</p>
+</blockquote>
+<pre><code>let r1: Role = Role.User; // 正确
+let r2: number = Role.User; // 正确
+
+console.log(r1, r2); // 3 3
+</code></pre>
+<ul>
+<li>变量 r1 和 r2 的类型写成 Role 或 number 都可以。但是，Role 类型的语义更好</li>
+</ul>
+<ol>
+<li>自定义枚举的初始值<blockquote>
+<p>枚举可定义初始值，给第一个枚举成员设置初始值，后边的枚举成员会在此基础上依次递增</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 数字枚举
+enum Role &#123;
+  // 自定义数字枚举的初始值为 1，默认从0开始
+  SuperAdministrator = 1,
+  Administrators,
+  OrdinaryAdministrator,
+  User,
+  Developer,
+&#125;
+console.log(Role.SuperAdministrator); // 1
+
+// 打印输出枚举
+console.log(Role);
+</code></pre>
+<ul>
+<li><p>枚举在运行环境下，被编译成了一个对象，除了正常的枚举成员之外还多了一些其他成员</p>
+<img src="./04/自定义枚举初始值.png">
+</li>
+<li><p>这时，如果我们需要获取枚举成员的值即可通过枚举成员的名称来索引，还可以通过值来索引</p>
+</li>
+</ul>
+<ol start="2">
+<li>数值枚举的实现原理<blockquote>
+<p>数值 Enum 存在反向映射，即可以通过成员值获得成员名。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>enum Weekdays &#123;
+  Monday = 1,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday
+&#125;
+
+console.log(Weekdays[3]) // Wednesday
+</code></pre>
+<ul>
+<li>上面示例中，Enum 成员<code>Wednesday</code>的值等于3，从而可以从成员值<code>3</code>取到对应的成员名<code>Wednesday</code>，这就叫反向映射。</li>
+</ul>
+<blockquote>
+<p>这是因为 TypeScript 会将上面的 Enum 结构，编译成下面的 JavaScript 代码。</p>
+</blockquote>
+<pre><code>var Weekdays;
+(function (Weekdays) &#123;
+    Weekdays[Weekdays[&quot;Monday&quot;] = 1] = &quot;Monday&quot;;
+    Weekdays[Weekdays[&quot;Tuesday&quot;] = 2] = &quot;Tuesday&quot;;
+    Weekdays[Weekdays[&quot;Wednesday&quot;] = 3] = &quot;Wednesday&quot;;
+    Weekdays[Weekdays[&quot;Thursday&quot;] = 4] = &quot;Thursday&quot;;
+    Weekdays[Weekdays[&quot;Friday&quot;] = 5] = &quot;Friday&quot;;
+    Weekdays[Weekdays[&quot;Saturday&quot;] = 6] = &quot;Saturday&quot;;
+    Weekdays[Weekdays[&quot;Sunday&quot;] = 7] = &quot;Sunday&quot;;
+&#125;)(Weekdays || (Weekdays = &#123;&#125;));
+</code></pre>
+<ul>
+<li>上面代码中，实际进行了两组赋值，以第一个成员为例。</li>
+</ul>
+<pre><code>Weekdays[
+  Weekdays[&quot;Monday&quot;] = 1
+] = &quot;Monday&quot;;
+</code></pre>
+<ul>
+<li>上面代码有两个赋值运算符（&#x3D;），实际上等同于下面的代码。</li>
+</ul>
+<pre><code>Weekdays[&quot;Monday&quot;] = 1;
+Weekdays[1] = &quot;Monday&quot;;
+</code></pre>
+<ul>
+<li>注意，这种情况只发生在数值 Enum，对于字符串 Enum，不存在反向映射</li>
+</ul>
+<h4 id="字符串枚举"><a href="#字符串枚举" class="headerlink" title="字符串枚举"></a>字符串枚举</h4><blockquote>
+<p>Enum 成员的值除了设为数值，还可以设为字符串。也就是说，Enum 也可以用作一组相关字符串的集合。</p>
+</blockquote>
+<ul>
+<li>枚举成员的值是 字符串，它就是字符串枚举</li>
+</ul>
+<pre><code>// 字符串枚举
+enum Message &#123;
+  Success = &quot;成功&quot;,
+  Fail = &quot;失败&quot;,
+&#125;
+</code></pre>
+<ul>
+<li><p>Message 就是字符串枚举，每个成员的值都是字符串</p>
+<img src="./04/字符串枚举.png">
+</li>
+<li><p>从以上编译后的 JS 可以看出，只有枚举成员的名称被作为了 <code>key</code>，就是说字符串枚举是不可以进行反向映射的</p>
+</li>
+</ul>
+<ol>
+<li>注意事项<blockquote>
+<p>字符串枚举的所有成员值，都必须显式设置</p>
+<ul>
+<li>如果没有设置，成员值默认为数值，且位置必须在字符串成员之前</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>enum Foo &#123;
+  A, // 0
+  B = &quot;code&quot;,
+  C, // 报错
+&#125;
+</code></pre>
+<ul>
+<li><code>A</code>之前没有其他成员，所以可以不设置初始值，默认等于 0；</li>
+<li><code>C</code>之前有一个字符串成员，所以 C 必须有初始值，不赋值就报错了。</li>
+</ul>
+<blockquote>
+<p>Enum 成员可以是字符串和数值混合赋值</p>
+</blockquote>
+<pre><code>enum Enum &#123;
+  One = &quot;One&quot;,
+  Two = &quot;Two&quot;,
+  Three = 3,
+  Four = 4,
+&#125;
+</code></pre>
+<blockquote>
+<p>除了数值和字符串，Enum 成员不允许使用其他值（比如 Symbol 值）</p>
+</blockquote>
+<blockquote>
+<p>变量类型如果是字符串 Enum，就不能再赋值为字符串，这跟数值 Enum 不一样。</p>
+</blockquote>
+<pre><code>enum MyEnum &#123;
+  One = &quot;One&quot;,
+  Two = &quot;Two&quot;,
+&#125;
+
+let s = MyEnum.One;
+s = &quot;One&quot;; // 报错
+</code></pre>
+<ul>
+<li>变量 s 的类型是 MyEnum，再赋值为字符串就报错</li>
+</ul>
+<blockquote>
+<p>由于这个原因，如果函数的参数类型是字符串 Enum，传参时就不能直接传入字符串，而要传入 Enum 成员。</p>
+</blockquote>
+<pre><code>enum MyEnum &#123;
+  One = &quot;One&quot;,
+  Two = &quot;Two&quot;,
+&#125;
+
+function f(arg: MyEnum) &#123;
+  return &quot;arg is &quot; + arg;
+&#125;
+
+f(&quot;One&quot;); // 报错
+</code></pre>
+<ul>
+<li>参数类型是 MyEnum，直接传入字符串会报错</li>
+<li>所以，字符串 Enum 作为一种类型，有限定函数参数的作用。</li>
+</ul>
+<blockquote>
+<p>前面说过，数值 Enum 的成员值往往不重要。但是有些场合，开发者可能希望 Enum 成员值可以保存一些有用的信息，所以 TypeScript 才设计了字符串 Enum</p>
+</blockquote>
+<pre><code>const enum MediaTypes &#123;
+  JSON = &quot;application/json&quot;,
+  XML = &quot;application/xml&quot;,
+&#125;
+
+const url = &quot;localhost&quot;;
+
+fetch(url, &#123;
+  headers: &#123;
+    Accept: MediaTypes.JSON,
+  &#125;,
+&#125;).then((response) =&gt; &#123;
+  // ...
+&#125;);
+</code></pre>
+<ul>
+<li>函数<code>fetch()</code>的参数对象的属性 Accept，只能接受一些指定的字符串</li>
+<li>这时就很适合把字符串放进一个 Enum 结构，通过成员值来引用这些字符串。</li>
+</ul>
+<blockquote>
+<p>字符串 Enum 可以使用联合类型（union）代替。</p>
+</blockquote>
+<pre><code>function move(where: &quot;Up&quot; | &quot;Down&quot; | &quot;Left&quot; | &quot;Right&quot;) &#123;
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>函数参数 where属于联合类型，效果跟指定为字符串 Enum 是一样的。</li>
+</ul>
+<blockquote>
+<p>注意，字符串 Enum 的成员值，不能使用表达式赋值。</p>
+</blockquote>
+<pre><code>enum MyEnum &#123;
+  A = &quot;one&quot;,
+  B = [&quot;T&quot;, &quot;w&quot;, &quot;o&quot;].join(&quot;&quot;), // 报错
+&#125;
+</code></pre>
+<ul>
+<li>成员 B 的值是一个字符串表达式，导致报错</li>
+</ul>
+<h4 id="keyof-运算符"><a href="#keyof-运算符" class="headerlink" title="keyof 运算符"></a>keyof 运算符</h4><blockquote>
+<p>keyof 运算符可以取出 Enum 结构的所有成员名，作为联合类型返回</p>
+</blockquote>
+<pre><code>enum MyEnum &#123;
+  A = &quot;a&quot;,
+  B = &quot;b&quot;,
+&#125;
+
+// &#39;A&#39;|&#39;B&#39;
+type Foo = keyof typeof MyEnum;
+
+// keyof typeof MyEnum 可以取出 MyEnum 的所有成员名，所以类型 Foo 等同于联合类型 &#39;A&#39;|&#39;B&#39;
+</code></pre>
+<ol>
+<li>注意事项<blockquote>
+<p>这里的<code>typeof</code>是必需的，否则<code>keyof MyEnum</code>相当于<code>keyof number</code></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>type Foo = keyof MyEnum;
+// &quot;toString&quot; | &quot;toFixed&quot; | &quot;toExponential&quot; |
+// &quot;toPrecision&quot; | &quot;valueOf&quot; | &quot;toLocaleString&quot;
+</code></pre>
+<ul>
+<li>类型 Foo 等于类型 number 的所有原生属性名组成的联合类型</li>
+<li>这是因为 Enum 作为类型，本质上属于<code>number</code>或<code>string</code>的一种变体，而<code>typeof MyEnum</code>会将<code>MyEnum</code>当作一个值处理，从而先其转为对象类型，就可以再用keyof运算符返回该对象的所有属性名</li>
+</ul>
+<blockquote>
+<p>如果要返回 Enum 所有的成员值，可以使用in运算符。</p>
+</blockquote>
+<pre><code>enum MyEnum &#123;
+  A = &quot;a&quot;,
+  B = &quot;b&quot;,
+&#125;
+
+// &#123; a: any, b: any &#125;
+type Foo = &#123; [key in MyEnum]: any &#125;;
+</code></pre>
+<ul>
+<li>采用属性索引可以取出 MyEnum 的所有成员值</li>
+</ul>
+<h4 id="异构枚举"><a href="#异构枚举" class="headerlink" title="异构枚举"></a>异构枚举</h4><blockquote>
+<p>数字枚举 和 字符串枚举 混用，就构成了 异构枚举。</p>
+<ul>
+<li>当然，这种情况容易引起混淆。因此不建议使用 ！</li>
+</ul>
+</blockquote>
+<pre><code>// 异构枚举
+enum Answer &#123;
+  N,
+  Y = &quot;Yes&quot;,
+&#125;
+</code></pre>
+<h4 id="枚举成员的性质"><a href="#枚举成员的性质" class="headerlink" title="枚举成员的性质"></a>枚举成员的性质</h4><blockquote>
+<p>枚举成员的值是一个只读类型，因此定义之后是不能修改的。</p>
+</blockquote>
+<pre><code>// 数字枚举
+enum Role &#123;
+  // 自定义数字枚举的初始值为 1，默认从0开始
+  SuperAdministrator = 1,
+  Administrators,
+  OrdinaryAdministrator,
+  User,
+  Developer,
+&#125;
+
+// 修改枚举成员的值，编辑器会报错（枚举成员的值是一个只读类型）
+// 因此枚举成员的值定义后是不能修改的
+Role.SuperAdministrator = 2;
+</code></pre>
+<h4 id="枚举成员的分类"><a href="#枚举成员的分类" class="headerlink" title="枚举成员的分类"></a>枚举成员的分类</h4><blockquote>
+<p>枚举成员的分为两类</p>
+</blockquote>
+<blockquote>
+<p>①、<code>const enum</code>常量枚举，有三种情况</p>
+<ul>
+<li>没有初始值的</li>
+<li>对已有枚举成员的引用</li>
+<li>常量的表达式</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>②、<code>computed enum</code>需要被计算的枚举成员（非常量的表达式）</p>
+<ul>
+<li>这些枚举成员的值不会在编译阶段进行计算，而会被保留到程序执行阶段</li>
+</ul>
+</blockquote>
+<pre><code>// 枚举成员
+enum Char &#123;
+    // const enum 常量枚举，有三种情况（a，b，c）
+    // 1、没有初始值
+    a,
+    // 2、对已有枚举成员的引用
+    b = Char.a,
+    // 3、常量的表达式
+    c = 1 + 2,
+
+    // computed enum 需要被计算的枚举成员（非常量的表达式）
+    // 这些枚举成员的值不会在编译阶段进行计算，而会被保留到程序执行阶段
+    d = Math.random(),
+    e = &#39;123&#39;.length
+
+    // 定义在 computed enum 后边的枚举成员，必须要有一个 初始值，否则会报错
+    // f
+    f = 3
+&#125;
+</code></pre>
+<ul>
+<li>定义在 computed enum 后边的枚举成员，必须要有一个 初始值，否则会报错<img src="./04/枚举成员的分类.png"></li>
+</ul>
+<blockquote>
+<p>通过以编译后的 JS 代码可看到</p>
+</blockquote>
+<ul>
+<li>常量枚举成员，已经被计算出了结果，分别是 0、0、3</li>
+<li>需要被计算的枚举成员，它的值被保留了，需要在运行时环境才会被计算</li>
+</ul>
+<h4 id="常量枚举"><a href="#常量枚举" class="headerlink" title="常量枚举"></a>常量枚举</h4><blockquote>
+<p>用 const 声明的枚举 就是 常量枚举</p>
+<ul>
+<li>常量枚举的特性：会在编译阶段被移除</li>
+</ul>
+</blockquote>
+<pre><code>// 常量枚举
+const enum Month &#123;
+  Jan,
+  Feb,
+  Mar,
+  Apr,
+  May,
+  Jun,
+&#125;
+</code></pre>
+<blockquote>
+<p>常量枚举的作用：当我们不需要一个对象，而需要对象的值的时候，就可以使用 常量枚举。这样会减少我们在编译环境的代码</p>
+<ul>
+<li>如：定义一个变量，它的取值定义为一些常量枚举</li>
+</ul>
+</blockquote>
+<pre><code>// 常量枚举
+const enum Month &#123;
+  Jan,
+  Feb,
+  Mar,
+  Apr,
+  May,
+  Jun,
+&#125;
+// 定义一个变量，它的取值定义为一些常量枚举
+let month = [Month.Jan, Month.Feb, Month.Mar];
+</code></pre>
+<img src="./04/常量枚举.png">
+
+<ul>
+<li>从以上编译后的 JS 代码中，枚举已经被直接替换成了常量，这样我们在运行时的代码就会变得非常简洁</li>
+</ul>
+<h4 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h4><blockquote>
+<p>在某些情况下，枚举 和 枚举成员都可以作为一种单独的类型存在。</p>
+</blockquote>
+<ul>
+<li>情况 1：枚举成员没有任何初始值</li>
+<li>情况 2：所有成员都是数字枚举</li>
+<li>情况 3：所有成员都是字符串枚举</li>
+</ul>
+<blockquote>
+<p>声明三种枚举结构</p>
+</blockquote>
+<pre><code>// 枚举成员没有任何初始值
+enum A &#123;
+  a,
+  b,
+&#125;
+// 所有成员都是数字枚举
+enum B &#123;
+  a = 1,
+  b = 2,
+&#125;
+// 所有成员都是字符串枚举
+enum C &#123;
+  a = &quot;code&quot;,
+  b = &quot;sbc&quot;,
+&#125;
+</code></pre>
+<blockquote>
+<p>取值、赋值</p>
+</blockquote>
+<pre><code>// 我们可以将任意的 number 类型赋值给枚举类型
+// 它的取值也可以超出枚举成员的定义
+let a: A = 6;
+let b: B = 6;
+
+// 字符串枚举的取值只能是 枚举成员的类型
+let c1: C = C.b; // 取值可以是 G.a 或 G.b
+let c2: C.a = C.a; // C.a 的取值只能是它自身
+</code></pre>
+<blockquote>
+<p>比较</p>
+</blockquote>
+<pre><code>// 两种不同类型的枚举是不可以进行比较的，编辑器会提示报错
+a === b;
+
+// 定义了三种枚举成员类型 a1、a2、a3
+let a1: A.a = 1;
+let a2: A.b;
+let a3: A.a = 1;
+
+// a1 和 a2 是不可以比较的，不是相同的枚举成员类型
+a1 === a2;
+
+// a1 和 a3 是相同的枚举成员类型，可以进行比较
+a1 === a3;
+</code></pre>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>关于 TS 的枚举类型，需要我们掌握一种思维方法：将程序中不容易记忆的硬编码 或 在未来中可能改变的常量抽取出来，定义成枚举类型。</li>
+<li>这样可以提高我们程序的可读性 和 可维护性，枚举类型可以使我们的程序以不变应万变</li>
+</ul>
+<h3 id="interface-接口"><a href="#interface-接口" class="headerlink" title="interface 接口"></a>interface 接口</h3><blockquote>
+<p>接口在 TS 中是一个非常重要的概念，接口可以用来约束对象、函数、以及类的结构 和 类型，这是一种代码协作的契约，我们必须遵守而且不能改变</p>
+</blockquote>
+<h4 id="什么是-interface-接口"><a href="#什么是-interface-接口" class="headerlink" title="什么是 interface 接口"></a>什么是 interface 接口</h4><blockquote>
+<p>interface 是对象的模板，可以看作是一种类型约定，中文译为“接口”。使用了某个模板的对象，就拥有了指定的类型结构。</p>
+</blockquote>
+<pre><code>interface User &#123;
+  id: number;
+  username: string;
+  age: number;
+&#125;
+</code></pre>
+<ul>
+<li>定义了一个接口 User，它指定一个对象模板，拥有三个属性 id、username 和 age</li>
+<li>任何实现这个接口的对象，都必须部署这三个属性，并且必须符合规定的类型</li>
+</ul>
+<blockquote>
+<p>实现该接口很简单，只要指定它作为对象的类型即可。</p>
+</blockquote>
+<pre><code>const u: User = &#123;
+  id: 1001,
+  username: &quot;icoding&quot;,
+  age: 18,
+&#125;;
+</code></pre>
+<ul>
+<li>变量 u 的类型就是接口 User，所以必须符合 User 指定的结构</li>
+</ul>
+<blockquote>
+<p>方括号运算符可以取出 interface 某个属性的类型</p>
+</blockquote>
+<pre><code>interface Foo &#123;
+  a: string;
+&#125;
+
+type A = Foo[&quot;a&quot;]; // string
+</code></pre>
+<ul>
+<li><code>Foo[&#39;a&#39;]</code>返回属性a的类型，所以类型 A 就是 string</li>
+</ul>
+<h4 id="interface-表示对象的-5-种语法"><a href="#interface-表示对象的-5-种语法" class="headerlink" title="interface 表示对象的 5 种语法"></a>interface 表示对象的 5 种语法</h4><blockquote>
+<p>interface 可以表示对象的各种语法，它的成员有 5 种形式。</p>
+</blockquote>
+<ul>
+<li>对象属性</li>
+<li>对象的属性索引</li>
+<li>对象方法</li>
+<li>函数</li>
+<li>构造函数</li>
+</ul>
+<ol>
+<li>对象属性</li>
+</ol>
+<pre><code>interface Point &#123;
+  x: number;
+  y: number;
+&#125;
+</code></pre>
+<ul>
+<li>x 和 y 都是对象的属性，分别使用冒号指定每个属性的类型</li>
+<li>属性之间使用分号或逗号分隔，最后一个属性结尾的分号或逗号可以省略。</li>
+</ul>
+<blockquote>
+<p>如果属性是可选的，就在属性名后面加一个问号。</p>
+</blockquote>
+<pre><code>interface Foo &#123;
+  x?: string;
+&#125;
+</code></pre>
+<blockquote>
+<p>如果属性是只读的，需要加上readonly修饰符。</p>
+</blockquote>
+<pre><code>interface A &#123;
+  readonly a: string;
+&#125;
+</code></pre>
+<ol start="2">
+<li>对象的属性索引</li>
+</ol>
+<pre><code>interface A &#123;
+  [prop: string]: number;
+&#125;
+</code></pre>
+<ul>
+<li><code>[prop: string]</code>就是属性的字符串索引，表示属性名只要是字符串，都符合类型要求</li>
+<li>属性索引共有string、number和symbol三种类型。</li>
+</ul>
+<blockquote>
+<p>一个接口中，最多只能定义一个字符串索引。字符串索引会约束该类型中所有名字为字符串的属性。</p>
+</blockquote>
+<pre><code>interface MyObj &#123;
+  [prop: string]: number;
+
+  a: boolean; // 编译错误
+&#125;
+</code></pre>
+<ul>
+<li>属性索引指定所有名称为字符串的属性，它们的属性值必须是数值（number）</li>
+<li>属性 a 的值为布尔值就报错了</li>
+</ul>
+<blockquote>
+<p>属性的数值索引，其实是指定数组的类型</p>
+</blockquote>
+<pre><code>interface A &#123;
+  [prop: number]: string;
+&#125;
+
+const obj: A = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+</code></pre>
+<ul>
+<li><code>[prop: number]</code>表示属性名的类型是数值，所以可以用数组对变量 <code>obj</code> 赋值</li>
+<li>同样的，一个接口中最多只能定义一个数值索引。数值索引会约束所有名称为数值的属性。</li>
+</ul>
+<blockquote>
+<p>如果一个 interface 同时定义了字符串索引和数值索引，那么数值索引必须服从于字符串索引。因为在 JavaScript 中，数值属性名最终是自动转换成字符串属性名。</p>
+</blockquote>
+<pre><code>interface A &#123;
+  [prop: string]: number;
+  [prop: number]: string; // 报错
+&#125;
+
+interface B &#123;
+  [prop: string]: number;
+  [prop: number]: number; // 正确
+&#125;
+</code></pre>
+<ul>
+<li>数值索引的属性值类型与字符串索引不一致，就会报错</li>
+<li>数值索引必须兼容字符串索引的类型声明</li>
+</ul>
+<ol start="3">
+<li>对象的方法<blockquote>
+<p>对象的方法共有三种写法</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 写法一
+interface A &#123;
+  f(x: boolean): string;
+&#125;
+
+// 写法二
+interface B &#123;
+  f: (x: boolean) =&gt; string;
+&#125;
+
+// 写法三
+interface C &#123;
+  f: &#123; (x: boolean): string &#125;;
+&#125;
+</code></pre>
+<blockquote>
+<p>属性名可以采用表达式，所以下面的写法也是可以的。</p>
+</blockquote>
+<pre><code>const f = &quot;f&quot;;
+
+interface A &#123;
+  [f](x: boolean): string;
+&#125;
+</code></pre>
+<blockquote>
+<p>类型方法可以重载</p>
+</blockquote>
+<pre><code>interface A &#123;
+  f(): number;
+  f(x: boolean): boolean;
+  f(x: string, y: string): string;
+&#125;
+</code></pre>
+<ul>
+<li>interface 里面的函数重载，不需要给出实现。但是，由于对象内部定义方法时，无法使用函数重载的语法，所以需要额外在对象外部给出函数方法的实现。</li>
+</ul>
+<pre><code>interface A &#123;
+  f(): number;
+  f(x: boolean): boolean;
+  f(x: string, y: string): string;
+&#125;
+
+function MyFunc(): number;
+function MyFunc(x: boolean): boolean;
+function MyFunc(x: string, y: string): string;
+function MyFunc(x?: boolean | string, y?: string): number | boolean | string &#123;
+  if (x === undefined &amp;&amp; y === undefined) return 1;
+  if (typeof x === &quot;boolean&quot; &amp;&amp; y === undefined) return true;
+  if (typeof x === &quot;string&quot; &amp;&amp; typeof y === &quot;string&quot;) return &quot;hello&quot;;
+  throw new Error(&quot;wrong parameters&quot;);
+&#125;
+
+const a: A = &#123;
+  f: MyFunc,
+&#125;;
+</code></pre>
+<ul>
+<li>接口 A 的方法 f() 有函数重载，需要额外定义一个函数 <code>MyFunc()</code> 实现这个重载，然后指定对象a的类型为接口 A， a 的属性 f 等于函数 <code>MyFunc()</code> 就可以了。</li>
+</ul>
+<ol start="4">
+<li>函数<blockquote>
+<p>interface 也可以用来声明独立的函数</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Add &#123;
+  (x: number, y: number): number;
+&#125;
+
+const myAdd: Add = (x, y) =&gt; x + y;
+</code></pre>
+<ul>
+<li>接口 Add 声明了一个函数类型</li>
+</ul>
+<ol start="5">
+<li>构造函数<blockquote>
+<p>interface 内部可以使用new关键字，表示构造函数。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface ErrorConstructor &#123;
+  new (message?: string): Error;
+&#125;
+</code></pre>
+<ul>
+<li>接口 ErrorConstructor 内部有 new 命令，表示它是一个构造函数</li>
+<li>TypeScript 里面，构造函数特指具有<code>constructor</code>属性的类，在 Class 类中会详细讲解</li>
+</ul>
+<h4 id="interface-的继承"><a href="#interface-的继承" class="headerlink" title="interface 的继承"></a>interface 的继承</h4><blockquote>
+<p>interface 可以继承其他类型</p>
+</blockquote>
+<ul>
+<li><code>interface</code>继承<code>interface</code></li>
+<li><code>interface</code>继承<code>type</code></li>
+<li><code>interface</code>继承<code>class</code></li>
+</ul>
+<ol>
+<li>interface 继承 interface<blockquote>
+<p>interface 可以使用<code>extends</code>关键字，继承其他 interface</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Shape &#123;
+  name: string;
+&#125;
+
+interface Circle extends Shape &#123;
+  radius: number;
+&#125;
+</code></pre>
+<ul>
+<li>Circle 继承了 Shape，所以 Circle 其实有两个属性 name 和 radius</li>
+<li>这时，Circle 是子接口，Shape 是父接口</li>
+</ul>
+<blockquote>
+<p><code>extends</code>关键字会从继承的接口里面拷贝属性类型，这样就不必书写重复的属性。</p>
+<ul>
+<li>interface 允许多重继承</li>
+</ul>
+</blockquote>
+<pre><code>interface Style &#123;
+  color: string;
+&#125;
+
+interface Shape &#123;
+  name: string;
+&#125;
+
+interface Circle extends Style, Shape &#123;
+  radius: number;
+&#125;
+</code></pre>
+<ul>
+<li>Circle 同时继承了 Style 和 Shape，所以拥有三个属性 color、name 和 radius</li>
+</ul>
+<blockquote>
+<p>多重接口继承，实际上相当于多个父接口的合并。</p>
+<ul>
+<li>如果子接口与父接口存在同名属性，那么子接口的属性会覆盖父接口的属性</li>
+<li>注意，子接口与父接口的同名属性必须是类型兼容的，不能有冲突，否则会报错。</li>
+</ul>
+</blockquote>
+<pre><code>interface Foo &#123;
+  id: string;
+&#125;
+
+interface Bar extends Foo &#123;
+  id: number; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>Bar 继承了 Foo，但是两者的同名属性 id 的类型不兼容，导致报错。</li>
+</ul>
+<blockquote>
+<p>多重继承时，如果多个父接口存在同名属性，那么这些同名属性不能有类型冲突，否则会报错。</p>
+</blockquote>
+<pre><code>interface Foo &#123;
+  id: string;
+&#125;
+
+interface Bar &#123;
+  id: number;
+&#125;
+
+// 报错
+interface Baz extends Foo, Bar &#123;
+  type: string;
+&#125;
+</code></pre>
+<ul>
+<li>Baz 同时继承了 Foo 和 Bar，但是后两者的同名属性 id 有类型冲突，导致报错。</li>
+</ul>
+<ol start="2">
+<li>interface 继承 type<blockquote>
+<p>interface 可以继承<code>type</code>命令定义的对象类型。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>type Person = &#123;
+  username: string;
+  age: number;
+&#125;;
+
+interface Allen extends Person &#123;
+  height: number;
+&#125;
+</code></pre>
+<ul>
+<li>Allen 继承了 type 命令定义的 Person 对象，并且新增了一个 height 属性</li>
+<li>如果type命令定义的类型不是对象，interface 就无法继承。</li>
+</ul>
+<ol start="3">
+<li>interface 继承 class<blockquote>
+<p>interface 还可以继承 class，即继承该类的所有成员。（后边会详细讲解 class）</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class A &#123;
+  x: string = &quot;&quot;;
+
+  y(): boolean &#123;
+    return true;
+  &#125;
+&#125;
+
+interface B extends A &#123;
+  z: number;
+&#125;
+</code></pre>
+<ul>
+<li>B 继承了 A，因此 B 就具有属性 x、y() 和 z</li>
+</ul>
+<blockquote>
+<p>实现B接口的对象就需要实现这些属性。</p>
+</blockquote>
+<pre><code>const b: B = &#123;
+  x: &quot;&quot;,
+  y: function () &#123;
+    return true;
+  &#125;,
+  z: 123,
+&#125;;
+</code></pre>
+<ul>
+<li>对象 b 就实现了接口 B，而接口 B 又继承了 类 A</li>
+</ul>
+<blockquote>
+<p>某些类拥有私有成员和保护成员，interface 可以继承这样的类，但是意义不大。</p>
+</blockquote>
+<pre><code>class A &#123;
+  private x: string = &quot;&quot;;
+  protected y: string = &quot;&quot;;
+&#125;
+
+interface B extends A &#123;
+  z: number;
+&#125;
+
+// 报错
+const b: B = &#123;
+  /* ... */
+&#125;;
+
+// 报错
+class C implements B &#123;
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>A 有私有成员 和 保护成员，B 继承了 A，但无法用于对象，因为对象不能实现这些成员</li>
+<li>这导致 B 只能用于其他 class，而这时其他 class 与 A 之间不构成父类 和 子类的关系，使得 x 与 y 无法部署</li>
+</ul>
+<h4 id="接口合并"><a href="#接口合并" class="headerlink" title="接口合并"></a>接口合并</h4><blockquote>
+<p>多个同名接口会合并成一个接口。</p>
+</blockquote>
+<pre><code>interface Box &#123;
+  height: number;
+  width: number;
+&#125;
+
+interface Box &#123;
+  length: number;
+&#125;
+</code></pre>
+<ul>
+<li>两个 Box 接口会合并成一个接口，同时有 height、width 和 length 三个属性</li>
+</ul>
+<blockquote>
+<p>这样的设计主要是为了兼容 JavaScript 的行为。JavaScript 开发者常常对全局对象或者外部库，添加自己的属性和方法。</p>
+<ul>
+<li>那么，只要使用 interface 给出这些自定义属性和方法的类型，就能自动跟原始的 interface 合并，使得扩展外部类型非常方便</li>
+</ul>
+</blockquote>
+<ol>
+<li>接口合并 - 注意事项<blockquote>
+<p>Web 网页开发经常会对<code>windows</code>对象和<code>document</code>对象添加自定义属性，但是 TypeScript 会报错，因为原始定义没有这些属性。</p>
+<ul>
+<li>解决方法就是把自定义属性写成 interface，合并进原始定义</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Document &#123;
+  foo: string;
+&#125;
+
+document.foo = &quot;icoding&quot;;
+</code></pre>
+<ul>
+<li>接口 Document 增加了一个自定义属性 foo，从而就可以在 document 对象上使用自定义属性</li>
+</ul>
+<blockquote>
+<p>同名接口合并时，同一个属性如果有多个类型声明，彼此不能有类型冲突</p>
+</blockquote>
+<pre><code>interface A &#123;
+  a: number;
+&#125;
+
+interface A &#123;
+  a: string; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>接口 A 的属性 a 有两个类型声明，彼此是冲突的，导致报错</li>
+</ul>
+<blockquote>
+<p>同名接口合并时，如果同名方法有不同的类型声明，那么会发生函数重载。而且，<strong>后面的</strong>定义比前面的定义具有更高的优先级。</p>
+</blockquote>
+<pre><code>interface Cloner &#123;
+  clone(animal: Animal): Animal;
+&#125;
+
+interface Cloner &#123;
+  clone(animal: Sheep): Sheep;
+&#125;
+
+interface Cloner &#123;
+  clone(animal: Dog): Dog;
+  clone(animal: Cat): Cat;
+&#125;
+
+// 等同于
+interface Cloner &#123;
+  clone(animal: Dog): Dog;
+  clone(animal: Cat): Cat;
+  clone(animal: Sheep): Sheep;
+  clone(animal: Animal): Animal;
+&#125;
+</code></pre>
+<ul>
+<li>clone() 方法有不同的类型声明，会发生函数重载。这时，越靠后的定义，优先级越高，排在函数重载的越前面</li>
+<li>比如，<code>clone(animal: Animal)</code> 是最先出现的类型声明，就排在函数重载的最后，属于clone() 函数最后匹配的类型。</li>
+</ul>
+<blockquote>
+<p>这个规则有一个例外。同名方法之中，如果有一个参数是字面量类型，字面量类型有更高的优先级。</p>
+</blockquote>
+<pre><code>interface A &#123;
+  f(x: &quot;foo&quot;): boolean;
+&#125;
+
+interface A &#123;
+  f(x: any): void;
+&#125;
+
+// 等同于
+interface A &#123;
+  f(x: &quot;foo&quot;): boolean;
+  f(x: any): void;
+&#125;
+</code></pre>
+<ul>
+<li>f() 方法有一个类型声明的参数x是字面量类型，这个类型声明的优先级最高，会排在函数重载的最前面</li>
+</ul>
+<ol start="2">
+<li>接口合并实践应用<blockquote>
+<p>以下应用是 Document 对象的<code>createElement()</code>方法，它会根据参数的不同，而生成不同的 HTML 节点对象</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Document &#123;
+  createElement(tagName: any): Element;
+&#125;
+interface Document &#123;
+  createElement(tagName: &quot;div&quot;): HTMLDivElement;
+  createElement(tagName: &quot;span&quot;): HTMLSpanElement;
+&#125;
+interface Document &#123;
+  createElement(tagName: string): HTMLElement;
+  createElement(tagName: &quot;canvas&quot;): HTMLCanvasElement;
+&#125;
+
+// 等同于
+interface Document &#123;
+  createElement(tagName: &quot;canvas&quot;): HTMLCanvasElement;
+  createElement(tagName: &quot;div&quot;): HTMLDivElement;
+  createElement(tagName: &quot;span&quot;): HTMLSpanElement;
+  createElement(tagName: string): HTMLElement;
+  createElement(tagName: any): Element;
+&#125;
+</code></pre>
+<ul>
+<li><code>createElement()</code>方法的函数重载，参数为字面量的类型声明会排到最前面，返回具体的 HTML 节点对象</li>
+<li>类型越不具体的参数，排在越后面，返回通用的 HTML 节点对象</li>
+</ul>
+<blockquote>
+<p>如果两个 interface 组成的联合类型存在同名属性，那么该属性的类型也是联合类型</p>
+</blockquote>
+<pre><code>// 圆
+interface Circle &#123;
+  area: bigint;
+&#125;
+
+// 长方形
+interface Rectangle &#123;
+  area: number;
+&#125;
+
+declare const s: Circle | Rectangle;
+
+s.area; // bigint | number
+</code></pre>
+<ul>
+<li>接口 <code>Circle </code>和 <code>Rectangle</code> 组成一个联合类型 <code>Circle | Rectangle</code></li>
+<li>因此，这个联合类型的同名属性 <code>area</code>，也是一个联合类型</li>
+<li><code>declare</code>命令表示 变量 s 的具体定义，由其他脚本文件给出，在 declare 命令 的部分会学习</li>
+</ul>
+<h4 id="interface-与-type-的异同"><a href="#interface-与-type-的异同" class="headerlink" title="interface 与 type 的异同"></a>interface 与 type 的异同</h4><blockquote>
+<p>interface命令与type命令作用类似，都可以表示对象类型。</p>
+<p>很多对象类型既可以用 interface 表示，也可以用 type 表示。而且，两者往往可以换用，几乎所有的 interface 命令都可以改写为 type 命令。</p>
+</blockquote>
+<ol>
+<li>相似之处<blockquote>
+<p>它们的相似之处，首先表现在都能为对象类型起名。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>type User = &#123;
+  username: string;
+  age: number;
+&#125;;
+
+interface Users &#123;
+  username: string;
+  age: number;
+&#125;
+</code></pre>
+<ul>
+<li>type 命令 和 interface 命令，分别定义同一个类型</li>
+</ul>
+<blockquote>
+<p>注：<code>class</code>命令也有类似作用，通过定义一个类，同时定义一个对象类型</p>
+<ul>
+<li>但是，它会创造一个值，编译后依然存在。如果只是单纯想要一个类型，应该使用<code>type</code>或<code>interface</code></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>interface 与 type 的区别</li>
+</ol>
+<p>①、<code>type</code>能够表示非对象类型，而<code>interface</code>只能表示对象类型（包括数组、函数等）<br>②、<code>interface</code>可以继承其他类型，<code>type</code>不支持继承。</p>
+<blockquote>
+<p>继承的主要作用是添加属性，<code>type</code>定义的对象类型如果想要添加属性，只能使用<code>&amp;</code>运算符，重新定义一个类型。</p>
+</blockquote>
+<pre><code>type Animal = &#123;
+  name: string;
+&#125;;
+
+type Dog = Animal &amp; &#123;
+  age: number;
+&#125;;
+</code></pre>
+<ul>
+<li>类型 Dog 在 Animal 的基础上添加了一个属性 age</li>
+<li>上面的 <code>&amp;</code>运算符，表示同时具备两个类型的特征，因此可以起到两个对象类型合并的作用</li>
+</ul>
+<blockquote>
+<p>作为比较，interface添加属性，采用的是继承的写法。</p>
+</blockquote>
+<pre><code>interface Animal &#123;
+  name: string;
+&#125;
+
+interface Dog extends Animal &#123;
+  age: number;
+&#125;
+</code></pre>
+<blockquote>
+<p>继承时，type 和 interface 是可以换用的。interface 可以继承 type</p>
+</blockquote>
+<pre><code>type Foo = &#123; x: number &#125;;
+
+interface Bar extends Foo &#123;
+  y: number;
+&#125;
+</code></pre>
+<blockquote>
+<p>type 也可以通过使用’ &amp; ‘来继承 interface。</p>
+</blockquote>
+<pre><code>interface Foo &#123;
+  x: number;
+&#125;
+
+type Bar = Foo &amp; &#123; y: number &#125;;
+</code></pre>
+<p>③、同名<code>interface</code>会自动合并，同名<code>type</code>则会报错。也就是说，TypeScript 不允许使用<code>type</code>多次定义同一个类型</p>
+<pre><code>type A = &#123; foo: number &#125;; // 报错
+type A = &#123; bar: number &#125;; // 报错
+</code></pre>
+<ul>
+<li>type 两次定义了类型A，导致两行都会报错</li>
+</ul>
+<blockquote>
+<p>作为比较，interface则会自动合并</p>
+</blockquote>
+<pre><code>interface A &#123;
+  foo: number;
+&#125;
+interface A &#123;
+  bar: number;
+&#125;
+
+const obj: A = &#123;
+  foo: 1,
+  bar: 1,
+&#125;;
+</code></pre>
+<ul>
+<li>interface 把类型 A 的两个定义合并在一起</li>
+<li>这表明，interface 是开放的，可以添加属性，type 是封闭的，不能添加属性，只能定义新的 type</li>
+</ul>
+<p>④、<code>interface</code>不能包含属性映射（mapping），<code>type</code>可以</p>
+<pre><code>interface Point &#123;
+  x: number;
+  y: number;
+&#125;
+
+// 正确
+type PointCopy1 = &#123;
+  [Key in keyof Point]: Point[Key];
+&#125;;
+
+// 报错
+interface PointCopy2 &#123;
+  [Key in keyof Point]: Point[Key];
+&#125;;
+</code></pre>
+<p>⑤、this关键字只能用于interface</p>
+<pre><code>// 正确
+interface Foo &#123;
+  add(num: number): this;
+&#125;
+
+// 报错
+type Foo = &#123;
+  add(num: number): this;
+&#125;;
+
+// type 命令声明的方法 add()，返回 this 就报错了
+// 而 interface 命令没有这个问题
+下面是返回this的实际对象的例子
+
+class Count implements Foo &#123;
+  result = 0;
+  add(num: number) &#123;
+    this.result += num;
+    return this;
+  &#125;
+&#125;
+</code></pre>
+<p>⑥、type 可以扩展原始数据类型，interface 不行</p>
+<pre><code>// 正确
+type MyStr = string &amp; &#123;
+  type: &quot;new&quot;;
+&#125;;
+
+// 报错
+interface MyStr extends string &#123;
+  type: &quot;new&quot;;
+&#125;
+</code></pre>
+<ul>
+<li>type 可以扩展原始数据类型 string，interface 就不行</li>
+</ul>
+<p>⑦、interface无法表达某些复杂类型（比如交叉类型和联合类型），但是type可以</p>
+<pre><code>type A = &#123;
+  /* ... */
+&#125;;
+type B = &#123;
+  /* ... */
+&#125;;
+
+type AorB = A | B;
+type AorBwithName = AorB &amp; &#123;
+  name: string;
+&#125;;
+</code></pre>
+<ul>
+<li>类型 AorB 是一个联合类型，AorBwithName 则是为 AorB 添加一个属性</li>
+<li>这两种运算，interface 都没法表达</li>
+</ul>
+<blockquote>
+<p>综上所述，如果有复杂的类型运算，那么没有其他选择只能使用<code>type</code>；一般情况下，<code>interface</code>灵活性比较高，便于扩充类型或自动合并，建议优先使用</p>
+</blockquote>
+<h4 id="对象类型接口"><a href="#对象类型接口" class="headerlink" title="对象类型接口"></a>对象类型接口</h4><blockquote>
+<p>需求：从后端获取一组数据，然后将数据渲染到页面中，我们应该如何定义接口 ？</p>
+</blockquote>
+<pre><code>// 使用 interface 定义一个 List 接口，该接口包括三个成员
+interface List &#123;
+  id: number;
+  username: string;
+  age: number;
+&#125;
+// 使用 interface 定义一个 Result 接口，有一个成员是 data，成员的取值是 List[] 数组
+interface Result &#123;
+  data: List[];
+&#125;
+
+// 渲染函数
+function render(result: Result) &#123;
+  // 遍历 result.data
+  result.data.forEach((value) =&gt; &#123;
+    // 打印对应的值
+    console.log(value.id, value.username, value.age);
+  &#125;);
+&#125;
+
+// 假设：result 为后端接收过来的数据，同时 result 完全符合接口的定义
+let result = &#123;
+  data: [
+    &#123; id: 1, username: &quot;code&quot;, age: 18 &#125;,
+    &#123; id: 2, username: &quot;abc&quot;, age: 19 &#125;,
+  ],
+&#125;;
+
+// 调用 render() 函数，同时将后端的数据 result 作为参数传入其中
+render(result);
+</code></pre>
+<ul>
+<li>但实际开发过程中，一定会遇到后端往往会传入过来一些预定之外的字段</li>
+</ul>
+<h5 id="TS-的鸭式辨型法"><a href="#TS-的鸭式辨型法" class="headerlink" title="TS 的鸭式辨型法"></a>TS 的鸭式辨型法</h5><pre><code>interface List &#123;
+  id: number;
+  username: string;
+  age: number;
+&#125;
+interface Result &#123;
+  data: List[];
+&#125;
+
+function render(result: Result) &#123;
+  result.data.forEach((value) =&gt; &#123;
+    console.log(value.id, value.username, value.age);
+  &#125;);
+&#125;
+
+let result = &#123;
+  data: [
+    // 后端传入预定之外的字段，sex: &#39;male&#39;
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19 &#125;,
+  ],
+&#125;;
+
+render(result);
+</code></pre>
+<ul>
+<li>当后端传入了预定之外的字段<code>sex: &#39;male&#39;</code> ，发现在 TS 中并没有报错，它是允许这种情况发生的。</li>
+<li>这是因为 TS 采用了一种 “鸭式辨型法” 这是一种动态语言风格，有一种形象的说法是：“一只鸟，看起来像鸭子，游起来像鸭子，叫起来像鸭子，那么这只鸟就可以被认为是鸭子”。</li>
+<li>在 TS 中，我们只要传入的对象满足接口的必要条件，那就是被允许的，即便传入多余的字段也可以通过类型检查。</li>
+</ul>
+<ol>
+<li>鸭式辨型法特殊情况<blockquote>
+<p>如果直接传入对象字面量，TS 就会对额外的字段进行类型检查</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>render(&#123;
+  data: [
+    // 此时，TS 会对额外的字段进行类型检查，sex: &#39;male&#39; 处，会报错
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19 &#125;,
+  ],
+&#125;);
+</code></pre>
+<ul>
+<li>以上代码，我们在<code>render()</code>方法中传入了对象字面量，其中有额外的字段，此时 TS 就会对额外的字段 <code>sex: &#39;male&#39;</code> 进行类型检查。</li>
+</ul>
+<blockquote>
+<p>绕过这种检查的方法有三种：</p>
+</blockquote>
+<ul>
+<li>①、将对象字面量赋值给一个变量（像上边 result 变量的做法）</li>
+<li>②、使用类型断言，在对象字面量后边加上 as 对象的类型 。类型断言的含义是：我们要明确的告诉编译器，对象的类型是什么 ，这样编译器就会绕过类型检查</li>
+</ul>
+<pre><code>render(&#123;
+  data: [
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19 &#125;,
+  ],
+&#125; as Result);
+
+// 通过 as Result 类型断言
+</code></pre>
+<blockquote>
+<p>类型断言的另一种语法</p>
+</blockquote>
+<pre><code>// 直接在对象前加上 &lt;对象类型&gt;
+render(&lt;Result&gt;&#123;
+  data: [
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19 &#125;,
+  ],
+&#125;);
+</code></pre>
+<ul>
+<li>注：两种方法是等价的，但此方式不建议使用，在 React 框架中会产生歧义，建议还是使用 <code>as</code> 对象类型 的方式</li>
+</ul>
+<p>③、使用字符串索引签名</p>
+<pre><code>interface List &#123;
+  id: number;
+  username: string;
+  age: number;
+  // 定义字符串索引签名
+  [x: string]: any;
+&#125;
+</code></pre>
+<ul>
+<li><code>[x: string]: any;</code>在 <code>[]</code> 中定义一个 x ，它的返回值类型是 any 这就是一个字符串索引签名。</li>
+<li>它的含义是：用任意的字符串去索引 <code>List</code> 可以得到任意的结果，这样 <code>List</code> 就可以支持多个属性了</li>
+</ul>
+<h5 id="接口成员-可选属性"><a href="#接口成员-可选属性" class="headerlink" title="接口成员 - 可选属性"></a>接口成员 - 可选属性</h5><blockquote>
+<p>需求：判断 value 中是否有新的字段，如果有就打印出来</p>
+<ul>
+<li>可选属性语法：在属性前添加一个 <code>?</code> 问号，表示该属性可有可无</li>
+</ul>
+</blockquote>
+<pre><code>interface List &#123;
+  id: number;
+  username: string;
+  age: number;
+  // [x: string]: any; // 定义字符串索引签名
+  // sex: string; // 添加 sex 属性后，调用 render(result) 方法还是会报错
+
+  // 设置可选属性，在 sex 后边添加一个 ？ 表示该属性可有可无
+  sex?: string;
+&#125;
+interface Result &#123;
+  data: List[];
+&#125;
+
+function render(result: Result) &#123;
+  result.data.forEach((value) =&gt; &#123;
+    console.log(value.id, value.username, value.age);
+    // 判断 value 中是否有新的字段，如果有就打印出来
+    if (value.sex) &#123;
+      console.log(value.sex);
+    &#125;
+  &#125;);
+&#125;
+
+let result = &#123;
+  data: [
+    // 后端传入预定之外的字段，sex: &#39;male&#39;
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19, sex: &quot;female&quot; &#125;,
+  ],
+&#125;;
+
+render(result);
+</code></pre>
+<h5 id="接口成员-只读属性"><a href="#接口成员-只读属性" class="headerlink" title="接口成员 - 只读属性"></a>接口成员 - 只读属性</h5><blockquote>
+<p>只读属性：给一个属性添加 <code>readonly</code> ，一般 id 都是只读的，并且只读属性都是不能修改的。</p>
+</blockquote>
+<pre><code>interface List &#123;
+  // 将 id 设置为 只读属性
+  readonly id: number;
+  username: string;
+  age: number;
+  // 设置可选属性，在 sex 后边添加一个 ？ 表示该属性可有可无
+  sex?: string;
+&#125;
+interface Result &#123;
+  data: List[];
+&#125;
+
+function render(result: Result) &#123;
+  result.data.forEach((value) =&gt; &#123;
+    console.log(value.id, value.username, value.age);
+    // 判断 value 中是否有新的字段，如果有就打印出来
+    if (value.sex) &#123;
+      console.log(value.sex);
+    &#125;
+    // 只读属性是不能修改的
+    value.id++;
+  &#125;);
+&#125;
+
+let result = &#123;
+  data: [
+    // 后端传入预定之外的字段，sex: &#39;male&#39;
+    &#123; id: 1, username: &quot;icoding&quot;, age: 18, sex: &quot;male&quot; &#125;,
+    &#123; id: 2, username: &quot;艾编程&quot;, age: 19, sex: &quot;female&quot; &#125;,
+  ],
+&#125;;
+
+render(result);
+</code></pre>
+<h5 id="可索引类型的接口-数字索引"><a href="#可索引类型的接口-数字索引" class="headerlink" title="可索引类型的接口 - 数字索引"></a>可索引类型的接口 - 数字索引</h5><blockquote>
+<p>以上接口的属性个数都是固定的，当我们不确定一个接口中有多少个属性时，就可以使用可索引类型的接口。</p>
+<ul>
+<li>可索引类型的接口可使用数字索引，也可用字符串来索引。</li>
+</ul>
+</blockquote>
+<pre><code>// 定义一个用数字索引的接口
+interface StringArray &#123;
+  // 定义数字索引签名
+  [index: number]: string;
+&#125;
+
+// 这样的含义是：用任意的数字去索引 StringArray，都会得到一个 string
+// 相当于声明了一个字符串类型的数组
+
+// 定义一个变量 chars ，它的类型是 StringArray，取值为一个字符串数组
+let chars: StringArray = [&quot;A&quot;, &quot;B&quot;];
+</code></pre>
+<h5 id="可索引类型的接口-字符串索引"><a href="#可索引类型的接口-字符串索引" class="headerlink" title="可索引类型的接口 - 字符串索引"></a>可索引类型的接口 - 字符串索引</h5><pre><code>// 定义一个字符串索引的接口
+interface Names &#123;
+  // 字符串索引签名，这样声明后就不能再声明 number 类型的成员了
+  [x: string]: string;
+  // y: number // 会报错，因为两种索引签名是可以混用的
+
+  // 新增一个数字签名索引
+  [z: number]: string;
+&#125;
+</code></pre>
+<ul>
+<li>这样即可以用数字索引 Names，也可以用 String 去索引 Names</li>
+<li>需要注意：数字签名的返回值，一定要是字符串索引签名值的子类类型</li>
+<li>这是因为 JavaScript 会进行类型转换，将 Number 转换为 String，这样就能保持类型的兼容性</li>
+</ul>
+<blockquote>
+<p>如果将数字签名的返回值改为 number，这样就会和 string 不兼容</p>
+</blockquote>
+<pre><code>// 定义一个字符串索引的接口
+interface Names &#123;
+  // [x: string]: string;
+  [x: string]: any; // 改为 any 就兼容了
+
+  // 将数字签名索引的返回值 改为 number，这样就会和 string 不兼容
+  [z: number]: number;
+&#125;
+</code></pre>
+<h5 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h5><blockquote>
+<p>以上学习了对象类型接口，可以将过去我们开发过的 API 或 调用过的 API ，用接口去描述一下。</p>
+<p>在这个过程中，会强制我们去思考一些变量的类型，也会思考一些接口的边界问题。这个过程非常有利于你培养类型思维。</p>
+</blockquote>
+<h4 id="函数类型接口"><a href="#函数类型接口" class="headerlink" title="函数类型接口"></a>函数类型接口</h4><blockquote>
+<p>在数据类型中学过，使用变量来定义一个函数类型。如下</p>
+</blockquote>
+<pre><code>let add: (x: number, y: number) =&gt; number;
+</code></pre>
+<blockquote>
+<p>使用interface接口来定义一个函数，该接口的定义方式 等价于 以上函数</p>
+</blockquote>
+<pre><code>interface Add &#123;
+  (x: number, y: number): number;
+&#125;
+</code></pre>
+<blockquote>
+<p>除此之外，还有一种更简洁的函数定义方式，即：使用类型别名type</p>
+</blockquote>
+<pre><code>// 使用类型别名定义函数
+// type 为关键字，Add 为类型别名的名称，=&gt; 后边的 number 为函数返回值类型
+type Add = (x: number, y: number) =&gt; number;
+</code></pre>
+<ul>
+<li>注：类型别名就是我们这个函数取一个名字，该名字为 Add</li>
+</ul>
+<blockquote>
+<p>实现一个具体的函数 add</p>
+</blockquote>
+<pre><code>let add: Add = (a, b) =&gt; a + b;
+</code></pre>
+<h4 id="混合类型接口"><a href="#混合类型接口" class="headerlink" title="混合类型接口"></a>混合类型接口</h4><blockquote>
+<p>一个接口既可以定义一个函数，也可以像对象一样拥有属性和方法，即：混合类型接口</p>
+</blockquote>
+<blockquote>
+<p>使用混合接口定义一个类库</p>
+</blockquote>
+<pre><code>// 使用混合接口定义一个类库
+interface Lib &#123;
+  // 无返回值、无参数的函数
+  (): void;
+  // 版本号
+  version: string;
+  // 函数的方法
+  doSomething(): void;
+&#125;
+
+// 实现接口
+let lib: Lib = (() =&gt; &#123;&#125;) as Lib; // 使用类型断言，明确函数的类型
+lib.version = &quot;1.0&quot;;
+lib.doSomething = () =&gt; &#123;&#125;;
+</code></pre>
+<ul>
+<li>以上的接口已经实现了，但它的问题就是对全局暴露了一个<code>lib</code>，它是一个单例</li>
+</ul>
+<blockquote>
+<p>如果需要创建多个 lib 就需要使用函数进行封装</p>
+</blockquote>
+<pre><code>// 使用混合接口定义一个类库
+interface Lib &#123;
+  // 无返回值、无参数的函数
+  (): void;
+  // 版本号
+  version: string;
+  // 函数的方法
+  doSomething(): void;
+&#125;
+
+// 封装 getLib() 函数
+function getLib() &#123;
+  let lib: Lib = (() =&gt; &#123;&#125;) as Lib;
+  lib.version = &quot;1.0&quot;;
+  lib.doSomething = () =&gt; &#123;&#125;;
+  return lib;
+&#125;
+
+// 有了封装好的 getLib() 函数，就可以创建多个实例了
+// 创建一个 lib1 实例
+let lib1 = getLib();
+// 调用方法
+lib1.doSomething();
+
+// 创建一个 lib2 实例
+let lib2 = getLib();
+// 调用方法
+lib2.doSomething();
+</code></pre>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>以上我们用接口分别定义了对象和函数，其实接口还可以定义类的结构和类型，这部分内容会在学习完 TS 的类之后在做学习</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/02/04/TypeScript%EF%BC%88%E4%B8%89%EF%BC%89/">https://hermiablog.com/2024/02/04/TypeScript%EF%BC%88%E4%B8%89%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TypesSript/">
+                                    <span class="chip bg-color">TypesSript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/02/04/TypeScript%EF%BC%88%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="TypeScript（三）">
+                        
+                        <span class="card-title">TypeScript（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Enum枚举类型、interface类型
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/03/TypeScript%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/52.jpg" class="responsive-img" alt="TypeScript（二）">
+                        
+                        <span class="card-title">TypeScript（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            函数类型、Symbol类型、对象类型
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

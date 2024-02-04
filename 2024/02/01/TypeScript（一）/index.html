@@ -1,0 +1,3319 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="TypeScript（一）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>TypeScript（一） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/51.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">TypeScript（一）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TypesSript/">
+                                <span class="chip bg-color">TypesSript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-01
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-04
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    15.9k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、TS概述"><a href="#一、TS概述" class="headerlink" title="一、TS概述"></a>一、TS概述</h3><blockquote>
+<p>TypeScript（简称 TS）是微软公司开发的一种基于 JavaScript （简称 JS）语言的编程语言。</p>
+</blockquote>
+<ul>
+<li>它的目的并不是创造一种全新语言，而是增强 JavaScript 的功能，使其更适合多人合作的企业级项目。</li>
+<li>TypeScript 可以看成是 JavaScript 的超集（superset），即它继承了后者的全部语法，所有 JavaScript 脚本都可以当作 TypeScript 脚本（但是可能会报错），此外它再增加了一些自己的语法。</li>
+<li>TypeScript 对 JavaScript 添加的最主要部分，就是一个独立的类型系统</li>
+</ul>
+<h3 id="二、基础类型"><a href="#二、基础类型" class="headerlink" title="二、基础类型"></a>二、基础类型</h3><ol>
+<li>类型的概念<blockquote>
+<p>类型（type）指的是一组具有相同特征的值。如果两个值具有某种共同的特征，就可以说，它们属于同一种类型</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>一旦确定某个值的类型，就意味着，这个值具有该类型的所有特征，可以进行该类型的所有运算。凡是适用该类型的地方，都可以使用这个值；凡是不适用该类型的地方，使用这个值都会报错。</li>
+<li>可以这样理解，<strong>类型是人为添加的一种编程约束和用法提示</strong>。 主要目的是在软件开发过程中，为编译器和开发工具提供更多的验证和帮助，帮助提高代码质量，减少错误。</li>
+</ul>
+<blockquote>
+<p>JavaScript 语言就没有这个功能，不会检查类型对不对。</p>
+</blockquote>
+<ul>
+<li>开发阶段很可能发现不了这个问题，代码也许就会原样发布，导致用户在使用时遇到错误。</li>
+<li>作为比较，TypeScript 是在开发阶段报错，这样有利于提早发现错误，避免使用时报错。另一方面，函数定义里面加入类型，具有提示作用，可以告诉开发者这个函数怎么用</li>
+</ul>
+<ol start="2">
+<li>强类型语言 与 弱类型语言<blockquote>
+<p>强类型语言：不允许改变变量的数据类型，除非进行强制类型转换</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>在强类型语言中，对语言的类型有严格的限制，不同类型的变量是不能相互赋值的，这样就可以避免许多低级错误</li>
+</ul>
+<blockquote>
+<p>弱类型语言：变量可以被赋予不同的数据类型</p>
+</blockquote>
+<ul>
+<li>在弱语言类型中，没有什么约束性，虽然相对灵活，但也更容易产生 Bug</li>
+</ul>
+<ol start="3">
+<li>静态类型语言 与 动态类型语言</li>
+</ol>
+<ul>
+<li>JavaScript 的类型系统非常弱，而且没有使用限制，运算符可以接受各种类型的值。在语法上，JavaScript 属于动态类型语言</li>
+<li>TypeScript 引入了一个更强大、更严格的类型系统，属于静态类型语言</li>
+</ul>
+<p>动态类型语言：在执行阶段确定所有变量的类型</p>
+<p>静态类型语言：在编译阶段确定所有变量的类型</p>
+<blockquote>
+<ul>
+<li>优势：</li>
+</ul>
+</blockquote>
+<ul>
+<li>有利于代码的静态分析</li>
+<li>有利于发现错误</li>
+<li>更好的 IDE 支持，做到语法提示和自动补全。<ul>
+<li>IDE（集成开发环境，比如 VSCode）一般都会利用类型信息，提供语法提示功能（编辑器自动提示函数用法、参数等）和自动补全功能（只键入一部分的变量名或函数名，编辑器补全后面的部分）</li>
+</ul>
+</li>
+<li>提供了代码文档</li>
+<li>有助于代码重构<blockquote>
+<ul>
+<li>缺点：</li>
+</ul>
+</blockquote>
+</li>
+<li>丧失了动态类型的代码灵活性</li>
+<li>增加了编程工作量</li>
+<li>更高的学习成本</li>
+<li>引入了独立的编译步骤</li>
+<li>兼容性问题</li>
+</ul>
+<blockquote>
+<p>静态类型 与 动态类型语言对比 - 总结</p>
+<table>
+<thead>
+<tr>
+<th>静态类型语言</th>
+<th>动态类型语言</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对类型极度严格</td>
+<td>对类型非常宽松</td>
+</tr>
+<tr>
+<td>立即发现错误</td>
+<td>Bug 可能隐藏数月 甚至 数年</td>
+</tr>
+<tr>
+<td>运行时性能好</td>
+<td>运行时性能差</td>
+</tr>
+<tr>
+<td>自文档化</td>
+<td>可读性差</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h3 id="三、TS核心基础"><a href="#三、TS核心基础" class="headerlink" title="三、TS核心基础"></a>三、TS核心基础</h3><h4 id="TS-的环境搭建"><a href="#TS-的环境搭建" class="headerlink" title="TS 的环境搭建"></a>TS 的环境搭建</h4><ul>
+<li>安装<code>VSCode</code>开发工具</li>
+<li>安装<code>Node.js</code></li>
+<li>安装<code>TypeScript</code>编译器</li>
+</ul>
+<pre><code># npm 初始化生成 package.json 配置文件
+npm init -y
+
+# 全局安装 TS，好处：在任何地方都可以使用 TS 的编译器 即：tsc
+npm i typescript -g
+</code></pre>
+<ul>
+<li>安装好 TS 编译器后，就可以在命令行中使用 tsc 命令了</li>
+</ul>
+<pre><code># 查看 TS 的版本
+tsc -v
+
+# 查看 TS 的帮助信息
+tsc -h
+</code></pre>
+<ul>
+<li>在 VSCode 默认的 <code>powershell</code> 命令终端中运行以上命令，发现会无法之别。因为在此系统上禁 止运行脚本。（在 <code>GitBash</code> 命令行使用 <code>tsc</code> 是可以正常执行的）</li>
+<li>解决办法：修改PowerShell执行策略<ul>
+<li>在电脑的开始选项搜索PowerShell，以管理员身份运行</li>
+</ul>
+</li>
+</ul>
+<pre><code># 更改执行策略为 RemoteSigned
+set-ExecutionPolicy RemoteSigned
+
+# 运行get命令，可查看到脚本的执行策略已被更改为 RemoteSigned
+get-ExecutionPolicy
+</code></pre>
+<h4 id="创建-TS-的配置文件"><a href="#创建-TS-的配置文件" class="headerlink" title="创建 TS 的配置文件"></a>创建 TS 的配置文件</h4><blockquote>
+<p><code>tsconfig.json</code>是一个 TypeScript 项目的配置文件，它用于指定编译器选项、源文件、输出选项等。</p>
+<p>通过配置<code>tsconfig.json</code>文件，你可以告诉 TypeScript 编译器如何编译您的代码，以及生成哪些输出文件</p>
+</blockquote>
+<pre><code># 初始化 TS 配置文件
+tsc --init
+</code></pre>
+<h4 id="TS-的优势"><a href="#TS-的优势" class="headerlink" title="TS 的优势"></a>TS 的优势</h4><ul>
+<li>①、编译时静态类型检测：函数或方法传参或变量赋值不匹配时，会出现编译错误提示 ，规避了开发期间的大量低级错误，省时，省力；</li>
+<li>②、自动提示更清晰明确；<ul>
+<li>在<code>TS</code>中自动提示，是可以正确的识别有哪些已经确定好的属性</li>
+<li>在<code>JS</code>中自动提示，会非常的杂乱，简单的几行代码就会有很多无关的字段出现。一旦代码多了，就会会更多</li>
+</ul>
+</li>
+<li>③、引入了泛型和一系列的 TS 特有的类型；</li>
+<li>④、强大的 <code>d.ts</code> 声明文件：声明文件像一个书的目录一样，清晰直观展示了依赖库文件的接口，type 类型，类，函数，变量等声明；</li>
+<li>⑤、轻松编译成 JS 文件：即使 TS 文件有错误，绝大多数情况也能编译出 JS 文件；</li>
+<li>⑥、灵活性高：尽管 TS 是一门 强类型检查语言，但也提供了 any 类型 和 <code>as any</code> 断言，这提供了 TS 的灵活度；</li>
+</ul>
+<h4 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h4><blockquote>
+<p>类型注解的作用：相当于强类型语言中的类型声明</p>
+</blockquote>
+<ul>
+<li>类型注解的语法</li>
+</ul>
+<pre><code>// 语法
+let 变量名/函数 : 类型 = 初始值
+
+// 示例：类型注解
+let age: number = 18
+</code></pre>
+<ul>
+<li>以上代码中<ul>
+<li><code>: number</code> 就是类型注解</li>
+<li>作用：为变量添加类型约束</li>
+<li>其中，约定变量 age 的类型为 <code>number</code> 类型，就只能给变量赋该类型的值，否则就会报错</li>
+</ul>
+</li>
+</ul>
+<h4 id="类型推导"><a href="#类型推导" class="headerlink" title="类型推导"></a>类型推导</h4><blockquote>
+<p>类型推导是指在 TypeScript 中，当变量声明时，可以自动推断出该变量的类型。这样，可以省略掉显式地去声明变量的类型，从而减少代码量。</p>
+<p>TypeScript 会根据变量的初始值来推断出变量的类型，而不需要用户显式地指定变量的类型。</p>
+</blockquote>
+<pre><code>// str 的值是字符串类型，推导出来 str 的变量类型就是 字符串类型
+let str = &quot;艾编程&quot;;
+
+// 此时，给 str 重新赋值，如非字符串类型，依然会报错
+// 不能将类型“number”分配给类型“string”
+str = 1;
+</code></pre>
+<ul>
+<li>在以上代码中，并没有显示的告诉我们变量 str 是一个 string 类型，但是如果把鼠标移到 str 上，会发现 TypeScript 自动把变量注释为 string 类型</li>
+</ul>
+<blockquote>
+<p>注：在开发中使用</p>
+</blockquote>
+<ul>
+<li>如果<code>TS</code>能够自动分析变量类型，我们就什么也不需要做了</li>
+<li>如果<code>TS</code>无法分析变量类型的话，我们就需要使用类型注解</li>
+</ul>
+<blockquote>
+<p>类型注解 和 类型推导的区别：</p>
+</blockquote>
+<ul>
+<li>类型注解：在定义时刻就固定了数据类型</li>
+<li>类型推导：在定义时直接给编译类型的值，由 TS 自行推导数据类型</li>
+</ul>
+<h4 id="TS-编译"><a href="#TS-编译" class="headerlink" title="TS 编译"></a>TS 编译</h4><blockquote>
+<p>JavaScript 的运行环境（浏览器和 Node.js）不认识 TypeScript 代码</p>
+</blockquote>
+<ul>
+<li>所以，TypeScript 项目要想运行，必须先转为 JavaScript 代码，这个代码转换的过程就叫做“编译”（compile）。</li>
+<li>TypeScript 官方没有做运行环境，只提供编译器。编译时，会将类型声明和类型相关的代码全部删除，只留下能运行的 JavaScript 代码，并且不会改变 JavaScript 的运行结果</li>
+<li>TypeScript 官方提供的编译器叫做 tsc，可以将 TypeScript 脚本编译成 JavaScript 脚本</li>
+<li>因此需要通过 <code>tsc</code> 命令 将 TS 编译成 JS 文件</li>
+</ul>
+<blockquote>
+<p>编译脚本</p>
+</blockquote>
+<ul>
+<li>①、创建 <code>.ts</code> 文件，如：<code>main.ts</code>文件</li>
+<li>语法：<code>tsc ts文件路径</code>，如果在一级文件夹里，可以只写名字</li>
+<li>②、将 TS 编译为 JS：在终端命名中输入<code> tsc main.ts</code> ，命令执行后，在同级目录中会生成一个同名的 JS 文件</li>
+<li>③、执行 JS 代码：在终端中输入命令 <code>node main.js</code> 即可运行</li>
+</ul>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>由 TS 编译生成的 JS 文件中就没有类型信息了</li>
+<li>所有合法的 JS 代码都是 TS 代码，有 JS 基础只需要学习 TS 的类型和新特性即可</li>
+</ul>
+<ol>
+<li>编译文件目录优化<blockquote>
+<p>现在的 TS 文件 和 编译后的 JS 文件都在同一目录下，我们希望编译后的文件能在独立的文件目录下。</p>
+<ul>
+<li>此时，只需要在 TS 的配置文件 <code>tsconfig.json</code> 中 配置对应的输入输出目录即可</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;rootDir&quot;: &quot;./src&quot; /* 指定 TS 源文件中的根文件目录 */,
+    &quot;outDir&quot;: &quot;./src/dist&quot; /* 指定输出编译后的 JS 的文件目录  */
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>配置完成后，直接在项目根目录的命令行终端里 输入 <code>tsc</code> 命令即可完成编译</li>
+</ul>
+<ol start="2">
+<li>重复变量名 或 函数名的编译优化</li>
+</ol>
+<ul>
+<li>在同一目录中，不同 TS 文件中出现重复变量名 或 函数名时，编译阶段会报错，但运行 <code>tsc</code> 命令依然可以正常生成 JS 文件</li>
+<li>给当前 <code>index.ts</code> 或 <code>main.ts</code> 文件中添加一行 <code>export &#123;&#125;</code> 来改变当前文件的作用域即可</li>
+<li>此时，就不会报错了！运行 <code>tsc</code> 命令也不会报错</li>
+</ul>
+<ol start="3">
+<li>TS 出现语法错误，不编译</li>
+</ol>
+<ul>
+<li>一般情况下，即使TS文件有语法错误也可以编译成JS文件</li>
+<li>如果想实现有错误时不编译：<ul>
+<li>在 VSCode 命令行终端中输入如下命令，表示 TS 文件中有语法错误时，就不编译成 JS 文件</li>
+</ul>
+</li>
+</ul>
+<pre><code># 当 TS 中出现语法错误时，就不发出编译命令
+tsc --noEmitOnError
+
+# 指定文件
+tsc --noEmitOnError .\src\index.ts
+</code></pre>
+<ol start="4">
+<li>使用 <code>ts-node</code> 直接运行 <code>TS</code><blockquote>
+<p>通过上面的操作会发现，每次修改代码后，都需要重复执行 <code>tsc</code> 命令 并 执行<code>node xxx.js</code> 这两行命令，才能运行 TS 代码，非常麻烦。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>使用<code>ts-node</code>包，可 “直接” 在 <code>Node.js</code> 环境中 执行 TS 代码。安装 <code>ts-node</code> 包命令如下</li>
+</ul>
+<pre><code># 安装 ts-node
+npm i ts-node -g
+</code></pre>
+<ul>
+<li>使用 <code>ts-node</code> 命令运行 TS 代码</li>
+</ul>
+<pre><code># 运行指定 TS 文件代码
+ts-node .\src\index.js
+</code></pre>
+<ul>
+<li><code>ts-node</code>命令本质上是在内部将 TS -&gt; JS ，然后再运行 JS 代码的。也并非直接在 <code>Node.js</code> 环境中 执行 TS 代码</li>
+</ul>
+<blockquote>
+<p>如果执行 <code>ts-node</code> 命令不带有任何参数</p>
+</blockquote>
+<ul>
+<li>它会提供一个 TypeScript 的命令行 REPL 运行环境，你可以在这个环境中输入 TypeScript 代码，逐行执行</li>
+</ul>
+<pre><code>$ ts-node
+&gt; const twice = (x:string) =&gt; x + x;
+&gt; twice(&#39;abc&#39;)
+&#39;abcabc&#39;
+&gt; 
+</code></pre>
+<ul>
+<li>要退出这个 REPL 环境，可以按下 <code>Ctrl + d</code>，或者输入<code>.exit</code></li>
+<li>如果只是想简单运行 TypeScript 代码看看结果，ts-node 不失为一个便捷的方法</li>
+</ul>
+<ol start="5">
+<li>总结<blockquote>
+<p>环境搭建</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>必备：vscode、Node.js</li>
+<li>安装TypeScript：<code>npm i typescript -g</code></li>
+<li>错误提示插件：<code>Error Lens</code></li>
+</ul>
+<blockquote>
+<p>项目启动</p>
+</blockquote>
+<pre><code># 项目初始化 生成package.json 配置文件
+npm init -y
+
+#初始化TS配置文件 生成tsconfig.json 配置文件
+tsc --init
+</code></pre>
+<blockquote>
+<p>优化</p>
+</blockquote>
+<ul>
+<li>优化编译文件目录：修改<code>tsconfig.json</code>，将TS 文件 和 编译后的 JS 文件放在独立文件目录下</li>
+<li>安装<code>ts-node</code>包：<code>npm i ts-node -g</code></li>
+</ul>
+<blockquote>
+<p>命令</p>
+</blockquote>
+<pre><code># 初始条件下 编译.ts文件
+tsc .\src\index.js
+# 初始条件下 运行编译后的 .js文件
+node .\src\index.js
+
+# 优化编译目录后 编译.ts文件 会将src目录下所有ts文件编译到dist目录下
+tsc
+
+# 安装ts-node之后 编译并运行 指定 TS文件代码
+ts-node .\src\index.js
+</code></pre>
+<h3 id="四、TS基本数据类型"><a href="#四、TS基本数据类型" class="headerlink" title="四、TS基本数据类型"></a>四、TS基本数据类型</h3><blockquote>
+<p>我们之前学过 ES6 中有 7 种基本数据类型 和 3 种引用数据类型</p>
+</blockquote>
+<ul>
+<li>ES6 中的 7 种基本数据类型：Boolean 、Number、bigint、String、Symbol、undefined、null</li>
+<li>ES6 中的 3 种引用数据类型：Array、Function、Object</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>JavaScript 原始类型</th>
+<th>TypeScript 类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Boolean</td>
+<td>Boolean</td>
+<td>布尔</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Number</td>
+<td>数字</td>
+</tr>
+<tr>
+<td>bigint</td>
+<td>bigint</td>
+<td>大整数</td>
+</tr>
+<tr>
+<td>String</td>
+<td>String</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>undefined</td>
+<td>undefined</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>null	null</td>
+<td>Null</td>
+<td>类型</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>Symbol</td>
+<td>Symbol 类型</td>
+</tr>
+<tr>
+<td><strong>引用数据类型</strong></td>
+<td><strong>引用数据类型</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Array</td>
+<td>Array</td>
+<td>数组</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Function</td>
+<td>函数</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>对象</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td><strong>新增</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>void</td>
+<td>无返回值的类型</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>any</td>
+<td>任意类型</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>never</td>
+<td>不能是任何值</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>tuple</td>
+<td>元组</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>enum</td>
+<td>枚举</td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>更多高级类型</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>TypeScript 继承了 JavaScript 的类型设计，以上的基本类型（原始类型）和 部分引用数据类型（Object）可以看作 TypeScript 的基本类型；</li>
+<li><code>undefined</code> 和<code>null</code> 既可以作为值，也可以作为类型，取决于在哪里使用它们；</li>
+<li>基本类型是 TypeScript 类型系统的基础，复杂类型由它们组合而成；</li>
+</ul>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li>以上所有类型的名称都是<strong>小写字母</strong>，首字母大写的<code>Number</code>、<code>String</code>、<code>Boolean</code>等在 JavaScript 语言中都是内置对象，而不是类型名称</li>
+</ul>
+<h4 id="原始数据类型"><a href="#原始数据类型" class="headerlink" title="原始数据类型"></a>原始数据类型</h4><blockquote>
+<p>在 TS 中 与 JS 的原始数据类型最大的区别是：变量的数据类型是不可以改变的</p>
+</blockquote>
+<ol>
+<li>boolean类型只包含true和false两个布尔值</li>
+<li>number类型包含所有整数、浮点数、非十进制数</li>
+<li>string类型包含所有字符串，可以使用模板字符串</li>
+<li>bigint 类型包含所有的大整数</li>
+</ol>
+<ul>
+<li>注意：在默认配置下使用bigint类型会报错，因为<code>bigint</code>类型是 ES2020 标准引入的，需要修改ts配置文件，使tsc将 TypeScript 代码编译成ES2020 标准的版本</li>
+</ul>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    // 将默认 es2016 改为 es2020
+    &quot;target&quot;: &quot;es2020&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>另外：<code>bigint</code> 与 <code>number</code> 类型不兼容，将bigint类型赋值为整数和小数，都会报错</li>
+</ul>
+<ol start="5">
+<li>symbol 类型：包含所有的 Symbol 值</li>
+<li>object 类型：包含了所有对象、数组和函数</li>
+</ol>
+<ul>
+<li>在没有指定对象的值的类型的情况下，TS不允许修改对象的值</li>
+</ul>
+<ol start="7">
+<li>undefined 类型</li>
+</ol>
+<ul>
+<li><code>undefined</code>只能被赋值为它本身，一旦声明就不能被赋值为其他的数据类型了</li>
+</ul>
+<ol start="8">
+<li>null类型</li>
+</ol>
+<ul>
+<li>同undefined 一样，如果声明了 <code>null</code> 它就不能被赋值为其他数据类型了，只能被赋值为它本身<blockquote>
+<p>其它的变量能赋值给 undefined 和 null 吗 </p>
+</blockquote>
+</li>
+<li>在默认情况下，是不能的</li>
+<li>方法1：在 <code>tsconfig.json</code> 配置文件中，将 <code>strictNullChecks</code> 的值修改为 <code>false</code></li>
+</ul>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;strictNullChecks&quot;: false
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>方法2：如果我们想在 TS 中使用更严格的语法呢 ，就可以将该配置关闭掉；使用联合类型来赋值</li>
+</ul>
+<pre><code># tsconfig.json文件中
+&#123;
+  &quot;compilerOptions&quot;: &#123;
+     // &quot;strictNullChecks&quot;: false
+  &#125;
+&#125;
+
+# ts文件中
+// 使用联合类型，这样就可以通过类型检查
+let num: number | undefined | null = 123;
+
+// 将 undefined 和 null 赋值给 num
+num = undefined;
+num = null;
+</code></pre>
+<h4 id="包装对象类型"><a href="#包装对象类型" class="headerlink" title="包装对象类型"></a>包装对象类型</h4><blockquote>
+<p>JavaScript 的 8 种类型之中，<code>undefined</code>和<code>null</code>其实是两个特殊值，<code>object</code>属于复合类型，剩下的五种属于原始类型，代表最基本的、不可再分的值。</p>
+</blockquote>
+<ul>
+<li>boolean</li>
+<li>string</li>
+<li>number</li>
+<li>bigint</li>
+<li>symbol</li>
+</ul>
+<blockquote>
+<p>上面这五种原始类型的值，都有对应的包装对象。所谓“包装对象”，指的是这些值在需要时，会自动产生的对象</p>
+</blockquote>
+<pre><code>// 字符串 &quot;icoding&quot; 执行了 charAt() 方法
+const s = &quot;icoding&quot;.charAt(2);
+console.log(s); // &#39;o&#39;
+</code></pre>
+<blockquote>
+<p>以上代码中</p>
+</blockquote>
+<ul>
+<li>字符串<code>icoding</code>执行了<code>charAt()</code>方法。但是，在 JavaScript 语言中，只有对象才有方法，原始类型的值本身没有方法。</li>
+<li>这行代码之所以可以运行，就是因为在调用方法时，<strong>字符串会自动转为包装对象</strong>，<code>charAt()</code>方法其实是定义在包装对象上。</li>
+<li>这样的设计大大方便了字符串处理，省去了将原始类型的值手动转成对象实例的麻烦</li>
+</ul>
+<ol>
+<li>可获取包装对象的类型<blockquote>
+<p>五种包装对象之中，<code>symbol</code> 类型和 <code>bigint</code> 类型无法直接获取它们的包装对象（即<code>Symbol()</code>和<code>BigInt()</code>不能作为构造函数使用），但是剩下三种可以。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Boolean()</li>
+<li>String()</li>
+<li>Number()</li>
+<li>以上三个构造函数，执行后可以直接获取某个原始类型值的包装对象。</li>
+</ul>
+<pre><code>// s 为 字符串 &quot;icoding&quot; 的包装对象
+const s = new String(&quot;icoding&quot;);
+// typeof 运算符返回 object，而不是 string。但是本质上它还是字符串，可以使用所有的字符串方法
+console.log(typeof s); // &quot;object&quot;
+
+// 使用 charAt 方法
+console.log(s.charAt(3)); // &quot;d&quot;
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li><code>String()</code>只有当作构造函数使用时（即带有<code>new</code>命令调用），才会返回包装对象</li>
+<li>如果当作普通函数使用（不带有new命令），返回就是一个普通字符串。其他两个构造函数<code>Number()</code>和<code>Boolean()</code>也是如此</li>
+</ul>
+<ol start="2">
+<li>包装对象类型与字面量类型<blockquote>
+<p>由于包装对象的存在，导致每一个原始类型的值都有包装对象和字面量两种情况。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>// 字面量
+&quot;icoding&quot;;
+// 包装对象
+new String(&quot;icoding&quot;);
+
+// 以上两行代码，它们都是字符串
+</code></pre>
+<blockquote>
+<p>为了区分这两种情况，TypeScript 对五种原始类型分别提供了大写和小写两种类型。</p>
+<ul>
+<li>其中，大写类型<strong>同时包含</strong>包装对象和字面量两种情况，小写类型只包含字面量，不包含包装对象</li>
+</ul>
+</blockquote>
+<ul>
+<li>Boolean 和 boolean</li>
+<li>String 和 string</li>
+<li>Number 和 number</li>
+<li>BigInt 和 bigint</li>
+<li>Symbol 和 symbol</li>
+</ul>
+<pre><code>const s1: String = &quot;icoding&quot;; // 正确
+const s2: String = new String(&quot;icoding&quot;); // 正确
+
+const s3: string = &quot;icoding&quot;; // 正确
+const s4: string = new String(&quot;icoding&quot;); // 报错
+</code></pre>
+<ul>
+<li>以上代码中，String类型可以赋值为字符串的字面量，也可以赋值为包装对象。</li>
+<li>但是，string类型只能赋值为字面量，赋值为包装对象就会报错。</li>
+</ul>
+<ol start="3">
+<li>最佳实践<blockquote>
+<p>建议只使用小写类型，不使用大写类型。</p>
+<p>因为绝大部分使用原始类型的场合，都是使用字面量，不使用包装对象。而且，<strong>TypeScript 把很多内置方法的参数，定义成小写类型</strong>，使用大写类型会报错。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const n1: number = 1;
+const n2: Number = 1;
+
+Math.abs(n1); // 1
+Math.abs(n2); // 报错
+
+// Math.abs() 方法的参数类型被定义成小写的number，传入大写的Number类型就会报错。
+</code></pre>
+<blockquote>
+<p>通过前面的学习我们知道，<code>Symbol()</code>和<code>BigInt()</code>这两个函数不能当作构造函数使用，所以没有办法直接获得 <code>symbol</code> 类型和 <code>bigint</code> 类型的包装对象，除非使用下面的写法。</p>
+</blockquote>
+<ul>
+<li>但是，它们没有使用场景，因此<code>Symbol</code>和<code>BigInt</code>这两个类型虽然存在，但是完全没有使用的理由。</li>
+</ul>
+<pre><code>let x = Object(Symbol());
+let y = Object(BigInt());
+
+// 代码中，得到的就是 Symbol 和 BigInt 的包装对象，但是没有使用的意义。
+</code></pre>
+<ul>
+<li>目前在 TypeScript 里面，symbol和Symbol两种写法没有差异，bigint和BigInt也是如此，不知道是否属于官方的疏忽。</li>
+<li>因此，建议始终使用小写的symbol和bigint，不使用大写的Symbol和BigInt</li>
+</ul>
+<h4 id="Object-类型-与-object-类型"><a href="#Object-类型-与-object-类型" class="headerlink" title="Object 类型 与 object 类型"></a>Object 类型 与 object 类型</h4><blockquote>
+<p>TypeScript 的对象类型也有大写Object和小写object两种。</p>
+</blockquote>
+<ol>
+<li>大写 Object 类型<blockquote>
+<p>大写的Object类型代表 JavaScript 语言里面的广义对象。所有可以转成对象的值，都是Object类型，这囊括了几乎所有的值。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let obj: Object;
+
+// boolean
+obj = true;
+// string
+obj = &quot;icoding&quot;;
+// number
+obj = 1;
+// 对象
+obj = &#123; foo: 100 &#125;;
+// 数组
+obj = [1, 2, 3];
+// 函数
+obj = (x: number) =&gt; x + 1;
+
+// 原始类型值、对象、数组、函数都是合法的 Object 类型
+</code></pre>
+<ul>
+<li>除了<code>undefined</code>和<code>null</code>这两个值不能转为对象，其他任何值都可以赋值给<code>Object</code>类型。</li>
+</ul>
+<pre><code>let obj: Object;
+
+obj = undefined; // 报错
+obj = null; // 报错
+
+// undefined 和 null 赋值给 Object 类型，就会报错
+</code></pre>
+<ul>
+<li>另外，空对象<code>&#123;&#125;</code>是Object类型的简写形式，所以使用Object时常常用空对象代替。</li>
+</ul>
+<pre><code>let obj: &#123;&#125;;
+
+// boolean
+obj = true;
+...
+// 变量 obj 的类型是空对象 &#123;&#125;，就代表 Object 类型
+</code></pre>
+<ul>
+<li>无所不包的Object类型既不符合直觉，也不方便使用。</li>
+</ul>
+<ol start="2">
+<li>小写 object 类型<blockquote>
+<p>小写的object类型代表 JavaScript 里面的狭义对象，即可以用字面量表示的对象，只包含对象、数组和函数，不包括原始类型的值。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let obj: object;
+
+// boolean
+obj = true; // 报错
+// string
+obj = &quot;icoding&quot;; // 报错
+// number
+obj = 1; // 报错
+
+// 对象
+obj = &#123; foo: 100 &#125;;
+// 数组
+obj = [1, 2, 3];
+// 函数
+obj = (x: number) =&gt; x + 1;
+
+// object 类型不包含原始类型值，只包含对象、数组 和 函数
+</code></pre>
+<ul>
+<li>大多数时候，我们使用对象类型，只希望包含真正的对象，不希望包含原始类型。所以，建议总是使用小写类型<code>object</code>，不使用大写类型Object。</li>
+<li>无论是大写的Object类型，还是小写的object类型，都只包含 JavaScript 内置对象<strong>原生的</strong>属性和方法，用户自定义的属性和方法都不存在于这两个类型之中。</li>
+</ul>
+<pre><code>// 大写 Object 类型
+const o1: Object = &#123; foo: 0 &#125;;
+// 小写 object 类型
+const o2: object = &#123; foo: 0 &#125;;
+
+o1.toString(); // toString() 是对象的原生方法，可以正确访问
+o1.foo; // foo 是自定义属性，访问就会报错
+
+o2.toString(); // 正确
+o2.foo; // 报错
+</code></pre>
+<ul>
+<li>不管大小写，都不能打点<strong>访问</strong>对象身上自定义的属性和方法，但可以打点修改值</li>
+</ul>
+<h4 id="值类型"><a href="#值类型" class="headerlink" title="值类型"></a>值类型</h4><blockquote>
+<p>TypeScript 规定，单个值也是一种类型，称为“值类型”。</p>
+</blockquote>
+<pre><code>let a: &quot;abc&quot;;
+
+a = &quot;abc&quot;; // 正确
+a = &quot;sss&quot;; // 报错，不能将 &quot;sss&quot; 分配给类型 &quot;abc&quot;
+
+//注意区分赋值和声明类型 以下是赋值
+let a=&quot;abc&quot;;
+let a: string=&quot;abc&quot;;
+</code></pre>
+<ul>
+<li>变量 a 的类型是字符串<code>abc</code>，导致它只能赋值为这个字符串，赋值为其他字符串就会报错</li>
+<li>TypeScript 推断类型时，遇到<code>const</code>命令声明的变量，如果代码里面没有注明类型，就会推断该变量是值类型。</li>
+</ul>
+<pre><code>// a 的类型是 &quot;abc&quot;
+const a = &quot;abc&quot;;
+// c 的类型是 “string”
+let c = &quot;abc&quot;;
+
+// b 的类型是 string
+const b: string = &quot;abc&quot;;
+
+// 变量 a 是 const 命令声明的，TypeScript 就会推断它的类型是值 abc，而不是 string 类型。
+</code></pre>
+<ul>
+<li>这样推断是合理的，因为const命令声明的变量，一旦声明就不能改变，相当于常量。值类型就意味着不能赋为其他值。</li>
+<li>注意：const命令声明的变量，如果赋值为<strong>对象</strong>，并不会推断为值类型。</li>
+</ul>
+<pre><code>// a 的类型是 &#123; foo: number &#125;
+const a = &#123; foo: 1 &#125;;
+
+// 变量 a 没有被推断为值类型，而是推断属性 foo 的类型是 number
+</code></pre>
+<ul>
+<li>这是因为 JavaScript 里面，const 变量赋值为对象时，属性值是可以改变的</li>
+</ul>
+<ol>
+<li>值类型注意事项<blockquote>
+<p>值类型可能会出现一些很奇怪的报错。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const a: 6 = 2 + 4; // 报错
+</code></pre>
+<ul>
+<li>以上代码中，a是值类型，因此a的类型是数值6，等号右侧2 + 4的类型，TypeScript 推测为number。</li>
+<li>由于6是number的子类型，number是6的父类型，父类型不能赋值给子类型，所以报错了。</li>
+<li>但是，反过来是可以的，子类型可以赋值给父类型。</li>
+</ul>
+<pre><code>let a: 6 = 6;
+let b: number = 2 + 4;
+
+a = b; // 报错，不能将类型 number 分配给类型 6
+b = a; // 正确
+</code></pre>
+<ul>
+<li>变量 a 属于子类型，变量 b 属于父类型。子类型 a 不能赋值为父类型 b，但是反过来是可以的。</li>
+<li>如果一定要让子类型可以赋值为父类型的值，就要用到类型断言</li>
+</ul>
+<pre><code>const a: 6 = (2 + 4) as 6; // 正确
+</code></pre>
+<ul>
+<li>在 <code>2 + 4</code> 后面加上 <code>as 6</code>，就是告诉编译器，可以把 <code>2 + 4</code> 的类型视为值类型 <code>6</code>，这样就不会报错了</li>
+<li>只包含单个值的值类型，用处不大。实际开发中，往往将多个值结合，作为联合类型使用。</li>
+</ul>
+<h4 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h4><blockquote>
+<p>联合类型（union types）指的是多个类型组成的一个新类型，使用符号<code>|</code>表示</p>
+</blockquote>
+<ul>
+<li>联合类型<code>A|B</code>表示，任何一个类型只要属于<code>A</code>或<code>B</code>，就属于联合类型<code>A|B</code></li>
+</ul>
+<pre><code>let a: string | number;
+
+a = 100; // 正确
+a = &quot;icoding&quot;; // 正确
+
+// 变量 a 就是联合类型 string|number，表示它的值既可以是字符串，也可以是数值。
+</code></pre>
+<ul>
+<li>联合类型可以与值类型相结合，表示一个变量的值有若干种可能</li>
+</ul>
+<pre><code>let bool: true | false;
+
+let sex: &quot;male&quot; | &quot;female&quot;;
+
+let color: &quot;赤&quot; | &quot;橙&quot; | &quot;黄&quot; | &quot;绿&quot; | &quot;青&quot; | &quot;蓝&quot; | &quot;紫&quot;;
+// 以上都是由值类型组成的联合类型，非常清晰地表达了变量的取值范围
+</code></pre>
+<ul>
+<li>前面提到，打开编译选项<code>strictNullChecks</code>后，其他类型的变量不能赋值为<code>undefined</code>或<code>null</code>。这时，如果某个变量确实可能包含<strong>空值</strong>，就可以采用联合类型的写法。</li>
+</ul>
+<pre><code>let username: string | null;
+
+username = &quot;icoding&quot;;
+username = null;
+
+// 变量 username 的值可以是字符串，也可以是 null
+</code></pre>
+<ol>
+<li>注意事项<blockquote>
+<p>联合类型的第一个成员前面，也可以加上竖杠<code>|</code>，这样便于多行书写。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let x:
+  | &#39;one&#39;
+  | &#39;two&#39;
+  | &#39;three&#39;
+  | &#39;four&#39;;
+</code></pre>
+<blockquote>
+<p>如果一个变量有多种类型，读取该变量时，往往需要进行“类型缩小”（type narrowing），区分该值到底属于哪一种类型，然后再进一步处理</p>
+</blockquote>
+<pre><code>function printId(
+  id:number|string
+) &#123;
+    console.log(id.toUpperCase()); // 报错
+&#125;
+</code></pre>
+<ul>
+<li>参数变量 id 可能是数值，也可能是字符串，这时直接对这个变量调用<code>toUpperCase()</code>方法会报错</li>
+<li>因为这个方法只存在于字符串，不存在于数值</li>
+<li>解决方法就是对参数id做一下类型缩小，确定它的类型以后再进行处理</li>
+</ul>
+<pre><code>function printId(id: number | string) &#123;
+  if (typeof id === &quot;string&quot;) &#123;
+    console.log(id.toUpperCase());
+  &#125; else &#123;
+    console.log(id);
+  &#125;
+&#125;
+
+// 函数体内部会判断一下变量 id 的类型，如果是字符串，就对其执行 toUpperCase()方法
+</code></pre>
+<ul>
+<li>“类型缩小”是 TypeScript 处理联合类型的标准方法，凡是遇到可能为多种类型的场合，都需要先缩小类型，再进行处理。</li>
+<li>实际上，联合类型本身可以看成是一种“类型放大”（type widening），处理时就需要“类型缩小”（type narrowing）</li>
+</ul>
+<ol start="2">
+<li>类型缩小应用场景</li>
+</ol>
+<pre><code>function getPort(scheme: &quot;http&quot; | &quot;https&quot;) &#123;
+  switch (scheme) &#123;
+    case &quot;http&quot;:
+      return 80;
+    case &quot;https&quot;:
+      return 443;
+  &#125;
+&#125;
+
+// 函数体内部对参数变量 scheme 进行类型缩小，根据不同的值类型，返回不同的结果
+</code></pre>
+<h4 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h4><blockquote>
+<p>交叉类型（intersection types）指的多个类型组成的一个新类型，使用符号<code>&amp;</code>表示。</p>
+<p>交叉类型<code>A&amp;B</code>表示，任何一个类型必须<strong>同时</strong>属于A和B，才属于交叉类型<code>A&amp;B</code>，即交叉类型同时满足A和B的特征。</p>
+</blockquote>
+<pre><code>let a: number &amp; string;
+
+// 变量 a 同时是数值和字符串，这当然是不可能的，所以 TypeScript 会认为 a 的类型实际是 never
+</code></pre>
+<blockquote>
+<p>交叉类型的应用场景</p>
+</blockquote>
+<ul>
+<li>交叉类型的主要用途是表示对象的合成。</li>
+</ul>
+<pre><code>let obj: &#123; foo: string &#125; &amp; &#123; bar: string &#125;;
+
+obj = &#123;
+  foo: &quot;icoding&quot;,
+  bar: &quot;love&quot;,
+&#125;;
+
+console.log(obj); // &#123; foo: &#39;icoding&#39;, bar: &#39;love&#39; &#125;
+
+// 变量 obj 同时具有属性 foo 和 属性 bar。
+</code></pre>
+<ul>
+<li>交叉类型常常用来为对象类型添加新属性。</li>
+</ul>
+<pre><code>type X = &#123; foo: number &#125;;
+
+// 类型 Y 是一个交叉类型
+type Y = X &amp; &#123; bar: number &#125;;
+
+// 类型 Y 是一个交叉类型，用来在 X 的基础上增加了属性 bar。
+</code></pre>
+<h4 id="type-命令"><a href="#type-命令" class="headerlink" title="type 命令"></a>type 命令</h4><blockquote>
+<p>type命令用来定义一个类型的别名。</p>
+</blockquote>
+<pre><code>// 使用 type 命令为 number 类型定义了一个别名 Age
+type Age = number;
+
+// 这样就能像使用 number 一样，使用 Age 作为类型
+let age: Age = 18;
+
+console.log(age); // 18
+</code></pre>
+<ul>
+<li><p>别名可以让类型的名字变得更有意义，也能增加代码的可读性，还可以使复杂类型用起来更方便，便于以后修改变量的类型。</p>
+</li>
+<li><p>注：别名不允许重名</p>
+</li>
+<li><p>别名的作用域是块级作用域。这意味着，代码块内部定义的别名，影响不到外部。</p>
+</li>
+</ul>
+<pre><code>// 定义一个 类型别名 Color
+type Color = &quot;red&quot;;
+
+if (Math.random() &lt; 0.5) &#123;
+  // if 代码块内部 定义一个同名的 类型别名 Color
+  type Color = &quot;blue&quot;;
+&#125;
+
+// if 代码块内部的类型别名 Color，跟外部的 Color 是不一样的
+</code></pre>
+<ul>
+<li>别名支持使用表达式，也可以在定义一个别名时，使用另一个别名，即别名允许嵌套。</li>
+</ul>
+<pre><code>type World = &quot;world&quot;;
+type Str = `hello $&#123;World&#125;`;
+
+// 别名 Str 使用了模板字符串，读取另一个别名 World
+</code></pre>
+<ul>
+<li>type命令属于类型相关的代码，编译成 JavaScript 的时候，会被全部删除。</li>
+</ul>
+<h4 id="typeof-运算符"><a href="#typeof-运算符" class="headerlink" title="typeof 运算符"></a>typeof 运算符</h4><blockquote>
+<p>JavaScript 语言中，typeof 运算符是一个一元运算符，返回一个字符串，代表操作数的类型。</p>
+</blockquote>
+<pre><code>typeof &quot;icoding&quot;;
+
+console.log(typeof &quot;icoding&quot;); // &#39;string&#39;
+
+// typeof 运算符返回字符串 icoding 的类型是 string
+</code></pre>
+<ul>
+<li>注意，这时 typeof 的操作数是一个值。</li>
+</ul>
+<ol>
+<li>typeof的值相关和类型相关</li>
+</ol>
+<ul>
+<li>JS中的typeof是值相关，返回的结果都是字符串类型，参数是一个值</li>
+<li>TS中的typeof是类型相关，返回的结果是参数的TS类型，不能进行值运算；参数只能是标识符，不能是需要运算的表达式，也不能是类型</li>
+<li>编译后，前者会保留，后者会被全部删除。</li>
+</ul>
+<blockquote>
+<p>返回结果</p>
+</blockquote>
+<ul>
+<li>在 JavaScript 里面，typeof运算符只可能返回八种结果，而且都是字符串</li>
+</ul>
+<pre><code>typeof undefined; // &quot;undefined&quot;
+typeof true; // &quot;boolean&quot;
+typeof 1337; // &quot;number&quot;
+typeof &quot;foo&quot;; // &quot;string&quot;
+typeof &#123;&#125;; // &quot;object&quot;
+typeof parseInt; // &quot;function&quot;
+typeof Symbol(); // &quot;symbol&quot;
+typeof 127n // &quot;bigint&quot;
+
+// typeof 运算符在 JavaScript 语言里面，可能返回的八种结果
+</code></pre>
+<ul>
+<li>TypeScript 将typeof运算符移植到了类型运算，它的操作数依然是一个值，但是返回的不是字符串，而是该值的 TypeScript 类型</li>
+</ul>
+<pre><code>const a = &#123; x: 0 &#125;;
+
+type T1 = typeof a; // &#123; x: number &#125;
+type T2 = typeof a.x; // number
+
+// typeof a 表示返回变量 a 的 TypeScript 类型（&#123; x: number &#125;）
+// 同理，typeof a.x 返回的是属性x的类型（number）
+
+console.log(T1); //报错，TS类型不能进行值运算
+</code></pre>
+<ul>
+<li><p>这种用法的typeof返回的是 TypeScript 类型，所以只能用在类型运算之中（即跟类型相关的代码之中），不能用在值运算。</p>
+</li>
+<li><p>也就是说，同一段代码可能存在两种typeof运算符，一种用在<strong>值相关</strong>的 JavaScript 代码部分，另一种用在<strong>类型相关</strong>的 TypeScript 代码部分。</p>
+</li>
+</ul>
+<pre><code>let a = 1;
+let b: typeof a;
+
+if (typeof a === &quot;number&quot;) &#123;
+  b = a;
+&#125;
+
+// 用到了两个 typeof，第一个是类型运算，第二个是值运算。
+// 它们是不一样的，不要混淆
+</code></pre>
+<blockquote>
+<p>编译后</p>
+</blockquote>
+<ul>
+<li>JS 的 typeof 遵守 JS 规则，TS 的 typeof 遵守 TS 规则。它们的一个重要区别在于，编译后，前者会保留，后者会被全部删除。<ul>
+<li>以上的代码编译结果如下：</li>
+</ul>
+</li>
+</ul>
+<pre><code>let a = 1;
+let b;
+if (typeof a === &quot;number&quot;) &#123;
+  b = a;
+&#125;
+
+// 只保留了原始代码的第二个 typeof，删除了第一个 typeof
+</code></pre>
+<blockquote>
+<p>参数</p>
+</blockquote>
+<ul>
+<li>由于编译时不会进行 JavaScript 的值运算，所以 TypeScript 规定，typeof 的<strong>参数只能是标识符</strong>，不能是需要运算的表达式。</li>
+</ul>
+<pre><code>type T = typeof Date(); // 报错
+
+// 原因是 typeof 的参数不能是一个值的运算式，而 Date() 需要运算才知道结果。
+</code></pre>
+<ul>
+<li>另外，typeof命令的参数不能是类型。</li>
+</ul>
+<pre><code>type Age = number;
+type MyAge = typeof Age; // 报错
+
+// Age 是一个类型别名，用作 typeof 命令的参数就会报错。
+</code></pre>
+<ul>
+<li>typeof 是一个很重要的 TypeScript 运算符，有些场合不知道某个变量foo的类型，这时使用<code>typeof foo</code>就可以获得它的类型。</li>
+</ul>
+<h4 id="块级类型声明"><a href="#块级类型声明" class="headerlink" title="块级类型声明"></a>块级类型声明</h4><blockquote>
+<p>TypeScript 支持块级类型声明，即类型可以声明在代码块（用大括号表示）里面，并且<strong>只在当前代码块有效</strong></p>
+</blockquote>
+<pre><code>const bool: boolean = false;
+
+if (bool) &#123;
+  type T = number;
+  let a: T = 2;
+  console.log(a);
+&#125; else &#123;
+  type T = string;
+  let a: T = &quot;icoding&quot;;
+  console.log(a); // icoding
+&#125;
+
+// 以上代码，存在两个代码块，其中分别有一个类型 T 的声明
+// 这两个声明都只在自己的代码块内部有效，在代码块外部无效
+</code></pre>
+<h4 id="类型的兼容"><a href="#类型的兼容" class="headerlink" title="类型的兼容"></a>类型的兼容</h4><blockquote>
+<p>TypeScript 的类型存在兼容关系，某些类型可以兼容其他类型。</p>
+</blockquote>
+<pre><code>type T = number | string;
+
+let a: number = 2;
+let b: T = a;
+
+// 变量 a 和 b 的类型是不一样的，但是变量 a 赋值给变量 b 并不会报错
+// 这时，我们就认为，b 的类型兼容 a 的类型
+</code></pre>
+<ul>
+<li><p>TypeScript 为这种情况定义了一个专门术语。如果类型A的值可以赋值给类型B，那么<strong>类型A就称为类型B的子类型</strong>（subtype）。</p>
+<ul>
+<li>以上代码中，类型<code>number</code>就是类型<code>number|string</code>的子类型。</li>
+</ul>
+</li>
+<li><p>TypeScript 的一个规则是，凡是可以使用父类型的地方，都可以使用子类型，<strong>但是反过来不行</strong>。</p>
+</li>
+</ul>
+<pre><code>let a: &quot;hello&quot; = &quot;hello&quot;; //值类型
+let b: string = &quot;abc&quot;;
+
+b = a; // 正确
+a = b; // 报错
+</code></pre>
+<ul>
+<li><p>‘hello’是值类型，也是 string 的子类型，string 是 hello 的父类型</p>
+</li>
+<li><p>所以，变量 a 可以赋值给变量 b，但是反过来就会报错</p>
+</li>
+<li><p>之所以有这样的规则，是因为子类型继承了父类型的所有特征，所以可以用在父类型的场合。</p>
+</li>
+<li><p>但是，子类型还可能有一些父类型没有的特征，所以父类型不能用在子类型的场合</p>
+</li>
+</ul>
+<h3 id="五、数组类型"><a href="#五、数组类型" class="headerlink" title="五、数组类型"></a>五、数组类型</h3><blockquote>
+<p>JavaScript 数组在 TypeScript 里面分成两种类型，分别是数组（array）和元组（tuple）</p>
+</blockquote>
+<h4 id="TS-数组的特征"><a href="#TS-数组的特征" class="headerlink" title="TS 数组的特征"></a>TS 数组的特征</h4><blockquote>
+<p>TypeScript 数组有一个根本特征：</p>
+</blockquote>
+<ul>
+<li>所有成员的类型必须相同</li>
+<li>但是成员数量是不确定的，可以是无限数量的成员，也可以是零成员</li>
+</ul>
+<h4 id="数组的类型语法"><a href="#数组的类型语法" class="headerlink" title="数组的类型语法"></a>数组的类型语法</h4><blockquote>
+<p>TS 中定义数组有两种写法，以下是简单写法</p>
+</blockquote>
+<pre><code>// 数组
+let arr1: number[] = [1, 2, 3];
+let arr2: Array&lt;number&gt; = [1, 2, 3];
+
+// 以上，Array 是 TS 为我们预定义的一个 泛型接口（在VSCode中按住 Ctrl 键 鼠标点击进入源码中可查看到）
+</code></pre>
+<ul>
+<li><p>这两种声明方式都是等价的，即：这个数组只能是 <code>number</code> 类型</p>
+<ul>
+<li>如果我们为该数组添加一个字符串成员，编辑器会报错。</li>
+<li>如果我们需要为数组定义不同的数据类型，就需要用到联合类型</li>
+</ul>
+</li>
+<li><p>给数组定义不同的数据类型，使用 联合类型</p>
+</li>
+</ul>
+<pre><code>//表示该数组的元素既可以是 number 类型 也可以是 string 类型
+let arr2: Array&lt;number | string&gt; = [1, 2, 3, &quot;code&quot;];
+</code></pre>
+<ol>
+<li>数组类型的第一种写法<blockquote>
+<p>方式一：在数组成员的类型后面，加上一对<strong>方括号</strong>。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let arr: number[] = [1, 2, 3];
+
+// 数组 arr 的类型是 number[]，其中 number 表示数组成员类型是 number。
+</code></pre>
+<ul>
+<li>如果数组成员的类型比较复杂，可以写在圆括号里面。</li>
+</ul>
+<pre><code>// 数组 arr 的成员类型是 number|string
+let arr: (number | string)[];
+
+let arr1: (number | string)[] = [1, 2, &quot;code&quot;];
+console.log(arr1); // [ 1, 2, &#39;code&#39; ]
+</code></pre>
+<ul>
+<li><p>这个例子里面的圆括号是必须的，否则因为竖杠<code>|</code>的优先级低于<code>[]</code>，TypeScript 会把<code>number|string[]</code>理解成<code>number</code>和<code>string[]</code>的联合类型。</p>
+</li>
+<li><p>如果数组成员可以是任意类型，写成<code>any[]</code>。当然，这种写法没有任何意义。</p>
+</li>
+</ul>
+<pre><code>let arr: any[];
+</code></pre>
+<ol start="2">
+<li>数组类型的第二种写法(泛型写法)<blockquote>
+<p>使用 TypeScript 内置的 Array 接口</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let arr: Array&lt;number&gt; = [1, 2, 3];
+console.log(arr); // [ 1, 2, 3 ]
+
+// 数组 arr 的类型是 Array&lt;number&gt;，其中 number 表示成员类型是 number。
+</code></pre>
+<ul>
+<li>对于成员类型比较复杂的数组，使用 联合类型</li>
+</ul>
+<pre><code>let arr: Array&lt;number | string&gt; = [1, 2, &quot;code&quot;, 3];
+console.log(arr); // [ 1, 2, &#39;code&#39;, 3 ]
+
+// 这种写法本质上属于泛型，后边会有专门的章节讲，先做了解即可
+</code></pre>
+<ol start="3">
+<li>数组类型注意事项<blockquote>
+<p>数组类型声明了以后，成员数量是不限制的，任意数量的成员都可以，也可以是空数组。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let arr: number[];
+arr = [];
+arr = [1, 2, 3, 4, 5];
+// 数组 arr 无论有多少个成员，都是正确的
+</code></pre>
+<ul>
+<li>这种规定的隐藏含义就是，数组的成员是可以动态变化的。</li>
+</ul>
+<pre><code>let arr: number[] = [1, 2, 3];
+
+arr[3] = 5;
+console.log(arr); // [ 1, 2, 3, 5 ]
+
+arr.length = 3;
+console.log(arr); // [ 1, 2, 3 ]
+
+// 数组增加成员或减少成员，都是可以的
+</code></pre>
+<ul>
+<li>正是由于成员数量可以动态变化，所以 TypeScript 不会对数组边界进行检查，越界访问数组并不会报错。</li>
+</ul>
+<pre><code>let arr: number[] = [1, 2, 3];
+// TS中，越界访问不会报错
+let num = arr[3]; // 正确
+
+console.log(num); // undefined
+
+// 变量 num 的值是一个不存在的数组成员，TypeScript 并不会报错
+</code></pre>
+<blockquote>
+<p>TypeScript 允许使用方括号读取数组成员的类型。</p>
+</blockquote>
+<pre><code>type UserNames = string[];
+type UserName = UserNames[0]; // string
+
+// 类型 UserNames 是字符串数组，那么 UserNames[0] 返回的类型就是 string
+</code></pre>
+<ul>
+<li>由于数组成员的索引类型都是number，所以读取成员类型也可以写成下面这样。</li>
+</ul>
+<pre><code>type UserNames = string[];
+type UserName = UserNames[number]; // string
+
+// UserNames[number] 表示数组 UserNames 所有数值索引的成员类型，所以返回 string
+</code></pre>
+<h4 id="数组的类型推断"><a href="#数组的类型推断" class="headerlink" title="数组的类型推断"></a>数组的类型推断</h4><blockquote>
+<p>如果数组变量没有声明类型，TypeScript 就会推断数组成员的类型。这时，推断行为会因为值的不同，而有所不同。</p>
+</blockquote>
+<ul>
+<li>如果变量的初始值是空数组，那么 TypeScript 会推断数组类型是<code>any[]</code></li>
+</ul>
+<pre><code>// 推断为 any[]
+const arr = [];
+</code></pre>
+<ul>
+<li>为这个数组赋值时，TypeScript 会自动更新类型推断</li>
+</ul>
+<pre><code>const arr = []; // arr 推断为 any[]
+
+arr.push(123);
+arr; // 推断类型为 number[]
+
+arr.push(&quot;code&quot;);
+arr; // 推断类型为 (string|number)[]
+
+// 数组变量 arr 的初始值是空数组，然后随着新成员的加入，TypeScript 会自动修改推断的数组类型
+</code></pre>
+<ul>
+<li>但是，类型推断的自动更新只发生初始值为空数组的情况。如果初始值不是空数组，类型推断就不会更新</li>
+</ul>
+<pre><code>// 推断类型为 number[]
+const arr = [123];
+
+arr.push(&quot;code&quot;); // 报错
+// 数组变量 arr 的初始值是 [123]，TypeScript 就推断成员类型为 number
+// 新成员如果不是这个类型，TypeScript 就会报错，而不会更新类型推断
+</code></pre>
+<h4 id="只读数组，const-断言"><a href="#只读数组，const-断言" class="headerlink" title="只读数组，const 断言"></a>只读数组，const 断言</h4><blockquote>
+<p>JavaScript 规定，<code>const</code>命令声明的数组变量是可以改变成员的</p>
+</blockquote>
+<pre><code>const arr = [1, 2, 3];
+arr[1] = 5;
+
+console.log(arr); // [ 1, 5, 3 ]
+
+// 修改 const 命令声明的数组的成员是允许的
+</code></pre>
+<ol>
+<li>readonly 只读<blockquote>
+<p>很多时候确实有声明为只读数组的需求，即不允许变动数组成员。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>TypeScript 允许声明只读数组，方法是在数组类型前面加上<code>readonly</code>关键字。</li>
+</ul>
+<pre><code>const arr: readonly number[] = [1, 2, 3];
+
+arr[1] = 5; // 报错
+arr.push(6); // 报错
+delete arr[0]; // 报错
+
+// arr 是一个只读数组，删除、修改、新增数组成员都会报错
+</code></pre>
+<ol start="2">
+<li>readonly 注意事项<blockquote>
+<p>TypeScript 将<code>readonly number[]</code>与<code>number[]</code>视为两种不一样的类型，<strong>后者是前者的子类型</strong>。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>这是因为只读数组没有<code>pop()</code>、<code>push()</code>之类会改变原数组的方法，所以<code>number[]</code>的方法数量要多于<code>readonly number[]</code>，这意味着<code>number[]</code>其实是<code>readonly number[]</code>的子类型。</li>
+<li>我们知道，子类型继承了父类型的所有特征，并加上了自己的特征，所以子类型<code>number[]</code>可以用于所有使用父类型的场合，反过来就不行</li>
+</ul>
+<pre><code>// 子类型
+let a: number[] = [0, 1];
+// 父类型
+let b: readonly number[] = a;
+
+a = b; // 报错
+
+// 子类型 number[] 可以赋值给父类型 readonly number[]，但是反过来就会报错
+</code></pre>
+<blockquote>
+<p>由于只读数组是数组的父类型，所以它不能代替数组。这一点很容易产生令人困惑的报错。</p>
+</blockquote>
+<pre><code>function getSum(s: number[]) &#123;
+  // ...
+&#125;
+
+const arr: readonly number[] = [1, 2, 3];
+
+getSum(arr); // 报错
+// getSum(arr as number[]); // 正确
+</code></pre>
+<ul>
+<li>函数 <code>getSum()</code> 的参数 s 是一个数组，传入只读数组就会报错</li>
+<li>原因就是只读数组是数组的父类型，父类型不能替代子类型</li>
+<li>这个问题的解决方法是使用类型断言<code>getSum(arr as number[])</code></li>
+</ul>
+<blockquote>
+<p>readonly关键字不能与数组的泛型写法一起使用</p>
+</blockquote>
+<pre><code>// 报错
+const arr: readonly Array&lt;number&gt; = [0, 1];
+</code></pre>
+<blockquote>
+<p>实际上，TypeScript 提供了两个专门的泛型，用来生成只读数组的类型。</p>
+</blockquote>
+<pre><code>const a1: ReadonlyArray&lt;number&gt; = [1, 2];
+
+const a2: Readonly&lt;number[]&gt; = [1, 2];
+</code></pre>
+<ul>
+<li>泛型<code>ReadonlyArray&lt;T&gt;</code>和<code>Readonly&lt;T[]&gt;</code>都可以用来生成只读数组类型</li>
+<li>两者尖括号里面的写法不一样，<code>Readonly&lt;T[]&gt;</code>的尖括号里面是整个数组（<code>number[]</code>），而 <code>ReadonlyArray&lt;T&gt;</code> 的尖括号里面是数组成员（<code>number</code>）</li>
+</ul>
+<blockquote>
+<p>只读数组还有一种声明方法，就是使用 “const 断言”</p>
+</blockquote>
+<pre><code>const arr = [1, 2] as const;
+
+arr[0] = [2]; // 报错，无法分配到 “0”，因为它是只读属性
+</code></pre>
+<ul>
+<li><code>as const</code> 告诉 TypeScript，推断类型时要把变量 arr 推断为只读数组，从而使得数组成员无法改变</li>
+</ul>
+<h4 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h4><blockquote>
+<p>TypeScript 使用<code>T[][]</code>的形式，表示二维数组，<code>T</code>是<strong>最底层</strong>数组成员的类型</p>
+</blockquote>
+<pre><code>let multi: number[][] = [
+  [1, 2, 3],
+  [11, 22, 33],
+];
+</code></pre>
+<ul>
+<li>变量 <code>multi</code> 的类型是 <code>number[][]</code>，表示它是一个二维数组，最底层的数组成员类型是 <code>number</code></li>
+</ul>
+<h3 id="六、元组类型"><a href="#六、元组类型" class="headerlink" title="六、元组类型"></a>六、元组类型</h3><blockquote>
+<p>元组（tuple）是 TypeScript 特有的数据类型，也是一种特殊的数组</p>
+<p>JavaScript 没有单独区分这种类型，它表示成员类型可以自由设置的数组，即数组的各个成员的类型可以不同</p>
+<ul>
+<li>由于成员的类型可以不一样，所以元组必须明确声明每个成员的类型。</li>
+</ul>
+</blockquote>
+<pre><code>const a: [string, number, boolean] = [&quot;icoding&quot;, 123, true];
+
+// 元组 a 的第一个成员是 string，第二个成员是 number ，最后一个成员的类型是 boolean
+</code></pre>
+<h4 id="元组与数组的语法差异"><a href="#元组与数组的语法差异" class="headerlink" title="元组与数组的语法差异"></a>元组与数组的语法差异</h4><blockquote>
+<p>元组类型的写法，与数组类型的语法有一个重大差异。数组的成员类型写在方括号外面（<code>number[]</code>），元组的成员类型是写在方括号里面（<code>[number]</code>）</p>
+</blockquote>
+<ul>
+<li>TypeScript 的区分方法就是，成员类型写在方括号里面的就是元组，写在外面的就是数组。</li>
+</ul>
+<pre><code>// 数组类型
+let arr: number[] = [123];
+
+// 元组类型
+let tuple: [number] = [123];
+
+// 变量 arr 和 tuple 的值都是 [123]，但是它们的类型是不一样的
+// arr 是一个数组，成员类型 number 写在方括号外面；
+// tuple 是一个元组，成员类型 number 写在方括号里面。
+</code></pre>
+<h4 id="元组的使用"><a href="#元组的使用" class="headerlink" title="元组的使用"></a>元组的使用</h4><blockquote>
+<p>使用元组时，必须明确给出类型声明（上例的[number]），不能省略，否则 TypeScript 会自动推断为<strong>数组</strong>。</p>
+</blockquote>
+<pre><code>// t 的类型被推断为 (number | boolean)[]
+let t = [123, true];
+</code></pre>
+<ul>
+<li>变量 t 的值其实是一个元组，但是 TypeScript 会将其推断为一个联合类型的数组</li>
+<li>即 t 的类型为<code>(number | boolean)[]</code></li>
+<li>所以，元组必须显式给出类型声明</li>
+</ul>
+<blockquote>
+<p>元组成员的类型可以添加问号后缀（?），表示该成员是可选的</p>
+</blockquote>
+<pre><code>let a: [number, number?] = [123];
+
+// 元组 a 的第二个成员是可选的，可以省略
+</code></pre>
+<ul>
+<li>问号只能用于元组的<strong>尾部成员</strong>，也就是说，所有可选成员必须在必选成员之后</li>
+</ul>
+<pre><code>type Tuple = [number, number, number?, string?];
+
+// 元组 Tuple 的最后两个成员是可选的。也就是说，它的成员数量可能有两个、三个和四个
+</code></pre>
+<h4 id="元组的越界问题"><a href="#元组的越界问题" class="headerlink" title="元组的越界问题"></a>元组的越界问题</h4><blockquote>
+<p>由于需要声明每个成员的类型，所以大多数情况下，元组的成员数量是<strong>有限的</strong>，从类型声明就可以明确知道，元组包含多少个成员，越界的成员会报错。</p>
+</blockquote>
+<pre><code>let tuple: [number, string] = [666, &quot;code&quot;];
+// 给 tuple 的第二个成员重新赋值
+tuple[1] = &quot;abc&quot;;
+console.log(tuple); // [ 666, &#39;abc&#39; ]
+
+tuple[2] = &quot;sss&quot;; // 报错
+</code></pre>
+<ul>
+<li>变量 tuple 是一个只有两个成员的元组，如果对第三个成员赋值就报错了</li>
+</ul>
+<blockquote>
+<p>使用 push 方法为元组插入新的元素</p>
+</blockquote>
+<pre><code>let tuple: [number, string] = [666, &quot;code&quot;];
+// 为元组添加一个新的元素
+tuple.push(1);
+console.log(tuple); // [ 666, &#39;code&#39;, 1 ]
+
+tuple[2]; // 报错
+</code></pre>
+<ul>
+<li>使用 push 方法为元组插入新的元素，运行结果中变成了三个元素。我们可以看到 TS 是允许我们往元组中插入新的元素的。</li>
+<li>但，我们要对元组进行访问时，是不允许访问的 ！</li>
+<li>TS 中可以通过 push 方法为元组添加新的元素，但仍然不能进行越界访问<ul>
+<li>在实际的开发中，强烈不建议通过 push 方法插入元素的方式使用</li>
+</ul>
+</li>
+</ul>
+<h4 id="不限成员数量的元组"><a href="#不限成员数量的元组" class="headerlink" title="不限成员数量的元组"></a>不限成员数量的元组</h4><blockquote>
+<p>使用扩展运算符（<code>...</code>），可以表示不限成员数量的元组。</p>
+</blockquote>
+<pre><code>type Nums = [string, ...number[]];
+
+const a: Nums = [&quot;icoding&quot;, 1, 2];
+const b: Nums = [&quot;ibc&quot;, 1, 2, 3];
+</code></pre>
+<ul>
+<li>元组类型 Nums 的第一个成员是字符串，后面的成员使用扩展运算符来展开一个数组，从而实现了不定数量的成员</li>
+<li>扩展运算符（…）用在元组的任意位置都可以，它的后面只能是一个数组或元组。</li>
+</ul>
+<blockquote>
+<p>如果不确定元组成员的类型和数量，可以写成下面这样。</p>
+</blockquote>
+<pre><code>type Tuple = [...any[]];
+</code></pre>
+<ul>
+<li>元组 Tuple 可以放置任意数量和类型的成员</li>
+<li>但是这样写，也就失去了使用元组和 TypeScript 的意义</li>
+</ul>
+<h4 id="添加元组成员名"><a href="#添加元组成员名" class="headerlink" title="添加元组成员名"></a>添加元组成员名</h4><blockquote>
+<p>元组的成员可以添加成员名，这个成员名是说明性的，可以任意取名，没有实际作用。</p>
+</blockquote>
+<pre><code>type Color = [red: number, green: number, blue: number];
+
+const c: Color = [255, 255, 255];
+
+console.log(c); // [ 255, 255, 255 ]
+</code></pre>
+<ul>
+<li>类型 Color 是一个元组，它有三个成员</li>
+<li>每个成员都有一个名字，写在具体类型的前面，使用冒号分隔</li>
+<li>这几个名字可以随便取，没有实际作用，只是用来说明每个成员的含义</li>
+</ul>
+<h4 id="读取元组成员类型"><a href="#读取元组成员类型" class="headerlink" title="读取元组成员类型"></a>读取元组成员类型</h4><blockquote>
+<p>元组可以通过方括号，读取成员类型</p>
+</blockquote>
+<ul>
+<li>方法1：读取指定下标的类型</li>
+</ul>
+<pre><code>type Tuple = [string, number];
+type A = Tuple[1]; // number
+
+// Tuple[1] 返回 1号位置的成员类型
+</code></pre>
+<ul>
+<li>方法2：由于元组的成员都是数值索引，即索引类型都是number，所以可以像下面这样读取</li>
+</ul>
+<pre><code>type Tuple = [string, number, Date];
+type A = Tuple[number]; // string | number | Date
+</code></pre>
+<ul>
+<li><code>Tuple[number]</code> 表示元组 Tuple 的所有数值索引的成员类型</li>
+<li>所以，返回<code>string | number | Date</code> ，即这个类型是三种值的联合类型</li>
+</ul>
+<h4 id="只读元组"><a href="#只读元组" class="headerlink" title="只读元组"></a>只读元组</h4><blockquote>
+<p>元组也可以是只读的，不允许修改，有两种写法</p>
+</blockquote>
+<ul>
+<li>写法一</li>
+</ul>
+<pre><code>type a = readonly [number, string];
+</code></pre>
+<ul>
+<li>写法二</li>
+</ul>
+<pre><code>type b = Readonly&lt;[number, string]&gt;;
+</code></pre>
+<ul>
+<li>两种写法都可以得到只读元组，其中写法二是一个泛型，用到了工具类型<code>Readonly&lt;T&gt;</code></li>
+<li>跟数组一样，只读元组是元组的父类型。所以，元组可以替代只读元组，而只读元组不能替代元组。</li>
+</ul>
+<pre><code>type a = readonly [number, number];
+type b = [number, number];
+
+let x: b = [1, 2];
+let y: a = x; // 正确
+
+x = y; // 报错
+</code></pre>
+<ul>
+<li>类型 a 是只读元组，类型 b 是普通元组。b 类型可以赋值给 a 类型，反过来就会报错</li>
+</ul>
+<blockquote>
+<p>由于只读元组不能替代元组，所以会产生一些令人困惑的报错</p>
+</blockquote>
+<pre><code>function foo([x, y]: [number, number]) &#123;
+  // 求平方根
+  return Math.sqrt(x ** 2 + y ** 2);
+&#125;
+
+let a = [3, 4] as const;
+
+foo(a); // 报错
+</code></pre>
+<ul>
+<li>函数<code>foo()</code>的参数是一个元组，传入只读元组就会报错，因为只读元组不能替代元组</li>
+</ul>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>以上代码中，<code>[3, 4] as const</code>的写法，在前面讲到，生成的是只读数组，其实生成的同时也是只读元组。</li>
+<li>因为它生成的实际上是一个只读的“值类型”<code>readonly [3, 4]</code>，把它解读成只读数组或只读元组都可以。</li>
+</ul>
+<blockquote>
+<p>解决报错的方法，就是使用类型断言，在最后一行将传入的参数断言为普通元组</p>
+</blockquote>
+<pre><code>foo(a as [number, number]); // 正确
+</code></pre>
+<h4 id="成员数量的推断"><a href="#成员数量的推断" class="headerlink" title="成员数量的推断"></a>成员数量的推断</h4><blockquote>
+<p>如果没有可选成员和扩展运算符，TypeScript 会推断出元组的成员数量（即元组长度）。</p>
+</blockquote>
+<pre><code>function foo(point: [number, number]) &#123;
+  if (point.length === 3) &#123;
+    // 报错
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>报错原因是 TypeScript 发现元组 point 的长度是 2，不可能等于 3，这个判断无意义</li>
+</ul>
+<blockquote>
+<p>如果包含了可选成员，TypeScript 会推断出可能的成员数量</p>
+</blockquote>
+<pre><code>function foo(point: [number, number?, number?]) &#123;
+  if (point.length === 4) &#123;
+    // 报错
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>报错原因是 TypeScript 发现 <code>point.length</code> 的类型是 <code>1 | 2 | 3</code>，不可能等于 4</li>
+</ul>
+<blockquote>
+<p>如果使用了扩展运算符，TypeScript 就无法推断出成员数量</p>
+</blockquote>
+<pre><code>const tuple: [...string[]] = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+
+if (tuple.length === 4) &#123;
+  // 正确
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>tuple 只有三个成员，但是 TypeScript 推断不出它的成员数量</li>
+<li>因为它的类型用到了扩展运算符，TypeScript 把 tuple 当成<strong>数组</strong>看待，而数组的成员数量是不确定的</li>
+</ul>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>一旦扩展运算符使得元组的成员数量无法推断，TypeScript 内部就会把该元组当成数组处理。</li>
+</ul>
+<h4 id="扩展运算符与成员数量"><a href="#扩展运算符与成员数量" class="headerlink" title="扩展运算符与成员数量"></a>扩展运算符与成员数量</h4><blockquote>
+<p>扩展运算符（<code>...</code>）将<strong>数组</strong>（注意，不是元组）转换成一个逗号分隔的序列，这时 TypeScript 会认为这个序列的成员数量是不确定的，因为数组的成员数量是不确定的。</p>
+<ul>
+<li>这导致如果函数调用时，使用扩展运算符传入函数参数，可能发生参数数量与数组长度不匹配的报错。</li>
+</ul>
+</blockquote>
+<pre><code>const arr = [1, 2];
+
+function add(x: number, y: number) &#123;
+  // ...
+&#125;
+
+add(...arr); // 报错
+</code></pre>
+<ul>
+<li><p>报错原因是函数 <code>add()</code> 只能接受两个参数，但是传入的是 <code>...arr</code>，TypeScript 认为转换后的参数个数是不确定的</p>
+</li>
+<li><p>有些函数可以接受任意数量的参数，这时使用扩展运算符就不会报错</p>
+</li>
+</ul>
+<pre><code>const arr = [1, 2, 3];
+console.log(...arr); // 1 2 3
+// console.log() 可以接受任意数量的参数，所以传入 ...arr 就不会报错
+</code></pre>
+<blockquote>
+<p>解决这个问题的一个方法，就是把成员数量不确定的数组，写成成员数量确定的<strong>元组</strong>，再使用扩展运算符。</p>
+</blockquote>
+<pre><code>const arr: [number, number] = [1, 2]; 
+
+function add(x: number, y: number) &#123;
+  // ...
+&#125;
+
+add(...arr); // 正确
+</code></pre>
+<ul>
+<li><p>arr 是一个拥有两个成员的元组，所以 TypeScript 能够确定 <code>...arr</code> 可以匹配函数 <code>add()</code> 的参数数量，就不会报错了</p>
+</li>
+<li><p>另一种写法是使用<code>as const</code>断言</p>
+</li>
+</ul>
+<pre><code>const arr = [1, 2] as const;
+
+function add(x: number, y: number) &#123;
+  // ...
+&#125;
+
+add(...arr); // 正确
+</code></pre>
+<ul>
+<li>以上代码中写法也可以，因为 TypeScript 会认为arr的类型是<code>readonly [1, 2]</code>，这是一个只读的值类型，可以当作数组，也可以当作元组</li>
+</ul>
+<h4 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>数组</th>
+<th>元组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型声明</td>
+<td>可以不声明</td>
+<td>必须声明</td>
+</tr>
+<tr>
+<td>语法</td>
+<td>成员类型写在方括号外面</td>
+<td>成员类型写在方括号里面</td>
+</tr>
+<tr>
+<td>越界问题</td>
+<td>成员数量不限，越界不会报错</td>
+<td>成员数量有限，越界会报错</td>
+</tr>
+<tr>
+<td>读取成员的类型</td>
+<td>方括号，根据下标读取指定成员类型 或 使用number读取所有成员类型</td>
+<td>和数组一样</td>
+</tr>
+<tr>
+<td>只读</td>
+<td>方法1：在类型前加<code>readonly</code>关键字；只读数组是父类型；<code>readonly</code>不能和泛型写法一起使用，要使用<code>ReadonlyArray&lt;T&gt;</code>或<code>Readonly&lt;T[]&gt;</code>；方法2：<code>const</code>断言</td>
+<td>方法1：<code>readonly [number,string]</code>；方法2：<code>Readonly&lt;[number,string]&gt;</code>；方法3：<code>const</code>断言</td>
+</tr>
+<tr>
+<td>添加成员名</td>
+<td>不支持</td>
+<td>使用对象的形式声明类型，属性名是成员名，属性值是类型</td>
+</tr>
+<tr>
+<td>自动推断</td>
+<td>没有声明类型时，TS会自动推断类型</td>
+<td>没有可选成员、没有扩展运算符时，TS可以推断出成员数量；有可选成员时，TS会自动推断<strong>可能的</strong>成员数量；使用扩展运算符时，无法推断</td>
+</tr>
+</tbody></table>
+<h3 id="七、any、unknown、never-类型"><a href="#七、any、unknown、never-类型" class="headerlink" title="七、any、unknown、never 类型"></a>七、any、unknown、never 类型</h3><h4 id="any-类型"><a href="#any-类型" class="headerlink" title="any 类型"></a>any 类型</h4><blockquote>
+<p>在 TS 中如果我们不止定义一个变量和类型，它默认就是 any 类型，这和 JS 就没有任何区别了。我们可以给这个变量任意的赋值！</p>
+<ul>
+<li>即：any 类型表示没有任何限制，该类型的变量可以赋予任意类型的值。</li>
+</ul>
+</blockquote>
+<pre><code>// any 类型
+// let a: any;
+
+// 不添加类型注解，默认就是 any 类型
+let a;
+
+// any 类型即：可以给这个变量任意赋值（整型、数组、对象、函数 等都可以）
+a = 1;
+a = &quot;icoding&quot;;
+a = true;
+a = [];
+a = &#123;&#125;;
+a = () =&gt; &#123;&#125;;
+
+// 变量 a 的类型是 any，就可以被赋值为任意类型的值
+</code></pre>
+<blockquote>
+<p>变量类型一旦设为any，TypeScript 实际上会关闭这个变量的类型检查。<strong>即使有明显的类型错误，只要语法正确，都不会报错</strong>。</p>
+</blockquote>
+<pre><code>let b: any = &quot;icoding&quot;;
+
+b(1); // 不报错
+b.foo = 123; // 不报错
+</code></pre>
+<ul>
+<li>变量 b 的值是一个字符串，但是把它当作函数调用，或者当作对象读取任意属性，TypeScript 编译时都不报错</li>
+<li>原因就是 b 的类型是 any，TypeScript 不对其进行类型检查</li>
+</ul>
+<ol>
+<li>any 类型的应用场景<blockquote>
+<p>应该尽量避免使用any类型，否则就失去了使用 TypeScript 的意义。</p>
+<ul>
+<li>实际开发中，any类型主要适用以下两个场合：</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>①、出于特殊原因，需要关闭某些变量的类型检查，就可以把该变量的类型设为any</li>
+<li>②、为了适配以前老的 JavaScript 项目，让代码快速迁移到 TypeScript，可以把变量类型设为any。有些年代很久的大型 JavaScript 项目，尤其是别人的代码，很难为每一行适配正确的类型，这时你为那些类型复杂的变量加上any，TypeScript 编译时就不会报错。</li>
+</ul>
+<blockquote>
+<p>总之，TypeScript 认为，只要开发者使用了any类型，就表示开发者想要自己来处理这些代码，所以就不对any类型进行任何限制，怎么使用都可以。</p>
+<p>从集合论的角度看，any类型可以看成是所有其他类型的<strong>全集</strong>，包含了一切可能的类型。TypeScript 将这种类型称为“顶层类型”（top type），意为涵盖了所有下层</p>
+</blockquote>
+<ol start="2">
+<li>类型推断问题<blockquote>
+<p>对于开发者没有指定类型、TypeScript 必须自己推断类型的那些变量，如果无法推断出类型，TypeScript 就会认为该变量的类型是any</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>function add(a, b) &#123;
+  return a + b;
+&#125;
+
+add(1, [1, 2, 3]); // 不报错
+</code></pre>
+<ul>
+<li>函数 <code>add()</code> 的参数变量 a 和 b，都没有足够的信息，TypeScript 无法推断出它们的类型，就会认为这两个变量和函数返回值的类型都是 any</li>
+<li>以至于后面就不再对函数 add() 进行类型检查了，怎么用都可以</li>
+<li>注：这显然是很糟糕的情况，所以对于那些类型不明显的变量，一定要显式声明类型，防止被推断为any</li>
+</ul>
+<blockquote>
+<p>TypeScript 提供了一个编译选项<code>noImplicitAny</code>，打开该选项，只要推断出<code>any</code>类型就会报错。</p>
+</blockquote>
+<ul>
+<li>方法1：修改配置：在 <code>tsconfig.json</code> 中</li>
+</ul>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+      &quot;noImplicitAny&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>方法2：使用编译命令</li>
+</ul>
+<pre><code>tsc --noImplicitAny .\src\main.ts
+</code></pre>
+<blockquote>
+<p>这里有一个特殊情况，即使打开了<code>noImplicitAny</code>，使用<code>let</code>和<code>var</code>命令声明变量，但不赋值也不指定类型，是不会报错的</p>
+</blockquote>
+<pre><code>var a; // 不报错
+let b; // 不报错
+</code></pre>
+<ul>
+<li>变量 a 和 b 声明时没有赋值，也没有指定类型，TypeScript 会推断它们的类型为<code>any</code></li>
+<li>这时即使打开了<code>noImplicitAny</code>，也不会报错</li>
+<li>以下 变量a的类型推断为any，但是不报错，可以顺利通过编译</li>
+</ul>
+<pre><code>let a;
+
+a = 123;
+a = &#123; foo: &quot;icoding&quot; &#125;;
+</code></pre>
+<ol start="3">
+<li>注意事项<blockquote>
+<p>建议使用<code>let</code>和<code>var</code>声明变量时，如果不赋值，就一定要<strong>显式声明类型</strong>，否则可能存在安全隐患。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><code>const</code>命令没有这个问题，因为 JavaScript 语言规定const声明变量时，必须同时进行初始化（赋值），所以它不存在类型推断为any的问题</li>
+</ul>
+<pre><code>const a; // 报错
+</code></pre>
+<ol start="4">
+<li>污染问题<blockquote>
+<p>any类型除了关闭类型检查，还有一个很大的问题，就是它会“污染”其他变量。<strong>它可以赋值给其他任何类型的变量</strong>（因为没有类型检查），导致其他变量出错</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let a: any = &quot;icoding&quot;;
+let b: number;
+
+b = a; // 不报错
+
+b * 123; // 不报错
+b.toFixed(); // 不报错
+</code></pre>
+<ul>
+<li><p>变量 b 的类型是 any，实际的值是一个字符串</p>
+</li>
+<li><p>变量 b 的类型是 number，表示这是一个数值变量，但是它被赋值为 a，这时并不会报错</p>
+</li>
+<li><p>然后，变量 b 继续进行各种数值运算，TypeScript 也检查不出错误，问题就这样留到运行时才会暴露</p>
+</li>
+<li><p>注：污染其他具有正确类型的变量，把错误留到运行时，这就是不宜使用any类型的另一个主要原因</p>
+</li>
+</ul>
+<h4 id="unknown-类型"><a href="#unknown-类型" class="headerlink" title="unknown 类型"></a>unknown 类型</h4><blockquote>
+<p>为了解决any类型“污染”其他变量的问题，TypeScript 3.0 引入了<code>unknown</code>类型</p>
+</blockquote>
+<ul>
+<li>它与any含义相同，表示类型不确定，可能是任意类型，但是它的使用有一些限制，不像any那样自由，可以视为<strong>严格版的any</strong></li>
+</ul>
+<ol>
+<li>unknown 与 any 的相似之处<blockquote>
+<p>unknown跟any的相似之处，在于所有类型的值都可以分配给unknown类型。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let a: unknown;
+
+a = true; // 正确
+a = 123; // 正确
+a = &quot;icoding&quot;; // 正确
+
+// 变量 a 的类型是 unknown，可以赋值为各种类型的值。这与 any 的行为一致。
+</code></pre>
+<ol start="2">
+<li>unknown 与 any 的不同处<blockquote>
+<p>unknown类型跟any类型的不同之处在于，它不能直接使用。</p>
+<ul>
+<li>主要有以下几个限制</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>①、unknown类型的变量，不能直接赋值给其他类型的变量（除了<code>any</code>类型和<code>unknown</code>类型）</p>
+</blockquote>
+<pre><code>let a: unknown = 123;
+
+let a1: boolean = a; // 报错
+let a2: number = a; // 报错
+</code></pre>
+<ul>
+<li>这就避免了污染问题，从而克服了any 类型的一大缺点</li>
+</ul>
+<blockquote>
+<p>②、不能直接调用unknown类型变量的方法和属性</p>
+</blockquote>
+<pre><code>let a: unknown = &#123; foo: 123 &#125;;
+a.foo; // 报错
+
+let b: unknown = &quot;icoding&quot;;
+b.trim(); // 报错
+
+let c: unknown = (n = 0) =&gt; n + 1;
+c(); // 报错
+</code></pre>
+<ul>
+<li>直接调用 unknown 类型变量的属性和方法，或者直接当作函数执行，都会报错</li>
+</ul>
+<blockquote>
+<p>③、unknown类型变量能够进行的运算是<strong>有限的</strong>，只能进行比较运算（运算符<code>==</code>、<code>===</code>、<code>!=</code>、<code>!==</code>、<code>||</code>、<code>&amp;&amp;</code>、<code>?</code>）、取反运算（运算符!）、<code>typeof</code>运算符和<code>instanceof</code>运算符这几种，其他运算都会报错</p>
+</blockquote>
+<pre><code>let a: unknown = 1;
+
+a + 1; // 报错
+a === 1; // 正确
+</code></pre>
+<ul>
+<li>unknown类型的变量a进行加法运算会报错，因为这是不允许的运算。</li>
+<li>但是，进行比较运算就是可以的</li>
+</ul>
+<ol start="3">
+<li>使用 unknown 类型变量<blockquote>
+<p>只有经过<strong>“类型缩小”</strong>，unknown类型变量才可以使用。所谓“类型缩小”，就是缩小unknown变量的类型范围，确保不会出错</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>let a: unknown = 1;
+
+if (typeof a === &quot;number&quot;) &#123;
+  let b = a + 10; // 正确
+&#125;
+</code></pre>
+<ul>
+<li>unknown 类型的变量 a 经过 typeof 运算以后，能够确定实际类型是 number，就能用于加法运算了。</li>
+<li>这就是“类型缩小”，即将一个不确定的类型缩小为更明确的类型</li>
+</ul>
+<blockquote>
+<p>另一种情况</p>
+</blockquote>
+<pre><code>let a: unknown = &quot;icoding&quot;;
+
+if (typeof a === &quot;string&quot;) &#123;
+  a.length; // 正确
+&#125;
+</code></pre>
+<ul>
+<li>确定变量a 的类型为字符串以后，才能调用它的 length 属性</li>
+</ul>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>这样设计的目的是，只有明确unknown变量的<strong>实际类型</strong>，才允许使用它，防止像<code>any</code>那样可以随意乱用，“污染”其他变量。类型缩小以后再使用，就不会报错。</li>
+<li>总之，unknown可以看作是更安全的any。一般来说，凡是需要设为any类型的地方，通常都应该优先考虑设为unknown类型。</li>
+<li>在集合论上，unknown也可以视为所有其他类型（除了any）的全集，所以它和any一样，也属于 TypeScript 的顶层类型。</li>
+</ul>
+<h4 id="never-类型"><a href="#never-类型" class="headerlink" title="never 类型"></a>never 类型</h4><blockquote>
+<p>为了保持与集合论的对应关系，以及类型运算的完整性，TypeScript 还引入了“空类型”的概念，即该类型为空，不包含任何值。</p>
+</blockquote>
+<ul>
+<li>由于不存在任何属于“空类型”的值，所以该类型被称为<code>never</code>，即不可能有这样的值。</li>
+</ul>
+<pre><code>let a: never;
+</code></pre>
+<ul>
+<li>变量 a 的类型是 never，就不可能赋给它任何值，否则都会报错。</li>
+</ul>
+<ol>
+<li>never 类型的使用场景<blockquote>
+<p>never类型的使用场景，主要是在一些类型运算之中，保证类型运算的完整性（后边会详细 讲解）。</p>
+<ul>
+<li>另外，不可能返回值的函数，返回值的类型就可以写成never</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>如果一个变量可能有多种类型（即联合类型），通常需要使用分支处理每一种类型。这时，处理所有可能的类型之后，剩余的情况就属于never类型。</li>
+</ul>
+<pre><code>function foo(a: string | number) &#123;
+  if (typeof a === &quot;string&quot;) &#123;
+    // ...
+  &#125; else if (typeof a === &quot;number&quot;) &#123;
+    // ...
+  &#125; else &#123;
+    a; // never 类型
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>参数变量 a 可能是字符串，也可能是数值，判断了这两种情况后，剩下的最后那个 else 分支里面，a 就是 never 类型了</li>
+</ul>
+<blockquote>
+<p>never类型的一个重要特点是，可以赋值给任意其他类型。</p>
+</blockquote>
+<pre><code>function foo(): never &#123;
+  throw new Error(&quot;Error&quot;);
+&#125;
+
+let a: number = foo(); // 不报错
+let b: string = foo(); // 不报错
+let c: boolean = foo(); // 不报错
+</code></pre>
+<ul>
+<li>函数 foo() 会抛错，所以返回值类型可以写成 never，即不可能返回任何值</li>
+<li>各种其他类型的变量都可以赋值为 foo() 的运行结果（never类型）</li>
+</ul>
+<blockquote>
+<p>注：为什么never类型可以赋值给任意其他类型呢 ？</p>
+</blockquote>
+<ul>
+<li>这也跟集合论有关，<strong>空集是任何集合的子集</strong>。TypeScript 就相应规定，任何类型都包含了never类型。因此，never类型是任何其他类型所共有的，TypeScript 把这种情况称为“底层类型”（bottom type）。</li>
+<li>总之，TypeScript 有两个“顶层类型”（any和unknown），但是“底层类型”只有never唯一一个。</li>
+</ul>
+<ol start="2">
+<li>总结<blockquote>
+<p>never 类型表示：永远不会有返回值的类型。</p>
+<ul>
+<li>有两种情况</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>①、一个函数抛出了一个异常，这个函数就永远不会有返回值，它的类型就是 never 类型</li>
+<li>②、死循环函数，它永远不会返回。它的类型就是 never 类型</li>
+</ul>
+<pre><code>// 函数抛出了一个异常
+let error = () =&gt; &#123;
+  throw new Error(&quot;error&quot;);
+&#125;;
+
+// 死循环函数，永远不会返回
+let endless = () =&gt; &#123;
+  while (true) &#123;&#125;
+&#125;;
+
+// 变量 error 和 endless 就是 never 类型
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/02/01/TypeScript%EF%BC%88%E4%B8%80%EF%BC%89/">https://hermiablog.com/2024/02/01/TypeScript%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TypesSript/">
+                                    <span class="chip bg-color">TypesSript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/02/03/TypeScript%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/52.jpg" class="responsive-img" alt="TypeScript（二）">
+                        
+                        <span class="card-title">TypeScript（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            函数类型、Symbol类型、对象类型
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-02-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/01/30/%E5%8E%9F%E7%94%9F%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/50.jpg" class="responsive-img" alt="原生组件开发（一）">
+                        
+                        <span class="card-title">原生组件开发（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            todos组件、带历史记录的搜索、无线下拉菜单、Message组件
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%89%8B%E5%86%99/" class="post-category">
+                                    手写
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BB%84%E4%BB%B6/">
+                        <span class="chip bg-color">组件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
