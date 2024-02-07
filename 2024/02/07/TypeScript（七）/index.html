@@ -1,0 +1,3061 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="TypeScript（七）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>TypeScript（七） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/58.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">TypeScript（七）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TypesSript/">
+                                <span class="chip bg-color">TypesSript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.3k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、TypeScript-的注释指令"><a href="#一、TypeScript-的注释指令" class="headerlink" title="一、TypeScript 的注释指令"></a>一、TypeScript 的注释指令</h3><blockquote>
+<p>TypeScript 接受一些注释指令。所谓“注释指令”，指的是采用 JS 双斜杠注释的形式，向编译器发出的命令。</p>
+</blockquote>
+<h4 id="ts-nocheck"><a href="#ts-nocheck" class="headerlink" title="// @ts-nocheck"></a><code>// @ts-nocheck</code></h4><blockquote>
+<p><code>// @ts-nocheck</code>告诉编译器不对当前脚本进行类型检查，可以用于 TypeScript 脚本，也可以用于 JavaScript 脚本。</p>
+</blockquote>
+<pre><code>// @ts-nocheck
+
+const element = document.getElementById(123);
+</code></pre>
+<ul>
+<li>document.getElementById(123) 存在类型错误，但是编译器不对该脚本进行类型检查，所以不会报错</li>
+</ul>
+<h4 id="ts-check"><a href="#ts-check" class="headerlink" title="// @ts-check"></a><code>// @ts-check</code></h4><blockquote>
+<p>如果一个 JavaScript 脚本顶部添加了<code>// @ts-check</code>，那么编译器将对该脚本进行类型检查，不论是否启用了<code>checkJs</code>编译选项。</p>
+</blockquote>
+<pre><code>// @ts-check
+let isChecked = true;
+
+console.log(isChceked); // 报错
+</code></pre>
+<ul>
+<li>以上是 JavaScript 脚本，<code>// @ts-check</code> 告诉 TypeScript 编译器对其进行类型检查，所以最后一行会报错，提示拼写错误</li>
+</ul>
+<h4 id="ts-ignore"><a href="#ts-ignore" class="headerlink" title="// @ts-ignore"></a><code>// @ts-ignore</code></h4><blockquote>
+<p><code>// @ts-ignore</code>告诉编译器不对下一行代码进行类型检查，可以用于 TypeScript 脚本，也可以用于 JavaScript 脚本。</p>
+</blockquote>
+<pre><code>let x: number;
+
+x = 0;
+
+// @ts-ignore
+x = false; // 不报错
+</code></pre>
+<ul>
+<li>以上代码中，最后一行是类型错误，变量 x 的类型是 number，不能等于布尔值</li>
+<li>但是因为前面加上了 &#x2F;&#x2F; @ts-ignore，编译器会跳过这一行的类型检查，所以不会报错</li>
+</ul>
+<h4 id="ts-expect-error"><a href="#ts-expect-error" class="headerlink" title="// @ts-expect-error"></a><code>// @ts-expect-error</code></h4><blockquote>
+<p><code>// @ts-expect-error</code>主要用在测试用例，当下一行有类型错误时，它会压制 TypeScript 的报错信息（即不显示报错信息），把错误留给代码自己处理。</p>
+</blockquote>
+<pre><code>function foo(abc: string, xyz: string) &#123;
+  if (typeof abc === &quot;string&quot;) &#123;
+  &#125;
+  if (typeof xyz === &quot;string&quot;) &#123;
+  &#125;
+  // do some stuff
+&#125;
+
+// @ts-expect-error
+expect(() =&gt; &#123;
+  foo(123, 456);
+&#125;).toThrow();
+</code></pre>
+<ul>
+<li>以上代码是一个测试用例，上面示例是一个测试用例，倒数第二行的 <code>foo(123, 456)</code> 的参数类型与定义不一致，TypeScript 引擎会报错</li>
+<li>但是，测试用例本身测试的就是这个错误，已经有专门的处理代码，所以这里可以使用 <code>// @ts-expect-error</code>，不显示引擎的报错信息</li>
+</ul>
+<blockquote>
+<p>如果下一行没有类型错误，<code>// @ts-expect-error</code>则会显示一行提示</p>
+</blockquote>
+<pre><code>// @ts-expect-error
+console.log(1 + 1);
+// 输出 Unused &#39;@ts-expect-error&#39; directive.
+</code></pre>
+<ul>
+<li>以上代码中，第二行是正确代码，这时系统会给出一个提示，表示 <code>@ts-expect-error</code> 没有用到</li>
+</ul>
+<h4 id="JSDoc"><a href="#JSDoc" class="headerlink" title="JSDoc"></a>JSDoc</h4><blockquote>
+<p>TypeScript 直接处理 JS 文件时，如果无法推断出类型，会使用 JS 脚本里面的 JSDoc 注释。</p>
+</blockquote>
+<blockquote>
+<p>使用 JSDoc 时，有两个基本要求</p>
+</blockquote>
+<ul>
+<li>①、JSDoc 注释必须以<code>/**</code>开始，其中星号（*）的数量必须为两个。若使用其他形式的多行注释，则 JSDoc 会忽略该条注释。<br>②、JSDoc 注释必须与它描述的代码处于相邻的位置，并且注释在上，代码在下<br>下面是 JSDoc 的一个简单例子</li>
+</ul>
+<pre><code>/**
+ * @param &#123;string&#125; somebody
+ */
+function sayHello(somebody) &#123;
+  console.log(&quot;Hello &quot; + somebody);
+&#125;
+</code></pre>
+<ul>
+<li>注释里面的<code>@param</code>是一个 JSDoc 声明，表示下面的函数 <code>sayHello()</code>的参数<code>somebody</code>类型为<code>string</code></li>
+</ul>
+<blockquote>
+<p>TypeScript 编译器支持大部分的 JSDoc 声明，下面介绍其中的一些</p>
+</blockquote>
+<ol>
+<li><code>@typedef</code><blockquote>
+<p>@typedef命令创建自定义类型，等同于 TypeScript 里面的类型别名</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/**
+ * @typedef &#123;(number | string)&#125; NumberLike
+ */
+</code></pre>
+<ul>
+<li>以上代码中，定义了一个名为<code>NumberLike</code>的新类型，它是由number和string构成的联合类型，等同于 TypeScript 的如下语句。</li>
+</ul>
+<pre><code>type NumberLike = string | number;
+</code></pre>
+<ol start="2">
+<li><code>@type</code><blockquote>
+<p><code>@type</code>命令定义变量的类型</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/**
+ * @type &#123;string&#125;
+ */
+let a;
+</code></pre>
+<ul>
+<li>@type 定义了变量 a 的类型为 string</li>
+</ul>
+<blockquote>
+<p>在<code>@type</code>命令中可以使用由<code>@typedef</code>命令创建的类型</p>
+</blockquote>
+<pre><code>/**
+ * @typedef &#123;(number | string)&#125; NumberLike
+ */
+
+/**
+ * @type &#123;NumberLike&#125;
+ */
+let a = 0;
+</code></pre>
+<blockquote>
+<p>在@type命令中允许使用 TypeScript 类型及其语法</p>
+</blockquote>
+<pre><code>/**@type &#123;true | false&#125; */
+let a;
+
+/** @type &#123;number[]&#125; */
+let b;
+
+/** @type &#123;Array&lt;number&gt;&#125; */
+let c;
+
+/** @type &#123;&#123; readonly x: number, y?: string &#125;&#125; */
+let d;
+
+/** @type &#123;(s: string, b: boolean) =&gt; number&#125; */
+let e;
+</code></pre>
+<ol start="3">
+<li><code>@param</code><blockquote>
+<p><code>@param</code>命令用于定义函数参数的类型</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/**
+ * @param &#123;string&#125;  x
+ */
+function foo(x) &#123;&#125;
+</code></pre>
+<blockquote>
+<p>如果是可选参数，需要将参数名放在方括号<code>[]</code>里面</p>
+</blockquote>
+<pre><code>/**
+ * @param &#123;string&#125;  [x]
+ */
+function foo(x) &#123;&#125;
+</code></pre>
+<blockquote>
+<p>方括号里面，还可以指定参数默认值</p>
+</blockquote>
+<pre><code>/**
+ * @param &#123;string&#125; [x=&quot;bar&quot;]
+ */
+function foo(x) &#123;&#125;
+
+// 参数 x 的默认值是字符串 bar
+</code></pre>
+<ol start="4">
+<li><code>@return</code>，<code>@returns</code><blockquote>
+<p><code>@return</code>和<code>@returns</code>命令的作用相同，指定函数返回值的类型</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/**
+ * @return &#123;boolean&#125;
+ */
+function foo() &#123;
+  return true;
+&#125;
+
+/**
+ * @returns &#123;number&#125;
+ */
+function bar() &#123;
+  return 0;
+&#125;
+</code></pre>
+<ol start="5">
+<li><code>@extends</code> 和 类型修饰符<blockquote>
+<p><code>@extends</code>命令用于定义继承的基类</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>/**
+ * @extends &#123;Base&#125;
+ */
+class Derived extends Base &#123;&#125;
+</code></pre>
+<blockquote>
+<p><code>@public</code>、<code>@protected</code>、<code>@private</code>分别指定类的公开成员、保护成员和私有成员</p>
+</blockquote>
+<blockquote>
+<p><code>@readonly</code>指定只读成员</p>
+</blockquote>
+<pre><code>class Base &#123;
+  /**
+   * @public
+   * @readonly
+   */
+  x = 0;
+
+  /**
+   *  @protected
+   */
+  y = 0;
+&#125;
+</code></pre>
+<h3 id="二、tsconfig-json-配置文件相关选项"><a href="#二、tsconfig-json-配置文件相关选项" class="headerlink" title="二、tsconfig.json 配置文件相关选项"></a>二、tsconfig.json 配置文件相关选项</h3><blockquote>
+<p><code>tsconfig.json</code>是 TypeScript 项目的配置文件，放在项目的根目录。反过来说，如果一个目录里面有<code>tsconfig.json</code>，TypeScript 就认为这是项目的<strong>根目录</strong></p>
+</blockquote>
+<blockquote>
+<p>如果项目源码是 JavaScript，但是想用 TypeScript 处理，那么配置文件的名字是<code>jsconfig.json</code>，它跟<code>tsconfig</code>的写法是一样的。</p>
+</blockquote>
+<blockquote>
+<p><code>tsconfig.json</code>文件主要供<code>tsc</code>编译器使用，它的命令行参数<code>--project</code>或<code>-p</code>可以指定<code>tsconfig.json</code>的位置（目录或文件皆可）</p>
+</blockquote>
+<pre><code>tsc -p ./dir
+</code></pre>
+<blockquote>
+<p>如果不指定配置文件的位置，<code>tsc</code>就会在当前目录下搜索<code>tsconfig.json</code>文件，如果不存在，就到上一级目录搜索，直到找到为止。</p>
+</blockquote>
+<blockquote>
+<p><code>tsconfig.json</code>文件的格式，是一个 JSON 对象，最简单的情况可以只放置一个空对象<code>&#123;&#125;</code>。下面是一个示例。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;outDir&quot;: &quot;./src/dist&quot;,
+    &quot;allowJs&quot;: true,
+    &quot;target&quot;: &quot;es2016&quot;
+  &#125;,
+  &quot;include&quot;: [&quot;./src/**/*&quot;]
+&#125;
+</code></pre>
+<blockquote>
+<p>上面示例的四个属性的含义：</p>
+</blockquote>
+<ul>
+<li><code>include</code>：指定哪些文件需要编译。</li>
+<li><code>allowJs</code>：指定源目录的 JavaScript 文件是否原样拷贝到编译后的目录。</li>
+<li><code>outDir</code>：指定编译产物存放的目录。</li>
+<li><code>target</code>：指定编译产物的 JS 版本。</li>
+</ul>
+<blockquote>
+<p><code>tsconfig.json</code>文件可以不必手写，使用 <code>tsc</code> 命令的<code>--init</code>参数自动生成。</p>
+</blockquote>
+<pre><code>tsc --init
+
+# 该命令生成的 tsconfig.json 文件，里面会有一些默认配置
+</code></pre>
+<blockquote>
+<p>你也可以使用别人预先写好的 <code>tsconfig.json</code> 文件，<code>npm</code> 的<code>@tsconfig</code>名称空间下面有很多模块，都是写好的<code>tsconfig.json</code>样本，比如 <code>@tsconfig/recommended</code>和<code>@tsconfig/node16</code>。</p>
+<ul>
+<li>这些模块需要安装，以<code>@tsconfig/deno</code>为例</li>
+</ul>
+</blockquote>
+<pre><code>npm install --save-dev @tsconfig/deno
+# 或
+yarn add --dev @tsconfig/deno
+</code></pre>
+<ul>
+<li>安装以后，就可以在<code>tsconfig.json</code>里面引用这个模块，相当于继承它的设置，然后进行扩展</li>
+</ul>
+<pre><code>&#123;
+  &quot;extends&quot;: &quot;@tsconfig/deno/tsconfig.json&quot;
+&#125;
+</code></pre>
+<ul>
+<li><code>@tsconfig</code>空间下包含的完整 <code>tsconfig</code> 文件目录，可以查看 GitHub</li>
+</ul>
+<blockquote>
+<p><code>tsconfig.json</code>的一级属性并不多，只有很少几个，但是<code>compilerOptions</code>属性有很多二级属性。下面先逐一介绍一级属性，然后再介绍<code>compilerOptions</code>的二级属性，按照首字母排序。</p>
+</blockquote>
+<h4 id="与文件相关的选项"><a href="#与文件相关的选项" class="headerlink" title="与文件相关的选项"></a>与文件相关的选项</h4><blockquote>
+<p>新建一个项目工程，目录结构如下</p>
+</blockquote>
+<pre><code>icoding-ts-config
+├─ build
+│ ├─ webpack.base.config.js
+│ ├─ webpack.config.js
+│ ├─ webpack.dev.config.js
+│ └─ webpack.pro.config.js
+├─ package-lock.json
+├─ package.json
+├─ src
+│ ├─ index.ts
+│ ├─ a.ts
+│ └─ tpl
+│ └─ index.html
+└─ tsconfig.json
+</code></pre>
+<ul>
+<li>先清空 <code>tsconfig.json</code> 配置文件，如果没有任何配置，编译器就会按照默认配置编译当前目录下的所有 TS 文件。</li>
+</ul>
+<pre><code>&#123;&#125;
+</code></pre>
+<ul>
+<li>新建 <code>/src/a.ts</code> 文件</li>
+</ul>
+<pre><code>// 定义一个变量
+let s: string = &quot;arry&quot;;
+</code></pre>
+<ul>
+<li>在命令行终端中输入命令，编译 TS 文件</li>
+</ul>
+<pre><code># 直接输入 tsc 命令
+tsc
+</code></pre>
+<ul>
+<li>在工程中，所有的 TS 文件都被编译成了 JS 文件</li>
+</ul>
+<ol>
+<li>files 选项<blockquote>
+<p><code>files</code>属性指定编译的文件列表，如果其中有一个文件不存在，就会报错</p>
+<ul>
+<li>它是一个数组，排在前面的文件先编译。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>在 tsconfig.json 中</p>
+<pre><code>&#123;
+  &quot;files&quot;: [&quot;src/a.ts&quot;]
+&#125;
+</code></pre>
+<ul>
+<li>在命令行终端中输入命令，编译该 TS 文件</li>
+</ul>
+<pre><code># 直接输入 tsc 命令
+tsc
+</code></pre>
+<ul>
+<li>可以看到只有 a.ts 文件被编译了</li>
+</ul>
+<blockquote>
+<p>该属性必须逐一列出文件，不支持文件匹配。如果文件较多，建议使用<code>include</code>和<code>exclude</code>属性。</p>
+</blockquote>
+<ol start="2">
+<li>include 选项<blockquote>
+<p>include属性指定所要编译的文件列表，既支持逐一列出文件，也支持通配符。文件位置相对于当前配置文件而定。</p>
+</blockquote>
+</li>
+</ol>
+<p>新建 <code>src/lib/lib.ts</code> 文件</p>
+<pre><code>// 定义 libs 变量
+let libs = &#123;&#125;;
+</code></pre>
+<p>在 <code>tsconfig.json</code> 中，添加 <code>include</code> 选项，值为 <code>src</code> 目录</p>
+<pre><code>&#123;
+  &quot;files&quot;: [&quot;src/a.ts&quot;],
+  &quot;include&quot;: [&quot;src&quot;]
+&#125;
+</code></pre>
+<p>在命令行终端中输入命令，编译 TS 文件</p>
+<pre><code># 直接输入 tsc 命令
+tsc
+</code></pre>
+<ul>
+<li>运行结果可以看到，编译器会将 src 目录下的所有 TS 文件 全部编译成 JS 文件，包括子目录的文件。</li>
+</ul>
+<ol start="3">
+<li>include 属性支持三种通配符</li>
+</ol>
+<ul>
+<li><code>?</code>：指代单个字符</li>
+<li><code>*</code>：指代任意字符，不含路径分隔符</li>
+<li><code>**</code>：指定任意目录层级。</li>
+</ul>
+<blockquote>
+<p>如果不指定文件后缀名，默认包括<code>.ts</code>、<code>.tsx</code>和<code>.d.ts</code>文件。如果打开了<code>allowJs</code>，那么还包括<code>.js</code>和<code>.jsx</code></p>
+</blockquote>
+<pre><code>&#123;
+  &quot;include&quot;: [&quot;src/*&quot;]
+&#125;
+</code></pre>
+<ul>
+<li><code>&quot; src/* &quot;</code>只会编译 src 一级目录下的文件</li>
+</ul>
+<pre><code>&#123;
+  &quot;include&quot;: [&quot;src/*/*&quot;]
+&#125;
+- `&quot; src/*/* &quot;`只会编译 src 二级目录下的文件
+</code></pre>
+<blockquote>
+<p>当 files 和 include 同时存在时，是会合并的</p>
+</blockquote>
+<ol start="4">
+<li>exclude 选项<blockquote>
+<p>表示编译器需要排除的文件 或 文件夹</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><code>exclude</code>属性是一个数组，必须与<code>include</code>属性一起使用，用来从编译列表中去除指定的文件。它也支持使用与<code>include</code>属性相同的通配符。</p>
+</blockquote>
+<ul>
+<li>默认 TS 会排除 <code>node_modules</code> 下的所有文件，也会排除所有的声明文件</li>
+</ul>
+<pre><code>&#123;
+  &quot;files&quot;: [&quot;src/a.ts&quot;],
+  // 指定了 src 下的所有文件
+  &quot;include&quot;: [&quot;src&quot;],
+  // 排除 “src/lib” 下的所有文件
+  &quot;exclude&quot;: [&quot;src/lib&quot;]
+&#125;
+</code></pre>
+<ul>
+<li><code>include</code>指定了 src 文件夹下的所有文件</li>
+<li><code>exclude</code>排除了 lib 下的文件</li>
+<li>结果就只剩下 <code>a.ts</code> 和 <code>index.ts</code> 文件会被编译成 JS 文件了</li>
+</ul>
+<ol start="5">
+<li>extends 选项<blockquote>
+<p>配置文件之间是可以继承的，我们可以将继承的配置信息抽离出来方便复用。</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p><code>tsconfig.json</code>可以继承另一个<code>tsconfig.json</code>文件的配置。如果一个项目有多个配置，可以把共同的配置写成<code>tsconfig.base.json</code>，其他的配置文件继承该文件，这样便于维护和修改</p>
+</blockquote>
+<blockquote>
+<p>在项目的根目录中新建基础的 TS 配置文件 <code>tsconfig.base.json</code></p>
+</blockquote>
+<pre><code>&#123;
+  &quot;files&quot;: [&quot;src/a.ts&quot;],
+  &quot;include&quot;: [&quot;src&quot;],
+  &quot;exclude&quot;: [&quot;src/lib&quot;]
+&#125;
+</code></pre>
+<blockquote>
+<p>在 <code>tsconfig.json</code> 中配置 <code>extends</code> 选项，继承 <code>tsconfig.base.json</code></p>
+</blockquote>
+<pre><code>&#123;
+  &quot;extends&quot;: &quot;./tsconfig.base&quot;
+&#125;
+</code></pre>
+<blockquote>
+<p>另外，在 <code>tsconfig.json</code> 文件中也可以覆盖 <code>tsconfig.base.json</code> 中的配置项</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;extends&quot;: &quot;./tsconfig.base&quot;,
+  // 不排除任何目录（会覆盖 tsconfig.base.json 中 exclude 选项的值）
+  &quot;exclude&quot;: []
+&#125;
+</code></pre>
+<blockquote>
+<p>如果<code>extends</code>属性指定的路径不是以<code>./</code>或<code>../</code>开头，那么编译器将在<code>node_modules</code>目录下查找指定的配置文件</p>
+<ul>
+<li><code>extends</code>属性也可以继承已发布的 <code>npm</code> 模块里面的 <code>tsconfig</code> 文件。</li>
+</ul>
+</blockquote>
+<pre><code>&#123;
+  &quot;extends&quot;: &quot;@tsconfig/node12/tsconfig.json&quot;
+&#125;
+</code></pre>
+<ul>
+<li><code>extends</code>指定的<code>tsconfig.json</code>会先加载，然后加载当前的<code>tsconfig.json</code>。如果两者有重名的属性，后者会覆盖前者</li>
+</ul>
+<ol start="6">
+<li>compileOnSave 选项<blockquote>
+<p>设置保存文件的时候自动编译</p>
+<ul>
+<li>遗憾的是，VSCode 暂不支持该功能，可以使用<code>Atom</code>编辑器</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;compileOnSave&quot;: true
+&#125;
+</code></pre>
+<ol start="7">
+<li>references选项<blockquote>
+<p>&#96;references属性是一个数组，数组成员为对象，适合一个大项目由许多小项目构成的情况，用来设置需要引用的底层项目</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;references&quot;: [
+    &#123; &quot;path&quot;: &quot;../pkg1&quot; &#125;,
+    &#123; &quot;path&quot;: &quot;../pkg2/tsconfig.json&quot; &#125;
+  ]
+&#125;
+</code></pre>
+<blockquote>
+<p>references数组成员对象的<code>path</code>属性，既可以是含有文件<code>tsconfig.json</code>的目录，也可以直接是该文件。</p>
+</blockquote>
+<blockquote>
+<p>与此同时，引用的底层项目的<code>tsconfig.json</code>必须启用<code>composite</code>属性。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;composite&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h3 id="三、tsconfig-json-编译相关选项"><a href="#三、tsconfig-json-编译相关选项" class="headerlink" title="三、tsconfig.json 编译相关选项"></a>三、tsconfig.json 编译相关选项</h3><blockquote>
+<p>在 TS 的 <code>tsconfig.json</code> 中跟编译相关的选项有 100 余项，我们只需要学习常用的选项（满足开发使用）即可。不常用的直接查阅官方文档即可 ！</p>
+</blockquote>
+<p>compileOptions 选项</p>
+<blockquote>
+<p><code>compilerOptions</code>属性用来定制编译行为。这个属性可以省略，这时编译器将使用默认设置</p>
+<ul>
+<li>以下所有配置都要写在<code>compilerOptions</code>属性里面</li>
+</ul>
+</blockquote>
+<ul>
+<li>创建配置选项如下</li>
+</ul>
+<pre><code>&quot;compilerOptions&quot;: &#123;
+  &quot;incremental&quot;: true, // TS 编译器在第一次编译之后会生成一个存储编译信息的文件，第二次编译会在第一次的基础上进行增量编译，可以提高编译的速度
+  &quot;tsBuildInfoFile&quot;: &quot;./buildFile&quot;, // 增量编译文件的存储位置
+  &quot;diagnostics&quot;: true, // 打印诊断信息
+
+  &quot;target&quot;: &quot;ES5&quot;, // 目标语言的版本
+  &quot;module&quot;: &quot;CommonJS&quot;, // 生成代码的模板标准
+  &quot;outFile&quot;: &quot;./app.js&quot;, // 将多个相互依赖的文件生成一个文件，可以用在 AMD 模块中，即开启时应设置 &quot;module&quot;: &quot;AMD&quot;,
+  &quot;lib&quot;: [&quot;DOM&quot;, &quot;ES2015&quot;, &quot;ScriptHost&quot;, &quot;ES2019.Array&quot;], // TS 需要引用的库，即声明文件，es5 默认引用 dom、es5、scripthost,如需要使用es的高级版本特性，通常都需要配置，如 es8 的数组新特性需要引入&quot;ES2019.Array&quot;,
+  &quot;allowJS&quot;: true, // 允许编译器编译 JS，JSX 文件
+  &quot;checkJs&quot;: true, // 允许在JS文件中报错，通常与 allowJS 一起使用
+  &quot;outDir&quot;: &quot;./dist&quot;, // 指定输出目录
+  &quot;rootDir&quot;: &quot;./&quot;, // 指定输出文件目录(用于输出)，用于控制输出目录结构
+  &quot;declaration&quot;: true, // 生成声明文件，开启后会自动生成声明文件
+  &quot;declarationDir&quot;: &quot;./file&quot;, // 指定生成声明文件存放目录
+  &quot;emitDeclarationOnly&quot;: true, // 只生成声明文件，而不会生成 js 文件
+  &quot;sourceMap&quot;: true, // 生成目标文件的 sourceMap 文件
+  &quot;inlineSourceMap&quot;: true, // 生成目标文件的 inline SourceMap，inline SourceMap 会包含在生成的js文件中
+  &quot;declarationMap&quot;: true, // 为声明文件生成 sourceMap
+  &quot;typeRoots&quot;: [], // 声明文件目录，默认时 node_modules/@types
+  &quot;types&quot;: [], // 加载的声明文件包
+  &quot;removeComments&quot;:true, // 删除注释
+  &quot;noEmit&quot;: true, // 不输出文件，即编译后不会生成任何 js 文件
+  &quot;noEmitOnError&quot;: true, // 发送错误时不输出任何文件
+  &quot;noEmitHelpers&quot;: true, // 不生成 helper 函数，减小体积，需要额外安装，常配合importHelpers一起使用
+  &quot;importHelpers&quot;: true, // 通过 tslib 引入 helpe r 函数，文件必须是模块
+  &quot;downlevelIteration&quot;: true, // 降级遍历器实现，如果目标源是 es3/5，那么遍历器会有降级的实现
+  &quot;strict&quot;: true, // 开启所有严格的类型检查
+  &quot;alwaysStrict&quot;: true, // 在代码中注入&#39;use strict&#39;
+  &quot;noImplicitAny&quot;: true, // 不允许隐式的 any 类型
+  &quot;strictNullChecks&quot;: true, // 不允许把 null、undefined 赋值给其他类型的变量
+  &quot;strictFunctionTypes&quot;: true, // 不允许函数参数双向协变
+  &quot;strictPropertyInitialization&quot;: true, // 类的实例属性必须初始化
+  &quot;strictBindCallApply&quot;: true, // 严格的 bind/call/apply 检查
+  &quot;noImplicitThis&quot;: true, // 不允许 this 有隐式的any类型
+  &quot;noUnusedLocals&quot;: true, // 检查只声明、未使用的局部变量(只提示不报错)
+  &quot;noUnusedParameters&quot;: true, // 检查未使用的函数参数(只提示不报错)
+  &quot;noFallthroughCasesInSwitch&quot;: true, // 防止 switch 语句贯穿（即如果没有 break 语句后面不会执行）
+  &quot;noImplicitReturns&quot;: true, // 每个分支都会有返回值
+  &quot;esModuleInterop&quot;: true, // 允许 export = 导出，由 import from 导入
+  &quot;allowUmdGlobalAccess&quot;: true, // 允许在模块中全局变量的方式访问 umd 模块
+  &quot;moduleResolution&quot;: &quot;node&quot;, // 模块解析策略，ts 默认用 node 的解析策略，即相对的方式导入
+  &quot;baseUrl&quot;: &quot;./&quot;, // 解析非相对模块的基地址，默认是当前目录
+  &quot;paths&quot;: &#123; // 路径映射，相对于 baseUrl
+    // 如使用jq时不想使用默认版本，而需要手动指定版本，可进行如下配置
+    &quot;jquery&quot;: [&quot;node_modules/jquery/dist/jquery.min.js&quot;]
+  &#125;,
+  &quot;rootDirs&quot;: [&quot;src&quot;,&quot;out&quot;], // 将多个目录放在一个虚拟目录下，用于运行时，即编译后引入文件的位置可能发生变化，这也设置可以虚拟 src 和 out 在同一个目录下，不用再去改变路径也不会报错
+  &quot;listEmittedFiles&quot;: true, // 打印输出文件
+  &quot;listFiles&quot;: true// 打印编译的文件(包括引用的声明文件)
+&#125;
+</code></pre>
+<h4 id="allowJs"><a href="#allowJs" class="headerlink" title="allowJs"></a>allowJs</h4><blockquote>
+<p>allowJs允许 TypeScript 项目加载 JS 脚本（允许编译器编译 JS，JSX 文件）。编译时，也会将 JS 文件，一起拷贝到输出目录。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;allowJs&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="alwaysStrict"><a href="#alwaysStrict" class="headerlink" title="alwaysStrict"></a>alwaysStrict</h4><blockquote>
+<p><code>alwaysStrict</code>确保脚本以 ECMAScript 严格模式进行解析，因此脚本头部不用写<code>&quot;use strict&quot;</code>。</p>
+</blockquote>
+<ul>
+<li>它的值是一个布尔值，默认为true。</li>
+</ul>
+<h4 id="allowSyntheticDefaultImports"><a href="#allowSyntheticDefaultImports" class="headerlink" title="allowSyntheticDefaultImports"></a>allowSyntheticDefaultImports</h4><blockquote>
+<p><code>allowSyntheticDefaultImports</code>允许<code>import</code>命令默认加载没有<code>default</code>输出的模块。</p>
+</blockquote>
+<blockquote>
+<p>比如，打开这个设置，就可以写<code>import React from &quot;react&quot;;</code>，而不是<code>import * as React from &quot;react&quot;;</code></p>
+</blockquote>
+<h4 id="allowUnreachableCode"><a href="#allowUnreachableCode" class="headerlink" title="allowUnreachableCode"></a>allowUnreachableCode</h4><blockquote>
+<p><code>allowUnreachableCode</code>设置是否允许存在不可能执行到的代码。它的值有三种可能</p>
+</blockquote>
+<ul>
+<li><code>undefined</code>：默认值，编辑器显示警告</li>
+<li><code>true</code>：忽略不可能执行到的代码</li>
+<li><code>false</code>：编译器报错</li>
+</ul>
+<h4 id="allowUnusedLabels"><a href="#allowUnusedLabels" class="headerlink" title="allowUnusedLabels"></a>allowUnusedLabels</h4><blockquote>
+<p><code>allowUnusedLabels</code>设置是否允许存在没有用到的代码标签（label）。它的值有三种可能</p>
+</blockquote>
+<ul>
+<li><code>undefined</code>：默认值，编辑器显示警告</li>
+<li><code>true</code>：忽略没有用到的代码标签</li>
+<li><code>false</code>：编译器报错</li>
+</ul>
+<h4 id="baseUrl"><a href="#baseUrl" class="headerlink" title="baseUrl"></a>baseUrl</h4><blockquote>
+<p><code>baseUrl</code>的值为字符串，指定 TypeScript 项目的基准目录。</p>
+</blockquote>
+<blockquote>
+<p>由于默认是以 <code>tsconfig.json</code> 的位置作为基准目录，所以一般情况不需要使用该属性。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;baseUrl&quot;: &quot;./&quot;
+  &#125;
+&#125;
+</code></pre>
+<p>上面代码中，<code>baseUrl</code>为当前目录<code>./</code>。那么，当遇到下面的语句，TypeScript 将以<code>./</code>为起点，寻找<code>hello/world.ts</code></p>
+<pre><code>import &#123; helloWorld &#125; from &quot;hello/world&quot;;
+</code></pre>
+<h4 id="checkJs"><a href="#checkJs" class="headerlink" title="checkJs"></a>checkJs</h4><blockquote>
+<p><code>checkJS</code>设置对 JS 文件同样进行类型检查。打开这个属性，也会自动打开<code>allowJs</code></p>
+<ul>
+<li>它等同于在 JS 脚本的头部添加<code>// @ts-check</code>命令。</li>
+</ul>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;checkJs&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="composite"><a href="#composite" class="headerlink" title="composite"></a>composite</h4><blockquote>
+<p><code>composite</code>打开某些设置，使得 TypeScript 项目可以进行增量构建，往往跟<code>incremental</code>属性配合使用。</p>
+</blockquote>
+<h4 id="declaration"><a href="#declaration" class="headerlink" title="declaration"></a>declaration</h4><blockquote>
+<p><code>declaration</code>设置编译时是否为每个脚本生成类型声明文件<code>.d.ts</code></p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;declaration&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="declarationDir"><a href="#declarationDir" class="headerlink" title="declarationDir"></a>declarationDir</h4><blockquote>
+<p><code>declarationDir</code>设置生成的<code>.d.ts</code>文件所在的目录</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;declaration&quot;: true,
+    &quot;declarationDir&quot;: &quot;./types&quot;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="declarationMap"><a href="#declarationMap" class="headerlink" title="declarationMap"></a>declarationMap</h4><blockquote>
+<p><code>declarationMap</code>设置生成<code>.d.ts</code>类型声明文件的同时，还会生成对应的 <code>Source Map</code> 文件</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;declaration&quot;: true,
+    &quot;declarationMap&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="emitBOM"><a href="#emitBOM" class="headerlink" title="emitBOM"></a>emitBOM</h4><blockquote>
+<p><code>emitBOM</code>设置是否在编译结果的文件头添加字节顺序标志 BOM，默认值是false。</p>
+</blockquote>
+<h4 id="emitDeclarationOnly"><a href="#emitDeclarationOnly" class="headerlink" title="emitDeclarationOnly"></a>emitDeclarationOnly</h4><blockquote>
+<p><code>emitDeclarationOnly</code>设置编译后只生成<code>.d.ts</code>文件，不生成<code>.js</code>文件。</p>
+</blockquote>
+<h4 id="esModuleInterop"><a href="#esModuleInterop" class="headerlink" title="esModuleInterop"></a>esModuleInterop</h4><blockquote>
+<p><code>esModuleInterop</code>修复了一些 CommonJS 和 ES6 模块之间的兼容性问题。</p>
+</blockquote>
+<blockquote>
+<p>如果<code>module</code>属性为<code>node16</code>或<code>nodenext</code>，则<code>esModuleInterop</code>默认为<code>true</code>，其他情况默认为<code>false</code></p>
+</blockquote>
+<blockquote>
+<p>打开这个属性，使用<code>import</code>命令加载 <code>CommonJS</code> 模块时，TypeScript 会严格检查兼容性问题是否存在。</p>
+</blockquote>
+<pre><code>import * as moment from &quot;moment&quot;;
+moment(); // 报错
+</code></pre>
+<ul>
+<li>根据 ES6 规范， <code>import * as moment</code> 里面的 <code>moment</code> 是一个对象，不能当作函数调用，所以第二行报错了</li>
+</ul>
+<blockquote>
+<p>解决方法就是改写上面的语句，改成加载默认接口。</p>
+</blockquote>
+<pre><code>import moment from &quot;moment&quot;;
+moment(); // 不报错
+</code></pre>
+<blockquote>
+<p>打开<code>esModuleInterop</code>以后，如果将上面的代码编译成 <code>CommonJS</code> 模块格式，就会加入一些辅助函数，保证编译后的代码行为正确。</p>
+</blockquote>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>打开<code>esModuleInterop</code>，将自动打开<code>allowSyntheticDefaultImports</code></li>
+</ul>
+<h4 id="exactOptionalPropertyTypes"><a href="#exactOptionalPropertyTypes" class="headerlink" title="exactOptionalPropertyTypes"></a>exactOptionalPropertyTypes</h4><blockquote>
+<p><code>exactOptionalPropertyTypes</code>设置可选属性不能赋值为<code>undefined</code>。</p>
+</blockquote>
+<pre><code>// 打开 exactOptionalPropertyTypes
+interface MyObj &#123;
+  foo?: &quot;A&quot; | &quot;B&quot;;
+&#125;
+
+let obj: MyObj = &#123; foo: &quot;A&quot; &#125;;
+
+obj.foo = undefined; // 报错
+
+//  foo 是可选属性，打开 exactOptionalPropertyTypes 以后，该属性就不能显式赋值为 undefined
+</code></pre>
+<h4 id="forceConsistentCasingInFileNames"><a href="#forceConsistentCasingInFileNames" class="headerlink" title="forceConsistentCasingInFileNames"></a>forceConsistentCasingInFileNames</h4><blockquote>
+<p><code>forceConsistentCasingInFileNames</code>设置文件名是否为大小写敏感，默认为true</p>
+</blockquote>
+<h4 id="incremental"><a href="#incremental" class="headerlink" title="incremental"></a>incremental</h4><blockquote>
+<p><code>incremental</code>让 TypeScript 项目构建时产生文件<code>tsbuildinfo</code>，从而完成增量构建。</p>
+</blockquote>
+<h4 id="inlineSourceMap"><a href="#inlineSourceMap" class="headerlink" title="inlineSourceMap"></a>inlineSourceMap</h4><blockquote>
+<p><code>inlineSourceMap</code>设置将<code>SourceMap</code>文件写入编译后的 JS 文件中，否则会单独生成一个<code>.js.map</code>文件。</p>
+</blockquote>
+<h4 id="inlineSources"><a href="#inlineSources" class="headerlink" title="inlineSources"></a>inlineSources</h4><blockquote>
+<p><code>inlineSources</code>设置将原始的<code>.ts</code>代码嵌入编译后的 JS 中</p>
+</blockquote>
+<ul>
+<li>它要求<code>sourceMap</code>或<code>inlineSourceMap</code>至少打开一个</li>
+</ul>
+<h4 id="isolatedModules"><a href="#isolatedModules" class="headerlink" title="isolatedModules"></a>isolatedModules</h4><blockquote>
+<p><code>isolatedModules</code>设置如果当前 TypeScript 脚本作为单个模块编译，是否会因为缺少其他脚本的类型信息而报错，主要便于非官方的编译工具（比如 Babel）正确编译单个脚本。</p>
+</blockquote>
+<h4 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h4><blockquote>
+<p>jsx设置如何处理<code>.tsx</code>文件。它可以取以下五个值。</p>
+</blockquote>
+<ul>
+<li><code>preserve</code>：保持 jsx 语法不变，输出的文件名为.jsx。</li>
+<li><code>react</code>：将<code>&lt;div /&gt;</code>编译成<code>React.createElement(&quot;div&quot;)</code>，输出的文件名为<code>.js</code>。</li>
+<li><code>react-native</code>：保持 jsx 语法不变，输出的文件后缀名为<code>.js</code>。</li>
+<li><code>react-jsx</code>：将<code>&lt;div /&gt;</code>编译成<code>_jsx(&quot;div&quot;)</code>，输出的文件名为<code>.js</code>。</li>
+<li><code>react-jsxdev</code>：跟<code>react-jsx</code>类似，但是为<code>_jsx()</code>加上更多的开发调试项，输出的文件名为<code>.js</code>。</li>
+</ul>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;jsx&quot;: &quot;preserve&quot;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="lib"><a href="#lib" class="headerlink" title="lib"></a>lib</h4><blockquote>
+<p><code>lib</code>值是一个数组，描述项目需要加载的 TypeScript 内置类型描述文件，跟三斜线指令<code>/// &lt;reference lib=&quot;&quot; /&gt;</code>作用相同。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;lib&quot;: [&quot;dom&quot;, &quot;es2021&quot;]
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>TypeScript 内置的类型描述文件，主要有以下一些，完整的清单可以参考 TypeScript 源码</p>
+</blockquote>
+<ul>
+<li><code>ES5</code></li>
+<li><code>ES2015</code></li>
+<li><code>ES6</code></li>
+<li><code>ES2016</code></li>
+<li><code>ES7</code></li>
+<li><code>ES2017</code></li>
+<li><code>ES2018</code></li>
+<li><code>ES2019</code></li>
+<li><code>ES2020</code></li>
+<li><code>ES2021</code></li>
+<li><code>ES2022</code></li>
+<li><code>ESNext</code></li>
+<li><code>DOM</code></li>
+<li><code>WebWorker</code></li>
+<li><code>ScriptHost</code></li>
+</ul>
+<h4 id="listEmittedFiles"><a href="#listEmittedFiles" class="headerlink" title="listEmittedFiles"></a>listEmittedFiles</h4><blockquote>
+<p><code>listEmittedFiles</code>设置编译时在终端显示，生成了哪些文件</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;listEmittedFiles&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="listFiles"><a href="#listFiles" class="headerlink" title="listFiles"></a>listFiles</h4><blockquote>
+<p><code>listFiles</code>设置编译时在终端显示，参与本次编译的文件列表。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;listFiles&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="mapRoot"><a href="#mapRoot" class="headerlink" title="mapRoot"></a>mapRoot</h4><blockquote>
+<p><code>mapRoot</code>指定 SourceMap 文件的位置，而不是默认的生成位置</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;sourceMap&quot;: true,
+    &quot;mapRoot&quot;: &quot;https://my-website.com/debug/sourcemaps/&quot;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="module"><a href="#module" class="headerlink" title="module"></a>module</h4><blockquote>
+<p><code>module指</code>定编译产物的模块格式。它的默认值与<code>target</code>属性有关，如果<code>target</code>是<code>ES3</code>或<code>ES5</code>，它的默认值是<code>commonjs</code>，否则就是<code>ES6/ES2015</code>。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;module&quot;: &quot;commonjs&quot;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>它可以取以下值：<code>none</code>、<code>commonjs</code>、<code>amd</code>、<code>umd</code>、<code>system</code>、<code>es6/es2015</code>、<code>es2020</code>、<code>es2022</code>、<code>esnext</code>、<code>node16</code>、<code>nodenext</code></li>
+</ul>
+<h4 id="moduleResolution"><a href="#moduleResolution" class="headerlink" title="moduleResolution"></a>moduleResolution</h4><blockquote>
+<p><code>moduleResolution</code>确定模块路径的算法，即如何查找模块。它可以取以下四种值。</p>
+</blockquote>
+<ul>
+<li>node：采用 Node.js 的 CommonJS 模块算法。</li>
+<li>node16或nodenext：采用 Node.js 的 ECMAScript 模块算法，从 TypeScript 4.7 开始支持。</li>
+<li>classic：TypeScript 1.6 之前的算法，新项目不建议使用。</li>
+<li>bundler：TypeScript 5.0 新增的选项，表示当前代码会被其他打包器（比如 Webpack、Vite、esbuild、Parcel、rollup、swc）处理，从而放宽加载规则，它要求module设为es2015或更高版本，详见加入该功能的 PR 说明</li>
+</ul>
+<blockquote>
+<p>它的默认值与<code>module</code>属性有关，如果<code>module</code>为<code>AMD、UMD、System或ES6/ES2015</code>，默认值为<code>classic</code>；如果<code>module</code>为<code>node16</code>或<code>nodenext</code>，默认值为这两个值；其他情况下,默认值为<code>Node</code>。</p>
+</blockquote>
+<h4 id="moduleSuffixes"><a href="#moduleSuffixes" class="headerlink" title="moduleSuffixes"></a>moduleSuffixes</h4><blockquote>
+<p>moduleSuffixes指定模块的后缀名</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;moduleSuffixes&quot;: [&quot;.ios&quot;, &quot;.native&quot;, &quot;&quot;]
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>上面的设置使得 TypeScript 对于语句<code>import * as foo from &quot;./foo&quot;;</code>，会搜索以下脚本<code>./foo.ios.ts</code>、<code>./foo.native.ts</code>和<code>./foo.ts</code></li>
+</ul>
+<h4 id="newLine"><a href="#newLine" class="headerlink" title="newLine"></a>newLine</h4><blockquote>
+<p><code>newLine</code>设置换行符为<code>CRLF（Windows）</code>还是<code>LF（Linux）</code>。</p>
+</blockquote>
+<h4 id="noEmit"><a href="#noEmit" class="headerlink" title="noEmit"></a>noEmit</h4><blockquote>
+<p><code>noEmit</code>设置是否产生编译结果。如果不生成，TypeScript 编译就纯粹作为类型检查了。</p>
+</blockquote>
+<h4 id="noEmitHelpers"><a href="#noEmitHelpers" class="headerlink" title="noEmitHelpers"></a>noEmitHelpers</h4><blockquote>
+<p><code>noEmitHelpers</code>设置在编译结果文件不插入 TypeScript 辅助函数，而是通过外部引入辅助函数来解决，比如 NPM 模块tslib。</p>
+</blockquote>
+<h4 id="noEmitOnError"><a href="#noEmitOnError" class="headerlink" title="noEmitOnError"></a>noEmitOnError</h4><blockquote>
+<p><code>noEmitOnError</code>指定一旦编译报错，就不生成编译产物，默认为false。</p>
+</blockquote>
+<h4 id="noFallthroughCasesInSwitch"><a href="#noFallthroughCasesInSwitch" class="headerlink" title="noFallthroughCasesInSwitch"></a>noFallthroughCasesInSwitch</h4><blockquote>
+<p><code>noFallthroughCasesInSwitch</code>设置是否对没有<code>break</code>语句（或者return和throw语句）的 <code>switch</code>分支报错，即<code>case</code>代码里面必须有终结语句（比如break）</p>
+</blockquote>
+<h4 id="noImplicitAny"><a href="#noImplicitAny" class="headerlink" title="noImplicitAny"></a>noImplicitAny</h4><blockquote>
+<p><code>noImplicitAny</code>设置当一个表达式没有明确的类型描述、且编译器无法推断出具体类型时，是否允许将它推断为any类型</p>
+</blockquote>
+<ul>
+<li>它是一个布尔值，默认为true，即只要推断出any类型就报错。</li>
+</ul>
+<h4 id="noImplicitReturns"><a href="#noImplicitReturns" class="headerlink" title="noImplicitReturns"></a>noImplicitReturns</h4><blockquote>
+<p><code>noImplicitReturns</code>设置是否要求函数任何情况下都必须返回一个值，即函数必须有<code>return</code>语句。</p>
+</blockquote>
+<h4 id="noImplicitThis"><a href="#noImplicitThis" class="headerlink" title="noImplicitThis"></a>noImplicitThis</h4><blockquote>
+<p><code>noImplicitThis</code>设置如果this被推断为any类型是否报错。</p>
+</blockquote>
+<h4 id="noUnusedLocals"><a href="#noUnusedLocals" class="headerlink" title="noUnusedLocals"></a>noUnusedLocals</h4><blockquote>
+<p><code>noUnusedLocals</code>设置是否允许未使用的局部变量。</p>
+</blockquote>
+<h4 id="noUnusedParameters"><a href="#noUnusedParameters" class="headerlink" title="noUnusedParameters"></a>noUnusedParameters</h4><blockquote>
+<p><code>noUnusedParameters</code>设置是否允许未使用的函数参数。</p>
+</blockquote>
+<h4 id="outDir"><a href="#outDir" class="headerlink" title="outDir"></a>outDir</h4><blockquote>
+<p><code>outDir</code>指定编译产物的存放目录。如果不指定，编译出来的<code>.js</code>文件存放在对应的<code>.ts</code>文件的相同位置。</p>
+</blockquote>
+<h4 id="outFile"><a href="#outFile" class="headerlink" title="outFile"></a>outFile</h4><blockquote>
+<p><code>outFile</code>设置将所有非模块的全局文件，编译在同一个文件里面。它只有在<code>module</code>属性为<code>None、System、AMD</code>时才生效，并且不能用来打包 CommonJS 或 ES6 模块。</p>
+</blockquote>
+<h4 id="paths"><a href="#paths" class="headerlink" title="paths"></a>paths</h4><blockquote>
+<p><code>paths</code>设置模块名和模块路径的映射，也就是 TypeScript 如何导入<code>require</code>或<code>imports</code>语句加载的模块</p>
+</blockquote>
+<blockquote>
+<p>paths基于baseUrl进行加载，所以必须同时设置后者。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;baseUrl&quot;: &quot;./&quot;,
+    &quot;paths&quot;: &#123;
+      &quot;b&quot;: [&quot;bar/b&quot;]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>它还可以使用通配符*</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;baseUrl&quot;: &quot;./&quot;,
+    &quot;paths&quot;: &#123;
+      &quot;@bar/*&quot;: [&quot;bar/*&quot;]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="preserveConstEnums"><a href="#preserveConstEnums" class="headerlink" title="preserveConstEnums"></a>preserveConstEnums</h4><blockquote>
+<p><code>preserveConstEnums</code>将<code>const enum</code>结构保留下来，不替换成常量值。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;preserveConstEnums&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="pretty"><a href="#pretty" class="headerlink" title="pretty"></a>pretty</h4><blockquote>
+<p><code>pretty</code>设置美化输出终端的编译信息，默认为<code>true</code></p>
+</blockquote>
+<h4 id="removeComments"><a href="#removeComments" class="headerlink" title="removeComments"></a>removeComments</h4><blockquote>
+<p><code>removeComments</code>移除 TypeScript 脚本里面的注释，默认为false。</p>
+</blockquote>
+<h4 id="resolveJsonModule"><a href="#resolveJsonModule" class="headerlink" title="resolveJsonModule"></a>resolveJsonModule</h4><blockquote>
+<p><code>resolveJsonModule</code>允许 import 命令导入 JSON 文件。</p>
+</blockquote>
+<h4 id="rootDir"><a href="#rootDir" class="headerlink" title="rootDir"></a>rootDir</h4><blockquote>
+<p><code>rootDir</code>设置源码脚本所在的目录，主要跟编译后的脚本结构有关。rootDir对应目录下的所有脚本，会成为输出目录里面的顶层脚本。</p>
+</blockquote>
+<h4 id="rootDirs"><a href="#rootDirs" class="headerlink" title="rootDirs"></a>rootDirs</h4><blockquote>
+<p><code>rootDirs</code>把多个不同目录，合并成一个目虚拟目录，便于模块定位。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;rootDirs&quot;: [&quot;bar&quot;, &quot;foo&quot;]
+  &#125;
+&#125;
+
+// rootDirs 将 bar 和 foo 组成一个虚拟目录
+</code></pre>
+<h4 id="sourceMap"><a href="#sourceMap" class="headerlink" title="sourceMap"></a>sourceMap</h4><blockquote>
+<p><code>sourceMap</code>设置编译时是否生成 SourceMap 文件。</p>
+</blockquote>
+<h4 id="sourceRoot"><a href="#sourceRoot" class="headerlink" title="sourceRoot"></a>sourceRoot</h4><blockquote>
+<p><code>sourceRoot</code>在 SourceMap 里面设置 TypeScript 源文件的位置。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;sourceMap&quot;: true,
+    &quot;sourceRoot&quot;: &quot;https://my-website.com/debug/source/&quot;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="strict"><a href="#strict" class="headerlink" title="strict"></a>strict</h4><blockquote>
+<p><code>strict</code>用来打开 TypeScript 的严格检查。它的值是一个布尔值，默认是关闭的。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;strict&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：这个设置相当于同时打开以下的一系列设置</p>
+</blockquote>
+<ul>
+<li>alwaysStrict</li>
+<li>strictNullChecks</li>
+<li>strictBindCallApply</li>
+<li>strictFunctionTypes</li>
+<li>strictPropertyInitialization</li>
+<li>noImplicitAny</li>
+<li>noImplicitThis</li>
+<li>useUnknownInCatchVaria</li>
+</ul>
+<blockquote>
+<p>打开strict的时候，允许单独关闭其中一项。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;strict&quot;: true,
+    &quot;alwaysStrict&quot;: false
+  &#125;
+&#125;
+</code></pre>
+<h4 id="strictBindCallApply"><a href="#strictBindCallApply" class="headerlink" title="strictBindCallApply"></a>strictBindCallApply</h4><blockquote>
+<p><code>strictBindCallApply</code>设置是否对函数的<code>call()</code>、<code>bind()</code>、<code>apply()</code>这三个方法进行类型检查。</p>
+</blockquote>
+<blockquote>
+<p>如果不打开<code>strictBindCallApply</code>编译选项，编译器不会对以上三个方法进行类型检查，参数类型都是any，传入任何参数都不会产生编译错误。</p>
+</blockquote>
+<pre><code>function fn(x: string) &#123;
+  return parseInt(x);
+&#125;
+
+// strictBindCallApply:false
+const n = fn.call(undefined, false);
+// 以上不报错
+</code></pre>
+<h4 id="strictFunctionTypes"><a href="#strictFunctionTypes" class="headerlink" title="strictFunctionTypes"></a>strictFunctionTypes</h4><blockquote>
+<p><code>strictFunctionTypes</code>允许对函数更严格的参数检查。具体来说，如果函数 B 的参数是函数 A 参数的子类型，那么函数 B 不能替代函数 A。</p>
+</blockquote>
+<pre><code>function fn(x: string) &#123;
+  console.log(&quot;Hello, &quot; + x.toLowerCase());
+&#125;
+
+type StringOrNumberFunc = (ns: string | number) =&gt; void;
+</code></pre>
+<ul>
+<li>打开 <code>strictFunctionTypes</code>，下面代码会报错<br><code>let func: StringOrNumberFunc = fn;</code></li>
+<li>函数 fn() 的参数是 <code>StringOrNumberFunc</code> 参数的子集，因此 fn 不能替代 <code>StringOrNumberFunc</code></li>
+</ul>
+<h4 id="strictNullChecks"><a href="#strictNullChecks" class="headerlink" title="strictNullChecks"></a>strictNullChecks</h4><blockquote>
+<p><code>strictNullChecks</code>设置对<code>null</code>和<code>undefined</code>进行严格类型检查。如果打开<code>strict</code>属性，这一项就会自动设为<code>true</code>，否则为<code>false</code>。</p>
+</blockquote>
+<pre><code>let value: string;
+
+// strictNullChecks:false
+// 下面语句不报错
+value = null;
+</code></pre>
+<blockquote>
+<p>它可以理解成只要打开，就需要显式检查<code>null</code>或<code>undefined</code>。</p>
+</blockquote>
+<pre><code>function doSomething(x: string | null) &#123;
+  if (x === null) &#123;
+    // do nothing
+  &#125; else &#123;
+    console.log(&quot;Hello, &quot; + x.toUpperCase());
+  &#125;
+&#125;
+</code></pre>
+<h4 id="strictPropertyInitialization"><a href="#strictPropertyInitialization" class="headerlink" title="strictPropertyInitialization"></a>strictPropertyInitialization</h4><blockquote>
+<p><code>strictPropertyInitialization</code>设置类的实例属性都必须初始化，包括以下几种情况。</p>
+</blockquote>
+<ul>
+<li>设为undefined类型</li>
+<li>显式初始化</li>
+<li>构造函数中赋值</li>
+</ul>
+<blockquote>
+<p>注意，使用该属性的同时，必须打开<code>strictNullChecks</code></p>
+</blockquote>
+<pre><code>// strictPropertyInitialization：true
+class User &#123;
+  // 报错，属性 username 没有初始化
+  username: string;
+&#125;
+
+// 解决方法一
+class User &#123;
+  username = &quot;张三&quot;;
+&#125;
+
+// 解决方法二
+class User &#123;
+  username: string | undefined;
+&#125;
+
+// 解决方法三
+class User &#123;
+  username: string;
+
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+&#125;
+// 或者
+class User &#123;
+  constructor(public username: string) &#123;&#125;
+&#125;
+
+// 解决方法四：赋值断言
+class User &#123;
+  username!: string;
+
+  constructor(username: string) &#123;
+    this.initialize(username);
+  &#125;
+
+  private initialize(username: string) &#123;
+    this.username = username;
+  &#125;
+&#125;
+</code></pre>
+<h4 id="suppressExcessPropertyErrors"><a href="#suppressExcessPropertyErrors" class="headerlink" title="suppressExcessPropertyErrors"></a>suppressExcessPropertyErrors</h4><blockquote>
+<p><code>suppressExcessPropertyErrors</code>关闭对象字面量的多余参数的报错。</p>
+</blockquote>
+<h4 id="target"><a href="#target" class="headerlink" title="target"></a>target</h4><blockquote>
+<p><code>target</code>指定编译出来的 JavaScript 代码的 ECMAScript 版本，比如es2021，默认是es3。</p>
+<ul>
+<li>它可以取以下值。</li>
+</ul>
+</blockquote>
+<ul>
+<li>es3</li>
+<li>es5</li>
+<li>es6&#x2F;es2015</li>
+<li>es2016</li>
+<li>es2017</li>
+<li>es2018</li>
+<li>es2019</li>
+<li>es2020</li>
+<li>es2021</li>
+<li>es2022</li>
+<li>esnext</li>
+</ul>
+<blockquote>
+<p>注意，如果编译的目标版本过老，比如”target”: “es3”，有些语法可能无法编译，tsc命令会报错。</p>
+</blockquote>
+<h4 id="traceResolution"><a href="#traceResolution" class="headerlink" title="traceResolution"></a>traceResolution</h4><blockquote>
+<p><code>traceResolution</code>设置编译时，在终端输出模块解析的具体步骤</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;traceResolution&quot;: true
+  &#125;
+&#125;
+</code></pre>
+<h4 id="typeRoots"><a href="#typeRoots" class="headerlink" title="typeRoots"></a>typeRoots</h4><blockquote>
+<p><code>typeRoots</code>设置类型模块所在的目录，默认是<code>node_modules/@types</code>，该目录里面的模块会自动加入编译。一旦指定了该属性，就不会再用默认值<code>node_modules/@types</code>里面的类型模块。</p>
+</blockquote>
+<blockquote>
+<p>该属性的值是一个数组，数组的每个成员就是一个目录，它们的路径是相对于<code>tsconfig.json</code>位置。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;typeRoots&quot;: [&quot;./typings&quot;, &quot;./vendor/types&quot;]
+  &#125;
+&#125;
+</code></pre>
+<h4 id="types"><a href="#types" class="headerlink" title="types"></a>types</h4><blockquote>
+<p>默认情况下，<code>typeRoots</code>目录下所有模块都会自动加入编译，如果指定了<code>types</code>属性，那么只有其中列出的模块才会自动加入编译。</p>
+</blockquote>
+<pre><code>&#123;
+  &quot;compilerOptions&quot;: &#123;
+    &quot;types&quot;: [&quot;node&quot;, &quot;jest&quot;, &quot;express&quot;]
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>上面的设置表示，默认情况下，只有<code>./node_modules/@types/node</code>、<code>./node_modules/@types/jest</code>和<code>./node_modules/@types/express</code>会自动加入编译，其他<code>node_modules/@types/</code>目录下的模块不会加入编译。</li>
+</ul>
+<p>如果<code>&quot;types&quot;: []</code>，就表示不会自动将所有<code>@types</code>模块加入编译。</p>
+<h4 id="useUnknownInCatchVariables"><a href="#useUnknownInCatchVariables" class="headerlink" title="useUnknownInCatchVariables"></a>useUnknownInCatchVariables</h4><blockquote>
+<p><code>useUnknownInCatchVariables</code>设置catch语句捕获的try抛出的返回值类型，从any变成unknown。</p>
+</blockquote>
+<pre><code>try &#123;
+  someExternalFunction();
+&#125; catch (err) &#123;
+  err; // 类型 any
+&#125;
+</code></pre>
+<ul>
+<li>上面示例中，默认情况下，catch语句的参数<code>err</code>类型是<code>any</code>，即可以是任何值。</li>
+</ul>
+<blockquote>
+<p>打开<code>useUnknownInCatchVariables</code>以后，err的类型抛出的错误将是<code>unknown</code>类型。这带来的变化就是使用<code>err</code>之前，必须缩小它的类型，否则会报错。</p>
+</blockquote>
+<pre><code>try &#123;
+  someExternalFunction();
+&#125; catch (err) &#123;
+  if (err instanceof Error) &#123;
+    console.log(err.message);
+  &#125;
+&#125;
+</code></pre>
+<h3 id="四、tsc-命令行编译器"><a href="#四、tsc-命令行编译器" class="headerlink" title="四、tsc 命令行编译器"></a>四、tsc 命令行编译器</h3><blockquote>
+<p>tsc 是 TypeScript 官方的命令行编译器，用来检查代码，并将其编译成 JavaScript 代码。</p>
+</blockquote>
+<blockquote>
+<p>tsc 默认使用当前目录下的配置文件<code>tsconfig.json</code>，但也可以接受独立的命令行参数。命令行参数会覆盖<code>tsconfig.json</code>，比如命令行指定了所要编译的文件，那么 tsc 就会忽略<code>tsconfig.json</code>的<code>files</code>属性。</p>
+</blockquote>
+<h4 id="tsc-的基本语法"><a href="#tsc-的基本语法" class="headerlink" title="tsc 的基本语法"></a>tsc 的基本语法</h4><pre><code># 使用 tsconfig.json 的配置
+$ tsc
+
+# 只编译 index.ts
+$ tsc index.ts
+
+# 编译 src 目录的所有 .ts 文件
+$ tsc src/*.ts
+
+# 指定编译配置文件
+$ tsc --project tsconfig.production.json
+
+# 只生成类型声明文件，不编译出 JS 文件
+$ tsc index.js --declaration --emitDeclarationOnly
+
+# 多个 TS 文件编译成单个 JS 文件
+$ tsc app.ts util.ts --target esnext --outfile index.js
+</code></pre>
+<h4 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h4><blockquote>
+<p>tsc 的命令行参数，大部分与 tsconfig.json 的属性一一对应。</p>
+<ul>
+<li>下面只是按照首字母排序，简单罗列出主要的一些参数，详细解读查阅以上《tsconfig.json 配置文件》部分</li>
+</ul>
+</blockquote>
+<h4 id="all"><a href="#all" class="headerlink" title="--all"></a><code>--all</code></h4><blockquote>
+<p><code>--all</code>：输出所有可用的参数</p>
+</blockquote>
+<h4 id="allowJs-1"><a href="#allowJs-1" class="headerlink" title="--allowJs"></a><code>--allowJs</code></h4><blockquote>
+<p><code>--allowJs</code>：允许 TS 脚本加载 JS 模块，编译时将 JS 一起拷贝到输出目录</p>
+</blockquote>
+<h4 id="allowUnreachableCode-1"><a href="#allowUnreachableCode-1" class="headerlink" title="--allowUnreachableCode"></a><code>--allowUnreachableCode</code></h4><blockquote>
+<p><code>--allowUnreachableCode</code>：如果 TS 脚本有不可能运行到的代码，不报错</p>
+</blockquote>
+<h4 id="allowUnusedLabels-1"><a href="#allowUnusedLabels-1" class="headerlink" title="--allowUnusedLabels"></a><code>--allowUnusedLabels</code></h4><blockquote>
+<p><code>--allowUnusedLabels</code>：如果 TS 脚本有没有用到的标签，不报错</p>
+</blockquote>
+<h4 id="alwaysStrict-1"><a href="#alwaysStrict-1" class="headerlink" title="--alwaysStrict"></a><code>--alwaysStrict</code></h4><blockquote>
+<p><code>--alwaysStrict</code>：总是在编译产物的头部添加<code>use strict</code></p>
+</blockquote>
+<h4 id="baseUrl-1"><a href="#baseUrl-1" class="headerlink" title="--baseUrl"></a><code>--baseUrl</code></h4><blockquote>
+<p><code>--baseUrl</code>：指定非相对位置的模块定位的基准 URL</p>
+</blockquote>
+<h4 id="build"><a href="#build" class="headerlink" title="--build"></a><code>--build</code></h4><blockquote>
+<p><code>--build</code>：启用增量编译</p>
+</blockquote>
+<h4 id="checkJs-1"><a href="#checkJs-1" class="headerlink" title="--checkJs"></a><code>--checkJs</code></h4><blockquote>
+<p><code>--checkJs</code>：对 JS 脚本进行类型检查</p>
+</blockquote>
+<h4 id="declaration-1"><a href="#declaration-1" class="headerlink" title="--declaration"></a><code>--declaration</code></h4><blockquote>
+<p><code>--declaration</code>：为 TS 脚本生成一个类型生成文件</p>
+</blockquote>
+<h4 id="declarationDir-1"><a href="#declarationDir-1" class="headerlink" title="--declarationDir"></a><code>--declarationDir</code></h4><blockquote>
+<p><code>--declarationDir</code>：指定生成的类型声明文件的所在目录</p>
+</blockquote>
+<h4 id="declarationMap-1"><a href="#declarationMap-1" class="headerlink" title="--declarationMap"></a><code>--declarationMap</code></h4><blockquote>
+<p><code>--declarationMap</code>：为<code>.d.ts</code>文件生成 <code>SourceMap</code> 文件</p>
+</blockquote>
+<h4 id="diagnostics"><a href="#diagnostics" class="headerlink" title="--diagnostics"></a><code>--diagnostics</code></h4><blockquote>
+<p><code>--diagnostics</code>：构建后输出编译性能信息</p>
+</blockquote>
+<h4 id="emitBOM-1"><a href="#emitBOM-1" class="headerlink" title="--emitBOM"></a><code>--emitBOM</code></h4><blockquote>
+<p><code>--emitBOM</code>：在编译输出的 UTF-8 文件头部加上 BOM 标志</p>
+</blockquote>
+<h4 id="emitDeclarationOnly-1"><a href="#emitDeclarationOnly-1" class="headerlink" title="--emitDeclarationOnly"></a><code>--emitDeclarationOnly</code></h4><blockquote>
+<p><code>--emitDeclarationOnly</code>：只编译输出类型声明文件，不输出 JS 文件</p>
+</blockquote>
+<h4 id="esModuleInterop-1"><a href="#esModuleInterop-1" class="headerlink" title="--esModuleInterop"></a><code>--esModuleInterop</code></h4><blockquote>
+<p><code>--esModuleInterop</code>：更容易使用 import 命令加载 CommonJS 模块</p>
+</blockquote>
+<h4 id="exactOptionalPropertyTypes-1"><a href="#exactOptionalPropertyTypes-1" class="headerlink" title="--exactOptionalPropertyTypes"></a><code>--exactOptionalPropertyTypes</code></h4><blockquote>
+<p><code>--exactOptionalPropertyTypes</code>：不允许将可选属性设置为<code>undefined</code></p>
+</blockquote>
+<h4 id="experimentalDecorators"><a href="#experimentalDecorators" class="headerlink" title="--experimentalDecorators"></a><code>--experimentalDecorators</code></h4><blockquote>
+<p><code>--experimentalDecorators</code>：支持早期的装饰器语法</p>
+</blockquote>
+<h4 id="explainFiles"><a href="#explainFiles" class="headerlink" title="--explainFiles"></a><code>--explainFiles</code></h4><blockquote>
+<p><code>--explainFiles</code>：输出进行编译的文件信息</p>
+</blockquote>
+<h4 id="forceConsistentCasingInFileNames-1"><a href="#forceConsistentCasingInFileNames-1" class="headerlink" title="--forceConsistentCasingInFileNames"></a><code>--forceConsistentCasingInFileNames</code></h4><blockquote>
+<p><code>--forceConsistentCasingInFileNames</code>：文件名大小写敏感，默认打开</p>
+</blockquote>
+<h4 id="help"><a href="#help" class="headerlink" title="--help"></a><code>--help</code></h4><blockquote>
+<p><code>--help</code>：输出帮助信息、</p>
+</blockquote>
+<h4 id="importHelpers"><a href="#importHelpers" class="headerlink" title="--importHelpers"></a><code>--importHelpers</code></h4><blockquote>
+<p><code>--importHelpers</code>：从外部库（比如 tslib）输入辅助函数</p>
+</blockquote>
+<h4 id="incremental-1"><a href="#incremental-1" class="headerlink" title="--incremental"></a><code>--incremental</code></h4><blockquote>
+<p><code>--incremental</code>：启用增量构建</p>
+</blockquote>
+<h4 id="init"><a href="#init" class="headerlink" title="--init"></a><code>--init</code></h4><blockquote>
+<p><code>--init</code>：在当前目录创建一个全新的<code>tsconfig.json</code>文件，里面是预设的设置</p>
+</blockquote>
+<h4 id="inlineSourceMap-1"><a href="#inlineSourceMap-1" class="headerlink" title="--inlineSourceMap"></a><code>--inlineSourceMap</code></h4><blockquote>
+<p><code>--inlineSourceMap</code>：<code>SourceMap </code>信息嵌入 JS 文件，而不是生成独立的<code>.js.map</code>文件</p>
+</blockquote>
+<h4 id="inlineSources-1"><a href="#inlineSources-1" class="headerlink" title="--inlineSources"></a><code>--inlineSources</code></h4><blockquote>
+<p><code>--inlineSources</code>：将 TypeScript 源码作为 <code>SourceMap</code> 嵌入编译出来的 JS 文件</p>
+</blockquote>
+<h4 id="isolatedModules-1"><a href="#isolatedModules-1" class="headerlink" title="--isolatedModules"></a><code>--isolatedModules</code></h4><blockquote>
+<p><code>--isolatedModules</code>：确保每个模块能够独立编译，不依赖其他输入的模块</p>
+</blockquote>
+<h4 id="jsx-1"><a href="#jsx-1" class="headerlink" title="--jsx"></a><code>--jsx</code></h4><blockquote>
+<p><code>--jsx</code>：设置如何处理 <code>JSX</code>文件</p>
+</blockquote>
+<h4 id="lib-1"><a href="#lib-1" class="headerlink" title="--lib"></a><code>--lib</code></h4><blockquote>
+<p><code>--lib</code>：设置目标环境需要哪些内置库的类型描述</p>
+</blockquote>
+<h4 id="listEmittedFiles-1"><a href="#listEmittedFiles-1" class="headerlink" title="--listEmittedFiles"></a><code>--listEmittedFiles</code></h4><blockquote>
+<p><code>--listEmittedFiles</code>：编译后输出编译产物的文件名</p>
+</blockquote>
+<h4 id="listFiles-1"><a href="#listFiles-1" class="headerlink" title="--listFiles"></a><code>--listFiles</code></h4><blockquote>
+<p><code>--listFiles</code>：编译过程中，列出读取的文件名</p>
+</blockquote>
+<h4 id="listFilesOnly"><a href="#listFilesOnly" class="headerlink" title="--listFilesOnly"></a><code>--listFilesOnly</code></h4><blockquote>
+<p><code>--listFilesOnly</code>：列出编译所要处理的文件，然后停止编译</p>
+</blockquote>
+<h4 id="locale"><a href="#locale" class="headerlink" title="--locale"></a><code>--locale</code></h4><blockquote>
+<p><code>--locale</code>：指定编译时输出的语言，不影响编译结果</p>
+</blockquote>
+<h4 id="mapRoot-1"><a href="#mapRoot-1" class="headerlink" title="--mapRoot"></a><code>--mapRoot</code></h4><blockquote>
+<p><code>--mapRoot</code>：指定 <code>SourceMap</code> 文件的位置</p>
+</blockquote>
+<h4 id="module-1"><a href="#module-1" class="headerlink" title="--module"></a><code>--module</code></h4><blockquote>
+<p><code>--module</code>：指定编译生成的模块格式</p>
+</blockquote>
+<h4 id="moduleResolution-1"><a href="#moduleResolution-1" class="headerlink" title="--moduleResolution"></a><code>--moduleResolution</code></h4><blockquote>
+<p><code>--moduleResolution</code>：指定如何根据模块名找到模块的位置</p>
+</blockquote>
+<h4 id="moduleSuffixes-1"><a href="#moduleSuffixes-1" class="headerlink" title="--moduleSuffixes"></a><code>--moduleSuffixes</code></h4><blockquote>
+<p><code>--moduleSuffixes</code>：指定模块文件的后缀名</p>
+</blockquote>
+<h4 id="newLine-1"><a href="#newLine-1" class="headerlink" title="--newLine"></a><code>--newLine</code></h4><blockquote>
+<p><code>--newLine</code>：指定编译产物的换行符，可以设为<code>crlf</code>或者<code>lf</code></p>
+</blockquote>
+<h4 id="noEmit-1"><a href="#noEmit-1" class="headerlink" title="--noEmit"></a><code>--noEmit</code></h4><blockquote>
+<p><code>--noEmit</code>：不生成编译产物，只进行类型检查</p>
+</blockquote>
+<h4 id="noEmitHelpers-1"><a href="#noEmitHelpers-1" class="headerlink" title="--noEmitHelpers"></a><code>--noEmitHelpers</code></h4><blockquote>
+<p><code>--noEmitHelpers</code>：不在编译产物中加入辅助函数</p>
+</blockquote>
+<h4 id="noEmitOnError-1"><a href="#noEmitOnError-1" class="headerlink" title="--noEmitOnError"></a><code>--noEmitOnError</code></h4><blockquote>
+<p><code>--noEmitOnError</code>：一旦报错，就停止编译，没有编译产物。</p>
+</blockquote>
+<h4 id="noFallthroughCasesInSwitch-1"><a href="#noFallthroughCasesInSwitch-1" class="headerlink" title="--noFallthroughCasesInSwitch"></a><code>--noFallthroughCasesInSwitch</code></h4><blockquote>
+<p><code>--noFallthroughCasesInSwitch</code>：Switch 结构的case分支必须有终止语句（比如break）</p>
+</blockquote>
+<h4 id="noImplicitAny-1"><a href="#noImplicitAny-1" class="headerlink" title="--noImplicitAny"></a><code>--noImplicitAny</code></h4><blockquote>
+<p><code>--noImplicitAny</code>：类型推断只要为any类型就报错</p>
+</blockquote>
+<h4 id="noImplicitReturns-1"><a href="#noImplicitReturns-1" class="headerlink" title="--noImplicitReturns"></a><code>--noImplicitReturns</code></h4><blockquote>
+<p><code>--noImplicitReturns</code>：函数内部没有显式返回语句（比如return）就报错</p>
+</blockquote>
+<h4 id="noImplicitThis-1"><a href="#noImplicitThis-1" class="headerlink" title="--noImplicitThis"></a><code>--noImplicitThis</code></h4><blockquote>
+<p><code>--noImplicitThis</code>：如果this关键字是any类型，就报错</p>
+</blockquote>
+<h4 id="noImplicitUseStrict"><a href="#noImplicitUseStrict" class="headerlink" title="--noImplicitUseStrict"></a><code>--noImplicitUseStrict</code></h4><blockquote>
+<p><code>--noImplicitUseStrict</code>：编译产生的 JS 文件头部不添加use strict语句</p>
+</blockquote>
+<h4 id="noResolve"><a href="#noResolve" class="headerlink" title="--noResolve"></a><code>--noResolve</code></h4><blockquote>
+<p><code>--noResolve</code>：不进行模块定位，除非该模块是由命令行传入</p>
+</blockquote>
+<h4 id="noUnusedLocals-1"><a href="#noUnusedLocals-1" class="headerlink" title="--noUnusedLocals"></a><code>--noUnusedLocals</code></h4><blockquote>
+<p><code>--noUnusedLocals</code>：如果有未使用的局部变量就报错</p>
+</blockquote>
+<h4 id="noUnusedParameters-1"><a href="#noUnusedParameters-1" class="headerlink" title="--noUnusedParameters"></a><code>--noUnusedParameters</code></h4><blockquote>
+<p><code>--noUnusedParameters</code>：如果有未使用的函数参数就报错</p>
+</blockquote>
+<h4 id="outDir-1"><a href="#outDir-1" class="headerlink" title="--outDir"></a><code>--outDir</code></h4><blockquote>
+<p><code>--outDir</code>：指定编译产物的存放目录</p>
+</blockquote>
+<h4 id="outFile-1"><a href="#outFile-1" class="headerlink" title="--outFile"></a><code>--outFile</code></h4><blockquote>
+<p><code>--outFile</code>：所有编译产物打包成一个指定文件</p>
+</blockquote>
+<h4 id="preserveConstEnums-1"><a href="#preserveConstEnums-1" class="headerlink" title="--preserveConstEnums"></a><code>--preserveConstEnums</code></h4><blockquote>
+<p><code>--preserveConstEnums</code>：不将<code>const enum</code>结构在生成的代码中，替换成常量</p>
+</blockquote>
+<h4 id="preserveWatchOutput"><a href="#preserveWatchOutput" class="headerlink" title="--preserveWatchOutput"></a><code>--preserveWatchOutput</code></h4><blockquote>
+<p><code>--preserveWatchOutput</code>： watch 模式下不清屏</p>
+</blockquote>
+<h4 id="pretty-1"><a href="#pretty-1" class="headerlink" title="--pretty"></a><code>--pretty</code></h4><blockquote>
+<p><code>--pretty</code>：美化显示编译时的终端输出。这是默认值，但是可以关闭<code>--pretty false</code></p>
+</blockquote>
+<h4 id="project"><a href="#project" class="headerlink" title="--project"></a><code>--project</code></h4><blockquote>
+<p><code>--project</code>（或者-p）：指定编译配置文件，或者该文件所在的目录</p>
+</blockquote>
+<h4 id="removeComments-1"><a href="#removeComments-1" class="headerlink" title="--removeComments"></a><code>--removeComments</code></h4><blockquote>
+<p><code>--removeComments</code>：编译结果中移除代码注释</p>
+</blockquote>
+<h4 id="resolveJsonModule-1"><a href="#resolveJsonModule-1" class="headerlink" title="--resolveJsonModule"></a><code>--resolveJsonModule</code></h4><blockquote>
+<p><code>--resolveJsonModule</code>：允许加载 JSON 文件</p>
+</blockquote>
+<h4 id="rootDir-1"><a href="#rootDir-1" class="headerlink" title="--rootDir"></a><code>--rootDir</code></h4><blockquote>
+<p><code>--rootDir</code>：指定加载文件所在的根目录，该目录里面的目录结构会被复制到输出目录</p>
+</blockquote>
+<h4 id="rootDirs-1"><a href="#rootDirs-1" class="headerlink" title="--rootDirs"></a><code>--rootDirs</code></h4><blockquote>
+<p><code>--rootDirs</code>：允许模块定位时，多个目录被当成一个虚拟目录</p>
+</blockquote>
+<h4 id="skipDefaultLibCheck"><a href="#skipDefaultLibCheck" class="headerlink" title="--skipDefaultLibCheck"></a><code>--skipDefaultLibCheck</code></h4><blockquote>
+<p><code>--skipDefaultLibCheck</code>：跳过 TypeScript 内置类型声明文件的类型检查</p>
+</blockquote>
+<h4 id="skipLibCheck"><a href="#skipLibCheck" class="headerlink" title="--skipLibCheck"></a><code>--skipLibCheck</code></h4><blockquote>
+<p><code>--skipLibCheck</code>：跳过<code>.d.ts</code>类型声明文件的类型检查。这样可以加快编译速度</p>
+</blockquote>
+<h4 id="showConfig"><a href="#showConfig" class="headerlink" title="--showConfig"></a><code>--showConfig</code></h4><blockquote>
+<p><code>--showConfig</code>：终端输出编译配置信息，而不进行配置</p>
+</blockquote>
+<h4 id="sourcemap"><a href="#sourcemap" class="headerlink" title="--sourcemap"></a><code>--sourcemap</code></h4><blockquote>
+<p><code>--sourcemap</code>：为编译产生的 JS 文件生成 <code>SourceMap</code> 文件（<code>.map</code> 文件）</p>
+</blockquote>
+<h4 id="sourceRoot-1"><a href="#sourceRoot-1" class="headerlink" title="--sourceRoot"></a><code>--sourceRoot</code></h4><blockquote>
+<p><code>--sourceRoot</code>：指定 <code>SourceMap</code> 文件里面的 TypeScript 源码根目录位置</p>
+</blockquote>
+<h4 id="strict-1"><a href="#strict-1" class="headerlink" title="--strict"></a><code>--strict</code></h4><blockquote>
+<p><code>--strict</code>：打开 TypeScript 严格检查模式</p>
+</blockquote>
+<h4 id="strictBindCallApply-1"><a href="#strictBindCallApply-1" class="headerlink" title="--strictBindCallApply"></a><code>--strictBindCallApply</code></h4><blockquote>
+<p><code>--strictBindCallApply</code>：<code>bind, call、apply</code> 这三个函数的类型，匹配原始函数</p>
+</blockquote>
+<h4 id="strictFunctionTypes-1"><a href="#strictFunctionTypes-1" class="headerlink" title="--strictFunctionTypes"></a><code>--strictFunctionTypes</code></h4><blockquote>
+<p><code>--strictFunctionTypes</code>：如果函数 B 的参数是函数 A 参数的子类型，那么函数 B 不能替代函数 A</p>
+</blockquote>
+<h4 id="strictNullChecks-1"><a href="#strictNullChecks-1" class="headerlink" title="--strictNullChecks"></a><code>--strictNullChecks</code></h4><blockquote>
+<p><code>--strictNullChecks</code>：对<code>null</code>和<code>undefined</code>进行严格类型检查</p>
+</blockquote>
+<h4 id="strictPropertyInitialization-1"><a href="#strictPropertyInitialization-1" class="headerlink" title="--strictPropertyInitialization"></a><code>--strictPropertyInitialization</code></h4><blockquote>
+<p><code>--strictPropertyInitialization</code>：类的属性必须进行初始值，但是允许在构造函数里面赋值</p>
+</blockquote>
+<h4 id="suppressExcessPropertyErrors-1"><a href="#suppressExcessPropertyErrors-1" class="headerlink" title="--suppressExcessPropertyErrors"></a><code>--suppressExcessPropertyErrors</code></h4><blockquote>
+<p><code>--suppressExcessPropertyErrors</code>：关闭对象字面量的多余参数的报错</p>
+</blockquote>
+<h4 id="target-1"><a href="#target-1" class="headerlink" title="--target"></a><code>--target</code></h4><blockquote>
+<p><code>--target</code>：指定编译出来的 JS 代码的版本，TypeScript 还会在编译时自动加入对应的库类型声明文件</p>
+</blockquote>
+<h4 id="traceResolution-1"><a href="#traceResolution-1" class="headerlink" title="--traceResolution"></a><code>--traceResolution</code></h4><blockquote>
+<p><code>--traceResolution</code>：编译时在终端输出模块解析（moduleResolution）的具体步骤</p>
+</blockquote>
+<h4 id="typeRoots-1"><a href="#typeRoots-1" class="headerlink" title="--typeRoots"></a><code>--typeRoots</code></h4><blockquote>
+<p><code>--typeRoots</code>：设置类型模块所在的目录，替代默认的<code>node_modules/@types</code></p>
+</blockquote>
+<h4 id="types-1"><a href="#types-1" class="headerlink" title="--types"></a><code>--types</code></h4><blockquote>
+<p><code>--types</code>：设置<code>typeRoots</code>目录下需要包括在编译之中的类型模块</p>
+</blockquote>
+<h4 id="version"><a href="#version" class="headerlink" title="--version"></a><code>--version</code></h4><blockquote>
+<p><code>--version</code>：终端输出 tsc 的版本号</p>
+</blockquote>
+<h4 id="watch"><a href="#watch" class="headerlink" title="--watch"></a><code>--watch</code></h4><blockquote>
+<p><code>--watch</code>（或者-w）：进入观察模式，只要文件有修改，就会自动重新编译</p>
+</blockquote>
+<blockquote>
+<p>随着前端应用越来越复杂，多人协作开发成为了一种常态，而模块化的开发方式也被广泛接受了。然而这却是一个渐进的过程，在这个过程中曾经诞生过许多的模块化解决方案，如：CommonJS、AMD、CMD 等等</p>
+</blockquote>
+<blockquote>
+<p>经历了时间的沉淀，最终目前最常用的两种方案：一种是 ES6 的模块，一种是 CommonJS 的模块。</p>
+</blockquote>
+<blockquote>
+<p>TS 对这两种模块系统都有比较好的支持，接下来我们会先回顾下两个模块系统，然后对比它们之间的兼容性问题。</p>
+</blockquote>
+<h3 id="五、TS-基础环境搭建"><a href="#五、TS-基础环境搭建" class="headerlink" title="五、TS 基础环境搭建"></a>五、TS 基础环境搭建</h3><blockquote>
+<p>在基础阶段，我们已经搭建配置过 TS 的基础环境了，这里我们再简单熟悉一下</p>
+<ul>
+<li>在 TS 的环境搭建中，预装软件只有两个：<code>Node.js</code> 和 <code>VSCode</code></li>
+</ul>
+</blockquote>
+<ol>
+<li>创建项目和基础配置<blockquote>
+<p>创建一个项目，文件夹名称为 <code>icoding-ts</code></p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>使用 npm 命令初始化工程</p>
+</blockquote>
+<pre><code># npm 初始化生成 package.json 配置文件
+npm init -y
+</code></pre>
+<blockquote>
+<p>全局安装 TypeScript</p>
+</blockquote>
+<pre><code># 全局安装 TS，好处：在任何地方都可以使用 TS 的编译器 即：tsc
+npm i typescript -g
+</code></pre>
+<blockquote>
+<p>安装好 TS 编译器后，就可以在命令行中使用 tsc 命令了</p>
+</blockquote>
+<pre><code># 查看 TS 的版本
+tsc -v
+
+# 查看 TS 的帮助信息，可以看到编译器有很多的配置项，大部分都可以通过配置文件来实现
+tsc -h
+</code></pre>
+<ol start="2">
+<li>创建 TS 的配置文件<blockquote>
+<p>初始化 TS 配置文件</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>tsc --init
+</code></pre>
+<ol start="3">
+<li>编译 TS 文件<blockquote>
+<p>在 VSCode 命令行终端中</p>
+</blockquote>
+</li>
+</ol>
+<pre><code># 通过 tsc 编译 .ts 文件
+tsc .\src\index.ts
+
+# 运行编译后的 .js 文件
+node .\src\index.js
+
+# 输出
+Hello TS !
+</code></pre>
+<h3 id="六、配置构建工具"><a href="#六、配置构建工具" class="headerlink" title="六、配置构建工具"></a>六、配置构建工具</h3><blockquote>
+<p>我们这里使用常见的 Webpack ，如果暂时不熟悉也没有关系，只是为了让 TS 的功能跑起来，同时作为体验。Webpack 只是一个工具而已。</p>
+</blockquote>
+<ol>
+<li>Webpack 配置安装<blockquote>
+<p>需要先安装三个包 <code>webpack</code>、<code>webpack-cli</code>、<code>webpack-dev-server</code></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm i webpack webpack-cli webpack-dev-server -D
+</code></pre>
+<blockquote>
+<p>在配置 Webpack 时，我们需要区分开发环境 和 生产环境，这两个环境的配置是不一样的，需要做不同的事情。</p>
+</blockquote>
+<blockquote>
+<p>为了工程的可维护性，需要把开发环境的配置、生产环境的配置、公共配置分开来书写，最后通过插件来合并</p>
+</blockquote>
+<blockquote>
+<p>在项目根目录下先创建一个 build&#96;文件目录（再创建 4 个配置文件），用来存放所有的配置文件的目录</p>
+</blockquote>
+<pre><code>icoding-ts
+├─ build
+│ ├─ webpack.base.config.js # 公共环境的配置
+│ ├─ webpack.config.js # 所有配置文件的入口
+│ ├─ webpack.dev.config.js # 开发环境的配置
+│ └─ webpack.pro.config.js # 生产环境的配置
+├─ package.json
+├─ src
+│ ├─ index.js
+│ └─ index.ts
+└─ tsconfig.json
+</code></pre>
+<ol start="2">
+<li>公共环境的配置<blockquote>
+<p><code>build/webpack.base.config.js</code>配置公共环境</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;);
+
+module.exports = &#123;
+  // 入口文件
+  entry: &quot;./src/index.ts&quot;,
+  // 输出文件，输出目录 dist（默认）
+  output: &#123;
+    filename: &quot;app.js&quot;,
+  &#125;,
+  // 指定扩展名，分别为 .js 、.ts 、.tsx
+  resolve: &#123;
+    extensions: [&quot;.js&quot;, &quot;.ts&quot;, &quot;.tsx&quot;],
+  &#125;,
+  // 引入了新的文件 TypeScript，就需要安装相应的 loader，我们使用 ts-loader
+  module: &#123;
+    rules: [
+      &#123;
+        // ts-loader 的正则，以 ts 或 tsx 结尾的文件
+        test: /\.tsx?$/i,
+        use: [
+          &#123;
+            loader: &quot;ts-loader&quot;,
+          &#125;,
+        ],
+        // 排除 node_modules 下的文件
+        exclude: /node_modules/,
+      &#125;,
+    ],
+  &#125;,
+  // 插件
+  plugins: [
+    // HtmlWebpackPlugin 插件，作用：通过一个模板，帮助我们生成网站的首页，同时可以把输出文件自动嵌入到该文件中
+    new HtmlWebpackPlugin(&#123;
+      // 在 ./src/tpl/ 目录下创建 index.html 文件
+      template: &quot;./src/tpl/index.html&quot;,
+    &#125;),
+  ],
+&#125;;
+</code></pre>
+<blockquote>
+<p>在命令终端中输入命令行，安装 <code>ts-loader</code></p>
+</blockquote>
+<pre><code>npm i ts-loader typescript -D
+</code></pre>
+<ul>
+<li>注：安装 ts-loader 时，需要再次本地安装一下 typescript</li>
+</ul>
+<blockquote>
+<p>安装插件 <code>html-webpack-plugin</code></p>
+</blockquote>
+<pre><code>npm i html-webpack-plugin -D
+</code></pre>
+<blockquote>
+<p>在 src 目录下新建 <code>tpl</code> 文件夹 -&gt; 新建 <code>index.html</code> 文件，项目目录结构如下</p>
+</blockquote>
+<pre><code>icoding-ts
+├─ build
+│  ├─ webpack.base.config.js
+│  ├─ webpack.config.js
+│  ├─ webpack.dev.config.js
+│  └─ webpack.pro.config.js
+├─ package.json
+├─ README.md
+├─ src
+│  ├─ index.js
+│  ├─ index.ts
+│  └─ tpl
+│     └─ index.html # 新建 index.html 文件
+└─ tsconfig.json
+</code></pre>
+<blockquote>
+<p>在 <code>/src/tpl/index.html</code> 中</p>
+</blockquote>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;TypeScript&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- 定义一个 class=&quot;app&quot; 的 div --&gt;
+    &lt;div class=&quot;app&quot;&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ol start="3">
+<li>开发环境中的配置<blockquote>
+<p><code>build/webpack.dev.config.js</code>配置开发环境</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>module.exports = &#123;
+  // 在开发环境中开启 source-map，也是官方推荐的配置
+  // cheap 表示 source-map 会忽略文件的列信息，因为在调试时列信息是没有用的
+  // module 会定位到 TS 的源码，而不是经过 loader 转译后的 JS 源码
+  // eval-source-map 会将 source-map 以 dataURL 的形式打包到文件中，它的重编译速度是很快的，因此也不必担心性能问题
+  devtool: &quot;cheap-module-eval-source-map&quot;,
+&#125;;
+</code></pre>
+<ol start="4">
+<li>生产环境中的配置<blockquote>
+<p>在生产环境中需要安装一个插件<code>clean-webpack-plugin</code></p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>作用：是在每次成功构建之后，帮助我们清空 dist 目录。</li>
+</ul>
+<blockquote>
+<p>有的时候为了避免缓存，我们需要在文件后加入 <code>Hash</code> ，这样在多次构建后就会产生很多无用的文件。通过这个插件就可以帮助我们自动的清空 <code>dist</code> 目录。</p>
+</blockquote>
+<pre><code># 本地安装 clean-webpack-plugin 插件
+npm i clean-webpack-plugin -D
+</code></pre>
+<blockquote>
+<p><code>build/webpack.pro.config.js</code>配置生产环境</p>
+</blockquote>
+<pre><code>const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);
+
+module.exports = &#123;
+  plugins: [new CleanWebpackPlugin()],
+&#125;;
+</code></pre>
+<ol start="5">
+<li>所有配置文件入口的配置<blockquote>
+<p>需要用到 <code>webpack-merge</code> 插件，它的作用是将两个配置文件合并</p>
+</blockquote>
+</li>
+</ol>
+<pre><code># 本地安装 webpack-merge 插件
+npm i webpack-merge -D
+</code></pre>
+<blockquote>
+<p><code>build/webpack.config.js</code>配置所有配置文件的入口</p>
+</blockquote>
+<pre><code>// webpack-merge 插件，它的作用是将两个配置文件合并
+const &#123; merge &#125; = require(&quot;webpack-merge&quot;);
+// 引入三个配置文件（公共环境配置、开发环境配置、生产环境配置）
+const baseConfig = require(&quot;./webpack.base.config&quot;);
+const devConfig = require(&quot;./webpack.dev.config&quot;);
+const proConfig = require(&quot;./webpack.pro.config&quot;);
+
+// 定义一个 config 变量
+// 判断当前的环境变量，如果是开发环境，就选用开发环境的配置，否则就选用生产环境的配置
+let config = process.NODE_ENV === &quot;development&quot; ? devConfig : proConfig;
+
+// 将 baseConfig 和 config 合并
+module.exports = merge(baseConfig, config);
+</code></pre>
+<ul>
+<li>配置工作完成后，最后再修改 npm 的脚本</li>
+</ul>
+<ol start="6">
+<li>修改 npm 的脚本<blockquote>
+<p>打开 <code>package.json</code> 文件，更改入口 和 编写启动开发环境的命令</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;icoding-ts&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  // 更改入口文件
+  &quot;main&quot;: &quot;./src/index.ts&quot;,
+  &quot;scripts&quot;: &#123;
+    // 启动开发环境的命令
+    &quot;start&quot;: &quot;webpack-dev-server --mode=development --config ./build/webpack.config.js&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>添加启动开发环境的命令 start 中需要用到 <code>webpack-dev-server</code></li>
+<li>指定 <code>--mode</code> 参数为<code>--mode=development</code> ，即：将当前环境变量设置为 <code>development</code></li>
+<li>再指定配置文件 <code>--config</code> 为 <code>./build/webpack.config.js</code></li>
+</ul>
+<ol start="7">
+<li>启动运行<blockquote>
+<p>在控制台输入命令，启动运行</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm start
+</code></pre>
+<blockquote>
+<p>在浏览器地址栏中输入 <code>http://localhost:8080/</code> 即可看到页面<br>修改 <code>./src/index.ts</code> 文件</p>
+</blockquote>
+<pre><code>let hello: string = &quot;Hello TS ！&quot;;
+console.log(hello);
+
+// 将以上字符串插入到页面中
+document.querySelectorAll(&quot;.app&quot;)[0].innerHTML = hello;
+</code></pre>
+<ol start="8">
+<li>构建生产环境<blockquote>
+<p>编写构建生产环境的脚本，新增 <code>build</code>。在 <code>package.json</code> 中 新增 build 选项</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&#123;
+  &quot;name&quot;: &quot;icoding-ts&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;./src/index.ts&quot;,
+  &quot;scripts&quot;: &#123;
+    &quot;start&quot;: &quot;webpack-dev-server --mode=development --config ./build/webpack.config.js&quot;,
+    // 新增
+    &quot;build&quot;: &quot;webpack --mode=production --config ./build/webpack.config.js&quot;,
+    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;
+  &#125;,
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;devDependencies&quot;: &#123;
+    &quot;clean-webpack-plugin&quot;: &quot;^4.0.0&quot;,
+    &quot;html-webpack-plugin&quot;: &quot;^5.5.3&quot;,
+    &quot;ts-loader&quot;: &quot;^9.4.4&quot;,
+    &quot;typescript&quot;: &quot;^5.1.6&quot;,
+    &quot;webpack&quot;: &quot;^5.88.2&quot;,
+    &quot;webpack-cli&quot;: &quot;^5.1.4&quot;,
+    &quot;webpack-dev-server&quot;: &quot;^4.15.1&quot;,
+    &quot;webpack-merge&quot;: &quot;^5.9.0&quot;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>构建生产环境的脚本，取名叫 <code>build</code></li>
+<li>需要用到 <code>webpack</code> 命名，指定 –mode参数为 <code>--mode=production</code> 即：当前的环境变量</li>
+<li>指定配置文件 <code>--config</code> 为 <code>./build/webpack.config.js</code></li>
+</ul>
+<ol start="9">
+<li>运行构建命令<blockquote>
+<p>在控制台输入如下命令</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>npm run build
+</code></pre>
+<p>可以看到已经生成了一个 <code>dist</code> 目录，构建好的 <code>app.js</code> 也已经嵌入到了模板文件中</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/02/07/TypeScript%EF%BC%88%E4%B8%83%EF%BC%89/">https://hermiablog.com/2024/02/07/TypeScript%EF%BC%88%E4%B8%83%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TypesSript/">
+                                    <span class="chip bg-color">TypesSript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/02/07/TypeScript%EF%BC%88%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/58.jpg" class="responsive-img" alt="TypeScript（七）">
+                        
+                        <span class="card-title">TypeScript（七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            注释指令、tsconfig.json配置、环境搭建
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/07/TypeScript%EF%BC%88%E5%85%AD%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/57.jpg" class="responsive-img" alt="TypeScript（六）">
+                        
+                        <span class="card-title">TypeScript（六）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            模块、命名空间、关键字、类型声明文件、类型运算符、类型映射、类型工具
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

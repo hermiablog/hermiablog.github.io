@@ -1,0 +1,3388 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="TypesSript（四）, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>TypesSript（四） | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/54.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">TypesSript（四）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/TypesSript/">
+                                <span class="chip bg-color">TypesSript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    12.3k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><blockquote>
+<p>在 ES6 中引入 class 关键字，我们终于可以向传统的面向对象语言那样去创建一个类了。总体上来讲 TS 的类覆盖了 ES6 的类，同时也引入了其他特性，接下来我们会重点比较它们两者之间的不同。</p>
+<p>类（class）是面向对象编程的基本构件，封装了属性和方法，TypeScript 给予了全面支持。</p>
+</blockquote>
+<h4 id="属性的类型"><a href="#属性的类型" class="headerlink" title="属性的类型"></a>属性的类型</h4><blockquote>
+<p>类的属性可以在顶层声明，也可以在构造方法内部声明。</p>
+</blockquote>
+<blockquote>
+<p>对于顶层声明的属性，可以在声明时同时给出类型</p>
+</blockquote>
+<pre><code>class Count &#123;
+  a: number;
+  b: number;
+&#125;
+</code></pre>
+<ul>
+<li>如果开启了<code>strictPropertyInitialization</code>，就会检查属性是否设置了初值，如果没有就报错</li>
+</ul>
+<blockquote>
+<p>如果不给出类型，TypeScript 会认为a和b的类型都是<code>any</code></p>
+</blockquote>
+<pre><code>class Count &#123;
+  a;
+  b;
+&#125;
+
+// a 和 b 的类型都是 any
+</code></pre>
+<blockquote>
+<p>如果声明时给出初始值，可以不写类型，TypeScript 会自行推断属性的类型。</p>
+</blockquote>
+<pre><code>class Count &#123;
+  a = 2;
+  b = 3;
+&#125;
+
+// 属性 a 和 b 的类型都会被推断为 number
+</code></pre>
+<ol>
+<li>属性的类型 - 注意事项<blockquote>
+<p>TypeScript 有一个配置项<code>strictPropertyInitialization</code>，只要打开（默认是打开的），就会检查属性是否设置了初值，如果没有就报错。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class Count &#123;
+  a: number; // 报错
+  b: number; // 报错
+&#125;
+</code></pre>
+<blockquote>
+<p>以上代码中，如果类的顶层属性不赋值，就会报错。如果不希望出现报错，可以使用<strong>非空断言</strong></p>
+</blockquote>
+<pre><code>class Count &#123;
+  a!: number; // 正确
+  b!: number; // 正确
+&#125;
+</code></pre>
+<ul>
+<li>属性 a 和 b 没有初值，但是属性名后面添加了感叹号，表示这两个属性肯定不会为空，所以 TypeScript 就不报错了，后面 类型断言 部分还会详细讲解。</li>
+</ul>
+<h4 id="readonly-修饰符"><a href="#readonly-修饰符" class="headerlink" title="readonly 修饰符"></a>readonly 修饰符</h4><blockquote>
+<p>属性名前面加上 readonly 修饰符，就表示该属性是只读的。实例对象不能修改这个属性。</p>
+</blockquote>
+<pre><code>class A &#123;
+  readonly id = &quot;1001&quot;;
+&#125;
+
+const a = new A();
+a.id = &quot;1003&quot;; // 报错
+</code></pre>
+<ul>
+<li>id 属性前面有 readonly 修饰符，实例对象修改这个属性就会报错</li>
+</ul>
+<blockquote>
+<p>readonly 属性的初始值，可以写在顶层属性，也可以写在构造方法里面</p>
+</blockquote>
+<pre><code>class A &#123;
+  readonly id: string;
+
+  constructor() &#123;
+    this.id = &quot;1001&quot;; // 正确
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>以上代码中，构造方法内部设置只读属性的初值，这是可以的。</li>
+</ul>
+<blockquote>
+<p>构造方法修改只读属性的值也是可以的</p>
+</blockquote>
+<pre><code>class A &#123;
+  readonly id: string = &quot;1001&quot;;
+
+  constructor() &#123;
+    this.id = &quot;1003&quot;; // 正确
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>或者说，如果两个地方都设置了只读属性的值，以构造方法为准</li>
+<li>在其他方法修改只读属性都会报错</li>
+</ul>
+<h4 id="方法的类型"><a href="#方法的类型" class="headerlink" title="方法的类型"></a>方法的类型</h4><blockquote>
+<p>类的方法就是普通函数，类型声明方式与函数一致。</p>
+</blockquote>
+<pre><code>class Count &#123;
+  a: number;
+  b: number;
+
+  constructor(a: number, b: number) &#123;
+    this.a = a;
+    this.b = b;
+  &#125;
+
+  add(count: Count) &#123;
+    return new Count(this.a + count.a, this.b + count.b);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>构造方法 <code>constructor()</code> 和 普通方法 <code>add()</code> 都注明了参数类型，但是省略了返回值类型，因为 TypeScript 可以自己推断出来</li>
+</ul>
+<blockquote>
+<p>类的方法跟普通函数一样，可以使用参数默认值，以及函数重载。</p>
+</blockquote>
+<blockquote>
+<p>以下是参数默认值的例子</p>
+</blockquote>
+<pre><code>class Count &#123;
+  a: number;
+  b: number;
+
+  constructor(a = 0, b = 0) &#123;
+    this.a = a;
+    this.b = b;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>如果新建实例时，不提供属性 a 和 b 的值，它们都等于默认值 0</li>
+</ul>
+<blockquote>
+<p>以下是函数重载的例子</p>
+</blockquote>
+<pre><code>class Count &#123;
+  constructor(a: number, b: string);
+  constructor(s: string);
+  constructor(as: number | string, b?: string) &#123;
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>构造方法可以接受一个参数，也可以接受两个参数，采用函数重载进行类型声明</li>
+</ul>
+<blockquote>
+<p>另外，构造方法不能声明返回值类型，否则报错，因为它总是返回实例对象。</p>
+</blockquote>
+<pre><code>class B &#123;
+  constructor(): object &#123;
+    // 报错
+    // ...
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>构造方法声明了返回值类型 object，导致报错</li>
+</ul>
+<h4 id="存取器"><a href="#存取器" class="headerlink" title="存取器"></a>存取器</h4><ol>
+<li>存取器方法</li>
+</ol>
+<ul>
+<li>存取器（accessor）是特殊的类方法，包括取值器（getter）和 存值器（setter）两种方法。</li>
+<li>它们用于读写某个属性，取值器用来读取属性，存值器用来写入属性</li>
+</ul>
+<pre><code>class C &#123;
+  _username = &quot;&quot;;
+  get username() &#123;
+    return this._username;
+  &#125;
+  set username(value) &#123;
+    this._username = value;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p><code>get username()</code>是取值器，其中<code>get</code>是关键词，<code>username</code>是属性名</p>
+</blockquote>
+<ul>
+<li>外部读取<code>username</code>属性时，实例对象会自动调用这个方法，该方法的返回值就是<code>username</code>属性的值。</li>
+</ul>
+<blockquote>
+<p><code>set username()</code>是存值器，其中<code>set</code>是关键词，<code>username</code>是属性名</p>
+</blockquote>
+<ul>
+<li>外部写入username属性时，实例对象会自动调用这个方法，并将所赋的值作为函数参数传入。</li>
+</ul>
+<ol start="2">
+<li>存取器的规则<blockquote>
+<p>TypeScript 对存取器有以下 3 种规则<br>①、如果某个属性只有<code>get</code>方法，没有<code>set</code>方法，那么该属性自动成为只读属性</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class C &#123;
+  _username = &quot;code&quot;;
+
+  get username() &#123;
+    return this._username;
+  &#125;
+&#125;
+
+const c = new C();
+c.username = &quot;ibc&quot;; // 报错
+</code></pre>
+<ul>
+<li>username 属性没有 set 方法，对该属性赋值就会报错</li>
+</ul>
+<p>②、TypeScript 5.1 版之前，set方法的参数类型，必须兼容get方法的返回值类型，否则报错</p>
+<pre><code>// TypeScript 5.1 版之前
+class C &#123;
+  _username = &quot;&quot;;
+  get username(): string &#123;
+    // 报错
+    return this._username;
+  &#125;
+  set username(value: number) &#123;
+    this._username = String(value);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>上面示例中，get方法的返回值类型是字符串，与set方法的参数类型number不兼容，导致报错。改成下面这样，就不会报错</li>
+</ul>
+<pre><code>class C &#123;
+  _name = &#39;&#39;;
+  get name():string &#123;
+    return this._name;
+  &#125;
+  set name(value:number|string) &#123;
+    this._name = String(value);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>上面示例中，set 方法的参数类型（number|string）兼容 get 方法的返回值类型（string），这是允许的</li>
+<li>TypeScript 5.1 版做出了改变，现在两者可以不兼容。</li>
+</ul>
+<p>③、get方法与set方法的可访问性必须一致，要么都为公开方法，要么都为私有方法。</p>
+<h4 id="属性索引"><a href="#属性索引" class="headerlink" title="属性索引"></a>属性索引</h4><blockquote>
+<p>类允许定义属性索引</p>
+</blockquote>
+<pre><code>class Test &#123;
+  [s: string]: boolean | ((s: string) =&gt; boolean);
+
+  get(s: string) &#123;
+    return this[s] as boolean;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>[s:string]</code>表示所有属性名类型为字符串的属性，它们的属性值要么是布尔值，要么是返回布尔值的函数</li>
+</ul>
+<blockquote>
+<p>注意，由于类的方法是一种特殊属性（属性值为函数的属性），所以属性索引的类型定义也涵盖了方法。如果一个对象同时定义了属性索引和方法，那么<strong>前者必须包含后者的类型</strong></p>
+</blockquote>
+<pre><code>class Test &#123;
+  [s: string]: boolean;
+  f() &#123;
+    // 报错
+    return true;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>以上代码中，属性索引的类型里面不包括方法，导致后面的方法f()定义直接报错。正确的写法是下面这样</p>
+</blockquote>
+<pre><code>class Test &#123;
+  [s: string]: boolean | (() =&gt; boolean);
+  f() &#123;
+    return true;
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>属性存取器视同属性。</p>
+</blockquote>
+<pre><code>class Test &#123;
+  [s: string]: boolean;
+
+  get isInstance() &#123;
+    return true;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>属性 inInstance 的读取器虽然是一个函数方法，但是视同属性，所以属性索引虽然没有涉及方法类型，但是不会报错</li>
+</ul>
+<h4 id="ES6-与-TS-中的-class"><a href="#ES6-与-TS-中的-class" class="headerlink" title="ES6 与 TS 中的 class"></a>ES6 与 TS 中的 class</h4><blockquote>
+<p>TS 中类的基本实现</p>
+</blockquote>
+<pre><code>// 定义一个 People 类，与 ES 不同的是，我们为成员属性添加了类型注解
+class People &#123;
+  // 构造函数的参数添加了类型注解
+  // 构造函数的返回值会自动推断为 People，即该类的本身（鼠标划上去即可看到）
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  username: string;
+  // run() 方法的默认返回值是 void（鼠标划上去即可看到）
+  run() &#123;&#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>无论在 ES 或 TS 中，类成员的属性都是实例属性，而不是原型属性；而类成员的方法都是实例方法；</p>
+<ul>
+<li>打印 People 类的原型，对比看结果</li>
+</ul>
+</blockquote>
+<pre><code>class People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  username: string;
+  run() &#123;&#125;
+&#125;
+
+// 打印输出 类的原型
+console.log(People.prototype); // &#123;constructor: ƒ, run: ƒ&#125;
+</code></pre>
+<ul>
+<li>从上边打印的结果可以看到，它是不包含 username 属性的，只有 <code>constructor</code> 和 <code>run</code> 方法</li>
+</ul>
+<blockquote>
+<ul>
+<li>创建一个类的实例，并打印输出类的实例</li>
+</ul>
+</blockquote>
+<pre><code>class People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  username: string;
+  run() &#123;&#125;
+&#125;
+
+// 打印输出 类的原型
+console.log(People.prototype); // &#123;constructor: ƒ, run: ƒ&#125;
+
+// 创建一个类的实例
+let people = new People(&quot;hermia&quot;);
+console.log(people); // People &#123; username: &#39;hermia&#39; &#125;
+</code></pre>
+<ul>
+<li>通过以上打印输出类实例的结果，对比可以看到<ul>
+<li>username 属性只在实例上而不在原型上；</li>
+<li>与 ES 中不同的是，TS中实例的属性必须具有初始值 或 在构造函数中被初始化。即 <code>this.username = username</code> （如果删掉该初始化的语句，那么编译器就会提示我们必须要赋一个初始的值）。如下</li>
+</ul>
+</li>
+</ul>
+<pre><code>class People &#123;
+  constructor(username: string) &#123;
+    // this.username = username
+    // 删掉该初始化的语句，编辑器就会报错提示：必须要赋一个初始的值
+  &#125;
+  // 赋一个初始的值
+  // username: string = &#39;arry&#39;
+  // 或 将 username 设置为可选属性，也会不报错
+  username?: string;
+  run() &#123;&#125;
+&#125;
+
+// 打印输出 类的原型
+console.log(People.prototype); // &#123;constructor: ƒ, run: ƒ&#125;
+
+// 创建一个类的实例
+let people = new People(&quot;hermia&quot;);
+console.log(people); // People &#123; username: &#39;hermia&#39; &#125;
+</code></pre>
+<h3 id="二、类的-interface-接口"><a href="#二、类的-interface-接口" class="headerlink" title="二、类的 interface 接口"></a>二、类的 interface 接口</h3><blockquote>
+<p>接口在 TS 中是一个非常重要的概念，接口可以用来约束对象、函数、以及类的结构 和 类型，这是一种代码协作的契约，我们必须遵守而且不能改变。</p>
+</blockquote>
+<h4 id="implements-关键字"><a href="#implements-关键字" class="headerlink" title="implements 关键字"></a>implements 关键字</h4><blockquote>
+<p><code>interface</code> 接口或 <code>type</code> 别名，可以用对象的形式，为 class 指定一组检查条件</p>
+<p>然后，类使用 <code>implements</code> 关键字，表示当前类满足这些外部类型条件的限制</p>
+</blockquote>
+<pre><code>interface User &#123;
+  username: string;
+  desc: string;
+&#125;
+// 或者
+type User = &#123;
+  username: string;
+  desc: string;
+&#125;;
+
+class Allen implements User &#123;
+  username = &quot;&quot;;
+  desc = &quot;&quot;;
+&#125;
+</code></pre>
+<ul>
+<li><code>interface</code> 或 <code>type</code> 都可以定义一个对象类型</li>
+<li>类 <code>Allen</code> 使用 <code>implements</code> 关键字，表示该类的实例对象满足这个外部类型</li>
+</ul>
+<blockquote>
+<p>interface 只是指定检查条件，如果不满足这些条件就会报错。它并不能代替 class 自身的类型声明。</p>
+</blockquote>
+<pre><code>interface A &#123;
+  get(username: string): boolean;
+&#125;
+
+class B implements A &#123;
+  // s 的类型是 any
+  get(s) &#123;
+    return true;
+   &#125;
+&#125;
+</code></pre>
+<ul>
+<li>以上代码中，类B实现了接口A，但是后者并不能代替B的类型声明。</li>
+<li>因此，B的<code>get()</code>方法的参数s的类型是<code>any</code>，而不是<code>string</code>。B类依然需要声明参数s的类型</li>
+</ul>
+<pre><code>class B implements A &#123;
+  get(s: string) &#123;
+    return true;
+  &#125;
+&#125;
+</code></pre>
+<ol>
+<li>implements 实践</li>
+</ol>
+<pre><code>interface User &#123;
+  username: string;
+  age?: number;
+&#125;
+
+class Allen implements User &#123;
+  username = &quot;code&quot;;
+&#125;
+
+const a = new Allen();
+a.age = 18; // 报错
+</code></pre>
+<ul>
+<li>以上代码中，接口<code>User</code>有一个可选属性<code>age</code>，类<code>Allen</code>没有声明这个属性，所以可以通过类型检查</li>
+</ul>
+<blockquote>
+<p>但是，如果给<code>Allen</code>的实例对象的属性<code>age</code>赋值，就会报错。所以，<code>Allen</code>类还是需要声明可选属性<code>age</code>。如下</p>
+</blockquote>
+<pre><code>interface User &#123;
+  username: string;
+  age?: number;
+&#125;
+
+class Allen implements User &#123;
+  username = &quot;code&quot;;
+  // 声明可选属性 age
+  age?: number;
+&#125;
+
+const a = new Allen();
+a.age = 18;
+</code></pre>
+<ol>
+<li>implements 注意事项<blockquote>
+<p>类可以定义接口没有声明的方法和属性。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Count &#123;
+  x: number;
+  y: number;
+&#125;
+
+class Nums implements Count &#123;
+  x = 1;
+  y = 2;
+  // 定义一个接口没有的属性
+  z: number = 3;
+&#125;
+</code></pre>
+<ul>
+<li><code>Nums</code>类实现了 <code>Count</code> 接口，但是内部还定义了一个额外的属性 <code>z</code>，这是允许的，表示除了满足接口给出的条件，类还有额外的条件</li>
+</ul>
+<blockquote>
+<p><code>implements</code>关键字后面，不仅可以是接口，也可以是另一个类。这时，后面的类将被当作接口。</p>
+</blockquote>
+<pre><code>class Person &#123;
+  id: number = 1;
+  run(): void &#123;&#125;
+&#125;
+
+class Allen implements Person &#123;
+  id = 2; // 不可省略
+  run(): void &#123;&#125; // 不可省略
+&#125;
+</code></pre>
+<ul>
+<li>implements 后面是类 Person，这时 TypeScript 就把 Person 视为一个接口，要求 Allen 实现 Person 里面的<strong>每一个</strong>属性和方法，否则就会报错</li>
+<li>所以，这时不能因为 Person 类已经实现过一次，而在 Allen 类省略属性或方法。</li>
+</ul>
+<blockquote>
+<p><code>interface</code>描述的是类的对外接口，也就是实例的公开属性和公开方法，<strong>不能</strong>定义私有的属性和方法。</p>
+<ul>
+<li>这是因为 TypeScript 设计者认为，私有属性是类的内部实现，接口作为模板，不应该涉及类的内部代码写法。</li>
+</ul>
+</blockquote>
+<pre><code>interface Foo &#123;
+  member: &#123;&#125;; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>接口 Foo 有一个私有属性，结果就报错了</li>
+</ul>
+<h4 id="实现多个接口"><a href="#实现多个接口" class="headerlink" title="实现多个接口"></a>实现多个接口</h4><blockquote>
+<p>类可以实现多个接口（其实是接受多重限制），每个接口之间使用逗号分隔。</p>
+</blockquote>
+<pre><code>class User implements Student, Engineer, Doctor &#123;
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>User 类同时实现了Student、Engineer、 Doctor三个接口</li>
+<li>这意味着，它必须部署这三个接口声明的<strong>所有</strong>属性和方法，满足它们的所有条件</li>
+</ul>
+<blockquote>
+<p>但是，同时实现多个接口并不是一个好的写法，容易使得代码难以管理，可以使用两种方法替代。</p>
+</blockquote>
+<ol>
+<li>方式一：类的继承</li>
+</ol>
+<pre><code>class User implements Student &#123;&#125;
+
+class CollegeStudent extends User implements Engineer, Doctor &#123;&#125;
+</code></pre>
+<ul>
+<li>User 类实现了 Student，而 CollegeStudent 类继承了 User 类，然后再实现Engineer 和 Doctor 两个接口，相当于 CollegeStudent 类同时实现了三个接口。</li>
+</ul>
+<ol start="2">
+<li>方式二：接口的继承</li>
+</ol>
+<pre><code>interface User &#123;
+  username: string;
+&#125;
+
+interface Student extends User &#123;
+  age: number;
+&#125;
+</code></pre>
+<ul>
+<li>接口 Student 继承了接口 User，类只要实现接口 Student，就相当于实现 User 和 Student 两个接口</li>
+</ul>
+<ol start="3">
+<li>接口继承改写</li>
+</ol>
+<pre><code>interface Student &#123;
+  // ...
+&#125;
+interface Engineer &#123;
+  // ...
+&#125;
+interface Doctor &#123;
+  // ...
+&#125;
+
+interface SuperUser extends Student, Engineer, Doctor &#123;
+  // ...
+&#125;
+
+class AdministratorUser implements SuperUser &#123;
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>类 AdministratorUser 通过 SuperUser 接口，就间接实现了多个接口</li>
+</ul>
+<ol start="4">
+<li>注意事项<blockquote>
+<p>发生多重实现时（即一个接口同时实现多个接口），<strong>不同接口不能有互相冲突的属性</strong></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>interface Engineer &#123;
+  foo: number;
+&#125;
+
+interface Doctor &#123;
+  foo: string;
+&#125;
+</code></pre>
+<ul>
+<li>属性 foo 在两个接口里面的类型不同，如果同时实现这两个接口，就会报错。</li>
+</ul>
+<h4 id="类与接口的合并"><a href="#类与接口的合并" class="headerlink" title="类与接口的合并"></a>类与接口的合并</h4><blockquote>
+<p>TypeScript 不允许两个同名的类，但是如果一个类和一个接口同名，那么接口会被合并进类。</p>
+</blockquote>
+<pre><code>class A &#123;
+  x: number = 1;
+&#125;
+
+interface A &#123;
+  y: number;
+&#125;
+
+let a = new A();
+a.y = 10;
+
+a.x; // 1
+a.y; // 10
+</code></pre>
+<ul>
+<li>类 A 与 接口 A 同名，后者会被合并进前者的类型定义</li>
+</ul>
+<blockquote>
+<p>接口中被合并进类的非空属性（上例的y），如果在赋值之前读取，会返回<code>undefined</code></p>
+</blockquote>
+<pre><code>class A &#123;
+  x: number = 1;
+&#125;
+
+interface A &#123;
+  y: number;
+&#125;
+
+let a = new A();
+a.y; // undefined
+</code></pre>
+<ul>
+<li>根据类型定义，y 应该是一个非空属性</li>
+<li>但是合并后，y 有可能是<code>undefined</code></li>
+</ul>
+<h3 id="三、类-与-接口的关系"><a href="#三、类-与-接口的关系" class="headerlink" title="三、类 与 接口的关系"></a>三、类 与 接口的关系</h3><h4 id="类类型接口"><a href="#类类型接口" class="headerlink" title="类类型接口"></a>类类型接口</h4><blockquote>
+<p>类类型接口：一个接口可以约束类成员有哪些属性 以及 它们的类型</p>
+</blockquote>
+<pre><code>// 定义一个 People 接口
+interface People &#123;
+  // username 属性
+  username: string;
+  // eat 方法
+  eat(): void;
+&#125;
+
+// 用 Kevin 实现了 People 接口（使用 implements 关键字）
+class Kevin implements People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  username: string;
+  eat() &#123;&#125;
+
+  // 类也可以定义自己的属性
+  sleep() &#123;&#125;
+&#125;
+</code></pre>
+<ul>
+<li>类实现接口时必须实现接口中声明的所有属性，否则会报错</li>
+</ul>
+<blockquote>
+<p>注</p>
+</blockquote>
+<ul>
+<li>①、接口只能约束类的公有成员</li>
+<li>②、接口不能约束类的构造函数</li>
+</ul>
+<pre><code>interface People &#123;
+  // 接口不能约束类的构造函数
+  // new (username: string): void
+  username: string;
+  eat(): void;
+&#125;
+
+class Kevin implements People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  // 接口只能约束类的公有成员
+  private username: string;
+  eat() &#123;&#125;
+&#125;
+</code></pre>
+<h4 id="接口的继承"><a href="#接口的继承" class="headerlink" title="接口的继承"></a>接口的继承</h4><blockquote>
+<p>接口可以像类一样，相互继承。并且一个接口可以继承多个接口</p>
+</blockquote>
+<pre><code>interface People &#123;
+  username: string;
+  eat(): void;
+&#125;
+
+// 定义 Man 接口来继承 People 接口
+interface Man extends People &#123;
+  // 给 Man 接口添加 run 方法
+  run(): void;
+&#125;
+
+// 定义 Child 接口
+interface Child &#123;
+  // 给 Child 接口添加 cry 方法（哭）
+  cry(): void;
+&#125;
+
+// 定义 Boy 接口，让其同时继承 Man 和 Child 接口
+interface Boy extends Man, Child &#123;&#125;
+
+// 定义一个对象，要符合 Boy 接口的定义
+// 该对象中会有四个属性，分别来自 Man、People、Child 接口中
+let boy: Boy = &#123;
+  username: &quot;&quot;,
+  run() &#123;&#125;,
+  eat() &#123;&#125;,
+  cry() &#123;&#125;,
+&#125;;
+</code></pre>
+<ul>
+<li>从接口的继承可以看出，接口的继承可以抽离出可重用的接口，也可以将多个接口合并成一个接口。</li>
+</ul>
+<h4 id="接口继承类"><a href="#接口继承类" class="headerlink" title="接口继承类"></a>接口继承类</h4><blockquote>
+<p>接口除了可以继承接口外，还可以继承类。</p>
+<ul>
+<li>这就相当于接口把类的成员都抽离了出来，也就是只有类的成员结构而没有具体的实现。</li>
+</ul>
+</blockquote>
+<pre><code>// 定义一个 Auto 类
+class Auto &#123;
+  // 公共属性 state
+  state = 1;
+  // 私有成员
+  // private state1 = 3
+&#125;
+
+// 定义 AutoInterface 接口来继承 Auto 类，现在该接口中就隐含了 state 属性
+// 想要实现 AutoInterface 接口，只要一个类的成员有 state 属性即可
+interface AutoInterface extends Auto &#123;&#125;
+
+// Car 类实现 AutoInterface 接口，只需要添加 state 属性即可
+class Car implements AutoInterface &#123;
+  state = 2;
+&#125;
+// Auto 的子类也可以实现 AutoInterface 这个接口
+class Bus extends Auto implements AutoInterface &#123;&#125;
+</code></pre>
+<ul>
+<li>在 Bus 子类中就不必实现 state 属性了，因为它是 Auto 的子类，自然就继承了 state 属性</li>
+<li>在 Auto 类中定义一个私有成员，<code>&quot;private state1 = 3&quot;</code>，此时 Car 即会<strong>报错</strong>，该类错误的实现了<code>AutoInterface</code>接口</li>
+<li>注：接口在抽离类的成员时，不仅抽离了公共成员，而且抽离了私有成员和受保护成员(因此<code>AutoInterface</code>拥有Auto 类的所有成员)</li>
+<li>而Car类实现<code>AutoInterface</code>接口，必须实现接口中声明的所有属性；因为 Car 不是 Auto的子类，自然不能包含它的非公有成员，所以会报错</li>
+</ul>
+<h4 id="接口-和-类的关系"><a href="#接口-和-类的关系" class="headerlink" title="接口 和 类的关系"></a>接口 和 类的关系</h4><blockquote>
+<p>关于接口和类的关系比较容易混淆，如下图所示，更能清晰的理解<br><img src="类与接口的关系.png"></p>
+</blockquote>
+<ul>
+<li>①、接口之间是可以相互继承的，这样可以实现接口的复用</li>
+<li>②、类之间也可以互相继承，可以实现方法 和 属性的复用</li>
+<li>③、接口是可以通过类来实现的，但接口只能约束类的公有成员</li>
+<li>④、接口也可以抽离出类的成员，抽离时会包括类的公有成员、私有成员 和 受保护成员</li>
+</ul>
+<h3 id="四、Class-类型"><a href="#四、Class-类型" class="headerlink" title="四、Class 类型"></a>四、Class 类型</h3><h4 id="实例类型"><a href="#实例类型" class="headerlink" title="实例类型"></a>实例类型</h4><blockquote>
+<p>TypeScript 的类本身就是一种类型，但是它代表该类的实例类型，而不是 class 的自身类型。</p>
+</blockquote>
+<pre><code>class User &#123;
+  username: string;
+
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+&#125;
+
+const allen: User = new User(&quot;allen&quot;);
+</code></pre>
+<ul>
+<li>定义了一个类 User。它的类名就代表一种类型，实例对象 allen 就属于该类型</li>
+</ul>
+<blockquote>
+<p>对于引用实例对象的变量来说，既可以声明类型为<code>Class</code>，也可以声明类型为<code>Interface</code>，因为两者都代表实例对象的类型。</p>
+</blockquote>
+<pre><code>interface MotorVehicle &#123;
+&#125;
+
+class Car implements MotorVehicle &#123;
+&#125;
+
+// 写法一
+const c1:Car = new Car();
+// 写法二
+const c2:MotorVehicle = new Car();
+</code></pre>
+<ul>
+<li>变量的类型可以写成类Car，也可以写成接口MotorVehicle</li>
+<li>它们的区别是，如果类Car有接口MotoVehicle没有的属性和方法，那么只有变量c1可以调用这些属性和方法</li>
+</ul>
+<blockquote>
+<p>作为类型使用时，类名只能表示实例的类型，不能表示类的自身类型</p>
+</blockquote>
+<pre><code>class Point &#123;
+  x:number;
+  y:number;
+
+  constructor(x:number, y:number) &#123;
+    this.x = x;
+    this.y = y;
+  &#125;
+&#125;
+
+// 错误
+function createPoint(
+  PointClass:Point,
+  x: number,
+  y: number
+) &#123;
+  return new PointClass(x, y);
+&#125;
+</code></pre>
+<ul>
+<li>函数createPoint()的第一个参数PointClass，需要传入 Point 这个类，但是如果把参数的类型写成Point就会报错，因为Point描述的是实例类型，而不是 Class 的自身类型</li>
+</ul>
+<blockquote>
+<p>由于类名作为类型使用，实际上代表一个对象，因此可以把类看作为对象类型起名</p>
+</blockquote>
+<ul>
+<li>事实上，TypeScript 有三种方法可以为对象类型起名：<code>type</code>、<code>interface</code>和<code>class</code></li>
+</ul>
+<h4 id="类的自身类型"><a href="#类的自身类型" class="headerlink" title="类的自身类型"></a>类的自身类型</h4><blockquote>
+<p>要获得一个类的自身类型，一个简便的方法就是使用 typeof 运算符</p>
+</blockquote>
+<pre><code>class Count &#123;
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) &#123;
+    this.x = x;
+    this.y = y;
+  &#125;
+&#125;
+
+function createCount(
+    CountClass: typeof Count,
+    x: number, 
+    y: number
+): Count &#123;
+  return new CountClass(x, y);
+&#125;
+</code></pre>
+<ul>
+<li><code>createCount()</code> 的第一个参数 <code>CountClass</code> 是 <code>Count</code> 类自身，要声明这个参数的类型，简便的方法就是使用 <code>typeof Count</code></li>
+<li>因为 Count 类是一个值，typeof Count 返回这个值的类型</li>
+<li>注意，createCount() 的返回值类型是 Count，代表实例类型</li>
+</ul>
+<blockquote>
+<p>JavaScript 语言中，类只是构造函数的一种语法糖，本质上是构造函数的另一种写法。所以，类的自身类型可以写成构造函数的形式。</p>
+</blockquote>
+<pre><code>class Count &#123;
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) &#123;
+    this.x = x;
+    this.y = y;
+  &#125;
+&#125;
+
+function createCount(
+  CountClass: new (x: number, y: number) =&gt; Count,
+  x: number,
+  y: number
+): Count &#123;
+  return new CountClass(x, y);
+&#125;
+// 参数 CountClass 的类型写成了一个构造函数，这时就可以把 Count 类传入
+</code></pre>
+<blockquote>
+<p>构造函数也可以写成对象形式，所以参数CountClass的类型还有另一种写法。</p>
+</blockquote>
+<pre><code>class Count &#123;
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) &#123;
+    this.x = x;
+    this.y = y;
+  &#125;
+&#125;
+
+function createCount(
+  CountClass: &#123;
+    new (x: number, y: number): Count;
+  &#125;,
+  x: number,
+  y: number
+): Count &#123;
+  return new CountClass(x, y);
+&#125;
+</code></pre>
+<blockquote>
+<p>根据上面的写法，可以把构造函数提取出来，单独定义一个接口（interface），这样可以大大提高代码的通用性。</p>
+</blockquote>
+<pre><code>interface CountConstructor &#123;
+  new (x: number, y: number): Count;
+&#125;
+
+function createCount(
+  CountClass: CountConstructor,
+  x: number,
+  y: number
+): Count &#123;
+  return new CountClass(x, y);
+&#125;
+</code></pre>
+<ul>
+<li>类的自身类型就是一个构造函数，可以单独定义一个接口来表示。</li>
+</ul>
+<h4 id="结构类型原则"><a href="#结构类型原则" class="headerlink" title="结构类型原则"></a>结构类型原则</h4><blockquote>
+<p>Class 也遵循“结构类型原则”。一个对象只要满足 Class 的实例结构，就跟该 Class 属于同一个类型。</p>
+</blockquote>
+<pre><code>class Foo &#123;
+  id!: number;
+&#125;
+
+function fn(arg: Foo) &#123;
+  // ...
+&#125;
+
+const bar = &#123;
+  id: 10,
+  amount: 100,
+&#125;;
+
+fn(bar); // 正确
+</code></pre>
+<ul>
+<li>对象 bar 满足类 Foo 的实例结构，只是多了一个属性 amount</li>
+<li>所以，它可以当作参数，传入函数<code>fn()</code></li>
+</ul>
+<blockquote>
+<p>如果两个类的实例结构相同，那么这两个类就是兼容的，可以用在对方的使用场合。</p>
+</blockquote>
+<pre><code>class Person &#123;
+  username: string;
+&#125;
+
+class Customer &#123;
+  username: string;
+&#125;
+
+// 正确
+const cust: Customer = new Person();
+</code></pre>
+<ul>
+<li>Person 和 Customer是两个结构相同的类，TypeScript 将它们视为相同类型，因此 Person 可以用在类型为 Customer 的场合</li>
+</ul>
+<blockquote>
+<p>现在修改一下代码，Person类添加一个属性。</p>
+</blockquote>
+<pre><code>class Person &#123;
+  username: string;
+  age: number;
+&#125;
+
+class Customer &#123;
+  username: string;
+&#125;
+
+// 正确
+const cust: Customer = new Person();
+</code></pre>
+<ul>
+<li>Person 类添加了一个属性 age，跟 Customer 类的结构不再相同</li>
+<li>但是这种情况下，TypeScript 依然认为，Person 属于 Customer 类型</li>
+</ul>
+<blockquote>
+<p>这是因为根据“结构类型原则”，只要<code>Person</code>类具有<code>username</code>属性，就满足<code>Customer</code>类型的实例结构，所以可以代替它。</p>
+<ul>
+<li>反过来就不行，如果<code>Customer</code>类多出一个属性，就会报错。</li>
+</ul>
+</blockquote>
+<pre><code>class Person &#123;
+  username: string;
+&#125;
+
+class Customer &#123;
+  username: string;
+  age: number;
+&#125;
+// 正确
+const cust: Customer = new Person();
+</code></pre>
+<ul>
+<li>Person 类 比 Customer 类 少一个属性 age，它就不满足 Customer 类型的实例结构，就报错了</li>
+<li>因为在使用 Customer 类型的情况下，可能会用到它的 age 属性，而 Person 类就没有这个属性</li>
+</ul>
+<blockquote>
+<p>总之，只要 A 类具有 B 类的结构，哪怕B 类还有额外的属性和方法，TypeScript 也认为 A 兼容 B 的类型。</p>
+</blockquote>
+<blockquote>
+<p>不仅是类，如果某个对象跟某个 class 的实例结构相同，TypeScript 也认为两者的类型相同。</p>
+</blockquote>
+<pre><code>class Person &#123;
+  username: string;
+&#125;
+
+const obj = &#123; username: &quot;Allen&quot; &#125;;
+const p: Person = obj; // 正确
+</code></pre>
+<ul>
+<li>对象 obj 并不是 Person 的实例，但是赋值给变量 p 不会报错，TypeScript 认为 obj 也属于 Person 类型，因为它们的属性相同</li>
+</ul>
+<blockquote>
+<p>由于这种情况，运算符<code>instanceof</code>不适用于判断某个对象是否跟某个 class 属于同一类型。</p>
+</blockquote>
+<pre><code>obj instanceof Person; // false
+</code></pre>
+<ul>
+<li>运算符 instanceof 确认变量 obj 不是 Person 的实例，但是两者的类型是相同的</li>
+</ul>
+<blockquote>
+<p>空类不包含任何成员，任何其他类都可以看作与空类结构相同。因此，凡是类型为空类的地方，所有类（包括对象）都可以使用。</p>
+</blockquote>
+<pre><code>class Empty &#123;&#125;
+
+function fn(x: Empty) &#123;
+  // ...
+&#125;
+
+fn(&#123;&#125;);
+fn(window);
+fn(fn);
+
+// 函数 fn() 的参数是一个空类，这意味着任何对象都可以用作 fn() 的参数
+</code></pre>
+<ol>
+<li>结构类型原则 - 注意事项<blockquote>
+<p>注意，确定两个类的兼容关系时，只检查实例成员，不考虑静态成员和构造方法。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class Count &#123;
+  x: number;
+  y: number;
+  static t: number;
+  constructor(x: number) &#123;&#125;
+&#125;
+
+class Position &#123;
+  x: number;
+  y: number;
+  z: number;
+  constructor(x: string) &#123;&#125;
+&#125;
+
+const count: Count = new Position(&quot;&quot;);
+</code></pre>
+<ul>
+<li>Count 与 Position 的静态属性和构造方法都不一样，但因为 Count 的实例成员 与 Position 相同，所以 Position 兼容 Count</li>
+</ul>
+<blockquote>
+<p>如果类中存在私有成员（private）或保护成员（protected），那么确定兼容关系时，TypeScript 要求私有成员和保护成员来自同一个类，这意味着两个类需要存在继承关系。</p>
+</blockquote>
+<pre><code>// 情况一
+class A &#123;
+  private username = &quot;a&quot;;
+&#125;
+
+class B extends A &#123;&#125;
+
+const a: A = new B();
+
+// 情况二
+class A &#123;
+  protected username = &quot;a&quot;;
+&#125;
+
+class B extends A &#123;
+  protected username = &quot;b&quot;;
+&#125;
+
+const a: A = new B();
+</code></pre>
+<ul>
+<li>A 和 B 都有私有成员（或保护成员）username，这时只有在 B 继承 A 的情况下（class B extends A），B 才兼容 A</li>
+</ul>
+<h4 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h4><blockquote>
+<p>类（这里又称“子类”）可以使用<code>extends</code>关键字继承另一个类（这里又称“基类”）的所有属性和方法。</p>
+</blockquote>
+<pre><code>class A &#123;
+  greet() &#123;
+    console.log(&quot;Hello, world!&quot;);
+  &#125;
+&#125;
+
+class B extends A &#123;&#125;
+
+const b = new B();
+b.greet(); // &quot;Hello, world!&quot;
+</code></pre>
+<ul>
+<li>子类 B 继承了基类 A，因此就拥有了 <code>greet()</code> 方法，不需要再次在类的内部定义这个方法了</li>
+</ul>
+<blockquote>
+<p>根据结构类型原则，子类也可以用于类型为基类的场合。</p>
+</blockquote>
+<pre><code>const a: A = b;
+a.greet();
+</code></pre>
+<ul>
+<li>变量 a 的类型是基类，但是可以赋值为子类的实例</li>
+</ul>
+<blockquote>
+<p>子类可以覆盖基类的同名方法</p>
+</blockquote>
+<pre><code>class A &#123;
+  greet() &#123;
+    console.log(&quot;Hello, world!&quot;);
+  &#125;
+&#125;
+
+class B extends A &#123;
+  greet(username?: string) &#123;
+    if (username === undefined) &#123;
+      super.greet();
+    &#125; else &#123;
+      console.log(`Hello, $&#123;username&#125;`);
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>子类 B 定义了一个方法 greet()，覆盖了基类 A 的同名方法</li>
+<li>其中，参数 username 省略时，就调用基类 A 的 greet() 方法，这里可以写成<code>super.greet()</code>，使用 super 关键字指代基类是常见做法</li>
+</ul>
+<blockquote>
+<p>但是，子类的同名方法不能与基类的类型定义相冲突。</p>
+</blockquote>
+<pre><code>class A &#123;
+  greet() &#123;
+    console.log(&quot;Hello, world!&quot;);
+  &#125;
+&#125;
+
+class B extends A &#123;
+  // 报错
+  greet(username: string) &#123;
+    console.log(`Hello, $&#123;username&#125;`);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>子类 B 的 greet() 有一个 username 参数，跟基类 A 的 greet() 定义不兼容，因此就报错了</li>
+</ul>
+<blockquote>
+<p>如果基类包括保护成员（protected修饰符）</p>
+<ul>
+<li>子类可以将该成员的可访问性设置为公开（public修饰符）</li>
+<li>也可以保持保护成员不变</li>
+<li>但是不能改为私有成员（private修饰符）</li>
+</ul>
+</blockquote>
+<pre><code>class A &#123;
+  protected x: string = &quot;&quot;;
+  protected y: string = &quot;&quot;;
+  protected z: string = &quot;&quot;;
+&#125;
+
+class B extends A &#123;
+  // 正确
+  public x: string = &quot;&quot;;
+
+  // 正确
+  protected y: string = &quot;&quot;;
+
+  // 报错
+  private z: string = &quot;&quot;;
+&#125;
+</code></pre>
+<ul>
+<li>子类 B 将基类 A 的受保护成员改成私有成员，就会报错</li>
+</ul>
+<blockquote>
+<p>注意，extends关键字后面不一定是类名，可以是一个表达式，只要它的类型是构造函数就可以了。</p>
+</blockquote>
+<pre><code>// 例一
+class MyArray extends Array&lt;number&gt; &#123;&#125;
+
+// 例二
+class MyError extends Error &#123;&#125;
+
+// 例三
+class A &#123;
+  running() &#123;
+    return &quot;I&#39;m A, I like running&quot;;
+  &#125;
+&#125;
+class B &#123;
+  running() &#123;
+    return &quot;I&#39;m B, I like running&quot;;
+  &#125;
+&#125;
+
+interface Admin &#123;
+  running(): string;
+&#125;
+
+interface AdminConstructor &#123;
+  new (): Admin;
+&#125;
+
+function getAdminBase(): AdminConstructor &#123;
+  return Math.random() &gt;= 0.5 ? A : B;
+&#125;
+
+class Test extends getAdminBase() &#123;
+  sayHello() &#123;
+    console.log(this.running());
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>例一 和 例二的 extends 关键字后面都是构造函数</li>
+<li>例三的 extends 关键字后面是一个表达式，执行后得到的也是一个构造函数</li>
+</ul>
+<blockquote>
+<p>对于那些只设置了类型、没有初值的顶层属性，有一个细节需要注意。</p>
+</blockquote>
+<pre><code>interface Animal &#123;
+  animalStuff: any;
+&#125;
+
+interface Dog extends Animal &#123;
+  dogStuff: any;
+&#125;
+
+class AnimalHouse &#123;
+  resident: Animal;
+
+  constructor(animal:Animal) &#123;
+    this.resident = animal;
+  &#125;
+&#125;
+
+class DogHouse extends AnimalHouse &#123;
+  resident: Dog; //报错
+
+  constructor(dog:Dog) &#123;
+    super(dog);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>类<code>DogHouse</code>的顶层成员<code>resident</code>只设置了类型<code>Dog</code>，没有设置初值</li>
+<li>这段代码在不同的编译设置下，编译结果不一样</li>
+</ul>
+<blockquote>
+<p>如果编译设置<code>的target</code>设成大于等于ES2022，或者<code>useDefineForClassFields</code>设成true，那么下面代码的执行结果是不一样的。</p>
+</blockquote>
+<pre><code>// 实例化运行
+const dog = &#123;
+  animalStuff: &#39;animal&#39;,
+  dogStuff: &#39;dog&#39;
+&#125;;
+
+const dogHouse = new DogHouse(dog);
+
+console.log(dogHouse.resident)
+</code></pre>
+<blockquote>
+<p>编译后运行 JS 文件</p>
+</blockquote>
+<ul>
+<li>如果 target 大于等于 ES2022 ，输出 <code>undefined</code></li>
+<li>如果 target 小于 ES2022 ，输出 <code>&#123; animalStuff: &#39;animal&#39;, dogStuff: &#39;dog&#39; &#125;</code></li>
+<li>以上代码中，<code>DogHouse</code>实例的属性<code>resident</code>输出的是<code>undefined</code>，而不是预料的<code>dog</code>。</li>
+<li>原因在于 ES2022 标准的 Class Fields 部分，与早期的 TypeScript 实现不一致，导致子类的那些只设置类型、没有设置初值的顶层成员在基类中被赋值后，会在子类被重置为<code>undefined</code>，详细的解释参见后边<code>tsconfig.json</code>一节，以及官方 3.7 版本的发布说明</li>
+</ul>
+<blockquote>
+<p>解决方法就是使用<code>declare</code>命令，去声明顶层成员的类型，告诉 TypeScript 这些成员的赋值由基类实现。</p>
+</blockquote>
+<pre><code>class DogHouse extends AnimalHouse &#123;
+  // 使用前 报错
+  resident: Dog;
+ 
+  // 使用 declare 命令后，不报错
+  declare resident: Dog;
+
+  constructor(dog:Dog) &#123;
+    super(dog);
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>resident 属性的类型声明前面用了 declare 命令，这样就能确保在编译目标大于等于 ES2022 时（或者打开 <code>useDefineForClassFields</code> 时），代码行为正确</li>
+</ul>
+<h4 id="可访问性修饰符"><a href="#可访问性修饰符" class="headerlink" title="可访问性修饰符"></a>可访问性修饰符</h4><blockquote>
+<p>类的内部成员的外部可访问性，由三个可访问性修饰符（access modifiers）控制：</p>
+<ul>
+<li>public 公有成员</li>
+<li>private 私有成员</li>
+<li>protected 受保护成员</li>
+</ul>
+</blockquote>
+<ul>
+<li>这三个修饰符的位置，都写在属性或方法的最前面。</li>
+</ul>
+<ol>
+<li>public<blockquote>
+<p>public修饰符表示这是公开成员，外部可以自由访问。</p>
+<ul>
+<li>类的所有属性默认都是 public，即： 对所有人都是可见的，同时也可以显示的声明</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>class User &#123;
+  public runing() &#123;
+    console.log(&quot;I like running&quot;);
+  &#125;
+&#125;
+
+const u = new User();
+u.runing(); // I like running
+
+// runing() 方法前面的 public 修饰符，表示该方法可以在类的外部调用，即外部实例可以调用
+</code></pre>
+<ul>
+<li>public修饰符是默认修饰符，如果省略不写，实际上就带有该修饰符。因此，类的属性和方法默认都是外部可访问的。</li>
+<li>正常情况下，除非为了醒目和代码可读性，public都是省略不写的。</li>
+</ul>
+<ol start="2">
+<li>private<blockquote>
+<p><code>private</code>修饰符表示私有成员，只能用在当前类的内部，类的实例和子类都不能使用该成员</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class User &#123;
+  private username: string = &quot;icoding&quot;;
+&#125;
+
+const u = new User();
+u.username; // 报错
+
+class Allen extends User &#123;
+  showUserName() &#123;
+    console.log(this.username); // 报错
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>属性 username 前面有 private 修饰符，表示这是私有成员</li>
+<li>因此，实例对象和子类使用该成员，都会报错</li>
+</ul>
+<blockquote>
+<p>注意，子类不能定义父类私有成员的同名成员。</p>
+</blockquote>
+<pre><code>class User &#123;
+  private age = 0;
+&#125;
+
+class Allen extends User &#123;
+  age = 18; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>User 类有一个私有属性 age，子类 Allen 就不能定义自己的属性 age 了</li>
+</ul>
+<blockquote>
+<p>如果在类的内部，当前类的实例可以获取私有成员。</p>
+</blockquote>
+<pre><code>class User &#123;
+  private age = 18;
+
+  foo(obj: User) &#123;
+    console.log(obj.age);
+  &#125;
+&#125;
+
+const u = new User();
+u.foo(u); // 18
+</code></pre>
+<ul>
+<li>在类 User 内部， User 的实例对象可以获取私有成员 age</li>
+</ul>
+<blockquote>
+<p>严格地说，private定义的私有成员，并不是真正意义的私有成员。</p>
+</blockquote>
+<ul>
+<li>一方面，编译成 JavaScript 后，private关键字就被剥离了，这时外部访问该成员就不会报错</li>
+<li>另一方面，由于前一个原因，TypeScript 对于访问private成员没有严格禁止，使用方括号写法（<code>[]</code>）或者<code>in</code>运算符，实例对象就能访问该成员。</li>
+</ul>
+<pre><code>class User &#123;
+  private age = 18;
+&#125;
+
+const u = new User();
+u[&quot;age&quot;]; // 18
+
+if (&quot;age&quot; in u) &#123;
+  // 正确
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>User 类的属性 age 是私有属性，但是实例使用方括号，就可以读取这个属性，或者使用 in 运算符检查这个属性是否存在，都可以正确执行。</li>
+</ul>
+<blockquote>
+<p>由于private存在这些问题，加上它是 ES2022 标准发布前出台的，而 ES2022 引入了自己的私有成员写法<code>#propName</code>。因此建议不使用private，改用 ES2022 的写法，获得真正意义的私有成员</p>
+</blockquote>
+<pre><code>class User &#123;
+  #age = 18;
+&#125;
+
+const u = new User();
+u[&quot;age&quot;]; // 报错
+</code></pre>
+<ul>
+<li>采用了 ES2022 的私有成员写法（属性名前加 #），TypeScript 就正确识别了实例对象没有属性 age，从而报错</li>
+</ul>
+<blockquote>
+<p>构造方法也可以是私有的，这就直接防止了使用<code>new</code>命令生成实例对象，只能在类的内部创建实例对象。</p>
+<ul>
+<li>这时一般会有一个静态方法，充当工厂函数，强制所有实例都通过该方法生成。</li>
+</ul>
+</blockquote>
+<pre><code>class Singleton &#123;
+  private static instance?: Singleton;
+
+  private constructor() &#123;&#125;
+
+  static getInstance() &#123;
+    if (!Singleton.instance) &#123;
+      Singleton.instance = new Singleton();
+    &#125;
+    return Singleton.instance;
+  &#125;
+&#125;
+
+const s = Singleton.getInstance();
+</code></pre>
+<ul>
+<li>以上使用私有构造方法，实现了单例模式</li>
+<li>想要获得 <code>Singleton</code> 的实例，不能使用 <code>new</code> 命令，只能使用 <code>getInstance()</code> 方法</li>
+</ul>
+<ol start="3">
+<li>protected<blockquote>
+<p>protected修饰符表示该成员是受保护成员，只能在类的内部使用该成员，实例无法使用该成员，但是子类内部可以使用。</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class User &#123;
+  protected age = 18;
+&#125;
+
+class Allen extends User &#123;
+  getAge() &#123;
+    return this.age;
+  &#125;
+&#125;
+
+const u = new User();
+const a = new Allen();
+
+u.age; // 报错
+const s = a.getAge(); // 18
+</code></pre>
+<ul>
+<li>类 User 的属性 age 是保护成员，直接从实例读取该属性（u.age）会报错，但是子类B内部可以读取该属性。</li>
+</ul>
+<blockquote>
+<p>子类不仅可以拿到父类的保护成员，还可以定义同名成员</p>
+</blockquote>
+<pre><code>class User &#123;
+  protected age = 18;
+&#125;
+
+class Allen extends User &#123;
+  age = 20;
+&#125;
+</code></pre>
+<ul>
+<li>子类 Allen 定义了父类 User 的同名成员 age ，并且父类的 age 是保护成员，子类将其改成了公开成员。</li>
+<li>Allen 类的 age 属性前面没有修饰符，等同于修饰符是 public，外界可以读取这个属性。</li>
+</ul>
+<blockquote>
+<p>在类的外部，实例对象不能读取保护成员，但是在类的内部可以。</p>
+</blockquote>
+<pre><code>class User &#123;
+  protected age = 18;
+
+  foo(obj: User) &#123;
+    console.log(obj.age);
+  &#125;
+&#125;
+
+const u = new User();
+
+u.age; // 报错
+u.foo(u); // 1
+
+// 属性 age 是类 User 的保护成员，在类的外部，实例对象 u 拿不到这个属性
+// 但是，实例对象 u 传入类 User 的内部，就可以从 u 拿到 age
+</code></pre>
+<ol start="4">
+<li>完整的实践案例<blockquote>
+<p>一个受保护成员只能在类 或 子类中访问，而不能在类的实例中访问</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>class People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  public username: string;
+  run() &#123;&#125;
+  private eat() &#123;&#125;
+
+  // 受保护成员
+  protected pro() &#123;&#125;
+&#125;
+
+let people = new People(&quot;艾编程&quot;);
+// 受保护成员不能在类的实例中访问，会报错
+people.pro();
+
+class Allen extends People &#123;
+  constructor(username: string, age: number) &#123;
+    super(username);
+    this.age = age;
+
+    // 在子类中调用父类中受保护的成员，允许访问
+    this.pro();
+  &#125;
+  age: number;
+&#125;
+</code></pre>
+<blockquote>
+<p>构造函数也能被声明为 protected</p>
+<ul>
+<li>作用：使当前类不能被实例化，只能被继承。就相当于声明了一个基类</li>
+</ul>
+</blockquote>
+<pre><code>class People &#123;
+  // 构造函数也能被声明为 protected
+  // 作用：当前类不能被实例化，只能被继承。就相当于声明了一个基类
+  protected constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  public username: string;
+  run() &#123;&#125;
+  private eat() &#123;&#125;
+
+  // 受保护成员
+  protected pro() &#123;&#125;
+&#125;
+
+// 报错
+let people = new People(&quot;abc&quot;);
+// 受保护成员不能在类的实例中访问，会报错
+people.pro();
+</code></pre>
+<h4 id="实例属性的简写形式"><a href="#实例属性的简写形式" class="headerlink" title="实例属性的简写形式"></a>实例属性的简写形式</h4><blockquote>
+<p>实际开发中，很多实例属性的值，是通过构造方法传入的。</p>
+</blockquote>
+<pre><code>class Count &#123;
+  a: number;
+  b: number;
+
+  constructor(a: number, b: number) &#123;
+    this.a = a;
+    this.b = b;
+  &#125;
+&#125;
+// 属性 a 和 b 的值是通过构造方法的参数传入的
+</code></pre>
+<ul>
+<li>这样的写法等于对同一个属性要声明两次类型，一次在类的头部，另一次在构造方法的参数里面。这有些累赘，TypeScript 就提供了一种简写形式。</li>
+</ul>
+<pre><code>class Count &#123;
+  constructor(public a: number, public b: number) &#123;&#125;
+&#125;
+
+const c = new Count(11, 22);
+c.a; // 11
+c.b; // 22
+</code></pre>
+<ul>
+<li>构造方法的参数 <code>a</code> 前面有 <code>public</code> 修饰符，这时 TypeScript 就会自动声明一个公开属性<code>a</code>，不必在构造方法里面写任何代码，同时还会设置 <code>a</code> 的值为构造方法的参数值。</li>
+<li>注意，这里的 <code>public</code> 不能省略</li>
+</ul>
+<blockquote>
+<p>除了public修饰符，构造方法的参数名只要有private、protected、readonly修饰符，都会自动声明对应修饰符的实例属性</p>
+</blockquote>
+<pre><code>class U &#123;
+  constructor(
+    public a: number,
+    protected b: number,
+    private c: number,
+    readonly d: number
+  ) &#123;&#125;
+&#125;
+
+// 编译结果
+class U &#123;
+  constructor(a, b, c, d) &#123;
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.d = d;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>从编译结果可以看到，构造方法的 a、b、c、d 会生成对应的实例属性</li>
+</ul>
+<blockquote>
+<p><code>readonly</code>还可以与其他三个可访问性修饰符，一起使用。</p>
+</blockquote>
+<pre><code>class U &#123;
+  constructor(
+    public readonly a: number,
+    protected readonly b: number,
+    private readonly c: number
+  ) &#123;&#125;
+&#125;
+</code></pre>
+<h4 id="readonly-只读属性"><a href="#readonly-只读属性" class="headerlink" title="readonly 只读属性"></a>readonly 只读属性</h4><blockquote>
+<p>类的成员也可以被声明为 readonly 只读属性，只读属性不能被更改，只读属性一定要被初始化。</p>
+</blockquote>
+<pre><code>class People &#123;
+  constructor(username: string) &#123;
+    this.username = username;
+  &#125;
+  public username: string;
+  run() &#123;&#125;
+  private eat() &#123;&#125;
+  protected pro() &#123;&#125;
+
+  // 只读属性，只读属性不能被更改，只读属性一定要被初始化
+  readonly legs: number = 2;
+&#125;
+</code></pre>
+<h4 id="静态成员"><a href="#静态成员" class="headerlink" title="静态成员"></a>静态成员</h4><blockquote>
+<p>类的内部可以使用<code>static</code>关键字，定义静态成员。</p>
+<ul>
+<li>静态成员是只能通过类本身使用的成员，不能通过实例对象使用</li>
+</ul>
+</blockquote>
+<pre><code>class User &#123;
+  static age = 18;
+  static printAge() &#123;
+    console.log(User.age);
+  &#125;
+&#125;
+
+User.age; // 18
+User.printAge(); // 18
+</code></pre>
+<ul>
+<li>age 是静态属性，printAge() 是静态方法</li>
+<li>它们都必须通过 User 获取，而不能通过实例对象调用</li>
+</ul>
+<blockquote>
+<p>static关键字前面可以使用public、private、protected修饰符</p>
+</blockquote>
+<pre><code>class User &#123;
+  private static age = 18;
+&#125;
+
+User.age; // 报错
+</code></pre>
+<ul>
+<li>静态属性 age 前面有 private 修饰符，表示只能在 User 内部使用，如果在外部调用这个属性就会报错</li>
+</ul>
+<blockquote>
+<p>静态私有属性也可以用 ES6 语法的<code>#</code>前缀表示，上面示例可以改写如下</p>
+</blockquote>
+<pre><code>class User &#123;
+  static #age = 18;
+&#125;
+</code></pre>
+<blockquote>
+<p>public和protected的静态成员可以被继承。</p>
+</blockquote>
+<pre><code>class User &#123;
+  public static x = 1;
+  protected static y = 2;
+&#125;
+
+class Allen extends User &#123;
+  static getY() &#123;
+    return Allen.y;
+  &#125;
+&#125;
+
+Allen.x; // 1
+Allen.getY(); // 2
+</code></pre>
+<ul>
+<li>类 User 的静态属性 x 和 y 都被 Allen 继承，公开成员 x 可以在 Allen 的外部获取，保护成员 y 只能在 Allen 的内部获取</li>
+</ul>
+<h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><blockquote>
+<p>类也可以写成泛型，使用类型参数。关于泛型的详细介绍，会在泛型部分讲解</p>
+</blockquote>
+<pre><code>class Message&lt;Type&gt; &#123;
+  contents: Type;
+
+  constructor(value: Type) &#123;
+    this.contents = value;
+  &#125;
+&#125;
+
+const b: Message&lt;string&gt; = new Message(&quot;hi icoding !&quot;);
+</code></pre>
+<ul>
+<li>类 Message 有类型参数 Type，因此属于泛型类</li>
+<li>新建实例时，变量的类型声明需要带有类型参数的值，不过本例等号左边的 <code>Message&lt;string&gt;</code> 可以省略不写，因为可以从等号右边推断得到。</li>
+</ul>
+<blockquote>
+<p>注意，静态成员不能使用泛型的类型参数。</p>
+</blockquote>
+<pre><code>class Message&lt;Type&gt; &#123;
+  static defaultContents: Type; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>以上代码中，静态属性<code>defaultContents</code>的类型写成类型参数Type会报错。</li>
+<li>因为这意味着调用时必须给出类型参数（即写成<code>Message&lt;string&gt;.defaultContents</code>），并且类型参数发生变化，这个属性也会跟着变，这并不是好的做法。</li>
+</ul>
+<h4 id="抽象类，抽象成员"><a href="#抽象类，抽象成员" class="headerlink" title="抽象类，抽象成员"></a>抽象类，抽象成员</h4><blockquote>
+<p>在 ES 中并没有引入抽象类的概念，这是 TS 对 ES 的又一次扩展。</p>
+<ul>
+<li>TypeScript 允许在类的定义前面，加上关键字<code>abstract</code>，表示该类不能被实例化，只能当作其他类的模板。即：只能被继承而不能被实例化的类</li>
+<li>这种类就叫做 “抽象类”（abstract class）</li>
+</ul>
+</blockquote>
+<pre><code>abstract class User &#123;
+  id = 1001;
+&#125;
+
+const u = new User(); // 报错
+
+// 直接新建抽象类的实例，会报错
+</code></pre>
+<blockquote>
+<p>抽象类只能当作基类使用，用来在它的基础上定义子类。即：抽象类只能被继承</p>
+</blockquote>
+<pre><code>abstract class User &#123;
+  id = 1001;
+&#125;
+
+class Allen extends User &#123;
+  amount = 123;
+&#125;
+
+const a = new Allen();
+
+a.id; // 1001
+a.amount; // 123
+</code></pre>
+<ul>
+<li>User 是一个抽象类，Allen 是 User 的子类，继承了 User 的所有成员，并且可以定义自己的成员和实例化</li>
+</ul>
+<blockquote>
+<p>抽象类的子类也可以是抽象类，也就是说，抽象类可以继承其他抽象类。</p>
+</blockquote>
+<pre><code>abstract class User &#123;
+  foo: number = 1;
+&#125;
+
+abstract class Allen extends User &#123;
+  bar: string = &quot;icoding&quot;;
+&#125;
+</code></pre>
+<blockquote>
+<p>抽象类的内部可以有已经实现好的属性和方法，也可以有还未实现的属性和方法。</p>
+<ul>
+<li>后者就叫做“抽象成员”（abstract member），即属性名和方法名有abstract关键字，表示该方法需要子类实现。如果子类没有实现抽象成员，就会报错。</li>
+</ul>
+</blockquote>
+<pre><code>abstract class User &#123;
+  abstract foo: string;
+  bar: string = &quot;&quot;;
+&#125;
+
+class Allen extends User &#123;
+  foo = &quot;allen&quot;;
+&#125;
+</code></pre>
+<ul>
+<li>抽象类 User 定义了抽象属性 foo，子类 Allen 必须实现这个属性，否则会报错</li>
+</ul>
+<blockquote>
+<p>下面是抽象方法的例子。如果抽象类的方法前面加上<code>abstract</code>，就表明子类必须给出该方法的实现。</p>
+</blockquote>
+<pre><code>abstract class User &#123;
+  abstract execute(): string;
+&#125;
+
+class Allen extends User &#123;
+  execute() &#123;
+    return `执行了 Allen`;
+  &#125;
+&#125;
+</code></pre>
+<ol>
+<li>抽象类 - 实践应用<blockquote>
+<p>只能被继承而不能被实例化的类</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>abstract class Animal &#123;
+  // 在抽象类中定义一个方法，它可以有具体的实现，这样子类就不用实现了（实现方法的复用）
+  eat() &#123;
+    console.log(&quot;eat ......&quot;);
+  &#125;
+&#125;
+
+// 无法创建抽象类的实例
+// let animal = new Animal()
+
+// Dog 继承 Animal
+class Dog extends Animal &#123;
+  constructor(name: string) &#123;
+    // 派生类的构造函数必须包含 &quot;super&quot; 调用
+    super();
+    this.name = name;
+  &#125;
+  name: string;
+  run() &#123;&#125;
+&#125;
+
+let dog = new Dog(&quot;旺旺旺&quot;);
+// 在子类中调用 eat() 方法，可以正常调用
+dog.eat(); // eat ......
+</code></pre>
+<ol start="2">
+<li>抽象方法的好处<blockquote>
+<p>在抽象类中也可以不指定方法的具体实现，即构成一个抽象方法</p>
+<ul>
+<li>抽象方法的好处是：明确知道子类有其他的实现，就没必要在父类中实现了。</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>abstract class Animal &#123;
+  eat() &#123;
+    console.log(&quot;eat ......&quot;);
+  &#125;
+  // 定义抽象方法：在抽象类中也可以不指定方法的具体实现
+  abstract sleep(): void;
+&#125;
+
+class Dog extends Animal &#123;
+  constructor(name: string) &#123;
+    super();
+    this.name = name;
+  &#125;
+  name: string;
+  run() &#123;&#125;
+  // 在子类中实现父类的抽象方法 sleep()
+  sleep() &#123;
+    console.log(&quot;I want to sleep ...&quot;);
+  &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>总结：</p>
+</blockquote>
+<ul>
+<li>抽象类的好处：可以抽离出一些事物的共性，这样就更有利于代码的复用和扩展。</li>
+<li>同时，抽象类也可以实现多态。</li>
+</ul>
+<ol start="3">
+<li>抽象类、抽象成员 - 注意事项</li>
+</ol>
+<ul>
+<li>①、抽象成员只能存在于抽象类，不能存在于普通类。</li>
+<li>②、抽象成员不能有具体实现的代码。也就是说，已经实现好的成员前面不能加<code>abstract</code>关键字。</li>
+<li>③、抽象成员前也不能有<code>private</code>修饰符，否则无法在子类中实现该成员</li>
+<li>④、一个子类最多只能继承一个抽象类。</li>
+</ul>
+<blockquote>
+<p>总之，抽象类的作用是，确保各种相关的子类都拥有跟基类相同的接口，可以看作是模板。其中的抽象成员都是必须由子类实现的成员，非抽象成员则表示基类已经实现的、由所有子类共享的成员。</p>
+</blockquote>
+<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><blockquote>
+<p>在父类中，定义一个抽象方法，在多个子类中对该方法有不同的实现，在程序运行时会根据不同的对象执行不同的操作。即可实现运行时的绑定 ！</p>
+<ul>
+<li>实现 TS 中的多态</li>
+</ul>
+</blockquote>
+<pre><code>abstract class Animal &#123;
+  eat() &#123;
+    console.log(&quot;eat ......&quot;);
+  &#125;
+  // 定义抽象方法：在抽象类中也可以不指定方法的具体实现
+  abstract sleep(): void;
+&#125;
+
+class Dog extends Animal &#123;
+  constructor(name: string) &#123;
+    super();
+    this.name = name;
+  &#125;
+  name: string;
+  run() &#123;&#125;
+  // 在子类中实现父类的抽象方法 sleep()
+  sleep() &#123;
+    console.log(&quot;Dog：I want to sleep ...&quot;);
+  &#125;
+&#125;
+
+// 创建 Dog 的实例
+let dog = new Dog(&quot;旺旺旺&quot;);
+dog.eat(); // eat ......
+
+// 实现 TS 中的多态
+class Cat extends Animal &#123;
+  // 实现父类的抽象方法 sleep
+  sleep() &#123;
+    console.log(&quot;Cat：I want to sleep ...&quot;);
+  &#125;
+&#125;
+
+// 创建 Cat 类的实例
+let cat = new Cat();
+
+// 定义一个 Animal 数组
+let animals: Animal[] = [dog, cat];
+// 执行 animals 的 forEach 循环
+animals.forEach((i) =&gt; &#123;
+  // 在程序执行时，此时就会判断具体的实例是哪一种实例
+  // 然后执行不同的方法，这样就实现了多态
+  i.sleep();
+&#125;);
+</code></pre>
+<h4 id="this-问题"><a href="#this-问题" class="headerlink" title="this 问题"></a>this 问题</h4><blockquote>
+<p>类的方法经常用到this关键字，它表示该方法当前所在的对象。</p>
+</blockquote>
+<pre><code>class User &#123;
+  username = &quot;User&quot;;
+
+  getUserName() &#123;
+    return this.username;
+  &#125;
+&#125;
+
+const a = new User();
+a.getUserName(); // &#39;User&#39;
+
+const b = &#123;
+  username: &quot;b&quot;,
+  getUserName: a.getUserName,
+&#125;;
+b.getUserName(); // &#39;b&#39;
+</code></pre>
+<ul>
+<li>变量 a 和 b 的 <code>getUserName()</code> 是同一个方法，但是执行结果不一样，原因就是它们内部的 this 指向不一样的对象。</li>
+<li>如果 <code>getUserName()</code> 在变量 a 上运行，this 指向 a</li>
+<li>如果在 b 上运行，this 指向 b</li>
+</ul>
+<blockquote>
+<p>有些场合需要给出<code>this</code>类型，但是 JavaScript 函数通常不带有this参数，这时 TypeScript 允许函数增加一个名为this的参数，放在参数列表的第一位，用来描述函数内部的this关键字的类型。</p>
+</blockquote>
+<pre><code>// 编译前
+function fn(this: SomeType, x: number) &#123;
+  //
+&#125;
+
+// 编译后
+function fn(x) &#123;
+  //
+&#125;
+</code></pre>
+<ul>
+<li>函数 fn() 的第一个参数是 this，用来声明函数内部的 this 的类型</li>
+<li>编译时，TypeScript 一旦发现函数的第一个参数名为 this，则会去除这个参数，即编译结果不会带有该参数</li>
+</ul>
+<blockquote>
+<p>将 this 作为类方法的参数，调用方法时 this 的类型就会跟声明的类型不一致</p>
+</blockquote>
+<pre><code>class User &#123;
+  username = &quot;icoding&quot;;
+
+  getUserName(this: User) &#123;
+    return this.username;
+  &#125;
+&#125;
+
+const u = new User();
+const a = u.getUserName;
+
+a(); // 报错
+
+// 类 User 的 getUserName() 添加了 this 参数，如果直接调用这个方法，this 的类型就会跟声明的类型不一致，从而报错
+</code></pre>
+<blockquote>
+<p>this参数的类型可以声明为各种对象。</p>
+</blockquote>
+<pre><code>function foo(this: &#123; username: string &#125;) &#123;
+  this.username = &quot;icoding&quot;;
+  this.username = 0; // 报错
+&#125;
+
+foo.call(&#123; username: 123 &#125;); // 报错
+</code></pre>
+<ul>
+<li>参数 this 的类型是一个带有 username 属性的对象，不符合这个条件的 this 都会报错</li>
+</ul>
+<blockquote>
+<p>TypeScript 提供了一个<code>noImplicitThis</code>编译选项。如果打开了这个设置项，如果this的值推断为<code>any</code>类型，就会报错。</p>
+</blockquote>
+<pre><code>// noImplicitThis 打开
+
+class Rectangle &#123;
+  constructor(public width: number, public height: number) &#123;&#125;
+
+  getAreaFunction() &#123;
+    return function () &#123;
+      return this.width * this.height; // 报错
+    &#125;;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li><code>getAreaFunction()</code> 方法返回一个函数，这个函数里面用到了 this，但是这个 this 跟 <code>Rectangle</code> 这个类没关系，它的类型推断为 any，所以就报错了</li>
+</ul>
+<blockquote>
+<p>在类的内部，this本身也可以当作类型使用，表示当前类的实例对象</p>
+</blockquote>
+<pre><code>class Message &#123;
+  contents: string = &quot;&quot;;
+
+  set(value: string): this &#123;
+    this.contents = value;
+    return this;
+  &#125;
+&#125;
+</code></pre>
+<ul>
+<li>set() 方法的返回值类型就是 this，表示当前的实例对象</li>
+</ul>
+<blockquote>
+<p>注意，this类型不允许应用于静态成员。</p>
+</blockquote>
+<pre><code>class User &#123;
+  static user: this; // 报错
+&#125;
+</code></pre>
+<ul>
+<li>静态属性 user 的返回值类型是 this，就报错了</li>
+<li>原因是 this 类型表示实例对象，但是静态成员拿不到实例对象</li>
+</ul>
+<blockquote>
+<p>有些方法返回一个布尔值，表示当前的this是否属于某种类型。这时，这些方法的返回值类型可以写成<code>this is Type</code>的形式，其中用到了is运算符。</p>
+</blockquote>
+<pre><code>class FileSystemObject &#123;
+  isFile(): this is FileRep &#123;
+    return this instanceof FileRep;
+  &#125;
+
+  isDirectory(): this is Directory &#123;
+    return this instanceof Directory;
+  &#125;
+
+  // ...
+&#125;
+</code></pre>
+<ul>
+<li>以上两个方法的返回值类型都是布尔值，写成 this is Type 的形式，可以精确表示返回值</li>
+<li>is 运算符 会在 类型断言的部分讲解，先做了解</li>
+</ul>
+<h4 id="this-类型"><a href="#this-类型" class="headerlink" title="this 类型"></a>this 类型</h4><blockquote>
+<p>this 类型是一种特殊的 TS 类型。</p>
+<ul>
+<li>类的成员方法可以直接返回一个 this ，这样就可以很方便的实现链式调用</li>
+</ul>
+</blockquote>
+<pre><code>class WorkFlow &#123;
+  // 定义 step1 方法
+  step1() &#123;
+    return this;
+  &#125;
+  // 定义 step2 方法
+  step2() &#123;
+    return this;
+  &#125;
+&#125;
+// 实例化 WorkFlow 类
+// 实现方法的链式调用，非常的方便
+new WorkFlow().step1().step2();
+</code></pre>
+<blockquote>
+<p>在继承的时候，this 类型也可以表现为多态，这里的多态是指 this 既可以是父类型 也可以是 子类型。</p>
+</blockquote>
+<pre><code>class WorkFlow &#123;
+  step1() &#123;
+    return this;
+  &#125;
+  step2() &#123;
+    return this;
+  &#125;
+&#125;
+
+// 实例化 WorkFlow 类
+// 实现方法的链式调用，非常的方便
+new WorkFlow().step1().step2();
+
+// 定义一个子类
+class Myflow extends WorkFlow &#123;
+  next() &#123;
+    return this;
+  &#125;
+&#125;
+
+// 实例化子类，并调用子类的方法 next()，该方法返回了子类的类型
+// 也可以是父类的类型，同时也可调用父类的方法，再接着调用子类的方法
+// 这样就保持了父类和子类之间接口调用的连贯性，这也是 this 类型的作用。
+new Myflow().next().step1().next().step2();
+</code></pre>
+<blockquote>
+<p>以上我们重点学习了 TS 中的类，对了比 TS 和 ES 中类的差别，我们发现 TS 将 ES 中缺失的特性都补回来了。</p>
+<ul>
+<li>这样 TS 就更像一门面向对象语言了 ！</li>
+</ul>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/02/06/TypeScript%EF%BC%88%E5%9B%9B%EF%BC%89/">https://hermiablog.com/2024/02/06/TypeScript%EF%BC%88%E5%9B%9B%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/TypesSript/">
+                                    <span class="chip bg-color">TypesSript</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2024/02/06/TypeScript%EF%BC%88%E4%BA%94%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/55.jpg" class="responsive-img" alt="TypeScript（五）">
+                        
+                        <span class="card-title">TypeScript（五）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            泛型、类型断言、类型检查机制、高级类型
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-02-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/04/TypeScript%EF%BC%88%E4%B8%89%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/53.jpg" class="responsive-img" alt="TypeScript（三）">
+                        
+                        <span class="card-title">TypeScript（三）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Enum枚举类型、interface类型
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
