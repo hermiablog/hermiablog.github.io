@@ -1,0 +1,2446 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="项目云部署, 技术博客">
+    <meta name="description" content="个人技术博客">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>项目云部署 | hermia&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png);
+       background-repeat:no-repeat;
+       background-size:cover;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">hermia&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hermia&#39;s blog</div>
+        <div class="logo-desc">
+            
+            个人技术博客
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/59.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">项目云部署</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link
+  rel="stylesheet"
+  href="/libs/tocbot/tocbot.css"
+/>
+<style>
+  #articleContent h1::before,
+  #articleContent h2::before,
+  #articleContent h3::before,
+  #articleContent h4::before,
+  #articleContent h5::before,
+  #articleContent h6::before {
+    display: block;
+    content: " ";
+    height: 100px;
+    margin-top: -100px;
+    visibility: hidden;
+  }
+
+  #articleContent :focus {
+    outline: none;
+  }
+
+  .toc-fixed {
+    position: fixed;
+    top: 64px;
+  }
+
+  /* .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    } */
+  .toc-widget {
+    width: 345px;
+    padding-left: 20px;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px 2px rgba(0, 0, 0, 0.15),
+      0 5px 15px rgba(0, 0, 0, 0.07), 0 2px 5px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .toc-widget .toc-title {
+    padding: 35px 0 15px 17px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+
+  .toc-widget ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  #toc-content {
+    padding-bottom: 30px;
+    overflow: auto;
+  }
+
+  #toc-content ol {
+    padding-left: 10px;
+  }
+
+  #toc-content ol li {
+    padding-left: 10px;
+  }
+
+  #toc-content .toc-link:hover {
+    color: #a3ddf0;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  #toc-content .toc-link::before {
+    background-color: transparent;
+    max-height: 25px;
+
+    position: absolute;
+    right: 23.5vw;
+    display: block;
+  }
+
+  #toc-content .is-active-link {
+    color: #a3ddf0;
+  }
+
+  #floating-toc-btn {
+    position: fixed;
+    right: 15px;
+    bottom: 76px;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+  }
+
+  #floating-toc-btn .btn-floating {
+    width: 48px;
+    height: 48px;
+  }
+
+  #floating-toc-btn .btn-floating i {
+    line-height: 48px;
+    font-size: 1.4rem;
+  }
+</style>
+<div class="row">
+  <div id="main-content" class="col s12 m12 l9">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                技术
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-02-12
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-02-13
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.6k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h4 id="需要准备"><a href="#需要准备" class="headerlink" title="需要准备"></a>需要准备</h4><ul>
+<li>购买服务器(切记买香港)、域名；<ul>
+<li>修改域名绑定的服务器</li>
+<li>api.hermiablog.com：用于后端服务器</li>
+<li>web.hermiablog.com：用于前端</li>
+</ul>
+</li>
+<li>购买、解析、下载SSL证书</li>
+<li>安装XShell 和 Xftp</li>
+</ul>
+<h4 id="基础搭建"><a href="#基础搭建" class="headerlink" title="基础搭建"></a>基础搭建</h4><ul>
+<li>在根目录新建项目文件夹workspace</li>
+<li>在项目文件夹中新建两个文件夹用于存放前后端文件</li>
+<li>新建<code>/etc/nginx/vhosts</code>文件夹，用于安装证书和配置nginx</li>
+<li>安装SSL证书：在<code>/etc/nginx/vhosts</code>下新建cert文件夹，上传两个域名的证书</li>
+</ul>
+<h4 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h4><ul>
+<li>安装Node</li>
+<li>安装Git</li>
+<li>将后端文件上传到workspace&#x2F;node文件夹里</li>
+<li>更改npm镜像源，安装依赖包</li>
+<li>访问<code>http://110.41.48.252:8888/api/menu</code>测试</li>
+<li>安装Nginx</li>
+<li>在 nginx.conf 文件中的引入自定义配置文件，并做 Gzip 压缩</li>
+</ul>
+<pre><code>user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events &#123;
+    use epoll;
+    worker_connections 51200;
+    multi_accept on;
+&#125;
+
+http &#123;
+    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+
+    # 添加 Gzip 压缩配置
+    gzip on;
+    gzip_min_length  1k;
+    gzip_buffers     4 16k;
+    gzip_http_version 1.1;
+    gzip_comp_level 6;
+    gzip_types application/atom+xml application/geo+json application/javascript application/x-javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/xhtml+xml application/xml font/eot font/otf font/ttf image/svg+xml image/jpeg image/gif image/png text/css text/javascript text/plain text/xml;
+    gzip_vary on;
+    gzip_disable   &quot;MSIE [1-6]\.&quot;;
+    include /etc/nginx/conf.d/*.conf;
+
+    server &#123;
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location / &#123;
+        &#125;
+
+        error_page 404 /404.html;
+            location = /40x.html &#123;
+        &#125;
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html &#123;
+        &#125;
+    &#125;
+
+# 添加自定义配置文件，用于配置我们自己的域名
+include /etc/nginx/vhosts/*.conf;
+&#125;
+</code></pre>
+<ul>
+<li>新建自定义配置文件api.hermiablog.com.conf</li>
+</ul>
+<pre><code># server &#123;
+#      listen 80;
+#      server_name api.hermiablog.com;
+#      location / &#123;
+#          proxy_pass http://127.0.0.1:8888;
+#      &#125;
+#  &#125;
+
+server &#123;
+    # HTTPS 的默认访问端口 443
+    # 如果未在此处配置 HTTPS 的默认访问端口，可能会造成 Nginx 无法启动
+    listen 443 ssl;
+    # 证书绑定的域名
+    server_name api.hermiablog.com;
+
+    # 证书文件绝对路径
+    ssl_certificate vhosts/cert/api.hermiablog.com_server.crt;
+    # 证书私钥文件绝对路径
+    ssl_certificate_key vhosts/cert/api.hermiablog.com_server.key;
+
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 5m;
+
+    # 自定义设置使用的TLS协议的类型以及加密套件（以下为配置示例，请您自行评估是否需要&gt;配置）
+    # TLS协议版本越高，HTTPS通信的安全性越高，但是相较于低版本TLS协议，高版本TLS协议对浏览器的兼容性较差。
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+
+    # 表示优先使用服务端加密套件。默认开启
+    ssl_prefer_server_ciphers on;
+
+    location / &#123;
+        proxy_pass http://127.0.0.1:8888;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>安装PM2</li>
+<li>启动nginx、使用pm2启动Node</li>
+</ul>
+<h4 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h4><ul>
+<li>将前端文件上传到workspace&#x2F;vueShop文件夹里</li>
+<li>安装npm依赖包</li>
+<li>定义配置文件 web.hermiablog.com.conf</li>
+</ul>
+<pre><code># 以下属性中，以ssl开头的属性表示与证书配置有关。
+server &#123;
+    # 配置HTTPS的默认访问端口为443。
+    # 如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。
+    # 如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。
+    listen 443 ssl;
+      # 填写绑定证书的域名
+    server_name web.hermiablog.com;
+
+    # 证书文件绝对路径
+    ssl_certificate vhosts/cert/web.hermiablog.com_server.crt;
+    # 证书私钥文件绝对路径
+    ssl_certificate_key vhosts/cert/web.hermiablog.com_server.key;
+
+    # 指定客户端可以重用会话参数的时间（超时之后不可使用）
+    ssl_session_timeout 5m;
+    # 表示使用的加密套件的类型
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    # 表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+    # 设置协商加密算法时，优先使用我们服务端的加密套件，而不是客户端浏览器的加密套件。
+    ssl_prefer_server_ciphers on;
+
+    location / &#123;
+        # Web网站程序存放目录
+        root /workspace/vueShop/dist;
+        try_files $uri $uri/ /index.html;
+        index index.html index.htm;
+    &#125;
+
+    # 服务端代理
+    location ^~/api &#123;
+      proxy_pass https://api.hermiablog.com;
+    &#125;
+    location ^~/images &#123;
+      proxy_pass https://api.hermiablog.com;
+    &#125;
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ &#123;
+      root /workspace/vueShop/dist;
+    &#125;
+    location ~ .*\.(js|html|css)?$ &#123;
+      root /workspace/vueShop/dist;
+      expires 30d;
+    &#125;
+&#125;
+
+server &#123;
+    listen 80;
+    server_name web.hermiablog.com;
+    # 将所有 HTTP 请求通过 rewrite 指令重定向到 HTTPS
+    rewrite ^(.*) https://$server_name$1 permanent;
+&#125;
+</code></pre>
+<h4 id="日常使用"><a href="#日常使用" class="headerlink" title="日常使用"></a>日常使用</h4><pre><code>cd /workspace/node
+pm2 start app.js
+
+cd /usr/sbin
+./nginx
+</code></pre>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="购买云服务器-一定要买香港的！"><a href="#购买云服务器-一定要买香港的！" class="headerlink" title="购买云服务器(一定要买香港的！)"></a>购买云服务器(一定要买香港的！)</h3><ol>
+<li>进入<strong>弹性云服务器 ECS</strong>，点击购买弹性云服务器</li>
+<li>服务器购买配置选择</li>
+</ol>
+<ul>
+<li>计费模式：<blockquote>
+<ul>
+<li>短期测试可选择按量付费1核1G即可（经济实惠）不需要时，随时可释放；</li>
+<li>长期部署可按年购买更加划算</li>
+</ul>
+</blockquote>
+</li>
+<li>区域：<blockquote>
+<ul>
+<li>服务器选择<strong>中国香港</strong>地区的，就不用备案马上就能用，中国大陆地区的都需要先备案才能用</li>
+<li>备案时间根据各地区的要求时间不一样（从 1 周、0.5 个月、1 个月 … 不等）</li>
+<li>如果是需要正式运营的企业或个人项目，都需要走备案流程</li>
+</ul>
+</blockquote>
+</li>
+<li>规格<blockquote>
+<ul>
+<li>学习阶段建议：x86计算、通用计算型、内存1GiB，选最便宜的</li>
+</ul>
+</blockquote>
+</li>
+<li>镜像<blockquote>
+<ul>
+<li>公共镜像</li>
+<li>操作系统：<code>CentOS</code>里面选个最新的</li>
+</ul>
+</blockquote>
+</li>
+<li>带宽<blockquote>
+<ul>
+<li>公网带宽：按流量计费</li>
+<li>带宽大小：20；(1-300MB都可以)</li>
+</ul>
+</blockquote>
+</li>
+<li>勾选：随实例释放</li>
+<li>其他按照默认配置</li>
+<li>系统配置：<blockquote>
+<ul>
+<li>选择自定义密码 -&gt; 输入服务器密码（一定要记录下来，否则无法登录）</li>
+</ul>
+</blockquote>
+</li>
+<li>购买成功后<blockquote>
+<ul>
+<li>IP地址为弹性公网的IP地址</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="XShell-和-Xftp-远程链接云服务器"><a href="#XShell-和-Xftp-远程链接云服务器" class="headerlink" title="XShell 和 Xftp 远程链接云服务器"></a>XShell 和 Xftp 远程链接云服务器</h3><blockquote>
+<ul>
+<li>实际上，SSH 是一个网络协议，允许通过网络连接到 Linux 和 Unix 服务器。SSH 使用公钥加密来认证远程的计算机。<br><strong>XShell 和 Xftp 是 NetSarang 计算机公司 SSH 客户端软件</strong></li>
+<li>XShell 是非常强大的 SSH 客户端</li>
+<li>Xftp 通过网络传输文件<br><strong>其他常用的 SSH 登录工具</strong></li>
+<li>SecureCRT</li>
+<li>Putty</li>
+<li>Git Bash</li>
+<li>… 等</li>
+</ul>
+</blockquote>
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><ol>
+<li><p>下载免费版<code>XShell</code>和<code>Xftp</code>：官方下载地址：<a target="_blank" rel="noopener" href="https://www.xshell.com/zh/">https://www.xshell.com/zh/</a>(opens new window)；当前页面底部，选择 家庭&#x2F;学校免费</p>
+</li>
+<li><p>XShell 和 Xftp 安装过程直接下一步。</p>
+<blockquote>
+<ul>
+<li>注意：选择免费版即可 ！</li>
+<li>两个客户端都需要安装好，<strong>XShell</strong>用于命令行操作服务器，<strong>Xftp</strong>用于对服务器的文件上传和下载</li>
+</ul>
+</blockquote>
+</li>
+<li><p>新建连接服务器：</p>
+<blockquote>
+<ul>
+<li>新建会话链接 -&gt; 输入服务器名称（可自定义） -&gt; 输入主机 ip 地址（服务器<strong>弹性公网</strong> ip）-&gt; 端口号 22 -&gt; 其他默认，点击确认即可</li>
+<li>选择 “接受并保存”</li>
+<li>双击选择我们的服务器名称 -&gt; 输入登录服务器的用户名（默认用户名为 root）-&gt; 勾选记住用户名<ul>
+<li>输入服务器密码 - &gt; 确认(看黑窗口前面的名称，<code>[C]</code>是没成功的) <img src="登录.png"></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>输入命令连接测试：</p>
+<blockquote>
+<ul>
+<li>方式一：<code>ls /</code>，即可看到文件目录(横排显示)</li>
+<li>方式二：<code>cd /</code>-&gt;<code>ll</code>，即可看到文件目录(竖排显示)</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Linux 系统目录结构</p>
+<blockquote>
+<ul>
+<li>在当前命令窗口下输入命令：<code>ls /</code>或·<code>cd /</code>,就会得到目录结构<img src="目录结构.png"></li>
+</ul>
+</blockquote>
+</li>
+<li><p>通过 <code>Xftp</code> 链接服务器，用于文件上传</p>
+<blockquote>
+<ul>
+<li>安装<code>Xftp</code>客户端 -&gt; 在<code>XShell</code>的工具栏中，点击 <code>Xftp</code> 图标即可打开 <code>Xftp</code> 客户端 - 无需在输入任何用户名和密码验证（非常方便）</li>
+<li>打开 <code>Xftp</code> 客户端 - &gt; 即可向服务器上传文件或下载文件</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h3 id="Nginx——基础准备"><a href="#Nginx——基础准备" class="headerlink" title="Nginx——基础准备"></a>Nginx——基础准备</h3><p>此次 Vue 项目的部署使用 与 Node 后端项目同一台云服务器进行部署，先统一做 Nginx 的基础安装、配置。</p>
+<h4 id="Nginx-简介"><a href="#Nginx-简介" class="headerlink" title="Nginx 简介"></a>Nginx 简介</h4><blockquote>
+<ul>
+<li><code>Nginx (engine x)</code> 是一个高性能的 HTTP 和反向代理 web 服务器，同时也提供了 IMAP&#x2F;POP3&#x2F;SMTP 服务。</li>
+<li>Nginx 官网：<a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org/</a>(opens new window)</li>
+<li>Nginx 是一款轻量级的 Web 服务器&#x2F;反向代理服务器及电子邮件（IMAP&#x2F;POP3）代理服务器，在 BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上 nginx 的并发能力在同类型的网页服务器中表现较好</li>
+<li>中国大陆使用 nginx 网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</li>
+<li>下载地址：<a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></li>
+<li>查看所有历史版本，地址： <a target="_blank" rel="noopener" href="http://nginx.org/download/">http://nginx.org/download/</a></li>
+</ul>
+</blockquote>
+<h4 id="通过-yum-方式安装-Nginx"><a href="#通过-yum-方式安装-Nginx" class="headerlink" title="通过 yum 方式安装 Nginx"></a>通过 yum 方式安装 Nginx</h4><blockquote>
+<p>官方 yum 安装教程：<a target="_blank" rel="noopener" href="http://nginx.org/en/linux_packages.html#RHEL-CentOS">http://nginx.org/en/linux_packages.html#RHEL-CentOS</a><br>documentation–&gt;Installing nginx–&gt;Installation on Linux：packages–&gt; 找到RHEL and derivatives</p>
+</blockquote>
+<p><strong>步骤</strong></p>
+<ol>
+<li>安装先决条件</li>
+</ol>
+<pre><code># 升级所有包同时也升级软件和系统内核
+yum update
+# 安装yum依赖
+yum install yum-utils
+</code></pre>
+<ol start="2">
+<li>添加 yum 源文件</li>
+</ol>
+<pre><code>cd /etc/yum.repos.d/
+# 添加nginx的yum源码
+vim nginx.repo
+# 或 直接新建 nginx.repo 文件
+vim /etc/yum.repos.d/nginx.repo
+</code></pre>
+<ol start="3">
+<li>添加配置信息到 nginx.repo 文件中<blockquote>
+<ul>
+<li>直接复制，添加到终端</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+</code></pre>
+<ol start="4">
+<li>保存退出<blockquote>
+<ul>
+<li>上一步完成后，点击<code>esc</code>键，然后输入<code>:wq</code></li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>:wq
+</code></pre>
+<ol start="5">
+<li>检查是否配置成功</li>
+</ol>
+<pre><code>cat /etc/yum.repos.d/nginx.repo
+</code></pre>
+<blockquote>
+<ul>
+<li>修改内容：<code>vim /etc/yum.repos.d/nginx.repo</code></li>
+</ul>
+<ol start="6">
+<li>安装 Nginx</li>
+</ol>
+</blockquote>
+<pre><code>yum install -y nginx
+# yum install nginx
+# 如果使用yum install xxxx，会找到安装包之后，询问你Is this OK[y/d/N]，需要你手动进行选择。但是如果加上参数-y，就会自动选择y，不需要你再手动选择！
+</code></pre>
+<ol start="7">
+<li>查看 Nginx 的版本号</li>
+</ol>
+<pre><code>nginx -v
+# 显示nginx的版本号和编译信息
+</code></pre>
+<ol start="8">
+<li>查看安装的所有 Nginx 包</li>
+</ol>
+<pre><code>yum list | grep nginx
+</code></pre>
+<ol start="9">
+<li>查看 Nginx 安装相关的文件位置信息</li>
+</ol>
+<pre><code>whereis nginx
+</code></pre>
+<img src="文件位置信息.png">
+
+<h4 id="使用Nginx"><a href="#使用Nginx" class="headerlink" title="使用Nginx"></a>使用Nginx</h4><ol>
+<li>启动Nginx<blockquote>
+<ul>
+<li>方式一：<code>cd /usr/sbin/</code>–&gt;<code>ll</code>–&gt;<code>./nginx</code></li>
+<li>方式二：<code>/usr/sbin/nginx</code></li>
+<li>判断 Nginx 是否运行成功<ul>
+<li>方法1：在浏览器中输入弹性公网ip，看是否能访问nginx</li>
+<li>方法2：在 linux 系统中运行的每个应用程序都会产生一个进程，可通过查看 nginx 进程是否存在来判断 nginx 是否运行成功。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>ps -ef  | grep nginx
+# ps -ef | grep 应用程序：列出该应用程序所有进程
+# grep nginx：过滤掉和nginx无关的进程
+</code></pre>
+<blockquote>
+<ul>
+<li>方法3：查看 nginx 的进程 pid<br><code>ps -C nginx -o pid</code></li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>检查 nginx 配置文件的正确性<blockquote>
+<p>配置文件中是否存在语法错误，以及可查看 nginx 的配置文件所在路径</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>nginx -t
+</code></pre>
+<blockquote>
+<p>配置好了之后仍访问不了时：</p>
+<ul>
+<li>云服务器：查看安全组端口是否开启，<code>nginx</code>端口是<code>80</code>；</li>
+<li>虚拟机：防火墙是否关闭；</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li>Nginx 常用命令</li>
+</ol>
+<pre><code># 修改配置文件后重新加载生效
+nginx -s reload
+# 快速停止或关闭Nginx服务
+nginx -s stop  # 或 杀掉Nginx进程
+# 完整有序的停止Nginx
+nginx -s quit
+# 查询运行文件所在路径
+which nginx
+# 打开文件夹
+cd /etc/yum.repos.d/
+# 查看文件内容
+cat /etc/yum.repos.d/nginx.repo
+#编辑文件
+vim /etc/yum.repos.d/nginx.repo
+按i进入`INSERT`模式
+</code></pre>
+<ul>
+<li>vim 模式编辑文件</li>
+</ul>
+<pre><code># 进入默认站点目录
+cd /usr/share/nginx/
+ll
+cd html/
+ls
+# 编辑 index.html 页面
+vim index.html
+# 按下 “i” 键编辑即可
+编辑完点`esc`
+# 不保存强制退出
+:q!
+# 保存
+:w
+# 保存并退出
+:wq
+
+# 只查看，不编辑
+cat index.html
+</code></pre>
+<h4 id="修改nginx-conf文件"><a href="#修改nginx-conf文件" class="headerlink" title="修改nginx.conf文件"></a>修改nginx.conf文件</h4><ul>
+<li>在 &#x2F;etc&#x2F;nginx&#x2F;目录下新建文件夹 vhosts</li>
+</ul>
+<pre><code>cd /etc/nginx/
+ls
+mkdir vhosts
+cd vhosts
+ls
+</code></pre>
+<ul>
+<li>在修改默认的 nginx.conf 配置文件时，需要先备份</li>
+</ul>
+<pre><code>cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+</code></pre>
+<ul>
+<li>编辑 nginx.conf 配置文件</li>
+</ul>
+<pre><code>cd /etc/nginx/
+ll
+vim nginx.conf
+</code></pre>
+<ul>
+<li>在 nginx.conf 文件中的引入自定义配置文件</li>
+</ul>
+<pre><code># 在 http 模块底部增加自定义配置文件，用于配置我们自己的域名
+http &#123;
+    ...
+    include /etc/nginx/conf.d/*.conf;
+
+    server &#123;
+        ...
+    &#125;
+
+# 添加自定义配置文件，用于配置我们自己的域名
+include /etc/nginx/vhosts/*.conf;
+&#125;
+</code></pre>
+<img src="修改nginx配置文件.png">
+
+<h4 id="完全卸载-Nginx"><a href="#完全卸载-Nginx" class="headerlink" title="完全卸载 Nginx"></a>完全<strong>卸载</strong> Nginx</h4><ol>
+<li>停止 Nginx 服务</li>
+</ol>
+<ul>
+<li>方式1：直接停止或关闭 nginx</li>
+</ul>
+<pre><code># 查看 nginx 的运行进程
+ps -ef  | grep nginx
+# 方式一：直接停止或关闭 nginx
+nginx -s stop
+# 再次查看 nginx 的运行进程
+ps -ef  | grep nginx
+</code></pre>
+<ul>
+<li>方式2：杀掉 nginx的进程</li>
+</ul>
+<pre><code># 查看nginx的文件位置
+whereis nginx
+# 再次启动 nginx
+/usr/sbin/nginx
+# 查看 nginx 的运行进程
+ps -ef | grep nginx
+# 方式二：杀掉 nginx的进程 注：进程的PID值 每次启动都会不一样
+kill -9 19175 19176
+# 再次查看 nginx 的运行进程
+ps -ef | grep nginx
+</code></pre>
+<ol start="2">
+<li>查找根下所有名字包含 nginx 的文件</li>
+</ol>
+<pre><code>find / -name nginx
+</code></pre>
+<ol start="3">
+<li>执行命令<code>rm -rf *</code>删除 nignx 安装的相关文件<blockquote>
+<ul>
+<li>说明：全局查找往往会查出很多相关文件，但是前缀基本都是相同，后面不同的部分可以用 <code>*</code> 代替，以便快速删除</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<pre><code>rm -rf 文件路径*
+# 为保证准确无误的删除每一个目录和文件，建议逐个删除
+</code></pre>
+<ol start="4">
+<li>如果设置了 Nginx 开机自启动的话，可能还需要下面两步</li>
+</ol>
+<pre><code>chkconfig nginx off
+rm -rf /etc/init.d/nginx
+</code></pre>
+<ol start="5">
+<li>再使用 yum 清理相关依赖和软件包</li>
+</ol>
+<pre><code>yum remove nginx
+</code></pre>
+<h3 id="域名购买与解析"><a href="#域名购买与解析" class="headerlink" title="域名购买与解析"></a>域名购买与解析</h3><p>在任一云服务厂商购买域名</p>
+<blockquote>
+<p>将域名解析到对应的服务器中，后边所有的内容都会基于域名来进行操作</p>
+</blockquote>
+<h4 id="域名结构解读"><a href="#域名结构解读" class="headerlink" title="域名结构解读"></a>域名结构解读</h4><img src="域名解读.jpg">
+
+<ul>
+<li><p>通俗解读</p>
+<blockquote>
+<p>一个完整的域名有三个部分的结构，分别是顶级域名（一级域名）、二级域名、三级域名。<br><strong>顶级域名、一级域名、二级域名、三级域名什么区别 ？</strong></p>
+<ul>
+<li>从专业的角度解读<ul>
+<li><code>.com</code> 是顶级域名（或一级域名）</li>
+<li><code>baidu.com</code> 是二级域名</li>
+<li><code>www.baidu.com</code> 或 <code>baike.baidu.com</code> 是三级域名</li>
+</ul>
+</li>
+<li>民间域名级别解读<ul>
+<li><code>baidu.com</code> 是顶级域名（或一级域名）</li>
+<li><code>www.baidu.com</code> 或 <code>baike.baidu.com</code> 是二级域名</li>
+<li><code>xx.www.baidu.com</code> 或 <code>xx.baike.baidu.com</code> 是三级域名</li>
+</ul>
+</li>
+</ul>
+<p>国内阿里云、华为云、腾讯云的域名级别都是按民间级别解读定义的，建议也用此方式，避免产生额外的沟通问题。对于专业定义知道即可 ！</p>
+</blockquote>
+</li>
+<li><p>我们在购买域名时：</p>
+<blockquote>
+<ul>
+<li>只需要购买一级域名（xxx.com 或 xxx.其他后缀）就好</li>
+<li>二级、三级 … 域名是不需要再次花钱购买的，只需后台解析即可使用。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h4><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.huaweicloud.com/product/domain/search.html?domainName=&domainSuffix=.com&env=">华为云官网</a></li>
+</ul>
+</blockquote>
+<h4 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h4><blockquote>
+<ul>
+<li>按照民间域名级别</li>
+<li>每一级域名都要单独解析才能访问，区别是一级域名<code>arryblog.com</code>不用输入<strong>主机记录</strong>，其他级别都需要输入<strong>除一级域名以外</strong>新增的字符至主机记录</li>
+<li>值：服务器弹性公网的IP地址</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>步骤：管理解析–&gt;添加记录集–&gt;输入对应值</p>
+<blockquote>
+<img src="三级域名解析.png">
+</blockquote>
+</li>
+<li><p>注意：</p>
+<blockquote>
+<ul>
+<li>带<code>www</code>的域名 与 不带 <code>www</code> 的 是完全不同的域名，需要分别单独解析才能访问</li>
+</ul>
+</blockquote>
+</li>
+<li><p>解析完成后</p>
+<blockquote>
+<ul>
+<li>在浏览器输入域名即可访问</li>
+<li>此时看到的是<code>nginx</code>的欢迎页</li>
+<li>但是在网址前会看到<code>不安全</code>三个字，因为还没有配置HTTPS加密协议</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="HTTPS加密协议——访问时会有小锁"><a href="#HTTPS加密协议——访问时会有小锁" class="headerlink" title="HTTPS加密协议——访问时会有小锁"></a>HTTPS加密协议——访问时会有小锁</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
+<p><strong>SSL 证书</strong></p>
+<ul>
+<li>SSL 证书（SSL Certificates）为网站和移动应用（APP）及小程序提供数据 <code>HTTPS</code> 加密协议访问，保障数据的安全。</li>
+<li>装载 SSL 证书产品后自动激活浏览器中显示“锁”型安全标志，地址栏<strong>以“https”开头</strong>。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>SSL 证书服务</strong></p>
+<ul>
+<li>SSL 证书服务（SSL Certificates Service）是由各大云厂商联合中国及中国以外地域多家数字证书颁发机构（CA，Certificate Authority），在各大云平台上直接提供的数字证书申请和部署服务。</li>
+<li>SSL 证书服务帮助您以最小的成本将服务从 HTTP 转换成 HTTPS，实现网站或移动应用的身份验证和数据加密传输。</li>
+</ul>
+</blockquote>
+<p>华为云等各云平台SSL证书和 HTTPS 的关系</p>
+<blockquote>
+<ul>
+<li>您可以通过华为云 SSL 证书管理购买 SSL 证书，并向 CA 机构提交证书申请，CA 机构审核通过后将会签发证书。</li>
+<li>签发后，您需要将 SSL 证书下载并安装到 Web 服务器中或一键部署至华为云其他云产品中，安装或部署完成后，您的 Web 服务器或云产品将会通过 HTTPS 加密协议来传输数据。</li>
+</ul>
+</blockquote>
+<p>SSL 证书的作用</p>
+<blockquote>
+<ul>
+<li>网站身份验证，确保数据发送到正确的客户端和服务器。</li>
+<li>HTTPS 加密传输协议可激活客户端浏览器到网站服务器之间的 SSL 加密通道（SSL 协议），从而实现高强度双向加密传输，防止传输数据被泄露或篡改。</li>
+<li>会出现小锁</li>
+</ul>
+</blockquote>
+<p>为什么网站需要 HTTPS ？</p>
+<blockquote>
+<ul>
+<li>防劫持、防篡改、防监听：使用 SSL 证书实现网站的 HTTPS 化，可以对网站用户与网站间的交互访问全链路数据进行加密，从而实现传输数据的防劫持、防篡改、防监听。</li>
+<li>提升网站的搜索排名：使用 SSL 证书实现网站的 HTTPS 化后，网站在搜索引擎显示结果中的排名将会更高，有利于提升网站的搜索排名和站点的可信度。</li>
+<li>提升网站的访问流量：使用 SSL 证书实现网站的 HTTPS 化，可以强化网站在用户侧的身份可信程度，使网站用户能更安心地访问网站，提升网站的访问流量。</li>
+</ul>
+</blockquote>
+<h4 id="购买、申请SSL-证书"><a href="#购买、申请SSL-证书" class="headerlink" title="购买、申请SSL 证书"></a>购买、申请SSL 证书</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/ccm_faq/ccm_01_0230.html">华为云免费证书申请相关教程</a></p>
+</blockquote>
+<ul>
+<li>华为云官网：产品 -&gt; 安全与合规 -&gt; 云证书管理服务 CCM</li>
+<li>购买免费SSL证书：选择’单域名’、’DV(basic)’、’(DigCert)’</li>
+<li>申请免费 SSL 证书：</li>
+<li>在测试证书中找到刚买的证书–&gt;点击申请证书</li>
+<li>‘系统生成CSR’、输入我们需要绑定的域名–&gt;输入对应信息，提交申请</li>
+<li>NS验证</li>
+<li>根据页面的验证步骤，回到域名解析页面添加记录集，一一对应</li>
+<li>唯一要注意的是值要用<code>&quot;&quot;</code>包裹起来</li>
+<li>添加完成后进行验证</li>
+<li>注意<blockquote>
+<ul>
+<li>购买<code>SSL</code>证书，注意：<code>hermiablog.com</code>、<code>www.hermiablog.com</code>默认是同一个证书；在给主域名申请证书时<code>www.hermiablog.com</code>绑定在一起；所以我们只需要申请一个证书 <img src="证书.png"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="安装-SSL-证书"><a href="#安装-SSL-证书" class="headerlink" title="安装 SSL 证书"></a>安装 SSL 证书</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/usermanual-ccm/ccm_01_0082.html">华为云官方文档</a></p>
+</blockquote>
+<ul>
+<li>下载证书<blockquote>
+<ul>
+<li>DNS验证成功后，点击下载证书</li>
+<li>找到<code>nginx文件夹</code>下对应的文件，可修改文件名，去掉域名前的字母数字</li>
+</ul>
+</blockquote>
+</li>
+<li>在 <code>Nginx</code> 服务器上安装证书<blockquote>
+<ul>
+<li>在<code>/etc/nginx/vhosts/</code>下新建文件夹，将其命名为<code>cert</code></li>
+<li>将本地证书文件和私钥文件上传到 <code>Nginx</code> 服务器的证书目录</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>cd /
+whereis nginx
+ll
+cd vhosts/
+mkdir cert
+cd cert/
+</code></pre>
+<ul>
+<li>修改 <code>Nginx</code> 配置文件<blockquote>
+<ul>
+<li>在<code>/etc/nginx/</code>目录下新建文件夹 <code>vhosts</code></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<pre><code>whereis nginx
+cd /etc/nginx/
+ls
+mkdir vhosts
+cd vhosts
+ls
+</code></pre>
+<blockquote>
+<ul>
+<li>在<code>vhosts</code>下新建自定义配置文件<code>域名.conf</code></li>
+</ul>
+</blockquote>
+<pre><code># 与域名保持同名，是为了在部署多个项目时，容易区分和管理
+vim 域名.conf
+</code></pre>
+<blockquote>
+<ul>
+<li>添加以下配置：</li>
+</ul>
+</blockquote>
+<pre><code>server &#123;
+  #配置HTTPS的默认访问端口为443。如果在此处未配置HTTPS的默认访问端口，可能会导致Nginx无法启动。
+  listen       443 ssl; 
+  #修改为您证书绑定的域名。
+  server_name  hermiablog.com; 
+  #替换成您的证书文件的路径和名称。
+  ssl_certificate    vhosts/cert/hermiablog.com_server.crt; 
+  #替换成您的私钥文件的路径。
+  ssl_certificate_key  vhosts/cert/hermiablog.com_server.key; 
+  ssl_session_cache    shared:SSL:1m;
+  ssl_session_timeout  5m;
+  ssl_ciphers  HIGH:!aNULL:!MD5; #加密套件。
+  ssl_prefer_server_ciphers  on;
+  location / &#123;
+      root  /workspace/hermiablog; # Web网站程序存放目录
+      index  index.html index.htm; #添加属性。
+    &#125;  
+&#125;
+</code></pre>
+<blockquote>
+<ul>
+<li>检测 Nginx 配置文件是否正确</li>
+</ul>
+</blockquote>
+<pre><code>nginx -t
+</code></pre>
+<blockquote>
+<ul>
+<li>重新加载配置文件，立即生效</li>
+</ul>
+</blockquote>
+<pre><code>nginx -s reload
+</code></pre>
+<p><strong>总结：</strong></p>
+<ul>
+<li>假如有：主域名<code>hermiablog.com</code>、二级域名<code>www.hermiablog.com</code>两个域名</li>
+<li>我希望实现输入<code>hermiablog.com</code>、<code>www.hermiablog.com</code>访问同一页面，那么需要：<blockquote>
+<ul>
+<li>购买主域名，并解析二级域名</li>
+<li><code>hermiablog.com</code>、<code>www.hermiablog.com</code>在解析时绑定<strong>同一个IP地址</strong></li>
+</ul>
+</blockquote>
+</li>
+<li>我希望实现<code>https</code>和<code>http</code>访问同一页面，那么需要<blockquote>
+<ul>
+<li>拦截<code>http</code>请求，并将所有<code>HTTP</code>请求重定向到<code>HTTPS</code></li>
+</ul>
+</blockquote>
+</li>
+<li>为什么会有两个协议？<blockquote>
+<ul>
+<li><code>SSL</code>证书是通过 <code>HTTPS</code> 加密协议来传输数据，因此<code>443</code>端口绑定的是<code>HTTPS</code>协议</li>
+<li>而与网页默认的<code>HTTP</code>协议绑定的是<code>80</code>端口<img src="http与80端口.png"></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>因此：</p>
+<ul>
+<li>在<code>80</code>端口的配置中，拦截<code>http</code>请求，并将所有<code>HTTP</code>请求通过<code>rewrite</code>指令重定向到<code>HTTPS</code></li>
+</ul>
+</blockquote>
+<pre><code>rewrite ^(.*) https://$server_name$1 permanent;
+</code></pre>
+<h2 id="后端服务部署"><a href="#后端服务部署" class="headerlink" title="后端服务部署"></a>后端服务部署</h2><h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h4 id="下载-Node-的-Linux-安装包"><a href="#下载-Node-的-Linux-安装包" class="headerlink" title="下载 Node 的 Linux 安装包"></a>下载 Node 的 Linux 安装包</h4><pre><code># 进入到linux中的 文件夹，把下载的二进制文件，放在这个目录下
+cd /usr/local/src
+
+# 在当前目录，使用wget命令，下载node包
+wget https://nodejs.org/dist/v20.10.0/node-v20.10.0-linux-x64.tar.xz
+</code></pre>
+<h4 id="解压安装包，并修改包名"><a href="#解压安装包，并修改包名" class="headerlink" title="解压安装包，并修改包名"></a>解压安装包，并修改包名</h4><p>解压 Node 安装包，修改文件夹名称为 node</p>
+<pre><code># 解压文件包
+tar -xvf node-v20.10.0-linux-x64.tar.xz
+
+# 修改包的名字为node
+mv node-v20.10.0-linux-x64 node
+</code></pre>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><p>修改linux系统的环境变量（profile）,使node 和npm 变为全局</p>
+<pre><code># 先备份， 以免造成重要文件修改后造成错误
+cp /etc/profile /etc/profile.bak
+
+# vim编辑器，打开/etc/profile 文件，对其编辑
+vim /etc/profile
+
+# 修改内容，在文件最下面添加 export PATH=$PATH:node的bin目录的路径
+export PATH=$PATH:/usr/local/src/node/bin
+
+# 退出编辑
+esc
+# 保存并退出
+:wq
+
+# 读取，并执行 /etc/profile文件中的命令
+source /etc/profile
+
+# 查看文件
+cat /etc/profile
+</code></pre>
+<img src="安装node-修改profile.png">
+
+<h4 id="查看是否安装成功"><a href="#查看是否安装成功" class="headerlink" title="查看是否安装成功"></a>查看是否安装成功</h4><p>查看 node 对应的版本，如果能打印，说明安装成功</p>
+<pre><code>node -v
+npm -v
+npx -v
+</code></pre>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<ul>
+<li>如输入命令后没有反应，可尝试 重启服务器 或 XShell 链接</li>
+<li>如果出现以下问题，检查修改环境变量时，所添加的代码是否写在最后面</li>
+</ul>
+<pre><code>node: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.20&#39; not found (required by node)
+node: /lib64/libstdc++.so.6: version `CXXABI_1.3.9&#39; not found (required by node)
+node: /lib64/libstdc++.so.6: version `GLIBCXX_3.4.21&#39; not found (required by node)
+</code></pre>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><pre><code>yum install git -y
+</code></pre>
+<p>安装完成，查看 Git 版本</p>
+<pre><code>git --version
+</code></pre>
+<h3 id="npm包"><a href="#npm包" class="headerlink" title="npm包"></a>npm包</h3><p>npm 默认的镜像源下载速度很慢，通常切换国内淘宝镜像源，下载速度更快</p>
+<pre><code># 查看当前正在使用的 npm 镜像源
+npm config get registry
+
+# 切换 npm 镜像源
+npm config set registry https://registry.npmmirror.com
+
+# 再次查看当前正在使用的 npm 镜像源
+npm config get registry
+</code></pre>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><h4 id="自定义Nginx配置文件"><a href="#自定义Nginx配置文件" class="headerlink" title="自定义Nginx配置文件"></a>自定义Nginx配置文件</h4><ul>
+<li>在&#x2F;etc&#x2F;nginx&#x2F;vhosts下新建api.hermiablog.com.conf文件</li>
+</ul>
+<pre><code># server &#123;
+#      listen 80;
+#      server_name api.hermiablog.com;
+#      location / &#123;
+#          proxy_pass http://127.0.0.1:8888;
+#      &#125;
+#  &#125;
+
+server &#123;
+    # HTTPS 的默认访问端口 443
+    # 如果未在此处配置 HTTPS 的默认访问端口，可能会造成 Nginx 无法启动
+    listen 443 ssl;
+    # 证书绑定的域名
+    server_name api.hermiablog.com;
+
+    # 证书文件绝对路径
+    ssl_certificate vhosts/cert/api.hermiablog.com_server.crt;
+    # 证书私钥文件绝对路径
+    ssl_certificate_key vhosts/cert/api.hermiablog.com_server.key;
+
+    ssl_session_cache shared:SSL:1m;
+    ssl_session_timeout 5m;
+
+    # 自定义设置使用的TLS协议的类型以及加密套件（以下为配置示例，请您自行评估是否需要&gt;配置）
+    # TLS协议版本越高，HTTPS通信的安全性越高，但是相较于低版本TLS协议，高版本TLS协议对浏览器的兼容性较差。
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+
+    # 表示优先使用服务端加密套件。默认开启
+    ssl_prefer_server_ciphers on;
+
+    location / &#123;
+        proxy_pass http://127.0.0.1:8888;
+    &#125;
+&#125;
+</code></pre>
+<img src="自定义nginx文件-api.png">
+
+<h3 id="PM2"><a href="#PM2" class="headerlink" title="PM2"></a>PM2</h3><ul>
+<li>安装 PM2</li>
+</ul>
+<pre><code>npm i pm2 -g
+</code></pre>
+<ul>
+<li>PM2 启动 Node 应用程序</li>
+</ul>
+<pre><code>cd /workspace/node/ibc-mall-server/
+
+# pm2 start 应用程序入口程序
+pm2 start app.js
+</code></pre>
+<ul>
+<li>启动、停止、重载、删除左右进程</li>
+</ul>
+<pre><code># 启动所有进程
+pm2 restart all
+# 停止所有进程
+pm2 stop all
+# 重新加载所有进程
+pm2 reload all
+# 删除pm2列表中所有进程
+pm2 delete all
+</code></pre>
+<ul>
+<li>PM2 常用命令<br>注：app_name（应用名称）</li>
+</ul>
+<pre><code># 重启
+pm2 restart app_name
+# 重新加载
+pm2 reload app_name
+# 停止
+pm2 stop app_name
+# 删除
+pm2 delete app_name
+# 查看实时显示日志
+pm2 logs
+# pm2 终端实时仪表盘
+pm2 monit
+</code></pre>
+<h4 id="环境变量管理"><a href="#环境变量管理" class="headerlink" title="环境变量管理"></a>环境变量管理</h4><ul>
+<li>首先，停止 pm2 进程</li>
+</ul>
+<pre><code>pm2 stop all
+</code></pre>
+<ul>
+<li>修改环境变量</li>
+</ul>
+<pre><code># 设置环境变量为生产环境 app 代表当前进程名称
+NODE_ENV=production pm2 start app --update-env
+</code></pre>
+<ul>
+<li>验证环境变量是否设置成功</li>
+</ul>
+<pre><code># 进入项目 src 目录
+cd /workspace/node/ibc-mall-server/src
+
+# 编辑 app.js 项目入口文件
+vim app.js
+</code></pre>
+<ul>
+<li>在项目的入口 src&#x2F;app.js 文件中，新增如下代码，在控制台打印输出 NODE_ENV</li>
+</ul>
+<pre><code>console.log(&quot;当前使用的环境变量 NODE_ENV：&quot;, process.env.NODE_ENV);
+# 保存并退出
+esc
+:wq
+</code></pre>
+<ul>
+<li>重新启动 pm2，打印输出 productioin 生产环境</li>
+</ul>
+<pre><code># 停止 pm2 所有进程
+pm2 stop all
+# 使用生产环境启动 pm2
+NODE_ENV=production pm2 start app --update-env
+# 查看日志
+pm2 logs
+</code></pre>
+<h2 id="Vue前端项目部署"><a href="#Vue前端项目部署" class="headerlink" title="Vue前端项目部署"></a>Vue前端项目部署</h2><h3 id="新建项目文件夹，上传文件"><a href="#新建项目文件夹，上传文件" class="headerlink" title="新建项目文件夹，上传文件"></a>新建项目文件夹，上传文件</h3><p>在 Linux 系统根目录新建 Vue 项目的目录，新建 &#x2F;workspace&#x2F;vueShop 文件夹，用于存放 Vue 前端项目，并进入该目录</p>
+<pre><code># 新建项目目录
+mkdir -p /workspace/vueShop
+# 进入项目
+cd /workspace/vueShop
+</code></pre>
+<ul>
+<li>将前端文件上传</li>
+<li>在 Vue 项目根目录下，安装 package.json 中的包依赖</li>
+</ul>
+<pre><code># 目录切换至项目根目录
+cd /workspace/vueShop
+
+# 如果 Vue 项目下的 package.json 里面的包依赖关系都写进去了，则 npm install 就会自动下载需要的包
+npm i
+</code></pre>
+<ul>
+<li>打包构建</li>
+</ul>
+<pre><code>npm run build-only
+</code></pre>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h3 id="Nginx-部署-Vue-项目"><a href="#Nginx-部署-Vue-项目" class="headerlink" title="Nginx 部署 Vue 项目"></a>Nginx 部署 Vue 项目</h3><h4 id="自定义-Vue-项目-Nginx-配置文件"><a href="#自定义-Vue-项目-Nginx-配置文件" class="headerlink" title="自定义 Vue 项目 Nginx 配置文件"></a>自定义 Vue 项目 Nginx 配置文件</h4><ul>
+<li>在 &#x2F;etc&#x2F;nginx&#x2F;vhosts 目录下新建定义配置文件 web.hermiablog.com.conf</li>
+</ul>
+<pre><code># 与域名同名便于区分
+vim web.hermiablog.com.conf
+</code></pre>
+<ul>
+<li>配置文件内容</li>
+</ul>
+<pre><code># 以下属性中，以ssl开头的属性表示与证书配置有关。
+server &#123;
+    # 配置HTTPS的默认访问端口为443。
+    # 如果未在此处配置HTTPS的默认访问端口，可能会造成Nginx无法启动。
+    # 如果您使用Nginx 1.15.0及以上版本，请使用listen 443 ssl代替listen 443和ssl on。
+    listen 443 ssl;
+      # 填写绑定证书的域名
+    server_name web.hermiablog.com;
+
+    # 证书文件绝对路径
+    ssl_certificate vhosts/cert/web.hermiablog.com_server.crt;
+    # 证书私钥文件绝对路径
+    ssl_certificate_key vhosts/cert/web.hermiablog.com_server.key;
+
+    # 指定客户端可以重用会话参数的时间（超时之后不可使用）
+    ssl_session_timeout 5m;
+    # 表示使用的加密套件的类型
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+    # 表示使用的TLS协议的类型，您需要自行评估是否配置TLSv1.1协议。
+    ssl_protocols TLSv1.1 TLSv1.2 TLSv1.3;
+    # 设置协商加密算法时，优先使用我们服务端的加密套件，而不是客户端浏览器的加密套件。
+    ssl_prefer_server_ciphers on;
+
+    location / &#123;
+        # Web网站程序存放目录
+        root /workspace/vueShop/dist;
+        try_files $uri $uri/ /index.html;
+        index index.html index.htm;
+    &#125;
+
+    # 服务端代理
+    location ^~/api &#123;
+      proxy_pass https://api.hermiablog.com;
+    &#125;
+    location ^~/images &#123;
+      proxy_pass https://api.hermiablog.com;
+    &#125;
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ &#123;
+      root /workspace/vueShop/dist;
+    &#125;
+    location ~ .*\.(js|html|css)?$ &#123;
+      root /workspace/vueShop/dist;
+      expires 30d;
+    &#125;
+&#125;
+
+server &#123;
+    listen 80;
+    server_name web.hermiablog.com;
+    # 将所有 HTTP 请求通过 rewrite 指令重定向到 HTTPS
+    rewrite ^(.*) https://$server_name$1 permanent;
+&#125;
+</code></pre>
+<ul>
+<li>保存并退出</li>
+</ul>
+<pre><code>esc
+:wq
+</code></pre>
+<ul>
+<li>查看 cat web.hermiablog.com.conf</li>
+</ul>
+<pre><code>cat web.hermiablog.com.conf
+</code></pre>
+<ul>
+<li>检查配置文件中是否存在语法错误</li>
+</ul>
+<pre><code>nginx -t
+</code></pre>
+<ul>
+<li>重载 Nginx 服务</li>
+</ul>
+<pre><code>nginx -s reload
+</code></pre>
+<h3 id="Nginx-性能优化，Gzip-压缩"><a href="#Nginx-性能优化，Gzip-压缩" class="headerlink" title="Nginx 性能优化，Gzip 压缩"></a>Nginx 性能优化，Gzip 压缩</h3><blockquote>
+<p>Gzip 是一种用于文件压缩与解压缩的文件格式。</p>
+<ul>
+<li>它基于 Deflate 算法，可将文件压缩地更小，从而实现更快的网络传输。</li>
+<li>Web 服务器与现代浏览器普遍地支持 Gzip，这意味着服务器可以在发送文件之前自动使用 Gzip 压缩文件，而浏览器可以在接收文件时自行解压缩文件。<br>而对于我们而言，开启 Gzip，不仅能提高网站打开速度，还能节约网站流量，如果购买的服务器是按照使用流量付费，开启 Gzip 就是在为自己省钱。</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>Nginx 与 Gzip</p>
+<blockquote>
+<p>Nginx 内置了 <code>ngx_http_gzip_module</code> 模块，该模块会拦截请求，并对需要做 <code>Gzip</code> 压缩的文件做压缩。因为是内部集成，所以我们<strong>只用修改 Nginx 的配置</strong>，就可以直接开启。</p>
+</blockquote>
+</li>
+<li><p>Nginx 事件处理模型优化</p>
+<blockquote>
+<p>nginx 的连接处理机制在于不同的操作系统会采用不同的 I&#x2F;O 模型。</p>
+<ul>
+<li>Linux 下，nginx 使用 epoll 的 IO 多路复用模型；</li>
+<li>在 freebsd 使用 kqueue 的 IO 多路复用模型；</li>
+<li>在 solaris 使用&#x2F;dev&#x2F;pool 方式的 IO 多路复用模型；</li>
+<li>在 windows 使用的 icop 等等。</li>
+</ul>
+<p>要根据系统类型不同选择不同的事务处理模型，我们使用的是 <code>Centos</code>，因此将 <code>nginx</code> 的事件处理模型调整为 <code>epoll</code> 模型即可。</p>
+</blockquote>
+</li>
+<li><p>GZIP 压缩性能优化</p>
+<blockquote>
+<p>在 nginx 的默认主配置文件<code>nginx.conf</code>中，添加以下配置即可</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>events &#123;
+    use epoll;
+    worker_connections 51200;
+    multi_accept on;
+&#125;
+
+http &#123;
+    gzip on;
+    gzip_min_length  1k;
+    gzip_buffers     4 16k;
+    gzip_http_version 1.1;
+    gzip_comp_level 6;
+    gzip_types application/atom+xml application/geo+json application/javascript application/x-javascript application/json application/ld+json application/manifest+json application/rdf+xml application/rss+xml application/xhtml+xml application/xml font/eot font/otf font/ttf image/svg+xml image/jpeg image/gif image/png text/css text/javascript text/plain text/xml;
+    gzip_vary on;
+    gzip_disable   &quot;MSIE [1-6]\.&quot;;
+&#125;
+</code></pre>
+<blockquote>
+<p>修改完 <code>nginx</code> 配置文件后，记得重载 <code>nginx</code> 服务即可生效</p>
+</blockquote>
+<pre><code>nginx -s reload`
+</code></pre>
+<ol start="4">
+<li>验证 Gzip 是否成功<blockquote>
+<ul>
+<li>第一种方式是：<br>直接查看网络请求，打开浏览器的调试工具，查看 Network 请求，如果请求响应头的 Content-Encoding 字段为 gzip，就表示成功开启了 Gzip<blockquote>
+<p>注意：需要清除浏览器的缓存才能看到</p>
+</blockquote>
+</li>
+<li>第二种方式是：<br>通过站长工具验证，打开网页<a target="_blank" rel="noopener" href="https://tool.chinaz.com/gzips"> GZIP 压缩检测 (opens new window)</a>，输入网站，进行查询</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hermia</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://hermiablog.com/2024/02/12/%E9%A1%B9%E7%9B%AE%E4%BA%91%E9%83%A8%E7%BD%B2/">https://hermiablog.com/2024/02/12/%E9%A1%B9%E7%9B%AE%E4%BA%91%E9%83%A8%E7%BD%B2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hermia</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/02/12/%E9%A1%B9%E7%9B%AE%E4%BA%91%E9%83%A8%E7%BD%B2/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/59.jpg" class="responsive-img" alt="项目云部署">
+                        
+                        <span class="card-title">项目云部署</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            以vueShop项目云部署过程为例
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/02/07/TypeScript%EF%BC%88%E4%B8%83%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/58.jpg" class="responsive-img" alt="TypeScript（七）">
+                        
+                        <span class="card-title">TypeScript（七）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            注释指令、tsconfig.json配置、环境搭建
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-02-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    技术
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypesSript/">
+                        <span class="chip bg-color">TypesSript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+  </div>
+  <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+    <div class="toc-widget card" style="background-color: white">
+      <div class="toc-title">
+        <i class="far fa-list-alt"></i>&nbsp;&nbsp;目录
+      </div>
+      <div id="toc-content"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+  <a class="btn-floating btn-large bg-color">
+    <i class="fas fa-list-ul"></i>
+  </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+  $(function () {
+      tocbot.init({
+          tocSelector: '#toc-content',
+          contentSelector: '#articleContent',
+          headingsOffset: -($(window).height() * 0.4 - 45),
+          collapseDepth: Number('0'),
+          headingSelector: 'h2, h3, h4'
+      });
+
+      // modify the toc link href to support Chinese.
+      let i = 0;
+      let tocHeading = 'toc-heading-';
+      $('#toc-content a').each(function () {
+          $(this).attr('href', '#' + tocHeading + (++i));
+      });
+
+      // modify the heading title id to support Chinese.
+      i = 0;
+      $('#articleContent').children('h2, h3, h4').each(function () {
+          $(this).attr('id', tocHeading + (++i));
+      });
+
+      // Set scroll toc fixed.
+      let tocHeight = parseInt($(window).height() * 0.4 - 64);
+      let $tocWidget = $('.toc-widget');
+      $(window).scroll(function () {
+          let scroll = $(window).scrollTop();
+          /* add post toc fixed. */
+          if (scroll > tocHeight) {
+              $tocWidget.addClass('toc-fixed');
+          } else {
+              $tocWidget.removeClass('toc-fixed');
+          }
+      });
+
+      
+      /* 修复文章卡片 div 的宽度. */
+      let fixPostCardWidth = function (srcId, targetId) {
+          let srcDiv = $('#' + srcId);
+          if (srcDiv.length === 0) {
+              return;
+          }
+
+          let w = srcDiv.width();
+          if (w >= 450) {
+              w = w + 21;
+          } else if (w >= 350 && w < 450) {
+              w = w + 18;
+          } else if (w >= 300 && w < 350) {
+              w = w + 16;
+          } else {
+              w = w + 14;
+          }
+          $('#' + targetId).width(w);
+      };
+
+      // 切换TOC目录展开收缩的相关操作.
+      const expandedClass = 'expanded';
+      let $tocAside = $('#toc-aside');
+      let $mainContent = $('#main-content');
+      $('#floating-toc-btn .btn-floating').click(function () {
+          if ($tocAside.hasClass(expandedClass)) {
+              $tocAside.removeClass(expandedClass).hide();
+              $mainContent.removeClass('l9');
+          } else {
+              $tocAside.addClass(expandedClass).show();
+              $mainContent.addClass('l9');
+          }
+          fixPostCardWidth('artDetail', 'prenext-posts');
+      });
+      
+  });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+   <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #a3ddf0;
+        /* color: #59cde9; */
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2450546498"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#59cde9'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+ 
+  <div
+    class="container row center-align"
+    style="margin-bottom: 15px !important;"
+  >
+    <div class="col s12 m8 l8 copy-right">
+      Copyright&nbsp;&copy; 
+      <span id="year"
+        >2023-2024</span
+      >
+      
+      <span id="year">2023</span>
+      <a href="/about" target="_blank"
+        >hermia</a
+      >
+      |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+      |&nbsp;Theme&nbsp;<a
+        href="https://github.com/blinkfox/hexo-theme-matery"
+        target="_blank"
+        >Matery</a
+      >
+      <br />
+           
+      <span id="busuanzi_container_site_pv">
+        |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
+          id="busuanzi_value_site_pv"
+          class="white-color"
+        ></span
+        >&nbsp;次
+      </span>
+       
+      <span id="busuanzi_container_site_uv">
+        |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span
+          id="busuanzi_value_site_uv"
+          class="white-color"
+        ></span
+        >&nbsp;人
+      </span>
+      
+      <br />
+      
+      <span id="sitetime">载入运行时间...</span>
+      <script>
+        function siteTime() {
+          var seconds = 1000;
+          var minutes = seconds * 60;
+          var hours = minutes * 60;
+          var days = hours * 24;
+          var years = days * 365;
+          var today = new Date();
+          var startYear = "2023";
+          var startMonth = "11";
+          var startDate = "14";
+          var startHour = "0";
+          var startMinute = "0";
+          var startSecond = "0";
+          var todayYear = today.getFullYear();
+          var todayMonth = today.getMonth() + 1;
+          var todayDate = today.getDate();
+          var todayHour = today.getHours();
+          var todayMinute = today.getMinutes();
+          var todaySecond = today.getSeconds();
+          var t1 = Date.UTC(
+            startYear,
+            startMonth,
+            startDate,
+            startHour,
+            startMinute,
+            startSecond
+          );
+          var t2 = Date.UTC(
+            todayYear,
+            todayMonth,
+            todayDate,
+            todayHour,
+            todayMinute,
+            todaySecond
+          );
+          var diff = t2 - t1;
+          var diffYears = Math.floor(diff / years);
+          var diffDays = Math.floor(diff / days - diffYears * 365);
+          var diffHours = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days) / hours
+          );
+          var diffMinutes = Math.floor(
+            (diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+              minutes
+          );
+          var diffSeconds = Math.floor(
+            (diff -
+              (diffYears * 365 + diffDays) * days -
+              diffHours * hours -
+              diffMinutes * minutes) /
+              seconds
+          );
+          if (startYear == todayYear) {
+            document.getElementById("year").innerHTML = todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          } else {
+            document.getElementById("year").innerHTML =
+              startYear + " - " + todayYear;
+            document.getElementById("sitetime").innerHTML =
+              "本站已安全运行 " +
+              diffYears +
+              " 年 " +
+              diffDays +
+              " 天 " +
+              diffHours +
+              " 小时 " +
+              diffMinutes +
+              " 分钟 " +
+              diffSeconds +
+              " 秒";
+          }
+        }
+        setInterval(siteTime, 1000);
+      </script>
+      
+      <br />
+      
+    </div>
+    <div class="col s12 m4 l4 social-link social-statis">
+      
+<a
+  href="https://github.com/hermiablog/hermiablog.github.io"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="访问我的GitHub"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-github"></i>
+</a>
+ 
+<a
+  href="mailto:1587837237@qq.com"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="邮件联系我"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fas fa-envelope-open"></i>
+</a>
+<!-- 
+   
+<a
+  href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1587837237"
+  class="tooltipped"
+  target="_blank"
+  data-tooltip="QQ联系我: 1587837237"
+  data-position="top"
+  data-delay="50"
+>
+  <i class="fab fa-qq"></i>
+</a>
+    -->
+
+    </div>
+  </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
