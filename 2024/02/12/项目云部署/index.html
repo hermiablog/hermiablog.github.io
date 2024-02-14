@@ -395,14 +395,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-02-13
+                    2024-02-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.6k
+                    7.8k
                 </div>
                 
 
@@ -1611,6 +1611,23 @@ http &#123;
 </blockquote>
 </li>
 </ol>
+<h2 id="踩过的坑"><a href="#踩过的坑" class="headerlink" title="踩过的坑"></a>踩过的坑</h2><h3 id="安装nodejs时报错"><a href="#安装nodejs时报错" class="headerlink" title="安装nodejs时报错"></a>安装nodejs时报错</h3><pre><code>node: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.14&#39; not found (required by node)
+node: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.18&#39; not found (required by node)
+node: /usr/lib64/libstdc++.so.6: version `CXXABI_1.3.5&#39; not found (required by node)
+node: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.15&#39; not found (required by node)
+node: /lib64/libc.so.6: version `GLIBC_2.16&#39; not found (required by node)
+node: /lib64/libc.so.6: version `GLIBC_2.17&#39; not found (required by node)
+node: /lib64/libc.so.6: version `GLIBC_2.14&#39; not found (required by node)
+</code></pre>
+<ul>
+<li>原因：我购买的云服务器是CentOS 7.9版本，gcc版本太低</li>
+<li>尝试升级glibc库，失败</li>
+<li>解决办法：重新购买CentOS 8.2版本的操作系统</li>
+</ul>
+<h3 id="配置完成后，浏览器显示该网站暂时无法访问"><a href="#配置完成后，浏览器显示该网站暂时无法访问" class="headerlink" title="配置完成后，浏览器显示该网站暂时无法访问"></a>配置完成后，浏览器显示该网站暂时无法访问</h3><ul>
+<li>原因：除香港地区外的云服务器都需要进行备案后才能访问</li>
+<li>解决办法：重新购买云服务器</li>
+</ul>
 
                 
             </div>
@@ -1858,7 +1875,7 @@ http &#123;
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            以vueShop项目云部署过程为例
+                            华为云服务器部署vue项目-前后端部署到同一服务器
                         
                     </div>
                     <div class="publish-info">
